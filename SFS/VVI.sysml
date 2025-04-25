@@ -10,7 +10,7 @@ package vvi_mode {
    */
   private import IPI::*;
   private import ISQBase::DurationValue;
-  private import Time::TimeInstantValue;
+//  private import Time::TimeInstantValue;
   private import ScalarValues::NumericalValue;
   private import Assert::Assert;
   private import Assert::Invariant;

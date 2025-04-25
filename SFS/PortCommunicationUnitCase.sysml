@@ -60,9 +60,9 @@ package PortCommunicationUnitCase {
     end source : EventDataPort :> source;
     end target : ~EventDataPort :> target; 
     
-    flow move : FlowConnection {
-        end occurrence source : EventDataPort :>> source = BinaryInterface::source;
-        end occurrence target : ~EventDataPort :>> target = BinaryInterface::target;
+//    flow move : FlowConnection {
+//        end occurrence source : EventDataPort :>> source = BinaryInterface::source;
+//        end occurrence target : ~EventDataPort :>> target = BinaryInterface::target;
       }
   }
 
