@@ -16,7 +16,7 @@ package IPI {
 
   private import AADL::Feature;
   private import Interfaces::BinaryInterface;
-  private import FlowConnections::FlowConnection;
+  private import Connections::FlowConnection;
 
 // Items
 
