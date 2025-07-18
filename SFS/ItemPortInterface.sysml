@@ -16,7 +16,7 @@ package IPI {
 
   private import AADL::Feature;
   private import Interfaces::BinaryInterface;
-  private import Connections::FlowConnection;
+  private import Flows::Flow;
 
 // Items
 
@@ -81,7 +81,7 @@ package IPI {
     end source : EventPort :> source;
     end target : ~EventPort :> target; 
     
-    flow move : FlowConnection {
+    flow move : Flow {
         end occurrence source : EventPort :>> source = BinaryInterface::source;
         end occurrence target : ~EventPort :>> target = BinaryInterface::target;
       }
@@ -98,7 +98,7 @@ package IPI {
     end source : DataPort :> source;
     end target : ~DataPort :> target; 
     
-    flow move : FlowConnection {
+    flow move : Flow {
         end occurrence source : DataPort :>> source = BinaryInterface::source;
         end occurrence target : ~DataPort :>> target = BinaryInterface::target;
       }
@@ -113,7 +113,7 @@ package IPI {
     end source : EventDataPort :> source;
     end target : ~EventDataPort :> target; 
     
-    flow move : FlowConnection {
+    flow move : Flow {
         end occurrence source : EventDataPort :>> source = BinaryInterface::source;
         end occurrence target : ~EventDataPort :>> target = BinaryInterface::target;
       }

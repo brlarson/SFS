@@ -39,13 +39,13 @@ library package Regions {
         * This is the "L" exact location primitive.
         * Uses o.frameOfReference as the frame-of-reference for the region.
         */
+        @Assert{n="df-lfu";f="forall x~Occurrence forall r1,r2~Region are "+
+          "( (Location(x)=r1 and Location(x)=r2) implies r1=r2 )";}
         in o : Occurrence;
         inv { o.isClosed and (o.innerSpaceDimension == 3) and (o.outerSpaceDimension == 3) }
         return result : Region;
     }
 
-    @Assert{n="df-lfu";f="forall x~Occurrence forall r1,r2~Region are "+
-        "( (Location(x)=r1 and Location(x)=r2) implies r1=r2 )";}
 
     abstract predicate In specializes BooleanEvaluation {
         doc /* SFS: Point is contained in Region */
@@ -68,6 +68,11 @@ library package Regions {
         in r1 : Region;
         in r2 : Region;
         @Assert{n="df-rov";f="result iff exists p~Point that (In(p,r1) and In(p,r2))";}
+        @Assert{
+          doc /* SFS: Regions overlap only if one contains the other. This property is called no interpenetration. */
+          n="df-rni";f="forall r1,r1~Region are "+
+          "( RegionOverlap(r1,r2) implies (RegionContainment(r1,r2) or RegionContainment(r2,r1)) )";
+        }
     }
 
     abstract predicate RegionContainment specializes BooleanEvaluation {
@@ -76,34 +81,29 @@ library package Regions {
         in r1 : Region;
         in r2 : Region;
         @Assert{n="df-rco";f="result iff forall p~Point are (In(p,r2) implies In(p,r1))";}
+        @Assert{
+          doc /* SFS: Parthood implies regional containment. This property is called expansivity. */
+          n="df-pex";f="forall x,y~Classifier forall r1,r1~Region are "+
+          "( (Location(x)=r1 and Location(y)=r2 and PartOf(x,y)) implies RegionContainment(r1,r2))";
+        }
     }
 
     abstract predicate AtomicRegion specializes BooleanEvaluation {
         doc /* SFS:  A region is atomic, Ar , when it contains no other regions (in the location relation).
          * This is the "A" operator (df-rat). */
+        @Assert{
+          doc /* Atomic regions are disjoint. */
+          n="df-rdi";f="forall r1~Region r2~Region are "+
+            "( (AtomicRegion(r1) and AtomicRegion(r2)) implies"+
+            " (not RegionOverlap(r1,r2) or r1=r2) )";
+    }
         in r : Region;
         @Assert{n="df-rat";f="result iff forall r1~Region are "+
             "( RegionContainment(r,r1) implies r = r1 )";}
     }    
     
-    @Assert{
-        doc /* Atomic regions are disjoint. */
-        n="df-rdi";f="forall r1~Region r2~Region are "+
-            "( (AtomicRegion(r1) and AtomicRegion(r2)) implies"+
-            " (not RegionOverlap(r1,r2) or r1=r2) )";
-    }
 
-    @Assert{
-        doc /* SFS: Parthood implies regional containment. This property is called expansivity. */
-        n="df-pex";f="forall x,y~Classifier forall r1,r1~Region are "+
-        "( (Location(x)=r1 and Location(y)=r2 and PartOf(x,y)) implies RegionContainment(r1,r2))";
-    }
 
-    @Assert{
-        doc /* SFS: Regions overlap only if one contains the other. This property is called no interpenetration. */
-        n="df-rni";f="forall r1,r1~Region are "+
-        "( RegionOverlap(r1,r2) implies (RegionContainment(r1,r2) or RegionContainment(r2,r1)) )";
-    }
 
     abstract function RegionInterior {
         doc /* SFS:  The interior of a region includes all the points in a region 

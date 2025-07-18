@@ -13,14 +13,14 @@ library package Mereology {
 
     abstract predicate PartOf specializes BooleanEvaluation {
         doc /* SFS: PartOf is the proper part relation xPy */
-        in x : Classifier;
-        in y : Classifier;
-    }
-
     // SFS:  Define part antireflexivity.
     @Assert{n="df-par";f="forall x~Classifier are not PartOf(x,x)";}
     // SFS:  Define part transitivity.
     @Assert{n="df-ptr";f="forall x,y,z~Classifier are ( (PartOf(x,y) and PartOf(y,z)) implies PartOf(x,z))";}
+        in x : Classifier;
+        in y : Classifier;
+    }
+
     
     abstract predicate PartOverlap specializes BooleanEvaluation {
         doc /* SFS: PartOverlap is the overlap relation xOy */
@@ -48,12 +48,12 @@ library package Mereology {
         in x : Classifier;
         in y : Classifier;
         @Assert{n="df-pdj";f="result iff not PartOverlap(x,y)";}
-    }
-
-    // SFS:  Define containment hierarchy.
-    @Assert{n="df-pch";f="forall x,y~Classifier are "+
+        // SFS:  Define containment hierarchy.
+        @Assert{n="df-pch";f="forall x,y~Classifier are "+
         "( (x=y or PartOf(x,y) or PartOf(y,x) or PartDisjoint(x,y))"+
         "and not (PartOf(x,y) and PartOf(y,x)) )";}
+    }
+
 
     abstract predicate AtomicPart specializes BooleanEvaluation {
         doc /* SFS: AtomicPart is the part atomicity Ax */

@@ -3,7 +3,7 @@
 	<name>SFS</name>
 	<comment></comment>
 	<projects>
-		<project>AADL-Library</project>
+		<project>AADL-SysMLv2</project>
 		<project>sysml.library</project>
 	</projects>
 	<buildSpec>
