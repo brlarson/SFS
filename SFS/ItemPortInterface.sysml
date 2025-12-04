@@ -14,7 +14,7 @@ package IPI {
    * 
    */
 
-  private import AADL::Feature;
+//  private import AADL::Feature;
   private import Interfaces::BinaryInterface;
   private import Flows::Flow;
 
@@ -40,11 +40,13 @@ package IPI {
 
 // Ports
 
-  port def EventPort :> Feature {
+  port def EventPort //:> Feature 
+  {
     out item itm : AadlEvent; 
   }
 
-  abstract port def DataPort :> Feature {
+  abstract port def DataPort //:> Feature 
+  {
     doc
     /*
      * Specialize DataPort for the specialized item
@@ -53,10 +55,11 @@ package IPI {
      * Conjugate the DataPort specialization for 'in' ports
      */
     out item itm : AadlData;
-    attribute Base_Address : Memory_Properties::Base_Address;
+//    attribute Base_Address : Memory_Properties::Base_Address;
   }
   
-  abstract port def EventDataPort :> Feature {
+  abstract port def EventDataPort //:> Feature 
+  {
     doc
     /*
      * Specialize EventDataPort for the specialized item
@@ -65,8 +68,8 @@ package IPI {
      * Conjugate the DataPort specialization for 'in' ports
      */
     out item itm : AadlEventData;
-    attribute Base_Address : Memory_Properties::Base_Address;
-    attribute Queue_Size : Communication_Properties::Queue_Size default 1;
+//    attribute Base_Address : Memory_Properties::Base_Address;
+//    attribute Queue_Size : Communication_Properties::Queue_Size default 1;
   }
 
 // Interfaces

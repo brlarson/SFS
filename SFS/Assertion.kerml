@@ -9,8 +9,8 @@ metaclass Assert specializes SemanticMetadata {
 	 * Assert attaches temporal logic formulas to KerML elements
 	 */
 	feature n[0..1] : String;  //name
-	feature f[1..*] : String;  //well-formed formula
-	feature t[1..*] : String;  //theorem name which attests to this @Assert
+	feature f[1..*] : String;  //well-formed formula(s)
+	feature t[0..*] : String;  //theorem name(s) which attests to this @Assert
 }
 
 }
