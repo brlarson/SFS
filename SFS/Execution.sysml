@@ -28,8 +28,8 @@ library package Execution {
 		return verdict : VerdictKind [0..1];
 	}
 	
-	occurrence def ValueSlice {
-		:>> startShot = valueStart;
+	occurrence def ValueSlice :> Occurrence {
+//		:>> startShot = valueStart;
 		ref snapshot valueStart;
 		ref snapshot valueEnd;
 		

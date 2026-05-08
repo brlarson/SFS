@@ -72,6 +72,14 @@ package IPI {
 //    attribute Queue_Size : Communication_Properties::Queue_Size default 1;
   }
 
+  abstract port def FeatureGroup
+  {
+    doc
+    /*
+     * Specialize FeatureGroup by adding SysML ports for AADL features
+     */
+  }
+  
 // Interfaces
 
   interface def EventConnection :> BinaryInterface {
@@ -122,5 +130,19 @@ package IPI {
       }
   }
 
+  interface def FeatureGroupConnection :> BinaryInterface {
+    doc
+    /*
+     * use FeatureGroupConnection to connect a feature group to its conjugate
+     * 'move' performs message transfer from source to target, immediately
+     */
+    end source : FeatureGroup :> source;
+    end target : ~FeatureGroup :> target; 
+    
+    flow move : Flow {
+        end occurrence source : FeatureGroup :>> source = BinaryInterface::source;
+        end occurrence target : ~FeatureGroup :>> target = BinaryInterface::target;
+      }
+  }
     
 }
