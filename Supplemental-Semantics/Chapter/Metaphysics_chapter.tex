@@ -268,12 +268,24 @@ An infix notation will be used to define axioms for $P$.  $xPy$ means $x$ is a (
 \end{align}
 \end{restatable}
 
+\begin{restatable}{leandefinition}{parLean}~\leanTitle{par}~ Define part antireflexivity in Lean.
+
+\texttt{\textcolor{leancolor}{axiom} \textcolor{leanyellow}{par} (x : Occurrence) : $\lnot$ PartOf x x}
+\label{par}
+\end{restatable}
+
 \pn A part of a part is a part.
 \begin{restatable}{metadefinition}{df-ptr}~\blTitle{df-ptr}~ Define part transitivity.
 \begin{align}
 \vdash ( ( x \,P \,y \wedge y \,P \,z ) \rightarrow x \,P \,z
     )\label{eq:df-ptr}\tag{df-ptr}
 \end{align}
+\end{restatable}
+
+\begin{restatable}{leandefinition}{ptr}~\leanTitle{ptr}~ Define part transitivity in Lean.
+
+\texttt{\textcolor{leancolor}{axiom} \textcolor{leanyellow}{ptr} \{x y z : Occurrence\} : PartOf x y $\to$ PartOf y z $\to$ PartOf x z}
+\label{ptr}
 \end{restatable}
 
 \pn Having a part in common is called \bemph{overlap}, $xOy$.
@@ -284,12 +296,24 @@ An infix notation will be used to define axioms for $P$.  $xPy$ means $x$ is a (
 \end{align}
 \end{restatable}
 
+\begin{restatable}{leandefinition}{Overlap}~\leanTitle{Overlap}~ Define part overlap in Lean.
+
+\texttt{\textcolor{leancolor}{def} \textcolor{leanyellow}{Overlap} (x y : Occurrence) : Prop := $\exists$ z, PartOf z x $\wedge$ PartOf z y}
+\label{Overlap}
+\end{restatable}
+
 \pn Being parts of the same thing is called \bemph{underlap}, $xUy$.
 \begin{restatable}{metadefinition}{df-pun}~\blTitle{df-pun}~ Define part underlap.
 \begin{align}
 \vdash x \,U \,y \leftrightarrow \exists z ( x \,P \,z \wedge y \,P \,z
     )\label{eq:df-pun}\tag{df-pun}
 \end{align}
+\end{restatable}
+
+\begin{restatable}{leandefinition}{Underlap}~\leanTitle{Underlap}~ Define part underlap in Lean.
+
+\texttt{\textcolor{leancolor}{def} \textcolor{leanyellow}{Underlap} (x y : Occurrence) : Prop := $\exists$ z, PartOf x z $\wedge$ PartOf y z}
+\label{Underlap}
 \end{restatable}
 
 \pn Improper part is proper part or equal, $xIPy$.
@@ -300,6 +324,12 @@ An infix notation will be used to define axioms for $P$.  $xPy$ means $x$ is a (
 \end{align}
 \end{restatable}
 
+\begin{restatable}{leandefinition}{ImproperPart}~\leanTitle{ImproperPart}~ Define improper part in Lean.
+
+\texttt{\textcolor{leancolor}{def} \textcolor{leanyellow}{ImproperPart} (x y : Occurrence) : Prop := PartOf x y $\vee$ x = y}
+\label{ImproperPart}
+\end{restatable}
+
 \pn Having no part in common is called \bemph{disjoint}, $xDy$.
 \begin{restatable}{metadefinition}{df-pdj}~\blTitle{df-pdj}~ Define part disjointness
 \begin{align}
@@ -307,13 +337,29 @@ An infix notation will be used to define axioms for $P$.  $xPy$ means $x$ is a (
 \end{align}
 \end{restatable}
 
-\pn In addition systems have a \bemph{containment hierarchy}.  
+\begin{restatable}{leandefinition}{PartDisjoint}~\leanTitle{PartDisjoint}~ Define part disjointness in Lean.
+
+\texttt{\textcolor{leancolor}{def} \textcolor{leanyellow}{PartDisjoint} (x y : Occurrence) : Prop := $\lnot$ Overlap x y}
+\label{PartDisjoint}
+\end{restatable}
+
+\pn In addition systems have a \bemph{containment hierarchy}.
 Given any two things, either one is part of the other, they are disjoint, or they are the same, and they can't be parts of each other.
 \begin{restatable}{metadefinition}{df-pch}~\blTitle{df-pch}~ Define part containment hierarchy.
 \begin{align}
 \vdash ( ( ( x \,P \,y \vee y \,P \,x ) \vee ( x = y \vee x \,D \,y ) ) \wedge
     \lnot ( x \,P \,y \wedge y \,P \,x ) )\label{eq:df-pch}\tag{df-pch}
 \end{align}
+\end{restatable}
+
+\begin{restatable}{leandefinition}{pch}~\leanTitle{pch}~ Define part containment hierarchy in Lean. Despite the
+\texttt{df-} name this doesn't define a new symbol --- it's purely a constraint not derivable from
+\texttt{par}/\texttt{ptr} alone, so, like those two, it stays an axiom here too.
+
+\texttt{\textcolor{leancolor}{axiom} \textcolor{leanyellow}{pch} (x y : Occurrence) :}
+
+\texttt{~~((PartOf x y $\vee$ PartOf y x) $\vee$ (x = y $\vee$ PartDisjoint x y)) $\wedge$ $\lnot$ (PartOf x y $\wedge$ PartOf y x)}
+\label{pch}
 \end{restatable}
 
 \pn A part is an \bemph{atom} if it has no parts itself, $Ax$.
@@ -324,12 +370,24 @@ Given any two things, either one is part of the other, they are disjoint, or the
 \end{align}
 \end{restatable}
 
+\begin{restatable}{leandefinition}{AtomPart}~\leanTitle{AtomPart}~ Define atomic part in Lean.
+
+\texttt{\textcolor{leancolor}{def} \textcolor{leanyellow}{AtomPart} (x : Occurrence) : Prop := $\lnot$ $\exists$ z, PartOf z x}
+\label{AtomPart}
+\end{restatable}
+
 \pn A \bemph{whole} has all things in a frame-of-reference as parts, except itself, $Wx$.
 \begin{restatable}{metadefinition}{df-pwh}~\blTitle{df-pwh}~ Define whole.
 \begin{align}
 \vdash W \,x \leftrightarrow \forall z ( z \,P \,x \vee x = z
     )\label{eq:df-pwh}\tag{df-pwh}
 \end{align}
+\end{restatable}
+
+\begin{restatable}{leandefinition}{WholePart}~\leanTitle{WholePart}~ Define whole in Lean.
+
+\texttt{\textcolor{leancolor}{def} \textcolor{leanyellow}{WholePart} (x : Occurrence) : Prop := $\forall$ z, PartOf z x $\vee$ x = z}
+\label{WholePart}
 \end{restatable}
 
 \pn Systems engineering requires mereological fusion.
