@@ -1,0 +1,117 @@
+% This LaTeX file was created by Metamath on 24-Dec-2023 8:33 PM.
+%\begin{metadefinition}\blTitle{df-bl.bool} Boolean type is true or false
+%\begin{align}
+%\vdash ( x \in \,\mathrm{Bool} \leftrightarrow x \in \{ \top , \bot \}
+%    )\label{eq:df-bl.bool}\tag{df-bl.bool}
+%\end{align}
+%\end{metadefinition}
+
+\dfblbool*
+
+\begin{lemma}\blTitle{bl.anfal} {Conjunction with False on the Left}
+\begin{align}
+\vdash ( ( \bot \wedge \mw{\varphi} ) \leftrightarrow \bot
+    )\label{eq:bl.anfal}\tag{bl.anfal}
+\end{align}
+\end{lemma}
+
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash \lnot \bot&(\mbox{\ref{eq:fal}})\notag
+  \\ 2 &&  & \vdash \lnot ( \bot \wedge \mw{\varphi}
+     )&(\mbox{\ref{eq:intnanr}},1)\notag
+  \\ 3 &&  & \vdash ( ( \bot \wedge \mw{\varphi} ) \leftrightarrow \bot
+     )&(\mbox{\ref{eq:bifal}},2)\notag
+\end{align}
+\end{proof}
+
+\begin{lemma}\blTitle{bl.anfar} {Conjunction with False on the Right}
+\begin{align}
+\vdash ( ( \mw{\varphi} \wedge \bot ) \leftrightarrow \bot
+    )\label{eq:bl.anfar}\tag{bl.anfar}
+\end{align}
+\end{lemma}
+
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash \lnot \bot&(\mbox{\ref{eq:fal}})\notag
+  \\ 2 &&  & \vdash \lnot ( \mw{\varphi} \wedge \bot
+     )&(\mbox{\ref{eq:intnan}},1)\notag
+  \\ 3 &&  & \vdash ( ( \mw{\varphi} \wedge \bot ) \leftrightarrow \bot
+     )&(\mbox{\ref{eq:bifal}},2)\notag
+\end{align}
+\end{proof}
+
+\begin{lemma}\blTitle{bl.ortrl} {Disjunction with True on the Left}
+\begin{align}
+\vdash ( ( \top \vee \mw{\varphi} ) \leftrightarrow \top
+    )\label{eq:bl.ortrl}\tag{bl.ortrl}
+\end{align}
+\end{lemma}
+
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash \top&(\mbox{\ref{eq:tru}})\notag
+  \\ 2 &&  & \vdash ( \top \vee \mw{\varphi} )&(\mbox{\ref{eq:orci}},1)\notag
+  \\ 3 &&  & \vdash ( ( \top \vee \mw{\varphi} ) \leftrightarrow \top
+     )&(\mbox{\ref{eq:bitru}},2)\notag
+\end{align}
+\end{proof}
+
+\begin{lemma}\blTitle{bl.ortrr} {Disjunction with True on the Right}
+\begin{align}
+\vdash ( ( \mw{\varphi} \vee \top ) \leftrightarrow \top
+    )\label{eq:bl.ortrr}\tag{bl.ortrr}
+\end{align}
+\end{lemma}
+
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash \top&(\mbox{\ref{eq:tru}})\notag
+  \\ 2 &&  & \vdash ( \mw{\varphi} \vee \top )&(\mbox{\ref{eq:olci}},1)\notag
+  \\ 3 &&  & \vdash ( ( \mw{\varphi} \vee \top ) \leftrightarrow \top
+     )&(\mbox{\ref{eq:bitru}},2)\notag
+\end{align}
+\end{proof}
+
+\begin{lemma}\blTitle{bl.orfar} {Disjunction with False on the Right}
+\begin{align}
+\vdash ( ( \mw{\varphi} \vee \bot ) \leftrightarrow \mw{\varphi}
+    )\label{eq:bl.orfar}\tag{bl.orfar}
+\end{align}
+\end{lemma}
+
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash ( ( \mw{\varphi} \vee \bot ) \leftrightarrow \mw{\varphi}
+     )&(\mbox{\ref{eq:orfa}})\notag
+\end{align}
+\end{proof}
+
+\begin{lemma}\blTitle{bl.seq} {Superfluity of Equivalence}
+\begin{align}
+\vdash ( ( \mw{\varphi} \leftrightarrow \top ) \rightarrow \mw{\varphi}
+    )\label{eq:bl.seq}\tag{bl.seq}
+\end{align}
+\end{lemma}
+
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash ( ( \mw{\varphi} \leftrightarrow \top ) \rightarrow ( \top
+     \rightarrow \mw{\varphi} )
+     )&(\mbox{\ref{eq:biimpr}})\notag
+  \\ 2 &&  & \vdash ( \mw{\varphi} \leftrightarrow ( \top \rightarrow
+     \mw{\varphi} ) )&(\mbox{\ref{eq:trut}})\notag
+  \\ 3 &&  & \vdash ( ( \top \rightarrow \mw{\varphi} ) \rightarrow
+     \mw{\varphi} )&(\mbox{\ref{eq:biimpri}},2)\notag
+  \\ 4 &&  & \vdash ( ( \mw{\varphi} \leftrightarrow \top ) \rightarrow
+     \mw{\varphi} )&(\mbox{\ref{eq:syl}},1,3)\notag
+\end{align}
+\end{proof}
+

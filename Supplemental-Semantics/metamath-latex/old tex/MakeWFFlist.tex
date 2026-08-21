@@ -1,0 +1,477 @@
+% This LaTeX file was created by Metamath on 4-Nov-2016 3:06 PM.
+\begin{lemma}\otherTitle{df-lan0} no wff in the list
+\begin{align}
+\vdash ( \bigwedge( ) \leftrightarrow \top )\label{df-lan0}
+\end{align}
+\end{lemma}
+
+\begin{lemma}\otherTitle{df-lan1} just one wff in the list
+\begin{align}
+\vdash ( \bigwedge( {\color{formulacolor}\varphi} ) \leftrightarrow
+    {\color{formulacolor}\varphi} )\label{df-lan1}
+\end{align}
+\end{lemma}
+
+\begin{lemma}\otherTitle{df-lan2wl} conjunction of two conjunction wff-list
+\begin{align}
+\vdash ( \bigwedge( {\rm\color{variablecolor}l_1} {\rm\color{variablecolor}l_2}
+    ) \leftrightarrow ( \bigwedge( {\rm\color{variablecolor}l_1} ) \wedge
+    \bigwedge( {\rm\color{variablecolor}l_2} ) ) )\label{df-lan2wl}
+\end{align}
+\end{lemma}
+
+\begin{lemma}\otherTitle{df-lor0} no wff in the list
+\begin{align}
+\vdash ( \bigvee( ) \leftrightarrow \bot )\label{df-lor0}
+\end{align}
+\end{lemma}
+
+\begin{lemma}\otherTitle{df-lor1} just one wff in the list
+\begin{align}
+\vdash ( \bigvee( {\color{formulacolor}\varphi} ) \leftrightarrow
+    {\color{formulacolor}\varphi} )\label{df-lor1}
+\end{align}
+\end{lemma}
+
+\begin{lemma}\otherTitle{df-lor2wl} disjunction of two disjunction wff-lists
+\begin{align}
+\vdash ( \bigvee( {\rm\color{variablecolor}l_1} {\rm\color{variablecolor}l_2} )
+    \leftrightarrow ( \bigvee( {\rm\color{variablecolor}l_1} ) \vee \bigvee(
+    {\rm\color{variablecolor}l_2} ) ) )\label{df-lor2wl}
+\end{align}
+\end{lemma}
+
+\begin{lemma}\blTitle{bl.an2wl} two-term list is conjunction
+\begin{align}
+\vdash ( \bigwedge( {\color{formulacolor}\varphi} {\color{formulacolor}\psi} )
+    \leftrightarrow ( {\color{formulacolor}\varphi} \wedge
+    {\color{formulacolor}\psi} ) )\label{bl.an2wl}
+\end{align}
+\end{lemma}
+
+\begin{proof}
+\begin{align}
+  1 && & \vdash ( \bigwedge( {\color{formulacolor}\varphi}
+      {\color{formulacolor}\psi} ) \leftrightarrow (
+      \bigwedge( {\color{formulacolor}\varphi} ) \wedge
+      \bigwedge( {\color{formulacolor}\psi} ) )
+      )&(\mmref{df-lan2wl})\notag
+  \\ 2 && & \vdash ( \bigwedge( {\color{formulacolor}\varphi} ) \leftrightarrow
+      {\color{formulacolor}\varphi}
+      )&(\mmref{df-lan1})\notag
+  \\ 3 && & \vdash ( \bigwedge( {\color{formulacolor}\psi} ) \leftrightarrow
+      {\color{formulacolor}\psi} )&(\mmref{df-lan1})\notag
+  \\ 4 && & \vdash ( ( \bigwedge( {\color{formulacolor}\varphi} ) \wedge
+      \bigwedge( {\color{formulacolor}\psi} ) )
+      \leftrightarrow ( {\color{formulacolor}\varphi}
+      \wedge {\color{formulacolor}\psi} )
+      )&2,3,(\mmref{anbi12i})\notag
+  \\ 5 && & \vdash ( \bigwedge( {\color{formulacolor}\varphi}
+      {\color{formulacolor}\psi} ) \leftrightarrow (
+      {\color{formulacolor}\varphi} \wedge
+      {\color{formulacolor}\psi} )
+      )&1,4,(\mmref{bitri})\notag
+\end{align}
+\end{proof}
+
+\begin{lemma}\blTitle{bl.an3wl} three-term conjunction wff-list is
+triple-conjunction
+\begin{align}
+\vdash ( \bigwedge( {\color{formulacolor}\varphi} {\color{formulacolor}\psi}
+    {\color{formulacolor}\chi} ) \leftrightarrow (
+    {\color{formulacolor}\varphi} \wedge {\color{formulacolor}\psi} \wedge
+    {\color{formulacolor}\chi} ) )\label{bl.an3wl}
+\end{align}
+\end{lemma}
+
+\begin{proof}
+\begin{align}
+  1 && & \vdash ( \bigwedge( {\color{formulacolor}\varphi}
+      {\color{formulacolor}\psi} {\color{formulacolor}\chi}
+      ) \leftrightarrow ( \bigwedge(
+      {\color{formulacolor}\varphi} ) \wedge \bigwedge(
+      {\color{formulacolor}\psi} {\color{formulacolor}\chi}
+      ) ) )&(\mmref{df-lan2wl})\notag
+  \\ 2 && & \vdash ( \bigwedge( {\color{formulacolor}\varphi} ) \leftrightarrow
+      {\color{formulacolor}\varphi}
+      )&(\mmref{df-lan1})\notag
+  \\ 3 && & \vdash ( \bigwedge( {\color{formulacolor}\psi}
+      {\color{formulacolor}\chi} ) \leftrightarrow (
+      {\color{formulacolor}\psi} \wedge
+      {\color{formulacolor}\chi} )
+      )&(\mmref{bl.an2wl})\notag
+  \\ 4 && & \vdash ( ( \bigwedge( {\color{formulacolor}\varphi} ) \wedge
+      \bigwedge( {\color{formulacolor}\psi}
+      {\color{formulacolor}\chi} ) ) \leftrightarrow (
+      {\color{formulacolor}\varphi} \wedge (
+      {\color{formulacolor}\psi} \wedge
+      {\color{formulacolor}\chi} ) )
+      )&2,3,(\mmref{anbi12i})\notag
+  \\ 5 && & \vdash ( \bigwedge( {\color{formulacolor}\varphi}
+      {\color{formulacolor}\psi} {\color{formulacolor}\chi}
+      ) \leftrightarrow ( {\color{formulacolor}\varphi}
+      \wedge ( {\color{formulacolor}\psi} \wedge
+      {\color{formulacolor}\chi} ) )
+      )&1,4,(\mmref{bitri})\notag
+  \\ 6 && & \vdash ( ( {\color{formulacolor}\varphi} \wedge
+      {\color{formulacolor}\psi} \wedge
+      {\color{formulacolor}\chi} ) \leftrightarrow (
+      {\color{formulacolor}\varphi} \wedge (
+      {\color{formulacolor}\psi} \wedge
+      {\color{formulacolor}\chi} ) )
+      )&(\mmref{3anass})\notag
+  \\ 7 && & \vdash ( \bigwedge( {\color{formulacolor}\varphi}
+      {\color{formulacolor}\psi} {\color{formulacolor}\chi}
+      ) \leftrightarrow ( {\color{formulacolor}\varphi}
+      \wedge {\color{formulacolor}\psi} \wedge
+      {\color{formulacolor}\chi} )
+      )&5,6,(\mmref{bitr4i})\notag
+\end{align}
+\end{proof}
+
+\begin{lemma}\blTitle{bl.ancomphwl} commute first and last terms in
+conjunction wff-list
+\begin{align}
+\vdash ( \bigwedge( {\color{formulacolor}\varphi} {\rm\color{variablecolor}l_1}
+    ) \leftrightarrow \bigwedge( {\rm\color{variablecolor}l_1}
+    {\color{formulacolor}\varphi} ) )\label{bl.ancomphwl}
+\end{align}
+\end{lemma}
+
+\begin{proof}
+\begin{align}
+  1 && & \vdash ( \bigwedge( {\color{formulacolor}\varphi}
+      {\rm\color{variablecolor}l_1} ) \leftrightarrow (
+      \bigwedge( {\color{formulacolor}\varphi} ) \wedge
+      \bigwedge( {\rm\color{variablecolor}l_1} ) )
+      )&(\mmref{df-lan2wl})\notag
+  \\ 2 && & \vdash ( ( \bigwedge( {\color{formulacolor}\varphi} ) \wedge
+      \bigwedge( {\rm\color{variablecolor}l_1} ) )
+      \leftrightarrow ( \bigwedge(
+      {\rm\color{variablecolor}l_1} ) \wedge \bigwedge(
+      {\color{formulacolor}\varphi} ) )
+      )&(\mmref{ancom})\notag
+  \\ 3 && & \vdash ( \bigwedge( {\rm\color{variablecolor}l_1}
+      {\color{formulacolor}\varphi} ) \leftrightarrow (
+      \bigwedge( {\rm\color{variablecolor}l_1} ) \wedge
+      \bigwedge( {\color{formulacolor}\varphi} ) )
+      )&(\mmref{df-lan2wl})\notag
+  \\ 4 && & \vdash ( ( \bigwedge( {\rm\color{variablecolor}l_1} ) \wedge
+      \bigwedge( {\color{formulacolor}\varphi} ) )
+      \leftrightarrow \bigwedge(
+      {\rm\color{variablecolor}l_1}
+      {\color{formulacolor}\varphi} )
+      )&3,(\mmref{bicomi})\notag
+  \\ 5 && & \vdash ( \bigwedge( {\color{formulacolor}\varphi}
+      {\rm\color{variablecolor}l_1} ) \leftrightarrow
+      \bigwedge( {\rm\color{variablecolor}l_1}
+      {\color{formulacolor}\varphi} )
+      )&1,2,4,(\mmref{3bitri})\notag
+\end{align}
+\end{proof}
+
+\begin{lemma}\blTitle{bl.ancomwlwl} commute conjunction wff-lists
+\begin{align}
+\vdash ( \bigwedge( {\rm\color{variablecolor}l_1} {\rm\color{variablecolor}l_2}
+    ) \leftrightarrow \bigwedge( {\rm\color{variablecolor}l_2}
+    {\rm\color{variablecolor}l_1} ) )\label{bl.ancomwlwl}
+\end{align}
+\end{lemma}
+
+\begin{proof}
+\begin{align}
+  1 && & \vdash ( \bigwedge( {\rm\color{variablecolor}l_1}
+      {\rm\color{variablecolor}l_2} ) \leftrightarrow (
+      \bigwedge( {\rm\color{variablecolor}l_1} ) \wedge
+      \bigwedge( {\rm\color{variablecolor}l_2} ) )
+      )&(\mmref{df-lan2wl})\notag
+  \\ 2 && & \vdash ( ( \bigwedge( {\rm\color{variablecolor}l_1} ) \wedge
+      \bigwedge( {\rm\color{variablecolor}l_2} ) )
+      \leftrightarrow ( \bigwedge(
+      {\rm\color{variablecolor}l_2} ) \wedge \bigwedge(
+      {\rm\color{variablecolor}l_1} ) )
+      )&(\mmref{ancom})\notag
+  \\ 3 && & \vdash ( \bigwedge( {\rm\color{variablecolor}l_2}
+      {\rm\color{variablecolor}l_1} ) \leftrightarrow (
+      \bigwedge( {\rm\color{variablecolor}l_2} ) \wedge
+      \bigwedge( {\rm\color{variablecolor}l_1} ) )
+      )&(\mmref{df-lan2wl})\notag
+  \\ 4 && & \vdash ( ( \bigwedge( {\rm\color{variablecolor}l_2} ) \wedge
+      \bigwedge( {\rm\color{variablecolor}l_1} ) )
+      \leftrightarrow \bigwedge(
+      {\rm\color{variablecolor}l_2}
+      {\rm\color{variablecolor}l_1} )
+      )&3,(\mmref{bicomi})\notag
+  \\ 5 && & \vdash ( \bigwedge( {\rm\color{variablecolor}l_1}
+      {\rm\color{variablecolor}l_2} ) \leftrightarrow
+      \bigwedge( {\rm\color{variablecolor}l_2}
+      {\rm\color{variablecolor}l_1} )
+      )&1,2,4,(\mmref{3bitri})\notag
+\end{align}
+\end{proof}
+
+\begin{lemma}\blTitle{bl.ancomphfirst} make any wff first in conjunction
+wff-list
+\begin{align}
+\vdash ( \bigwedge( {\rm\color{variablecolor}l_1} {\color{formulacolor}\varphi}
+    {\rm\color{variablecolor}l_2} ) \leftrightarrow \bigwedge(
+    {\color{formulacolor}\varphi} {\rm\color{variablecolor}l_2}
+    {\rm\color{variablecolor}l_1} ) )\label{bl.ancomphfirst}
+\end{align}
+\end{lemma}
+
+\begin{proof}
+\begin{align}
+  1 && & \vdash ( \bigwedge( {\rm\color{variablecolor}l_1}
+      {\color{formulacolor}\varphi}
+      {\rm\color{variablecolor}l_2} ) \leftrightarrow
+      \bigwedge( {\color{formulacolor}\varphi}
+      {\rm\color{variablecolor}l_2}
+      {\rm\color{variablecolor}l_1} )
+      )&(\mmref{bl.ancomwlwl})\notag
+\end{align}
+\end{proof}
+
+\begin{lemma}\blTitle{bl.ancomphlast} make any wff last in conjunction
+wff-list
+\begin{align}
+\vdash ( \bigwedge( {\rm\color{variablecolor}l_1} {\color{formulacolor}\varphi}
+    {\rm\color{variablecolor}l_2} ) \leftrightarrow \bigwedge(
+    {\rm\color{variablecolor}l_2} {\rm\color{variablecolor}l_1}
+    {\color{formulacolor}\varphi} ) )\label{bl.ancomphlast}
+\end{align}
+\end{lemma}
+
+\begin{proof}
+\begin{align}
+  1 && & \vdash ( \bigwedge( {\rm\color{variablecolor}l_1}
+      {\color{formulacolor}\varphi}
+      {\rm\color{variablecolor}l_2} ) \leftrightarrow
+      \bigwedge( {\rm\color{variablecolor}l_2}
+      {\rm\color{variablecolor}l_1}
+      {\color{formulacolor}\varphi} )
+      )&(\mmref{bl.ancomwlwl})\notag
+\end{align}
+\end{proof}
+
+\begin{lemma}\blTitle{bl.anpfw} pull first wff from conjunction wff-list
+\begin{align}
+\vdash ( \bigwedge( {\color{formulacolor}\varphi} {\rm\color{variablecolor}l_1}
+    ) \leftrightarrow ( {\color{formulacolor}\varphi} \wedge \bigwedge(
+    {\rm\color{variablecolor}l_1} ) ) )\label{bl.anpfw}
+\end{align}
+\end{lemma}
+
+\begin{proof}
+\begin{align}
+  1 && & \vdash ( \bigwedge( {\color{formulacolor}\varphi}
+      {\rm\color{variablecolor}l_1} ) \leftrightarrow (
+      \bigwedge( {\color{formulacolor}\varphi} ) \wedge
+      \bigwedge( {\rm\color{variablecolor}l_1} ) )
+      )&(\mmref{df-lan2wl})\notag
+  \\ 2 && & \vdash ( \bigwedge( {\color{formulacolor}\varphi} ) \leftrightarrow
+      {\color{formulacolor}\varphi}
+      )&(\mmref{df-lan1})\notag
+  \\ 3 && & \vdash ( ( \bigwedge( {\color{formulacolor}\varphi} ) \wedge
+      \bigwedge( {\rm\color{variablecolor}l_1} ) )
+      \leftrightarrow ( {\color{formulacolor}\varphi}
+      \wedge \bigwedge( {\rm\color{variablecolor}l_1} ) )
+      )&2,(\mmref{anbi1i})\notag
+  \\ 4 && & \vdash ( \bigwedge( {\color{formulacolor}\varphi}
+      {\rm\color{variablecolor}l_1} ) \leftrightarrow (
+      {\color{formulacolor}\varphi} \wedge \bigwedge(
+      {\rm\color{variablecolor}l_1} ) )
+      )&1,3,(\mmref{bitri})\notag
+\end{align}
+\end{proof}
+
+\begin{lemma}\blTitle{bl.anplw} pull last wff from conjunction wff-list
+\begin{align}
+\vdash ( \bigwedge( {\rm\color{variablecolor}l_1} {\color{formulacolor}\varphi}
+    ) \leftrightarrow ( \bigwedge( {\rm\color{variablecolor}l_1} ) \wedge
+    {\color{formulacolor}\varphi} ) )\label{bl.anplw}
+\end{align}
+\end{lemma}
+
+\begin{proof}
+\begin{align}
+  1 && & \vdash ( \bigwedge( {\rm\color{variablecolor}l_1}
+      {\color{formulacolor}\varphi} ) \leftrightarrow (
+      \bigwedge( {\rm\color{variablecolor}l_1} ) \wedge
+      \bigwedge( {\color{formulacolor}\varphi} ) )
+      )&(\mmref{df-lan2wl})\notag
+  \\ 2 && & \vdash ( \bigwedge( {\color{formulacolor}\varphi} ) \leftrightarrow
+      {\color{formulacolor}\varphi}
+      )&(\mmref{df-lan1})\notag
+  \\ 3 && & \vdash ( ( \bigwedge( {\rm\color{variablecolor}l_1} ) \wedge
+      \bigwedge( {\color{formulacolor}\varphi} ) )
+      \leftrightarrow ( \bigwedge(
+      {\rm\color{variablecolor}l_1} ) \wedge
+      {\color{formulacolor}\varphi} )
+      )&2,(\mmref{anbi2i})\notag
+  \\ 4 && & \vdash ( \bigwedge( {\rm\color{variablecolor}l_1}
+      {\color{formulacolor}\varphi} ) \leftrightarrow (
+      \bigwedge( {\rm\color{variablecolor}l_1} ) \wedge
+      {\color{formulacolor}\varphi} )
+      )&1,3,(\mmref{bitri})\notag
+\end{align}
+\end{proof}
+
+\begin{lemma}\blTitle{bl.anpmw} pull middle wff from conjunction wff-list
+\begin{align}
+\vdash ( \bigwedge( {\rm\color{variablecolor}l_1} {\color{formulacolor}\varphi}
+    {\rm\color{variablecolor}l_2} ) \leftrightarrow (
+    {\color{formulacolor}\varphi} \wedge \bigwedge(
+    {\rm\color{variablecolor}l_2} {\rm\color{variablecolor}l_1} ) )
+    )\label{bl.anpmw}
+\end{align}
+\end{lemma}
+
+\begin{proof}
+\begin{align}
+  1 && & \vdash ( \bigwedge( {\rm\color{variablecolor}l_1}
+      {\color{formulacolor}\varphi}
+      {\rm\color{variablecolor}l_2} ) \leftrightarrow
+      \bigwedge( {\color{formulacolor}\varphi}
+      {\rm\color{variablecolor}l_2}
+      {\rm\color{variablecolor}l_1} )
+      )&(\mmref{bl.ancomphfirst})\notag
+  \\ 2 && & \vdash ( \bigwedge( {\color{formulacolor}\varphi}
+      {\rm\color{variablecolor}l_2}
+      {\rm\color{variablecolor}l_1} ) \leftrightarrow (
+      {\color{formulacolor}\varphi} \wedge \bigwedge(
+      {\rm\color{variablecolor}l_2}
+      {\rm\color{variablecolor}l_1} ) )
+      )&(\mmref{bl.anpfw})\notag
+  \\ 3 && & \vdash ( \bigwedge( {\rm\color{variablecolor}l_1}
+      {\color{formulacolor}\varphi}
+      {\rm\color{variablecolor}l_2} ) \leftrightarrow (
+      {\color{formulacolor}\varphi} \wedge \bigwedge(
+      {\rm\color{variablecolor}l_2}
+      {\rm\color{variablecolor}l_1} ) )
+      )&1,2,(\mmref{bitri})\notag
+\end{align}
+\end{proof}
+
+\begin{lemma}\blTitle{bl.anabpf} absorb first term conjunction wff-list
+\begin{align}
+\vdash ( \bigwedge( \bigwedge( {\rm\color{variablecolor}l_1} )
+    {\rm\color{variablecolor}l_2} ) \leftrightarrow \bigwedge(
+    {\rm\color{variablecolor}l_1} {\rm\color{variablecolor}l_2} )
+    )\label{bl.anabpf}
+\end{align}
+\end{lemma}
+
+\begin{proof}
+\begin{align}
+  1 && & \vdash ( \bigwedge( \bigwedge( {\rm\color{variablecolor}l_1} )
+      {\rm\color{variablecolor}l_2} ) \leftrightarrow (
+      \bigwedge( \bigwedge( {\rm\color{variablecolor}l_1} )
+      ) \wedge \bigwedge( {\rm\color{variablecolor}l_2} ) )
+      )&(\mmref{df-lan2wl})\notag
+  \\ 2 && & \vdash ( \bigwedge( \bigwedge( {\rm\color{variablecolor}l_1} ) )
+      \leftrightarrow \bigwedge(
+      {\rm\color{variablecolor}l_1} )
+      )&(\mmref{df-lan1})\notag
+  \\ 3 && & \vdash ( ( \bigwedge( \bigwedge( {\rm\color{variablecolor}l_1} ) )
+      \wedge \bigwedge( {\rm\color{variablecolor}l_2} ) )
+      \leftrightarrow ( \bigwedge(
+      {\rm\color{variablecolor}l_1} ) \wedge \bigwedge(
+      {\rm\color{variablecolor}l_2} ) )
+      )&2,(\mmref{anbi1i})\notag
+  \\ 4 && & \vdash ( \bigwedge( {\rm\color{variablecolor}l_1}
+      {\rm\color{variablecolor}l_2} ) \leftrightarrow (
+      \bigwedge( {\rm\color{variablecolor}l_1} ) \wedge
+      \bigwedge( {\rm\color{variablecolor}l_2} ) )
+      )&(\mmref{df-lan2wl})\notag
+  \\ 5 && & \vdash ( ( \bigwedge( {\rm\color{variablecolor}l_1} ) \wedge
+      \bigwedge( {\rm\color{variablecolor}l_2} ) )
+      \leftrightarrow \bigwedge(
+      {\rm\color{variablecolor}l_1}
+      {\rm\color{variablecolor}l_2} )
+      )&4,(\mmref{bicomi})\notag
+  \\ 6 && & \vdash ( \bigwedge( \bigwedge( {\rm\color{variablecolor}l_1} )
+      {\rm\color{variablecolor}l_2} ) \leftrightarrow
+      \bigwedge( {\rm\color{variablecolor}l_1}
+      {\rm\color{variablecolor}l_2} )
+      )&1,3,5,(\mmref{3bitri})\notag
+\end{align}
+\end{proof}
+
+\begin{lemma}\blTitle{bl.anabpm} absorb parentheses, middle term
+\begin{align}
+\vdash ( \bigwedge( {\rm\color{variablecolor}l_1} \bigwedge(
+    {\rm\color{variablecolor}l_2} ) {\rm\color{variablecolor}l_3} )
+    \leftrightarrow \bigwedge( {\rm\color{variablecolor}l_1}
+    {\rm\color{variablecolor}l_2} {\rm\color{variablecolor}l_3} )
+    )\label{bl.anabpm}
+\end{align}
+\end{lemma}
+
+\begin{proof}
+\begin{align}
+  1 && & \vdash ( \bigwedge( {\rm\color{variablecolor}l_1} \bigwedge(
+      {\rm\color{variablecolor}l_2} )
+      {\rm\color{variablecolor}l_3} ) \leftrightarrow
+      \bigwedge( \bigwedge( {\rm\color{variablecolor}l_2} )
+      {\rm\color{variablecolor}l_3}
+      {\rm\color{variablecolor}l_1} )
+      )&(\mmref{bl.ancomwlwl})\notag
+  \\ 2 && & \vdash ( \bigwedge( \bigwedge( {\rm\color{variablecolor}l_2} )
+      {\rm\color{variablecolor}l_3}
+      {\rm\color{variablecolor}l_1} ) \leftrightarrow
+      \bigwedge( {\rm\color{variablecolor}l_2}
+      {\rm\color{variablecolor}l_3}
+      {\rm\color{variablecolor}l_1} )
+      )&(\mmref{bl.anabpf})\notag
+  \\ 3 && & \vdash ( \bigwedge( {\rm\color{variablecolor}l_2}
+      {\rm\color{variablecolor}l_3}
+      {\rm\color{variablecolor}l_1} ) \leftrightarrow
+      \bigwedge( {\rm\color{variablecolor}l_1}
+      {\rm\color{variablecolor}l_2}
+      {\rm\color{variablecolor}l_3} )
+      )&(\mmref{bl.ancomwlwl})\notag
+  \\ 4 && & \vdash ( \bigwedge( {\rm\color{variablecolor}l_1} \bigwedge(
+      {\rm\color{variablecolor}l_2} )
+      {\rm\color{variablecolor}l_3} ) \leftrightarrow
+      \bigwedge( {\rm\color{variablecolor}l_1}
+      {\rm\color{variablecolor}l_2}
+      {\rm\color{variablecolor}l_3} )
+      )&1,2,3,(\mmref{3bitri})\notag
+\end{align}
+\end{proof}
+
+\begin{lemma}\blTitle{bl.anabpl} absorb parentheses, last term
+\begin{align}
+\vdash ( \bigwedge( {\rm\color{variablecolor}l_1} \bigwedge(
+    {\rm\color{variablecolor}l_2} ) ) \leftrightarrow \bigwedge(
+    {\rm\color{variablecolor}l_1} {\rm\color{variablecolor}l_2} )
+    )\label{bl.anabpl}
+\end{align}
+\end{lemma}
+
+\begin{proof}
+\begin{align}
+  1 && & \vdash ( \bigwedge( {\rm\color{variablecolor}l_1} \bigwedge(
+      {\rm\color{variablecolor}l_2} ) ) \leftrightarrow
+      \bigwedge( \bigwedge( {\rm\color{variablecolor}l_2} )
+      {\rm\color{variablecolor}l_1} )
+      )&(\mmref{bl.ancomwlwl})\notag
+  \\ 2 && & \vdash ( \bigwedge( \bigwedge( {\rm\color{variablecolor}l_2} )
+      {\rm\color{variablecolor}l_1} ) \leftrightarrow
+      \bigwedge( {\rm\color{variablecolor}l_2}
+      {\rm\color{variablecolor}l_1} )
+      )&(\mmref{bl.anabpf})\notag
+  \\ 3 && & \vdash ( \bigwedge( {\rm\color{variablecolor}l_2}
+      {\rm\color{variablecolor}l_1} ) \leftrightarrow
+      \bigwedge( {\rm\color{variablecolor}l_1}
+      {\rm\color{variablecolor}l_2} )
+      )&(\mmref{bl.ancomwlwl})\notag
+  \\ 4 && & \vdash ( \bigwedge( {\rm\color{variablecolor}l_1} \bigwedge(
+      {\rm\color{variablecolor}l_2} ) ) \leftrightarrow
+      \bigwedge( {\rm\color{variablecolor}l_1}
+      {\rm\color{variablecolor}l_2} )
+      )&1,2,3,(\mmref{3bitri})\notag
+\end{align}
+\end{proof}
+

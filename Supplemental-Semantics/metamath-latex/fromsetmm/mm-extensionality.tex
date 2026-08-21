@@ -1,0 +1,617 @@
+% This LaTeX file was created by Metamath on 6-Mar-2024 11:48 AM.
+\begin{restatable}{axiom}{axext}~\otherTitle{ax-ext}~ Axiom of extensionality.  An axiom of
+Zermelo-Fraenkel set theory.  It
+       states that two sets are identical if they contain the same elements.
+\begin{align}
+\vdash ( \forall \msc{z} ( \msc{z} \in \msc{x} \leftrightarrow \msc{z} \in
+    \msc{y} ) \rightarrow \msc{x} = \msc{y} )\label{eq:ax-ext}\tag{ax-ext}
+\end{align}
+\end{restatable}
+
+\dfclab
+%\begin{restatable}{metadefinition}{dfclab}~\otherTitle{df-clab}~ Define class abstractions, that is,
+%classes of the form $\{ \msc{y}~\vert~\mw{\varphi} \}$,
+%     which is read ``the class of sets $\msc{y}$ such that $\mw{\varphi} (
+%\msc{y} )$".  ~
+%\begin{align}
+%\vdash ( \msc{x} \in \{ \msc{y}~\vert~\mw{\varphi} \} \leftrightarrow [ \msc{x} /
+%    \msc{y} ] \mw{\varphi} )\label{eq:df-clab}\tag{df-clab}
+%\end{align}
+%\end{restatable}
+
+\begin{restatable}{lemma}{abid}~\otherTitle{abid}~ Simplification of class abstraction notation
+when the free and bound
+     variables are identical.  ~
+\begin{align}
+\vdash ( \msc{x} \in \{ \msc{x}~\vert~\mw{\varphi} \} \leftrightarrow \mw{\varphi}
+    )\label{eq:abid}\tag{abid}
+\end{align}
+\end{restatable}
+
+\dfcleq
+%\begin{restatable}{lemma}{dfcleq}~\otherTitle{dfcleq}~ The defining characterization of class
+%equality.  ~
+%\begin{align}
+%\vdash ( \mc{A} = \mc{B} \leftrightarrow \forall \msc{x} ( \msc{x} \in \mc{A}
+%    \leftrightarrow \msc{x} \in \mc{B} ) )\label{eq:dfcleq}\tag{dfcleq}
+%\end{align}
+%\end{restatable}
+
+\begin{restatable}{lemma}{eqid}~\otherTitle{eqid}~ Law of identity (reflexivity of class
+equality).  
+\begin{align}
+\vdash \mc{A} = \mc{A}\label{eq:eqid}\tag{eqid}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{eqidd}~\otherTitle{eqidd}~ Class identity law with antecedent. 
+~
+\begin{align}
+\vdash ( \mw{\varphi} \rightarrow \mc{A} = \mc{A} )\label{eq:eqidd}\tag{eqidd}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{eqeq1i}~\otherTitle{eqeq1i}~ Inference from equality to equivalence of
+equalities.  ~
+\begin{align}
+\vdash \mc{A} = \mc{B}\quad\Rightarrow\quad \vdash ( \mc{A} = \mc{C}
+    \leftrightarrow \mc{B} = \mc{C} )\label{eq:eqeq1i}\tag{eqeq1i}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{eqcomd}~\otherTitle{eqcomd}~ Deduction from commutative law for class
+equality.  
+\begin{align}
+\vdash ( \mw{\varphi} \rightarrow \mc{A} = \mc{B} )\quad\Rightarrow\quad \vdash
+    ( \mw{\varphi} \rightarrow \mc{B} = \mc{A} )\label{eq:eqcomd}\tag{eqcomd}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{eqcom}~\otherTitle{eqcom}~ Commutative law for class equality.  
+\begin{align}
+\vdash ( \mc{A} = \mc{B} \leftrightarrow \mc{B} = \mc{A}
+    )\label{eq:eqcom}\tag{eqcom}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{eqcomi}~\otherTitle{eqcomi}~ Inference from commutative law for class
+equality.  ~
+\begin{align}
+\vdash \mc{A} = \mc{B}\quad\Rightarrow\quad \vdash \mc{B} =
+    \mc{A}\label{eq:eqcomi}\tag{eqcomi}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{eqeq12i}~\otherTitle{eqeq12i}~ A useful inference for substituting
+definitions into an equality.
+       ~  ~  ~
+\begin{align}
+\vdash \mc{A} = \mc{B}\quad\&\quad \vdash \mc{C} = \mc{D}\quad\Rightarrow\quad
+    \vdash ( \mc{A} = \mc{C} \leftrightarrow \mc{B} = \mc{D}
+    )\label{eq:eqeq12i}\tag{eqeq12i}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{eqtri}~\otherTitle{eqtri}~ An equality transitivity inference. 
+~
+\begin{align}
+\vdash \mc{A} = \mc{B}\quad\&\quad \vdash \mc{B} = \mc{C}\quad\Rightarrow\quad
+    \vdash \mc{A} = \mc{C}\label{eq:eqtri}\tag{eqtri}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{eqtr3i}~\otherTitle{eqtr3i}~ An equality transitivity inference. 
+~
+\begin{align}
+\vdash \mc{A} = \mc{B}\quad\&\quad \vdash \mc{A} = \mc{C}\quad\Rightarrow\quad
+    \vdash \mc{B} = \mc{C}\label{eq:eqtr3i}\tag{eqtr3i}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{eqtr4i}~\otherTitle{eqtr4i}~ An equality transitivity inference. 
+~
+\begin{align}
+\vdash \mc{A} = \mc{B}\quad\&\quad \vdash \mc{C} = \mc{B}\quad\Rightarrow\quad
+    \vdash \mc{A} = \mc{C}\label{eq:eqtr4i}\tag{eqtr4i}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{3eqtri}~\otherTitle{3eqtri}~ An inference from three chained equalities. 
+~
+\begin{align}
+\vdash \mc{A} = \mc{B}\quad\&\quad \vdash \mc{B} = \mc{C}\quad\&\quad \vdash
+    \mc{C} = \mc{D}\quad\Rightarrow\quad \vdash \mc{A} =
+    \mc{D}\label{eq:3eqtri}\tag{3eqtri}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{3eqtr2i}~\otherTitle{3eqtr2i}~ An inference from three chained equalities.
+~
+\begin{align}
+\vdash \mc{A} = \mc{B}\quad\&\quad \vdash \mc{C} = \mc{B}\quad\&\quad \vdash
+    \mc{C} = \mc{D}\quad\Rightarrow\quad \vdash \mc{A} =
+    \mc{D}\label{eq:3eqtr2i}\tag{3eqtr2i}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{3eqtr4i}~\otherTitle{3eqtr4i}~ An inference from three chained equalities.
+~  ~
+\begin{align}
+\vdash \mc{A} = \mc{B}\quad\&\quad \vdash \mc{C} = \mc{A}\quad\&\quad \vdash
+    \mc{D} = \mc{B}\quad\Rightarrow\quad \vdash \mc{C} =
+    \mc{D}\label{eq:3eqtr4i}\tag{3eqtr4i}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{eqtrd}~\otherTitle{eqtrd}~ An equality transitivity deduction. 
+~
+\begin{align}
+\vdash ( \mw{\varphi} \rightarrow \mc{A} = \mc{B} )\quad\&\quad \vdash (
+    \mw{\varphi} \rightarrow \mc{B} = \mc{C} )\quad\Rightarrow\quad \vdash (
+    \mw{\varphi} \rightarrow \mc{A} = \mc{C} )\label{eq:eqtrd}\tag{eqtrd}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{eqtr3d}~\otherTitle{eqtr3d}~ An equality transitivity equality deduction.
+~
+\begin{align}
+\vdash ( \mw{\varphi} \rightarrow \mc{A} = \mc{B} )\quad\&\quad \vdash (
+    \mw{\varphi} \rightarrow \mc{A} = \mc{C} )\quad\Rightarrow\quad \vdash (
+    \mw{\varphi} \rightarrow \mc{B} = \mc{C} )\label{eq:eqtr3d}\tag{eqtr3d}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{eqtr4d}~\otherTitle{eqtr4d}~ An equality transitivity equality deduction.
+~
+\begin{align}
+\vdash ( \mw{\varphi} \rightarrow \mc{A} = \mc{B} )\quad\&\quad \vdash (
+    \mw{\varphi} \rightarrow \mc{C} = \mc{B} )\quad\Rightarrow\quad \vdash (
+    \mw{\varphi} \rightarrow \mc{A} = \mc{C} )\label{eq:eqtr4d}\tag{eqtr4d}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{syl5eq}~\otherTitle{syl5eq}~ An equality transitivity deduction. 
+~
+\begin{align}
+\vdash \mc{A} = \mc{B}\quad\&\quad \vdash ( \mw{\varphi} \rightarrow \mc{B} =
+    \mc{C} )\quad\Rightarrow\quad \vdash ( \mw{\varphi} \rightarrow \mc{A} =
+    \mc{C} )\label{eq:syl5eq}\tag{syl5eq}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{syl6eqr}~\otherTitle{syl6eqr}~ An equality transitivity deduction. 
+~
+\begin{align}
+\vdash ( \mw{\varphi} \rightarrow \mc{A} = \mc{B} )\quad\&\quad \vdash \mc{C} =
+    \mc{B}\quad\Rightarrow\quad \vdash ( \mw{\varphi} \rightarrow \mc{A} =
+    \mc{C} )\label{eq:syl6eqr}\tag{syl6eqr}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{eleq1i}~\otherTitle{eleq1i}~ Inference from equality to equivalence of
+membership.  ~
+\begin{align}
+\vdash \mc{A} = \mc{B}\quad\Rightarrow\quad \vdash ( \mc{A} \in \mc{C}
+    \leftrightarrow \mc{B} \in \mc{C} )\label{eq:eleq1i}\tag{eleq1i}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{eleq2i}~\otherTitle{eleq2i}~ Inference from equality to equivalence of
+membership.  ~
+\begin{align}
+\vdash \mc{A} = \mc{B}\quad\Rightarrow\quad \vdash ( \mc{C} \in \mc{A}
+    \leftrightarrow \mc{C} \in \mc{B} )\label{eq:eleq2i}\tag{eleq2i}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{eqeltri}~\otherTitle{eqeltri}~ Substitution of equal classes into
+membership relation.  ~
+\begin{align}
+\vdash \mc{A} = \mc{B}\quad\&\quad \vdash \mc{B} \in
+    \mc{C}\quad\Rightarrow\quad \vdash \mc{A} \in
+    \mc{C}\label{eq:eqeltri}\tag{eqeltri}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{clelab}~\otherTitle{clelab}~ Membership of a class variable in a class
+abstraction.  ~  ~
+\begin{align}
+\vdash ( \mc{A} \in \{ \msc{x}~\vert~\mw{\varphi} \} \leftrightarrow \exists
+    \msc{x} ( \msc{x} = \mc{A} \wedge \mw{\varphi} )
+    )\label{eq:clelab}\tag{clelab}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{necom}~\otherTitle{necom}~ Commutation of inequality.  ~
+\begin{align}
+\vdash ( \mc{A} \ne \mc{B} \leftrightarrow \mc{B} \ne \mc{A}
+    )\label{eq:necom}\tag{necom}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{metadefinition}{dfral}~\otherTitle{df-ral}~ Define restricted universal
+quantification.    $\mw{\varphi}$ holds for  all elements of a given class $\mc{A}$.  
+\begin{align}
+\vdash ( \forall \msc{x} \in \mc{A}~\mw{\varphi} \leftrightarrow \forall
+    \msc{x} ( \msc{x} \in \mc{A} \rightarrow \mw{\varphi} )
+    )\label{eq:df-ral}\tag{df-ral}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{metadefinition}{dfrex}~\otherTitle{df-rex}~ Define restricted existential
+quantification.   $\mw{\varphi}$
+holds for
+     at least one element of a given class $\mc{A}$.  
+\begin{align}
+\vdash ( \exists \msc{x} \in \mc{A}~\mw{\varphi} \leftrightarrow \exists
+    \msc{x} ( \msc{x} \in \mc{A} \wedge \mw{\varphi} )
+    )\label{eq:df-rex}\tag{df-rex}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{dfrex2}~\otherTitle{dfrex2}~ Relationship between restricted universal
+and existential quantifiers.
+     ~  ~
+\begin{align}
+\vdash ( \exists \msc{x} \in \mc{A}~\mw{\varphi} \leftrightarrow \lnot \forall
+    \msc{x} \in \mc{A} \lnot \mw{\varphi} )\label{eq:dfrex2}\tag{dfrex2}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{sbc5}~\otherTitle{sbc5}~ An equivalence for class substitution. 
+~  ~
+\begin{align}
+\vdash ( \underaccent{\dot}{[} \mc{A} / \msc{x} \underaccent{\dot}{]}
+    \mw{\varphi} \leftrightarrow \exists \msc{x} ( \msc{x} = \mc{A} \wedge
+    \mw{\varphi} ) )\label{eq:sbc5}\tag{sbc5}
+\end{align}
+\end{restatable}
+
+\dfss
+%\begin{restatable}{metadefinition}{dfss}~\otherTitle{df-ss}~ Define the subclass (``subset") relationship. 
+%\begin{align}
+%\vdash ( \mc{A} \subseteq \mc{B} \leftrightarrow ( \mc{A} \cap \mc{B} ) =
+%    \mc{A} )\label{eq:df-ss}\tag{df-ss}
+%\end{align}
+%\end{restatable}
+
+\begin{restatable}{lemma}{alral}~\otherTitle{alral}~ Universal quantification implies restricted
+quantification. 
+\begin{align}
+\vdash ( \forall \msc{x} \mw{\varphi} \rightarrow \forall \msc{x} \in \mc{A}
+    \mw{\varphi} )\label{eq:alral}\tag{alral}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{ralbii}~\otherTitle{ralbii}~ Inference adding restricted universal
+quantifier to both sides of an
+       equivalence.  ~  ~  ~
+\begin{align}
+\vdash ( \mw{\varphi} \leftrightarrow \mw{\psi} )\quad\Rightarrow\quad \vdash (
+    \forall \msc{x} \in \mc{A}~\mw{\varphi} \leftrightarrow \forall \msc{x} \in
+    \mc{A}~\mw{\psi} )\label{eq:ralbii}\tag{ralbii}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{r19.26}~\otherTitle{r19.26}~ Restricted quantifier version of {\tt
+19.26}.  ~  ~
+\begin{align}
+\vdash ( \forall \msc{x} \in \mc{A} ( \mw{\varphi} \wedge \mw{\psi} )
+    \leftrightarrow ( \forall \msc{x} \in \mc{A}~\mw{\varphi} \wedge \forall
+    \msc{x} \in \mc{A}~\mw{\psi} ) )\label{eq:r19.26}\tag{r19.26}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{dfss3}~\otherTitle{dfss3}~ Alternate definition of subclass
+relationship.  ~
+\begin{align}
+\vdash ( \mc{A} \subseteq \mc{B} \leftrightarrow \forall \msc{x} \in \mc{A}
+    \msc{x} \in \mc{B} )\label{eq:dfss3}\tag{dfss3}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{sbc3an}~\otherTitle{sbc3an}~ Distribution of class substitution over
+triple conjunction.  
+\begin{align}
+\vdash ( \underaccent{\dot}{[} \mc{A} / \msc{x} \underaccent{\dot}{]} (
+    \mw{\varphi} \wedge \mw{\psi} \wedge \mw{\chi} ) \leftrightarrow (
+    \underaccent{\dot}{[} \mc{A} / \msc{x} \underaccent{\dot}{]} \mw{\varphi}
+    \wedge \underaccent{\dot}{[} \mc{A} / \msc{x} \underaccent{\dot}{]}
+    \mw{\psi} \wedge \underaccent{\dot}{[} \mc{A} / \msc{x}
+    \underaccent{\dot}{]} \mw{\chi} ) )\label{eq:sbc3an}\tag{sbc3an}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{sbcel1v}~\otherTitle{sbcel1v}~ Class substitution into a membership
+relation.  
+\begin{align}
+\vdash ( \underaccent{\dot}{[} \mc{A} / \msc{x} \underaccent{\dot}{]} \msc{x}
+    \in \mc{B} \leftrightarrow \mc{A} \in \mc{B}
+    )\label{eq:sbcel1v}\tag{sbcel1v}
+\end{align}
+\end{restatable}
+
+\dfdif
+%\begin{restatable}{metadefinition}{dfdif}~\otherTitle{df-dif}~ Define class difference, also called
+%relative complement. 
+%\begin{align}
+%\vdash ( \mc{A} \setminus \mc{B} ) = \{ \msc{x}~\vert~( \msc{x} \in \mc{A} \wedge
+%    \lnot \msc{x} \in \mc{B} ) \}\label{eq:df-dif}\tag{df-dif}
+%\end{align}
+%\end{restatable}
+
+\dfun
+%\begin{restatable}{metadefinition}{dfun}~\otherTitle{df-un}~ Define the union of two classes. 
+%\begin{align}
+%\vdash ( \mc{A} \cup \mc{B} ) = \{ \msc{x}~\vert~( \msc{x} \in \mc{A} \vee \msc{x}
+%    \in \mc{B} ) \}\label{eq:df-un}\tag{df-un}
+%\end{align}
+%\end{restatable}
+
+\dfin
+%\begin{restatable}{metadefinition}{dfin}~\otherTitle{df-in}~ Define the intersection of two classes. 
+%\begin{align}
+%\vdash ( \mc{A} \cap \mc{B} ) = \{ \msc{x}~\vert~( \msc{x} \in \mc{A} \wedge
+%    \msc{x} \in \mc{B} ) \}\label{eq:df-in}\tag{df-in}
+%\end{align}
+%\end{restatable}
+
+\dfv
+%\begin{restatable}{metadefinition}{dfv}~\otherTitle{df-v}~ Define the universal class.   The letter ``V" was used earlier by Peano in 1889 for the
+%     universe of sets, where the letter V is derived from the word ``Verum".
+%     Peano's notation V was adopted by Whitehead and Russell in Principia
+%     Mathematica for the class of all sets in 1910.  
+%\begin{align}
+%\vdash \,\mathrm{V} = \{ \msc{x}~\vert~\msc{x} = \msc{x}
+%    \}\label{eq:df-v}\tag{df-v}
+%\end{align}
+%\end{restatable}
+
+\begin{restatable}{lemma}{sbcan}~\otherTitle{sbcan}~ Distribution of class substitution over
+conjunction.  ~  ~
+\begin{align}
+\vdash ( \underaccent{\dot}{[} \mc{A} / \msc{x} \underaccent{\dot}{]} (
+    \mw{\varphi} \wedge \mw{\psi} ) \leftrightarrow ( \underaccent{\dot}{[}
+    \mc{A} / \msc{x} \underaccent{\dot}{]} \mw{\varphi} \wedge
+    \underaccent{\dot}{[} \mc{A} / \msc{x} \underaccent{\dot}{]} \mw{\psi} )
+    )\label{eq:sbcan}\tag{sbcan}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{metadefinition}{dfpss}~\otherTitle{df-pss}~ Define proper subclass (or strict
+subclass) relationship between two
+     classes.  
+\begin{align}
+\vdash ( \mc{A} \subsetneq \mc{B} \leftrightarrow ( \mc{A} \subseteq \mc{B}
+    \wedge \mc{A} \ne \mc{B} ) )\label{eq:df-pss}\tag{df-pss}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{sseli}~\otherTitle{sseli}~ Membership implication from subclass
+relationship.  ~
+\begin{align}
+\vdash \mc{A} \subseteq \mc{B}\quad\Rightarrow\quad \vdash ( \mc{C} \in \mc{A}
+    \rightarrow \mc{C} \in \mc{B} )\label{eq:sseli}\tag{sseli}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{sselii}~\otherTitle{sselii}~ Membership inference from subclass
+relationship.  ~
+\begin{align}
+\vdash \mc{A} \subseteq \mc{B}\quad\&\quad \vdash \mc{C} \in
+    \mc{A}\quad\Rightarrow\quad \vdash \mc{C} \in
+    \mc{B}\label{eq:sselii}\tag{sselii}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{ssriv}~\otherTitle{ssriv}~ Inference based on subclass definition. 
+~
+\begin{align}
+\vdash ( \msc{x} \in \mc{A} \rightarrow \msc{x} \in \mc{B}
+    )\quad\Rightarrow\quad \vdash \mc{A} \subseteq
+    \mc{B}\label{eq:ssriv}\tag{ssriv}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{sstri}~\otherTitle{sstri}~ Subclass transitivity inference. 
+~
+\begin{align}
+\vdash \mc{A} \subseteq \mc{B}\quad\&\quad \vdash \mc{B} \subseteq
+    \mc{C}\quad\Rightarrow\quad \vdash \mc{A} \subseteq
+    \mc{C}\label{eq:sstri}\tag{sstri}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{rex0}~\otherTitle{rex0}~ Vacuous restricted existential quantification
+is false.  ~
+\begin{align}
+\vdash \lnot \exists \msc{x} \in \varnothing~
+    \mw{\varphi}\label{eq:rex0}\tag{rex0}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{csbvarg}~\otherTitle{csbvarg}~ The proper substitution of a class for
+set variable results in the
+       class (if the class exists).  ~
+\begin{align}
+\vdash ( \mc{A} \in V \rightarrow \underline{[} \mc{A} / \msc{x} \underline{]}
+    \msc{x} = \mc{A} )\label{eq:csbvarg}\tag{csbvarg}
+\end{align}
+\end{restatable}
+
+\dfop
+%\begin{restatable}{metadefinition}{dfop}~\otherTitle{df-op}~ Definition of an ordered pair.
+%\begin{align}
+%\vdash \langle \mc{A} , \mc{B} \rangle = \{ \msc{x}~\vert~( \mc{A} \in \,\mathrm{V}
+%    \wedge \mc{B} \in \,\mathrm{V} \wedge \msc{x} \in \{ \{ \mc{A} \} , \{
+%    \mc{A} , \mc{B} \} \} ) \}\label{eq:df-op}\tag{df-op}
+%\end{align}
+%\end{restatable}
+
+\begin{restatable}{lemma}{dfopif}~\otherTitle{dfopif}~ Rewrite {\tt df-op} using $\,\mathrm{if}$. 
+\begin{align}
+\vdash \langle \mc{A} , \mc{B} \rangle = \,\mathrm{if} ( ( \mc{A} \in
+    \,\mathrm{V} \wedge \mc{B} \in \,\mathrm{V} ) , \{ \{ \mc{A} \} , \{ \mc{A}
+    , \mc{B} \} \} , \varnothing~ )\label{eq:dfopif}\tag{dfopif}
+\end{align}
+\end{restatable}
+
+\dfot
+%\begin{restatable}{metadefinition}{dfot}~\otherTitle{df-ot}~ Define ordered triple of classes. 
+%\begin{align}
+%\vdash \langle \mc{A} , \mc{B} , \mc{C} \rangle = \langle \langle \mc{A} ,
+%    \mc{B} \rangle , \mc{C} \rangle\label{eq:df-ot}\tag{df-ot}
+%\end{align}
+%\end{restatable}
+
+\begin{restatable}{lemma}{rexsns}~\otherTitle{rexsns}~ Restricted existential quantification over a
+singleton.  ~  ~
+\begin{align}
+\vdash ( \exists \msc{x} \in \{ \mc{A} \} \mw{\varphi} \leftrightarrow
+    \underaccent{\dot}{[} \mc{A} / \msc{x} \underaccent{\dot}{]} \mw{\varphi}
+    )\label{eq:rexsns}\tag{rexsns}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{ralsng}~\otherTitle{ralsng}~ Substitution expressed in terms of
+quantification over a singleton.
+       ~  ~  ~
+\begin{align}
+\vdash ( \msc{x} = \mc{A} \rightarrow ( \mw{\varphi} \leftrightarrow \mw{\psi}
+    ) )\quad\Rightarrow\quad \vdash ( \mc{A} \in V \rightarrow ( \forall
+    \msc{x} \in \{ \mc{A} \} \mw{\varphi} \leftrightarrow \mw{\psi} )
+    )\label{eq:ralsng}\tag{ralsng}
+\end{align}
+\end{restatable}
+
+\opeqonetwo
+%\begin{restatable}{lemma}{opeq12}~\otherTitle{opeq12}~ Equality theorem for ordered pairs. 
+%\begin{align}
+%\vdash ( ( \mc{A} = \mc{C} \wedge \mc{B} = \mc{D} ) \rightarrow \langle \mc{A}
+%    , \mc{B} \rangle = \langle \mc{C} , \mc{D} \rangle
+%    )\label{eq:opeq12}\tag{opeq12}
+%\end{align}
+%\end{restatable}
+
+\oteqonetwothreed
+%\begin{restatable}{lemma}{oteq123d}~\otherTitle{oteq123d}~ Equality deduction for ordered triples. 
+%\begin{align}
+%\vdash ( \mw{\varphi} \rightarrow \mc{A} = \mc{B} )\quad\&\quad \vdash (
+%    \mw{\varphi} \rightarrow \mc{C} = \mc{D} )\quad\&\quad \vdash (
+%    \mw{\varphi} \rightarrow E = F )\quad\Rightarrow \notag \\
+%    \quad \vdash ( \mw{\varphi}
+%    \rightarrow \langle \mc{A} , \mc{C} , E \rangle = \langle \mc{B} , \mc{D} ,
+%    F \rangle )\label{eq:oteq123d}\tag{oteq123d}
+%\end{align}
+%\end{restatable}
+
+\dfiun
+%\begin{restatable}{metadefinition}{dfiun}~\otherTitle{df-iun}~ Define indexed union. 
+%\begin{align}
+%\vdash \underline{\bigcup} \msc{x} \in \mc{A} \mc{B} = \{ \msc{y}~\vert~\exists
+%    \msc{x} \in \mc{A} \msc{y} \in \mc{B} \}\label{eq:df-iun}\tag{df-iun}
+%\end{align}
+%\end{restatable}
+
+\dfiin
+%\begin{restatable}{metadefinition}{dfiin}~\otherTitle{df-iin}~ Define indexed intersection.  
+%\begin{align}
+%\vdash \underline{\bigcap} \msc{x} \in \mc{A} \mc{B} = \{ \msc{y}~\vert~\forall
+%    \msc{x} \in \mc{A} \msc{y} \in \mc{B} \}\label{eq:df-iin}\tag{df-iin}
+%\end{align}
+%\end{restatable}
+
+\begin{restatable}{lemma}{eqbrtrrd}~\otherTitle{eqbrtrrd}~ Substitution of equal classes into a
+binary relation.  ~
+\begin{align}
+\vdash ( \mw{\varphi} \rightarrow \mc{A} = \mc{B} )\quad\&\quad \vdash (
+    \mw{\varphi} \rightarrow \mc{A} \mc{R} \mc{C} )\quad\Rightarrow\quad \vdash
+    ( \mw{\varphi} \rightarrow \mc{B} \mc{R} \mc{C}
+    )\label{eq:eqbrtrrd}\tag{eqbrtrrd}
+\end{align}
+\end{restatable}
+
+\dfdisj
+%\begin{restatable}{metadefinition}{dfdisj}~\otherTitle{df-disj}~ A collection of classes $\mc{B} (
+%\msc{x} )$ is disjoint when for each element
+%       $\msc{y}$, it is in $\mc{B} ( \msc{x} )$ for at most one $\msc{x}$. 
+%\begin{align}
+%\vdash ( \operatorname{\underline{Disj}} \msc{x} \in \mc{A} \mc{B}
+%    \leftrightarrow \forall \msc{y} \exists^\ast \msc{x} \in \mc{A} \msc{y} \in
+%    \mc{B} )\label{eq:df-disj}\tag{df-disj}
+%\end{align}
+%\end{restatable}
+
+\dfbr
+%\begin{restatable}{metadefinition}{dfbr}~\otherTitle{df-br}~ Define a general binary relation.  Note
+%that the syntax is simply three
+%     class symbols in a row.  
+%\begin{align}
+%\vdash ( \mc{A} \mc{R} \mc{B} \leftrightarrow \langle \mc{A} , \mc{B} \rangle
+%    \in \mc{R} )\label{eq:df-br}\tag{df-br}
+%\end{align}
+%\end{restatable}
+
+\begin{restatable}{lemma}{breq12d}~\otherTitle{breq12d}~ Equality deduction for a binary relation. 
+~  ~
+\begin{align}
+\vdash ( \mw{\varphi} \rightarrow \mc{A} = \mc{B} )\quad\&\quad \vdash (
+    \mw{\varphi} \rightarrow \mc{C} = \mc{D} )\quad\Rightarrow\quad \vdash (
+    \mw{\varphi} \rightarrow ( \mc{A} \mc{R} \mc{C} \leftrightarrow \mc{B}
+    \mc{R} \mc{D} ) )\label{eq:breq12d}\tag{breq12d}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{metadefinition}{dfco}~\otherTitle{df-co}~ Define the composition of two classes. 
+\begin{align}
+\vdash ( \mc{A} \circ \mc{B} ) = \{ \langle \msc{x} , \msc{y} \rangle~\vert~\exists
+    \msc{z} ( \msc{x} \mc{B} \msc{z} \wedge \msc{z} \mc{A} \msc{y} )
+    \}\label{eq:df-co}\tag{df-co}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{metadefinition}{dfdm}~\otherTitle{df-dm}~ Define the domain of a class.  
+\begin{align}
+\vdash \,\mathrm{dom}~ \mc{A} = \{ \msc{x}~\vert~\exists \msc{y} \msc{x} \mc{A}
+    \msc{y} \}\label{eq:df-dm}\tag{df-dm}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{breq12i}~\otherTitle{breq12i}~ Equality inference for a binary relation. 
+~  ~
+\begin{align}
+\vdash \mc{A} = \mc{B}\quad\&\quad \vdash \mc{C} = \mc{D}\quad\Rightarrow\quad
+    \vdash ( \mc{A} \mc{R} \mc{C} \leftrightarrow \mc{B} \mc{R} \mc{D}
+    )\label{eq:breq12i}\tag{breq12i}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{breqtri}~\otherTitle{breqtri}~ Substitution of equal classes into a binary
+relation.  ~
+\begin{align}
+\vdash \mc{A} \mc{R} \mc{B}\quad\&\quad \vdash \mc{B} =
+    \mc{C}\quad\Rightarrow\quad \vdash \mc{A} \mc{R}
+    \mc{C}\label{eq:breqtri}\tag{breqtri}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{sbcbr1g}~\otherTitle{sbcbr1g}~ Move substitution in and out of a binary
+relation.  ~
+\begin{align}
+\vdash ( \mc{A} \in V \rightarrow ( \underaccent{\dot}{[} \mc{A} / \msc{x}
+    \underaccent{\dot}{]} \mc{B} \mc{R} \mc{C} \leftrightarrow \underline{[}
+    \mc{A} / \msc{x} \underline{]} \mc{B} \mc{R} \mc{C} )
+    )\label{eq:sbcbr1g}\tag{sbcbr1g}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{sbcbr2g}~\otherTitle{sbcbr2g}~ Move substitution in and out of a binary
+relation.  ~
+\begin{align}
+\vdash ( \mc{A} \in V \rightarrow ( \underaccent{\dot}{[} \mc{A} / \msc{x}
+    \underaccent{\dot}{]} \mc{B} \mc{R} \mc{C} \leftrightarrow \mc{B} \mc{R}
+    \underline{[} \mc{A} / \msc{x} \underline{]} \mc{C} )
+    )\label{eq:sbcbr2g}\tag{sbcbr2g}
+\end{align}
+\end{restatable}
+

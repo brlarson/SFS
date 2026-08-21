@@ -1,0 +1,87 @@
+% text.tex
+%  test rendering of LaTeX generated from Metamath
+\documentclass[fleqn,openany]{book}
+
+%FORMAT
+\input{../../BLESS-LaTeX/Format/BLESSformat}
+
+\title{Test Metamath-Generated LaTeX}
+
+\makeindex		%tell LaTeX to gather index information
+
+
+\begin{document}
+\maketitle
+
+\tableofcontents 
+
+\listoffigures
+
+\listoftables
+
+\listofexamples
+
+% from \usepackage{thmtools}  
+\listofrules
+\listofmath
+
+\chapter{BLESS Theorems}
+
+\section{Define Well-Formed Formulas}
+\input{bless-lemmas-wff-list}
+
+\section{Helpers}
+\input{bless-lemmas-helpers}
+
+\section{WFF Substitution}
+\input{bless-lemmas-wff-subs}
+
+\section{WFF-list Logic}
+\subsection{WFF-list Conjunction}
+\input{bless-lemmas-wff-list-conj}
+\subsection{WFF-list Disjunction}
+\input{bless-lemmas-wff-list-disj}
+\subsection{WFF-list Combined Conjunction and Disjunction}
+\input{bless-lemmas-wff-list-both}
+
+
+\section{Class-list Expressions}
+\subsection{Class-list Definitions}
+\input{bless-lemmas-class-list}
+\subsection{Class-list Add and Multiply}
+\input{bless-lemmas-add-mult}
+
+\section{BLESS Logic}
+\subsection{BL Definitions}
+\input{bless-lemmas-temporal}
+\subsection{BL Model}
+\input{bless-lemmas-logic-model}
+\subsection{Model-at-time}
+\input{model-at-time}
+
+\section{ @ operator}
+\subsection{Define @}
+\input{at-def}
+\subsection{Distribute @}
+\input{bless-lemmas-distribute-at}
+
+\section{ Time-Shift operator}
+\subsection{Define Time-Shift}
+\input{ts-def}
+\subsection{Distribute Time-Shift}
+\input{bless-lemmas-distribute-ts}
+
+
+
+
+\chapter{MM Theorems}
+
+
+\chapter{Theorem Duplicates}
+
+\wland*
+
+\lfoot{\textsf{Index}}
+\printindex
+
+\end{document}  

@@ -1,0 +1,247 @@
+% This LaTeX file was created by Metamath on 6-Mar-2024 11:48 AM.
+\begin{restatable}{axiom}{axgen}~\otherTitle{ax-gen}~ Rule of (universal) generalization.  
+\begin{align}
+\vdash \mw{\varphi}\quad\Rightarrow\quad \vdash \forall \msc{x}
+    \mw{\varphi}\label{eq:ax-gen}\tag{ax-gen}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{metadefinition}{dfex}~\otherTitle{df-ex}~ Define existential quantification.
+$\exists \msc{x} \mw{\varphi}$ means ``there exists at
+     least one set $\msc{x}$ such that $\mw{\varphi}$ is true". 
+\begin{align}
+\vdash ( \exists \msc{x} \mw{\varphi} \leftrightarrow \lnot \forall \msc{x}
+    \lnot \mw{\varphi} )\label{eq:df-ex}\tag{df-ex}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{altru}~\otherTitle{altru}~ For all sets, $\top$ is true.  
+\begin{align}
+\vdash \forall \msc{x} \top\label{eq:altru}\tag{altru}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{axiom}{ax4}~\otherTitle{ax-4}~ Axiom of Quantified Implication.  
+\begin{align}
+\vdash ( \forall \msc{x} ( \mw{\varphi} \rightarrow \mw{\psi} ) \rightarrow (
+    \forall \msc{x} \mw{\varphi} \rightarrow \forall \msc{x} \mw{\psi} )
+    )\label{eq:ax-4}\tag{ax-4}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{alim}~\otherTitle{alim}~ Restatement of Axiom {\tt ax-4}, for labeling
+consistency.  
+\begin{align}
+\vdash ( \forall \msc{x} ( \mw{\varphi} \rightarrow \mw{\psi} ) \rightarrow (
+    \forall \msc{x} \mw{\varphi} \rightarrow \forall \msc{x} \mw{\psi} )
+    )\label{eq:alim}\tag{alim}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{albii}~\otherTitle{albii}~ Inference adding universal quantifier to both
+sides of an equivalence.
+       ~
+\begin{align}
+\vdash ( \mw{\varphi} \leftrightarrow \mw{\psi} )\quad\Rightarrow\quad \vdash (
+    \forall \msc{x} \mw{\varphi} \leftrightarrow \forall \msc{x} \mw{\psi}
+    )\label{eq:albii}\tag{albii}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{exbii}~\otherTitle{exbii}~ Inference adding existential quantifier to
+both sides of an equivalence.
+       ~
+\begin{align}
+\vdash ( \mw{\varphi} \leftrightarrow \mw{\psi} )\quad\Rightarrow\quad \vdash (
+    \exists \msc{x} \mw{\varphi} \leftrightarrow \exists \msc{x} \mw{\psi}
+    )\label{eq:exbii}\tag{exbii}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{axiom}{ax5}~\otherTitle{ax-5}~ Axiom of Distinctness.  This axiom quantifies a
+variable over a formula
+       in which it does not occur.         This axiom essentially says that if $\msc{x}$ does not occur in
+$\mw{\varphi}$,
+       i.e. $\mw{\varphi}$ does not depend on $\msc{x}$ in any way, then we
+can add the
+       quantifier $\forall \msc{x}$ to $\mw{\varphi}$ with no further
+assumptions.  
+\begin{align}
+\vdash ( \mw{\varphi} \rightarrow \forall \msc{x} \mw{\varphi}
+    )\label{eq:ax-5}\tag{ax-5}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{axiom}{ax6}~\otherTitle{ax-6}~ Axiom of Existence.  One of the equality and
+substitution axioms of
+     predicate calculus with equality.  
+\begin{align}
+\vdash \lnot \forall \msc{x} \lnot \msc{x} = \msc{y}\label{eq:ax-6}\tag{ax-6}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{ax6}~\otherTitle{ax6}~ Preferred form of Axiom of Existence in proofs.
+\begin{align}
+\vdash \lnot \forall \msc{x} \lnot \msc{x} = \msc{y}\label{eq:ax6}\tag{ax6}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{axiom}{ax7}~\otherTitle{ax-7}~ Axiom of Equality.  
+\begin{align}
+\vdash ( \msc{x} = \msc{y} \rightarrow ( \msc{x} = \msc{z} \rightarrow \msc{y}
+    = \msc{z} ) )\label{eq:ax-7}\tag{ax-7}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{ax7}~\otherTitle{ax7}~ Preferred form of Axiom of Equality in proofs.
+\begin{align}
+\vdash ( \msc{x} = \msc{y} \rightarrow ( \msc{x} = \msc{z} \rightarrow \msc{y}
+    = \msc{z} ) )\label{eq:ax7}\tag{ax7}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{axiom}{ax8}~\otherTitle{ax-8}~ Axiom of Left Equality for Binary Predicate. 
+\begin{align}
+\vdash ( \msc{x} = \msc{y} \rightarrow ( \msc{x} \in \msc{z} \rightarrow
+    \msc{y} \in \msc{z} ) )\label{eq:ax-8}\tag{ax-8}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{ax8}~\otherTitle{ax8}~ Preferred form of Axiom of Left Equality for Binary Predicate in proofs.
+\begin{align}
+\vdash ( \msc{x} = \msc{y} \rightarrow ( \msc{x} \in \msc{z} \rightarrow
+    \msc{y} \in \msc{z} ) )\label{eq:ax8}\tag{ax8}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{axiom}{ax9}~\otherTitle{ax-9}~ Axiom of Right Equality for Binary Predicate. 
+\begin{align}
+\vdash ( \msc{x} = \msc{y} \rightarrow ( \msc{z} \in \msc{x} \rightarrow
+    \msc{z} \in \msc{y} ) )\label{eq:ax-9}\tag{ax-9}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{axiom}{ax10}~\otherTitle{ax-10}~ Axiom of Quantified Negation.   This axiom
+     scheme is logically redundant (see {\tt ax10w}) but is used as an
+auxiliary
+     axiom scheme to achieve scheme completeness.  It means that $\msc{x}$ is
+not free in $\lnot \forall \msc{x} \mw{\varphi}$.  ~
+\begin{align}
+\vdash ( \lnot \forall \msc{x} \mw{\varphi} \rightarrow \forall \msc{x} \lnot
+    \forall \msc{x} \mw{\varphi} )\label{eq:ax-10}\tag{ax-10}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{axiom}{ax11}~\otherTitle{ax-11}~ Axiom of Quantifier Commutation.  This axiom
+says universal quantifiers
+     can be swapped.    This axiom scheme is logically redundant (see {\tt
+ax11w})
+     but is used as an auxiliary axiom scheme to achieve metalogical
+     completeness.  ~
+\begin{align}
+\vdash ( \forall \msc{x} \forall \msc{y} \mw{\varphi} \rightarrow \forall
+    \msc{y} \forall \msc{x} \mw{\varphi} )\label{eq:ax-11}\tag{ax-11}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{axiom}{ax12}~\otherTitle{ax-12}~ Axiom of Substitution.      This axiom scheme is logically redundant (see {\tt ax12w}) but is used as
+an
+     auxiliary axiom scheme to achieve scheme completeness.  ~  ~
+\begin{align}
+\vdash ( \msc{x} = \msc{y} \rightarrow ( \forall \msc{y} \mw{\varphi}
+    \rightarrow \forall \msc{x} ( \msc{x} = \msc{y} \rightarrow \mw{\varphi} )
+    ) )\label{eq:ax-12}\tag{ax-12}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{axiom}{ax13}~\otherTitle{ax-13}~ Axiom of Quantified Equality. 
+The primary purpose of this axiom is to provide a way to introduce the
+     quantifier $\forall \msc{x}$ on $\msc{y} = \msc{z}$ even when $\msc{x}$
+and $\msc{y}$ are substituted
+     with the same variable.  In this case, the first antecedent becomes
+     $\lnot \msc{x} = \msc{x}$ and the axiom still holds.
+\begin{align}
+\vdash ( \lnot \msc{x} = \msc{y} \rightarrow ( \msc{y} = \msc{z} \rightarrow
+    \forall \msc{x} \msc{y} = \msc{z} ) )\label{eq:ax-13}\tag{ax-13}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{3eqtr3i}~\otherTitle{3eqtr3i}~ An inference from three chained equalities.
+~  ~
+\begin{align}
+\vdash \mc{A} = \mc{B}\quad\&\quad \vdash \mc{A} = \mc{C}\quad\&\quad \vdash
+    \mc{B} = \mc{D}\quad\Rightarrow\quad \vdash \mc{C} =
+    \mc{D}\label{eq:3eqtr3i}\tag{3eqtr3i}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{ralv}~\otherTitle{ralv}~ A universal quantifier restricted to the
+universe is unrestricted.
+\begin{align}
+\vdash ( \forall \msc{x} \in \,\mathrm{V} \mw{\varphi} \leftrightarrow \forall
+    \msc{x} \mw{\varphi} )\label{eq:ralv}\tag{ralv}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{rexlimi}~\otherTitle{rexlimi}~ Restricted-quantifier version of
+\texttt{exlimi}: eliminate a witness variable from a restricted
+existential, given the variable is not free in the conclusion.
+\begin{align}
+\vdash \Finv \msc{x} \mw{\psi}\quad\&\quad \vdash ( \msc{x} \in \mc{A}
+    \rightarrow ( \mw{\varphi} \rightarrow \mw{\psi} ) )\quad\Rightarrow\quad
+    \vdash ( \exists \msc{x} \in \mc{A} \mw{\varphi} \rightarrow \mw{\psi}
+    )\label{eq:rexlimi}\tag{rexlimi}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{orimonei}~\otherTitle{orim1i}~ Introduce a disjunct to both sides of an
+implication.
+\begin{align}
+\vdash ( \mw{\varphi} \rightarrow \mw{\psi} )\quad\Rightarrow\quad \vdash ( (
+    \mw{\varphi} \vee \mw{\chi} ) \rightarrow ( \mw{\psi} \vee \mw{\chi} )
+    )\label{eq:orim1i}\tag{orim1i}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{nf51}~\otherTitle{nf5-1}~ One direction of \texttt{nf5}, provable with a
+smaller footprint on axiom usage.
+\begin{align}
+\vdash ( \forall \msc{x} ( \mw{\varphi} \rightarrow \forall \msc{x}
+    \mw{\varphi} ) \rightarrow \Finv \msc{x} \mw{\varphi}
+    )\label{eq:nf5-1}\tag{nf5-1}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{nfre1}~\otherTitle{nfre1}~ The setvar $\msc{x}$ is not free in $\exists
+\msc{x} \in \mc{A}~\mw{\varphi}$.
+\begin{align}
+\vdash \Finv \msc{x} \exists \msc{x} \in \mc{A}
+    \mw{\varphi}\label{eq:nfre1}\tag{nfre1}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{193}~\otherTitle{19.3}~ A wff may be quantified with a variable not free
+in it (vacuous quantification).
+\begin{align}
+\vdash \Finv \msc{x} \mw{\varphi}\quad\Rightarrow\quad \vdash ( \forall
+    \msc{x} \mw{\varphi} \leftrightarrow \mw{\varphi}
+    )\label{eq:19.3}\tag{19.3}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{198a}~\otherTitle{19.8a}~ If a wff is true, it is true for at least one
+instance (unconditional existential generalization).
+\begin{align}
+\vdash ( \mw{\varphi} \rightarrow \exists \msc{x} \mw{\varphi}
+    )\label{eq:19.8a}\tag{19.8a}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{exthm}~\otherTitle{ex}~ Exportation inference.
+\begin{align}
+\vdash ( ( \mw{\varphi} \wedge \mw{\psi} ) \rightarrow \mw{\chi}
+    )\quad\Rightarrow\quad \vdash ( \mw{\varphi} \rightarrow ( \mw{\psi}
+    \rightarrow \mw{\chi} ) )\label{eq:ex}\tag{ex}
+\end{align}
+\end{restatable}
+

@@ -1,0 +1,48 @@
+%lattice2.tex
+%draw lattices (V1,E1) and (V2,E2)
+
+\setcounter{lwidth}{180}
+\setcounter{lheight}{150}
+
+\begin{picture}(\value{lwidth},\value{lheight})(0,0)
+%\graphpaper(0,0)(\value{lwidth},\value{lheight})
+
+\setcounter{circlediameter}{15}
+\thicklines
+\color{blue}
+
+\drawarc{1}{11}{1}{1}{1}{4}
+\drawarc{1}{11}{1}{1}{2}{4}
+\drawarc{1}{11}{1}{1}{3}{4}
+\drawarc{1}{11}{1}{1}{4}{4}
+
+\drawarc{4}{11}{1}{4}{1}{1}
+\drawarc{4}{11}{2}{4}{1}{1}
+\drawarc{4}{11}{3}{4}{1}{1}
+\drawarc{4}{11}{4}{4}{1}{1}
+
+\drawarc{7}{11}{1}{1}{1}{4}
+\drawarc{7}{11}{1}{1}{2}{4}
+\drawarc{7}{11}{1}{1}{3}{4}
+\drawarc{7}{11}{1}{1}{4}{4}
+
+\drawarc{10}{11}{1}{4}{1}{1}
+\drawarc{10}{11}{2}{4}{1}{1}
+\drawarc{10}{11}{3}{4}{1}{1}
+\drawarc{10}{11}{4}{4}{1}{1}
+
+\color{green}
+\drawtextnode %{row}{numrows}{node}{numnodesinrow}{text}
+	{1}{11}{1}{1}{$\ell_1$}
+\drawtextnode{5}{11}{1}{1}{$u_1$}
+
+\drawtextnode{7}{11}{1}{1}{$\ell_2$}
+\drawtextnode{11}{11}{1}{1}{$u_2$}
+
+\color{black}
+\put(-20,137){\scalebox{\nodetextscalefactor}[\nodetextscalefactor]
+	{$\intervalsub{i}{1}=(V_{1},E_{1})$}}
+\put(-20,67){\scalebox{\nodetextscalefactor}[\nodetextscalefactor]
+	{$\intervalsub{i}{2}=(V_{2},E_{2})$}}
+
+\end{picture}

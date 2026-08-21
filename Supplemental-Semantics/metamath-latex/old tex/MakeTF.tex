@@ -1,0 +1,353 @@
+% This LaTeX file was created by Metamath on 4-Nov-2016 3:06 PM.
+\begin{lemma}\otherTitle{wtrue} true is a well-formed formula
+\begin{align}
+{\rm\color{wffcolor} wff~} \top\label{wtrue}
+\end{align}
+\end{lemma}
+
+\begin{lemma}\otherTitle{wfalse} false is a well-formed formula
+\begin{align}
+{\rm\color{wffcolor} wff~} \bot\label{wfalse}
+\end{align}
+\end{lemma}
+
+\begin{lemma}\otherTitle{df-true} define true
+\begin{align}
+\vdash ( \top \leftrightarrow ( {\color{formulacolor}\varphi} \rightarrow
+    {\color{formulacolor}\varphi} ) )\label{df-true}
+\end{align}
+\end{lemma}
+
+\begin{lemma}\otherTitle{df-false} define false
+\begin{align}
+\vdash ( \bot \leftrightarrow \lnot \top )\label{df-false}
+\end{align}
+\end{lemma}
+
+\begin{lemma}\blTitle{bl.that} theorems are true
+\begin{align}
+\vdash {\color{formulacolor}\varphi}\quad\Rightarrow\quad \vdash (
+    {\color{formulacolor}\varphi} \leftrightarrow \top )\label{bl.that}
+\end{align}
+\end{lemma}
+
+\begin{proof}
+\begin{align}
+  1 && & \vdash {\color{formulacolor}\varphi}&\text{Hyp~that.1}\notag%bl.that.1
+  \\ 2 && & \vdash ( {\color{formulacolor}\varphi} \leftrightarrow (
+      {\color{formulacolor}\varphi} \rightarrow
+      {\color{formulacolor}\varphi} )
+      )&1,(\mmref{a1bi})\notag
+  \\ 3 && & \vdash ( \top \leftrightarrow ( {\color{formulacolor}\varphi}
+      \rightarrow {\color{formulacolor}\varphi} )
+      )&(\mmref{df-true})\notag
+  \\ 4 && & \vdash ( {\color{formulacolor}\varphi} \leftrightarrow \top
+      )&2,3,(\mmref{bitr4i})\notag
+\end{align}
+\end{proof}
+
+\begin{lemma}\blTitle{bl.cthaf} complemented theorems are false
+\begin{align}
+\vdash \lnot {\color{formulacolor}\varphi}\quad\Rightarrow\quad \vdash (
+    {\color{formulacolor}\varphi} \leftrightarrow \bot )\label{bl.cthaf}
+\end{align}
+\end{lemma}
+
+\begin{proof}
+\begin{align}
+  1 && & \vdash ( \bot \leftrightarrow \lnot \top )&(\mmref{df-false})\notag
+  \\ 2 && & \vdash \lnot
+{\color{formulacolor}\varphi}&\text{Hyp~cthaf.1}\notag%bl.cthaf.1
+  \\ 3 && & \vdash ( \lnot {\color{formulacolor}\varphi} \leftrightarrow \top
+      )&2,(\mmref{bl.that})\notag
+  \\ 4 && & \vdash ( \lnot \top \leftrightarrow {\color{formulacolor}\varphi}
+      )&3,(\mmref{con1bii})\notag
+  \\ 5 && & \vdash ( {\color{formulacolor}\varphi} \leftrightarrow \bot
+      )&1,4,(\mmref{bitr2i})\notag
+\end{align}
+\end{proof}
+
+\begin{lemma}\blTitle{bl.antrr} conjunction with true on right
+\begin{align}
+\vdash ( ( {\color{formulacolor}\varphi} \wedge \top ) \leftrightarrow
+    {\color{formulacolor}\varphi} )\label{bl.antrr}
+\end{align}
+\end{lemma}
+
+\begin{proof}
+\begin{align}
+  1 && & \vdash ( \top \leftrightarrow ( {\color{formulacolor}\varphi}
+      \rightarrow {\color{formulacolor}\varphi} )
+      )&(\mmref{df-true})\notag
+  \\ 2 && & \vdash ( ( {\color{formulacolor}\varphi} \wedge \top )
+      \leftrightarrow ( {\color{formulacolor}\varphi}
+      \wedge ( {\color{formulacolor}\varphi} \rightarrow
+      {\color{formulacolor}\varphi} ) )
+      )&1,(\mmref{anbi2i})\notag
+  \\ 3 && & \vdash ( {\color{formulacolor}\varphi} \leftrightarrow (
+      {\color{formulacolor}\varphi} \wedge (
+      {\color{formulacolor}\varphi} \rightarrow
+      {\color{formulacolor}\varphi} ) )
+      )&(\mmref{pm4.45im})\notag
+  \\ 4 && & \vdash ( ( {\color{formulacolor}\varphi} \wedge \top )
+      \leftrightarrow {\color{formulacolor}\varphi}
+      )&2,3,(\mmref{bitr4i})\notag
+\end{align}
+\end{proof}
+
+\begin{lemma}\blTitle{bl.antrl} conjunction with true on left
+\begin{align}
+\vdash ( ( \top \wedge {\color{formulacolor}\varphi} ) \leftrightarrow
+    {\color{formulacolor}\varphi} )\label{bl.antrl}
+\end{align}
+\end{lemma}
+
+\begin{proof}
+\begin{align}
+  1 && & \vdash ( ( \top \wedge {\color{formulacolor}\varphi} ) \leftrightarrow
+      ( {\color{formulacolor}\varphi} \wedge \top )
+      )&(\mmref{ancom})\notag
+  \\ 2 && & \vdash ( ( {\color{formulacolor}\varphi} \wedge \top )
+      \leftrightarrow {\color{formulacolor}\varphi}
+      )&(\mmref{bl.antrr})\notag
+  \\ 3 && & \vdash ( ( \top \wedge {\color{formulacolor}\varphi} )
+      \leftrightarrow {\color{formulacolor}\varphi}
+      )&1,2,(\mmref{bitri})\notag
+\end{align}
+\end{proof}
+
+\begin{lemma}\blTitle{bl.anfar} conjunction with false on right
+\begin{align}
+\vdash ( ( {\color{formulacolor}\varphi} \wedge \bot ) \leftrightarrow \bot
+    )\label{bl.anfar}
+\end{align}
+\end{lemma}
+
+\begin{proof}
+\begin{align}
+  1 && & \vdash ( ( {\color{formulacolor}\varphi} \wedge \bot ) \leftrightarrow
+      \lnot ( {\color{formulacolor}\varphi} \rightarrow
+      \lnot \bot ) )&(\mmref{df-an})\notag
+  \\ 2 && & \vdash ( \lnot ( {\color{formulacolor}\varphi} \wedge \bot )
+      \leftrightarrow \lnot \lnot (
+      {\color{formulacolor}\varphi} \rightarrow \lnot \bot
+      ) )&1,(\mmref{notbii})\notag
+  \\ 3 && & \vdash ( ( {\color{formulacolor}\varphi} \rightarrow \lnot \bot )
+      \leftrightarrow \lnot \lnot (
+      {\color{formulacolor}\varphi} \rightarrow \lnot \bot
+      ) )&(\mmref{notnot})\notag
+  \\ 4 && & \vdash ( \lnot ( {\color{formulacolor}\varphi} \wedge \bot )
+      \leftrightarrow ( {\color{formulacolor}\varphi}
+      \rightarrow \lnot \bot )
+      )&2,3,(\mmref{bitr4i})\notag
+  \\ 5 && & \vdash ( {\color{formulacolor}\varphi} \rightarrow (
+      {\color{formulacolor}\varphi} \rightarrow
+      {\color{formulacolor}\varphi} )
+      )&(\mmref{ax-1})\notag
+  \\ 6 && & \vdash ( \top \leftrightarrow ( {\color{formulacolor}\varphi}
+      \rightarrow {\color{formulacolor}\varphi} )
+      )&(\mmref{df-true})\notag
+  \\ 7 && & \vdash ( {\color{formulacolor}\varphi} \rightarrow \top
+      )&5,6,(\mmref{sylibr})\notag
+  \\ 8 && & \vdash ( \bot \leftrightarrow \lnot \top
+      )&(\mmref{df-false})\notag
+  \\ 9 && & \vdash ( \lnot \bot \leftrightarrow \lnot \lnot \top
+      )&8,(\mmref{notbii})\notag
+  \\ 10 && & \vdash ( \top \leftrightarrow \lnot \lnot \top
+      )&(\mmref{notnot})\notag
+  \\ 11 && & \vdash ( \lnot \bot \leftrightarrow \top
+      )&9,10,(\mmref{bitr4i})\notag
+  \\ 12 && & \vdash ( \top \rightarrow \lnot \bot )&11,(\mmref{biimpri})\notag
+  \\ 13 && & \vdash ( ( {\color{formulacolor}\varphi} \rightarrow \top )
+      \rightarrow ( {\color{formulacolor}\varphi}
+      \rightarrow \lnot \bot ) )&12,(\mmref{imim2i})\notag
+  \\ 14 && & \vdash ( {\color{formulacolor}\varphi} \rightarrow \lnot \bot
+      )&7,13,(\mmref{ax-mp})\notag
+  \\ 15 && & \vdash ( ( {\color{formulacolor}\varphi} \rightarrow \lnot \bot )
+      \leftrightarrow \top )&14,(\mmref{bl.that})\notag
+  \\ 16 && & \vdash ( \lnot ( {\color{formulacolor}\varphi} \wedge \bot )
+      \leftrightarrow \top )&4,15,(\mmref{bitri})\notag
+  \\ 17 && & \vdash ( \bot \leftrightarrow \lnot \top
+      )&(\mmref{df-false})\notag
+  \\ 18 && & \vdash ( \lnot \bot \leftrightarrow \lnot \lnot \top
+      )&17,(\mmref{notbii})\notag
+  \\ 19 && & \vdash ( \top \leftrightarrow \lnot \lnot \top
+      )&(\mmref{notnot})\notag
+  \\ 20 && & \vdash ( \lnot \bot \leftrightarrow \top
+      )&18,19,(\mmref{bitr4i})\notag
+  \\ 21 && & \vdash ( \lnot ( {\color{formulacolor}\varphi} \wedge \bot )
+      \leftrightarrow \lnot \bot
+      )&16,20,(\mmref{bitr4i})\notag
+  \\ 22 && & \vdash ( ( {\color{formulacolor}\varphi} \wedge \bot )
+      \leftrightarrow \bot )&21,(\mmref{con4bii})\notag
+\end{align}
+\end{proof}
+
+\begin{lemma}\blTitle{bl.anfal} conjunction with false  on left
+\begin{align}
+\vdash ( ( \bot \wedge {\color{formulacolor}\varphi} ) \leftrightarrow \bot
+    )\label{bl.anfal}
+\end{align}
+\end{lemma}
+
+\begin{proof}
+\begin{align}
+  1 && & \vdash ( ( \bot \wedge {\color{formulacolor}\varphi} ) \leftrightarrow
+      ( {\color{formulacolor}\varphi} \wedge \bot )
+      )&(\mmref{ancom})\notag
+  \\ 2 && & \vdash ( ( {\color{formulacolor}\varphi} \wedge \bot )
+      \leftrightarrow \bot )&(\mmref{bl.anfar})\notag
+  \\ 3 && & \vdash ( ( \bot \wedge {\color{formulacolor}\varphi} )
+      \leftrightarrow \bot )&1,2,(\mmref{bitri})\notag
+\end{align}
+\end{proof}
+
+\begin{lemma}\blTitle{bl.ortrr} disjunction with true  on right
+\begin{align}
+\vdash ( ( {\color{formulacolor}\varphi} \vee \top ) \leftrightarrow \top
+    )\label{bl.ortrr}
+\end{align}
+\end{lemma}
+
+\begin{proof}
+\begin{align}
+  1 && & \vdash ( ( {\color{formulacolor}\varphi} \vee \top ) \leftrightarrow (
+      \lnot {\color{formulacolor}\varphi} \rightarrow \top
+      ) )&(\mmref{df-or})\notag
+  \\ 2 && & \vdash ( ( {\color{formulacolor}\varphi} \vee \top ) \rightarrow (
+      \lnot {\color{formulacolor}\varphi} \rightarrow \top
+      ) )&1,(\mmref{biimpi})\notag
+  \\ 3 && & \vdash ( {\color{formulacolor}\varphi} \rightarrow \top
+      )&(\mmref{a1tru})\notag
+  \\ 4 && & \vdash ( ( {\color{formulacolor}\varphi} \leftrightarrow
+      {\color{formulacolor}\varphi} ) \rightarrow (
+      {\color{formulacolor}\varphi} \rightarrow
+      {\color{formulacolor}\varphi} )
+      )&(\mmref{idd})\notag
+  \\ 5 && & \vdash ( \top \leftrightarrow ( {\color{formulacolor}\varphi}
+      \leftrightarrow {\color{formulacolor}\varphi} )
+      )&(\mmref{df-tru})\notag
+  \\ 6 && & \vdash ( \top \leftrightarrow ( {\color{formulacolor}\varphi}
+      \rightarrow {\color{formulacolor}\varphi} )
+      )&(\mmref{df-true})\notag
+  \\ 7 && & \vdash ( \top \rightarrow \top )&4,5,6,(\mmref{3imtr4i})\notag
+  \\ 8 && & \vdash ( {\color{formulacolor}\varphi} \rightarrow \top
+      )&3,7,(\mmref{syl})\notag
+  \\ 9 && & \vdash ( ( {\color{formulacolor}\varphi} \rightarrow \top )
+      \rightarrow ( ( \lnot {\color{formulacolor}\varphi}
+      \rightarrow \top ) \rightarrow \top )
+      )&(\mmref{pm2.61})\notag
+  \\ 10 && & \vdash ( ( \lnot {\color{formulacolor}\varphi} \rightarrow \top )
+      \rightarrow \top )&8,9,(\mmref{ax-mp})\notag
+  \\ 11 && & \vdash ( ( {\color{formulacolor}\varphi} \vee \top ) \rightarrow
+      \top )&2,10,(\mmref{syl})\notag
+  \\ 12 && & \vdash ( \top \rightarrow ( {\color{formulacolor}\varphi} \vee
+      \top ) )&(\mmref{olc})\notag
+  \\ 13 && & \vdash ( ( {\color{formulacolor}\varphi} \vee \top )
+      \leftrightarrow \top )&11,12,(\mmref{impbii})\notag
+\end{align}
+\end{proof}
+
+\begin{lemma}\blTitle{bl.ortrl} disjunction with true  on left
+\begin{align}
+\vdash ( ( \top \vee {\color{formulacolor}\varphi} ) \leftrightarrow \top
+    )\label{bl.ortrl}
+\end{align}
+\end{lemma}
+
+\begin{proof}
+\begin{align}
+  1 && & \vdash ( ( {\color{formulacolor}\varphi} \vee \top ) \leftrightarrow (
+      \top \vee {\color{formulacolor}\varphi} )
+      )&(\mmref{orcom})\notag
+  \\ 2 && & \vdash ( ( {\color{formulacolor}\varphi} \vee \top )
+      \leftrightarrow \top )&(\mmref{bl.ortrr})\notag
+  \\ 3 && & \vdash ( ( \top \vee {\color{formulacolor}\varphi} )
+      \leftrightarrow \top )&1,2,(\mmref{bitr3i})\notag
+\end{align}
+\end{proof}
+
+\begin{lemma}\blTitle{bl.orfar} disjunction with false  on right
+\begin{align}
+\vdash ( ( {\color{formulacolor}\varphi} \vee \bot ) \leftrightarrow
+    {\color{formulacolor}\varphi} )\label{bl.orfar}
+\end{align}
+\end{lemma}
+
+\begin{proof}
+\begin{align}
+  1 && & \vdash ( ( \lnot {\color{formulacolor}\varphi} \wedge \lnot \bot )
+      \leftrightarrow \lnot ( {\color{formulacolor}\varphi}
+      \vee \bot ) )&(\mmref{pm4.56})\notag
+  \\ 2 && & \vdash ( \bot \leftrightarrow \lnot \top
+      )&(\mmref{df-false})\notag
+  \\ 3 && & \vdash ( \lnot \bot \leftrightarrow \lnot \lnot \top
+      )&2,(\mmref{notbii})\notag
+  \\ 4 && & \vdash ( \top \leftrightarrow \lnot \lnot \top
+      )&(\mmref{notnot})\notag
+  \\ 5 && & \vdash ( \lnot \bot \leftrightarrow \top
+      )&3,4,(\mmref{bitr4i})\notag
+  \\ 6 && & \vdash ( ( \lnot {\color{formulacolor}\varphi} \wedge \lnot \bot )
+      \leftrightarrow ( \lnot {\color{formulacolor}\varphi}
+      \wedge \top ) )&5,(\mmref{anbi2i})\notag
+  \\ 7 && & \vdash ( ( \lnot {\color{formulacolor}\varphi} \wedge \top )
+      \leftrightarrow \lnot {\color{formulacolor}\varphi}
+      )&(\mmref{bl.antrr})\notag
+  \\ 8 && & \vdash ( ( \lnot {\color{formulacolor}\varphi} \wedge \lnot \bot )
+      \leftrightarrow \lnot {\color{formulacolor}\varphi}
+      )&6,7,(\mmref{bitri})\notag
+  \\ 9 && & \vdash ( \lnot ( {\color{formulacolor}\varphi} \vee \bot )
+      \leftrightarrow \lnot {\color{formulacolor}\varphi}
+      )&1,8,(\mmref{bitr3i})\notag
+  \\ 10 && & \vdash ( ( {\color{formulacolor}\varphi} \vee \bot )
+      \leftrightarrow {\color{formulacolor}\varphi}
+      )&9,(\mmref{con4bii})\notag
+\end{align}
+\end{proof}
+
+\begin{lemma}\blTitle{bl.orfal} disjunction with false  on left
+\begin{align}
+\vdash ( ( \bot \vee {\color{formulacolor}\varphi} ) \leftrightarrow
+    {\color{formulacolor}\varphi} )\label{bl.orfal}
+\end{align}
+\end{lemma}
+
+\begin{proof}
+\begin{align}
+  1 && & \vdash ( ( \bot \vee {\color{formulacolor}\varphi} ) \leftrightarrow (
+      {\color{formulacolor}\varphi} \vee \bot )
+      )&(\mmref{orcom})\notag
+  \\ 2 && & \vdash ( ( {\color{formulacolor}\varphi} \vee \bot )
+      \leftrightarrow {\color{formulacolor}\varphi}
+      )&(\mmref{bl.orfar})\notag
+  \\ 3 && & \vdash ( ( \bot \vee {\color{formulacolor}\varphi} )
+      \leftrightarrow {\color{formulacolor}\varphi}
+      )&1,2,(\mmref{bitri})\notag
+\end{align}
+\end{proof}
+
+\begin{lemma}\blTitle{bl.an2impor2} bl.an2impor2
+\begin{align}
+\vdash ( ( {\color{formulacolor}\varphi} \wedge {\color{formulacolor}\psi} )
+    \rightarrow ( {\color{formulacolor}\varphi} \vee {\color{formulacolor}\chi}
+    ) )\label{bl.an2impor2}
+\end{align}
+\end{lemma}
+
+\begin{proof}
+\begin{align}
+  1 && & \vdash ( ( {\color{formulacolor}\varphi} \wedge
+      {\color{formulacolor}\psi} ) \rightarrow
+      {\color{formulacolor}\varphi}
+      )&(\mmref{simpl})\notag
+  \\ 2 && & \vdash ( {\color{formulacolor}\varphi} \rightarrow (
+      {\color{formulacolor}\varphi} \vee
+      {\color{formulacolor}\chi} ) )&(\mmref{orc})\notag
+  \\ 3 && & \vdash ( ( {\color{formulacolor}\varphi} \wedge
+      {\color{formulacolor}\psi} ) \rightarrow (
+      {\color{formulacolor}\varphi} \vee
+      {\color{formulacolor}\chi} )
+      )&1,2,(\mmref{syl})\notag
+\end{align}
+\end{proof}
+

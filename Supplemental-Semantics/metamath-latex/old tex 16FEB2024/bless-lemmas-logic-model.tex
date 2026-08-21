@@ -1,0 +1,422 @@
+% This LaTeX file was created by Metamath on 18-Feb-2024 9:42 PM.
+\begin{restatable}{axiom}{axbltaut}~\blTitle{ax-bl.taut}~ Tautologies hold in $\mathfrak{M}$.
+   ax-bl.taut syas that if $\mw{\varphi}$ is tautology, it also holds in
+models, $\,\mathrm{mathhfrakM}$.
+\begin{align}
+\vdash ( \mw{\varphi} \leftrightarrow ( \mathfrak{M} \models \mw{\varphi} )
+    )\label{eq:ax-bl.taut}\tag{ax-bl.taut}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{axiom}{axblmodels}~\blTitle{ax-bl.models}~ Defing $\mathfrak{M}$ models predicate
+for any $\msc{t} \in \mathbf{T}$
+\begin{align}
+\vdash \msc{t} \in \mathbf{T}\quad\Rightarrow \notag \\ 
+	\quad \vdash ( ( \mathfrak{M}
+    \models \mw{\varphi} ) \rightarrow ( \mathfrak{M} , \msc{t} \models
+    \mw{\varphi} ) )\label{eq:ax-bl.models}\tag{ax-bl.models}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{axiom}{axblmodelsc}~\blTitle{ax-bl.modelsc}~ Defing $\mathfrak{M}$ models values
+over any $\msc{t} \in \mathbf{T}$
+\begin{align}
+\vdash \msc{t} \in \mathbf{T}\quad\Rightarrow \notag \\ 
+	\quad \vdash ( ( \mathfrak{M}
+    \models \mc{A} ) = \mc{B} \rightarrow ( \mathfrak{M} , \msc{t} \models
+    \mc{A} ) = \mc{B} )\label{eq:ax-bl.modelsc}\tag{ax-bl.modelsc}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{axiom}{axblbi}~\blTitle{ax-bl.bi}~ Axiom of temporal equivalence.
+\begin{align}
+\vdash ( ( \msc{t_1} \in \mathbf{T} \wedge \msc{t_2} \in \mathbf{T} \wedge
+    \msc{t_1} = \msc{t_2} ) \rightarrow ( ( \mw{\varphi} \leftrightarrow
+    \mw{\psi} ) \leftrightarrow ( ( \mathfrak{M} , \msc{t_1} \models
+    \mw{\varphi} ) \leftrightarrow ( \mathfrak{M} , \msc{t_2} \models \mw{\psi}
+    ) ) ) )\label{eq:ax-bl.bi}\tag{ax-bl.bi}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{axiom}{axbleq}~\blTitle{ax-bl.eq}~ Axiom of temporal equality.
+\begin{align}
+\vdash ( ( \msc{t_1} \in \mathbf{T} \wedge \msc{t_2} \in \mathbf{T} \wedge
+    \msc{t_1} = \msc{t_2} ) \rightarrow ( \mc{A} = \mc{B} \leftrightarrow (
+    \mathfrak{M} , \msc{t_1} \models \mc{A} ) = ( \mathfrak{M} , \msc{t_2}
+    \models \mc{B} ) ) )\label{eq:ax-bl.eq}\tag{ax-bl.eq}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{axiom}{axblty}~\blTitle{ax-bl.ty}~ Set membership  in $\mathfrak{M}$.
+Types of variables are constant under $\mathfrak{M}$.
+\begin{align}
+\vdash ( \mc{A} \in \mc{B} \leftrightarrow ( \mathfrak{M} \models \mc{A} ) \in
+    \mc{B} )\label{eq:ax-bl.ty}\tag{ax-bl.ty}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{metadefinition}{dfblan}~\blTitle{df-bl.an}~ $\mathfrak{M}$ conjunction.
+\begin{align}
+\vdash ( ( \mathfrak{M} \models ( \mw{\varphi} \wedge \mw{\psi} ) )
+    \leftrightarrow ( ( \mathfrak{M} \models \mw{\varphi} ) \wedge (
+    \mathfrak{M} \models \mw{\psi} ) ) )\label{eq:df-bl.an}\tag{df-bl.an}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{metadefinition}{dfblor}~\blTitle{df-bl.or}~ $\mathfrak{M}$ disjunction.
+\begin{align}
+\vdash ( ( \mathfrak{M} \models ( \mw{\varphi} \vee \mw{\psi} ) )
+    \leftrightarrow ( ( \mathfrak{M} \models \mw{\varphi} ) \vee ( \mathfrak{M}
+    \models \mw{\psi} ) ) )\label{eq:df-bl.or}\tag{df-bl.or}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{metadefinition}{dfblim}~\blTitle{df-bl.im}~ $\mathfrak{M}$ implication.
+\begin{align}
+\vdash ( ( \mathfrak{M} \models ( \mw{\varphi} \rightarrow \mw{\psi} ) )
+    \leftrightarrow ( ( \mathfrak{M} , \msc{t} \models \mw{\varphi} )
+    \rightarrow ( \mathfrak{M} \models \mw{\psi} ) )
+    )\label{eq:df-bl.im}\tag{df-bl.im}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{metadefinition}{dfblbi}~\blTitle{df-bl.bi}~ $\mathfrak{M}$ biconditional.
+\begin{align}
+\vdash ( ( \mathfrak{M} \models ( \mw{\varphi} \leftrightarrow \mw{\psi} ) )
+    \leftrightarrow ( ( \mathfrak{M} \models \mw{\varphi} ) \leftrightarrow (
+    \mathfrak{M} \models \mw{\psi} ) ) )\label{eq:df-bl.bi}\tag{df-bl.bi}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{metadefinition}{dfblnot}~\blTitle{df-bl.not}~ $\mathfrak{M}$ complement.
+\begin{align}
+\vdash ( ( \mathfrak{M} \models \lnot \mw{\varphi} ) \leftrightarrow \lnot (
+    \mathfrak{M} \models \mw{\varphi} ) )\label{eq:df-bl.not}\tag{df-bl.not}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{metadefinition}{dfblal}~\blTitle{df-bl.al}~ Exportation of universal quantification
+from $\mathfrak{M}$
+\begin{align}
+\vdash ( ( \mathfrak{M} \models \forall \msc{x} \in \mc{A} \mw{\varphi} )
+    \leftrightarrow \forall \msc{x} \in \mc{A} ( \mathfrak{M} \models
+    \mw{\varphi} ) )\label{eq:df-bl.al}\tag{df-bl.al}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{blfrextwo}~\blTitle{bl.dfrex2}~ Define existential quantification in
+$\mathfrak{M}$.
+\begin{align}
+\vdash ( ( \mathfrak{M} \models \exists \msc{x} \in \mc{A} \mw{\varphi} )
+    \leftrightarrow ( \mathfrak{M} \models \lnot \forall \msc{x} \in \mc{A}
+    \lnot \mw{\varphi} ) )\label{eq:bl.dfrex2}\tag{bl.dfrex2}
+\end{align}
+\end{restatable}
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash ( \exists \msc{x} \in \mc{A} \mw{\varphi} \leftrightarrow
+     ~\lnot \forall \msc{x} \in \mc{A} \lnot \mw{\varphi}
+     ~)&(\mbox{\ref{eq:dfrex2}})\notag
+  \\ 2 &&  & \vdash ( ( \exists \msc{x} \in \mc{A} \mw{\varphi} \leftrightarrow
+     ~\lnot \forall \msc{x} \in \mc{A} \lnot \mw{\varphi} )
+     ~\leftrightarrow ( \mathfrak{M} \models ( \exists
+     ~\msc{x} \in \mc{A} \mw{\varphi} \leftrightarrow \lnot
+     ~\forall \msc{x} \in \mc{A} \lnot \mw{\varphi} ) )
+     ~)&(\mbox{\ref{eq:ax-bl.taut}})\notag
+  \\ 3 &&  & \vdash ( \mathfrak{M} \models ( \exists \msc{x} \in \mc{A}
+     ~\mw{\varphi} \leftrightarrow \lnot \forall \msc{x}
+     ~\in \mc{A} \lnot \mw{\varphi} )
+     ~)&(\mbox{\ref{eq:mpbi}},1,2)\notag
+  \\ 4 &&  & \vdash ( ( \mathfrak{M} \models ( \exists \msc{x} \in \mc{A}
+     ~\mw{\varphi} \leftrightarrow \lnot \forall \msc{x}
+     ~\in \mc{A} \lnot \mw{\varphi} ) ) \leftrightarrow ( (
+     ~\mathfrak{M} \models \exists \msc{x} \in \mc{A}
+     ~\mw{\varphi} ) \leftrightarrow ( \mathfrak{M} \models
+     ~\lnot \forall \msc{x} \in \mc{A} \lnot \mw{\varphi} )
+     ~) )&(\mbox{\ref{eq:df-bl.bi}})\notag
+  \\ 5 &&  & \vdash ( ( \mathfrak{M} \models \exists \msc{x} \in \mc{A}
+     ~\mw{\varphi} ) \leftrightarrow ( \mathfrak{M} \models
+     ~\lnot \forall \msc{x} \in \mc{A} \lnot \mw{\varphi} )
+     ~)&(\mbox{\ref{eq:mpbi}},3,4)\notag
+\end{align}
+\end{proof}
+
+\begin{restatable}{lemma}{blex}~\blTitle{bl.ex}~ Exportation of existential quantification
+from $\mathfrak{M}$
+\begin{align}
+\vdash ( ( \mathfrak{M} \models \exists \msc{x} \in \mc{A} \mw{\varphi} )
+    \leftrightarrow \exists \msc{x} \in \mc{A} ( \mathfrak{M} \models
+    \mw{\varphi} ) )\label{eq:bl.ex}\tag{bl.ex}
+\end{align}
+\end{restatable}
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash ( ( \mathfrak{M} \models \exists \msc{x} \in \mc{A}
+     ~\mw{\varphi} ) \leftrightarrow ( \mathfrak{M} \models
+     ~\lnot \forall \msc{x} \in \mc{A} \lnot \mw{\varphi} )
+     ~)&(\mbox{\ref{eq:bl.dfrex2}})\notag
+  \\ 2 &&  & \vdash ( ( \mathfrak{M} \models \lnot \forall \msc{x} \in \mc{A}
+     ~\lnot \mw{\varphi} ) \leftrightarrow \lnot (
+     ~\mathfrak{M} \models \forall \msc{x} \in \mc{A} \lnot
+     ~\mw{\varphi} ) )&(\mbox{\ref{eq:df-bl.not}})\notag
+  \\ 3 &&  & \vdash ( ( \mathfrak{M} \models \exists \msc{x} \in \mc{A}
+     ~\mw{\varphi} ) \leftrightarrow \lnot ( \mathfrak{M}
+     ~\models \forall \msc{x} \in \mc{A} \lnot \mw{\varphi}
+     ~) )&(\mbox{\ref{eq:bitri}},1,2)\notag
+  \\ 4 &&  & \vdash ( ( \mathfrak{M} \models \forall \msc{x} \in \mc{A} \lnot
+     ~\mw{\varphi} ) \leftrightarrow \forall \msc{x} \in
+     ~\mc{A} ( \mathfrak{M} \models \lnot \mw{\varphi} )
+     ~)&(\mbox{\ref{eq:df-bl.al}})\notag
+  \\ 5 &&  & \vdash ( \lnot ( \mathfrak{M} \models \forall \msc{x} \in \mc{A}
+     ~\lnot \mw{\varphi} ) \leftrightarrow \lnot \forall
+     ~\msc{x} \in \mc{A} ( \mathfrak{M} \models \lnot
+     ~\mw{\varphi} ) )&(\mbox{\ref{eq:notbii}},4)\notag
+  \\ 6 &&  & \vdash ( ( \mathfrak{M} \models \exists \msc{x} \in \mc{A}
+     ~\mw{\varphi} ) \leftrightarrow \lnot \forall \msc{x}
+     ~\in \mc{A} ( \mathfrak{M} \models \lnot \mw{\varphi}
+     ~) )&(\mbox{\ref{eq:bitri}},3,5)\notag
+  \\ 7 &&  & \vdash ( ( \mathfrak{M} \models \lnot \mw{\varphi} )
+     ~\leftrightarrow \lnot ( \mathfrak{M} \models
+     ~\mw{\varphi} ) )&(\mbox{\ref{eq:df-bl.not}})\notag
+  \\ 8 &&  & \vdash ( \forall \msc{x} \in \mc{A} ( \mathfrak{M} \models \lnot
+     ~\mw{\varphi} ) \leftrightarrow \forall \msc{x} \in
+     ~\mc{A} \lnot ( \mathfrak{M} \models \mw{\varphi} )
+     ~)&(\mbox{\ref{eq:ralbii}},7)\notag
+  \\ 9 &&  & \vdash ( \lnot \forall \msc{x} \in \mc{A} ( \mathfrak{M} \models
+     ~\lnot \mw{\varphi} ) \leftrightarrow \lnot \forall
+     ~\msc{x} \in \mc{A} \lnot ( \mathfrak{M} \models
+     ~\mw{\varphi} ) )&(\mbox{\ref{eq:notbii}},8)\notag
+  \\ 10 &&  & \vdash ( ( \mathfrak{M} \models \exists \msc{x} \in \mc{A}
+     ~\mw{\varphi} ) \leftrightarrow \lnot \forall \msc{x}
+     ~\in \mc{A} \lnot ( \mathfrak{M} \models \mw{\varphi}
+     ~) )&(\mbox{\ref{eq:bitri}},6,9)\notag
+  \\ 11 &&  & \vdash ( \exists \msc{x} \in \mc{A} ( \mathfrak{M} \models
+     ~\mw{\varphi} ) \leftrightarrow \lnot \forall \msc{x}
+     ~\in \mc{A} \lnot ( \mathfrak{M} \models \mw{\varphi}
+     ~) )&(\mbox{\ref{eq:dfrex2}})\notag
+  \\ 12 &&  & \vdash ( ( \mathfrak{M} \models \exists \msc{x} \in \mc{A}
+     ~\mw{\varphi} ) \leftrightarrow \exists \msc{x} \in
+     ~\mc{A} ( \mathfrak{M} \models \mw{\varphi} )
+     ~)&(\mbox{\ref{eq:bitr4i}},10,11)\notag
+\end{align}
+\end{proof}
+
+\begin{restatable}{metadefinition}{dfbladd}~\blTitle{df-bl.add}~ $\mathfrak{M}$ addition.
+\begin{align}
+\vdash ( \mathfrak{M} \models ( \mc{A} + \mc{B} ) ) = ( ( \mathfrak{M} \models
+    \mc{A} ) + ( \mathfrak{M} \models \mc{B} )
+    )\label{eq:df-bl.add}\tag{df-bl.add}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{metadefinition}{dfblsub}~\blTitle{df-bl.sub}~ $\mathfrak{M}$ subtraction.
+\begin{align}
+\vdash ( \mathfrak{M} \models ( \mc{A} \minus \mc{B} ) ) = ( ( \mathfrak{M}
+    \models \mc{A} ) \minus ( \mathfrak{M} \models \mc{B} )
+    )\label{eq:df-bl.sub}\tag{df-bl.sub}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{metadefinition}{dfblmul}~\blTitle{df-bl.mul}~ $\mathfrak{M}$ multiplication.
+\begin{align}
+\vdash ( \mathfrak{M} \models ( \mc{A} \cdot \mc{B} ) ) = ( ( \mathfrak{M}
+    \models \mc{A} ) \cdot ( \mathfrak{M} \models \mc{B} )
+    )\label{eq:df-bl.mul}\tag{df-bl.mul}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{metadefinition}{dfbldiv}~\blTitle{df-bl.div}~ $\mathfrak{M}$ multiplication.
+\begin{align}
+\vdash ( \mathfrak{M} \models ( \mc{A} / \mc{B} ) ) = ( ( \mathfrak{M} \models
+    \mc{A} ) / ( \mathfrak{M} \models \mc{B} )
+    )\label{eq:df-bl.div}\tag{df-bl.div}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{metadefinition}{dfblum}~\blTitle{df-bl.um}~ $\mathfrak{M}$ negation.
+\begin{align}
+\vdash ( \mathfrak{M} \models \textrm{-} \mc{A} ) = \textrm{-} ( \mathfrak{M}
+    \models \mc{A} )\label{eq:df-bl.um}\tag{df-bl.um}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{metadefinition}{dfbleq}~\blTitle{df-bl.eq}~ $\mathfrak{M}$ equality.
+\begin{align}
+\vdash ( ( \mathfrak{M} \models \mc{A} = \mc{B} ) \leftrightarrow (
+    \mathfrak{M} \models \mc{A} ) = ( \mathfrak{M} \models \mc{B} )
+    )\label{eq:df-bl.eq}\tag{df-bl.eq}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{metadefinition}{dfbllt}~\blTitle{df-bl.lt}~ $\mathfrak{M}$ less-than.
+\begin{align}
+\vdash ( ( \mathfrak{M} \models \mc{A} < \mc{B} ) \leftrightarrow (
+    \mathfrak{M} \models \mc{A} ) < ( \mathfrak{M} \models \mc{B} )
+    )\label{eq:df-bl.lt}\tag{df-bl.lt}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{metadefinition}{dfblam}~\blTitle{df-bl.am}~ $\mathfrak{M}$ at-most.
+\begin{align}
+\vdash ( ( \mathfrak{M} \models \mc{A} \le \mc{B} ) \leftrightarrow (
+    \mathfrak{M} \models \mc{A} ) \le ( \mathfrak{M} \models \mc{B} )
+    )\label{eq:df-bl.am}\tag{df-bl.am}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{metadefinition}{dfblbit}~\blTitle{df-bl.bit}~ $\mathfrak{M}$ biconditional at time
+$\msc{t}$.
+\begin{align}
+\vdash \msc{t} \in \mathbf{T}\quad\Rightarrow \notag \\ 
+	\quad \vdash ( ( \mathfrak{M} ,
+    \msc{t} \models ( \mw{\varphi} \leftrightarrow \mw{\psi} ) )
+    \leftrightarrow ( ( \mathfrak{M} , \msc{t} \models \mw{\varphi} )
+    \leftrightarrow ( \mathfrak{M} , \msc{t} \models \mw{\psi} ) )
+    )\label{eq:df-bl.bit}\tag{df-bl.bit}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{metadefinition}{dfblant}~\blTitle{df-bl.ant}~ $\mathfrak{M}$ conjunction at time
+$\msc{t}$.
+\begin{align}
+\vdash \msc{t} \in \mathbf{T}\quad\Rightarrow \notag \\ 
+	\quad \vdash ( ( \mathfrak{M} ,
+    \msc{t} \models ( \mw{\varphi} \wedge \mw{\psi} ) ) \leftrightarrow ( (
+    \mathfrak{M} , \msc{t} \models \mw{\varphi} ) \wedge ( \mathfrak{M} ,
+    \msc{t} \models \mw{\psi} ) ) )\label{eq:df-bl.ant}\tag{df-bl.ant}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{metadefinition}{dfblort}~\blTitle{df-bl.ort}~ $\mathfrak{M}$ disjunction at time
+$\msc{t}$.
+\begin{align}
+\vdash \msc{t} \in \mathbf{T}\quad\Rightarrow \notag \\ 
+	\quad \vdash ( ( \mathfrak{M} ,
+    \msc{t} \models ( \mw{\varphi} \vee \mw{\psi} ) ) \leftrightarrow ( (
+    \mathfrak{M} , \msc{t} \models \mw{\varphi} ) \vee ( \mathfrak{M} , \msc{t}
+    \models \mw{\psi} ) ) )\label{eq:df-bl.ort}\tag{df-bl.ort}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{metadefinition}{dfblimt}~\blTitle{df-bl.imt}~ $\mathfrak{M}$ implication at time
+$\msc{t}$.
+\begin{align}
+\vdash \msc{t} \in \mathbf{T}\quad\Rightarrow \notag \\ 
+	\quad \vdash ( ( \mathfrak{M} ,
+    \msc{t} \models ( \mw{\varphi} \rightarrow \mw{\psi} ) ) \leftrightarrow (
+    ( \mathfrak{M} , \msc{t} \models \mw{\varphi} ) \rightarrow ( \mathfrak{M}
+    , \msc{t} \models \mw{\psi} ) ) )\label{eq:df-bl.imt}\tag{df-bl.imt}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{metadefinition}{dfblnott}~\blTitle{df-bl.nott}~ $\mathfrak{M}$ complement at time
+$\msc{t}$.
+\begin{align}
+\vdash \msc{t} \in \mathbf{T}\quad\Rightarrow \notag \\ 
+	\quad \vdash ( ( \mathfrak{M} ,
+    \msc{t} \models \lnot \mw{\varphi} ) \leftrightarrow \lnot ( \mathfrak{M} ,
+    \msc{t} \models \mw{\varphi} ) )\label{eq:df-bl.nott}\tag{df-bl.nott}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{metadefinition}{dfbladdt}~\blTitle{df-bl.addt}~ $\mathfrak{M}$ addition at time
+$\msc{t}$.
+\begin{align}
+\vdash ( \msc{t} \in \mathbf{T} \wedge \mc{A} \in \mathbb{R} \wedge \mc{B} \in
+    \mathbb{R} )\quad\Rightarrow \notag \\ 
+	\quad \vdash ( \mathfrak{M} , \msc{t} \models (
+    \mc{A} + \mc{B} ) ) = ( ( \mathfrak{M} , \msc{t} \models \mc{A} ) + (
+    \mathfrak{M} , \msc{t} \models \mc{B} )
+    )\label{eq:df-bl.addt}\tag{df-bl.addt}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{metadefinition}{dfblsubt}~\blTitle{df-bl.subt}~ $\mathfrak{M}$ subtraction at time
+$\msc{t}$.
+\begin{align}
+\vdash ( \msc{t} \in \mathbf{T} \wedge \mc{A} \in \mathbb{R} \wedge \mc{B} \in
+    \mathbb{R} )\quad\Rightarrow \notag \\ 
+	\quad \vdash ( \mathfrak{M} , \msc{t} \models (
+    \mc{A} \minus \mc{B} ) ) = ( ( \mathfrak{M} , \msc{t} \models \mc{A} )
+    \minus ( \mathfrak{M} , \msc{t} \models \mc{B} )
+    )\label{eq:df-bl.subt}\tag{df-bl.subt}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{metadefinition}{dfblmult}~\blTitle{df-bl.mult}~ $\mathfrak{M}$ multiplication at time
+$\msc{t}$.
+\begin{align}
+\vdash ( \msc{t} \in \mathbf{T} \wedge \mc{A} \in \mathbb{R} \wedge \mc{B} \in
+    \mathbb{R} )\quad\Rightarrow \notag \\ 
+	\quad \vdash ( \mathfrak{M} , \msc{t} \models (
+    \mc{A} \cdot \mc{B} ) ) = ( ( \mathfrak{M} , \msc{t} \models \mc{A} ) \cdot
+    ( \mathfrak{M} , \msc{t} \models \mc{B} )
+    )\label{eq:df-bl.mult}\tag{df-bl.mult}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{metadefinition}{dfbldivt}~\blTitle{df-bl.divt}~ $\mathfrak{M}$ multiplication at time
+$\msc{t}$.
+\begin{align}
+\vdash ( \msc{t} \in \mathbf{T} \wedge \mc{A} \in \mathbb{R} \wedge \mc{B} \in
+    \mathbb{R} )\quad\Rightarrow \notag \\ 
+	\quad \vdash ( \mathfrak{M} , \msc{t} \models (
+    \mc{A} / \mc{B} ) ) = ( ( \mathfrak{M} , \msc{t} \models \mc{A} ) / (
+    \mathfrak{M} , \msc{t} \models \mc{B} )
+    )\label{eq:df-bl.divt}\tag{df-bl.divt}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{metadefinition}{dfblumt}~\blTitle{df-bl.umt}~ $\mathfrak{M}$ negation at time
+$\msc{t}$.
+\begin{align}
+\vdash ( \msc{t} \in \mathbf{T} \wedge \mc{A} \in \mathbb{R}
+    )\quad\Rightarrow \notag \\ 
+	\quad \vdash ( \mathfrak{M} , \msc{t} \models \textrm{-}
+    \mc{A} ) = \textrm{-} ( \mathfrak{M} , \msc{t} \models \mc{A}
+    )\label{eq:df-bl.umt}\tag{df-bl.umt}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{metadefinition}{dfbleqt}~\blTitle{df-bl.eqt}~ $\mathfrak{M}$ equality is equality.
+\begin{align}
+\vdash \msc{t} \in \mathbf{T}\quad\Rightarrow \notag \\ 
+	\quad \vdash ( ( \mathfrak{M} ,
+    \msc{t} \models \mc{A} = \mc{B} ) \leftrightarrow ( \mathfrak{M} , \msc{t}
+    \models \mc{A} ) = ( \mathfrak{M} , \msc{t} \models \mc{B} )
+    )\label{eq:df-bl.eqt}\tag{df-bl.eqt}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{metadefinition}{dfblltt}~\blTitle{df-bl.ltt}~ $\mathfrak{M}$ less-than is less-than.
+\begin{align}
+\vdash \msc{t} \in \mathbf{T}\quad\Rightarrow \notag \\ 
+	\quad \vdash ( ( \mathfrak{M} ,
+    \msc{t} \models \mc{A} < \mc{B} ) \leftrightarrow ( \mathfrak{M} , \msc{t}
+    \models \mc{A} ) < ( \mathfrak{M} , \msc{t} \models \mc{B} )
+    )\label{eq:df-bl.ltt}\tag{df-bl.ltt}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{metadefinition}{dfblamt}~\blTitle{df-bl.amt}~ $\mathfrak{M}$ at-most is at-most.
+\begin{align}
+\vdash \msc{t} \in \mathbf{T}\quad\Rightarrow \notag \\ 
+	\quad \vdash ( ( \mathfrak{M} ,
+    \msc{t} \models \mc{A} \le \mc{B} ) \leftrightarrow ( \mathfrak{M} ,
+    \msc{t} \models \mc{A} ) \le ( \mathfrak{M} , \msc{t} \models \mc{B} )
+    )\label{eq:df-bl.amt}\tag{df-bl.amt}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{metadefinition}{dfbltyt}~\blTitle{df-bl.tyt}~ $\mathfrak{M}$ retains type.
+  Similar to ax-bl.ty, but applies to $\msc{t}$.
+\begin{align}
+\vdash \msc{t} \in \mathbf{T}\quad\Rightarrow \notag \\ 
+	\quad \vdash ( \mc{A} \in \mc{B}
+    \leftrightarrow ( \mathfrak{M} , \msc{t} \models \mc{A} ) \in \mc{B}
+    )\label{eq:df-bl.tyt}\tag{df-bl.tyt}
+\end{align}
+\end{restatable}
+

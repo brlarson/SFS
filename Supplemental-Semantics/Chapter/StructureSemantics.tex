@@ -1,0 +1,138 @@
+%StructureSemantics.tex
+
+\ksec{Structures Semantics (KerML 8.4.4.4)}
+
+\pn \texttt{Structure} is \texttt{Class}, but structures implicitly specialize \texttt{Objects::Object}.  \texttt{Object} is disjoint from \texttt{Performance}.
+% yet has three features (or steps) which are zero or more  \texttt{Performance}.
+
+\pn The example in KerML \S8.4.4.4 has recursion which seems wrong.  Is this expressing an infinite binary tree of \texttt{S}?%\footnote{\texttt{Object::objects} s.b. \texttt{Objects::objects}}
+\ecaption{Recursive Structure}
+\begin{lstlisting}
+struct S specializes Objects::Object {
+	feature a : S subsets Objecst::objects;
+	composite feature b : S subsets Objects::Object::subobjects;
+}
+\end{lstlisting}
+
+\pn An \texttt{Object::Object} may have \texttt{subobjects} which are defined using metaphysical mereology (\ref{eq:df-par}).
+\ecaption{subobjects}
+\begin{lstlisting}
+	abstract struct Object specializes Occurrence {
+		doc /* Object is the most general class of structural occurrences that may change over time. */
+		feature self: Object redefines Occurrence::self;
+		
+		composite feature subobjects: Object[0..*] subsets suboccurrences {
+			doc /* The suboccurrences of this Object that are also Objects. */
+			language "Domain" /* forall so in subobjects are Mereology::PartOf(so,self) */
+		}
+\end{lstlisting}
+
+\pn All subobjects of an objects are parts of that object (\ref{eq:df-par}).\footnote{
+\texttt{subsets} \texttt{objects} removed because it was redundant.}
+
+%\begin{restatable}{definition}{subobjects}~\blTitle{df-subobjects}~ Define \texttt{subobjects}.  
+%\begin{align}
+%\forall s \in \texttt{subobjects}~\vert~s~P~\texttt{self}\label{eq:df-subobjects}\tag{df-subobjects}
+%\end{align}
+%\end{restatable}
+
+
+\pn An \texttt{Object} may be either physical or virtual depending on whether it has a \texttt{structuredSpaceBoun\-dary} which is its
+\texttt{RegionSurface} of its \texttt{Location} (\ref{eq:df-lfu}).\footnote{
+Reconciliation of \texttt{Regions::Surface} with \texttt{structuredSpaceBoundary} yet to be done.  Another case where \texttt{portion} may be incorrect.}
+
+\ecaption{structuredSpaceBoundary}
+\begin{lstlisting}
+		portion structuredSpaceBoundary : StructuredSpaceObject[0..1] subsets spaceBoundary {
+			doc
+			/*
+			 * A space boundary that is a structured space object.
+			 */
+			language "Domain" /* not structuredSpaceBoundary->empty implies
+			  * Regions::RegionSurface(Regions::Location(self)) = structuredSpaceBoundary */
+		}
+\end{lstlisting}
+
+%\begin{restatable}{definition}{location}~\blTitle{df-location}~ Define object location.  
+%\begin{align}
+%\texttt{structuredSpaceBoundary} \ne \emptyset~\rightarrow~\texttt{self}~L~\texttt{structuredSpaceBoundary}\label{eq:df-location}\tag{df-location}
+%\end{align}
+%\end{restatable}
+
+\pn Physical objects may only contain other physical objects.  Virtual objects are allocated to physical objects.  By expansivity (\ref{eq:df-pex}), parthood implies regional containment.
+
+%\begin{lstlisting}
+%		composite feature subobjects: Object[0..*] subsets objects, suboccurrences
+%			intersects objects, suboccurrences {
+%			doc
+%			/*
+%			 * The suboccurrences of this Object that are also Objects.
+%			 */
+%		}
+%\end{lstlisting}
+
+\begin{restatable}{theorem}{containment}~\blTitle{bl.containment}~ An object's region contains the regions of its subobjects.
+\begin{align}
+\vdash \texttt{structuredSpaceBoundary} \ne \emptyset~\rightarrow~%\notag \\
+\forall s \in \texttt{subobjects}~\vert~\notag \\
+s.\texttt{structuredSpaceBoundary} \ne \emptyclass \rightarrow \notag \\
+\texttt{structuredSpaceBoundary}~C~s.\texttt{structuredSpaceBoundary}\label{eq:bl.containment}\tag{bl.containment}
+\end{align}
+\end{restatable}
+
+\pn Structures are not behaviors, but they may have behaviors.  Any behavior must specialize \texttt{Performances::}\-\texttt{Performance}. 
+Structures may have three kinds of \texttt{Performance},  involving, enacted, and owned.
+
+\pn Involving just says this object is ``involved'' in the performance, perhaps in concert with other objects.
+\ecaption{involvingPerformances}
+\begin{lstlisting}
+		feature involvingPerformances: Performance[0..*] subsets performances {
+			doc
+			/*
+			 * Performances in which this object is involved.
+			 */
+		}
+\end{lstlisting}
+
+\pn Enacted performances during the existence of the object.
+\ecaption{enactedPerformances}
+\begin{lstlisting}
+		abstract step enactedPerformances: Performance[0..*] subsets involvingPerformances {
+			doc
+			/*
+			 * Performances that are enacted by this object.
+			 */
+			language "Domain" /* forall ep in enactedPerformances are self->timeEnclosedOccurrence(ep) */
+		}
+\end{lstlisting}
+
+\pn Owned performances are contained and performed by the object.
+\ecaption{ownedPerformances}\label{ownedPerformances}
+\begin{lstlisting}
+		composite step ownedPerformances: Performance[0..*] 
+		  subsets involvingPerformances, suboccurrences
+			intersects involvingPerformances, suboccurrences {
+			language "Domain" /* forall op in ownedPerformances are self->
+			  * (timeEnclosedOccurrence(ep) and Mereology::PartOf(op,self) */
+			doc
+			/*
+			 * Performances that are owned by this object.
+			 */
+			 
+			feature redefines this default that {
+				doc
+				/*
+				 * The owning object is the default "this" reference for all ownedPerformances.
+				 */
+			}
+		}
+\end{lstlisting}
+
+\pn \texttt{Objects} defines link-objects which are both associations and structures.
+
+\pn \texttt{Body}, \texttt{Surface}, and \texttt{Point} have close correlation with \texttt{Regions}' \texttt{Region}, \texttt{Surface} and \texttt{Point}.
+There is no  \texttt{Regions} equivalent for  \texttt{Curve}.
+
+%\pn  \texttt{StructuredSpaceObject} is a mess because it tries
+
+

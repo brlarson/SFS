@@ -1,0 +1,673 @@
+%KernelSemanticsChapter.tex
+
+\chapter{Kernel Semantics}\label{chap:kernelsemantics}
+%\ksec{8.4.4 Kernel Semantics}
+
+\ksec{Kernel Semantics Overview (KerML 8.4.4.1)}
+
+\pn The semantics of constructs in the Kernel Layer are specified in terms of the foundational constructs defined in the Core layer, extended with \lang~Logic for time-varying operation of systems.  \lang~Logic is introduced in \S\ref{sec:modallogic} and elaborated in Appendix \ref{chapter:KL}.
+
+%The Kernel Semantic Model Library (see 9.2) extends the mathematically-specified to provide a rich set of pre-declared elements and relationships, which can be tailored, as needed by users.
+
+
+%The Metamath program verifies all proofs in \texttt{set.mm} in about 3 s.
+
+\subsection{\logicid~ Logic}\label{sec:modallogic}
+
+
+\pn Classical logic and set theory are used to define a many-world modal logic with a Kripke structure (see Appendix \ref{chapter:KL}).
+
+\pn A \bemph{modal logic} defines symbols whose meaning differs depending in which ``world" the symbol is evaluated.
+
+\pn A \bemph{temporal logic} is a modal logic for which each world corresponds to an instant or interval of time.
+%A good synopsis of other temporal logics used can be found in \cite{Konur-2013}, which surveys 18 of them.  
+
+\begin{restatable}{definition}{dfmodel}~\blTitle{df-model}~ 
+A dynamic architecture model, $\mathfrak{M}$ is defined as a tuple
+ 
+\begin{align}
+\vdash \mathfrak{M}
+  \equiv \langle \mathbf{T}, \prec, D, E, P, \mathbf{I} \rangle \label{eq:df-model}\tag{df-model}
+\end{align}
+ 
+  such that
+ 
+$\mathbf{T}$: is a set of time instants, 
+
+$\prec$: is a temporal precedence relation, 
+
+$D$: is a design expressed in KerML,
+
+$E$: is a selected KerML element in the design to be modeled $E \in D$, 
+
+$P(\tau)$: is the system boundary at time $\tau \in \mathbf{T}$, and
+
+$\mathbf{I}\lsem d,\tau\rsem$: is an interpretation for design element $d\in D$ at time $\tau \in \mathbf{T}$.
+\end{restatable}
+
+\pn $E$ will be treated as a set theory \bemph{class}:  a collection defined by a rule.
+
+\pn The interpretation $\mathbf{I}\lsem E,\tau\rsem$ finds an element (member) of $E$ (if there is one) for any $\tau \in \mathbf{T}$.
+
+\pn $E$ may have many possible elements at time $\tau$; interpretation picks just one.
+
+%If $E$ is empty for any $\tau \in \mathbf{T}$, it is \bemph{unsatisfiable}, so has some kind of fundamental error.
+
+\pn $P(\tau)$ is the system boundary where the system interacts with its environment.  It is called \bemph{P} in honor of the Parnas four variable model to represent the physical world sensors detect and actuators affect.  When modeling subsystems, $P$ represents the inputs and outputs of connected subsystems.
+
+\pn Constructing a model $\mathfrak{M}$  for $E$ is \bemph{execution}.
+
+
+\pn The interpretation $\mathbf{I}\lsem d,\tau\rsem$ is only defined for any element $d$ in the design $D$.
+Furthermore, the interpretation is contingent on the values of the system boundary $P(\tau)$.
+
+\pn \texttt{Type} and  \texttt{Classifier} elements have the same interpretation for all $\tau\in\mathbf{T}$, because they are immutable.  \texttt{Class} elements may have variable features, and lifetimes.
+
+%\pn For this several definitions will be useful.
+
+\pn  $\mathbf{I}\lsem d \rsem$ is the same at every time $\tau\in\mathbf{T}$:
+ 
+ \begin{restatable}{definition}{dfblmodels}~\blTitle{df-bl.models}~ Define interpretation of predicate for
+any $\tau \in \mathbf{T}$
+\begin{align}
+\vdash \tau \in \mathbf{T}\quad\Rightarrow\quad \vdash ( \mathbf{I} \lsem
+    \mw{\varphi} \rsem \rightarrow \mathbf{I} \lsem \mw{\varphi} , \tau \rsem
+    )\label{eq:df-bl.models}\tag{df-bl.models}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{definition}{dfblmodelsc}~\blTitle{df-bl.modelsc}~ Define interpretation of values over
+any $\tau \in \mathbf{T}$
+\begin{align}
+\vdash \tau \in \mathbf{T}\quad\Rightarrow\quad \vdash ( \mathbf{I} \lsem
+    \mc{A} \rsem = \mc{B} \rightarrow \mathbf{I} \lsem \mc{A} , \tau \rsem =
+    \mc{B} )\label{eq:df-bl.modelsc}\tag{df-bl.modelsc}
+\end{align}
+\end{restatable}
+
+
+\pn $\mathbf{T}$ is the set of real times between 0 and $\mathsf{\mc{now}}$, inclusive:
+
+\begin{restatable}{definition}{dfbltime}~\blTitle{df-bl.time}~ Define domain of time $\mathbf{T}$
+from $\msc{t} = 0$ to $\mathsf{\mc{now}}$.
+\begin{align}
+\vdash \mathbf{T} = \{ \msc{x}~\vert~( \msc{x} \in \mathbb{R} \wedge 0 \le \msc{x}
+    \wedge \msc{x} \le \mathsf{\mc{now}} )
+    \}\label{eq:df-bl.time}\tag{df-bl.time}
+\end{align}
+\end{restatable}
+
+
+\pn Define the \bemph{present instant} $\mathsf{\mc{now}}$:
+
+\begin{restatable}{definition}{dfblnowrr}~\blTitle{df-bl.nowrr}~ now is a non-negative real number.
+\begin{align}
+\vdash ( \mathsf{\mc{now}} \in \mathbb{R} \wedge 0 \le \mathsf{\mc{now}}
+    )\label{eq:df-bl.nowrr}\tag{df-bl.nowrr}
+\end{align}
+\end{restatable}
+
+
+\pn Define \bemph{temporal precedence}.  (Note the subtle difference between $\prec$ and $<$):
+
+\begin{restatable}{definition}{dfblbefore}~\blTitle{df-bl.before}~ Temporal Precedence (before).
+\begin{align}
+\vdash ( ( \tau_1 \in \mathbf{T} \wedge \tau_2 \in \mathbf{T} ) \rightarrow (
+    \tau_1 \prec \tau_2 \leftrightarrow \tau_1 < \tau_2 )
+    )\label{eq:df-bl.before}\tag{df-bl.before}
+\end{align}
+\end{restatable}
+
+\pn It's also useful to define ``before or coincident".: 
+
+\begin{restatable}{definition}{dfblbeforeeq}~\blTitle{df-bl.beforeeq}~ Temporal Precedence (before or
+coincident).
+\begin{align}
+\vdash ( ( \tau_1 \in \mathbf{T} \wedge \tau_2 \in \mathbf{T} ) \rightarrow (
+    \tau_1 \preccurlyeq \tau_2 \leftrightarrow ( \tau_1 < \tau_2 \vee \tau_1 =
+    \tau_2 ) ) )\label{eq:df-bl.beforeeq}\tag{df-bl.beforeeq}
+\end{align}
+\end{restatable}
+
+%\subsection{Existence}
+
+\pn KerML classes may not exist\index{ex@\texttt{ex}} for the whole duration of the system as a whole.  Define a predicate $\texttt{ex}(c,\tau)$ that returns true if class $c$ exists (is not empty $\emptyclass$) at time $\tau$ and false otherwise.
+The interpretation of a classifier which doesn't exist is the empty class, $\emptyclass$.
+
+\begin{restatable}{definition}{dfexists}~\blTitle{df-bl.exists}~ Define element existence predicate
+\begin{align}
+\vdash (~ \texttt{ex}(c,\tau) \leftrightarrow \mathbf{I}\lsem c,\tau\rsem\neq\emptyclass~)
+\label{eq:df-bl.exists}\tag{df-bl.exists}
+\end{align}
+\end{restatable}
+
+\pn The \textidx{birth}\index{birth@\texttt{birth}} time of a KerML class $\texttt{birth}(c)$ is when it comes into existence.  The birth of $c$ is $\tau_b$ if-and-only-if $c$ exists at 
+$\tau_b$ and does not exist before $\tau_b$.
+%The death time of a classifier $\texttt{death}(c)$ is when it ceases to exist.
+
+\begin{restatable}{definition}{dfbirth}~\blTitle{df-bl.birth}~Define Birth time.
+\begin{align}
+\vdash (~\texttt{birth}(c)=\tau_b \leftrightarrow ( \texttt{ex}(c,\tau_b) \wedge \forall \tau \in (0[,)\tau_b)~\vert~ \lnot \texttt{ex}(c,\tau)~)~)
+\label{eq:df-bl.birth}\tag{df-bl.birth}
+\end{align}
+\end{restatable}
+
+\pn $(0[,)\tau_b)$ is the open-right time interval\index{ xdc@\lstinline+.,+ open right} from time 0 up to, but not including $\tau_b$:
+
+\begin{restatable}{lemma}{blalldc}~\blTitle{bl.alldc}~ Universal quantification over open-right
+time interval [t1 ., t2].
+\begin{align}
+\vdash ( \tau_1 \in \mathbf{T} \wedge \tau_2 \in \mathbf{T}
+    )\quad\Rightarrow\quad \vdash ( \forall \msc{x} \in \mathbf{T} ( \msc{x}
+    \in ( \tau_1 [,) \tau_2 ) \wedge \mw{\varphi} ) \leftrightarrow \forall
+    \msc{x} \in \mathbf{T} ( \tau_1 \le \msc{x} \wedge \msc{x} < \tau_2 \wedge
+    \mw{\varphi} ) )\label{eq:bl.alldc}\tag{bl.alldc}
+\end{align}
+\end{restatable}
+
+\pn The \textidx{death}\index{death@\texttt{death}} time of a KerML class $\texttt{death}(c)$ is its last moment of existence.  The death of $c$ is $\tau_d$ if-and-only-if $c$ exists at
+$\tau_d$ and does not exist after $\tau_d$.
+
+\begin{restatable}{definition}{dfdeath}~\blTitle{df-bl.death}~Define Death time.
+\begin{align}
+\vdash (~\texttt{death}(c)=\tau_d \leftrightarrow ( \texttt{ex}(c,\tau_d) \wedge \forall \tau \in (\tau_d(,]\mathsf{\mc{now}})~\vert~ \lnot \texttt{ex}(c,\tau)~)~)
+\label{eq:df-bl.death}\tag{df-bl.death}
+\end{align}
+\end{restatable}
+
+\pn $(\tau_d(,]\mathsf{\mc{now}})$ is the open-left\index{ xcd@\lstinline+,.+ open left} time interval greater than time $\tau_d$ up to $\mathsf{\mc{now}}$.
+
+\begin{restatable}{lemma}{blallcd}~\blTitle{bl.allcd}~ Universal quantification over open-left
+time interval [t1 ,. t2].
+\begin{align}
+\vdash ( \tau_1 \in \mathbf{T} \wedge \tau_2 \in \mathbf{T}
+    )\quad\Rightarrow\quad \vdash ( \forall \msc{x} \in \mathbf{T} ( \msc{x}
+    \in ( \tau_1 (,] \tau_2 ) \wedge \mw{\varphi} ) \leftrightarrow \forall
+    \msc{x} \in \mathbf{T} ( \tau_1 < \msc{x} \wedge \msc{x} \le \tau_2 \wedge
+    \mw{\varphi} ) )\label{eq:bl.allcd}\tag{bl.allcd}
+\end{align}
+\end{restatable}
+
+\pn The lifetime of a KerML class  $\texttt{life}(c)$\index{life@\texttt{life}} is the closed time interval between birth and death.
+
+\begin{restatable}{definition}{dflifetime}~\blTitle{df-bl.lifetime}~Define Lifetime.
+\begin{align}
+\vdash \texttt{life}(c)~=~ (\texttt{birth}(c)~[,]~\texttt{death}(c))
+\label{eq:df-bl.lifetime}\tag{df-bl.lifetime}
+\end{align}
+\end{restatable}
+
+\pn $[,]$ denotes an interval closed\index{ xdd@\lstinline+..+ closed both} on both ends;
+$(,)$ denotes and interval open\index{ xcc@\lstinline+,,+ open both}  on both ends.
+
+\begin{restatable}{lemma}{blalldd}~\blTitle{bl.alldd}~ Universal quantification over closed time
+interval [t1 .. t2].
+\begin{align}
+\vdash ( \tau_1 \in \mathbf{T} \wedge \tau_2 \in \mathbf{T}
+    )\quad\Rightarrow\quad \vdash ( \forall \msc{x} \in \mathbf{T} ( \msc{x}
+    \in ( \tau_1 [,] \tau_2 ) \wedge \mw{\varphi} ) \leftrightarrow \forall
+    \msc{x} \in \mathbf{T} ( \tau_1 \le \msc{x} \wedge \msc{x} \le \tau_2
+    \wedge \mw{\varphi} ) )\label{eq:bl.alldd}\tag{bl.alldd}
+\end{align}
+\end{restatable}
+\index{ xdd@\lstinline+..+ closed interval}
+
+\begin{restatable}{lemma}{blallcc}~\blTitle{bl.allcc}~ Universal quantification over open time
+interval [t1 ,, t2].
+\begin{align}
+\vdash ( \tau_1 \in \mathbf{T} \wedge \tau_2 \in \mathbf{T}
+    )\quad\Rightarrow\quad \vdash ( \forall \msc{x} \in \mathbf{T} ( \msc{x}
+    \in ( \tau_1 (,) \tau_2 ) \wedge \mw{\varphi} ) \leftrightarrow \forall
+    \msc{x} \in \mathbf{T} ( \tau_1 < \msc{x} \wedge \msc{x} < \tau_2 \wedge
+    \mw{\varphi} ) )\label{eq:bl.allcc}\tag{bl.allcc}
+\end{align}
+\end{restatable}
+\index{ xcc@\lstinline+,,+ open interval}
+
+\subsection{Instant and Interval}
+
+For \logicid ~Logic, time is defined in an independent \texttt{Domain} library package.
+The fundamental element of time is \texttt{Instant}\index{instant} with which \texttt{Interval}\index{interval} is defined.
+
+\ecaption{Instant and Interval}
+\begin{lstlisting}
+  type Instant specializes TimeValue {
+    doc /* an instant of time */
+  }
+
+  classifier Interval
+  {
+    doc /* an interval is a duration between two instants */
+    feature lowerBound : Instant;
+    feature upperBound : Instant;
+    feature openLeft : Boolean;
+    feature openRight : Boolean; 
+    inv {lowerBound <= upperBound}   
+  }
+\end{lstlisting}
+
+\subsection{Allen's Intervals}\label{sec:allen}
+
+\pn KerML Class lifetimes can be related using Allen's intervals\index{Allen's intervals} in \ref{table:allensintervals}.  
+
+\begin{table}[h]
+\caption{Allen's Intervals}
+\begin{center}
+\begin{tabular}{|c|c|c|c|}
+\hline
+\textbf{Relation} & \textbf{Interpretation} & \textbf{Formula} & \textbf{Predicate} \\ \hline
+$X < Y$ & X \bemph{precedes} Y & $\texttt{death}(X) \prec \texttt{birth}(Y)$ & \textidx{precedes}(X,Y) \\ \hline
+$X ~m~ Y$ & X  \bemph{meets} Y & $\texttt{death}(X) = \texttt{birth}(Y)$ & \textidx{meets}(X,Y) \\ \hline
+$X ~o~ Y$ & X  \bemph{overlaps} Y & $\texttt{birth}(Y)\prec \texttt{death}(X)$ & \textidx{overlaps}(X,Y) \\ \hline
+$X ~s~ Y$ & X  \bemph{starts} Y & $\texttt{birth}(X) = \texttt{birth}(Y)~\wedge~\texttt{death}(Y) \prec \texttt{death}(X)$ & \textidx{starts}(X,Y) \\ \hline
+$X ~d~ Y$ & X  \bemph{during} Y & $\texttt{birth}(Y) \preccurlyeq \texttt{birth}(X)~\wedge~\texttt{death}(X) \preccurlyeq \texttt{death}(Y)$ & \textidx{during}(X,Y)\\ \hline
+$X ~f~ Y$ & X  \bemph{finishes} Y & $\texttt{birth}(Y) \prec \texttt{birth}(X)~\wedge~\texttt{death}(X) = \texttt{death}(Y)$ & \textidx{finishes}(X,Y)\\ \hline
+$X ~=~ Y$ & X  \bemph{equals} Y & $\texttt{birth}(Y) = \texttt{birth}(X)~\wedge~\texttt{death}(X) = \texttt{death}(Y)$ & \textidx{coincident}(X,Y) \\ \hline
+\end{tabular}
+\end{center}
+\label{table:allensintervals}
+\end{table}%
+
+\pagebreak %really want to prevent lstlisting from breaking over page boundary
+
+%\pn For use in \texttt{@Assert} Allen's intervals are also defined in the \texttt{Time} library package.
+\ecaption{precedes}
+\begin{lstlisting}
+  predicate precedes {
+    @Assert{n="precedes"; f="<<precedes : x~Occurrence, y~Occurrence : death(x) < birth(y) >>";}
+    in x : Occurrence;
+    in y : Occurrence;
+    x.endShot < y.startShot
+  }
+\end{lstlisting}\index{meets@\texttt{meets}}
+\ecaption{meets}
+\begin{lstlisting}
+  predicate meets {
+    @Assert{n="meets"; f="<<meets : x~Occurrence, y~Occurrence : death(x) = birth(y) >>";}
+    doc /* x must not be open-right, and y must not be open-left */
+    in x : Occurrence;
+    in y : Occurrence;
+    x.endShot == y.startShot and not x.openRight and not y.openLeft
+  }
+\end{lstlisting}\index{meets@\texttt{meets}}
+\ecaption{overlaps}
+\begin{lstlisting}
+  predicate overlaps {
+    @Assert{n="overlaps"; f="<<overlaps : x~Occurrence, y~Occurrence : birth(y) <  death(x)>>";}
+    in x : Occurrence;
+    in y : Occurrence;
+    y.startShot < x.endShot
+  }
+\end{lstlisting}\index{overlaps@\texttt{overlaps}}
+\ecaption{starts}
+\begin{lstlisting}
+  predicate starts {
+    @Assert{n="starts"; f="<<starts : x~Occurrence, y~Occurrence : birth(x) = birth(y)"+
+        " and death(y) < death(x) and x.openLeft = y.openLeft >>";}
+    doc /* both should be the same for open-left */
+    in x : Occurrence;
+    in y : Occurrence;
+    (x.startShot == y.startShot) and (y.endShot < x.endShot)
+      and x.openLeft == y.openLeft
+  }
+\end{lstlisting}\index{starts@\texttt{starts}}
+
+\ecaption{during}
+\begin{lstlisting}
+  predicate during {
+    @Assert{n="during"; f="<<during : x~Occurrence, y~Occurrence : birth(y) <= birth(x)"+
+      " and death(x) <= death(y)>>";}
+    in x : Occurrence;
+    in y : Occurrence;
+    (y.startShot <= x.startShot) and (x.endShot <= y.endShot)
+  }
+\end{lstlisting}\index{during@\texttt{during}}
+
+\ecaption{finishes}
+\begin{lstlisting}
+  predicate finishes {
+    @Assert{n="finishes"; f="<<finishes : x~Occurrence, y~Occurrence : birth(y) < birth(x)"+
+        " and death(x) = death(y) and x.openRight = y.openRight >>";}
+    doc /* both should be the same for open-right */
+    in x : Occurrence;
+    in y : Occurrence;
+    y.startShot < x.startShot and x.endShot == y.endShot
+      and x.openRight==y.openRight
+  }
+\end{lstlisting}\index{finishes@\texttt{finishes}}
+
+\ecaption{coincident}
+\begin{lstlisting}
+  predicate coincident {
+    @Assert{n="coincident"; f="<<coincident : x~Occurrence, y~Occurrence : birth(y) = birth(x)"+
+        " and death(x) = death(y) and x.openLeft = y.openLeft and x.openRight = y.openRight >>" ;}
+    doc /* both should be the same for open-left and open-right */
+    in x : Occurrence;
+    in y : Occurrence;
+    y.startShot == x.startShot and x.endShot == y.endShot
+      and x.openLeft == y.openLeft and x.openRight==y.openRight
+  }
+\end{lstlisting}\index{coincident@\texttt{coincident}}
+
+\ecaption{nonoverlaps}
+\begin{lstlisting}
+  predicate nonoverlaps {
+    @Assert{n="nonoverlaps"; f="<<nonoverlaps : x~Occurrence, y~Occurrence : birth(y) > death(x)"+
+      " or birth(x) > death(y)>>";}
+    in x : Occurrence;
+    in y : Occurrence;
+    (y.startShot > x.endShot) or (x.startShot > y.endShot)
+  }
+\end{lstlisting}\index{nonoverlaps@\texttt{nonoverlaps}}
+
+\pn Although not an Allen interval, \bemph{nearly meets} is useful defining immediate predecessor and successor (\texttt{Happens\-JustBefore}).
+
+\ecaption{nearlyMeets}
+\begin{lstlisting}
+  predicate nearlyMeets {
+    @Assert{n="nearlyMeets"; f="<<nearlyMeets : x~Occurrence, y~Occurrence :"+
+      " birth(y) = death(x) and (x.openRight or y.openLeft)>>";}
+    doc /*  don't meet, but no instants between the end-shot of x and the start-shot of y
+     * x is open-right; y is open-left, or both
+     */
+    in x : Occurrence;
+    in y : Occurrence;
+    x.endShot==y.startShot and ( x.openRight or y.openLeft)
+  }
+\end{lstlisting}\index{nearlyMeets@\texttt{nearlyMeets}}
+
+\subsection{Variable Features}\label{sec:variables}
+
+\pn Owned features prefixed by \textidx{in}\index{in@\texttt{in}}, \textidx{out}\index{out@\texttt{out}}, \textidx{inout}\index{inout@\texttt{inout}}, or \textidx{var}\index{var@\texttt{var}} may have different interpretations (values)  $\mathbf{I}\lsem d,\tau\rsem$  at different times.
+For simplicity (and without loss of generality) let features' multiplicity be [1], and the co-domain be a \texttt{Type}.
+
+\ecaption{Variable Features}
+\begin{lstlisting}
+class B {
+in feature i typed by T1;
+out feature o typed by T2;
+inout feature io typed by T3;
+var feature v typed by T4;
+}
+\end{lstlisting}
+
+\pn The difference between variable features is what gets to read them and what gets to write them.  Though no read or write operations have yet been defined.
+By \ref{eq:df-typebody} the ZFC-class defined for B would be something like this:
+
+\[
+\{~\langle\textbf{class},w,\langle C_1, C_2, C_3, C_4\rangle~\rangle~\left|
+  \begin{array}{l}
+  w=W(``B") \wedge \\
+  x_1 \in T_1 \wedge x_2 \in T_2 \wedge x_3 \in T_3 \wedge x_4 \in T_4~ \wedge \\
+  C_1 = \{ \langle \textbf{in}, ``i", R_1\rangle ~\vert ~R_1 = \{~\langle w, x_1\rangle~ \} ~\} ~\wedge \\
+  C_2 = \{ \langle \textbf{out}, ``o", R_2\rangle ~\vert ~R_2 = \{~\langle w, x_2\rangle~ \} ~\} ~\wedge \\
+  C_3 = \{ \langle \textbf{inout}, ``io", R_3\rangle ~\vert ~R_3 = \{~\langle w, x_3\rangle~ \} ~\} ~\wedge \\
+  C_4 = \{ \langle \textbf{var}, ``v", R_4\rangle ~\vert ~R_4 = \{~\langle w, x_4\rangle~ \} ~\} ~ 
+  \end{array} \}
+  \right.
+\]
+
+\pn The values $x_1$, $x_2$, $x_3$,  and $x_4$ may be different at different times.  The values are determined by the interpretation operator $\mathbf{I}\lsem d,\tau\rsem$.
+
+\pn For example, the value of $x_1$ at time $\tau$ is  $x_1 = \mathbf{I}\lsem \texttt{B::i},\tau\rsem$, where \texttt{B::i} is the qualified name for feature \texttt{i} of class \texttt{B}.
+
+\pn Variable accessing functions and behaviors are defined in the \texttt{Domain} library.
+
+\ecaption{Get}
+\begin{lstlisting}
+	function Get { // replaces FeatureReferencingPerformances::FeatureReadEvaluation
+		doc /* Get(d,f,tau) returns the value of the feature d::f at time tau. */
+		@Assert{n="Get"; f="<<Get : d~Occurrence, f~Anything, tau~Instant := I[[d::f,tau]] >>";
+				t="df-model";}
+		in feature d : Occurrence[1] {  //onOccurrence
+		  feature f : Anything[1];  //accessedFeature
+		}
+		in feature tau : Instant[1];   //startingAt
+		return result : Anything[0..1];
+	}
+\end{lstlisting}\index{Get@\texttt{Get}}
+
+\ecaption{GetNow}
+\begin{lstlisting}
+	function GetNow {
+		doc /* GetNow(d,f) returns the value of the feature d::f at the current time, now. */
+		@Assert{n="GetNow"; f="<<GetNow : d~Occurrence, f~Anything := I[[d::f,now]] >>";
+				t=("df-model","df-bl.nowrr");}
+		in feature d : Occurrence[1] {  //onOccurrence
+		  feature f : Anything[1];  //accessedFeature
+		}
+		return result : Anything[0..1] = Get(d, now);
+	}
+\end{lstlisting}\index{GetNow@\texttt{GetNow}}
+
+\ecaption{SetNow}
+\begin{lstlisting}
+	behavior SetNow {  // replaces FeatureReferencingPerformances::FeatureWritePerformance
+		doc /* SetNow(d,f,v) sets the value of the feature d::f to v at the current time, now. */
+		@Assert{n="SetNow"; f="<<SetNow : d~Occurrence, f~Anything : I[[d::f,now]] = v >>";
+				t="df-model";}
+		in feature d : Occurrence[1] {  //onOccurrence
+		  feature f : Anything[1];  //accessedFeature
+		}
+		in feature v : Anything[1];  //replacementValues
+	}
+\end{lstlisting}\index{SetNow@\texttt{SetNow}}
+
+\ecaption{GetChange}
+\begin{lstlisting}
+  behavior GetChange {
+		doc /* GetChange(d,f) waits for value of the feature d::f to change
+		     * from its value at time tau. */
+		@Assert{n="GetChange"; f="<<GetChange : d~Occurrence, f~Anything, tau~Instant : "+
+				"(I[[d::f,tau]] <> I[[d::f,now]] and forall t~Instant in tau ., now are I[[d::f,t]] = I[[d::f,tau]])"+
+				" implies v = I[[d::f,now]] >>";
+				t="df-bl.changed";}
+		in feature d : Occurrence[1] {  //onOccurrence
+		  feature f : Anything[1];  //accessedFeature
+		}
+		in feature tau : Instant[1];   //startingAt
+		out feature v : Anything[0..1];  //values
+	}
+\end{lstlisting}\index{GetChange@\texttt{GetChange}}
+
+\ecaption{GetBooleanChange}
+\begin{lstlisting}
+	behavior GetBooleanChange :> GetChange {
+		doc /* GetBooleanChange, like GetChange, waits for d::e to toggle */
+		@Assert{n="GetBooleanChange"; f="<<GetBooleanChange : d~Occurrence, e~BooleanEvaluation, tau~Instant : "+
+				"(I[[d::e,tau]] <> I[[d::e,now]] and forall t~Instant in tau ., now are I[[d::e,t]] = I[[d::e,tau]])"+
+				" implies b = I[[d::e,now]] >>";
+				t="df-bl.changed";}
+		in feature :>> d {
+			feature e : BooleanEvaluation[1] :>> f;
+		}
+		in feature tau : Instant[1];   //startingAt
+		out feature b : Boolean[1] :>> v;
+	}
+\end{lstlisting}\index{GetBooleanChange@\texttt{GetBooleanChange}}
+
+\ecaption{GetChangeToTrue}
+\begin{lstlisting}
+	behavior GetChangeToTrue :> GetBooleanChange{
+		doc /* GetChangeToTrue does not wait if d::e is already true */
+		@Assert{n="GetChangeToTrue"; f="<<GetChangeToTrue : d~Occurrence, e~BooleanEvaluation, tau~Instant : "+
+				"(I[[d::e,now]] and forall t~Instant in tau ., now are not I[[d::e,t]] )"+
+				" implies b = true >>";}
+	}
+\end{lstlisting}\index{GetChangeToTrue@\texttt{GetChangeToTrue}}
+
+\ecaption{GetChangeToFalse}
+\begin{lstlisting}
+	behavior GetChangeToFalse :> GetBooleanChange{
+		doc /* GetChangeToFalse does not wait if d::e is already false */
+		@Assert{n="GetChangeToFalse"; f="<<GetChangeToFalse : d~Occurrence, e~BooleanEvaluation, tau~Instant : "+
+				"(not I[[d::e,now]] and forall t~Instant in tau ., now are I[[d::e,t]] )"+
+				" implies b = false >>";}
+	}
+\end{lstlisting}\index{GetChangeToFalse@\texttt{GetChangeToFalse}}
+
+
+\subsection{Changed}
+
+\pn Sometimes it's useful to know when a feature value most recently changed.\index{changed@\texttt{changed}}  Define \texttt{changed} as: given an element $d$ (usually a variable feature) and a time $\tau_1$, find the most recent time
+$\tau_2$ preceding $\tau_1$ for which the interpretation of $d$ is different from its interpretation at $\tau_1$.
+$\texttt{changed}(d,\tau_1)~=~0$ when $d$ has not changed before $\tau_1$.
+
+\begin{restatable}{definition}{blchanged}~\blTitle{df-bl.changed}~ Time when a variable value most recently changed.
+\begin{align}
+\vdash (~ \texttt{changed}(d,\tau_1)~=~\tau_2 \leftrightarrow ( \tau_2 \prec \tau_1 \wedge %\notag \\
+ (~\mathbf{I}\lsem d,\tau_1\rsem \neq \mathbf{I}\lsem d,\tau_2\rsem \vee \tau_2=0~) \wedge \notag \\
+ (~\forall \tau \in (\tau_2 (,) \tau_1)~\vert~\mathbf{I}\lsem d,\tau\rsem = \mathbf{I}\lsem d,\tau_2\rsem~)~)~)
+\label{eq:df-bl.changed}\tag{df-bl.changed}
+\end{align}
+\end{restatable}
+
+
+
+\subsection{Time Of}  
+
+\pn Rather than given a model element $d$ to find its interpretation at time $\tau$, $\mathbf{I}\lsem d,\tau\rsem$, we want to know when predicate $\varphi$ first becomes true.  If $\varphi$ never holds for any $\tau \in \textbf{T}$ the value of $\texttt{timeof}(\varphi)$\index{timeof@\texttt{timeof}} is the empty set.
+For this, the interpretation function needs to extended from interpretation of elements at given times (element valuations) to interpretations of well-formed formulas (predicates) over element valuations.  See \ref{subsec:interpretation} for application of  $\mathbf{I}\lsem \varphi,\tau\rsem$.
+
+\begin{restatable}{definition}{bltimeof}~\blTitle{df-bl.timeof}~ Time when a predicate first holds.
+\begin{align}
+\vdash (~ \texttt{timeof}(\varphi)~=~\tau_1 \leftrightarrow ( \mathbf{I}\lsem \varphi,\tau_1\rsem \wedge
+ (~\forall \tau \in (0 [,) \tau_1)~\vert~\lnot \mathbf{I}\lsem \varphi,\tau\rsem ~)~)
+\label{eq:df-bl.timeof}\tag{df-bl.timeof}
+\end{align}
+\end{restatable}
+
+\subsection{Composite and Portion Features:}\label{par:cnp}
+
+\pn Features with prefix \texttt{composite}\index{composite} require the feature exists during its class.
+\ecaption{composite}
+\begin{lstlisting}
+class Tank {
+  in feature fuelFlow: Fuel; 
+  composite feature fuel : Fuel;
+}
+\end{lstlisting}
+In terms of Allen's interval relations:  \texttt{during(fuel,Tank)}.
+
+\pn Similarly, features with prefix \texttt{portion}\index{portion} require the feature existence equals the existence of its class.
+\ecaption{portion}
+\begin{lstlisting}
+class Fuel {
+   portion feature fuelPortion : Fuel;
+}
+\end{lstlisting}
+In terms of Allen's interval relations:  \texttt{coincident(fuelPortion,Fuel)}.
+
+\comment{Would like to have formal definitions for \texttt{composite} and \texttt{portion} similar to \ref{eq:df-featuremember}.}
+
+\subsection{Infinitesimal Duration $\delta$:}\label{subsec:delta}
+Often, a tiny bit of time (called \bemph{delta}) is useful for modeling.
+
+\begin{restatable}{definition}{bldelta}~\blTitle{df-bl.delta}~ Define infinitesimal time. 
+\begin{align}
+\vdash \delta = \lim_{\tau \to 0} \tau \label{eq:df-bl.delta}\tag{df-bl.delta}
+\end{align}
+\end{restatable}
+
+Therefore, $(\tau \prec \tau + \delta)$.  Using $\tau'$ as shorthand for $\tau + \delta$, then $(\tau \prec \tau')$.
+
+
+%\ksec{Kernel Constraints (KerML 8.4.4.1)}
+%
+%\comment{Constraints do not define semantics.  They are merely legality rules attempting to enforce consistency.}
+%
+%\comment{Constraints which demand that certain elements specialize library elements are particularly odious.  Here we will attempt to define foundational semantics positively, which are then extended by the Kernel Semantic Model Library.  Therefore some attributes/features will need to be moved to abstract syntax.}
+%
+%\comment{constraints from KerML 8.4.4.1 go here}
+
+\ksec{Data Type Semantics (KerML 8.4.4.2)}\label{sec:datatypes}
+
+%\comment{Requiring \texttt{DataTypes} to specialize \texttt{Base::DataValue} says absolutely \bemph{nothing} about what a data value actually means.}
+
+\pn A \texttt{DataType}\index{DataType@\texttt{DataType}} is a collection of abstract values having no existence in space and time.  Data types represent the kind of values manipulated by programs: atomic types (integer, boolean, string, etc.) and constructed types (record, array, sequence, bag, stream, etc.).  Data types do not include functions, predicates, or methods.
+
+\pn \texttt{DataType} is a \texttt{Classifier}, disjoint from \texttt{Class} and \texttt{Association} (Fig. \ref{fig:datatypeabstractsyntax}).
+
+\begin{figure}[htbp]
+\begin{center}
+\textbf{[diagram of DataType specializing Classifier]}
+%\includegraphics[width=6in]{../pics/KerML-SFS}
+\caption{DataType Abstract Syntax}
+\label{fig:datatypeabstractsyntax}
+\end{center}
+\end{figure}
+
+\pn \textbf{validateDataTypeSpecialization:}~~
+A \texttt{DataType} must not specialize a \texttt{Class} or an \texttt{Association}.\\
+\texttt{ownedSpecialization.general->} \\
+\hspace{10pt}~~\texttt{  forAll(not oclIsKindOf(Class) and} \\
+\hspace{10pt}~~\texttt{  not oclIsKindOf(Association))}
+
+\pn The class of \texttt{DataType} is the union of Scalar Values (defined in the \texttt{ScalarValues} library), Vector Values (defined in the \texttt{VectorValues} library), and Collections (defined in the \texttt{Collections} library).
+
+Where Data Types are $DT$, Scalar Values are $SV$, Vector Values are $VV$, and Collections are $C$ (whose \texttt{element} features are restricted to $DT$:
+\begin{restatable}{definition}{datatype}~\blTitle{df-datatype}~ Define \texttt{DataType}.  
+\begin{align}
+\vdash DT~=~SV~\cup~VV~\cup~C\label{eq:df-datatype}\tag{df-datatype}
+\end{align}
+\end{restatable}
+
+\subsection{Scalar Values $SV$:}\label{sec:scalarvalues}
+
+Formal definitions of numeric and boolean values in the \texttt{ScalarValues} library are defined in \ref{sec:sets} and summarized in the table below.
+\begin{description}
+\item[\texttt{Positive}=$\mathbb{N}$]\index{ natural@$\mathbb{N}$ natural} denotes the set of all natural numbers, excluding 0 \ref{eq:df-nn}; 
+\item[\texttt{Natural}=$\mathbb{N}_0$]\index{ natural@$\mathbb{N}_0$ natural} denotes the set of all natural numbers, including 0 \ref{eq:df-n0}; 
+\item[\texttt{Integer}=$\mathbb{Z}$]\index{ integer@$\mathbb{Z}$ integer} denotes the set of all integers \ref{eq:df-z}; 
+\item[\texttt{Rational}=$\mathbb{Q}$]\index{ rational@$\mathbb{Q}$ rational} denotes the set of rational numbers \ref{eq:df-q};  
+%\comment{need to add ref to Q definition}
+\item[\texttt{Real}=$\mathbb{R}$]\index{ real@$\mathbb{R}$ real} denotes the set of real numbers \ref{eq:df-r};
+\item[\texttt{Complex}=$\mathbb{C}$]\index{ complex@$\mathbb{C}$ complex} denotes the set of complex numbers \ref{eq:df-c};
+\item[\texttt{Boolean}=$\mathbb{B}$]\index{ boolean@$\mathbb{B}$ boolean} denotes the set \(\{\top, \bot\}\).\footnote{$\top \equiv$ \texttt{true}; $\bot \equiv$ \texttt{false}} \ref{eq:df-tru}~\ref{eq:df-fal}
+\end{description}
+For \texttt{String}, $\mathbb{S}$,\index{ string@$\mathbb{S}$ string} use the definition of \texttt{STRING\_VALUE}  in KerML 8.2.2.5.
+
+For \texttt{Time}, $\mathbb{T}$,\index{ time@$\mathbb{T}$ time} specializes \texttt{Real} to be used as the value of time instants is added to $SV$.
+
+\begin{lstlisting}
+datatype Time specializes Real;
+\end{lstlisting}
+
+%When we say \texttt{at something} that something must be in $\mathbb{T}$.
+
+\begin{restatable}{definition}{scalarvalues}~\blTitle{df-scalarvalues}~ Define \texttt{ScalarValues}.  
+\begin{align}
+\vdash SV = \mathbb{N} \cup \mathbb{N}_0 \cup \mathbb{Z} \cup \mathbb{Q} \cup \mathbb{R} \cup \mathbb{C} \cup \mathbb{B} \cup \mathbb{S} \cup \mathbb{T} \label{eq:df-scalarvalues}\tag{df-scalarvalues}
+\end{align}
+\end{restatable}
+
+
+
+\subsection{VectorValues $VV$:}\label{sec:vectorvalues}
+
+The \texttt{VectorValues} library provides several handy types in 1, 2, or 3 dimensions by specializing \texttt{Collections\-::Array} and redefining features \texttt{elements} and 
+\texttt{dimension}.
+
+\subsection{Collections $C$:}\label{sec:collections}
+
+The \texttt{Collections} library provides several groupings of elements, all specializing \texttt{Collec\-tions::Collec\-tion} having feature \texttt{elements} to define the types of elements it contains.
+
+\comment{All of these can be defined in terms of Metamath extensible structures, but will be messy.  Space for description and \textbackslash ref\{\} provided.}
+
+\begin{description}
+\item[\texttt{OrderedCollection} ] 
+\item[\texttt{UniqueCollection} ] 
+\item[\texttt{Array} ] 
+\item[\texttt{Bag} ] 
+\item[\texttt{Set} ] 
+\item[\texttt{OrderedSet} ] 
+\item[\texttt{List} ] 
+\item[\texttt{Map} ] 
+\item[\texttt{OrderedMap} ] 
+\end{description}
+All of which can and should be formally defined.
+
+\textbf{\color{red}{However, all \texttt{Collections} are unrestricted to element type.  There must be a constraint \texttt{checkDataTypeElement} to make sure that any elements used are themselves in $DT$.}}
+
+\pn \textbf{checkDataTypeElement:}~~ The \texttt{element} of a \texttt{Collection} must specialize \texttt{DataValue}.\\
+\texttt{element->specializesFromLibrary('Base::DataValue')}

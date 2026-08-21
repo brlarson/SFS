@@ -1,0 +1,752 @@
+% This LaTeX file was created by Metamath on 18-Feb-2024 9:42 PM.
+\begin{restatable}{metadefinition}{dfbladd1}~\blTitle{df-bl.add1}~ Multiterm Addition of Single Value is
+that Value.
+\begin{align}
+\vdash ( \mc{A} \in \mathbb{R} \rightarrow +( \mc{A} ) = \mc{A}
+    )\label{eq:df-bl.add1}\tag{df-bl.add1}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{metadefinition}{dfbladdtwo}~\blTitle{df-bl.add2}~ Multiterm Addition of Two Class Lists
+is their Sum.
+\begin{align}
+\vdash +( \msc{csl_1} , \msc{csl_2} ) = ( +( \msc{csl_1} ) + +( \msc{csl_2} )
+    )\label{eq:df-bl.add2}\tag{df-bl.add2}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{bladdcom}~\blTitle{bl.addcom}~ Multiterm Addition Commutes.
+\begin{align}
+\vdash +( \msc{csl_1} , \msc{csl_2} ) = +( \msc{csl_2} , \msc{csl_1}
+    )\label{eq:bl.addcom}\tag{bl.addcom}
+\end{align}
+\end{restatable}
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash ( +( \msc{csl_1} ) + +( \msc{csl_2} ) ) = ( +( \msc{csl_2} ) +
+     ~+( \msc{csl_1} ) )&(\mbox{\ref{eq:addcomgi}})\notag
+  \\ 2 &&  & \vdash +( \msc{csl_1} , \msc{csl_2} ) = ( +( \msc{csl_1} ) + +(
+     ~\msc{csl_2} ) )&(\mbox{\ref{eq:df-bl.add2}})\notag
+  \\ 3 &&  & \vdash +( \msc{csl_2} , \msc{csl_1} ) = ( +( \msc{csl_2} ) + +(
+     ~\msc{csl_1} ) )&(\mbox{\ref{eq:df-bl.add2}})\notag
+  \\ 4 &&  & \vdash +( \msc{csl_1} , \msc{csl_2} ) = +( \msc{csl_2} ,
+     ~\msc{csl_1} )&(\mbox{\ref{eq:3eqtr4i}},1,2,3)\notag
+\end{align}
+\end{proof}
+
+\begin{restatable}{lemma}{bladeqi}~\blTitle{bl.adeqi}~ Adding Equals.
+\begin{align}
+\vdash \mc{A} = \mc{B}\quad\&\quad \vdash \mc{C} = \mc{D}\quad\Rightarrow \notag \\ 
+	\quad
+    \vdash ( \mc{A} + \mc{C} ) = ( \mc{B} + \mc{D}
+    )\label{eq:bl.adeqi}\tag{bl.adeqi}
+\end{align}
+\end{restatable}
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash \mc{A} = \mc{B}&\text{Hyp~adeqi.1}\notag%bl.adeqi.1
+  \\ 2 &&  & \vdash \mc{C} = \mc{D}&\text{Hyp~adeqi.2}\notag%bl.adeqi.2
+  \\ 3 &&  & \vdash ( \mc{A} + \mc{C} ) = ( \mc{B} + \mc{D}
+     ~)&(\mbox{\ref{eq:oveq12i}},1,2)\notag
+\end{align}
+\end{proof}
+
+\begin{restatable}{lemma}{blddtwoi}~\blTitle{bl.add2i}~ Multiterm Addition of Two Values Lists is
+their Sum.
+\begin{align}
+\vdash \mc{A} \in \mathbb{R}\quad\&\quad \vdash \mc{B} \in
+    \mathbb{R}\quad\Rightarrow \notag \\ 
+	\quad \vdash +( \mc{A} , \mc{B} ) = ( \mc{A} +
+    \mc{B} )\label{eq:bl.add2i}\tag{bl.add2i}
+\end{align}
+\end{restatable}
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash +( \mc{A} , \mc{B} ) = ( +( \mc{A} ) + +( \mc{B} )
+     ~)&(\mbox{\ref{eq:df-bl.add2}})\notag
+  \\ 2 &&  & \vdash \mc{A} \in \mathbb{R}&\text{Hyp~add2i.1}\notag%bl.add2i.1
+  \\ 3 &&  & \vdash ( \mc{A} \in \mathbb{R} \rightarrow +( \mc{A} ) = \mc{A}
+     ~)&(\mbox{\ref{eq:df-bl.add1}})\notag
+  \\ 4 &&  & \vdash +( \mc{A} ) = \mc{A}&(\mbox{\ref{eq:ax-mp}},2,3)\notag
+  \\ 5 &&  & \vdash \mc{B} \in \mathbb{R}&\text{Hyp~add2i.2}\notag%bl.add2i.2
+  \\ 6 &&  & \vdash ( \mc{B} \in \mathbb{R} \rightarrow +( \mc{B} ) = \mc{B}
+     ~)&(\mbox{\ref{eq:df-bl.add1}})\notag
+  \\ 7 &&  & \vdash +( \mc{B} ) = \mc{B}&(\mbox{\ref{eq:ax-mp}},5,6)\notag
+  \\ 8 &&  & \vdash ( +( \mc{A} ) + +( \mc{B} ) ) = ( \mc{A} + \mc{B}
+     ~)&(\mbox{\ref{eq:bl.adeqi}},4,7)\notag
+  \\ 9 &&  & \vdash +( \mc{A} , \mc{B} ) = ( \mc{A} + \mc{B}
+     ~)&(\mbox{\ref{eq:eqtri}},1,8)\notag
+\end{align}
+\end{proof}
+
+\begin{restatable}{lemma}{blddthreei}~\blTitle{bl.add3i}~ Multiterm Addition of Three Values.
+\begin{align}
+\vdash \mc{A} \in \mathbb{R}\quad\&\quad \vdash \mc{B} \in
+    \mathbb{R}\quad\&\quad \vdash \mc{C} \in \mathbb{R}\quad\Rightarrow \notag \\ 
+	\quad
+    \vdash +( \mc{A} , \mc{B} , \mc{C} ) = ( \mc{A} + ( \mc{B} + \mc{C} )
+    )\label{eq:bl.add3i}\tag{bl.add3i}
+\end{align}
+\end{restatable}
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash +( \mc{A} , \mc{B} , \mc{C} ) = ( +( \mc{A} ) + +( \mc{B} ,
+     ~\mc{C} ) )&(\mbox{\ref{eq:df-bl.add2}})\notag
+  \\ 2 &&  & \vdash \mc{A} \in \mathbb{R}&\text{Hyp~add3i.1}\notag%bl.add3i.1
+  \\ 3 &&  & \vdash ( \mc{A} \in \mathbb{R} \rightarrow +( \mc{A} ) = \mc{A}
+     ~)&(\mbox{\ref{eq:df-bl.add1}})\notag
+  \\ 4 &&  & \vdash +( \mc{A} ) = \mc{A}&(\mbox{\ref{eq:ax-mp}},2,3)\notag
+  \\ 5 &&  & \vdash \mc{B} \in \mathbb{R}&\text{Hyp~add3i.2}\notag%bl.add3i.2
+  \\ 6 &&  & \vdash \mc{C} \in \mathbb{R}&\text{Hyp~add3i.3}\notag%bl.add3i.3
+  \\ 7 &&  & \vdash +( \mc{B} , \mc{C} ) = ( \mc{B} + \mc{C}
+     ~)&(\mbox{\ref{eq:bl.add2i}},5,6)\notag
+  \\ 8 &&  & \vdash ( +( \mc{A} ) + +( \mc{B} , \mc{C} ) ) = ( \mc{A} + (
+     ~\mc{B} + \mc{C} )
+     ~)&(\mbox{\ref{eq:bl.adeqi}},4,7)\notag
+  \\ 9 &&  & \vdash +( \mc{A} , \mc{B} , \mc{C} ) = ( \mc{A} + ( \mc{B} +
+     ~\mc{C} ) )&(\mbox{\ref{eq:eqtri}},1,8)\notag
+\end{align}
+\end{proof}
+
+\begin{restatable}{lemma}{blddcomtwo}~\blTitle{bl.addcom2}~ Addition Two Values Commutes.
+\begin{align}
+\vdash +( \mc{A} , \mc{B} ) = +( \mc{B} , \mc{A}
+    )\label{eq:bl.addcom2}\tag{bl.addcom2}
+\end{align}
+\end{restatable}
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash +( \mc{A} , \mc{B} ) = +( \mc{B} , \mc{A}
+     ~)&(\mbox{\ref{eq:bl.addcom}})\notag
+\end{align}
+\end{proof}
+
+\begin{restatable}{lemma}{blddcomthreebac}~\blTitle{bl.addcom3bac}~ Addition of Three Values Commutes.
+\begin{align}
+\vdash \mc{A} \in \mathbb{R}\quad\&\quad \vdash \mc{B} \in
+    \mathbb{R}\quad\&\quad \vdash \mc{C} \in \mathbb{R}\quad\Rightarrow \notag \\ 
+	\quad
+    \vdash +( \mc{A} , \mc{B} , \mc{C} ) = +( \mc{B} , \mc{A} , \mc{C}
+    )\label{eq:bl.addcom3bac}\tag{bl.addcom3bac}
+\end{align}
+\end{restatable}
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash \mc{A} \in
+\mathbb{R}&\text{Hyp~addcom3bac.1}\notag%bl.addcom3bac.1
+  \\ 2 &&  & \vdash \mc{A} \in \mathbb{C}&(\mbox{\ref{eq:recni}},1)\notag
+  \\ 3 &&  & \vdash \mc{B} \in
+\mathbb{R}&\text{Hyp~addcom3bac.2}\notag%bl.addcom3bac.2
+  \\ 4 &&  & \vdash \mc{B} \in \mathbb{C}&(\mbox{\ref{eq:recni}},3)\notag
+  \\ 5 &&  & \vdash \mc{C} \in
+\mathbb{R}&\text{Hyp~addcom3bac.3}\notag%bl.addcom3bac.3
+  \\ 6 &&  & \vdash \mc{C} \in \mathbb{C}&(\mbox{\ref{eq:recni}},5)\notag
+  \\ 7 &&  & \vdash ( \mc{A} \in \mathbb{C} \wedge \mc{B} \in \mathbb{C} \wedge
+     ~\mc{C} \in \mathbb{C}
+     ~)&(\mbox{\ref{eq:3pm3.2i}},2,4,6)\notag
+  \\ 8 &&  & \vdash ( ( \mc{A} \in \mathbb{C} \wedge \mc{B} \in \mathbb{C}
+     ~\wedge \mc{C} \in \mathbb{C} ) \rightarrow ( \mc{A} +
+     ~( \mc{B} + \mc{C} ) ) = ( \mc{B} + ( \mc{A} + \mc{C}
+     ~) ) )&(\mbox{\ref{eq:add12}})\notag
+  \\ 9 &&  & \vdash ( \mc{A} + ( \mc{B} + \mc{C} ) ) = ( \mc{B} + ( \mc{A} +
+     ~\mc{C} ) )&(\mbox{\ref{eq:ax-mp}},7,8)\notag
+  \\ 10 &&  & \vdash \mc{A} \in
+\mathbb{R}&\text{Hyp~addcom3bac.1}\notag%bl.addcom3bac.1
+  \\ 11 &&  & \vdash \mc{B} \in
+\mathbb{R}&\text{Hyp~addcom3bac.2}\notag%bl.addcom3bac.2
+  \\ 12 &&  & \vdash \mc{C} \in
+\mathbb{R}&\text{Hyp~addcom3bac.3}\notag%bl.addcom3bac.3
+  \\ 13 &&  & \vdash +( \mc{A} , \mc{B} , \mc{C} ) = ( \mc{A} + ( \mc{B} +
+     ~\mc{C} ) )&(\mbox{\ref{eq:bl.add3i}},10,11,12)\notag
+  \\ 14 &&  & \vdash \mc{B} \in
+\mathbb{R}&\text{Hyp~addcom3bac.2}\notag%bl.addcom3bac.2
+  \\ 15 &&  & \vdash \mc{A} \in
+\mathbb{R}&\text{Hyp~addcom3bac.1}\notag%bl.addcom3bac.1
+  \\ 16 &&  & \vdash \mc{C} \in
+\mathbb{R}&\text{Hyp~addcom3bac.3}\notag%bl.addcom3bac.3
+  \\ 17 &&  & \vdash +( \mc{B} , \mc{A} , \mc{C} ) = ( \mc{B} + ( \mc{A} +
+     ~\mc{C} ) )&(\mbox{\ref{eq:bl.add3i}},14,15,16)\notag
+  \\ 18 &&  & \vdash +( \mc{A} , \mc{B} , \mc{C} ) = +( \mc{B} , \mc{A} ,
+     ~\mc{C} )&(\mbox{\ref{eq:3eqtr4i}},9,13,17)\notag
+\end{align}
+\end{proof}
+
+\begin{restatable}{lemma}{blddcomthreeacb}~\blTitle{bl.addcom3acb}~ Addition of Three Values Commutes.
+\begin{align}
+\vdash \mc{A} \in \mathbb{R}\quad\&\quad \vdash \mc{B} \in
+    \mathbb{R}\quad\&\quad \vdash \mc{C} \in \mathbb{R}\quad\Rightarrow \notag \\ 
+	\quad
+    \vdash +( \mc{A} , \mc{B} , \mc{C} ) = +( \mc{A} , \mc{C} , \mc{B}
+    )\label{eq:bl.addcom3acb}\tag{bl.addcom3acb}
+\end{align}
+\end{restatable}
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash ( \mc{B} + \mc{C} ) = ( \mc{C} + \mc{B}
+     ~)&(\mbox{\ref{eq:addcomgi}})\notag
+  \\ 2 &&  & \vdash ( \mc{A} + ( \mc{B} + \mc{C} ) ) = ( \mc{A} + ( \mc{C} +
+     ~\mc{B} ) )&(\mbox{\ref{eq:oveq2i}},1)\notag
+  \\ 3 &&  & \vdash \mc{A} \in
+\mathbb{R}&\text{Hyp~addcom3acb.1}\notag%bl.addcom3acb.1
+  \\ 4 &&  & \vdash \mc{B} \in
+\mathbb{R}&\text{Hyp~addcom3acb.2}\notag%bl.addcom3acb.2
+  \\ 5 &&  & \vdash \mc{C} \in
+\mathbb{R}&\text{Hyp~addcom3acb.3}\notag%bl.addcom3acb.3
+  \\ 6 &&  & \vdash +( \mc{A} , \mc{B} , \mc{C} ) = ( \mc{A} + ( \mc{B} +
+     ~\mc{C} ) )&(\mbox{\ref{eq:bl.add3i}},3,4,5)\notag
+  \\ 7 &&  & \vdash \mc{A} \in
+\mathbb{R}&\text{Hyp~addcom3acb.1}\notag%bl.addcom3acb.1
+  \\ 8 &&  & \vdash \mc{C} \in
+\mathbb{R}&\text{Hyp~addcom3acb.3}\notag%bl.addcom3acb.3
+  \\ 9 &&  & \vdash \mc{B} \in
+\mathbb{R}&\text{Hyp~addcom3acb.2}\notag%bl.addcom3acb.2
+  \\ 10 &&  & \vdash +( \mc{A} , \mc{C} , \mc{B} ) = ( \mc{A} + ( \mc{C} +
+     ~\mc{B} ) )&(\mbox{\ref{eq:bl.add3i}},7,8,9)\notag
+  \\ 11 &&  & \vdash +( \mc{A} , \mc{B} , \mc{C} ) = +( \mc{A} , \mc{C} ,
+     ~\mc{B} )&(\mbox{\ref{eq:3eqtr4i}},2,6,10)\notag
+\end{align}
+\end{proof}
+
+\begin{restatable}{lemma}{blddcomthreecba}~\blTitle{bl.addcom3cba}~ Addition of Three Values Commutes.
+\begin{align}
+\vdash \mc{A} \in \mathbb{R}\quad\&\quad \vdash \mc{B} \in
+    \mathbb{R}\quad\&\quad \vdash \mc{C} \in \mathbb{R}\quad\Rightarrow \notag \\ 
+	\quad
+    \vdash +( \mc{A} , \mc{B} , \mc{C} ) = +( \mc{C} , \mc{B} , \mc{A}
+    )\label{eq:bl.addcom3cba}\tag{bl.addcom3cba}
+\end{align}
+\end{restatable}
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash ( ( \mc{B} + \mc{A} ) + \mc{C} ) = ( \mc{C} + ( \mc{B} +
+     ~\mc{A} ) )&(\mbox{\ref{eq:addcomgi}})\notag
+  \\ 2 &&  & \vdash \mc{A} \in
+\mathbb{R}&\text{Hyp~addcom3cba.1}\notag%bl.addcom3cba.1
+  \\ 3 &&  & \vdash \mc{B} \in
+\mathbb{R}&\text{Hyp~addcom3cba.2}\notag%bl.addcom3cba.2
+  \\ 4 &&  & \vdash \mc{C} \in
+\mathbb{R}&\text{Hyp~addcom3cba.3}\notag%bl.addcom3cba.3
+  \\ 5 &&  & \vdash +( \mc{A} , \mc{B} , \mc{C} ) = ( \mc{A} + ( \mc{B} +
+     ~\mc{C} ) )&(\mbox{\ref{eq:bl.add3i}},2,3,4)\notag
+  \\ 6 &&  & \vdash \mc{A} \in
+\mathbb{R}&\text{Hyp~addcom3cba.1}\notag%bl.addcom3cba.1
+  \\ 7 &&  & \vdash \mc{A} \in \mathbb{C}&(\mbox{\ref{eq:recni}},6)\notag
+  \\ 8 &&  & \vdash \mc{B} \in
+\mathbb{R}&\text{Hyp~addcom3cba.2}\notag%bl.addcom3cba.2
+  \\ 9 &&  & \vdash \mc{B} \in \mathbb{C}&(\mbox{\ref{eq:recni}},8)\notag
+  \\ 10 &&  & \vdash \mc{C} \in
+\mathbb{R}&\text{Hyp~addcom3cba.3}\notag%bl.addcom3cba.3
+  \\ 11 &&  & \vdash \mc{C} \in \mathbb{C}&(\mbox{\ref{eq:recni}},10)\notag
+  \\ 12 &&  & \vdash ( ( \mc{A} + \mc{B} ) + \mc{C} ) = ( \mc{A} + ( \mc{B} +
+     ~\mc{C} ) )&(\mbox{\ref{eq:addassi}},7,9,11)\notag
+  \\ 13 &&  & \vdash +( \mc{A} , \mc{B} , \mc{C} ) = ( ( \mc{A} + \mc{B} ) +
+     ~\mc{C} )&(\mbox{\ref{eq:eqtr4i}},5,12)\notag
+  \\ 14 &&  & \vdash ( \mc{A} + \mc{B} ) = ( \mc{B} + \mc{A}
+     ~)&(\mbox{\ref{eq:addcomgi}})\notag
+  \\ 15 &&  & \vdash ( ( \mc{A} + \mc{B} ) + \mc{C} ) = ( ( \mc{B} + \mc{A} ) +
+     ~\mc{C} )&(\mbox{\ref{eq:oveq1i}},14)\notag
+  \\ 16 &&  & \vdash +( \mc{A} , \mc{B} , \mc{C} ) = ( ( \mc{B} + \mc{A} ) +
+     ~\mc{C} )&(\mbox{\ref{eq:eqtri}},13,15)\notag
+  \\ 17 &&  & \vdash \mc{C} \in
+\mathbb{R}&\text{Hyp~addcom3cba.3}\notag%bl.addcom3cba.3
+  \\ 18 &&  & \vdash \mc{B} \in
+\mathbb{R}&\text{Hyp~addcom3cba.2}\notag%bl.addcom3cba.2
+  \\ 19 &&  & \vdash \mc{A} \in
+\mathbb{R}&\text{Hyp~addcom3cba.1}\notag%bl.addcom3cba.1
+  \\ 20 &&  & \vdash +( \mc{C} , \mc{B} , \mc{A} ) = ( \mc{C} + ( \mc{B} +
+     ~\mc{A} ) )&(\mbox{\ref{eq:bl.add3i}},17,18,19)\notag
+  \\ 21 &&  & \vdash +( \mc{A} , \mc{B} , \mc{C} ) = +( \mc{C} , \mc{B} ,
+     ~\mc{A} )&(\mbox{\ref{eq:3eqtr4i}},1,16,20)\notag
+\end{align}
+\end{proof}
+
+\begin{restatable}{lemma}{blddcomthreecab}~\blTitle{bl.addcom3cab}~ Addition of Three Values Commutes.
+\begin{align}
+\vdash \mc{A} \in \mathbb{R}\quad\&\quad \vdash \mc{B} \in
+    \mathbb{R}\quad\&\quad \vdash \mc{C} \in \mathbb{R}\quad\Rightarrow \notag \\ 
+	\quad
+    \vdash +( \mc{A} , \mc{B} , \mc{C} ) = +( \mc{C} , \mc{A} , \mc{B}
+    )\label{eq:bl.addcom3cab}\tag{bl.addcom3cab}
+\end{align}
+\end{restatable}
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash ( ( \mc{A} + \mc{B} ) + \mc{C} ) = ( \mc{C} + ( \mc{A} +
+     ~\mc{B} ) )&(\mbox{\ref{eq:addcomgi}})\notag
+  \\ 2 &&  & \vdash \mc{A} \in
+\mathbb{R}&\text{Hyp~addcom3cab.1}\notag%bl.addcom3cab.1
+  \\ 3 &&  & \vdash \mc{B} \in
+\mathbb{R}&\text{Hyp~addcom3cab.2}\notag%bl.addcom3cab.2
+  \\ 4 &&  & \vdash \mc{C} \in
+\mathbb{R}&\text{Hyp~addcom3cab.3}\notag%bl.addcom3cab.3
+  \\ 5 &&  & \vdash +( \mc{A} , \mc{B} , \mc{C} ) = ( \mc{A} + ( \mc{B} +
+     ~\mc{C} ) )&(\mbox{\ref{eq:bl.add3i}},2,3,4)\notag
+  \\ 6 &&  & \vdash \mc{A} \in
+\mathbb{R}&\text{Hyp~addcom3cab.1}\notag%bl.addcom3cab.1
+  \\ 7 &&  & \vdash \mc{A} \in \mathbb{C}&(\mbox{\ref{eq:recni}},6)\notag
+  \\ 8 &&  & \vdash \mc{B} \in
+\mathbb{R}&\text{Hyp~addcom3cab.2}\notag%bl.addcom3cab.2
+  \\ 9 &&  & \vdash \mc{B} \in \mathbb{C}&(\mbox{\ref{eq:recni}},8)\notag
+  \\ 10 &&  & \vdash \mc{C} \in
+\mathbb{R}&\text{Hyp~addcom3cab.3}\notag%bl.addcom3cab.3
+  \\ 11 &&  & \vdash \mc{C} \in \mathbb{C}&(\mbox{\ref{eq:recni}},10)\notag
+  \\ 12 &&  & \vdash ( ( \mc{A} + \mc{B} ) + \mc{C} ) = ( \mc{A} + ( \mc{B} +
+     ~\mc{C} ) )&(\mbox{\ref{eq:addassi}},7,9,11)\notag
+  \\ 13 &&  & \vdash +( \mc{A} , \mc{B} , \mc{C} ) = ( ( \mc{A} + \mc{B} ) +
+     ~\mc{C} )&(\mbox{\ref{eq:eqtr4i}},5,12)\notag
+  \\ 14 &&  & \vdash \mc{C} \in
+\mathbb{R}&\text{Hyp~addcom3cab.3}\notag%bl.addcom3cab.3
+  \\ 15 &&  & \vdash \mc{A} \in
+\mathbb{R}&\text{Hyp~addcom3cab.1}\notag%bl.addcom3cab.1
+  \\ 16 &&  & \vdash \mc{B} \in
+\mathbb{R}&\text{Hyp~addcom3cab.2}\notag%bl.addcom3cab.2
+  \\ 17 &&  & \vdash +( \mc{C} , \mc{A} , \mc{B} ) = ( \mc{C} + ( \mc{A} +
+     ~\mc{B} ) )&(\mbox{\ref{eq:bl.add3i}},14,15,16)\notag
+  \\ 18 &&  & \vdash +( \mc{A} , \mc{B} , \mc{C} ) = +( \mc{C} , \mc{A} ,
+     ~\mc{B} )&(\mbox{\ref{eq:3eqtr4i}},1,13,17)\notag
+\end{align}
+\end{proof}
+
+\begin{restatable}{metadefinition}{dfblmul1}~\blTitle{df-bl.mul1}~ Multiterm Multiplication of Single
+Value is that Value.
+\begin{align}
+\vdash ( \mc{A} \in \mathbb{R} \rightarrow \cdot( \mc{A} ) = \mc{A}
+    )\label{eq:df-bl.mul1}\tag{df-bl.mul1}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{metadefinition}{dfblmultwo}~\blTitle{df-bl.mul2}~ Multiterm Multiplication of Two Class
+Lists is their Product.
+\begin{align}
+\vdash \cdot( \msc{csl_1} , \msc{csl_2} ) = ( \cdot( \msc{csl_1} ) \cdot \cdot(
+    \msc{csl_2} ) )\label{eq:df-bl.mul2}\tag{df-bl.mul2}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{blmulcom}~\blTitle{bl.mulcom}~ Multiterm Multiplication Commutes.
+\begin{align}
+\vdash \cdot( \msc{csl_1} ) \in \mathbb{R}\quad\&\quad \vdash \cdot(
+    \msc{csl_2} ) \in \mathbb{R}\quad\Rightarrow \notag \\ 
+	\quad \vdash \cdot( \msc{csl_1}
+    , \msc{csl_2} ) = \cdot( \msc{csl_2} , \msc{csl_1}
+    )\label{eq:bl.mulcom}\tag{bl.mulcom}
+\end{align}
+\end{restatable}
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash \cdot( \msc{csl_1} ) \in
+     ~\mathbb{R}&\text{Hyp~mulcom.1}\notag%bl.mulcom.1
+  \\ 2 &&  & \vdash \cdot( \msc{csl_1} ) \in
+     ~\mathbb{C}&(\mbox{\ref{eq:recni}},1)\notag
+  \\ 3 &&  & \vdash \cdot( \msc{csl_2} ) \in
+     ~\mathbb{R}&\text{Hyp~mulcom.2}\notag%bl.mulcom.2
+  \\ 4 &&  & \vdash \cdot( \msc{csl_2} ) \in
+     ~\mathbb{C}&(\mbox{\ref{eq:recni}},3)\notag
+  \\ 5 &&  & \vdash ( \cdot( \msc{csl_1} ) \cdot \cdot( \msc{csl_2} ) ) = (
+     ~\cdot( \msc{csl_2} ) \cdot \cdot( \msc{csl_1} )
+     ~)&(\mbox{\ref{eq:mulcomi}},2,4)\notag
+  \\ 6 &&  & \vdash \cdot( \msc{csl_1} , \msc{csl_2} ) = ( \cdot( \msc{csl_1} )
+     ~\cdot \cdot( \msc{csl_2} )
+     ~)&(\mbox{\ref{eq:df-bl.mul2}})\notag
+  \\ 7 &&  & \vdash \cdot( \msc{csl_2} , \msc{csl_1} ) = ( \cdot( \msc{csl_2} )
+     ~\cdot \cdot( \msc{csl_1} )
+     ~)&(\mbox{\ref{eq:df-bl.mul2}})\notag
+  \\ 8 &&  & \vdash \cdot( \msc{csl_1} , \msc{csl_2} ) = \cdot( \msc{csl_2} ,
+     ~\msc{csl_1} )&(\mbox{\ref{eq:3eqtr4i}},5,6,7)\notag
+\end{align}
+\end{proof}
+
+\begin{restatable}{lemma}{blmuleqi}~\blTitle{bl.muleqi}~ Multiplying Equals.
+\begin{align}
+\vdash \mc{A} = \mc{B}\quad\&\quad \vdash \mc{C} = \mc{D}\quad\Rightarrow \notag \\ 
+	\quad
+    \vdash ( \mc{A} \cdot \mc{C} ) = ( \mc{B} \cdot \mc{D}
+    )\label{eq:bl.muleqi}\tag{bl.muleqi}
+\end{align}
+\end{restatable}
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash \mc{A} = \mc{B}&\text{Hyp~muleqi.1}\notag%bl.muleqi.1
+  \\ 2 &&  & \vdash \mc{C} = \mc{D}&\text{Hyp~muleqi.2}\notag%bl.muleqi.2
+  \\ 3 &&  & \vdash ( \mc{A} \cdot \mc{C} ) = ( \mc{B} \cdot \mc{D}
+     ~)&(\mbox{\ref{eq:oveq12i}},1,2)\notag
+\end{align}
+\end{proof}
+
+\begin{restatable}{lemma}{blultwoi}~\blTitle{bl.mul2i}~ Multiterm Multiplication of Two Values is
+their Product.
+\begin{align}
+\vdash \mc{A} \in \mathbb{R}\quad\&\quad \vdash \mc{B} \in
+    \mathbb{R}\quad\Rightarrow \notag \\ 
+	\quad \vdash \cdot( \mc{A} , \mc{B} ) = ( \mc{A}
+    \cdot \mc{B} )\label{eq:bl.mul2i}\tag{bl.mul2i}
+\end{align}
+\end{restatable}
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash \cdot( \mc{A} , \mc{B} ) = ( \cdot( \mc{A} ) \cdot \cdot(
+     ~\mc{B} ) )&(\mbox{\ref{eq:df-bl.mul2}})\notag
+  \\ 2 &&  & \vdash \mc{A} \in \mathbb{R}&\text{Hyp~mul2i.1}\notag%bl.mul2i.1
+  \\ 3 &&  & \vdash ( \mc{A} \in \mathbb{R} \rightarrow \cdot( \mc{A} ) =
+     ~\mc{A} )&(\mbox{\ref{eq:df-bl.mul1}})\notag
+  \\ 4 &&  & \vdash \cdot( \mc{A} ) = \mc{A}&(\mbox{\ref{eq:ax-mp}},2,3)\notag
+  \\ 5 &&  & \vdash \mc{B} \in \mathbb{R}&\text{Hyp~mul2i.2}\notag%bl.mul2i.2
+  \\ 6 &&  & \vdash ( \mc{B} \in \mathbb{R} \rightarrow \cdot( \mc{B} ) =
+     ~\mc{B} )&(\mbox{\ref{eq:df-bl.mul1}})\notag
+  \\ 7 &&  & \vdash \cdot( \mc{B} ) = \mc{B}&(\mbox{\ref{eq:ax-mp}},5,6)\notag
+  \\ 8 &&  & \vdash ( \cdot( \mc{A} ) \cdot \cdot( \mc{B} ) ) = ( \mc{A} \cdot
+     ~\mc{B} )&(\mbox{\ref{eq:oveq12i}},4,7)\notag
+  \\ 9 &&  & \vdash \cdot( \mc{A} , \mc{B} ) = ( \mc{A} \cdot \mc{B}
+     ~)&(\mbox{\ref{eq:eqtri}},1,8)\notag
+\end{align}
+\end{proof}
+
+\begin{restatable}{lemma}{blulthreei}~\blTitle{bl.mul3i}~ Multiterm Multiplication of Three Values.
+\begin{align}
+\vdash \mc{A} \in \mathbb{R}\quad\&\quad \vdash \mc{B} \in
+    \mathbb{R}\quad\&\quad \vdash \mc{C} \in \mathbb{R}\quad\Rightarrow \notag \\ 
+	\quad
+    \vdash \cdot( \mc{A} , \mc{B} , \mc{C} ) = ( \mc{A} \cdot ( \mc{B} \cdot
+    \mc{C} ) )\label{eq:bl.mul3i}\tag{bl.mul3i}
+\end{align}
+\end{restatable}
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash \cdot( \mc{A} , \mc{B} , \mc{C} ) = ( \cdot( \mc{A} ) \cdot
+     ~\cdot( \mc{B} , \mc{C} )
+     ~)&(\mbox{\ref{eq:df-bl.mul2}})\notag
+  \\ 2 &&  & \vdash \mc{A} \in \mathbb{R}&\text{Hyp~mul3i.1}\notag%bl.mul3i.1
+  \\ 3 &&  & \vdash ( \mc{A} \in \mathbb{R} \rightarrow \cdot( \mc{A} ) =
+     ~\mc{A} )&(\mbox{\ref{eq:df-bl.mul1}})\notag
+  \\ 4 &&  & \vdash \cdot( \mc{A} ) = \mc{A}&(\mbox{\ref{eq:ax-mp}},2,3)\notag
+  \\ 5 &&  & \vdash \cdot( \mc{B} , \mc{C} ) = ( \cdot( \mc{B} ) \cdot \cdot(
+     ~\mc{C} ) )&(\mbox{\ref{eq:df-bl.mul2}})\notag
+  \\ 6 &&  & \vdash \mc{B} \in \mathbb{R}&\text{Hyp~mul3i.2}\notag%bl.mul3i.2
+  \\ 7 &&  & \vdash ( \mc{B} \in \mathbb{R} \rightarrow \cdot( \mc{B} ) =
+     ~\mc{B} )&(\mbox{\ref{eq:df-bl.mul1}})\notag
+  \\ 8 &&  & \vdash \cdot( \mc{B} ) = \mc{B}&(\mbox{\ref{eq:ax-mp}},6,7)\notag
+  \\ 9 &&  & \vdash \mc{C} \in \mathbb{R}&\text{Hyp~mul3i.3}\notag%bl.mul3i.3
+  \\ 10 &&  & \vdash ( \mc{C} \in \mathbb{R} \rightarrow \cdot( \mc{C} ) =
+     ~\mc{C} )&(\mbox{\ref{eq:df-bl.mul1}})\notag
+  \\ 11 &&  & \vdash \cdot( \mc{C} ) =
+     ~\mc{C}&(\mbox{\ref{eq:ax-mp}},9,10)\notag
+  \\ 12 &&  & \vdash ( \cdot( \mc{B} ) \cdot \cdot( \mc{C} ) ) = ( \mc{B} \cdot
+     ~\mc{C} )&(\mbox{\ref{eq:oveq12i}},8,11)\notag
+  \\ 13 &&  & \vdash \cdot( \mc{B} , \mc{C} ) = ( \mc{B} \cdot \mc{C}
+     ~)&(\mbox{\ref{eq:eqtri}},5,12)\notag
+  \\ 14 &&  & \vdash ( \cdot( \mc{A} ) \cdot \cdot( \mc{B} , \mc{C} ) ) = (
+     ~\mc{A} \cdot ( \mc{B} \cdot \mc{C} )
+     ~)&(\mbox{\ref{eq:oveq12i}},4,13)\notag
+  \\ 15 &&  & \vdash \cdot( \mc{A} , \mc{B} , \mc{C} ) = ( \mc{A} \cdot (
+     ~\mc{B} \cdot \mc{C} )
+     ~)&(\mbox{\ref{eq:eqtri}},1,14)\notag
+\end{align}
+\end{proof}
+
+\begin{restatable}{lemma}{blulcomtwo}~\blTitle{bl.mulcom2}~ Multiplication of Two Values Commutes.
+\begin{align}
+\vdash \mc{A} \in \mathbb{R}\quad\&\quad \vdash \mc{B} \in
+    \mathbb{R}\quad\Rightarrow \notag \\ 
+	\quad \vdash \cdot( \mc{A} , \mc{B} ) = \cdot(
+    \mc{B} , \mc{A} )\label{eq:bl.mulcom2}\tag{bl.mulcom2}
+\end{align}
+\end{restatable}
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash \mc{A} \in \mathbb{R}&\text{Hyp~mulcom2.1}\notag%bl.mulcom2.1
+  \\ 2 &&  & \vdash ( \mc{A} \in \mathbb{R} \rightarrow \cdot( \mc{A} ) =
+     ~\mc{A} )&(\mbox{\ref{eq:df-bl.mul1}})\notag
+  \\ 3 &&  & \vdash \cdot( \mc{A} ) = \mc{A}&(\mbox{\ref{eq:ax-mp}},1,2)\notag
+  \\ 4 &&  & \vdash \mc{A} \in
+     ~\mathbb{R}&\text{Hyp~mulcom2.1}\notag%bl.mulcom2.1
+  \\ 5 &&  & \vdash \cdot( \mc{A} ) \in
+     ~\mathbb{R}&(\mbox{\ref{eq:eqeltri}},3,4)\notag
+  \\ 6 &&  & \vdash \mc{B} \in
+     ~\mathbb{R}&\text{Hyp~mulcom2.2}\notag%bl.mulcom2.2
+  \\ 7 &&  & \vdash ( \mc{B} \in \mathbb{R} \rightarrow \cdot( \mc{B} ) =
+     ~\mc{B} )&(\mbox{\ref{eq:df-bl.mul1}})\notag
+  \\ 8 &&  & \vdash \cdot( \mc{B} ) = \mc{B}&(\mbox{\ref{eq:ax-mp}},6,7)\notag
+  \\ 9 &&  & \vdash \mc{B} \in
+     ~\mathbb{R}&\text{Hyp~mulcom2.2}\notag%bl.mulcom2.2
+  \\ 10 &&  & \vdash \cdot( \mc{B} ) \in
+     ~\mathbb{R}&(\mbox{\ref{eq:eqeltri}},8,9)\notag
+  \\ 11 &&  & \vdash \cdot( \mc{A} , \mc{B} ) = \cdot( \mc{B} , \mc{A}
+     ~)&(\mbox{\ref{eq:bl.mulcom}},5,10)\notag
+\end{align}
+\end{proof}
+
+\begin{restatable}{lemma}{blulcomthreebac}~\blTitle{bl.mulcom3bac}~ Multiplication of Three Values
+Commutes.
+\begin{align}
+\vdash \mc{A} \in \mathbb{R}\quad\&\quad \vdash \mc{B} \in
+    \mathbb{R}\quad\&\quad \vdash \mc{C} \in \mathbb{R}\quad\Rightarrow \notag \\ 
+	\quad
+    \vdash \cdot( \mc{A} , \mc{B} , \mc{C} ) = \cdot( \mc{B} , \mc{A} , \mc{C}
+    )\label{eq:bl.mulcom3bac}\tag{bl.mulcom3bac}
+\end{align}
+\end{restatable}
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash \mc{A} \in
+\mathbb{R}&\text{Hyp~mulcom3bac.1}\notag%bl.mulcom3bac.1
+  \\ 2 &&  & \vdash \mc{A} \in \mathbb{C}&(\mbox{\ref{eq:recni}},1)\notag
+  \\ 3 &&  & \vdash \mc{B} \in
+\mathbb{R}&\text{Hyp~mulcom3bac.2}\notag%bl.mulcom3bac.2
+  \\ 4 &&  & \vdash \mc{B} \in \mathbb{C}&(\mbox{\ref{eq:recni}},3)\notag
+  \\ 5 &&  & \vdash \mc{C} \in
+\mathbb{R}&\text{Hyp~mulcom3bac.3}\notag%bl.mulcom3bac.3
+  \\ 6 &&  & \vdash \mc{C} \in \mathbb{C}&(\mbox{\ref{eq:recni}},5)\notag
+  \\ 7 &&  & \vdash ( \mc{A} \cdot ( \mc{B} \cdot \mc{C} ) ) = ( \mc{B} \cdot (
+     ~\mc{A} \cdot \mc{C} )
+     ~)&(\mbox{\ref{eq:mul12i}},2,4,6)\notag
+  \\ 8 &&  & \vdash \mc{A} \in
+\mathbb{R}&\text{Hyp~mulcom3bac.1}\notag%bl.mulcom3bac.1
+  \\ 9 &&  & \vdash \mc{B} \in
+\mathbb{R}&\text{Hyp~mulcom3bac.2}\notag%bl.mulcom3bac.2
+  \\ 10 &&  & \vdash \mc{C} \in
+\mathbb{R}&\text{Hyp~mulcom3bac.3}\notag%bl.mulcom3bac.3
+  \\ 11 &&  & \vdash \cdot( \mc{A} , \mc{B} , \mc{C} ) = ( \mc{A} \cdot (
+     ~\mc{B} \cdot \mc{C} )
+     ~)&(\mbox{\ref{eq:bl.mul3i}},8,9,10)\notag
+  \\ 12 &&  & \vdash \mc{B} \in
+\mathbb{R}&\text{Hyp~mulcom3bac.2}\notag%bl.mulcom3bac.2
+  \\ 13 &&  & \vdash \mc{A} \in
+\mathbb{R}&\text{Hyp~mulcom3bac.1}\notag%bl.mulcom3bac.1
+  \\ 14 &&  & \vdash \mc{C} \in
+\mathbb{R}&\text{Hyp~mulcom3bac.3}\notag%bl.mulcom3bac.3
+  \\ 15 &&  & \vdash \cdot( \mc{B} , \mc{A} , \mc{C} ) = ( \mc{B} \cdot (
+     ~\mc{A} \cdot \mc{C} )
+     ~)&(\mbox{\ref{eq:bl.mul3i}},12,13,14)\notag
+  \\ 16 &&  & \vdash \cdot( \mc{A} , \mc{B} , \mc{C} ) = \cdot( \mc{B} , \mc{A}
+     ~, \mc{C} )&(\mbox{\ref{eq:3eqtr4i}},7,11,15)\notag
+\end{align}
+\end{proof}
+
+\begin{restatable}{lemma}{blulcomthreeacb}~\blTitle{bl.mulcom3acb}~ Multiplication of Three Values
+Commutes.
+\begin{align}
+\vdash \mc{A} \in \mathbb{R}\quad\&\quad \vdash \mc{B} \in
+    \mathbb{R}\quad\&\quad \vdash \mc{C} \in \mathbb{R}\quad\Rightarrow \notag \\ 
+	\quad
+    \vdash \cdot( \mc{A} , \mc{B} , \mc{C} ) = \cdot( \mc{A} , \mc{C} , \mc{B}
+    )\label{eq:bl.mulcom3acb}\tag{bl.mulcom3acb}
+\end{align}
+\end{restatable}
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash \mc{B} \in
+\mathbb{R}&\text{Hyp~mulcom3acb.2}\notag%bl.mulcom3acb.2
+  \\ 2 &&  & \vdash \mc{B} \in \mathbb{C}&(\mbox{\ref{eq:recni}},1)\notag
+  \\ 3 &&  & \vdash \mc{C} \in
+\mathbb{R}&\text{Hyp~mulcom3acb.3}\notag%bl.mulcom3acb.3
+  \\ 4 &&  & \vdash \mc{C} \in \mathbb{C}&(\mbox{\ref{eq:recni}},3)\notag
+  \\ 5 &&  & \vdash ( \mc{B} \cdot \mc{C} ) = ( \mc{C} \cdot \mc{B}
+     ~)&(\mbox{\ref{eq:mulcomi}},2,4)\notag
+  \\ 6 &&  & \vdash ( \mc{A} \cdot ( \mc{B} \cdot \mc{C} ) ) = ( \mc{A} \cdot (
+     ~\mc{C} \cdot \mc{B} )
+     ~)&(\mbox{\ref{eq:oveq2i}},5)\notag
+  \\ 7 &&  & \vdash \mc{A} \in
+\mathbb{R}&\text{Hyp~mulcom3acb.1}\notag%bl.mulcom3acb.1
+  \\ 8 &&  & \vdash \mc{B} \in
+\mathbb{R}&\text{Hyp~mulcom3acb.2}\notag%bl.mulcom3acb.2
+  \\ 9 &&  & \vdash \mc{C} \in
+\mathbb{R}&\text{Hyp~mulcom3acb.3}\notag%bl.mulcom3acb.3
+  \\ 10 &&  & \vdash \cdot( \mc{A} , \mc{B} , \mc{C} ) = ( \mc{A} \cdot (
+     ~\mc{B} \cdot \mc{C} )
+     ~)&(\mbox{\ref{eq:bl.mul3i}},7,8,9)\notag
+  \\ 11 &&  & \vdash \mc{A} \in
+\mathbb{R}&\text{Hyp~mulcom3acb.1}\notag%bl.mulcom3acb.1
+  \\ 12 &&  & \vdash \mc{C} \in
+\mathbb{R}&\text{Hyp~mulcom3acb.3}\notag%bl.mulcom3acb.3
+  \\ 13 &&  & \vdash \mc{B} \in
+\mathbb{R}&\text{Hyp~mulcom3acb.2}\notag%bl.mulcom3acb.2
+  \\ 14 &&  & \vdash \cdot( \mc{A} , \mc{C} , \mc{B} ) = ( \mc{A} \cdot (
+     ~\mc{C} \cdot \mc{B} )
+     ~)&(\mbox{\ref{eq:bl.mul3i}},11,12,13)\notag
+  \\ 15 &&  & \vdash \cdot( \mc{A} , \mc{B} , \mc{C} ) = \cdot( \mc{A} , \mc{C}
+     ~, \mc{B} )&(\mbox{\ref{eq:3eqtr4i}},6,10,14)\notag
+\end{align}
+\end{proof}
+
+\begin{restatable}{lemma}{blulcomthreecba}~\blTitle{bl.mulcom3cba}~ Multiplication of Three Values
+Commutes.
+\begin{align}
+\vdash \mc{A} \in \mathbb{R}\quad\&\quad \vdash \mc{B} \in
+    \mathbb{R}\quad\&\quad \vdash \mc{C} \in \mathbb{R}\quad\Rightarrow \notag \\ 
+	\quad
+    \vdash \cdot( \mc{A} , \mc{B} , \mc{C} ) = \cdot( \mc{C} , \mc{B} , \mc{A}
+    )\label{eq:bl.mulcom3cba}\tag{bl.mulcom3cba}
+\end{align}
+\end{restatable}
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash \mc{C} \in
+\mathbb{R}&\text{Hyp~mulcom3cba.3}\notag%bl.mulcom3cba.3
+  \\ 2 && @2:\  & \vdash \mc{C} \in \mathbb{C}&(\mbox{\ref{eq:recni}},1)\notag
+  \\ 3 &&  & \vdash \mc{B} \in
+\mathbb{R}&\text{Hyp~mulcom3cba.2}\notag%bl.mulcom3cba.2
+  \\ 4 && @4:\  & \vdash \mc{B} \in \mathbb{C}&(\mbox{\ref{eq:recni}},3)\notag
+  \\ 5 &&  & \vdash \mc{A} \in
+\mathbb{R}&\text{Hyp~mulcom3cba.1}\notag%bl.mulcom3cba.1
+  \\ 6 && @6:\  & \vdash \mc{A} \in \mathbb{C}&(\mbox{\ref{eq:recni}},5)\notag
+  \\ 7 &&  & \vdash ( \mc{C} \in \mathbb{C} \wedge \mc{B} \in \mathbb{C} \wedge
+     ~\mc{A} \in \mathbb{C}
+     ~)&(\mbox{\ref{eq:3pm3.2i}},2,4,6)\notag
+  \\ 8 &&  & \vdash ( ( \mc{C} \in \mathbb{C} \wedge \mc{B} \in \mathbb{C}
+     ~\wedge \mc{A} \in \mathbb{C} ) \rightarrow ( ( \mc{C}
+     ~\cdot \mc{B} ) \cdot \mc{A} ) = ( \mc{C} \cdot (
+     ~\mc{B} \cdot \mc{A} ) )
+     ~)&(\mbox{\ref{eq:axmulass}})\notag
+  \\ 9 &&  & \vdash ( ( \mc{C} \cdot \mc{B} ) \cdot \mc{A} ) = ( \mc{C} \cdot (
+     ~\mc{B} \cdot \mc{A} )
+     ~)&(\mbox{\ref{eq:ax-mp}},7,8)\notag
+  \\ 10 &&  & \vdash \mc{A} \in
+\mathbb{R}&\text{Hyp~mulcom3cba.1}\notag%bl.mulcom3cba.1
+  \\ 11 &&  & \vdash \mc{B} \in
+\mathbb{R}&\text{Hyp~mulcom3cba.2}\notag%bl.mulcom3cba.2
+  \\ 12 &&  & \vdash \mc{C} \in
+\mathbb{R}&\text{Hyp~mulcom3cba.3}\notag%bl.mulcom3cba.3
+  \\ 13 &&  & \vdash \cdot( \mc{A} , \mc{B} , \mc{C} ) = ( \mc{A} \cdot (
+     ~\mc{B} \cdot \mc{C} )
+     ~)&(\mbox{\ref{eq:bl.mul3i}},10,11,12)\notag
+  \\ 14 &&  & \vdash \mc{A} \in \mathbb{C}&(@6)\notag
+  \\ 15 &&  & \vdash \mc{B} \in \mathbb{C}&(@4)\notag
+  \\ 16 &&  & \vdash \mc{C} \in \mathbb{C}&(@2)\notag
+  \\ 17 &&  & \vdash ( \mc{B} \in \mathbb{C} \wedge \mc{C} \in \mathbb{C}
+     ~)&(\mbox{\ref{eq:pm3.2i}},15,16)\notag
+  \\ 18 &&  & \vdash ( ( \mc{B} \in \mathbb{C} \wedge \mc{C} \in \mathbb{C} )
+     ~\rightarrow ( \mc{B} \cdot \mc{C} ) \in \mathbb{C}
+     ~)&(\mbox{\ref{eq:axmulcl}})\notag
+  \\ 19 &&  & \vdash ( \mc{B} \cdot \mc{C} ) \in
+     ~\mathbb{C}&(\mbox{\ref{eq:ax-mp}},17,18)\notag
+  \\ 20 &&  & \vdash ( \mc{A} \in \mathbb{C} \wedge ( \mc{B} \cdot \mc{C} ) \in
+     ~\mathbb{C} )&(\mbox{\ref{eq:pm3.2i}},14,19)\notag
+  \\ 21 &&  & \vdash ( ( \mc{A} \in \mathbb{C} \wedge ( \mc{B} \cdot \mc{C} )
+     ~\in \mathbb{C} ) \rightarrow ( \mc{A} \cdot ( \mc{B}
+     ~\cdot \mc{C} ) ) = ( ( \mc{B} \cdot \mc{C} ) \cdot
+     ~\mc{A} ) )&(\mbox{\ref{eq:axmulcom}})\notag
+  \\ 22 &&  & \vdash ( \mc{A} \cdot ( \mc{B} \cdot \mc{C} ) ) = ( ( \mc{B}
+     ~\cdot \mc{C} ) \cdot \mc{A}
+     ~)&(\mbox{\ref{eq:ax-mp}},20,21)\notag
+  \\ 23 &&  & \vdash \cdot( \mc{A} , \mc{B} , \mc{C} ) = ( ( \mc{B} \cdot
+     ~\mc{C} ) \cdot \mc{A}
+     ~)&(\mbox{\ref{eq:eqtri}},13,22)\notag
+  \\ 24 &&  & \vdash \mc{C} \in \mathbb{C}&(@2)\notag
+  \\ 25 &&  & \vdash \mc{B} \in \mathbb{C}&(@4)\notag
+  \\ 26 &&  & \vdash ( \mc{C} \in \mathbb{C} \wedge \mc{B} \in \mathbb{C}
+     ~)&(\mbox{\ref{eq:pm3.2i}},24,25)\notag
+  \\ 27 &&  & \vdash ( ( \mc{C} \in \mathbb{C} \wedge \mc{B} \in \mathbb{C} )
+     ~\rightarrow ( \mc{C} \cdot \mc{B} ) = ( \mc{B} \cdot
+     ~\mc{C} ) )&(\mbox{\ref{eq:axmulcom}})\notag
+  \\ 28 &&  & \vdash ( \mc{C} \cdot \mc{B} ) = ( \mc{B} \cdot \mc{C}
+     ~)&(\mbox{\ref{eq:ax-mp}},26,27)\notag
+  \\ 29 &&  & \vdash ( ( \mc{C} \cdot \mc{B} ) \cdot \mc{A} ) = ( ( \mc{B}
+     ~\cdot \mc{C} ) \cdot \mc{A}
+     ~)&(\mbox{\ref{eq:oveq1i}},28)\notag
+  \\ 30 &&  & \vdash \cdot( \mc{A} , \mc{B} , \mc{C} ) = ( ( \mc{C} \cdot
+     ~\mc{B} ) \cdot \mc{A}
+     ~)&(\mbox{\ref{eq:eqtr4i}},23,29)\notag
+  \\ 31 &&  & \vdash \mc{C} \in
+\mathbb{R}&\text{Hyp~mulcom3cba.3}\notag%bl.mulcom3cba.3
+  \\ 32 &&  & \vdash \mc{B} \in
+\mathbb{R}&\text{Hyp~mulcom3cba.2}\notag%bl.mulcom3cba.2
+  \\ 33 &&  & \vdash \mc{A} \in
+\mathbb{R}&\text{Hyp~mulcom3cba.1}\notag%bl.mulcom3cba.1
+  \\ 34 &&  & \vdash \cdot( \mc{C} , \mc{B} , \mc{A} ) = ( \mc{C} \cdot (
+     ~\mc{B} \cdot \mc{A} )
+     ~)&(\mbox{\ref{eq:bl.mul3i}},31,32,33)\notag
+  \\ 35 &&  & \vdash \cdot( \mc{A} , \mc{B} , \mc{C} ) = \cdot( \mc{C} , \mc{B}
+     ~, \mc{A} )&(\mbox{\ref{eq:3eqtr4i}},9,30,34)\notag
+\end{align}
+\end{proof}
+
+\begin{restatable}{lemma}{blulcomthreecab}~\blTitle{bl.mulcom3cab}~ Multiplication of Three Values
+Commutes.
+\begin{align}
+\vdash \mc{A} \in \mathbb{R}\quad\&\quad \vdash \mc{B} \in
+    \mathbb{R}\quad\&\quad \vdash \mc{C} \in \mathbb{R}\quad\Rightarrow \notag \\ 
+	\quad
+    \vdash \cdot( \mc{A} , \mc{B} , \mc{C} ) = \cdot( \mc{C} , \mc{A} , \mc{B}
+    )\label{eq:bl.mulcom3cab}\tag{bl.mulcom3cab}
+\end{align}
+\end{restatable}
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash \mc{A} \in
+\mathbb{R}&\text{Hyp~mulcom3cab.1}\notag%bl.mulcom3cab.1
+  \\ 2 && @2:\  & \vdash \mc{A} \in \mathbb{C}&(\mbox{\ref{eq:recni}},1)\notag
+  \\ 3 &&  & \vdash \mc{B} \in
+\mathbb{R}&\text{Hyp~mulcom3cab.2}\notag%bl.mulcom3cab.2
+  \\ 4 && @4:\  & \vdash \mc{B} \in \mathbb{C}&(\mbox{\ref{eq:recni}},3)\notag
+  \\ 5 &&  & \vdash \mc{C} \in
+\mathbb{R}&\text{Hyp~mulcom3cab.3}\notag%bl.mulcom3cab.3
+  \\ 6 && @6:\  & \vdash \mc{C} \in \mathbb{C}&(\mbox{\ref{eq:recni}},5)\notag
+  \\ 7 &&  & \vdash ( \mc{A} \in \mathbb{C} \wedge \mc{B} \in \mathbb{C} \wedge
+     ~\mc{C} \in \mathbb{C}
+     ~)&(\mbox{\ref{eq:3pm3.2i}},2,4,6)\notag
+  \\ 8 &&  & \vdash ( ( \mc{A} \in \mathbb{C} \wedge \mc{B} \in \mathbb{C}
+     ~\wedge \mc{C} \in \mathbb{C} ) \rightarrow ( ( \mc{A}
+     ~\cdot \mc{B} ) \cdot \mc{C} ) = ( \mc{A} \cdot (
+     ~\mc{B} \cdot \mc{C} ) )
+     ~)&(\mbox{\ref{eq:axmulass}})\notag
+  \\ 9 &&  & \vdash ( ( \mc{A} \cdot \mc{B} ) \cdot \mc{C} ) = ( \mc{A} \cdot (
+     ~\mc{B} \cdot \mc{C} )
+     ~)&(\mbox{\ref{eq:ax-mp}},7,8)\notag
+  \\ 10 &&  & \vdash \mc{A} \in \mathbb{C}&(@2)\notag
+  \\ 11 &&  & \vdash \mc{B} \in \mathbb{C}&(@4)\notag
+  \\ 12 &&  & \vdash ( \mc{A} \cdot \mc{B} ) \in
+     ~\mathbb{C}&(\mbox{\ref{eq:mulcli}},10,11)\notag
+  \\ 13 &&  & \vdash \mc{C} \in \mathbb{C}&(@6)\notag
+  \\ 14 &&  & \vdash ( ( \mc{A} \cdot \mc{B} ) \in \mathbb{C} \wedge \mc{C} \in
+     ~\mathbb{C} )&(\mbox{\ref{eq:pm3.2i}},12,13)\notag
+  \\ 15 &&  & \vdash ( ( ( \mc{A} \cdot \mc{B} ) \in \mathbb{C} \wedge \mc{C}
+     ~\in \mathbb{C} ) \rightarrow ( ( \mc{A} \cdot \mc{B}
+     ~) \cdot \mc{C} ) = ( \mc{C} \cdot ( \mc{A} \cdot
+     ~\mc{B} ) ) )&(\mbox{\ref{eq:axmulcom}})\notag
+  \\ 16 &&  & \vdash ( ( \mc{A} \cdot \mc{B} ) \cdot \mc{C} ) = ( \mc{C} \cdot
+     ~( \mc{A} \cdot \mc{B} )
+     ~)&(\mbox{\ref{eq:ax-mp}},14,15)\notag
+  \\ 17 &&  & \vdash ( \mc{A} \cdot ( \mc{B} \cdot \mc{C} ) ) = ( \mc{C} \cdot
+     ~( \mc{A} \cdot \mc{B} )
+     ~)&(\mbox{\ref{eq:eqtr3i}},9,16)\notag
+  \\ 18 &&  & \vdash \mc{A} \in
+\mathbb{R}&\text{Hyp~mulcom3cab.1}\notag%bl.mulcom3cab.1
+  \\ 19 &&  & \vdash \mc{B} \in
+\mathbb{R}&\text{Hyp~mulcom3cab.2}\notag%bl.mulcom3cab.2
+  \\ 20 &&  & \vdash \mc{C} \in
+\mathbb{R}&\text{Hyp~mulcom3cab.3}\notag%bl.mulcom3cab.3
+  \\ 21 &&  & \vdash \cdot( \mc{A} , \mc{B} , \mc{C} ) = ( \mc{A} \cdot (
+     ~\mc{B} \cdot \mc{C} )
+     ~)&(\mbox{\ref{eq:bl.mul3i}},18,19,20)\notag
+  \\ 22 &&  & \vdash \mc{C} \in
+\mathbb{R}&\text{Hyp~mulcom3cab.3}\notag%bl.mulcom3cab.3
+  \\ 23 &&  & \vdash \mc{A} \in
+\mathbb{R}&\text{Hyp~mulcom3cab.1}\notag%bl.mulcom3cab.1
+  \\ 24 &&  & \vdash \mc{B} \in
+\mathbb{R}&\text{Hyp~mulcom3cab.2}\notag%bl.mulcom3cab.2
+  \\ 25 &&  & \vdash \cdot( \mc{C} , \mc{A} , \mc{B} ) = ( \mc{C} \cdot (
+     ~\mc{A} \cdot \mc{B} )
+     ~)&(\mbox{\ref{eq:bl.mul3i}},22,23,24)\notag
+  \\ 26 &&  & \vdash \cdot( \mc{A} , \mc{B} , \mc{C} ) = \cdot( \mc{C} , \mc{A}
+     ~, \mc{B} )&(\mbox{\ref{eq:3eqtr4i}},17,21,25)\notag
+\end{align}
+\end{proof}
+

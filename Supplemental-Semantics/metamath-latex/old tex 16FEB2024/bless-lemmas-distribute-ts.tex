@@ -1,0 +1,832 @@
+% This LaTeX file was created by Metamath on 18-Feb-2024 9:42 PM.
+\begin{restatable}{lemma}{blsantwoi}~\blTitle{bl.tsan2i}~ Distribute $~\string^~$ over conjunction,
+two terms,inference
+\begin{align}
+\vdash \mc{A} \in \mathbb{Z}\quad\&\quad \vdash \mc{D} \in
+    \mathbb{R}\quad\&\quad \vdash \msc{t} \in \mathbf{T}\quad\&\quad \vdash (
+    \msc{t} + ( \mc{D} \cdot \mc{A} ) ) \in \mathbf{T}\quad\Rightarrow \notag \\ 
+	\quad
+    \vdash ( \mathfrak{M} , \msc{t} \models ( ( ( \mw{\varphi} \wedge \mw{\psi}
+    ) ~\string^~ \mc{A} ) \leftrightarrow ( ( \mw{\varphi} ~\string^~ \mc{A} )
+    \wedge ( \mw{\psi} ~\string^~ \mc{A} ) ) )
+    )\label{eq:bl.tsan2i}\tag{bl.tsan2i}
+\end{align}
+\end{restatable}
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash ( \msc{t} + ( \mc{D} \cdot \mc{A} ) ) \in
+     ~\mathbf{T}&\text{Hyp~tsan2i.4}\notag%bl.tsan2i.4
+  \\ 2 &&  & \vdash ( ( \mathfrak{M} , ( \msc{t} + ( \mc{D} \cdot \mc{A} ) )
+     ~\models ( \mw{\varphi} \wedge \mw{\psi} ) )
+     ~\leftrightarrow ( ( \mathfrak{M} , ( \msc{t} + (
+     ~\mc{D} \cdot \mc{A} ) ) \models \mw{\varphi} ) \wedge
+     ~( \mathfrak{M} , ( \msc{t} + ( \mc{D} \cdot \mc{A} )
+     ~) \models \mw{\psi} ) )
+     ~)&(\mbox{\ref{eq:df-bl.ant}},1)\notag
+  \\ 3 &&  & \vdash \mc{A} \in \mathbb{Z}&\text{Hyp~tsan2i.1}\notag%bl.tsan2i.1
+  \\ 4 &&  & \vdash \mc{D} \in \mathbb{R}&\text{Hyp~tsan2i.2}\notag%bl.tsan2i.2
+  \\ 5 &&  & \vdash \msc{t} \in
+     ~\mathbf{T}&\text{Hyp~tsan2i.3}\notag%bl.tsan2i.3
+  \\ 6 &&  & \vdash ( \msc{t} + ( \mc{D} \cdot \mc{A} ) ) \in
+     ~\mathbf{T}&\text{Hyp~tsan2i.4}\notag%bl.tsan2i.4
+  \\ 7 &&  & \vdash ( ( \mathfrak{M} , \msc{t} \models ( ( \mw{\varphi} \wedge
+     ~\mw{\psi} ) ~\string^~ \mc{A} ) ) \leftrightarrow (
+     ~\mathfrak{M} , ( \msc{t} + ( \mc{D} \cdot \mc{A} ) )
+     ~\models ( \mw{\varphi} \wedge \mw{\psi} ) )
+     ~)&(\mbox{\ref{eq:bl.tsi}},3,4,5,6)\notag
+  \\ 8 &&  & \vdash \mc{A} \in \mathbb{Z}&\text{Hyp~tsan2i.1}\notag%bl.tsan2i.1
+  \\ 9 &&  & \vdash \mc{D} \in \mathbb{R}&\text{Hyp~tsan2i.2}\notag%bl.tsan2i.2
+  \\ 10 &&  & \vdash \msc{t} \in
+     ~\mathbf{T}&\text{Hyp~tsan2i.3}\notag%bl.tsan2i.3
+  \\ 11 &&  & \vdash ( \msc{t} + ( \mc{D} \cdot \mc{A} ) ) \in
+     ~\mathbf{T}&\text{Hyp~tsan2i.4}\notag%bl.tsan2i.4
+  \\ 12 &&  & \vdash ( ( \mathfrak{M} , \msc{t} \models ( \mw{\varphi}
+     ~~\string^~ \mc{A} ) ) \leftrightarrow ( \mathfrak{M}
+     ~, ( \msc{t} + ( \mc{D} \cdot \mc{A} ) ) \models
+     ~\mw{\varphi} )
+     ~)&(\mbox{\ref{eq:bl.tsi}},8,9,10,11)\notag
+  \\ 13 &&  & \vdash \mc{A} \in
+     ~\mathbb{Z}&\text{Hyp~tsan2i.1}\notag%bl.tsan2i.1
+  \\ 14 &&  & \vdash \mc{D} \in
+     ~\mathbb{R}&\text{Hyp~tsan2i.2}\notag%bl.tsan2i.2
+  \\ 15 &&  & \vdash \msc{t} \in
+     ~\mathbf{T}&\text{Hyp~tsan2i.3}\notag%bl.tsan2i.3
+  \\ 16 &&  & \vdash ( \msc{t} + ( \mc{D} \cdot \mc{A} ) ) \in
+     ~\mathbf{T}&\text{Hyp~tsan2i.4}\notag%bl.tsan2i.4
+  \\ 17 &&  & \vdash ( ( \mathfrak{M} , \msc{t} \models ( \mw{\psi} ~\string^~
+     ~\mc{A} ) ) \leftrightarrow ( \mathfrak{M} , ( \msc{t}
+     ~+ ( \mc{D} \cdot \mc{A} ) ) \models \mw{\psi} )
+     ~)&(\mbox{\ref{eq:bl.tsi}},13,14,15,16)\notag
+  \\ 18 &&  & \vdash ( ( ( \mathfrak{M} , \msc{t} \models ( \mw{\varphi}
+     ~~\string^~ \mc{A} ) ) \wedge ( \mathfrak{M} , \msc{t}
+     ~\models ( \mw{\psi} ~\string^~ \mc{A} ) ) )
+     ~\leftrightarrow ( ( \mathfrak{M} , ( \msc{t} + (
+     ~\mc{D} \cdot \mc{A} ) ) \models \mw{\varphi} ) \wedge
+     ~( \mathfrak{M} , ( \msc{t} + ( \mc{D} \cdot \mc{A} )
+     ~) \models \mw{\psi} ) )
+     ~)&(\mbox{\ref{eq:anbi12i}},12,17)\notag
+  \\ 19 &&  & \vdash ( ( \mathfrak{M} , \msc{t} \models ( ( \mw{\varphi} \wedge
+     ~\mw{\psi} ) ~\string^~ \mc{A} ) ) \leftrightarrow ( (
+     ~\mathfrak{M} , \msc{t} \models ( \mw{\varphi}
+     ~~\string^~ \mc{A} ) ) \wedge ( \mathfrak{M} , \msc{t}
+     ~\models ( \mw{\psi} ~\string^~ \mc{A} ) ) )
+     ~)&(\mbox{\ref{eq:3bitr4i}},2,7,18)\notag
+  \\ 20 &&  & \vdash \msc{t} \in
+     ~\mathbf{T}&\text{Hyp~tsan2i.3}\notag%bl.tsan2i.3
+  \\ 21 &&  & \vdash ( ( \mathfrak{M} , \msc{t} \models ( ( \mw{\varphi}
+     ~~\string^~ \mc{A} ) \wedge ( \mw{\psi} ~\string^~
+     ~\mc{A} ) ) ) \leftrightarrow ( ( \mathfrak{M} ,
+     ~\msc{t} \models ( \mw{\varphi} ~\string^~ \mc{A} ) )
+     ~\wedge ( \mathfrak{M} , \msc{t} \models ( \mw{\psi}
+     ~~\string^~ \mc{A} ) ) )
+     ~)&(\mbox{\ref{eq:df-bl.ant}},20)\notag
+  \\ 22 &&  & \vdash ( ( \mathfrak{M} , \msc{t} \models ( ( \mw{\varphi} \wedge
+     ~\mw{\psi} ) ~\string^~ \mc{A} ) ) \leftrightarrow (
+     ~\mathfrak{M} , \msc{t} \models ( ( \mw{\varphi}
+     ~~\string^~ \mc{A} ) \wedge ( \mw{\psi} ~\string^~
+     ~\mc{A} ) ) ) )&(\mbox{\ref{eq:bitr4i}},19,21)\notag
+  \\ 23 &&  & \vdash \msc{t} \in
+     ~\mathbf{T}&\text{Hyp~tsan2i.3}\notag%bl.tsan2i.3
+  \\ 24 &&  & \vdash ( ( \mathfrak{M} , \msc{t} \models ( ( ( \mw{\varphi}
+     ~\wedge \mw{\psi} ) ~\string^~ \mc{A} )
+     ~\leftrightarrow ( ( \mw{\varphi} ~\string^~ \mc{A} )
+     ~\wedge ( \mw{\psi} ~\string^~ \mc{A} ) ) ) )
+     ~\leftrightarrow ( ( \mathfrak{M} , \msc{t} \models (
+     ~( \mw{\varphi} \wedge \mw{\psi} ) ~\string^~ \mc{A} )
+     ~) \leftrightarrow ( \mathfrak{M} , \msc{t} \models (
+     ~( \mw{\varphi} ~\string^~ \mc{A} ) \wedge ( \mw{\psi}
+     ~~\string^~ \mc{A} ) ) ) )
+     ~)&(\mbox{\ref{eq:df-bl.bit}},23)\notag
+  \\ 25 &&  & \vdash ( \mathfrak{M} , \msc{t} \models ( ( ( \mw{\varphi} \wedge
+     ~\mw{\psi} ) ~\string^~ \mc{A} ) \leftrightarrow ( (
+     ~\mw{\varphi} ~\string^~ \mc{A} ) \wedge ( \mw{\psi}
+     ~~\string^~ \mc{A} ) ) )
+     ~)&(\mbox{\ref{eq:mpbir}},22,24)\notag
+\end{align}
+\end{proof}
+
+\begin{restatable}{lemma}{blsanthreei}~\blTitle{bl.tsan3i}~ Distribute $~\string^~$ over conjunction,
+three terms, inference
+\begin{align}
+\vdash \mc{A} \in \mathbb{Z}\quad\&\quad \vdash \mc{D} \in
+    \mathbb{R}\quad\&\quad \vdash \msc{t} \in \mathbf{T}\quad\&\quad \vdash (
+    \msc{t} + ( \mc{D} \cdot \mc{A} ) ) \in \mathbf{T}\quad\Rightarrow \notag \\ 
+	\quad
+    \vdash ( \mathfrak{M} , \msc{t} \models ( ( ( \mw{\varphi} \wedge \mw{\psi}
+    \wedge \mw{\chi} ) ~\string^~ \mc{A} ) \leftrightarrow ( ( \mw{\varphi}
+    ~\string^~ \mc{A} ) \wedge ( \mw{\psi} ~\string^~ \mc{A} ) \wedge (
+    \mw{\chi} ~\string^~ \mc{A} ) ) ) )\label{eq:bl.tsan3i}\tag{bl.tsan3i}
+\end{align}
+\end{restatable}
+
+\begin{proof}
+\begin{align}
+  1 &&  & &(\mbox{\ref{eq:?}})\notag
+\end{align}
+\end{proof}
+
+\begin{restatable}{lemma}{blsanthreeri}~\blTitle{bl.tsan3ri}~ Distribute $~\string^~$ over
+conjunction, three terms (right), inference.
+\begin{align}
+\vdash \mc{A} \in \mathbb{Z}\quad\&\quad \vdash \mc{D} \in
+    \mathbb{R}\quad\&\quad \vdash \msc{t} \in \mathbf{T}\quad\&\quad \vdash (
+    \msc{t} + ( \mc{D} \cdot \mc{A} ) ) \in \mathbf{T}\quad\Rightarrow \notag \\ 
+	\quad
+    \vdash ( \mathfrak{M} , \msc{t} \models ( ( ( \mw{\varphi} \wedge (
+    \mw{\psi} \wedge \mw{\chi} ) ) ~\string^~ \mc{A} ) \leftrightarrow ( (
+    \mw{\varphi} ~\string^~ \mc{A} ) \wedge ( ( \mw{\psi} ~\string^~ \mc{A} )
+    \wedge ( \mw{\chi} ~\string^~ \mc{A} ) ) ) )
+    )\label{eq:bl.tsan3ri}\tag{bl.tsan3ri}
+\end{align}
+\end{restatable}
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash \mc{A} \in \mathbb{Z}&\text{Hyp~tsan3ri.1}\notag%bl.tsan3ri.1
+  \\ 2 &&  & \vdash \mc{D} \in
+     ~\mathbb{R}&\text{Hyp~tsan3ri.2}\notag%bl.tsan3ri.2
+  \\ 3 &&  & \vdash \msc{t} \in
+     ~\mathbf{T}&\text{Hyp~tsan3ri.3}\notag%bl.tsan3ri.3
+  \\ 4 &&  & \vdash ( \msc{t} + ( \mc{D} \cdot \mc{A} ) ) \in
+     ~\mathbf{T}&\text{Hyp~tsan3ri.4}\notag%bl.tsan3ri.4
+  \\ 5 &&  & \vdash ( ( \mathfrak{M} , \msc{t} \models ( ( \mw{\varphi} \wedge
+     ~( \mw{\psi} \wedge \mw{\chi} ) ) ~\string^~ \mc{A} )
+     ~) \leftrightarrow ( \mathfrak{M} , ( \msc{t} + (
+     ~\mc{D} \cdot \mc{A} ) ) \models ( \mw{\varphi} \wedge
+     ~( \mw{\psi} \wedge \mw{\chi} ) ) )
+     ~)&(\mbox{\ref{eq:bl.tsi}},1,2,3,4)\notag
+  \\ 6 &&  & \vdash ( \msc{t} + ( \mc{D} \cdot \mc{A} ) ) \in
+     ~\mathbf{T}&\text{Hyp~tsan3ri.4}\notag%bl.tsan3ri.4
+  \\ 7 &&  & \vdash ( ( \mathfrak{M} , ( \msc{t} + ( \mc{D} \cdot \mc{A} ) )
+     ~\models ( \mw{\varphi} \wedge ( \mw{\psi} \wedge
+     ~\mw{\chi} ) ) ) \leftrightarrow ( ( \mathfrak{M} , (
+     ~\msc{t} + ( \mc{D} \cdot \mc{A} ) ) \models
+     ~\mw{\varphi} ) \wedge ( \mathfrak{M} , ( \msc{t} + (
+     ~\mc{D} \cdot \mc{A} ) ) \models ( \mw{\psi} \wedge
+     ~\mw{\chi} ) ) ) )&(\mbox{\ref{eq:df-bl.ant}},6)\notag
+  \\ 8 &&  & \vdash ( \msc{t} + ( \mc{D} \cdot \mc{A} ) ) \in
+     ~\mathbf{T}&\text{Hyp~tsan3ri.4}\notag%bl.tsan3ri.4
+  \\ 9 &&  & \vdash ( ( \mathfrak{M} , ( \msc{t} + ( \mc{D} \cdot \mc{A} ) )
+     ~\models ( \mw{\psi} \wedge \mw{\chi} ) )
+     ~\leftrightarrow ( ( \mathfrak{M} , ( \msc{t} + (
+     ~\mc{D} \cdot \mc{A} ) ) \models \mw{\psi} ) \wedge (
+     ~\mathfrak{M} , ( \msc{t} + ( \mc{D} \cdot \mc{A} ) )
+     ~\models \mw{\chi} ) )
+     ~)&(\mbox{\ref{eq:df-bl.ant}},8)\notag
+  \\ 10 &&  & \vdash ( ( ( \mathfrak{M} , ( \msc{t} + ( \mc{D} \cdot \mc{A} ) )
+     ~\models \mw{\varphi} ) \wedge ( \mathfrak{M} , (
+     ~\msc{t} + ( \mc{D} \cdot \mc{A} ) ) \models (
+     ~\mw{\psi} \wedge \mw{\chi} ) ) ) \leftrightarrow ( (
+     ~\mathfrak{M} , ( \msc{t} + ( \mc{D} \cdot \mc{A} ) )
+     ~\models \mw{\varphi} ) \wedge ( ( \mathfrak{M} , (
+     ~\msc{t} + ( \mc{D} \cdot \mc{A} ) ) \models \mw{\psi}
+     ~) \wedge ( \mathfrak{M} , ( \msc{t} + ( \mc{D} \cdot
+     ~\mc{A} ) ) \models \mw{\chi} ) ) )
+     ~)&(\mbox{\ref{eq:anbi2i}},9)\notag
+  \\ 11 &&  & \vdash ( ( \mathfrak{M} , \msc{t} \models ( ( \mw{\varphi} \wedge
+     ~( \mw{\psi} \wedge \mw{\chi} ) ) ~\string^~ \mc{A} )
+     ~) \leftrightarrow ( ( \mathfrak{M} , ( \msc{t} + (
+     ~\mc{D} \cdot \mc{A} ) ) \models \mw{\varphi} ) \wedge
+     ~( ( \mathfrak{M} , ( \msc{t} + ( \mc{D} \cdot \mc{A}
+     ~) ) \models \mw{\psi} ) \wedge ( \mathfrak{M} , (
+     ~\msc{t} + ( \mc{D} \cdot \mc{A} ) ) \models \mw{\chi}
+     ~) ) ) )&(\mbox{\ref{eq:3bitri}},5,7,10)\notag
+  \\ 12 &&  & \vdash \mc{A} \in
+     ~\mathbb{Z}&\text{Hyp~tsan3ri.1}\notag%bl.tsan3ri.1
+  \\ 13 &&  & \vdash \mc{D} \in
+     ~\mathbb{R}&\text{Hyp~tsan3ri.2}\notag%bl.tsan3ri.2
+  \\ 14 &&  & \vdash \msc{t} \in
+     ~\mathbf{T}&\text{Hyp~tsan3ri.3}\notag%bl.tsan3ri.3
+  \\ 15 &&  & \vdash ( \msc{t} + ( \mc{D} \cdot \mc{A} ) ) \in
+     ~\mathbf{T}&\text{Hyp~tsan3ri.4}\notag%bl.tsan3ri.4
+  \\ 16 &&  & \vdash ( ( \mathfrak{M} , \msc{t} \models ( \mw{\varphi}
+     ~~\string^~ \mc{A} ) ) \leftrightarrow ( \mathfrak{M}
+     ~, ( \msc{t} + ( \mc{D} \cdot \mc{A} ) ) \models
+     ~\mw{\varphi} )
+     ~)&(\mbox{\ref{eq:bl.tsi}},12,13,14,15)\notag
+  \\ 17 &&  & \vdash \mc{A} \in
+     ~\mathbb{Z}&\text{Hyp~tsan3ri.1}\notag%bl.tsan3ri.1
+  \\ 18 &&  & \vdash \mc{D} \in
+     ~\mathbb{R}&\text{Hyp~tsan3ri.2}\notag%bl.tsan3ri.2
+  \\ 19 &&  & \vdash \msc{t} \in
+     ~\mathbf{T}&\text{Hyp~tsan3ri.3}\notag%bl.tsan3ri.3
+  \\ 20 &&  & \vdash ( \msc{t} + ( \mc{D} \cdot \mc{A} ) ) \in
+     ~\mathbf{T}&\text{Hyp~tsan3ri.4}\notag%bl.tsan3ri.4
+  \\ 21 &&  & \vdash ( ( \mathfrak{M} , \msc{t} \models ( \mw{\psi} ~\string^~
+     ~\mc{A} ) ) \leftrightarrow ( \mathfrak{M} , ( \msc{t}
+     ~+ ( \mc{D} \cdot \mc{A} ) ) \models \mw{\psi} )
+     ~)&(\mbox{\ref{eq:bl.tsi}},17,18,19,20)\notag
+  \\ 22 &&  & \vdash \mc{A} \in
+     ~\mathbb{Z}&\text{Hyp~tsan3ri.1}\notag%bl.tsan3ri.1
+  \\ 23 &&  & \vdash \mc{D} \in
+     ~\mathbb{R}&\text{Hyp~tsan3ri.2}\notag%bl.tsan3ri.2
+  \\ 24 &&  & \vdash \msc{t} \in
+     ~\mathbf{T}&\text{Hyp~tsan3ri.3}\notag%bl.tsan3ri.3
+  \\ 25 &&  & \vdash ( \msc{t} + ( \mc{D} \cdot \mc{A} ) ) \in
+     ~\mathbf{T}&\text{Hyp~tsan3ri.4}\notag%bl.tsan3ri.4
+  \\ 26 &&  & \vdash ( ( \mathfrak{M} , \msc{t} \models ( \mw{\chi} ~\string^~
+     ~\mc{A} ) ) \leftrightarrow ( \mathfrak{M} , ( \msc{t}
+     ~+ ( \mc{D} \cdot \mc{A} ) ) \models \mw{\chi} )
+     ~)&(\mbox{\ref{eq:bl.tsi}},22,23,24,25)\notag
+  \\ 27 &&  & \vdash ( ( ( \mathfrak{M} , \msc{t} \models ( \mw{\psi}
+     ~~\string^~ \mc{A} ) ) \wedge ( \mathfrak{M} , \msc{t}
+     ~\models ( \mw{\chi} ~\string^~ \mc{A} ) ) )
+     ~\leftrightarrow ( ( \mathfrak{M} , ( \msc{t} + (
+     ~\mc{D} \cdot \mc{A} ) ) \models \mw{\psi} ) \wedge (
+     ~\mathfrak{M} , ( \msc{t} + ( \mc{D} \cdot \mc{A} ) )
+     ~\models \mw{\chi} ) )
+     ~)&(\mbox{\ref{eq:anbi12i}},21,26)\notag
+  \\ 28 &&  & \vdash ( ( ( \mathfrak{M} , \msc{t} \models ( \mw{\varphi}
+     ~~\string^~ \mc{A} ) ) \wedge ( ( \mathfrak{M} ,
+     ~\msc{t} \models ( \mw{\psi} ~\string^~ \mc{A} ) )
+     ~\wedge ( \mathfrak{M} , \msc{t} \models ( \mw{\chi}
+     ~~\string^~ \mc{A} ) ) ) ) \leftrightarrow ( (
+     ~\mathfrak{M} , ( \msc{t} + ( \mc{D} \cdot \mc{A} ) )
+     ~\models \mw{\varphi} ) \wedge ( ( \mathfrak{M} , (
+     ~\msc{t} + ( \mc{D} \cdot \mc{A} ) ) \models \mw{\psi}
+     ~) \wedge ( \mathfrak{M} , ( \msc{t} + ( \mc{D} \cdot
+     ~\mc{A} ) ) \models \mw{\chi} ) ) )
+     ~)&(\mbox{\ref{eq:anbi12i}},16,27)\notag
+  \\ 29 &&  & \vdash ( ( \mathfrak{M} , \msc{t} \models ( ( \mw{\varphi} \wedge
+     ~( \mw{\psi} \wedge \mw{\chi} ) ) ~\string^~ \mc{A} )
+     ~) \leftrightarrow ( ( \mathfrak{M} , \msc{t} \models
+     ~( \mw{\varphi} ~\string^~ \mc{A} ) ) \wedge ( (
+     ~\mathfrak{M} , \msc{t} \models ( \mw{\psi} ~\string^~
+     ~\mc{A} ) ) \wedge ( \mathfrak{M} , \msc{t} \models (
+     ~\mw{\chi} ~\string^~ \mc{A} ) ) ) )
+     ~)&(\mbox{\ref{eq:bitr4i}},11,28)\notag
+  \\ 30 &&  & \vdash \msc{t} \in
+     ~\mathbf{T}&\text{Hyp~tsan3ri.3}\notag%bl.tsan3ri.3
+  \\ 31 &&  & \vdash ( ( \mathfrak{M} , \msc{t} \models ( ( \mw{\psi}
+     ~~\string^~ \mc{A} ) \wedge ( \mw{\chi} ~\string^~
+     ~\mc{A} ) ) ) \leftrightarrow ( ( \mathfrak{M} ,
+     ~\msc{t} \models ( \mw{\psi} ~\string^~ \mc{A} ) )
+     ~\wedge ( \mathfrak{M} , \msc{t} \models ( \mw{\chi}
+     ~~\string^~ \mc{A} ) ) )
+     ~)&(\mbox{\ref{eq:df-bl.ant}},30)\notag
+  \\ 32 &&  & \vdash ( ( ( \mathfrak{M} , \msc{t} \models ( \mw{\varphi}
+     ~~\string^~ \mc{A} ) ) \wedge ( \mathfrak{M} , \msc{t}
+     ~\models ( ( \mw{\psi} ~\string^~ \mc{A} ) \wedge (
+     ~\mw{\chi} ~\string^~ \mc{A} ) ) ) ) \leftrightarrow (
+     ~( \mathfrak{M} , \msc{t} \models ( \mw{\varphi}
+     ~~\string^~ \mc{A} ) ) \wedge ( ( \mathfrak{M} ,
+     ~\msc{t} \models ( \mw{\psi} ~\string^~ \mc{A} ) )
+     ~\wedge ( \mathfrak{M} , \msc{t} \models ( \mw{\chi}
+     ~~\string^~ \mc{A} ) ) ) )
+     ~)&(\mbox{\ref{eq:anbi2i}},31)\notag
+  \\ 33 &&  & \vdash ( ( \mathfrak{M} , \msc{t} \models ( ( \mw{\varphi} \wedge
+     ~( \mw{\psi} \wedge \mw{\chi} ) ) ~\string^~ \mc{A} )
+     ~) \leftrightarrow ( ( \mathfrak{M} , \msc{t} \models
+     ~( \mw{\varphi} ~\string^~ \mc{A} ) ) \wedge (
+     ~\mathfrak{M} , \msc{t} \models ( ( \mw{\psi}
+     ~~\string^~ \mc{A} ) \wedge ( \mw{\chi} ~\string^~
+     ~\mc{A} ) ) ) ) )&(\mbox{\ref{eq:bitr4i}},29,32)\notag
+  \\ 34 &&  & \vdash \msc{t} \in
+     ~\mathbf{T}&\text{Hyp~tsan3ri.3}\notag%bl.tsan3ri.3
+  \\ 35 &&  & \vdash ( ( \mathfrak{M} , \msc{t} \models ( ( \mw{\varphi}
+     ~~\string^~ \mc{A} ) \wedge ( ( \mw{\psi} ~\string^~
+     ~\mc{A} ) \wedge ( \mw{\chi} ~\string^~ \mc{A} ) ) ) )
+     ~\leftrightarrow ( ( \mathfrak{M} , \msc{t} \models (
+     ~\mw{\varphi} ~\string^~ \mc{A} ) ) \wedge (
+     ~\mathfrak{M} , \msc{t} \models ( ( \mw{\psi}
+     ~~\string^~ \mc{A} ) \wedge ( \mw{\chi} ~\string^~
+     ~\mc{A} ) ) ) ) )&(\mbox{\ref{eq:df-bl.ant}},34)\notag
+  \\ 36 &&  & \vdash ( ( \mathfrak{M} , \msc{t} \models ( ( \mw{\varphi} \wedge
+     ~( \mw{\psi} \wedge \mw{\chi} ) ) ~\string^~ \mc{A} )
+     ~) \leftrightarrow ( \mathfrak{M} , \msc{t} \models (
+     ~( \mw{\varphi} ~\string^~ \mc{A} ) \wedge ( (
+     ~\mw{\psi} ~\string^~ \mc{A} ) \wedge ( \mw{\chi}
+     ~~\string^~ \mc{A} ) ) ) )
+     ~)&(\mbox{\ref{eq:bitr4i}},33,35)\notag
+  \\ 37 &&  & \vdash \msc{t} \in
+     ~\mathbf{T}&\text{Hyp~tsan3ri.3}\notag%bl.tsan3ri.3
+  \\ 38 &&  & \vdash ( ( \mathfrak{M} , \msc{t} \models ( ( ( \mw{\varphi}
+     ~\wedge ( \mw{\psi} \wedge \mw{\chi} ) ) ~\string^~
+     ~\mc{A} ) \leftrightarrow ( ( \mw{\varphi} ~\string^~
+     ~\mc{A} ) \wedge ( ( \mw{\psi} ~\string^~ \mc{A} )
+     ~\wedge ( \mw{\chi} ~\string^~ \mc{A} ) ) ) ) )
+     ~\leftrightarrow ( ( \mathfrak{M} , \msc{t} \models (
+     ~( \mw{\varphi} \wedge ( \mw{\psi} \wedge \mw{\chi} )
+     ~) ~\string^~ \mc{A} ) ) \leftrightarrow (
+     ~\mathfrak{M} , \msc{t} \models ( ( \mw{\varphi}
+     ~~\string^~ \mc{A} ) \wedge ( ( \mw{\psi} ~\string^~
+     ~\mc{A} ) \wedge ( \mw{\chi} ~\string^~ \mc{A} ) ) ) )
+     ~) )&(\mbox{\ref{eq:df-bl.bit}},37)\notag
+  \\ 39 &&  & \vdash ( \mathfrak{M} , \msc{t} \models ( ( ( \mw{\varphi} \wedge
+     ~( \mw{\psi} \wedge \mw{\chi} ) ) ~\string^~ \mc{A} )
+     ~\leftrightarrow ( ( \mw{\varphi} ~\string^~ \mc{A} )
+     ~\wedge ( ( \mw{\psi} ~\string^~ \mc{A} ) \wedge (
+     ~\mw{\chi} ~\string^~ \mc{A} ) ) ) )
+     ~)&(\mbox{\ref{eq:mpbir}},36,38)\notag
+\end{align}
+\end{proof}
+
+\begin{restatable}{lemma}{blsanthreeli}~\blTitle{bl.tsan3li}~ Distribute $~\string^~$ over
+conjunction, three terms (left), inference.
+\begin{align}
+\vdash \mc{A} \in \mathbb{Z}\quad\&\quad \vdash \mc{D} \in
+    \mathbb{R}\quad\&\quad \vdash \msc{t} \in \mathbf{T}\quad\&\quad \vdash (
+    \msc{t} + ( \mc{D} \cdot \mc{A} ) ) \in \mathbf{T}\quad\Rightarrow \notag \\ 
+	\quad
+    \vdash ( \mathfrak{M} , \msc{t} \models ( ( ( \mw{\varphi} \wedge (
+    \mw{\psi} \wedge \mw{\chi} ) ) ~\string^~ \mc{A} ) \leftrightarrow ( ( (
+    \mw{\varphi} ~\string^~ \mc{A} ) \wedge ( \mw{\psi} ~\string^~ \mc{A} ) )
+    \wedge ( \mw{\chi} ~\string^~ \mc{A} ) ) )
+    )\label{eq:bl.tsan3li}\tag{bl.tsan3li}
+\end{align}
+\end{restatable}
+
+\begin{proof}
+\begin{align}
+  1 &&  & &(\mbox{\ref{eq:?}})\notag
+\end{align}
+\end{proof}
+
+\begin{restatable}{lemma}{bltsani}~\blTitle{bl.tsani}~ Distribute $~\string^~$ over conjunction,
+wff-list , inference.
+\begin{align}
+\vdash \mc{A} \in \mathbb{Z}\quad\&\quad \vdash \mc{D} \in
+    \mathbb{R}\quad\&\quad \vdash \msc{t} \in \mathbf{T}\quad\&\quad \vdash (
+    \msc{t} + ( \mc{D} \cdot \mc{A} ) ) \in \mathbf{T}\quad\Rightarrow \notag \\ 
+	\quad
+    \vdash ( \mathfrak{M} , \msc{t} \models ( ( \bigwedge( \mwl{l_1} \mwl{l_2}
+    ) ~\string^~ \mc{A} ) \leftrightarrow ( ( \bigwedge( \mwl{l_1} ) ~\string^~
+    \mc{A} ) \wedge ( \bigwedge( \mwl{l_2} ) ~\string^~ \mc{A} ) ) )
+    )\label{eq:bl.tsani}\tag{bl.tsani}
+\end{align}
+\end{restatable}
+
+\begin{proof}
+\begin{align}
+  1 &&  & &(\mbox{\ref{eq:?}})\notag
+\end{align}
+\end{proof}
+
+\begin{restatable}{lemma}{blsortwoi}~\blTitle{bl.tsor2i}~ Distribute $~\string^~$ over disjunction,
+two terms,inference
+\begin{align}
+\vdash \mc{A} \in \mathbb{Z}\quad\&\quad \vdash \mc{D} \in
+    \mathbb{R}\quad\&\quad \vdash \msc{t} \in \mathbf{T}\quad\&\quad \vdash (
+    \msc{t} + ( \mc{D} \cdot \mc{A} ) ) \in \mathbf{T}\quad\Rightarrow \notag \\ 
+	\quad
+    \vdash ( \mathfrak{M} , \msc{t} \models ( ( ( \mw{\varphi} \wedge \mw{\psi}
+    ) ~\string^~ \mc{A} ) \leftrightarrow ( ( \mw{\varphi} ~\string^~ \mc{A} )
+    \wedge ( \mw{\psi} ~\string^~ \mc{A} ) ) )
+    )\label{eq:bl.tsor2i}\tag{bl.tsor2i}
+\end{align}
+\end{restatable}
+
+\begin{proof}
+\begin{align}
+  1 &&  & &(\mbox{\ref{eq:?}})\notag
+\end{align}
+\end{proof}
+
+\begin{restatable}{lemma}{blsorthreei}~\blTitle{bl.tsor3i}~ Distribute $~\string^~$ over disjunction,
+three terms, inference
+\begin{align}
+\vdash \mc{A} \in \mathbb{Z}\quad\&\quad \vdash \mc{D} \in
+    \mathbb{R}\quad\&\quad \vdash \msc{t} \in \mathbf{T}\quad\&\quad \vdash (
+    \msc{t} + ( \mc{D} \cdot \mc{A} ) ) \in \mathbf{T}\quad\Rightarrow \notag \\ 
+	\quad
+    \vdash ( \mathfrak{M} , \msc{t} \models ( ( ( \mw{\varphi} \wedge \mw{\psi}
+    \wedge \mw{\chi} ) ~\string^~ \mc{A} ) \leftrightarrow ( ( \mw{\varphi}
+    ~\string^~ \mc{A} ) \wedge ( \mw{\psi} ~\string^~ \mc{A} ) \wedge (
+    \mw{\chi} ~\string^~ \mc{A} ) ) ) )\label{eq:bl.tsor3i}\tag{bl.tsor3i}
+\end{align}
+\end{restatable}
+
+\begin{proof}
+\begin{align}
+  1 &&  & &(\mbox{\ref{eq:?}})\notag
+\end{align}
+\end{proof}
+
+\begin{restatable}{lemma}{blsorthreeri}~\blTitle{bl.tsor3ri}~ Distribute $~\string^~$ over
+disjunction, three terms (right), inference.
+\begin{align}
+\vdash \mc{A} \in \mathbb{Z}\quad\&\quad \vdash \mc{D} \in
+    \mathbb{R}\quad\&\quad \vdash \msc{t} \in \mathbf{T}\quad\&\quad \vdash (
+    \msc{t} + ( \mc{D} \cdot \mc{A} ) ) \in \mathbf{T}\quad\Rightarrow \notag \\ 
+	\quad
+    \vdash ( \mathfrak{M} , \msc{t} \models ( ( ( \mw{\varphi} \wedge (
+    \mw{\psi} \wedge \mw{\chi} ) ) ~\string^~ \mc{A} ) \leftrightarrow ( (
+    \mw{\varphi} ~\string^~ \mc{A} ) \wedge ( ( \mw{\psi} ~\string^~ \mc{A} )
+    \wedge ( \mw{\chi} ~\string^~ \mc{A} ) ) ) )
+    )\label{eq:bl.tsor3ri}\tag{bl.tsor3ri}
+\end{align}
+\end{restatable}
+
+\begin{proof}
+\begin{align}
+  1 &&  & &(\mbox{\ref{eq:?}})\notag
+\end{align}
+\end{proof}
+
+\begin{restatable}{lemma}{blsorthreeli}~\blTitle{bl.tsor3li}~ Distribute $~\string^~$ over
+disjunction, three terms (left), inference.
+\begin{align}
+\vdash \mc{A} \in \mathbb{Z}\quad\&\quad \vdash \mc{D} \in
+    \mathbb{R}\quad\&\quad \vdash \msc{t} \in \mathbf{T}\quad\&\quad \vdash (
+    \msc{t} + ( \mc{D} \cdot \mc{A} ) ) \in \mathbf{T}\quad\Rightarrow \notag \\ 
+	\quad
+    \vdash ( \mathfrak{M} , \msc{t} \models ( ( ( \mw{\varphi} \wedge (
+    \mw{\psi} \wedge \mw{\chi} ) ) ~\string^~ \mc{A} ) \leftrightarrow ( ( (
+    \mw{\varphi} ~\string^~ \mc{A} ) \wedge ( \mw{\psi} ~\string^~ \mc{A} ) )
+    \wedge ( \mw{\chi} ~\string^~ \mc{A} ) ) )
+    )\label{eq:bl.tsor3li}\tag{bl.tsor3li}
+\end{align}
+\end{restatable}
+
+\begin{proof}
+\begin{align}
+  1 &&  & &(\mbox{\ref{eq:?}})\notag
+\end{align}
+\end{proof}
+
+\begin{restatable}{lemma}{bltsori}~\blTitle{bl.tsori}~ Distribute $~\string^~$ over disjunction,
+wff-list, inference.
+\begin{align}
+\vdash \mc{A} \in \mathbb{Z}\quad\&\quad \vdash \mc{D} \in
+    \mathbb{R}\quad\&\quad \vdash \msc{t} \in \mathbf{T}\quad\&\quad \vdash (
+    \msc{t} + ( \mc{D} \cdot \mc{A} ) ) \in \mathbf{T}\quad\Rightarrow \notag \\ 
+	\quad
+    \vdash ( \mathfrak{M} , \msc{t} \models ( ( \bigwedge( \mwl{l_1} \mwl{l_2}
+    ) ~\string^~ \mc{A} ) \leftrightarrow ( ( \bigwedge( \mwl{l_1} ) ~\string^~
+    \mc{A} ) \wedge ( \bigwedge( \mwl{l_2} ) ~\string^~ \mc{A} ) ) )
+    )\label{eq:bl.tsori}\tag{bl.tsori}
+\end{align}
+\end{restatable}
+
+\begin{proof}
+\begin{align}
+  1 &&  & &(\mbox{\ref{eq:?}})\notag
+\end{align}
+\end{proof}
+
+\begin{restatable}{lemma}{blsadtwoi}~\blTitle{bl.tsad2i}~ Distribute $~\string^~$ over addition,
+two terms, inference.
+\begin{align}
+\vdash \mc{A} \in \mathbb{Z}\quad\&\quad \vdash \mc{D} \in
+    \mathbb{R}\quad\&\quad \vdash \msc{t} \in \mathbf{T}\quad\&\quad \vdash (
+    \msc{t} + ( \mc{D} \cdot \mc{A} ) ) \in \mathbf{T}\quad\&\quad \vdash (
+    \mc{C} \in \mathbb{R} \wedge \mc{B} \in \mathbb{R} )\quad\Rightarrow \notag \\ 
+	\quad
+    \vdash ( \mathfrak{M} , \msc{t} \models ( ( \mc{C} + \mc{B} ) ~\string^~
+    \mc{A} ) = ( ( \mc{C} ~\string^~ \mc{A} ) + ( \mc{B} ~\string^~ \mc{A} ) )
+    )\label{eq:bl.tsad2i}\tag{bl.tsad2i}
+\end{align}
+\end{restatable}
+
+\begin{proof}
+\begin{align}
+  1 &&  & &(\mbox{\ref{eq:?}})\notag
+\end{align}
+\end{proof}
+
+\begin{restatable}{lemma}{blsadthreeri}~\blTitle{bl.tsad3ri}~ Distribute $~\string^~$ over addition,
+three terms (right), inference.
+\begin{align}
+\vdash \mc{A} \in \mathbb{Z}\quad\&\quad \vdash \mc{D} \in
+    \mathbb{R}\quad\&\quad \vdash \msc{t} \in \mathbf{T}\quad\&\quad \vdash (
+    \msc{t} + ( \mc{D} \cdot \mc{A} ) ) \in \mathbf{T}\quad\&\quad \vdash (
+    \mc{C} \in \mathbb{R} \wedge E \in \mathbb{R} \wedge \mc{B} \in \mathbb{R}
+    )\quad\Rightarrow \notag \\ 
+	\quad \vdash ( \mathfrak{M} , \msc{t} \models ( ( \mc{C} +
+    ( E + \mc{B} ) ) ~\string^~ \mc{A} ) = ( ( \mc{C} ~\string^~ \mc{A} ) + ( (
+    E ~\string^~ \mc{A} ) + ( \mc{B} ~\string^~ \mc{A} ) ) )
+    )\label{eq:bl.tsad3ri}\tag{bl.tsad3ri}
+\end{align}
+\end{restatable}
+
+\begin{proof}
+\begin{align}
+  1 &&  & &(\mbox{\ref{eq:?}})\notag
+\end{align}
+\end{proof}
+
+\begin{restatable}{lemma}{blsadthreeli}~\blTitle{bl.tsad3li}~ Distribute $~\string^~$ over addition,
+three terms (left), inference.
+\begin{align}
+\vdash \mc{A} \in \mathbb{Z}\quad\&\quad \vdash \mc{D} \in
+    \mathbb{R}\quad\&\quad \vdash \msc{t} \in \mathbf{T}\quad\&\quad \vdash (
+    \msc{t} + ( \mc{D} \cdot \mc{A} ) ) \in \mathbf{T}\quad\&\quad \vdash (
+    \mc{C} \in \mathbb{R} \wedge E \in \mathbb{R} \wedge \mc{B} \in \mathbb{R}
+    )\quad\Rightarrow \notag \\ 
+	\quad \vdash ( \mathfrak{M} , \msc{t} \models ( ( ( \mc{C}
+    + E ) + \mc{B} ) ~\string^~ \mc{A} ) = ( ( ( \mc{C} ~\string^~ \mc{A} ) + (
+    E ~\string^~ \mc{A} ) ) + ( \mc{B} ~\string^~ \mc{A} ) )
+    )\label{eq:bl.tsad3li}\tag{bl.tsad3li}
+\end{align}
+\end{restatable}
+
+\begin{proof}
+\begin{align}
+  1 &&  & &(\mbox{\ref{eq:?}})\notag
+\end{align}
+\end{proof}
+
+\begin{restatable}{lemma}{bltsadi}~\blTitle{bl.tsadi}~ Distribute $~\string^~$ over addition,
+class-list, inference.
+\begin{align}
+\vdash \mc{A} \in \mathbb{Z}\quad\&\quad \vdash \mc{D} \in
+    \mathbb{R}\quad\&\quad \vdash \msc{t} \in \mathbf{T}\quad\&\quad \vdash (
+    \msc{t} + ( \mc{D} \cdot \mc{A} ) ) \in \mathbf{T}\quad\&\quad \vdash ( +(
+    \msc{csl_1} ) \in \mathbb{R} \wedge +( \msc{csl_2} ) \in \mathbb{R}
+    )\quad\Rightarrow \notag \\ 
+	\quad \vdash ( \mathfrak{M} , \msc{t} \models ( ( +(
+    \msc{csl_1} ) + +( \msc{csl_2} ) ) ~\string^~ \mc{A} ) = ( ( +( \msc{csl_1}
+    ) ~\string^~ \mc{A} ) + ( +( \msc{csl_2} ) ~\string^~ \mc{A} ) )
+    )\label{eq:bl.tsadi}\tag{bl.tsadi}
+\end{align}
+\end{restatable}
+
+\begin{proof}
+\begin{align}
+  1 &&  & &(\mbox{\ref{eq:?}})\notag
+\end{align}
+\end{proof}
+
+\begin{restatable}{lemma}{bltssubi}~\blTitle{bl.tssubi}~ Distribute $~\string^~$ over subtraction,
+inference.
+\begin{align}
+\vdash \mc{A} \in \mathbb{Z}\quad\&\quad \vdash \mc{D} \in
+    \mathbb{R}\quad\&\quad \vdash \msc{t} \in \mathbf{T}\quad\&\quad \vdash (
+    \msc{t} + ( \mc{D} \cdot \mc{A} ) ) \in \mathbf{T}\quad\&\quad \vdash (
+    \mc{C} \in \mathbb{R} \wedge \mc{B} \in \mathbb{R} )\quad\Rightarrow \notag \\ 
+	\quad
+    \vdash ( \mathfrak{M} , \msc{t} \models ( ( \mc{C} \minus \mc{B} )
+    ~\string^~ \mc{A} ) = ( ( \mc{C} ~\string^~ \mc{A} ) \minus ( \mc{B}
+    ~\string^~ \mc{A} ) ) )\label{eq:bl.tssubi}\tag{bl.tssubi}
+\end{align}
+\end{restatable}
+
+\begin{proof}
+\begin{align}
+  1 &&  & &(\mbox{\ref{eq:?}})\notag
+\end{align}
+\end{proof}
+
+\begin{restatable}{lemma}{blsmultwoi}~\blTitle{bl.tsmul2i}~ Distribute $~\string^~$ over
+multiplication, two terms, inference.
+\begin{align}
+\vdash \mc{A} \in \mathbb{Z}\quad\&\quad \vdash \mc{D} \in
+    \mathbb{R}\quad\&\quad \vdash \msc{t} \in \mathbf{T}\quad\&\quad \vdash (
+    \msc{t} + ( \mc{D} \cdot \mc{A} ) ) \in \mathbf{T}\quad\&\quad \vdash (
+    \mc{C} \in \mathbb{R} \wedge \mc{B} \in \mathbb{R} )\quad\Rightarrow \notag \\ 
+	\quad
+    \vdash ( \mathfrak{M} , \msc{t} \models ( ( \mc{C} \cdot \mc{B} )
+    ~\string^~ \mc{A} ) = ( ( \mc{C} ~\string^~ \mc{A} ) \cdot ( \mc{B}
+    ~\string^~ \mc{A} ) ) )\label{eq:bl.tsmul2i}\tag{bl.tsmul2i}
+\end{align}
+\end{restatable}
+
+\begin{proof}
+\begin{align}
+  1 &&  & &(\mbox{\ref{eq:?}})\notag
+\end{align}
+\end{proof}
+
+\begin{restatable}{lemma}{blsmulthreeri}~\blTitle{bl.tsmul3ri}~ Distribute $~\string^~$ over
+multiplication, three terms (right), inference.
+\begin{align}
+\vdash \mc{A} \in \mathbb{Z}\quad\&\quad \vdash \mc{D} \in
+    \mathbb{R}\quad\&\quad \vdash \msc{t} \in \mathbf{T}\quad\&\quad \vdash (
+    \msc{t} + ( \mc{D} \cdot \mc{A} ) ) \in \mathbf{T}\quad\&\quad \vdash (
+    \mc{C} \in \mathbb{R} \wedge E \in \mathbb{R} \wedge \mc{B} \in \mathbb{R}
+    )\quad\Rightarrow \notag \\ 
+	\quad \vdash ( \mathfrak{M} , \msc{t} \models ( ( \mc{C}
+    \cdot ( E \cdot \mc{B} ) ) ~\string^~ \mc{A} ) = ( ( \mc{C} ~\string^~
+    \mc{A} ) \cdot ( ( E ~\string^~ \mc{A} ) \cdot ( \mc{B} ~\string^~ \mc{A} )
+    ) ) )\label{eq:bl.tsmul3ri}\tag{bl.tsmul3ri}
+\end{align}
+\end{restatable}
+
+\begin{proof}
+\begin{align}
+  1 &&  & &(\mbox{\ref{eq:?}})\notag
+\end{align}
+\end{proof}
+
+\begin{restatable}{lemma}{blsmulthreeli}~\blTitle{bl.tsmul3li}~ Distribute $~\string^~$ over
+multiplication, three terms (left), inference.
+\begin{align}
+\vdash \mc{A} \in \mathbb{Z}\quad\&\quad \vdash \mc{D} \in
+    \mathbb{R}\quad\&\quad \vdash \msc{t} \in \mathbf{T}\quad\&\quad \vdash (
+    \msc{t} + ( \mc{D} \cdot \mc{A} ) ) \in \mathbf{T}\quad\&\quad \vdash (
+    \mc{C} \in \mathbb{R} \wedge E \in \mathbb{R} \wedge \mc{B} \in \mathbb{R}
+    )\quad\Rightarrow \notag \\ 
+	\quad \vdash ( \mathfrak{M} , \msc{t} \models ( ( ( \mc{C}
+    \cdot E ) \cdot \mc{B} ) ~\string^~ \mc{A} ) = ( ( ( \mc{C} ~\string^~
+    \mc{A} ) \cdot ( E ~\string^~ \mc{A} ) ) \cdot ( \mc{B} ~\string^~ \mc{A} )
+    ) )\label{eq:bl.tsmul3li}\tag{bl.tsmul3li}
+\end{align}
+\end{restatable}
+
+\begin{proof}
+\begin{align}
+  1 &&  & &(\mbox{\ref{eq:?}})\notag
+\end{align}
+\end{proof}
+
+\begin{restatable}{lemma}{bltsmuli}~\blTitle{bl.tsmuli}~ Distribute $~\string^~$ over
+multiplication, class-list, inference.
+\begin{align}
+\vdash \mc{A} \in \mathbb{Z}\quad\&\quad \vdash \mc{D} \in
+    \mathbb{R}\quad\&\quad \vdash \msc{t} \in \mathbf{T}\quad\&\quad \vdash (
+    \msc{t} + ( \mc{D} \cdot \mc{A} ) ) \in \mathbf{T}\quad\&\quad \vdash ( +(
+    \msc{csl_1} ) \in \mathbb{R} \wedge +( \msc{csl_2} ) \in \mathbb{R}
+    )\quad\Rightarrow \notag \\ 
+	\quad \vdash ( \mathfrak{M} , \msc{t} \models ( ( +(
+    \msc{csl_1} ) \cdot +( \msc{csl_2} ) ) ~\string^~ \mc{A} ) = ( ( +(
+    \msc{csl_1} ) ~\string^~ \mc{A} ) \cdot ( +( \msc{csl_2} ) ~\string^~
+    \mc{A} ) ) )\label{eq:bl.tsmuli}\tag{bl.tsmuli}
+\end{align}
+\end{restatable}
+
+\begin{proof}
+\begin{align}
+  1 &&  & &(\mbox{\ref{eq:?}})\notag
+\end{align}
+\end{proof}
+
+\begin{restatable}{lemma}{bltsdivi}~\blTitle{bl.tsdivi}~ Distribute $~\string^~$ over division,
+inference.
+\begin{align}
+\vdash \mc{A} \in \mathbb{Z}\quad\&\quad \vdash \mc{D} \in
+    \mathbb{R}\quad\&\quad \vdash \msc{t} \in \mathbf{T}\quad\&\quad \vdash (
+    \msc{t} + ( \mc{D} \cdot \mc{A} ) ) \in \mathbf{T}\quad\&\quad \vdash (
+    \mc{C} \in \mathbb{R} \wedge \mc{B} \in \mathbb{R} )\quad\Rightarrow \notag \\ 
+	\quad
+    \vdash ( \mathfrak{M} , \msc{t} \models ( ( \mc{C} / \mc{B} ) ~\string^~
+    \mc{A} ) = ( ( \mc{C} ~\string^~ \mc{A} ) / ( \mc{B} ~\string^~ \mc{A} ) )
+    )\label{eq:bl.tsdivi}\tag{bl.tsdivi}
+\end{align}
+\end{restatable}
+
+\begin{proof}
+\begin{align}
+  1 &&  & &(\mbox{\ref{eq:?}})\notag
+\end{align}
+\end{proof}
+
+\begin{restatable}{lemma}{bltsumi}~\blTitle{bl.tsumi}~ Distribute $~\string^~$ over unary minus,
+inference.
+\begin{align}
+\vdash \mc{A} \in \mathbb{Z}\quad\&\quad \vdash \mc{D} \in
+    \mathbb{R}\quad\&\quad \vdash \msc{t} \in \mathbf{T}\quad\&\quad \vdash (
+    \msc{t} + ( \mc{D} \cdot \mc{A} ) ) \in \mathbf{T}\quad\&\quad \vdash
+    \mc{B} \in \mathbb{R}\quad\Rightarrow \notag \\ 
+	\quad \vdash ( \mathfrak{M} , \msc{t}
+    \models ( \textrm{-} \mc{B} ~\string^~ \mc{A} ) = \textrm{-} ( \mc{B}
+    ~\string^~ \mc{A} ) )\label{eq:bl.tsumi}\tag{bl.tsumi}
+\end{align}
+\end{restatable}
+
+\begin{proof}
+\begin{align}
+  1 &&  & &(\mbox{\ref{eq:?}})\notag
+\end{align}
+\end{proof}
+
+\begin{restatable}{lemma}{bltsdeqi}~\blTitle{bl.tsdeqi}~ Distribute $~\string^~$ over equality,
+inference.
+\begin{align}
+\vdash \mc{A} \in \mathbb{Z}\quad\&\quad \vdash \mc{D} \in
+    \mathbb{R}\quad\&\quad \vdash \msc{t} \in \mathbf{T}\quad\&\quad \vdash (
+    \msc{t} + ( \mc{D} \cdot \mc{A} ) ) \in \mathbf{T}\quad\&\quad \vdash (
+    \mc{C} \in \mathbb{R} \wedge \mc{B} \in \mathbb{R} )\quad\Rightarrow \notag \\ 
+	\quad
+    \vdash ( \mathfrak{M} , \msc{t} \models ( ( \mc{C} = \mc{B} ~\string^~
+    \mc{A} ) \leftrightarrow ( \mc{C} ~\string^~ \mc{A} ) = ( \mc{B} ~\string^~
+    \mc{A} ) ) )\label{eq:bl.tsdeqi}\tag{bl.tsdeqi}
+\end{align}
+\end{restatable}
+
+\begin{proof}
+\begin{align}
+  1 &&  & &(\mbox{\ref{eq:?}})\notag
+\end{align}
+\end{proof}
+
+\begin{restatable}{lemma}{bltslti}~\blTitle{bl.tslti}~ Distribute $~\string^~$ over less-than,
+inference.
+\begin{align}
+\vdash \mc{A} \in \mathbb{Z}\quad\&\quad \vdash \mc{D} \in
+    \mathbb{R}\quad\&\quad \vdash \msc{t} \in \mathbf{T}\quad\&\quad \vdash (
+    \msc{t} + ( \mc{D} \cdot \mc{A} ) ) \in \mathbf{T}\quad\&\quad \vdash (
+    \mc{C} \in \mathbb{R} \wedge \mc{B} \in \mathbb{R} )\quad\Rightarrow \notag \\ 
+	\quad
+    \vdash ( \mathfrak{M} , \msc{t} \models ( ( \mc{C} < \mc{B} ~\string^~
+    \mc{A} ) \leftrightarrow ( \mc{C} ~\string^~ \mc{A} ) < ( \mc{B} ~\string^~
+    \mc{A} ) ) )\label{eq:bl.tslti}\tag{bl.tslti}
+\end{align}
+\end{restatable}
+
+\begin{proof}
+\begin{align}
+  1 &&  & &(\mbox{\ref{eq:?}})\notag
+\end{align}
+\end{proof}
+
+\begin{restatable}{lemma}{bltsami}~\blTitle{bl.tsami}~ Distribute $~\string^~$ over at-most,
+inference.
+\begin{align}
+\vdash \mc{A} \in \mathbb{Z}\quad\&\quad \vdash \mc{D} \in
+    \mathbb{R}\quad\&\quad \vdash \msc{t} \in \mathbf{T}\quad\&\quad \vdash (
+    \msc{t} + ( \mc{D} \cdot \mc{A} ) ) \in \mathbf{T}\quad\&\quad \vdash (
+    \mc{C} \in \mathbb{R} \wedge \mc{B} \in \mathbb{R} )\quad\Rightarrow \notag \\ 
+	\quad
+    \vdash ( \mathfrak{M} , \msc{t} \models ( ( \mc{C} \le \mc{B} ~\string^~
+    \mc{A} ) \leftrightarrow ( \mc{C} ~\string^~ \mc{A} ) \le ( \mc{B}
+    ~\string^~ \mc{A} ) ) )\label{eq:bl.tsami}\tag{bl.tsami}
+\end{align}
+\end{restatable}
+
+\begin{proof}
+\begin{align}
+  1 &&  & &(\mbox{\ref{eq:?}})\notag
+\end{align}
+\end{proof}
+
+\begin{restatable}{lemma}{bltsali}~\blTitle{bl.tsali}~ Distribute $~\string^~$ over universal
+quantification, inference
+\begin{align}
+\vdash \mc{A} \in \mathbb{Z}\quad\&\quad \vdash \mc{D} \in
+    \mathbb{R}\quad\&\quad \vdash \msc{t} \in \mathbf{T}\quad\&\quad \vdash (
+    \msc{t} + ( \mc{D} \cdot \mc{A} ) ) \in \mathbf{T}\quad\&\quad \vdash
+    \mc{B} \in \mathbb{R}\quad\Rightarrow \notag \\ 
+	\quad \vdash ( \mathfrak{M} , \msc{t}
+    \models ( ( \forall \msc{x} \in \mc{B} \mw{\varphi} ~\string^~ \mc{A} )
+    \leftrightarrow \forall \msc{x} \in \mc{B} ( \mw{\varphi} ~\string^~ \mc{A}
+    ) ) )\label{eq:bl.tsali}\tag{bl.tsali}
+\end{align}
+\end{restatable}
+
+\begin{proof}
+\begin{align}
+  1 &&  & &(\mbox{\ref{eq:?}})\notag
+\end{align}
+\end{proof}
+
+\begin{restatable}{lemma}{bltsexi}~\blTitle{bl.tsexi}~ Distribute $~\string^~$ over existential
+quantification, inference
+\begin{align}
+\vdash \mc{A} \in \mathbb{Z}\quad\&\quad \vdash \mc{D} \in
+    \mathbb{R}\quad\&\quad \vdash \msc{t} \in \mathbf{T}\quad\&\quad \vdash (
+    \msc{t} + ( \mc{D} \cdot \mc{A} ) ) \in \mathbf{T}\quad\&\quad \vdash
+    \mc{B} \in \mathbb{R}\quad\Rightarrow \notag \\ 
+	\quad \vdash ( \mathfrak{M} , \msc{t}
+    \models ( ( \exists \msc{x} \in \mc{B} \mw{\varphi} ~\string^~ \mc{A} )
+    \leftrightarrow \exists \msc{x} \in \mc{B} ( \mw{\varphi} ~\string^~ \mc{A}
+    ) ) )\label{eq:bl.tsexi}\tag{bl.tsexi}
+\end{align}
+\end{restatable}
+
+\begin{proof}
+\begin{align}
+  1 &&  & &(\mbox{\ref{eq:?}})\notag
+\end{align}
+\end{proof}
+
+\begin{restatable}{lemma}{bltssumi}~\blTitle{bl.tssumi}~ Distribute $~\string^~$ over summation,
+inference
+\begin{align}
+\vdash \mc{A} \in \mathbb{Z}\quad\&\quad \vdash \mc{D} \in
+    \mathbb{R}\quad\&\quad \vdash \msc{t} \in \mathbf{T}\quad\&\quad \vdash (
+    \msc{t} + ( \mc{D} \cdot \mc{A} ) ) \in \mathbf{T}\quad\&\quad \vdash
+    \mc{B} \in \mathbb{R}\quad\Rightarrow \notag \\ 
+	\quad \vdash ( \mathfrak{M} , \msc{t}
+    \models ( \sum \msc{x} \in \mc{B} \mc{C} ~\string^~ \mc{A} ) = \sum \msc{x}
+    \in \mc{B} ( \mc{C} ~\string^~ \mc{A} )
+    )\label{eq:bl.tssumi}\tag{bl.tssumi}
+\end{align}
+\end{restatable}
+
+\begin{proof}
+\begin{align}
+  1 &&  & &(\mbox{\ref{eq:?}})\notag
+\end{align}
+\end{proof}
+
+\begin{restatable}{lemma}{bltsprodi}~\blTitle{bl.tsprodi}~ Distribute $~\string^~$ over product,
+inference
+\begin{align}
+\vdash \mc{A} \in \mathbb{Z}\quad\&\quad \vdash \mc{D} \in
+    \mathbb{R}\quad\&\quad \vdash \msc{t} \in \mathbf{T}\quad\&\quad \vdash (
+    \msc{t} + ( \mc{D} \cdot \mc{A} ) ) \in \mathbf{T}\quad\&\quad \vdash
+    \mc{B} \in \mathbb{R}\quad\Rightarrow \notag \\ 
+	\quad \vdash ( \mathfrak{M} , \msc{t}
+    \models ( \prod \msc{x} \in \mc{B} \mc{C} ~\string^~ \mc{A} ) = \prod
+    \msc{x} \in \mc{B} ( \mc{C} ~\string^~ \mc{A} )
+    )\label{eq:bl.tsprodi}\tag{bl.tsprodi}
+\end{align}
+\end{restatable}
+
+\begin{proof}
+\begin{align}
+  1 &&  & &(\mbox{\ref{eq:?}})\notag
+\end{align}
+\end{proof}
+

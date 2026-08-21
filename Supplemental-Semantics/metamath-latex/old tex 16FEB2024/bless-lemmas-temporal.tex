@@ -1,0 +1,335 @@
+% This LaTeX file was created by Metamath on 18-Feb-2024 9:42 PM.
+\begin{restatable}{metadefinition}{dfbltime}~\blTitle{df-bl.time}~ Define domain of time $\mathbf{T}$
+from $\msc{t} = 0$ to $\mathsf{\mc{now}}$.
+\begin{align}
+\vdash \mathbf{T} = \{ \msc{x}~\vert~( \msc{x} \in \mathbb{R} \wedge 0 \le \msc{x}
+    \wedge \msc{x} \le \mathsf{\mc{now}} )
+    \}\label{eq:df-bl.time}\tag{df-bl.time}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{blrt}~\blTitle{bl.rt}~ $\mathbf{T}$ is $\mathbb{R}$ (real)
+\begin{align}
+\vdash \mathbf{T} \subseteq \mathbb{R}\label{eq:bl.rt}\tag{bl.rt}
+\end{align}
+\end{restatable}
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash \mathbf{T} = \{ \msc{x}~\vert~( \msc{x} \in \mathbb{R} \wedge 0
+     ~\le \msc{x} \wedge \msc{x} \le \mathsf{\mc{now}} )
+     ~\}&(\mbox{\ref{eq:df-bl.time}})\notag
+  \\ 2 &&  & \vdash ( \msc{x} \in \mathbf{T} \leftrightarrow \msc{x} \in \{
+     ~\msc{x}~\vert~( \msc{x} \in \mathbb{R} \wedge 0 \le
+     ~\msc{x} \wedge \msc{x} \le \mathsf{\mc{now}} ) \}
+     ~)&(\mbox{\ref{eq:eleq2i}},1)\notag
+  \\ 3 &&  & \vdash ( \msc{x} \in \{ \msc{x}~\vert~( \msc{x} \in \mathbb{R} \wedge
+     ~0 \le \msc{x} \wedge \msc{x} \le \mathsf{\mc{now}} )
+     ~\} \leftrightarrow ( \msc{x} \in \mathbb{R} \wedge 0
+     ~\le \msc{x} \wedge \msc{x} \le \mathsf{\mc{now}} )
+     ~)&(\mbox{\ref{eq:abid}})\notag
+  \\ 4 &&  & \vdash ( \msc{x} \in \mathbf{T} \leftrightarrow ( \msc{x} \in
+     ~\mathbb{R} \wedge 0 \le \msc{x} \wedge \msc{x} \le
+     ~\mathsf{\mc{now}} )
+     ~)&(\mbox{\ref{eq:bitri}},2,3)\notag
+  \\ 5 &&  & \vdash ( \msc{x} \in \mathbf{T} \rightarrow \msc{x} \in \mathbb{R}
+     ~)&(\mbox{\ref{eq:simp1bi}},4)\notag
+  \\ 6 &&  & \vdash \mathbf{T} \subseteq
+     ~\mathbb{R}&(\mbox{\ref{eq:ssriv}},5)\notag
+\end{align}
+\end{proof}
+
+\begin{restatable}{lemma}{blert}~\blTitle{bl.ert}~ $\mathbf{T}$ is $\mathbb{R}$* (extended
+real)
+\begin{align}
+\vdash \mathbf{T} \subseteq \mathbb{R}^{*}\label{eq:bl.ert}\tag{bl.ert}
+\end{align}
+\end{restatable}
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash \mathbf{T} \subseteq \mathbb{R}&(\mbox{\ref{eq:bl.rt}})\notag
+  \\ 2 &&  & \vdash \mathbb{R} \subseteq
+     ~\mathbb{R}^{*}&(\mbox{\ref{eq:ressxr}})\notag
+  \\ 3 &&  & \vdash \mathbf{T} \subseteq
+     ~\mathbb{R}^{*}&(\mbox{\ref{eq:sstri}},1,2)\notag
+\end{align}
+\end{proof}
+
+\begin{restatable}{lemma}{bletial0}~\blTitle{bl.etial0}~ Every time is at least 0.
+\begin{align}
+\vdash ( \msc{t_1} \in \mathbf{T} \rightarrow 0 \le \msc{t_1}
+    )\label{eq:bl.etial0}\tag{bl.etial0}
+\end{align}
+\end{restatable}
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash ( \msc{t_1} \in \{ \msc{x}~\vert~( \msc{x} \in \mathbb{R} \wedge 0
+     ~\le \msc{x} \wedge \msc{x} \le \mathsf{\mc{now}} ) \}
+     ~\leftrightarrow \exists \msc{x} ( \msc{x} = \msc{t_1}
+     ~\wedge ( \msc{x} \in \mathbb{R} \wedge 0 \le \msc{x}
+     ~\wedge \msc{x} \le \mathsf{\mc{now}} ) )
+     ~)&(\mbox{\ref{eq:clelab}})\notag
+  \\ 2 &&  & \vdash \mathbf{T} = \{ \msc{x}~\vert~( \msc{x} \in \mathbb{R} \wedge 0
+     ~\le \msc{x} \wedge \msc{x} \le \mathsf{\mc{now}} )
+     ~\}&(\mbox{\ref{eq:df-bl.time}})\notag
+  \\ 3 &&  & \vdash ( \msc{t_1} \in \mathbf{T} \leftrightarrow \msc{t_1} \in \{
+     ~\msc{x}~\vert~( \msc{x} \in \mathbb{R} \wedge 0 \le
+     ~\msc{x} \wedge \msc{x} \le \mathsf{\mc{now}} ) \}
+     ~)&(\mbox{\ref{eq:eleq2i}},2)\notag
+  \\ 4 &&  & \vdash ( \underaccent{\dot}{[} \msc{t_1} / \msc{x}
+     ~\underaccent{\dot}{]} ( \msc{x} \in \mathbb{R} \wedge
+     ~0 \le \msc{x} \wedge \msc{x} \le \mathsf{\mc{now}} )
+     ~\leftrightarrow \exists \msc{x} ( \msc{x} = \msc{t_1}
+     ~\wedge ( \msc{x} \in \mathbb{R} \wedge 0 \le \msc{x}
+     ~\wedge \msc{x} \le \mathsf{\mc{now}} ) )
+     ~)&(\mbox{\ref{eq:sbc5}})\notag
+  \\ 5 &&  & \vdash ( \msc{t_1} \in \mathbf{T} \leftrightarrow
+     ~\underaccent{\dot}{[} \msc{t_1} / \msc{x}
+     ~\underaccent{\dot}{]} ( \msc{x} \in \mathbb{R} \wedge
+     ~0 \le \msc{x} \wedge \msc{x} \le \mathsf{\mc{now}} )
+     ~)&(\mbox{\ref{eq:3bitr4i}},1,3,4)\notag
+  \\ 6 &&  & \vdash ( \underaccent{\dot}{[} \msc{t_1} / \msc{x}
+     ~\underaccent{\dot}{]} ( \msc{x} \in \mathbb{R} \wedge
+     ~0 \le \msc{x} \wedge \msc{x} \le \mathsf{\mc{now}} )
+     ~\leftrightarrow ( \underaccent{\dot}{[} \msc{t_1} /
+     ~\msc{x} \underaccent{\dot}{]} \msc{x} \in \mathbb{R}
+     ~\wedge \underaccent{\dot}{[} \msc{t_1} / \msc{x}
+     ~\underaccent{\dot}{]} 0 \le \msc{x} \wedge
+     ~\underaccent{\dot}{[} \msc{t_1} / \msc{x}
+     ~\underaccent{\dot}{]} \msc{x} \le \mathsf{\mc{now}} )
+     ~)&(\mbox{\ref{eq:sbc3an}})\notag
+  \\ 7 &&  & \vdash ( \msc{t_1} \in \mathbf{T} \leftrightarrow (
+     ~\underaccent{\dot}{[} \msc{t_1} / \msc{x}
+     ~\underaccent{\dot}{]} \msc{x} \in \mathbb{R} \wedge
+     ~\underaccent{\dot}{[} \msc{t_1} / \msc{x}
+     ~\underaccent{\dot}{]} 0 \le \msc{x} \wedge
+     ~\underaccent{\dot}{[} \msc{t_1} / \msc{x}
+     ~\underaccent{\dot}{]} \msc{x} \le \mathsf{\mc{now}} )
+     ~)&(\mbox{\ref{eq:bitri}},5,6)\notag
+  \\ 8 &&  & \vdash ( \msc{t_1} \in \mathbf{T} \rightarrow
+     ~\underaccent{\dot}{[} \msc{t_1} / \msc{x}
+     ~\underaccent{\dot}{]} 0 \le \msc{x}
+     ~)&(\mbox{\ref{eq:simp2bi}},7)\notag
+  \\ 9 &&  & \vdash ( \msc{t_1} \in \mathbf{T} \rightarrow (
+     ~\underaccent{\dot}{[} \msc{t_1} / \msc{x}
+     ~\underaccent{\dot}{]} 0 \le \msc{x} \leftrightarrow 0
+     ~\le \underline{[} \msc{t_1} / \msc{x} \underline{]}
+     ~\msc{x} ) )&(\mbox{\ref{eq:sbcbr2g}})\notag
+  \\ 10 &&  & \vdash ( \msc{t_1} \in \mathbf{T} \rightarrow 0 \le \underline{[}
+     ~\msc{t_1} / \msc{x} \underline{]} \msc{x}
+     ~)&(\mbox{\ref{eq:mpbid}},8,9)\notag
+  \\ 11 &&  & \vdash ( \msc{t_1} \in \mathbf{T} \rightarrow 0 = 0
+     ~)&(\mbox{\ref{eq:eqidd}})\notag
+  \\ 12 &&  & \vdash ( \msc{t_1} \in \mathbf{T} \rightarrow \underline{[}
+     ~\msc{t_1} / \msc{x} \underline{]} \msc{x} = \msc{t_1}
+     ~)&(\mbox{\ref{eq:csbvarg}})\notag
+  \\ 13 &&  & \vdash ( \msc{t_1} \in \mathbf{T} \rightarrow ( 0 \le
+     ~\underline{[} \msc{t_1} / \msc{x} \underline{]}
+     ~\msc{x} \leftrightarrow 0 \le \msc{t_1} )
+     ~)&(\mbox{\ref{eq:breq12d}},11,12)\notag
+  \\ 14 &&  & \vdash ( \msc{t_1} \in \mathbf{T} \rightarrow 0 \le \msc{t_1}
+     ~)&(\mbox{\ref{eq:mpbid}},10,13)\notag
+\end{align}
+\end{proof}
+
+\begin{restatable}{lemma}{bletiamn}~\blTitle{bl.etiamn}~ Every time is at most now.
+\begin{align}
+\vdash ( \msc{t_1} \in \mathbf{T} \rightarrow \msc{t_1} \le \mathsf{\mc{now}}
+    )\label{eq:bl.etiamn}\tag{bl.etiamn}
+\end{align}
+\end{restatable}
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash ( \msc{t_1} \in \mathbf{T} \rightarrow \underline{[} \msc{t_1}
+     ~/ \msc{x} \underline{]} \msc{x} = \msc{t_1}
+     ~)&(\mbox{\ref{eq:csbvarg}})\notag
+  \\ 2 &&  & \vdash ( \msc{t_1} \in \{ \msc{x}~\vert~( \msc{x} \in \mathbb{R}
+     ~\wedge 0 \le \msc{x} \wedge \msc{x} \le
+     ~\mathsf{\mc{now}} ) \} \leftrightarrow \exists
+     ~\msc{x} ( \msc{x} = \msc{t_1} \wedge ( \msc{x} \in
+     ~\mathbb{R} \wedge 0 \le \msc{x} \wedge \msc{x} \le
+     ~\mathsf{\mc{now}} ) )
+     ~)&(\mbox{\ref{eq:clelab}})\notag
+  \\ 3 &&  & \vdash \mathbf{T} = \{ \msc{x}~\vert~( \msc{x} \in \mathbb{R} \wedge 0
+     ~\le \msc{x} \wedge \msc{x} \le \mathsf{\mc{now}} )
+     ~\}&(\mbox{\ref{eq:df-bl.time}})\notag
+  \\ 4 &&  & \vdash ( \msc{t_1} \in \mathbf{T} \leftrightarrow \msc{t_1} \in \{
+     ~\msc{x}~\vert~( \msc{x} \in \mathbb{R} \wedge 0 \le
+     ~\msc{x} \wedge \msc{x} \le \mathsf{\mc{now}} ) \}
+     ~)&(\mbox{\ref{eq:eleq2i}},3)\notag
+  \\ 5 &&  & \vdash ( \underaccent{\dot}{[} \msc{t_1} / \msc{x}
+     ~\underaccent{\dot}{]} ( \msc{x} \in \mathbb{R} \wedge
+     ~0 \le \msc{x} \wedge \msc{x} \le \mathsf{\mc{now}} )
+     ~\leftrightarrow \exists \msc{x} ( \msc{x} = \msc{t_1}
+     ~\wedge ( \msc{x} \in \mathbb{R} \wedge 0 \le \msc{x}
+     ~\wedge \msc{x} \le \mathsf{\mc{now}} ) )
+     ~)&(\mbox{\ref{eq:sbc5}})\notag
+  \\ 6 &&  & \vdash ( \msc{t_1} \in \mathbf{T} \leftrightarrow
+     ~\underaccent{\dot}{[} \msc{t_1} / \msc{x}
+     ~\underaccent{\dot}{]} ( \msc{x} \in \mathbb{R} \wedge
+     ~0 \le \msc{x} \wedge \msc{x} \le \mathsf{\mc{now}} )
+     ~)&(\mbox{\ref{eq:3bitr4i}},2,4,5)\notag
+  \\ 7 &&  & \vdash ( \underaccent{\dot}{[} \msc{t_1} / \msc{x}
+     ~\underaccent{\dot}{]} ( \msc{x} \in \mathbb{R} \wedge
+     ~0 \le \msc{x} \wedge \msc{x} \le \mathsf{\mc{now}} )
+     ~\leftrightarrow ( \underaccent{\dot}{[} \msc{t_1} /
+     ~\msc{x} \underaccent{\dot}{]} \msc{x} \in \mathbb{R}
+     ~\wedge \underaccent{\dot}{[} \msc{t_1} / \msc{x}
+     ~\underaccent{\dot}{]} 0 \le \msc{x} \wedge
+     ~\underaccent{\dot}{[} \msc{t_1} / \msc{x}
+     ~\underaccent{\dot}{]} \msc{x} \le \mathsf{\mc{now}} )
+     ~)&(\mbox{\ref{eq:sbc3an}})\notag
+  \\ 8 &&  & \vdash ( \msc{t_1} \in \mathbf{T} \leftrightarrow (
+     ~\underaccent{\dot}{[} \msc{t_1} / \msc{x}
+     ~\underaccent{\dot}{]} \msc{x} \in \mathbb{R} \wedge
+     ~\underaccent{\dot}{[} \msc{t_1} / \msc{x}
+     ~\underaccent{\dot}{]} 0 \le \msc{x} \wedge
+     ~\underaccent{\dot}{[} \msc{t_1} / \msc{x}
+     ~\underaccent{\dot}{]} \msc{x} \le \mathsf{\mc{now}} )
+     ~)&(\mbox{\ref{eq:bitri}},6,7)\notag
+  \\ 9 &&  & \vdash ( \msc{t_1} \in \mathbf{T} \rightarrow
+     ~\underaccent{\dot}{[} \msc{t_1} / \msc{x}
+     ~\underaccent{\dot}{]} \msc{x} \le \mathsf{\mc{now}}
+     ~)&(\mbox{\ref{eq:simp3bi}},8)\notag
+  \\ 10 &&  & \vdash ( \msc{t_1} \in \mathbf{T} \rightarrow (
+     ~\underaccent{\dot}{[} \msc{t_1} / \msc{x}
+     ~\underaccent{\dot}{]} \msc{x} \le \mathsf{\mc{now}}
+     ~\leftrightarrow \underline{[} \msc{t_1} / \msc{x}
+     ~\underline{]} \msc{x} \le \mathsf{\mc{now}} )
+     ~)&(\mbox{\ref{eq:sbcbr1g}})\notag
+  \\ 11 &&  & \vdash ( \msc{t_1} \in \mathbf{T} \rightarrow \underline{[}
+     ~\msc{t_1} / \msc{x} \underline{]} \msc{x} \le
+     ~\mathsf{\mc{now}}
+     ~)&(\mbox{\ref{eq:mpbid}},9,10)\notag
+  \\ 12 &&  & \vdash ( \msc{t_1} \in \mathbf{T} \rightarrow \msc{t_1} \le
+     ~\mathsf{\mc{now}}
+     ~)&(\mbox{\ref{eq:eqbrtrrd}},1,11)\notag
+\end{align}
+\end{proof}
+
+\begin{restatable}{metadefinition}{dfblbefore}~\blTitle{df-bl.before}~ Temporal Precedence (before).
+\begin{align}
+\vdash ( ( \msc{t_1} \in \mathbf{T} \wedge \msc{t_2} \in \mathbf{T} )
+    \rightarrow ( \msc{t_1} \prec \msc{t_2} \leftrightarrow \msc{t_1} <
+    \msc{t_2} ) )\label{eq:df-bl.before}\tag{df-bl.before}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{metadefinition}{dfblbeforeeq}~\blTitle{df-bl.beforeeq}~ Temporal Precedence (before or
+coincident).
+\begin{align}
+\vdash ( ( \msc{t_1} \in \mathbf{T} \wedge \msc{t_2} \in \mathbf{T} )
+    \rightarrow ( \msc{t_1} \preccurlyeq \msc{t_2} \leftrightarrow ( \msc{t_1}
+    < \msc{t_2} \vee \msc{t_1} = \msc{t_2} ) )
+    )\label{eq:df-bl.beforeeq}\tag{df-bl.beforeeq}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{metadefinition}{dfblnowrr}~\blTitle{df-bl.nowrr}~ now is a non-negative real number.
+\begin{align}
+\vdash ( \mathsf{\mc{now}} \in \mathbb{R} \wedge 0 \le \mathsf{\mc{now}}
+    )\label{eq:df-bl.nowrr}\tag{df-bl.nowrr}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{metadefinition}{dfblatrt}~\blTitle{df-bl.atrt}~ Applying @ retains type.
+\begin{align}
+\vdash \msc{t} \in \mathbf{T}\quad\Rightarrow \notag \\ 
+	\quad \vdash ( \mc{A} \in \mc{B}
+    \rightarrow ( \mathfrak{M} \models ( \mc{A} @ \msc{t} ) ) \in \mc{B}
+    )\label{eq:df-bl.atrt}\tag{df-bl.atrt}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{blrt}~\blTitle{bl.rt}~ $\mathbf{T}$ is $\mathbb{R}$ (real)
+\begin{align}
+\vdash \mathbf{T} \subseteq \mathbb{R}\label{eq:bl.rt}\tag{bl.rt}
+\end{align}
+\end{restatable}
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash \mathbf{T} = \{ \msc{x}~\vert~( \msc{x} \in \mathbb{R} \wedge 0
+     ~\le \msc{x} \wedge \msc{x} \le \mathsf{\mc{now}} )
+     ~\}&(\mbox{\ref{eq:df-bl.time}})\notag
+  \\ 2 &&  & \vdash ( \msc{x} \in \mathbf{T} \leftrightarrow \msc{x} \in \{
+     ~\msc{x}~\vert~( \msc{x} \in \mathbb{R} \wedge 0 \le
+     ~\msc{x} \wedge \msc{x} \le \mathsf{\mc{now}} ) \}
+     ~)&(\mbox{\ref{eq:eleq2i}},1)\notag
+  \\ 3 &&  & \vdash ( \msc{x} \in \{ \msc{x}~\vert~( \msc{x} \in \mathbb{R} \wedge
+     ~0 \le \msc{x} \wedge \msc{x} \le \mathsf{\mc{now}} )
+     ~\} \leftrightarrow ( \msc{x} \in \mathbb{R} \wedge 0
+     ~\le \msc{x} \wedge \msc{x} \le \mathsf{\mc{now}} )
+     ~)&(\mbox{\ref{eq:abid}})\notag
+  \\ 4 &&  & \vdash ( \msc{x} \in \mathbf{T} \leftrightarrow ( \msc{x} \in
+     ~\mathbb{R} \wedge 0 \le \msc{x} \wedge \msc{x} \le
+     ~\mathsf{\mc{now}} )
+     ~)&(\mbox{\ref{eq:bitri}},2,3)\notag
+  \\ 5 &&  & \vdash ( \msc{x} \in \mathbf{T} \rightarrow \msc{x} \in \mathbb{R}
+     ~)&(\mbox{\ref{eq:simp1bi}},4)\notag
+  \\ 6 &&  & \vdash \mathbf{T} \subseteq
+     ~\mathbb{R}&(\mbox{\ref{eq:ssriv}},5)\notag
+\end{align}
+\end{proof}
+
+\begin{restatable}{lemma}{blert}~\blTitle{bl.ert}~ $\mathbf{T}$ is $\mathbb{R}$* (extended
+real)
+\begin{align}
+\vdash \mathbf{T} \subseteq \mathbb{R}^{*}\label{eq:bl.ert}\tag{bl.ert}
+\end{align}
+\end{restatable}
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash \mathbf{T} \subseteq \mathbb{R}&(\mbox{\ref{eq:bl.rt}})\notag
+  \\ 2 &&  & \vdash \mathbb{R} \subseteq
+     ~\mathbb{R}^{*}&(\mbox{\ref{eq:ressxr}})\notag
+  \\ 3 &&  & \vdash \mathbf{T} \subseteq
+     ~\mathbb{R}^{*}&(\mbox{\ref{eq:sstri}},1,2)\notag
+\end{align}
+\end{proof}
+
+\begin{restatable}{lemma}{blbeforeeq}~\blTitle{bl.beforeeq}~ Temporal Precedence (before or
+coincident)
+\begin{align}
+\vdash ( ( \msc{t_1} \in \mathbf{T} \wedge \msc{t_2} \in \mathbf{T} )
+    \rightarrow ( \msc{t_1} \preccurlyeq \msc{t_2} \leftrightarrow \msc{t_1}
+    \le \msc{t_2} ) )\label{eq:bl.beforeeq}\tag{bl.beforeeq}
+\end{align}
+\end{restatable}
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash ( ( \msc{t_1} \in \mathbf{T} \wedge \msc{t_2} \in \mathbf{T} )
+     ~\rightarrow ( \msc{t_1} \preccurlyeq \msc{t_2}
+     ~\leftrightarrow ( \msc{t_1} < \msc{t_2} \vee
+     ~\msc{t_1} = \msc{t_2} ) )
+     ~)&(\mbox{\ref{eq:df-bl.beforeeq}})\notag
+  \\ 2 &&  & \vdash ( \msc{t_1} \in \mathbf{T} \rightarrow \msc{t_1} \in
+     ~\mathbb{R} )&(\mbox{\ref{eq:bl.etir}})\notag
+  \\ 3 &&  & \vdash ( \msc{t_2} \in \mathbf{T} \rightarrow \msc{t_2} \in
+     ~\mathbb{R} )&(\mbox{\ref{eq:bl.etir}})\notag
+  \\ 4 &&  & \vdash ( ( \msc{t_1} \in \mathbf{T} \wedge \msc{t_2} \in
+     ~\mathbf{T} ) \rightarrow ( \msc{t_1} \in \mathbb{R}
+     ~\wedge \msc{t_2} \in \mathbb{R} )
+     ~)&(\mbox{\ref{eq:anim12i}},2,3)\notag
+  \\ 5 &&  & \vdash ( ( \msc{t_1} \in \mathbb{R} \wedge \msc{t_2} \in
+     ~\mathbb{R} ) \rightarrow ( \msc{t_1} \le \msc{t_2}
+     ~\leftrightarrow ( \msc{t_1} < \msc{t_2} \vee
+     ~\msc{t_1} = \msc{t_2} ) )
+     ~)&(\mbox{\ref{eq:leloe}})\notag
+  \\ 6 &&  & \vdash ( ( \msc{t_1} \in \mathbf{T} \wedge \msc{t_2} \in
+     ~\mathbf{T} ) \rightarrow ( \msc{t_1} \le \msc{t_2}
+     ~\leftrightarrow ( \msc{t_1} < \msc{t_2} \vee
+     ~\msc{t_1} = \msc{t_2} ) )
+     ~)&(\mbox{\ref{eq:syl}},4,5)\notag
+  \\ 7 &&  & \vdash ( ( \msc{t_1} \in \mathbf{T} \wedge \msc{t_2} \in
+     ~\mathbf{T} ) \rightarrow ( \msc{t_1} \preccurlyeq
+     ~\msc{t_2} \leftrightarrow \msc{t_1} \le \msc{t_2} )
+     ~)&(\mbox{\ref{eq:bitr4d}},1,6)\notag
+\end{align}
+\end{proof}
+

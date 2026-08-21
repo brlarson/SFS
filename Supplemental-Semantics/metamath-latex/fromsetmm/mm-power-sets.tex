@@ -1,0 +1,182 @@
+% This LaTeX file was created by Metamath on 6-Mar-2024 11:48 AM.
+\begin{restatable}{axiom}{axpow}~\otherTitle{ax-pow}~ Axiom of Power Sets.  An axiom of
+Zermelo-Fraenkel set theory.  It
+       states that a set $\msc{y}$ exists that includes the power set of a
+given
+       set $\msc{x}$ i.e. contains every subset of $\msc{x}$.  ~
+\begin{align}
+\vdash \exists \msc{y} \forall \msc{z} ( \forall \msc{w} ( \msc{w} \in \msc{z}
+    \rightarrow \msc{w} \in \msc{x} ) \rightarrow \msc{z} \in \msc{y}
+    )\label{eq:ax-pow}\tag{ax-pow}
+\end{align}
+\end{restatable}
+
+\cotr
+%\begin{restatable}{lemma}{cotr}~\otherTitle{cotr}~ Two ways of saying a relation is transitive. 
+%\begin{align}
+%\vdash ( ( \mc{R} \circ \mc{R} ) \subseteq \mc{R} \leftrightarrow \forall
+%    \msc{x} \forall \msc{y} \forall \msc{z} ( ( \msc{x} \mc{R} \msc{y} \wedge
+%    \msc{y} \mc{R} \msc{z} ) \rightarrow \msc{x} \mc{R} \msc{z} )
+%    )\label{eq:cotr}\tag{cotr}
+%\end{align}
+%\end{restatable}
+
+\cnvsym
+%\begin{restatable}{lemma}{cnvsym}~\otherTitle{cnvsym}~ Two ways of saying a relation is symmetric. 
+%\begin{align}
+%\vdash ( {}^{\smallsmile} \mc{R} \subseteq \mc{R} \leftrightarrow \forall
+%    \msc{x} \forall \msc{y} ( \msc{x} \mc{R} \msc{y} \rightarrow \msc{y} \mc{R}
+%    \msc{x} ) )\label{eq:cnvsym}\tag{cnvsym}
+%\end{align}
+%\end{restatable}
+
+\intasym
+%\begin{restatable}{lemma}{intasym}~\otherTitle{intasym}~ Two ways of saying a relation is
+%antisymmetric.  
+%\begin{align}
+%\vdash ( ( \mc{R} \cap {}^{\smallsmile} \mc{R} ) \subseteq \,\mathrm{I}
+%    \leftrightarrow \forall \msc{x} \forall \msc{y} ( ( \msc{x} \mc{R} \msc{y}
+%    \wedge \msc{y} \mc{R} \msc{x} ) \rightarrow \msc{x} = \msc{y} )
+%    )\label{eq:intasym}\tag{intasym}
+%\end{align}
+%\end{restatable}
+
+\intirr
+%\begin{restatable}{lemma}{intirr}~\otherTitle{intirr}~ Two ways of saying a relation is
+%irreflexive.  
+%\begin{align}
+%\vdash ( ( \mc{R} \cap \,\mathrm{I} ) = \varnothing~ \leftrightarrow \forall
+%    \msc{x} \lnot \msc{x} \mc{R} \msc{x} )\label{eq:intirr}\tag{intirr}
+%\end{align}
+%\end{restatable}
+
+\dffun
+%\begin{restatable}{metadefinition}{dffun}~\otherTitle{df-fun}~ Define predicate that determines if some
+%class $\mc{A}$ is a function.
+%\begin{align}
+%\vdash ( \,\mathrm{Fun}~ \mc{A} \leftrightarrow ( \,\mathrm{Rel}~ \mc{A} \wedge (
+%    \mc{A} \circ {}^{\smallsmile} \mc{A} ) \subseteq \,\mathrm{I} )
+%    )\label{eq:df-fun}\tag{df-fun}
+%\end{align}
+%\end{restatable}
+
+\dffn
+%\begin{restatable}{metadefinition}{dffn}~\otherTitle{df-fn}~ Define a function with domain.  
+%\begin{align}
+%\vdash ( \mc{A} \,\mathrm{Fn}~ \mc{B} \leftrightarrow ( \,\mathrm{Fun}~ \mc{A}
+%    \wedge \,\mathrm{dom}~ \mc{A} = \mc{B} ) )\label{eq:df-fn}\tag{df-fn}
+%\end{align}
+%\end{restatable}
+
+\dff
+%\begin{restatable}{metadefinition}{dff}~\otherTitle{df-f}~ Define a function (mapping) with domain and
+%codomain.    ~
+%\begin{align}
+%\vdash ( F : \mc{A} \longrightarrow \mc{B} \leftrightarrow ( F \,\mathrm{Fn}~
+%    \mc{A} \wedge \,\mathrm{ran}~ F \subseteq \mc{B} )
+%    )\label{eq:df-f}\tag{df-f}
+%\end{align}
+%\end{restatable}
+
+\dff1
+%\begin{restatable}{metadefinition}{dff1}~\otherTitle{df-f1}~ Define a one-to-one function. 
+%\begin{align}
+%\vdash ( F : \mc{A} \overset{\mathrm{1-1}}{\longrightarrow} \mc{B}
+%    \leftrightarrow ( F : \mc{A} \longrightarrow \mc{B} \wedge \,\mathrm{Fun}~
+%    {}^{\smallsmile} F ) )\label{eq:df-f1}\tag{df-f1}
+%\end{align}
+%\end{restatable}
+
+\dffo
+%\begin{restatable}{metadefinition}{dffo}~\otherTitle{df-fo}~ Define an onto function.  
+%\begin{align}
+%\vdash ( F : \mc{A} \underset{\mathrm{onto}}{\longrightarrow} \mc{B}
+%    \leftrightarrow ( F \,\mathrm{Fn}~ \mc{A} \wedge \,\mathrm{ran}~ F = \mc{B} )
+%    )\label{eq:df-fo}\tag{df-fo}
+%\end{align}
+%\end{restatable}
+
+\dff1o
+%\begin{restatable}{metadefinition}{dff1o}~\otherTitle{df-f1o}~ Define a one-to-one onto function.    A one-to-one onto function is also called a ``bijection".      ~
+%\begin{align}
+%\vdash ( F : \mc{A}
+%    \overset{\mathrm{1-1}}{\underset{\mathrm{onto}}{\longrightarrow}} \mc{B}
+%    \leftrightarrow ( F : \mc{A} \overset{\mathrm{1-1}}{\longrightarrow} \mc{B}
+%    \wedge F : \mc{A} \underset{\mathrm{onto}}{\longrightarrow} \mc{B} )
+%    )\label{eq:df-f1o}\tag{df-f1o}
+%\end{align}
+%\end{restatable}
+
+\dffv
+%\begin{restatable}{metadefinition}{dffv}~\otherTitle{df-fv}~ Define the value of a function, $( F `
+%\mc{A} )$, also known as function
+%       application.  
+%\begin{align}
+%\vdash ( F ` \mc{A} ) = ( \text{\riota} \msc{x} \mc{A} F \msc{x}
+%    )\label{eq:df-fv}\tag{df-fv}
+%\end{align}
+%\end{restatable}
+
+\fninfp
+%\begin{restatable}{lemma}{fninfp}~\otherTitle{fninfp}~ Express the class of fixed points of a
+%function.  ~
+%\begin{align}
+%\vdash ( F \,\mathrm{Fn}~ \mc{A} \rightarrow \,\mathrm{dom}~ ( F \cap
+%    \,\mathrm{I} ) = \{ \msc{x} \in \mc{A}~\vert~( F ` \msc{x} ) = \msc{x} \}
+%    )\label{eq:fninfp}\tag{fninfp}
+%\end{align}
+%\end{restatable}
+
+\fnelfp
+%\begin{restatable}{lemma}{fnelfp}~\otherTitle{fnelfp}~ Property of a fixed point of a function. 
+%\begin{align}
+%\vdash ( ( F \,\mathrm{Fn}~ \mc{A} \wedge X \in \mc{A} ) \rightarrow ( X \in
+%    \,\mathrm{dom}~ ( F \cap \,\mathrm{I} ) \leftrightarrow ( F ` X ) = X )
+%    )\label{eq:fnelfp}\tag{fnelfp}
+%\end{align}
+%\end{restatable}
+
+\funssres
+%\begin{restatable}{lemma}{funssres}~\otherTitle{funssres}~ The restriction of a function to the
+%domain of a subclass equals the
+%       subclass.  ~
+%\begin{align}
+%\vdash ( ( \,\mathrm{Fun}~ F \wedge G \subseteq F ) \rightarrow ( F \restriction
+%    \,\mathrm{dom}~ G ) = G )\label{eq:funssres}\tag{funssres}
+%\end{align}
+%\end{restatable}
+
+\begin{restatable}{lemma}{oveq1i}~\otherTitle{oveq1i}~ Equality inference for operation value. 
+~
+\begin{align}
+\vdash \mc{A} = \mc{B}\quad\Rightarrow\quad \vdash ( \mc{A} F \mc{C} ) = (
+    \mc{B} F \mc{C} )\label{eq:oveq1i}\tag{oveq1i}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{oveq2i}~\otherTitle{oveq2i}~ Equality inference for operation value. 
+~
+\begin{align}
+\vdash \mc{A} = \mc{B}\quad\Rightarrow\quad \vdash ( \mc{C} F \mc{A} ) = (
+    \mc{C} F \mc{B} )\label{eq:oveq2i}\tag{oveq2i}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{oveq12i}~\otherTitle{oveq12i}~ Equality inference for operation value. 
+~  ~
+\begin{align}
+\vdash \mc{A} = \mc{B}\quad\&\quad \vdash \mc{C} = \mc{D}\quad\Rightarrow\quad
+    \vdash ( \mc{A} F \mc{C} ) = ( \mc{B} F \mc{D}
+    )\label{eq:oveq12i}\tag{oveq12i}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{oveq2d}~\otherTitle{oveq2d}~ Equality deduction for operation value. 
+~
+\begin{align}
+\vdash ( \mw{\varphi} \rightarrow \mc{A} = \mc{B} )\quad\Rightarrow\quad \vdash
+    ( \mw{\varphi} \rightarrow ( \mc{C} F \mc{A} ) = ( \mc{C} F \mc{B} )
+    )\label{eq:oveq2d}\tag{oveq2d}
+\end{align}
+\end{restatable}
+

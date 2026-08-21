@@ -1,0 +1,77 @@
+% This LaTeX file was created by Metamath on 13-Nov-2021 5:05 PM.
+
+\begin{metadefinition}\otherTitle{df-struct} Define a structure with components in
+$M \ldots N$.  This is not a
+       requirement for groups, posets, etc., but it is a useful assumption for
+       component extraction ../BLESS-LaTeX/s.  (Contributed by Mario Carneiro,
+       29-Aug-2015.)
+\begin{align}
+\mm{\vdash} {\rm Struct} = \{ \langle f , \msc{x} \rangle ~\vert~ ( \msc{x} \in
+    ( \le \cap ( \mathbb{N} \times \mathbb{N} ) ) \wedge {\rm Fun} ( f
+    \setminus \{ \varnothing \} ) \wedge {\rm dom} f \subseteq ( \ldots `
+    \msc{x} ) ) \}\label{eq:df-struct}\tag{df-struct}
+\end{align}
+\end{metadefinition}
+
+
+\begin{metadefinition}\otherTitle{df-ndx} Define the structure component index
+extractor.  See ../BLESS-LaTeX/ {\tt ndxarg} to
+     understand its purpose.  The restriction to $\mathbb{N}$ allows ${\rm
+ndx}$ to exist
+     as a set, since ${\rm I}$ is a proper class.  In principle, we could have
+     chosen $\mathbb{C}$ or (if we revise all structure component definitions
+such as
+     {\tt df-base}) another set such as the natural ordinal numbers ${\rm
+\omega}$
+     ({\tt df-om}).  (Contributed by NM, 4-Sep-2011.)
+\begin{align}
+\mm{\vdash} {\rm ndx} = ( {\rm I} \restriction \mathbb{N}
+    )\label{eq:df-ndx}\tag{df-ndx}
+\end{align}
+\end{metadefinition}
+
+
+\begin{metadefinition}\otherTitle{df-slot} Define slot extractor for posets and
+related structures.  Note that the
+       function argument can be any set, although it is meaningful only if it
+       is a member of ${\rm Poset}$ ({\tt df-poset}) when used for posets or
+of
+       ${\rm Grp}$ ({\tt df-grp}) when used from groups.  (Contributed by
+Mario
+       Carneiro, 22-Sep-2015.)
+\begin{align}
+\mm{\vdash} {\rm Slot} \mc{A} = ( \msc{x} \in {\rm V} \mapsto ( \msc{x} `
+    \mc{A} ) )\label{eq:df-slot}\tag{df-slot}
+\end{align}
+\end{metadefinition}
+
+\begin{metadefinition}\otherTitle{df-base} Define the base set (also called
+underlying set or carrier set) extractor
+     for posets and related structures.  (Contributed by NM, 4-Sep-2011.)
+     (Revised by Mario Carneiro, 14-Aug-2015.)
+\begin{align}
+\mm{\vdash} {\rm Base} = {\rm Slot} 1\label{eq:df-base}\tag{df-base}
+\end{align}
+\end{metadefinition}
+
+
+\begin{metadefinition}\otherTitle{df-sets} Set one or more components of a
+structure.  This function is useful for
+       taking an existing structure and ``overriding" one of its components.
+       For example, {\tt df-ress} adjusts the base set to match its second
+       argument, which has the effect of making subgroups, subspaces, subrings
+       etc. from the original structures.  Or {\tt df-mgp}, which takes a ring
+and
+       overrides its addition operation with the multiplicative operation, so
+       that we can consider the ``multiplicative group" using group and monoid
+       ../BLESS-LaTeX/s, which expect the operation to be in the $+_{\rm g}$ slot
+instead of
+       the $._{\rm r}$ slot.  (Contributed by Mario Carneiro, 1-Dec-2014.)
+\begin{align}
+\mm{\vdash} {\rm sSet} = ( s \in {\rm V} , e \in {\rm V} \mapsto ( ( s
+    \restriction ( {\rm V} \setminus {\rm dom} \{ e \} ) ) \cup \{ e \} )
+    )\label{eq:df-sets}\tag{df-sets}
+\end{align}
+\end{metadefinition}
+
+

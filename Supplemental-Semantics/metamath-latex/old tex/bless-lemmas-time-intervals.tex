@@ -1,0 +1,245 @@
+% This LaTeX file was created by Metamath on 24-Dec-2023 8:33 PM.
+\begin{metadefinition}\blTitle{df-bl.dd} {Define closed time interval}
+\begin{align}
+\vdash ( \msc{t} \in [ \msc{t_1} .. \msc{t_2} ] \leftrightarrow ( \msc{t_1}
+    \preccurlyeq \msc{t} \wedge \msc{t} \preccurlyeq \msc{t_2} )
+    )\label{eq:df-bl.dd}\tag{df-bl.dd}
+\end{align}
+\end{metadefinition}
+
+
+\begin{lemma}\blTitle{bl.alldd} {Universal quantification over closed time}
+interval
+\begin{align}
+\vdash ( \forall \msc{t} ( \msc{t} \in [ \msc{t_1} .. \msc{t_2} ] \wedge
+    \mw{\varphi} ) \leftrightarrow \forall \msc{t} ( ( \msc{t_1} \preccurlyeq
+    \msc{t} \wedge \msc{t} \preccurlyeq \msc{t_2} ) \wedge \mw{\varphi} )
+    )\label{eq:bl.alldd}\tag{bl.alldd}
+\end{align}
+\end{lemma}
+
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash ( \msc{t} \in [ \msc{t_1} .. \msc{t_2} ] \leftrightarrow (
+     \msc{t_1} \preccurlyeq \msc{t} \wedge \msc{t}
+     \preccurlyeq \msc{t_2} )
+     )&(\mbox{\ref{eq:df-bl.dd}})\notag
+  \\ 2 &&  & \vdash ( \mw{\varphi} \leftrightarrow \mw{\varphi}
+     )&(\mbox{\ref{eq:biid}})\notag
+  \\ 3 &&  & \vdash ( ( \msc{t} \in [ \msc{t_1} .. \msc{t_2} ] \wedge
+     \mw{\varphi} ) \leftrightarrow ( ( \msc{t_1}
+     \preccurlyeq \msc{t} \wedge \msc{t} \preccurlyeq
+     \msc{t_2} ) \wedge \mw{\varphi} )
+     )&(\mbox{\ref{eq:anbi12i}},1,2)\notag
+  \\ 4 &&  & \vdash ( \forall \msc{t} ( \msc{t} \in [ \msc{t_1} .. \msc{t_2} ]
+     \wedge \mw{\varphi} ) \leftrightarrow \forall \msc{t}
+     ( ( \msc{t_1} \preccurlyeq \msc{t} \wedge \msc{t}
+     \preccurlyeq \msc{t_2} ) \wedge \mw{\varphi} )
+     )&(\mbox{\ref{eq:albii}},3)\notag
+\end{align}
+\end{proof}
+
+\begin{metadefinition}\blTitle{df-bl.cd} {Define open-left time interval}
+\begin{align}
+\vdash ( \msc{t} \in [ \msc{t_1} ,. \msc{t_2} ] \leftrightarrow ( \msc{t_1}
+    \prec \msc{t} \wedge \msc{t} \preccurlyeq \msc{t_2} )
+    )\label{eq:df-bl.cd}\tag{df-bl.cd}
+\end{align}
+\end{metadefinition}
+
+
+\begin{lemma}\blTitle{bl.allcd} Universal quantification over open-left
+time interval
+\begin{align}
+\vdash ( \forall \msc{t} ( \msc{t} \in [ \msc{t_1} ,. \msc{t_2} ] \wedge
+    \mw{\varphi} ) \leftrightarrow \forall \msc{t} ( ( \msc{t_1} \prec \msc{t}
+    \wedge \msc{t} \preccurlyeq \msc{t_2} ) \wedge \mw{\varphi} )
+    )\label{eq:bl.allcd}\tag{bl.allcd}
+\end{align}
+\end{lemma}
+
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash ( \msc{t} \in [ \msc{t_1} ,. \msc{t_2} ] \leftrightarrow (
+     \msc{t_1} \prec \msc{t} \wedge \msc{t} \preccurlyeq
+     \msc{t_2} ) )&(\mbox{\ref{eq:df-bl.cd}})\notag
+  \\ 2 &&  & \vdash ( \mw{\varphi} \leftrightarrow \mw{\varphi}
+     )&(\mbox{\ref{eq:biid}})\notag
+  \\ 3 &&  & \vdash ( ( \msc{t} \in [ \msc{t_1} ,. \msc{t_2} ] \wedge
+     \mw{\varphi} ) \leftrightarrow ( ( \msc{t_1} \prec
+     \msc{t} \wedge \msc{t} \preccurlyeq \msc{t_2} )
+     \wedge \mw{\varphi} )
+     )&(\mbox{\ref{eq:anbi12i}},1,2)\notag
+  \\ 4 &&  & \vdash ( \forall \msc{t} ( \msc{t} \in [ \msc{t_1} ,. \msc{t_2} ]
+     \wedge \mw{\varphi} ) \leftrightarrow \forall \msc{t}
+     ( ( \msc{t_1} \prec \msc{t} \wedge \msc{t}
+     \preccurlyeq \msc{t_2} ) \wedge \mw{\varphi} )
+     )&(\mbox{\ref{eq:albii}},3)\notag
+\end{align}
+\end{proof}
+
+\begin{metadefinition}\blTitle{df-bl.dc} {Define open-right time interval}
+\begin{align}
+\vdash ( \msc{t} \in [ \msc{t_1} ., \msc{t_2} ] \leftrightarrow ( \msc{t_1}
+    \preccurlyeq \msc{t} \wedge \msc{t} \prec \msc{t_2} )
+    )\label{eq:df-bl.dc}\tag{df-bl.dc}
+\end{align}
+\end{metadefinition}
+
+
+\begin{lemma}\blTitle{bl.alldc} {Universal quantification over open-right
+time interval}
+\begin{align}
+\vdash ( \forall \msc{t} ( \msc{t} \in [ \msc{t_1} ., \msc{t_2} ] \wedge
+    \mw{\varphi} ) \leftrightarrow \forall \msc{t} ( ( \msc{t_1} \preccurlyeq
+    \msc{t} \wedge \msc{t} \prec \msc{t_2} ) \wedge \mw{\varphi} )
+    )\label{eq:bl.alldc}\tag{bl.alldc}
+\end{align}
+\end{lemma}
+
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash ( \msc{t} \in [ \msc{t_1} ., \msc{t_2} ] \leftrightarrow (
+     \msc{t_1} \preccurlyeq \msc{t} \wedge \msc{t} \prec
+     \msc{t_2} ) )&(\mbox{\ref{eq:df-bl.dc}})\notag
+  \\ 2 &&  & \vdash ( \mw{\varphi} \leftrightarrow \mw{\varphi}
+     )&(\mbox{\ref{eq:biid}})\notag
+  \\ 3 &&  & \vdash ( ( \msc{t} \in [ \msc{t_1} ., \msc{t_2} ] \wedge
+     \mw{\varphi} ) \leftrightarrow ( ( \msc{t_1}
+     \preccurlyeq \msc{t} \wedge \msc{t} \prec \msc{t_2} )
+     \wedge \mw{\varphi} )
+     )&(\mbox{\ref{eq:anbi12i}},1,2)\notag
+  \\ 4 &&  & \vdash ( \forall \msc{t} ( \msc{t} \in [ \msc{t_1} ., \msc{t_2} ]
+     \wedge \mw{\varphi} ) \leftrightarrow \forall \msc{t}
+     ( ( \msc{t_1} \preccurlyeq \msc{t} \wedge \msc{t}
+     \prec \msc{t_2} ) \wedge \mw{\varphi} )
+     )&(\mbox{\ref{eq:albii}},3)\notag
+\end{align}
+\end{proof}
+
+\begin{metadefinition}\blTitle{df-bl.cc} {Define open time interval}
+\begin{align}
+\vdash ( \msc{t} \in [ \msc{t_1} ,, \msc{t_2} ] \leftrightarrow ( \msc{t_1}
+    \prec \msc{t} \wedge \msc{t} \prec \msc{t_2} )
+    )\label{eq:df-bl.cc}\tag{df-bl.cc}
+\end{align}
+\end{metadefinition}
+
+
+\begin{lemma}\blTitle{bl.allcc} {Universal quantification over open time
+interval}
+\begin{align}
+\vdash ( \forall \msc{t} ( \msc{t} \in [ \msc{t_1} ,, \msc{t_2} ] \wedge
+    \mw{\varphi} ) \leftrightarrow \forall \msc{t} ( ( \msc{t_1} \prec \msc{t}
+    \wedge \msc{t} \prec \msc{t_2} ) \wedge \mw{\varphi} )
+    )\label{eq:bl.allcc}\tag{bl.allcc}
+\end{align}
+\end{lemma}
+
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash ( \msc{t} \in [ \msc{t_1} ,, \msc{t_2} ] \leftrightarrow (
+     \msc{t_1} \prec \msc{t} \wedge \msc{t} \prec
+     \msc{t_2} ) )&(\mbox{\ref{eq:df-bl.cc}})\notag
+  \\ 2 &&  & \vdash ( \mw{\varphi} \leftrightarrow \mw{\varphi}
+     )&(\mbox{\ref{eq:biid}})\notag
+  \\ 3 &&  & \vdash ( ( \msc{t} \in [ \msc{t_1} ,, \msc{t_2} ] \wedge
+     \mw{\varphi} ) \leftrightarrow ( ( \msc{t_1} \prec
+     \msc{t} \wedge \msc{t} \prec \msc{t_2} ) \wedge
+     \mw{\varphi} ) )&(\mbox{\ref{eq:anbi12i}},1,2)\notag
+  \\ 4 &&  & \vdash ( \forall \msc{t} ( \msc{t} \in [ \msc{t_1} ,, \msc{t_2} ]
+     \wedge \mw{\varphi} ) \leftrightarrow \forall \msc{t}
+     ( ( \msc{t_1} \prec \msc{t} \wedge \msc{t} \prec
+     \msc{t_2} ) \wedge \mw{\varphi} )
+     )&(\mbox{\ref{eq:albii}},3)\notag
+\end{align}
+\end{proof}
+
+\begin{lemma}\blTitle{bl.exdd} {Existential quantification over closed
+interval}
+\begin{align}
+\vdash ( \exists \msc{t} ( \msc{t} \in [ \msc{t_1} .. \msc{t_2} ] \wedge
+    \mw{\varphi} ) \leftrightarrow \lnot \forall \msc{t} \lnot ( \msc{t} \in [
+    \msc{t_1} .. \msc{t_2} ] \wedge \mw{\varphi} )
+    )\label{eq:bl.exdd}\tag{bl.exdd}
+\end{align}
+\end{lemma}
+
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash ( \exists \msc{t} ( \msc{t} \in [ \msc{t_1} .. \msc{t_2} ]
+     \wedge \mw{\varphi} ) \leftrightarrow \lnot \forall
+     \msc{t} \lnot ( \msc{t} \in [ \msc{t_1} .. \msc{t_2}
+     ] \wedge \mw{\varphi} )
+     )&(\mbox{\ref{eq:df-ex}})\notag
+\end{align}
+\end{proof}
+
+\begin{lemma}\blTitle{bl.excc} {Existential quantification over open
+interval}
+\begin{align}
+\vdash ( \exists \msc{t} ( \msc{t} \in [ \msc{t_1} ,, \msc{t_2} ] \wedge
+    \mw{\varphi} ) \leftrightarrow \lnot \forall \msc{t} \lnot ( \msc{t} \in [
+    \msc{t_1} ,, \msc{t_2} ] \wedge \mw{\varphi} )
+    )\label{eq:bl.excc}\tag{bl.excc}
+\end{align}
+\end{lemma}
+
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash ( \exists \msc{t} ( \msc{t} \in [ \msc{t_1} ,, \msc{t_2} ]
+     \wedge \mw{\varphi} ) \leftrightarrow \lnot \forall
+     \msc{t} \lnot ( \msc{t} \in [ \msc{t_1} ,, \msc{t_2}
+     ] \wedge \mw{\varphi} )
+     )&(\mbox{\ref{eq:df-ex}})\notag
+\end{align}
+\end{proof}
+
+\begin{lemma}\blTitle{bl.excd} {Existential quantification over open-left
+interval}
+\begin{align}
+\vdash ( \exists \msc{t} ( \msc{t} \in [ \msc{t_1} ,. \msc{t_2} ] \wedge
+    \mw{\varphi} ) \leftrightarrow \lnot \forall \msc{t} \lnot ( \msc{t} \in [
+    \msc{t_1} ,. \msc{t_2} ] \wedge \mw{\varphi} )
+    )\label{eq:bl.excd}\tag{bl.excd}
+\end{align}
+\end{lemma}
+
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash ( \exists \msc{t} ( \msc{t} \in [ \msc{t_1} ,. \msc{t_2} ]
+     \wedge \mw{\varphi} ) \leftrightarrow \lnot \forall
+     \msc{t} \lnot ( \msc{t} \in [ \msc{t_1} ,. \msc{t_2}
+     ] \wedge \mw{\varphi} )
+     )&(\mbox{\ref{eq:df-ex}})\notag
+\end{align}
+\end{proof}
+
+\begin{lemma}\blTitle{bl.exdc} {Existential quantification over open-right
+interval}
+\begin{align}
+\vdash ( \exists \msc{t} ( \msc{t} \in [ \msc{t_1} ., \msc{t_2} ] \wedge
+    \mw{\varphi} ) \leftrightarrow \lnot \forall \msc{t} \lnot ( \msc{t} \in [
+    \msc{t_1} ., \msc{t_2} ] \wedge \mw{\varphi} )
+    )\label{eq:bl.exdc}\tag{bl.exdc}
+\end{align}
+\end{lemma}
+
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash ( \exists \msc{t} ( \msc{t} \in [ \msc{t_1} ., \msc{t_2} ]
+     \wedge \mw{\varphi} ) \leftrightarrow \lnot \forall
+     \msc{t} \lnot ( \msc{t} \in [ \msc{t_1} ., \msc{t_2}
+     ] \wedge \mw{\varphi} )
+     )&(\mbox{\ref{eq:df-ex}})\notag
+\end{align}
+\end{proof}
+

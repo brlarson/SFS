@@ -1,0 +1,15 @@
+%adding_assertions.tex
+
+\ksec{Adding Assertions to KerML}
+
+\comment{I believe that adding temporal semantics to \texttt{Classifiers} provides sufficient expressiveness so that temporal semantics of Kernel layer elements
+can be done completely in KerML libraries.
+For this, another \texttt{Annotation} needs to be added.
+It's unfortunate that \texttt{Expression} is defined as a \texttt{Step} rather than side-effect-free determination of value.
+I'm sure this has to do with implementations which might use loops to calculate resulting values (steps within steps), but the choice of 
+\texttt{Expression} definition is limiting rather than enabling.}
+
+\comment{I played around with adding quantifiers to KerMLExpressions.xtext finding that adding fresh, bound variables is impossible given the ``sealed" binding to SysML.ecore.
+Adding \texttt{at} for @ as an EqualityOperator slips in easily.  Something similar for \lstinline{^} should be possible.  \texttt{shift}?}
+
+

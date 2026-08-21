@@ -1,0 +1,2122 @@
+
+\begin{metadefinition}\otherTitle{df-an}{Define conjunction.}  Definition
+of [Margaris] p. 49.  
+\begin{align}
+\vdash ( ( {\color{formulacolor}\varphi} \wedge {\color{formulacolor}\psi} )
+    \leftrightarrow \lnot ( {\color{formulacolor}\varphi} \rightarrow \lnot
+    {\color{formulacolor}\psi} ) )\label{eq:df-an}\tag{df-an}
+\end{align}
+\end{metadefinition}
+
+
+\begin{metadefinition}\otherTitle{df-ex}{Define existential quantification.}
+$\exists \msc{x} \mw{\varphi}$ means ``there exists at
+     least one set $\msc{x}$ such that $\mw{\varphi}$ is true."  Definition of
+[Margaris]
+%     p. 49.  (Contributed by NM, 10-Jan-1993.)
+\begin{align}
+\mm{\vdash} ( \exists \msc{x} \mw{\varphi} \leftrightarrow \lnot \forall
+    \msc{x} \lnot \mw{\varphi} )\label{eq:df-ex}\tag{df-ex}
+\end{align}
+\end{metadefinition}
+
+
+\begin{metadefinition}\otherTitle{df-or} {Define disjunction.}  Definition
+of [Margaris] p. 49.  
+\begin{align}
+\vdash ( ( {\color{formulacolor}\varphi} \vee {\color{formulacolor}\psi} )
+    \leftrightarrow ( \lnot {\color{formulacolor}\varphi} \rightarrow
+    {\color{formulacolor}\psi} ) )\label{df-or}\tag{df-or}
+\end{align}
+\end{metadefinition}
+
+
+\begin{metadefinition}\otherTitle{df-ral} {Define restricted universal
+quantification.}
+\begin{align}
+\vdash ( \forall x \in A \mw{\varphi} \leftrightarrow \forall x ( x \in A
+    \rightarrow \mw{\varphi} ) )\label{eq:df-ral}\tag{df-ral}
+\end{align}
+\end{metadefinition}
+
+
+\begin{metadefinition}\otherTitle{df-rex} {Define restricted existential
+quantification.}
+\begin{align}
+\vdash ( \exists x \in A \mw{\varphi} \leftrightarrow \exists x ( x \in A
+    \wedge \mw{\varphi} ) )\label{eq:df-rex}\tag{df-rex}
+\end{align}
+\end{metadefinition}
+
+
+\begin{metadefinition}\otherTitle{df-tru}{Definition of $\top$, a tautology.} $\top$ is a
+constant true.  
+\begin{align}
+\vdash ( \top \leftrightarrow ( {\color{formulacolor}\varphi} \leftrightarrow
+    {\color{formulacolor}\varphi} ) )\label{df-tru}\tag{df-tru}
+\end{align}
+\end{metadefinition}
+
+
+\begin{metadefinition}otherTitle{df-3an} {Define conjunction ('and') of three
+wff's.}
+\begin{align}
+\vdash ( ( \mw{\varphi} \wedge \mw{\psi} \wedge \mw{\chi} ) \leftrightarrow ( (
+    \mw{\varphi} \wedge \mw{\psi} ) \wedge \mw{\chi} )
+    )\label{eq:df-3an}\tag{df-3an}
+\end{align}
+\end{metadefinition}
+
+
+\begin{metadefinition}\otherTitle{df-3or}{Define disjunction of three wff's.}
+\begin{align}
+\vdash ( ( \mw{\varphi} \vee \mw{\psi} \vee \mw{\chi} ) \leftrightarrow ( (
+    \mw{\varphi} \vee \mw{\psi} ) \vee \mw{\chi} )
+    )\label{eq:df-3or}\tag{df-3or}
+\end{align}
+\end{metadefinition}
+
+
+\begin{metadefinition}\otherTitle{df-base}{Define the base set} (also called
+underlying set or carrier set) extractor
+     for posets and related structures.  
+%     (Contributed by NM, 4-Sep-2011.)
+%     (Revised by Mario Carneiro, 14-Aug-2015.)
+\begin{align}
+\mm{\vdash} {\rm Base} = {\rm Slot} 1\label{eq:df-base}\tag{df-base}
+\end{align}
+\end{metadefinition}
+
+
+\begin{metadefinition}\otherTitle{df-ndx} {Define the structure component index
+extractor. } 
+%See ../BLESS-LaTeX/ {\tt ndxarg} to  understand its purpose.  
+     The restriction to $\mathbb{N}$ allows ${\rm
+ndx}$ to exist
+     as a set, since ${\rm I}$ is a proper class.  In principle, we could have
+     chosen $\mathbb{C}$ or (if we revise all structure component metadefinitions
+such as
+     {\tt df-base}) another set such as the natural ordinal numbers ${\rm
+\omega}$
+     ({\tt df-om}).  %(Contributed by NM, 4-Sep-2011.)
+\begin{align}
+\mm{\vdash} {\rm ndx} = ( {\rm I} \restriction \mathbb{N}
+    )\label{eq:df-ndx}\tag{df-ndx}
+\end{align}
+\end{metadefinition}
+
+
+\begin{metadefinition}\otherTitle{df-neg} {Define the negative of a number} (unary
+minus).  
+%We use different symbols  for unary minus ($\unaryminus$) and subtraction ($\minus$) to prevent syntax   ambiguity.  %See {\tt cneg} for a discussion of this.  
+     % (Contributed by NM,10\minusFeb\minus1995.)
+\begin{align}
+\vdash \minus\mc{A} = ( 0 \minus \mc{A} )\label{eq:df-neg}\tag{df-neg}
+\end{align}
+\end{metadefinition}
+
+
+\begin{metadefinition}\otherTitle{df-sets} {Set one or more components of a
+structure.}  This function is useful for
+       taking an existing structure and ``overriding" one of its components.
+       For example, {\tt df-ress} adjusts the base set to match its second
+       argument, which has the effect of making subgroups, subspaces, subrings
+       etc. from the original structures.  Or {\tt df-mgp}, which takes a ring
+and
+       overrides its addition operation with the multiplicative operation, so
+       that we can consider the ``multiplicative group" using group and monoid
+       which expect the operation to be in the $+_{\rm g}$ slot
+instead of
+       the $._{\rm r}$ slot.  %(Contributed by Mario Carneiro, 1-Dec-2014.)
+\begin{align}
+\mm{\vdash} {\rm sSet} = ( s \in {\rm V} , e \in {\rm V} \mapsto ( ( s
+    \restriction ( {\rm V} \setminus {\rm dom} \{ e \} ) ) \cup \{ e \} )
+    )\label{eq:df-sets}\tag{df-sets}
+\end{align}
+\end{metadefinition}
+
+
+\begin{metadefinition}\otherTitle{df-slot} {Define slot extractor for posets} and
+related structures.  Note that the
+       function argument can be any set, although it is meaningful only if it
+       is a member of ${\rm Poset}$ ({\tt df-poset}) when used for posets or
+of
+       ${\rm Grp}$ ({\tt df-grp}) when used from groups.  
+       %(Contributed by Mario  Carneiro, 22-Sep-2015.)
+\begin{align}
+\mm{\vdash} {\rm Slot} \mc{A} = ( \msc{x} \in {\rm V} \mapsto ( \msc{x} `
+    \mc{A} ) )\label{eq:df-slot}\tag{df-slot}
+\end{align}
+\end{metadefinition}
+
+
+\begin{metadefinition}\otherTitle{df-struct} {Define a structure with components in
+$M \ldots N$.}  This is not a
+       requirement for groups, posets, etc., but it is a useful assumption for
+       component extraction.
+\begin{align}
+\mm{\vdash} {\rm Struct} = \{ \langle f , \msc{x} \rangle ~\vert~ ( \msc{x} \in
+    ( \le \cap ( \mathbb{N} \times \mathbb{N} ) ) \wedge {\rm Fun} ( f
+    \setminus \{ \varnothing \} ) \wedge {\rm dom} f \subseteq ( \ldots `
+    \msc{x} ) ) \}\label{eq:df-struct}\tag{df-struct}
+\end{align}
+\end{metadefinition}
+
+
+\begin{lemma}\otherTitle{0cn} {0 is a complex number. } See also {\tt 0cnALT}. 
+%(Contributed by NM, 19-Feb-2005.)
+\begin{align}
+\vdash 0 \in \mathbb{C}\label{eq:0cn}\tag{0cn}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{0z} {Zero is an integer.}
+\begin{align}
+\vdash 0 \in \mathbb{Z}\label{eq:0z}\tag{0z}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{3adant3} {Deduction adding a conjunct to antecedent.}
+%(Contributed by NM,  16-Jul-1995.)
+\begin{align}
+\vdash ( ( \mw{\varphi} \wedge \mw{\psi} ) \rightarrow \mw{\chi}
+    )\quad\Rightarrow\quad \vdash ( ( \mw{\varphi} \wedge \mw{\psi} \wedge
+    \mw{\theta} ) \rightarrow \mw{\chi} )\label{eq:3adant3}\tag{3adant3}
+\end{align}
+\end{lemma}
+
+\begin{lemma}\otherTitle{3anass} {Associative law for triple conjunction.}
+%(Contributed by NM,  8-Apr-1994.)
+\begin{align}
+\vdash ( ( {\color{formulacolor}\varphi} \wedge {\color{formulacolor}\psi}
+    \wedge {\color{formulacolor}\chi} ) \leftrightarrow (
+    {\color{formulacolor}\varphi} \wedge ( {\color{formulacolor}\psi} \wedge
+    {\color{formulacolor}\chi} ) ) )\label{eq:3anass}\tag{3anass}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{3bitr4i} {A chained inference from transitive law for logical equivalence.}  This
+       inference is frequently used to apply a metadefinition to both sides of a
+       logical equivalence.  %(Contributed by NM, 3-Jan-1993.)
+\begin{align}
+\vdash ( \varphi \leftrightarrow \psi )\quad\&\quad \vdash ( \chi \leftrightarrow \varphi )\quad\&\quad \vdash ( \theta \leftrightarrow \psi )\quad\Rightarrow\quad \vdash ( \chi \leftrightarrow \theta
+    )\label{eq:3bitr4i}\tag{3bitr4i}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{3bitr4ri} {A chained inference from transitive law for logical equivalence.}
+%       (Contributed by NM, 2-Sep-1995.)
+\begin{align}
+\vdash ( \varphi \leftrightarrow \psi )\quad\&\quad \vdash ( \chi \leftrightarrow \varphi )\quad\&\quad \vdash ( \theta \leftrightarrow \psi )\quad\Rightarrow\quad \vdash ( \theta \leftrightarrow \chi
+    )\label{eq:3bitr4ri}\tag{3bitr4ri}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{3bitri} {A chained inference from transitive law for
+logical equivalence.}
+ %      (Contributed by NM, 5-Aug-1993.)
+\begin{align}
+\vdash ( {\color{formulacolor}\varphi} \leftrightarrow
+    {\color{formulacolor}\psi} )\quad\&\quad \vdash (
+    {\color{formulacolor}\psi} \leftrightarrow {\color{formulacolor}\chi}
+    )\quad\&\quad \vdash ( {\color{formulacolor}\chi} \leftrightarrow
+    {\color{formulacolor}\theta} )\quad\Rightarrow\quad \vdash (
+    {\color{formulacolor}\varphi} \leftrightarrow {\color{formulacolor}\theta}
+    )\label{eq:3bitri}\tag{3bitri}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{3eqtr2i} {An inference from three chained equalities.}
+%(Contributed by NM,      3-Aug-2006.)
+\begin{align}
+\vdash \mc{A} = B\quad\&\quad \vdash \mc{C} = B\quad\&\quad \vdash \mc{C} =
+    D\quad\Rightarrow\quad \vdash \mc{A} = D\label{eq:3eqtr2i}\tag{3eqtr2i}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{3eqtr4i} {An inference from three chained equalities.}
+%(Contributed by NM,
+ %      26-May-1993.)  (Proof shortened by Andrew Salmon, 25-May-2011.)
+\begin{align}
+\vdash \mc{A} = B\quad\&\quad \vdash \mc{C} = A\quad\&\quad \vdash D =
+    B\quad\Rightarrow\quad \vdash \mc{C} = D\label{eq:3eqtr4i}\tag{3eqtr4i}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{3eqtri} {An inference from three chained equalities. }
+%(Contributed by NM,     29-Aug-1993.)
+\begin{align}
+\vdash \mc{A} = B\quad\&\quad \vdash \mc{B} = C\quad\&\quad \vdash \mc{C} =
+    D\quad\Rightarrow\quad \vdash \mc{A} = D\label{eq:3eqtri}\tag{3eqtri}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{3imtr3i} {A mixed syllogism inference}, useful for
+removing a metadefinition from both
+       sides of an implication.  % (Contributed by NM, 10-Aug-1994.)
+\begin{align}
+\vdash ( {\color{formulacolor}\varphi} \rightarrow {\color{formulacolor}\psi}
+    )\quad\&\quad \vdash ( {\color{formulacolor}\varphi} \leftrightarrow
+    {\color{formulacolor}\chi} )\quad\&\quad \vdash (
+    {\color{formulacolor}\psi} \leftrightarrow {\color{formulacolor}\theta}
+    )\quad\Rightarrow\quad \vdash ( {\color{formulacolor}\chi} \rightarrow
+    {\color{formulacolor}\theta} )\label{eq:3imtr3i}\tag{3imtr3i}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{3imtr4i} {A mixed syllogism inference}, useful for
+applying a metadefinition to both
+       sides of an implication. %  (Contributed by NM, 5-Aug-1993.)
+\begin{align}
+\vdash ( {\color{formulacolor}\varphi} \rightarrow {\color{formulacolor}\psi}
+    )\quad\&\quad \vdash ( {\color{formulacolor}\chi} \leftrightarrow
+    {\color{formulacolor}\varphi} )\quad\&\quad \vdash (
+    {\color{formulacolor}\theta} \leftrightarrow {\color{formulacolor}\psi}
+    )\quad\Rightarrow\quad \vdash ( {\color{formulacolor}\chi} \rightarrow
+    {\color{formulacolor}\theta} )\label{eq:3imtr4i}\tag{3imtr4i}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{3jca} {Join consequents with conjunction.} 
+%(Contributed by NM, 9-Apr-1994.)
+\begin{align}
+\vdash ( \mw{\varphi} \rightarrow \mw{\psi} )\quad\&\quad \vdash ( \mw{\varphi}
+    \rightarrow \mw{\chi} )\quad\&\quad \vdash ( \mw{\varphi} \rightarrow
+    \mw{\theta} )\quad\Rightarrow\quad \vdash ( \mw{\varphi} \rightarrow (
+    \mw{\psi} \wedge \mw{\chi} \wedge \mw{\theta} ) )\label{eq:3jca}\tag{3jca}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{3orass} {Associative law for triple disjunction.} 
+% (Contributed by NM,  8-Apr-1994.)
+\begin{align}
+\vdash ( ( {\color{formulacolor}\varphi} \vee {\color{formulacolor}\psi} \vee
+    {\color{formulacolor}\chi} ) \leftrightarrow (
+    {\color{formulacolor}\varphi} \vee ( {\color{formulacolor}\psi} \vee
+    {\color{formulacolor}\chi} ) ) )\label{eq:3orass}\tag{3orass}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{3orbi123i} Join 3 biconditionals with disjunction. 
+\begin{align}
+\vdash ( \mw{\varphi} \leftrightarrow \mw{\psi} )\quad\&\quad \vdash (
+    \mw{\chi} \leftrightarrow \mw{\theta} )\quad\&\quad \vdash ( \mw{\tau}
+    \leftrightarrow \mw{\eta} )\quad\Rightarrow\quad \vdash ( ( \mw{\varphi}
+    \vee \mw{\chi} \vee \mw{\tau} ) \leftrightarrow ( \mw{\psi} \vee
+    \mw{\theta} \vee \mw{\eta} ) )\label{eq:3orbi123i}\tag{3orbi123i}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{3pm3.2i} {Infer conjunction of premises.} 
+%(Contributed by NM, 10-Feb-1995.)
+\begin{align}
+\vdash \mw{\varphi}\quad\&\quad \vdash \mw{\psi}\quad\&\quad \vdash
+    \mw{\chi}\quad\Rightarrow\quad \vdash ( \mw{\varphi} \wedge \mw{\psi}
+    \wedge \mw{\chi} )\label{eq:3pm3.2i}\tag{3pm3.2i}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{3simpa} {Simplification of triple conjunction.} 
+%(Contributed by NM,  21-Apr-1994.)
+\begin{align}
+\vdash ( ( \mw{\varphi} \wedge \mw{\psi} \wedge \mw{\chi} ) \rightarrow ( \mw{\varphi} \wedge \mw{\psi}
+    ) )\label{eq:3simpa}\tag{3simpa}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{a1bi} {Inference rule introducing a theorem as an
+antecedent.}  %(Contributed by
+%       NM, 5-Aug-1993.)  (Proof shortened by Wolf Lammen, 11-Nov-2012.)
+\begin{align}
+\vdash {\color{formulacolor}\varphi}\quad\Rightarrow\quad \vdash (
+    {\color{formulacolor}\psi} \leftrightarrow ( {\color{formulacolor}\varphi}
+    \rightarrow {\color{formulacolor}\psi} ) )\label{eq:a1bi}\tag{a1bi}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{a1i} {Inference introducing an antecedent.}  Inference
+associated with {\tt ax-1}.
+       Its associated inference is {\tt a1ii}.  See {\tt conventions} for a
+metadefinition
+       of ``associated inference".  %(Contributed by NM, 29-Dec-1992.)
+\begin{align}
+\vdash \mw{\varphi}\quad\Rightarrow\quad \vdash ( \mw{\psi} \rightarrow
+    \mw{\varphi} )\label{eq:a1i}\tag{a1i}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{a1tru} {Anything implies $\top$.}  
+%(Contributed by FL,
+%20-Mar-2011.)  (Proof
+%     shortened by Anthony Hart, 1-Aug-2011.)
+\begin{align}
+\vdash ( {\color{formulacolor}\varphi} \rightarrow \top )\label{eq:a1tru}\tag{a1tru}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{abid} {Simplification of class abstraction notation}
+when the free and bound
+     variables are identical. 
+\begin{align}
+\vdash ( x \in \{ x~\vert~\mw{\varphi} \} \leftrightarrow \mw{\varphi}
+    )\label{eq:abid}\tag{abid}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{adantr} {Inference adding a conjunct to the right of
+an antecedent.}  %(Contributed  by NM, 30-Aug-1993.)
+\begin{align}
+\vdash ( \mw{\varphi} \rightarrow \mw{\psi} )\quad\Rightarrow\quad \vdash ( (
+    \mw{\varphi} \wedge \mw{\chi} ) \rightarrow \mw{\psi}
+    )\label{eq:adantr}\tag{adantr}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{add12} {Commutative/associative law that swaps the
+first two terms in a triple
+     sum.} % (Contributed by NM, 11-May-2004.)
+\begin{align}
+\vdash ( ( \mc{A} \in \mathbb{C} \wedge \mc{B} \in \mathbb{C} \wedge \mc{C} \in \mathbb{C} )
+    \rightarrow ( \mc{A} + ( \mc{B} + \mc{C} ) ) = ( \mc{B} + ( \mc{A} + \mc{C} ) )
+    )\label{eq:add12}\tag{add12}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{addcan} {Cancellation law for addition.}
+\begin{align}
+\vdash ( ( A \in \mathbb{C} \wedge B \in \mathbb{C} \wedge C \in \mathbb{C} )
+    \rightarrow ( ( A + B ) = ( A + C ) \leftrightarrow B = C )
+    )\label{eq:addcan}\tag{addcan}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{addcli} {Closure law for addition.}
+%(Contributed by NM, 23-Nov-1994.)
+\begin{align}
+\vdash \mc{A} \in \mathbb{C}\quad\&\quad \vdash \mc{B} \in
+    \mathbb{C}\quad\Rightarrow\quad \vdash ( \mc{A} + \mc{B} ) \in
+    \mathbb{C}\label{eq:addcli}\tag{addcli}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{addcl} {Alias for {\tt ax-addcl},} for naming
+consistency with {\tt addcli}.  
+%Use this   lemma instead of {\tt ax-addcl} or {\tt axaddcl}.  % (Contributed by NM,
+ %    10-Mar-2008.)
+\begin{align}
+\vdash ( ( \mc{A} \in \mathbb{C} \wedge \mc{B} \in \mathbb{C} ) \rightarrow ( \mc{A} + \mc{B} ) \in
+    \mathbb{C} )\label{eq:addcl}\tag{addcl}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{addcomgi} {Generalization of commutative law for
+addition.}  Simplifies proofs dealing
+     with vectors.  However, it is dependent on our particular metadefinition of
+     ordered pair.  
+     %(Contributed by Andrew Salmon, 28-Jan-2012.)  (Revised by
+ %    Mario Carneiro, 6-May-2015.)
+\begin{align}
+\vdash ( \mc{A} + \mc{B} ) = ( \mc{B} + \mc{A} )\label{eq:addcomgi}\tag{addcomgi}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{addid1}{$0$ is an additive identity.}   
+\begin{align}
+\vdash ( \mc{A} \in \mathbb{C} \rightarrow ( \mc{A} + 0 ) = \mc{A} )\label{eq:addid1}\tag{addid1}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{addsub4} {Rearrangement of 4 terms in a mixed
+addition and subtraction.}
+%     (Contributed by NM, 4-Mar-2005.)
+\begin{align}
+\vdash ( ( ( \mc{A} \in \mathbb{C} \wedge \mc{B} \in \mathbb{C} ) \wedge ( \mc{C} \in
+    \mathbb{C} \wedge D \in \mathbb{C} ) ) \rightarrow ( ( \mc{A} + \mc{B} ) \minus ( \mc{C} +
+    D ) ) = ( ( \mc{A} \minus \mc{C} ) + ( \mc{B} \minus D ) )
+    )\label{eq:addsub4}\tag{addsub4}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{albii} {Inference adding universal quantifier to both
+sides of an equivalence.}
+\begin{align}
+\vdash ( \mw{\varphi} \leftrightarrow \mw{\psi} )\quad\Rightarrow\quad \vdash ( \forall x
+    \mw{\varphi} \leftrightarrow \forall x \mw{\psi} )\label{eq:albii}\tag{albii}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{allt} {For all sets, $\top$ is true.}
+\begin{align}
+\vdash \forall x \top\label{eq:allt}\tag{allt}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{alral} {Universal quantification implies restricted
+quantification.}
+\begin{align}
+\vdash ( \forall x \mw{\varphi} \rightarrow \forall x \in A \mw{\varphi}
+    )\label{eq:alral}\tag{alral}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{anass} {Associative law for conjunction.}  lemma
+*4.32 of [WhiteheadRussell]
+\begin{align}
+\vdash ( ( ( \mw{\varphi} \wedge \mw{\psi} ) \wedge \mw{\chi} ) \leftrightarrow
+    ( \mw{\varphi} \wedge ( \mw{\psi} \wedge \mw{\chi} ) )
+    )\label{eq:anass}\tag{anass}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{anbi12i} {Conjoin both sides of two equivalences.}
+%(Contributed by NM,
+%       5-Aug-1993.)
+\begin{align}
+\vdash ( {\color{formulacolor}\varphi} \leftrightarrow
+    {\color{formulacolor}\psi} )\quad\&\quad \vdash (
+    {\color{formulacolor}\chi} \leftrightarrow {\color{formulacolor}\theta}
+    )\quad\Rightarrow\quad \vdash ( ( {\color{formulacolor}\varphi} \wedge
+    {\color{formulacolor}\chi} ) \leftrightarrow ( {\color{formulacolor}\psi}
+    \wedge {\color{formulacolor}\theta} ) )\label{eq:anbi12i}\tag{anbi12i}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{anbi1i} {Introduce a right conjunct to both sides of a
+logical equivalence.}
+%       (Contributed by NM, 5-Aug-1993.)  (Proof shortened by Wolf Lammen,
+%       16-Nov-2013.)
+\begin{align}
+\vdash ( {\color{formulacolor}\varphi} \leftrightarrow
+    {\color{formulacolor}\psi} )\quad\Rightarrow\quad \vdash ( (
+    {\color{formulacolor}\varphi} \wedge {\color{formulacolor}\chi} )
+    \leftrightarrow ( {\color{formulacolor}\psi} \wedge
+    {\color{formulacolor}\chi} ) )\label{eq:anbi1i}\tag{anbi1i}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{anbi2d} {Deduction adding a left conjunct to both
+sides of a logical equivalence.}
+%       (Contributed by NM, 11-May-1993.)  (Proof shortened by Wolf Lammen,
+%       16-Nov-2013.)
+\begin{align}
+\vdash ( \mw{\varphi} \rightarrow ( \mw{\psi} \leftrightarrow \mw{\chi} )
+    )\quad\Rightarrow\quad \vdash ( \mw{\varphi} \rightarrow ( ( \mw{\theta}
+    \wedge \mw{\psi} ) \leftrightarrow ( \mw{\theta} \wedge \mw{\chi} ) )
+    )\label{eq:anbi2d}\tag{anbi2d}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{anbi2i} {Introduce a left conjunct to both sides of a
+logical equivalence.}
+%       (Contributed by NM, 5-Aug-1993.)  (Proof shortened by Wolf Lammen,
+%       16-Nov-2013.)
+\begin{align}
+\vdash ( {\color{formulacolor}\varphi} \leftrightarrow
+    {\color{formulacolor}\psi} )\quad\Rightarrow\quad \vdash ( (
+    {\color{formulacolor}\chi} \wedge {\color{formulacolor}\varphi} )
+    \leftrightarrow ( {\color{formulacolor}\chi} \wedge
+    {\color{formulacolor}\psi} ) )\label{eq:anbi2i}\tag{anbi2i}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{ancom} {Commutative law for conjunction.}  Theorem *4.3
+of [WhiteheadRussell]
+%     p. 118.  (Contributed by NM, 25-Jun-1998.)  (Proof shortened by Wolf
+%     Lammen, 4-Nov-2012.)
+\begin{align}
+\vdash ( ( {\color{formulacolor}\varphi} \wedge {\color{formulacolor}\psi} )
+    \leftrightarrow ( {\color{formulacolor}\psi} \wedge
+    {\color{formulacolor}\varphi} ) )\label{eq:ancom}\tag{ancom}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{andir} {Distributive law for conjunction.}  
+%(Contributed
+%by NM, 12-Aug-1994.)
+\begin{align}
+\vdash ( ( ( {\color{formulacolor}\varphi} \vee {\color{formulacolor}\psi} )
+    \wedge {\color{formulacolor}\chi} ) \leftrightarrow ( (
+    {\color{formulacolor}\varphi} \wedge {\color{formulacolor}\chi} ) \vee (
+    {\color{formulacolor}\psi} \wedge {\color{formulacolor}\chi} ) )
+    )\label{eq:andir}\tag{andir}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{anidm} {Idempotent law for conjunction.}  
+%(Contributed
+%by NM, 5-Aug-1993.)  (Proof
+%     shortened by Wolf Lammen, 14-Mar-2014.)
+\begin{align}
+\vdash ( ( {\color{formulacolor}\varphi} \wedge {\color{formulacolor}\varphi} )
+    \leftrightarrow {\color{formulacolor}\varphi} )\label{eq:anidm}\tag{anidm}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{anim1i} {Introduce conjunct to both sides of an
+implication.}
+\begin{align}
+\vdash ( \mw{\varphi} \rightarrow \mw{\psi} )\quad\Rightarrow\quad \vdash ( (
+    \mw{\varphi} \wedge \mw{\chi} ) \rightarrow ( \mw{\psi} \wedge \mw{\chi} )
+    )\label{eq:anim1i}\tag{anim1i}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{animorl} {Conjunction implies disjunction with one
+common formula (1/4).}
+%     (Contributed by BJ, 4-Oct-2019.)
+\begin{align}
+\vdash ( ( \mw{\varphi} \wedge \mw{\psi} ) \rightarrow ( \mw{\varphi} \vee
+    \mw{\chi} ) )\label{eq:animorl}\tag{animorl}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{animorr} {Conjunction implies disjunction with one
+common formula (2/4).}
+ %    (Contributed by BJ, 4-Oct-2019.)
+\begin{align}
+\vdash ( ( \mw{\varphi} \wedge \mw{\psi} ) \rightarrow ( \mw{\chi} \vee
+    \mw{\psi} ) )\label{eq:animorr}\tag{animorr}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{ax-1} {Axiom \{\em Simp\}.}  Axiom A1 of [Margaris] p.
+49.  
+\begin{align}
+\vdash ( {\color{formulacolor}\varphi} \rightarrow ( {\color{formulacolor}\psi}
+    \rightarrow {\color{formulacolor}\varphi} ) )\label{eq:ax-1}\tag{ax-1}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{ax-mp} {Rule of Modus Ponens.}  The postulated inference
+rule of propositional
+       calculus.  See e.g.  Rule 1 of [Hamilton] p. 73.  The rule says, ``if
+       ${\color{formulacolor}\varphi}$ is true, and
+${\color{formulacolor}\varphi}$ implies ${\color{formulacolor}\psi}$, then
+${\color{formulacolor}\psi}$ must also be
+       true."  
+  \begin{align}
+\vdash {\color{formulacolor}\varphi}\quad\&\quad \vdash (
+    {\color{formulacolor}\varphi} \rightarrow {\color{formulacolor}\psi}
+    )\quad\Rightarrow\quad \vdash {\color{formulacolor}\psi}\label{eq:ax-mp}\tag{ax-mp}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{axmulcl} {Closure law for multiplication of complex
+numbers.}  Axiom 6 of 22 for
+       real and complex numbers, derived from ZF set theory.  
+       (New usage is discouraged.)
+\begin{align}
+\vdash ( ( \mc{A} \in \mathbb{C} \wedge \mc{B} \in \mathbb{C} ) \rightarrow ( \mc{A} \cdot \mc{B} )
+    \in \mathbb{C} )\label{eq:axmulcl}\tag{axmulcl}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{axmulcom} {Multiplication of complex numbers is
+commutative.}  Axiom 8 of 22 for
+       real and complex numbers, derived from ZF set theory.  
+\begin{align}
+\vdash ( ( \mc{A} \in \mathbb{C} \wedge \mc{B} \in \mathbb{C} ) \rightarrow ( \mc{A} \cdot \mc{B} )
+    = ( \mc{B} \cdot \mc{A} ) )\label{eq:axmulcom}\tag{axmulcom}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{bibi1i} {Inference adding a biconditional to the
+right in an equivalence.}
+ %      (Contributed by NM, 26-May-1993.)
+\begin{align}
+\vdash ( \mw{\varphi} \leftrightarrow \mw{\psi} )\quad\Rightarrow\quad \vdash ( ( \mw{\varphi}
+    \leftrightarrow \mw{\chi} ) \leftrightarrow ( \mw{\psi} \leftrightarrow \mw{\chi} )
+    )\label{eq:bibi1i}\tag{bibi1i}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{bibi2i} {Inference adding a biconditional to the left
+in an equivalence.}
+%       (Contributed by NM, 26-May-1993.)  (Proof shortened by Andrew Salmon,
+%       7-May-2011.)  (Proof shortened by Wolf Lammen, 16-May-2013.)
+\begin{align}
+\vdash ( \mw{\varphi} \leftrightarrow \mw{\psi} )\quad\Rightarrow\quad \vdash (
+    ( \mw{\chi} \leftrightarrow \mw{\varphi} ) \leftrightarrow ( \mw{\chi}
+    \leftrightarrow \mw{\psi} ) )\label{eq:bibi2i}\tag{bibi2i}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{bicomi} {Inference from commutative law for logical
+equivalence.} 
+%(Contributed by     NM, 5-Aug-1993.)
+\begin{align}
+\vdash ( {\color{formulacolor}\varphi} \leftrightarrow
+    {\color{formulacolor}\psi} )\quad\Rightarrow\quad \vdash (
+    {\color{formulacolor}\psi} \leftrightarrow {\color{formulacolor}\varphi}
+    )\label{eq:bicomi}\tag{bicomi}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{bicom} {Commutative law for the biconditional.}
+Theorem *4.21 of [WhiteheadRussell] 
+%p. 117.  (Contributed by NM, 11-May-1993.)
+\begin{align}
+\vdash ( ( \mw{\varphi} \leftrightarrow \mw{\psi} ) \leftrightarrow ( \mw{\psi}
+    \leftrightarrow {\varphi} ) )\label{eq:bicom}\tag{bicom}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{bifal} {A contradiction is equivalent to falsehood.} 
+%(Contributed by Mario
+%       Carneiro, 9-May-2015.)
+\begin{align}
+\vdash \lnot \mw{\varphi} \quad\Rightarrow\quad \vdash ( \mw{\varphi} \leftrightarrow \bot
+    )\label{eq:bifal}\tag{bifal}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{biid} {Principle of identity for logical equivalence.} 
+Theorem *4.2 of
+     [WhiteheadRussell] %p. 117.  (Contributed by NM, 5-Aug-1993.)
+\begin{align}
+\vdash ( {\color{formulacolor}\varphi} \leftrightarrow
+    {\color{formulacolor}\varphi} )\label{eq:biid}\tag{biid}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{biimpi} {Infer an implication from a logical
+equivalence.}  
+%(Contributed by NM,    5-Aug-1993.)
+\begin{align}
+\vdash ( {\color{formulacolor}\varphi} \leftrightarrow
+    {\color{formulacolor}\psi} )\quad\Rightarrow\quad \vdash (
+    {\color{formulacolor}\varphi} \rightarrow {\color{formulacolor}\psi}
+    )\label{eq:biimpi}\tag{biimpi}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{biimpri} {Infer a converse implication from a logical
+equivalence.}  Inference
+       associated with {\tt biimpr}.  %(Contributed by NM, 29-Dec-1992.) 
+%(Proof   shortened by Wolf Lammen, 16-Sep-2013.)
+\begin{align}
+\vdash ( \mw{\varphi} \leftrightarrow \mw{\psi} )\quad\Rightarrow\quad \vdash (
+    \mw{\psi} \rightarrow \mw{\varphi} )\label{eq:biimpri}\tag{biimpri}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{biimpr} {Property of the biconditional connective.} 
+%(Contributed by NM,
+%     11-May-1999.)  (Proof shortened by Wolf Lammen, 11-Nov-2012.)
+\begin{align}
+\vdash ( ( \mw{\varphi} \leftrightarrow \mw{\psi} ) \rightarrow ( \mw{\psi} \rightarrow
+    \mw{\varphi} ) )\label{eq:biimpr}\tag{biimpr}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{bitr2i} {An inference from transitive law for logical
+equivalence.}  
+%(Contributed    by NM, 5-Aug-1993.)
+\begin{align}
+\vdash ( {\color{formulacolor}\varphi} \leftrightarrow
+    {\color{formulacolor}\psi} )\quad\&\quad \vdash (
+    {\color{formulacolor}\psi} \leftrightarrow {\color{formulacolor}\chi}
+    )\quad\Rightarrow\quad \vdash ( {\color{formulacolor}\chi} \leftrightarrow
+    {\color{formulacolor}\varphi} )\label{eq:bitr2i}\tag{bitr2i}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{bitr3i} {An inference from transitive law for logical
+equivalence.}
+% (Contributed      by NM, 5-Aug-1993.)
+\begin{align}
+\vdash ( {\color{formulacolor}\psi} \leftrightarrow
+    {\color{formulacolor}\varphi} )\quad\&\quad \vdash (
+    {\color{formulacolor}\psi} \leftrightarrow {\color{formulacolor}\chi}
+    )\quad\Rightarrow\quad \vdash ( {\color{formulacolor}\varphi}
+    \leftrightarrow {\color{formulacolor}\chi} )\label{eq:bitr3i}\tag{bitr3i}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{bitr3} {Closed nested implication form of {\tt bitr3i}.}
+Derived automatically from {\tt bitr3VD}. 
+% (Contributed by Alan Sare, 31-Dec-2011.)
+%     (Proof modification is discouraged.)  (New usage is discouraged.)
+\begin{align}
+\vdash ( ( {\color{formulacolor}\varphi} \leftrightarrow
+    {\color{formulacolor}\psi} ) \rightarrow ( ( {\color{formulacolor}\varphi}
+    \leftrightarrow {\color{formulacolor}\chi} ) \rightarrow (
+    {\color{formulacolor}\psi} \leftrightarrow {\color{formulacolor}\chi} ) )
+    )\label{eq:bitr3}\tag{bitr3}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{bitr4i} {An inference from transitive law for logical
+equivalence.} 
+% (Contributed  by NM, 5-Aug-1993.)
+\begin{align}
+\vdash ( {\color{formulacolor}\varphi} \leftrightarrow
+    {\color{formulacolor}\psi} )\quad\&\quad \vdash (
+    {\color{formulacolor}\chi} \leftrightarrow {\color{formulacolor}\psi}
+    )\quad\Rightarrow\quad \vdash ( {\color{formulacolor}\varphi}
+    \leftrightarrow {\color{formulacolor}\chi} )\label{eq:bitr4i}\tag{bitr4i}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{bitrd} {Deduction form of {\tt bitri}.} 
+% (Contributed by NM, 12-Mar-1993.)  (Proof       shortened by Wolf Lammen, 14-Apr-2013.)
+\begin{align}
+\vdash ( \mw{\varphi} \rightarrow ( \mw{\psi} \leftrightarrow \mw{\chi} )
+    )\quad\&\quad \vdash ( \mw{\varphi} \rightarrow ( \mw{\chi} \leftrightarrow
+    \mw{\theta} ) )\quad\Rightarrow\quad \vdash ( \mw{\varphi} \rightarrow (
+    \mw{\psi} \leftrightarrow \mw{\theta} ) )\label{eq:bitrd}\tag{bitrd}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{bitri} {An inference from transitive law for logical
+equivalence.}  
+%(Contributed
+%       by NM, 5-Aug-1993.)  (Proof shortened by Wolf Lammen, 13-Oct-2012.)
+\begin{align}
+\vdash ( {\color{formulacolor}\varphi} \leftrightarrow
+    {\color{formulacolor}\psi} )\quad\&\quad \vdash (
+    {\color{formulacolor}\psi} \leftrightarrow {\color{formulacolor}\chi}
+    )\quad\Rightarrow\quad \vdash ( {\color{formulacolor}\varphi}
+    \leftrightarrow {\color{formulacolor}\chi} )\label{eq:bitri}\tag{bitri}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{bitru} {A lemma is equivalent to truth.} 
+%(Contributed by Mario Carneiro,
+%       9-May-2015.)
+\begin{align}
+\vdash \mw{\varphi} \quad\Rightarrow\quad \vdash ( \mw{\varphi} \leftrightarrow \top
+    )\label{eq:bitru}\tag{bitru}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{con1bii} {A contraposition inference.}  
+%(Contributed by
+%NM, 5-Aug-1993.)  (Proof
+%       shortened by Wolf Lammen, 13-Oct-2012.)
+\begin{align}
+\vdash ( \lnot {\color{formulacolor}\varphi} \leftrightarrow
+    {\color{formulacolor}\psi} )\quad\Rightarrow\quad \vdash ( \lnot
+    {\color{formulacolor}\psi} \leftrightarrow {\color{formulacolor}\varphi}
+    )\label{eq:con1bii}\tag{con1bii}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{con4bii} {A contraposition inference.}  
+%(Contributed by NM, 21-May-1994.)
+\begin{align}
+\vdash ( \lnot {\color{formulacolor}\varphi} \leftrightarrow \lnot
+    {\color{formulacolor}\psi} )\quad\Rightarrow\quad \vdash (
+    {\color{formulacolor}\varphi} \leftrightarrow {\color{formulacolor}\psi}
+    )\label{eq:con4bii}\tag{con4bii}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{dfnot} {Given falsum $\bot$, we can define the
+negation of a wff} $\varphi$ as the
+     statement that $\bot$ follows from assuming $\varphi$.  %(
+%     Contributed by
+%     Mario Carneiro, 9-Feb-2017.)  (Proof shortened by Wolf Lammen,
+%     21-Jul-2019.)
+\begin{align}
+\vdash ( \lnot \mw{\varphi} \leftrightarrow ( \mw{\varphi} \rightarrow \bot )
+    )\label{eq:dfnot}\tag{dfnot}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma} \otherTitle{eleq2i} {Inference from equality to equivalence of
+membership.}
+\begin{align}
+\vdash A = B\quad\Rightarrow\quad \vdash ( C \in A \leftrightarrow C \in B
+    )\label{eq:eleq2i}\tag{eleq2i}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{eqcom} {Commutative law for class equality.}  lemma
+6.5 of [Quine] p. 41.
+%     (Contributed by NM, 26-May-1993.)  (Proof shortened by Wolf Lammen,
+%     19-Nov-2019.)
+\begin{align}
+\vdash ( \mc{A} = \mc{B} \leftrightarrow \mc{B} = \mc{A} )\label{eq:eqcom}\tag{eqcom}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{eqcomd} {Deduction from commutative law for class
+equality.}
+\begin{align}
+\vdash ( \mw{\varphi} \rightarrow A = B )\quad\Rightarrow\quad \vdash (
+    \mw{\varphi} \rightarrow B = A )\label{eq:eqcomd}\tag{eqcomd}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{eqcomi} {Inference from commutative law for class
+equality.}
+\begin{align}
+\vdash A = B\quad\Rightarrow\quad \vdash B = A\label{eq:eqcomi}\tag{eqcomi}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{eqeltri} {Substitution of equal classes into
+membership relation.} %  (Contributed by  NM, 21-Jun-1993.)
+\begin{align}
+\vdash \mc{A} = B\quad\&\quad \vdash \mc{B} \in C\quad\Rightarrow\quad \vdash \mc{A} \in
+    C\label{eq:eqeltri}\tag{eqeltri}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{eqeq1i} {Inference from equality to equivalence of
+equalities.}  
+%(Contributed by   NM, 15-Jul-1993.)
+\begin{align}
+\vdash \mc{A} = B\quad\Rightarrow\quad \vdash ( \mc{A} = \mc{C} \leftrightarrow \mc{B} = C
+    )\label{eq:eqeq1i}\tag{eqeq1i}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{eqid} {Law of identity} (reflexivity of class equality).
+Theorem 6.4 of [Quine]
+       p. 41.
+       This law is thought to have originated with Aristotle (\{\em
+Metaphysics\},
+       Book VII, Part 17).  
+\begin{align}
+\vdash {\color{classcolor}A} = {\color{classcolor}A}\label{eq:eqid}\tag{eqid}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{eqtr3d} {An equality transitivity equality deduction.}
+%(Contributed by NM,
+%       18-Jul-1995.)
+\begin{align}
+\vdash ( \mw{\varphi} \rightarrow \mc{A} = \mc{B} )\quad\&\quad \vdash ( \mw{\varphi}
+    \rightarrow \mc{A} = \mc{C} )\quad\Rightarrow\quad \vdash ( \mw{\varphi} \rightarrow
+    \mc{B} = \mc{C} )\label{eq:eqtr3d}\tag{eqtr3d}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{eqtr3i} {An equality transitivity inference.} 
+%(Contributed by NM, 6-May-1994.)
+\begin{align}
+\vdash \mc{A} = B\quad\&\quad \vdash \mc{A} = C\quad\Rightarrow\quad \vdash \mc{B} =
+    C\label{eq:eqtr3i}\tag{eqtr3i}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{eqtr4d} {An equality transitivity equality deduction.}
+\begin{align}
+\vdash ( \mw{\varphi} \rightarrow A = B )\quad\&\quad \vdash ( \mw{\varphi}
+    \rightarrow C = B )\quad\Rightarrow\quad \vdash ( \mw{\varphi} \rightarrow
+    A = C )\label{eq:eqtr4d}\tag{eqtr4d}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{eqtr4i} {An equality transitivity inference.} 
+%(Contributed by NM,
+%       26-May-1993.)
+\begin{align}
+\vdash \mc{A} = B\quad\&\quad \vdash \mc{C} = B\quad\Rightarrow\quad \vdash \mc{A} =
+    C\label{eq:eqtr4i}\tag{eqtr4i}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{eqtrd} {An equality transitivity deduction.} 
+%(Contributed by NM,
+%      21-Jun-1993.)
+\begin{align}
+\vdash ( \mw{\varphi} \rightarrow \mc{A} = \mc{B} )\quad\&\quad \vdash ( \mw{\varphi}
+    \rightarrow \mc{B} = \mc{C} )\quad\Rightarrow\quad \vdash ( \mw{\varphi} \rightarrow
+    \mc{A} = \mc{C} )\label{eq:eqtrd}\tag{eqtrd}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{eqtri} {An equality transitivity inference.} 
+%(Contributed by NM,
+%       26-May-1993.)
+\begin{align}
+\vdash \mc{A} = B\quad\&\quad \vdash \mc{B} = C\quad\Rightarrow\quad \vdash \mc{A} =
+    C\label{eq:eqtri}\tag{eqtri}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{equs3} {Lemma used in proofs of substitution
+properties.} 
+\begin{align}
+\vdash ( \exists x ( x = y \wedge \varphi ) \leftrightarrow \lnot \forall x ( x
+    = y \rightarrow \lnot \varphi ) )\label{eq:equs3}\tag{equs3}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{esumnul} {Extended sum over the empty set.} 
+\begin{align}
+\vdash \Sigma^{*} x \in \varnothing A = 0
+\label{eq:esumnul}\tag{esumnul}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{exbii} Inference adding existential quantifier to
+both sides of an equivalence.
+\begin{align}
+\vdash ( \mw{\varphi} \leftrightarrow \mw{\psi} )\quad\Rightarrow\quad \vdash (
+    \exists x \mw{\varphi} \leftrightarrow \exists x \mw{\psi}
+    )\label{eq:exbii}\tag{exbii}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{exmid} {Law of excluded middle}, also called the
+principle of \{\em tertium non datur\}.
+\begin{align}
+\vdash ( {\color{formulacolor}\varphi} \vee \lnot {\color{formulacolor}\varphi}
+    )\label{eq:exmid}\tag{exmid}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{falim}{$\bot$ implies anything.}
+%(Contributed by FL,
+%20-Mar-2011.)  (Proof
+%     shortened by Anthony Hart, 1-Aug-2011.)
+\begin{align}
+\vdash ( \bot \rightarrow {\color{formulacolor}\varphi} )\label{eq:falim}\tag{falim}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{fal} {The truth value $\bot$ is refutable.} 
+%(Contributed by Anthony Hart,
+%     22-Oct-2010.)  (Proof shortened by Mel L. O'Cat, 11-Mar-2012.)
+\begin{align}
+\vdash \lnot \bot\label{eq:fal}\tag{fal}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{id} Principle of identity.  
+\begin{align}
+\vdash ( \mw{\varphi} \rightarrow \mw{\varphi} )\label{eq:id}\tag{id}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{idd} {Principle of identity with antecedent.} 
+%(Contributed by NM,
+%     26-Nov-1995.)
+\begin{align}
+\vdash ( {\color{formulacolor}\varphi} \rightarrow ( {\color{formulacolor}\psi}
+    \rightarrow {\color{formulacolor}\psi} ) )\label{eq:idd}\tag{idd}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{imbi1i} {Introduce a consequent to both sides of a
+logical equivalence.}
+\begin{align}
+\vdash (\mw{\varphi} \leftrightarrow \mw{\psi} )\quad\Rightarrow\quad \vdash ( ( \mw{\varphi}
+    \rightarrow \mw{\chi} ) \leftrightarrow ( \mw{\psi} \rightarrow \mw{\chi} )
+    )\label{eq:imbi1i}\tag{imbi1i}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{imbi2i} {Introduce an antecedent to both sides of a
+logical equivalence.}  This
+       and the next three rules are useful for building up wff's around a
+       metadefinition, in order to make use of the metadefinition.  
+%       (Contributed by
+%NM,
+%       3-Jan-1993.)  (Proof shortened by Wolf Lammen, 6-Feb-2013.)
+\begin{align}
+\vdash ( \mw{\varphi} \leftrightarrow \mw{\psi} )\quad\Rightarrow\quad \vdash (
+    ( \mw{\chi} \rightarrow \mw{\varphi} ) \leftrightarrow ( \mw{\chi}
+    \rightarrow \mw{\psi} ) )\label{eq:imbi2i}\tag{imbi2i}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{imim2i} {Inference adding common antecedents in an
+implication.}  
+%(Contributed by    NM, 5-Aug-1993.)
+\begin{align}
+\vdash ( {\color{formulacolor}\varphi} \rightarrow {\color{formulacolor}\psi}
+    )\quad\Rightarrow\quad \vdash ( ( {\color{formulacolor}\chi} \rightarrow
+    {\color{formulacolor}\varphi} ) \rightarrow ( {\color{formulacolor}\chi}
+    \rightarrow {\color{formulacolor}\psi} ) )\label{eq:imim2i}\tag{imim2i}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{imim2i} {Inference adding common antecedents in an
+implication.}  
+%(Contributed by    NM, 5-Aug-1993.)
+\begin{align}
+\vdash ( {\color{formulacolor}\varphi} \rightarrow {\color{formulacolor}\psi}
+    )\quad\Rightarrow\quad \vdash ( ( {\color{formulacolor}\chi} \rightarrow
+    {\color{formulacolor}\varphi} ) \rightarrow ( {\color{formulacolor}\chi}
+    \rightarrow {\color{formulacolor}\psi} ) )\label{eq:imim2i}\tag{imim2i}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{impbii} {Infer an equivalence from an implication and
+its converse.}  
+%(Contributed    by NM, 5-Aug-1993.)
+\begin{align}
+\vdash ( {\color{formulacolor}\varphi} \rightarrow {\color{formulacolor}\psi}
+    )\quad\&\quad \vdash ( {\color{formulacolor}\psi} \rightarrow
+    {\color{formulacolor}\varphi} )\quad\Rightarrow\quad \vdash (
+    {\color{formulacolor}\varphi} \leftrightarrow {\color{formulacolor}\psi}
+    )\label{eq:impbii}\tag{impbii}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{intnan} {Introduction of conjunct inside of a
+contradiction.}  
+%(Contributed by NM,
+%       16-Sep-1993.)
+\begin{align}
+\vdash \lnot \mw{\varphi} \quad\Rightarrow\quad \vdash \lnot ( \mw{\psi} \wedge \mw{\varphi}
+    )\label{eq:intnan}\tag{intnan}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{intnanr} {Introduction of conjunct inside of a
+contradiction.}  
+%(Contributed by NM,
+%       3-Apr-1995.)
+\begin{align}
+\vdash \lnot \mw{\varphi} \quad\Rightarrow\quad \vdash \lnot ( \mw{\varphi} \wedge \mw{\psi}
+    )\label{eq:intnanr}\tag{intnanr}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{isstruct} {The property of being a structure with
+components in $M \ldots N$.}
+%     (Contributed by Mario Carneiro, 29-Aug-2015.)
+\begin{align}
+\vdash ( F {\rm Struct} \langle M , N \rangle \leftrightarrow ( ( M \in
+    \mathbb{N} \wedge N \in \mathbb{N} \wedge M \le N ) \wedge {\rm Fun} ( F
+    \setminus \{ \varnothing \} ) \wedge {\rm dom} F \subseteq ( M \ldots N ) )
+    )\label{eq:isstruct}\tag{isstruct}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{jca} {Deduce conjunction of the consequents of two
+implications} (``join consequents with `and'").  Equivalent to the natural deduction rule.  
+\begin{align}
+\vdash ( \mw{\varphi} \rightarrow \mw{\psi} )\quad\&\quad \vdash ( \mw{\varphi}
+    \rightarrow \mw{\chi} )\quad\Rightarrow\quad \vdash ( \mw{\varphi}
+    \rightarrow ( \mw{\psi} \wedge \mw{\chi} ) )\label{eq:jca}\tag{jca}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{leid} {`Less than or equal to' is reflexive.} 
+\begin{align}
+\vdash ( {\color{classcolor}A} \in \mathbb{R} \rightarrow {\color{classcolor}A}
+    \le {\color{classcolor}A} )\label{eq:leid}\tag{leid}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{lenlti} {`Less than or equal to' in terms of 'less
+than'.}  
+% (Contributed by NM, 24\minusMay\minus1999.)
+\begin{align}
+\vdash \mc{A} \in \mathbb{R}\quad\&\quad \vdash \mc{B} \in
+    \mathbb{R}\quad\Rightarrow\quad \vdash ( \mc{A} \le \mc{B} \leftrightarrow
+    \lnot \mc{B} < \mc{A} )\label{eq:lenlti}\tag{lenlti}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{ltnr} {`Less than' is irreflexive.}  
+\begin{align}
+\vdash ( A \in \mathbb{R} \rightarrow \lnot A < A )\label{eq:ltnr}\tag{ltnr}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{lttr} {Ordering on reals is transitive}
+\begin{align}
+\vdash ( ( \mc{A} \in \mathbb{R} \wedge \mc{B} \in \mathbb{R} \wedge \mc{C} \in \mathbb{R} )
+    \rightarrow ( ( \mc{A} < \mc{B} \wedge \mc{B} < \mc{C} ) \rightarrow \mc{A} < \mc{C} )
+    )\label{eq:lttr}\tag{lttr}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{mp2an} {An inference based on modus ponens.} 
+%(Contributed by NM   13-Apr-1995.)
+\begin{align}
+\vdash \mw{\varphi}\quad\&\quad \vdash \mw{\psi}\quad\&\quad \vdash ( (
+    \mw{\varphi} \wedge \mw{\psi} ) \rightarrow \mw{\chi}
+    )\quad\Rightarrow\quad \vdash \mw{\chi}\label{eq:mp2an}\tag{mp2an}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{mp3an} {An inference based on modus ponens.} 
+%(Contributed by NM,   14-May-1999.)
+\begin{align}
+\vdash \mw{\varphi}\quad\&\quad \vdash \mw{\psi}\quad\&\quad \vdash
+    \mw{\chi}\quad\&\quad \vdash ( ( \mw{\varphi} \wedge \mw{\psi} \wedge
+    \mw{\chi} ) \rightarrow \mw{\theta} )\quad\Rightarrow\quad \vdash
+    \mw{\theta}\label{eq:mp3an}\tag{mp3an}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{mpbird} {A deduction from a biconditional}, related to
+modus ponens.  
+%(Contributed    by NM, 5-Aug-1993.)
+\begin{align}
+\vdash ( \mw{\varphi} \rightarrow \mw{\chi} )\quad\&\quad \vdash ( \mw{\varphi}
+    \rightarrow ( \mw{\psi} \leftrightarrow \mw{\chi} ) )\quad\Rightarrow\quad
+    \vdash ( \mw{\varphi} \rightarrow \mw{\psi} )\label{eq:mpbird}\tag{mpbird}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{mpbir} {An inference from a biconditiona}l, related to
+modus ponens.
+%       (Contributed by NM, 28-Dec-1992.)
+\begin{align}
+\vdash \mw{\psi}\quad\&\quad \vdash ( \mw{\varphi} \leftrightarrow \mw{\psi}
+    )\quad\Rightarrow\quad \vdash \mw{\varphi}\label{eq:mpbir}\tag{mpbir}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{mpbi} {An inference from a biconditional}, related to
+modus ponens.
+%       (Contributed by NM, 11-May-1993.)
+\begin{align}
+\vdash \mw{\varphi}\quad\&\quad \vdash ( \mw{\varphi} \leftrightarrow \mw{\psi}
+    )\quad\Rightarrow\quad \vdash \mw{\psi}\label{eq:mpbi}\tag{mpbi}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma} \otherTitle{mtbir} {An inference from a biconditional, related to
+modus tollens.}
+\begin{align}
+\vdash \lnot \mw{\psi}\quad\&\quad \vdash ( \mw{\varphi} \leftrightarrow
+    \mw{\psi} )\quad\Rightarrow\quad \vdash \lnot
+    \mw{\varphi}\label{eq:mtbir}\tag{mtbir}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{mul01} {Multiplication by $0$.}
+\begin{align}
+\vdash ( A \in \mathbb{C} \rightarrow ( A \cdot 0 ) = 0
+    )\label{eq:mul01}\tag{mul01}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{mul12i} {Commutative/associative law that swaps the
+first two factors in a triple
+       product.} % (Contributed by NM, 11-May-1999.)  (Proof shortened by Andrew
+ %      Salmon, 19-Nov-2011.)
+\begin{align}
+\vdash \mc{A} \in \mathbb{C}\quad\&\quad \vdash \mc{B} \in \mathbb{C}\quad\&\quad \vdash
+    \mc{C} \in \mathbb{C}\quad\Rightarrow\quad \vdash ( \mc{A} \cdot ( \mc{B} \cdot \mc{C} ) ) = (
+    \mc{B} \cdot ( \mc{A} \cdot \mc{C} ) )\label{eq:mul12i}\tag{mul12i}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{mulass} {Alias for {\tt ax-mulass}}, for naming
+consistency with {\tt mulassi}.
+ %    (Contributed by NM, 10-Mar-2008.)
+\begin{align}
+\vdash ( ( \mc{A} \in \mathbb{C} \wedge \mc{B} \in \mathbb{C} \wedge \mc{C} \in \mathbb{C} )
+    \rightarrow ( ( \mc{A} \cdot \mc{B} ) \cdot \mc{C} ) = ( \mc{A} \cdot ( \mc{B} \cdot \mc{C} ) )
+    )\label{eq:mulass}\tag{mulass}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{mulcan2} {Cancellation law for multiplication.} 
+\begin{align}
+\vdash ( ( A \in \mathbb{C} \wedge B \in \mathbb{C} \wedge ( C \in \mathbb{C}
+    \wedge C \ne 0 ) ) \rightarrow ( ( A \cdot C ) = ( B \cdot C )
+    \leftrightarrow A = B ) )\label{eq:mulcan2}\tag{mulcan2}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{mulcli} {Closure law for multiplication.} 
+%(Contributed by NM, 23-Nov-1994.)
+\begin{align}
+\vdash \mc{A} \in \mathbb{C}\quad\&\quad \vdash \mc{B} \in
+    \mathbb{C}\quad\Rightarrow\quad \vdash ( \mc{A} \cdot \mc{B} ) \in
+    \mathbb{C}\label{eq:mulcli}\tag{mulcli}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{mulcomi} {Commutative law for multiplication.} 
+%(Contributed by NM,       23-Nov-1994.)
+\begin{align}
+\vdash \mc{A} \in \mathbb{C}\quad\&\quad \vdash \mc{B} \in
+    \mathbb{C}\quad\Rightarrow\quad \vdash ( \mc{A} \cdot \mc{B} ) = ( \mc{B} \cdot A
+    )\label{eq:mulcomi}\tag{mulcomi}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{necom} Commutation of inequality.  
+\begin{align}
+\vdash ( \mc{A} \ne \mc{B} \leftrightarrow \mc{B} \ne \mc{A} )\label{eq:necom}\tag{necom}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{negcli} {Closure law for negative.} 
+% (Contributed by NM, 26-Nov-1994.)
+\begin{align}
+\vdash \mc{A} \in \mathbb{C}\quad\Rightarrow\quad \vdash \textrm{-} \mc{A} \in
+    \mathbb{C}\label{eq:negcli}\tag{negcli}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{negcl} {Closure law for negative.}  
+%(Contributed by NM, 6-Aug-2003.)
+\begin{align}
+\vdash ( \mc{A} \in \mathbb{C} \rightarrow \textrm{-} \mc{A} \in \mathbb{C}
+    )\label{eq:negcl}\tag{negcl}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{negcld} {Closure law for negative, deductive form.}
+\begin{align}
+\vdash ( \mw{\varphi} \rightarrow A \in \mathbb{C} )\quad\Rightarrow\quad
+    \vdash ( \mw{\varphi} \rightarrow \textrm{-} A \in \mathbb{C}
+    )\label{eq:negcld}\tag{negcld}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{negdi} {Distribution of negative over addition.} 
+%(Contributed by NM, 10-May-2004.)
+%     (Proof shortened by Mario Carneiro, 27-May-2016.)
+\begin{align}
+\vdash ( ( \mc{A} \in \mathbb{C} \wedge \mc{B} \in \mathbb{C} ) \rightarrow \textrm{-} (
+    \mc{A} + \mc{B} ) = ( \textrm{-} \mc{A} + \textrm{-} \mc{B} ) )\label{eq:negdi}\tag{negdi}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{negid} {Addition of a number and its negative.} 
+%(Contributed by NM,
+%     14-Mar-2005.)
+\begin{align}
+\vdash ( \mc{A} \in \mathbb{C} \rightarrow ( \mc{A} + \textrm{-} \mc{A} ) = 0
+    )\label{eq:negid}\tag{negid}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{negsubdi2} {Distribution of negative over
+subtraction.}  
+% (Contributed by NM, 4\minusOct\minus1999.)
+\begin{align}
+\vdash ( ( \mc{A} \in \mathbb{C} \wedge \mc{B} \in \mathbb{C} ) \rightarrow
+    \minus ( \mc{A} \minus \mc{B} ) = ( \mc{B} \minus \mc{A} )
+    )\label{eq:negsubdi2}\tag{negsubdi2}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{negsub} {Relationship between subtraction and
+negative.}  Theorem I.3 of [Apostol]  p. 18.  
+     % (Contributed by NM, 21\minusJan\minus1997.)  (Proof shortened by Mario Carneiro, 27\minusMay\minus2016.)
+\begin{align}
+\vdash ( ( \mc{A} \in \mathbb{C} \wedge \mc{B} \in \mathbb{C} ) \rightarrow (
+    \mc{A} + \minus\mc{B} ) = ( \mc{A} \minus \mc{B} )
+    )\label{eq:negsub}\tag{negsub}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{nncand} {Cancellation law for subtraction, deductive form.}
+\begin{align}
+\vdash ( \mw{\varphi} \rightarrow A \in \mathbb{C} )\quad\&\quad \vdash (
+    \mw{\varphi} \rightarrow B \in \mathbb{C} )\quad\Rightarrow\quad \vdash (
+    \mw{\varphi} \rightarrow ( A \minus ( A \minus B ) ) = B
+    )\label{eq:nncand}\tag{nncand}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{notbii} {Negate both sides of a logical equivalence.} 
+%(Contributed by NM,
+%       5-Aug-1993.)  (Proof shortened by Wolf Lammen, 19-May-2013.)
+\begin{align}
+\vdash ( {\color{formulacolor}\varphi} \leftrightarrow
+    {\color{formulacolor}\psi} )\quad\Rightarrow\quad \vdash ( \lnot
+    {\color{formulacolor}\varphi} \leftrightarrow \lnot
+    {\color{formulacolor}\psi} )\label{eq:notbii}\tag{notbii}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{notfal} {A $\lnot$ identity.}  
+\begin{align}
+\vdash ( \lnot \bot \leftrightarrow \top )\label{eq:notfal}\tag{notfal}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{notnot} {Double negation.}  Theorem *4.13 of
+[WhiteheadRussell] p. 117.
+%     (Contributed by NM, 5-Aug-1993.)
+\begin{align}
+\vdash ( {\color{formulacolor}\varphi} \leftrightarrow \lnot \lnot
+    {\color{formulacolor}\varphi} )\label{eq:notnot}\tag{notnot}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{nottru} {A $\lnot$ identity.}  
+\begin{align}
+\vdash ( \lnot \top \leftrightarrow \bot )\label{eq:nottru}\tag{nottru}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{npcan} {Cancellation law for subtraction.} 
+% (Contributed by NM, 10\minusMay\minus2004.)
+     % (Revised by Mario Carneiro, 27\minusMay\minus2016.)
+\begin{align}
+\vdash ( ( \mc{A} \in \mathbb{C} \wedge \mc{B} \in \mathbb{C} ) \rightarrow ( (
+    \mc{A} \minus \mc{B} ) + \mc{B} ) = \mc{A} )\label{eq:npcan}\tag{npcan}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{olci} {Deduction introducing a disjunct.} 
+%(Contributed by NM, 19-Jan-2008.)
+%       (Proof shortened by Wolf Lammen, 14-Nov-2012.)
+\begin{align}
+\vdash \mw{\varphi} \quad\Rightarrow\quad \vdash ( \mw{\psi} \vee \mw{\varphi}
+    )\label{eq:olci}\tag{olci}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{olc} {Introduction of a disjunct.}  Axiom *1.3 of
+[WhiteheadRussell] p. 96.
+%     (Contributed by NM, 30-Aug-1993.)
+\begin{align}
+\vdash ( {\color{formulacolor}\varphi} \rightarrow ( {\color{formulacolor}\psi}
+    \vee {\color{formulacolor}\varphi} ) )\label{eq:olc}\tag{olc}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{orbi12i} {Infer the disjunction of two equivalences.} 
+%(Contributed by NM,
+%       5-Aug-1993.)
+\begin{align}
+\vdash ( {\color{formulacolor}\varphi} \leftrightarrow
+    {\color{formulacolor}\psi} )\quad\&\quad \vdash (
+    {\color{formulacolor}\chi} \leftrightarrow {\color{formulacolor}\theta}
+    )\quad\Rightarrow\quad \vdash ( ( {\color{formulacolor}\varphi} \vee
+    {\color{formulacolor}\chi} ) \leftrightarrow ( {\color{formulacolor}\psi}
+    \vee {\color{formulacolor}\theta} ) )\label{eq:orbi12i}\tag{orbi12i}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{orbi1i} {Inference adding a right disjunct to both
+sides of a logical  equivalence.}  %(Contributed by NM, 5-Aug-1993.)
+\begin{align}
+\vdash ( {\color{formulacolor}\varphi} \leftrightarrow
+    {\color{formulacolor}\psi} )\quad\Rightarrow\quad \vdash ( (
+    {\color{formulacolor}\varphi} \vee {\color{formulacolor}\chi} )
+    \leftrightarrow ( {\color{formulacolor}\psi} \vee
+    {\color{formulacolor}\chi} ) )\label{eq:orbi1i}\tag{orbi1i}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{orbi2d} {Deduction adding a left disjunct to both
+sides of a logical equivalence.}
+%       (Contributed by NM, 21-Jun-1993.)
+\begin{align}
+\vdash ( \mw{\varphi} \rightarrow ( \mw{\psi} \leftrightarrow \mw{\chi} )
+    )\quad\Rightarrow\quad \vdash ( \mw{\varphi} \rightarrow ( ( \mw{\theta}
+    \vee \mw{\psi} ) \leftrightarrow ( \mw{\theta} \vee \mw{\chi} ) )
+    )\label{eq:orbi2d}\tag{orbi2d}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{orbi2i} {Inference adding a left disjunct to both sides
+of a logical  equivalence.}  
+%(Contributed by NM, 5-Aug-1993.)  (Proof shortened by
+%Wolf
+%       Lammen, 12-Dec-2012.)
+\begin{align}
+\vdash ( {\color{formulacolor}\varphi} \leftrightarrow
+    {\color{formulacolor}\psi} )\quad\Rightarrow\quad \vdash ( (
+    {\color{formulacolor}\chi} \vee {\color{formulacolor}\varphi} )
+    \leftrightarrow ( {\color{formulacolor}\chi} \vee
+    {\color{formulacolor}\psi} ) )\label{eq:orbi2i}\tag{orbi2i}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{orci} {Deduction introducing a disjunct.} 
+%(Contributed by NM, 19-Jan-2008.)
+%       (Proof shortened by Wolf Lammen, 14-Nov-2012.)
+\begin{align}
+\vdash \mw{\varphi} \quad\Rightarrow\quad \vdash ( \mw{\varphi} \vee \mw{\psi}
+    )\label{eq:orci}\tag{orci}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{orcom} {Commutative law for disjunction.}  Theorem *4.31
+of [WhiteheadRussell]
+%     p. 118.  (Contributed by NM, 5-Aug-1993.)  (Proof shortened by Wolf
+%     Lammen, 15-Nov-2012.)
+\begin{align}
+\vdash ( ( {\color{formulacolor}\varphi} \vee {\color{formulacolor}\psi} )
+    \leftrightarrow ( {\color{formulacolor}\psi} \vee
+    {\color{formulacolor}\varphi} ) )\label{eq:orcom}\tag{orcom}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{orc} {Introduction of a disjunct.}  Theorem *2.2 of
+[WhiteheadRussell] p. 104.
+%     (Contributed by NM, 30-Aug-1993.)
+\begin{align}
+\vdash ( {\color{formulacolor}\varphi} \rightarrow (
+    {\color{formulacolor}\varphi} \vee {\color{formulacolor}\psi} )
+    )\label{eq:orc}\tag{orc}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{ordir} {Distributive law for disjunction.} 
+% (Contributed by NM, 12-Aug-1994.)
+\begin{align}
+\vdash ( ( ( {\color{formulacolor}\varphi} \wedge {\color{formulacolor}\psi} )
+    \vee {\color{formulacolor}\chi} ) \leftrightarrow ( (
+    {\color{formulacolor}\varphi} \vee {\color{formulacolor}\chi} ) \wedge (
+    {\color{formulacolor}\psi} \vee {\color{formulacolor}\chi} ) )
+    )\label{eq:ordir}\tag{ordir}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{orfa} {The falsum $\bot$ can be removed from a
+disjunction.}  
+%(Contributed by   Giovanni Mascellani, 15-Sep-2017.)
+\begin{align}
+\vdash ( ( \mw{\varphi} \vee \bot ) \leftrightarrow \mw{\varphi}
+    )\label{eq:orfa}\tag{orfa}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{oridm} {Idempotent law for disjunction.}  Theorem *4.25
+of [WhiteheadRussell]
+%     p. 117.  (Contributed by NM, 5-Aug-1993.)  (Proof shortened by Andrew
+%     Salmon, 16-Apr-2011.)  (Proof shortened by Wolf Lammen, 10-Mar-2013.)
+\begin{align}
+\vdash ( ( {\color{formulacolor}\varphi} \vee {\color{formulacolor}\varphi} )
+    \leftrightarrow {\color{formulacolor}\varphi} )\label{eq:oridm}\tag{oridm}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{orim12i} {Disjoin antecedents and consequents of two
+premises.}  
+%(Contributed by
+%       NM, 6-Jun-1994.)  (Proof shortened by Wolf Lammen, 25-Jul-2012.)
+\begin{align}
+\vdash ( \mw{\varphi} \rightarrow \mw{\psi} )\quad\&\quad \vdash ( \mw{\chi}
+    \rightarrow \mw{\theta} )\quad\Rightarrow\quad \vdash ( ( \mw{\varphi} \vee
+    \mw{\chi} ) \rightarrow ( \mw{\psi} \vee \mw{\theta} )
+    )\label{eq:orim12i}\tag{orim12i}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{oveq12i} {Equality inference for operation value.} 
+%(Contributed by NM,
+%         28-Feb-1995.)  (Proof shortened by Andrew Salmon, 22-Oct-2011.)
+\begin{align}
+\vdash \mc{A} = \mc{B} \quad\&\quad \vdash \mc{C} = \mc{D} \quad\Rightarrow\quad \vdash ( \mc{A} \,F \,\mc{C} )
+    = ( \mc{B} \,F \,\mc{D} )\label{eq:oveq12i}\tag{oveq12i}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{oveq1i} {Equality inference for operation value.} 
+%(Contributed by NM,
+%       28-Feb-1995.)
+\begin{align}
+\vdash \mc{A} = \mc{B} \quad\Rightarrow\quad \vdash ( \mc{A} \,F \,\mc{C} ) = ( \mc{B} \,F \,\mc{C}
+    )\label{eq:oveq1i}\tag{oveq1i}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{oveq2d} {Equality deduction for operation value.}
+\begin{align}
+\vdash ( \mw{\varphi} \rightarrow A = B )\quad\Rightarrow\quad \vdash (
+    \mw{\varphi} \rightarrow ( C \,F \,A ) = ( C \,F \,B )
+    )\label{eq:oveq2d}\tag{oveq2d}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{oveq2i} {Equality inference for operation value.} 
+%(Contributed by NM,    28-Feb-1995.)
+\begin{align}
+\vdash \mc{A} = \mc{B} \quad\Rightarrow\quad \vdash ( \mc{C} \,F \,\mc{A} ) = ( \mc{C} \,F \,\mc{B}
+    )\label{eq:oveq2i}\tag{oveq2i}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{pm2.61} {Theorem *2.61 of [WhiteheadRussell]} p. 107. 
+Useful for eliminating an antecedent.  
+%(Contributed by NM, 5-Aug-1993.)  (Proof shortened by Wolf
+%     Lammen, 22-Sep-2013.)
+\begin{align}
+\vdash ( ( {\color{formulacolor}\varphi} \rightarrow {\color{formulacolor}\psi}
+    ) \rightarrow ( ( \lnot {\color{formulacolor}\varphi} \rightarrow
+    {\color{formulacolor}\psi} ) \rightarrow {\color{formulacolor}\psi} )
+    )\label{eq:pm2.61}\tag{pm2.61}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{pm2.86i} {Inference based on {\tt pm2.86}.} 
+%(Contributed by NM, 5-Aug-1993.)  (Proof
+%       shortened by Wolf Lammen, 3-Apr-2013.)
+\begin{align}
+\vdash ( ( {\color{formulacolor}\varphi} \rightarrow {\color{formulacolor}\psi}
+    ) \rightarrow ( {\color{formulacolor}\varphi} \rightarrow
+    {\color{formulacolor}\chi} ) )\quad\Rightarrow\quad \vdash (
+    {\color{formulacolor}\varphi} \rightarrow ( {\color{formulacolor}\psi}
+    \rightarrow {\color{formulacolor}\chi} ) )\label{eq:pm2.86i}\tag{pm2.86i}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{pm3.2i} {Infer conjunction of premises.}  
+%(Contributed by NM, 21-Jun-1993.)
+\begin{align}
+\vdash \mw{\varphi}\quad\&\quad \vdash \mw{\psi}\quad\Rightarrow\quad \vdash (
+    \mw{\varphi} \wedge \mw{\psi} )\label{eq:pm3.2i}\tag{pm3.2i}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{pm3.22} {Theorem *3.22 of [WhiteheadRussell]}
+\begin{align}
+\vdash ( ( \mw{\varphi} \wedge \mw{\psi} ) \rightarrow ( \mw{\psi} \wedge
+    \mw{\varphi} ) )\label{eq:pm3.22}\tag{pm3.22}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{pm3.24} {Law of noncontradiction.  Theorem *3.24 of
+[WhiteheadRussell]}
+\begin{align}
+\vdash \lnot ( \mw{\varphi} \wedge \lnot \mw{\varphi}
+    )\label{eq:pm3.24}\tag{pm3.24}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{pm4.24} {Theorem *4.24 of [WhiteheadRussell]}
+\begin{align}
+\vdash ( \mw{\varphi} \leftrightarrow ( \mw{\varphi} \wedge \mw{\varphi} )
+    )\label{eq:pm4.24}\tag{pm4.24}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{pm4.44} {Theorem *4.44 of [WhiteheadRussell]} p. 119. 
+%(Contributed by NM,  3-Jan-2005.)
+\begin{align}
+\vdash ( {\color{formulacolor}\varphi} \leftrightarrow (
+    {\color{formulacolor}\varphi} \vee ( {\color{formulacolor}\varphi} \wedge
+    {\color{formulacolor}\psi} ) ) )\label{eq:pm4.44}\tag{pm4.44}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{pm4.45im} {Conjunction with implication.}  Compare
+Theorem *4.45 of [WhiteheadRussell]
+ %    p. 119.  (Contributed by NM, 17-May-1998.)
+\begin{align}
+\vdash ( {\color{formulacolor}\varphi} \leftrightarrow (
+    {\color{formulacolor}\varphi} \wedge ( {\color{formulacolor}\psi}
+    \rightarrow {\color{formulacolor}\varphi} ) ) )\label{eq:pm4.45im}\tag{pm4.45im}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{pm4.45} {Theorem *4.45 of [WhiteheadRussell]} p. 119. 
+%(Contributed by NM,
+%     3-Jan-2005.)
+\begin{align}
+\vdash ( {\color{formulacolor}\varphi} \leftrightarrow (
+    {\color{formulacolor}\varphi} \wedge ( {\color{formulacolor}\varphi} \vee
+    {\color{formulacolor}\psi} ) ) )\label{eq:pm4.45}\tag{pm4.45}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{pm4.56} {Theorem *4.56 of [WhiteheadRussell]} p. 120. 
+%(Contributed by NM,
+%     3-Jan-2005.)
+\begin{align}
+\vdash ( ( \lnot {\color{formulacolor}\varphi} \wedge \lnot
+    {\color{formulacolor}\psi} ) \leftrightarrow \lnot (
+    {\color{formulacolor}\varphi} \vee {\color{formulacolor}\psi} )
+    )\label{eq:pm4.56}\tag{pm4.56}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{pncan2} {Cancellation law for subtraction.} 
+% (Contributed by NM, 17\minusApr\minus2005.)
+\begin{align}
+\vdash ( ( \mc{A} \in \mathbb{C} \wedge \mc{B} \in \mathbb{C} ) \rightarrow ( (
+    \mc{A} + \mc{B} ) \minus \mc{A} ) = \mc{B} )\label{eq:pncan2}\tag{pncan2}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{pncan3i} {Subtraction and addition of equals.} 
+% (Contributed by NM,  26\minusNov\minus1994.)
+\begin{align}
+\vdash \mc{A} \in \mathbb{C}\quad\&\quad \vdash \mc{B} \in
+    \mathbb{C}\quad\Rightarrow\quad \vdash ( \mc{A} + ( \mc{B} \minus \mc{A} ) ) =
+    \mc{B}\label{eq:pncan3i}\tag{pncan3i}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{pncan} {Cancellation law for subtraction.} 
+% (Contributed by NM, 10\minusMay\minus2004.)
+     % (Revised by Mario Carneiro, 27\minusMay\minus2016.)
+\begin{align}
+\vdash ( ( \mc{A} \in \mathbb{C} \wedge \mc{B} \in \mathbb{C} ) \rightarrow ( (
+    \mc{A} + \mc{B} ) \minus \mc{B} ) = \mc{A} )\label{eq:pncan}\tag{pncan}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{ralsng} {Substitution expressed in terms of
+quantification over a singleton.}
+\begin{align}
+\vdash ( x = A \rightarrow ( \mw{\varphi} \leftrightarrow \mw{\psi} )
+    )\quad\Rightarrow\quad \vdash ( A \in V \rightarrow ( \forall x \in \{ A \}
+    \mw{\varphi} \leftrightarrow \mw{\psi} ) )\label{eq:ralsng}\tag{ralsng}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{recn} {A real number is a complex number.} 
+\begin{align}
+\vdash ( A \in \mathbb{R} \rightarrow A \in \mathbb{C}
+    )\label{eq:recn}\tag{recn}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma} \otherTitle{rex0} {Vacuous existential quantification is false.} 
+\begin{align}
+\vdash \lnot \exists x \in \varnothing \mw{\varphi}\label{eq:rex0}\tag{rex0}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{rexsns} {Restricted existential quantification over a
+singleton.}
+\begin{align}
+\vdash ( \exists x \in \{ A \} \mw{\varphi} \leftrightarrow
+    \underaccent{\dot}{[} A / x \underaccent{\dot}{]} \mw{\varphi}
+    )\label{eq:rexsns}\tag{rexsns}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{simp1} {Simplification of triple conjunction.} 
+%(Contributed by NM,
+%     21-Apr-1994.)
+\begin{align}
+\vdash ( ( \mw{\varphi} \wedge \mw{\psi} \wedge \mw{\chi} ) \rightarrow
+    \mw{\varphi} )\label{eq:simp1}\tag{simp1}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{simp2} {Simplification of triple conjunction.} 
+%(Contributed by NM,
+%     21-Apr-1994.)
+\begin{align}
+\vdash ( ( \mw{\varphi} \wedge \mw{\psi} \wedge \mw{\chi} ) \rightarrow
+    \mw{\psi} )\label{eq:simp2}\tag{simp2}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{simp2i} {Infer a conjunct from a triple conjunction.}
+\begin{align}
+\vdash ( \mw{\varphi} \wedge \mw{\psi} \wedge \mw{\chi} )\quad\Rightarrow\quad
+    \vdash \mw{\psi}\label{eq:simp2i}\tag{simp2i}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{simp3} {Simplification of triple conjunction.} 
+%(Contributed by NM,
+%     21-Apr-1994.)
+\begin{align}
+\vdash ( ( \mw{\varphi} \wedge \mw{\psi} \wedge \mw{\chi} ) \rightarrow
+    \mw{\chi} )\label{eq:simp3}\tag{simp3}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{simpl} {Elimination of a conjunct.}  Theorem *3.26
+(Simp) of [WhiteheadRussell]
+%     p. 112.  (Contributed by NM, 5-Aug-1993.)  (Proof shortened by Wolf
+%     Lammen, 13-Nov-2012.)
+\begin{align}
+\vdash ( ( {\color{formulacolor}\varphi} \wedge {\color{formulacolor}\psi} )
+    \rightarrow {\color{formulacolor}\varphi} )\label{eq:simpl}\tag{simpl}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma} \otherTitle{simp1i} {Infer a conjunct from a triple conjunction.} 
+\begin{align}
+\vdash ( \mw{\varphi} \wedge \mw{\psi} \wedge \mw{\chi} )\quad\Rightarrow\quad
+    \vdash \mw{\varphi}\label{eq:simp1i}\tag{simp1i}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{simpr} {Elimination of a conjunct.}  Theorem *3.27
+(Simp) of [WhiteheadRussell]
+     p. 112.  
+     %(Contributed by NM, 3-Jan-1993.)  (Proof shortened by Wolf
+     %Lammen, 13-Nov-2012.)
+\begin{align}
+\vdash ( ( \mw{\varphi} \wedge \mw{\psi} ) \rightarrow \mw{\psi}
+    )\label{eq:simpr}\tag{simpr}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{subadd4} {Rearrangement of 4 terms in a mixed
+addition and subtraction.}
+     % (Contributed by NM, 24\minusAug\minus2006.)
+\begin{align}
+\vdash ( ( ( \mc{A} \in \mathbb{C} \wedge \mc{B} \in \mathbb{C} ) \wedge (
+    \mc{C} \in \mathbb{C} \wedge \mc{D} \in \mathbb{C} ) ) \rightarrow ( (
+    \mc{A} \minus \mc{B} ) \minus ( \mc{C} \minus \mc{D} ) ) = ( ( \mc{A} + \mc{D} ) \minus (
+    \mc{B} + \mc{C} ) ) )\label{eq:subadd4}\tag{subadd4}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{subcan2} {Cancellation law for subtraction.} 
+\begin{align}
+\vdash ( ( \mc{A} \in \mathbb{C} \wedge \mc{B} \in \mathbb{C} \wedge \mc{C} \in \mathbb{C} )
+    \rightarrow ( ( \mc{A} \minus \mc{C} ) = ( \mc{B} \minus \mc{C} ) \leftrightarrow \mc{A} = \mc{B} )
+    )\label{eq:subcan2}\tag{subcan2}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{subcl} {Closure law for subtraction.}  
+%(Contributed by
+%NM, 10-May-1999.)
+%       (Revised by Mario Carneiro, 21-Dec-2013.)
+\begin{align}
+\vdash ( ( \mc{A} \in \mathbb{C} \wedge \mc{B} \in \mathbb{C} ) \rightarrow ( \mc{A} \minus B
+    ) \in \mathbb{C} )\label{eq:subcl}\tag{subcl}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{subid1} {Identity law for subtraction.}  
+% (Contributeby NM, 9\minusMay\minus2004.)  % (Revised by Mario Carneiro, 27\minusMay\minus2016.)
+\begin{align}
+\vdash ( \mc{A} \in \mathbb{C} \rightarrow ( \mc{A} \minus 0 ) = \mc{A}
+    )\label{eq:subid1}\tag{subid1}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{subid} {Subtraction of a number from itself.} 
+%(Contributed by NM, 8-Oct-1999.)
+%     (Revised by Mario Carneiro, 27-May-2016.)
+\begin{align}
+\vdash ( \mc{A} \in \mathbb{C} \rightarrow ( \mc{A} \minus \mc{A} ) = 0
+    )\label{eq:subid}\tag{subid}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{subsub3} {Law for double subtraction.}  
+% (Contributed by NM, 27\minusJul\minus2005.)
+\begin{align}
+\vdash ( ( \mc{A} \in \mathbb{C} \wedge \mc{B} \in \mathbb{C} \wedge \mc{C} \in
+    \mathbb{C} ) \rightarrow ( \mc{A} \minus ( \mc{B} \minus \mc{C} ) ) = ( ( \mc{A} +
+    \mc{C} ) \minus \mc{B} ) )\label{eq:subsub3}\tag{subsub3}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{subnegd} {Relationship between subtraction and
+negative.}
+\begin{align}
+\vdash ( \mw{\varphi} \rightarrow A \in \mathbb{C} )\quad\&\quad \vdash (
+    \mw{\varphi} \rightarrow B \in \mathbb{C} )\quad\Rightarrow\quad \vdash (
+    \mw{\varphi} \rightarrow ( A \minus \textrm{-} B ) = ( A + B )
+    )\label{eq:subnegd}\tag{subnegd}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{subsub4} {Law for double subtraction.} 
+ % (Contributedby NM, 19\minusAug\minus2005.)  
+ % (Revised  by Mario Carneiro, 27\minusMay\minus2016.)
+\begin{align}
+\vdash ( ( \mc{A} \in \mathbb{C} \wedge \mc{B} \in \mathbb{C} \wedge \mc{C} \in
+    \mathbb{C} ) \rightarrow ( ( \mc{A} \minus \mc{B} ) \minus \mc{C} ) = ( \mc{A} \minus (
+    \mc{B} + \mc{C} ) ) )\label{eq:subsub4}\tag{subsub4}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{sum0} {Any sum over the empty set is zero.} 
+\begin{align}
+\vdash \Sigma k \in \varnothing A = 0\label{eq:sum0}\tag{sum0}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{sumsns} {A sum of a singleton is the term.}
+\begin{align}
+\vdash ( ( M \in V \wedge \underline{[} M / k \underline{]} A \in \mathbb{C} )
+    \rightarrow \Sigma k \in \{ M \} A = \underline{[} M / k \underline{]} A
+    )\label{eq:sumsns}\tag{sumsns}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{syl2anc} {Syllogism inference combined with
+contraction.}  
+%(Contributed by NM,    16-Mar-2012.)
+\begin{align}
+\vdash ( \mw{\varphi} \rightarrow \mw{\psi} )\quad\&\quad \vdash ( \mw{\varphi}
+    \rightarrow \mw{\chi} )\quad\&\quad \vdash ( ( \mw{\psi} \wedge \mw{\chi} )
+    \rightarrow \mw{\theta} )\quad\Rightarrow\quad \vdash ( \mw{\varphi}
+    \rightarrow \mw{\theta} )\label{eq:syl2anc}\tag{syl2anc}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{syl6eqr} {An equality transitivity deduction.} 
+%(Contributed by NM,    21-Jun-1993.)
+\begin{align}
+\vdash ( \mw{\varphi} \rightarrow \mc{A} = \mc{B} )\quad\&\quad \vdash \mc{C} =
+    B\quad\Rightarrow\quad \vdash ( \mw{\varphi} \rightarrow \mc{A} = C
+    )\label{eq:syl6eqr}\tag{syl6eqr}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{sylbi} {A mixed syllogism inference from a
+biconditional and an implication.}
+       Useful for substituting an antecedent with a metadefinition.  
+       %(Contributed by NM, 5-Aug-1993.)
+\begin{align}
+\vdash ( {\color{formulacolor}\varphi} \leftrightarrow
+    {\color{formulacolor}\psi} )\quad\&\quad \vdash (
+    {\color{formulacolor}\psi} \rightarrow {\color{formulacolor}\chi}
+    )\quad\Rightarrow\quad \vdash ( {\color{formulacolor}\varphi} \rightarrow
+    {\color{formulacolor}\chi} )\label{eq:sylbi}\tag{sylbi}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{syldan} {A syllogism deduction with conjoined
+antecedents.}  
+%(Contributed by NM,
+%       24-Feb-2005.)  (Proof shortened by Wolf Lammen, 6-Apr-2013.)
+\begin{align}
+\vdash ( ( \mw{\varphi} \wedge \mw{\psi} ) \rightarrow \mw{\chi} )\quad\&\quad
+    \vdash ( ( \mw{\varphi} \wedge \mw{\chi} ) \rightarrow \mw{\theta}
+    )\quad\Rightarrow\quad \vdash ( ( \mw{\varphi} \wedge \mw{\psi} )
+    \rightarrow \mw{\theta} )\label{eq:syldan}\tag{syldan}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{sylibr} {A mixed syllogism inference from an
+implication and a biconditional.}
+       Useful for substituting a consequent with a metadefinition.  
+%       (Contributed
+%by
+%       NM, 5-Aug-1993.)
+\begin{align}
+\vdash ( {\color{formulacolor}\varphi} \rightarrow {\color{formulacolor}\psi}
+    )\quad\&\quad \vdash ( {\color{formulacolor}\chi} \leftrightarrow
+    {\color{formulacolor}\psi} )\quad\Rightarrow\quad \vdash (
+    {\color{formulacolor}\varphi} \rightarrow {\color{formulacolor}\chi}
+    )\label{eq:sylibr}\tag{sylibr}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{syl} {An inference version of the transitive laws for
+implication {\tt imim2} and
+       {\tt imim1}}, which Russell and Whitehead call "the principle of the
+       syllogism...because...the syllogism in Barbara is derived from them"
+       (quote after Theorem *2.06 of [WhiteheadRussell] p. 101).  Some authors
+       call this law a "hypothetical syllogism."
+\begin{align}
+\vdash ( {\color{formulacolor}\varphi} \rightarrow {\color{formulacolor}\psi}
+    )\quad\&\quad \vdash ( {\color{formulacolor}\psi} \rightarrow
+    {\color{formulacolor}\chi} )\quad\Rightarrow\quad \vdash (
+    {\color{formulacolor}\varphi} \rightarrow {\color{formulacolor}\chi}
+    )\label{eq:syl}\tag{syl}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{trant} {A true antecedent can be removed.}  
+%(Contributed by FL, 16-Apr-2012.)
+\begin{align}
+\vdash ( ( \top \rightarrow {\color{formulacolor}\varphi} ) \leftrightarrow
+    {\color{formulacolor}\varphi} )\label{eq:trant}\tag{trant}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{trut} {A proposition is equivalent to it being
+implied by $\top$.}  
+%Closed form
+%     of {\tt trud}.  Dual of {\tt dfnot}.  It is to {\tt tbtru} what {\tt
+%a1bi} is to {\tt tbt}.
+%     (Contributed by BJ, 26-Oct-2019.)
+\begin{align}
+\vdash ( \mw{\varphi} \leftrightarrow ( \top \rightarrow \mw{\varphi} )
+    )\label{eq:trut}\tag{trut}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{tru} {The truth value $\top$ is provable.} 
+%(Contributed by Anthony Hart,
+%       13-Oct-2010.)
+\begin{align}
+\vdash \top\label{eq:tru}\tag{tru}
+\end{align}
+\end{lemma}
+

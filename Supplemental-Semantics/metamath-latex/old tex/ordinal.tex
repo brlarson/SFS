@@ -1,0 +1,207 @@
+% This LaTeX file was created by Metamath on 9-Oct-2021 9:09 AM.
+% hand edited by brl
+
+The Empty Set is an ordinal class {Ord}, and it's a member of the set of ordinals (On)
+
+\begin{lemma}\blTitle{ord0} The empty set is an ordinal class. 
+\begin{align}
+\mm{\vdash} {\rm Ord}~ \varnothing\label{eq:ord0}\tag{ord0}
+\end{align}
+\end{lemma}
+
+\begin{lemma}\blTitle{0elon} The empty set is an ordinal number. 
+\begin{align}
+\mm{\vdash} \varnothing \in {\rm On}\label{eq:0elon}\tag{0elon}
+\end{align}
+\end{lemma}
+
+
+\pn Then use the successor operation to make as many ordinal numbers as you want.
+
+\begin{metadefinition}\blTitle{df-suc} Define the successor of a class.  When
+applied to an ordinal number, the
+     successor means the same thing as ``plus 1" 
+\begin{align}
+\mm{\vdash} {\rm suc}~ \mc{A} = ( \mc{A} \cup \{ \mc{A} \}
+    )\label{eq:df-suc}\tag{df-suc}
+\end{align}
+\end{metadefinition}
+
+
+\pn If $\varnothing$ represents 0, then its successor should represent 1.
+
+\begin{lemma}\blTitle{suc0} The successor of the empty set.  (Contributed
+by NM, 1-Feb-2005.)
+\begin{align}
+\mm{\vdash} {\rm suc}~ \varnothing = \{ \varnothing \}\label{eq:suc0}\tag{suc0}
+\end{align}
+\end{lemma}
+
+
+\pn From there the ordinal representing 2 is the successor of the ordinal representing 1 is  \\
+\( \{ \{ \varnothing \} , \{ \{ \varnothing \} \} \}  \).  
+The ordinal representing 3 is 
+\( \{ \{ \{ \varnothing \} , \{ \{ \varnothing \} \} \}  , \{ \{ \{ \{ \{ \varnothing \} , \{ \{ \varnothing \} \} \} \} \} \} \).  
+
+
+\pn The \bemph{ordinal predicate} tests whether a class is an ordinal.  It uses three concepts explained below:  transitive (Tr), well-ordered (We), and the epsilon relation (E).
+
+\begin{metadefinition}\blTitle{df-ord} Define the ordinal predicate, which is
+true for a class that is transitive
+     and is well-ordered by the epsilon relation. 
+\begin{align}
+\mm{\vdash} ( {\rm Ord}~ \mc{A} \leftrightarrow ( {\rm Tr}~ \mc{A} \wedge {\rm E}
+    ~{\rm We}~ \mc{A} ) )\label{eq:df-ord}\tag{df-ord}
+\end{align}
+\end{metadefinition}
+
+
+In this case \bemph{transitive} does not refer to chaining relations, but instead to properties of the successor $suc$ operation.  The union operator $\bigcup$ in effect reduces set containment depth in the opposite way $suc$ increases it.
+
+Suppose I have a set $K$ corresponding to the ordinal number $k$. Its successor will be $\{ K , \{ K \} \}$.  Applying a union operator flattens the set containment depth, as all the elements that themselves are sets, have all their elements combined into a single set.  So union operator on the successor combines the first element, with the members of the set as the second element to get $\{ K , K \}$.   Because sets don't keep repeated elements it becomes $\{ K \}$.\footnote{But that's not the same as $K$!}
+
+\begin{lemma}\blTitle{unisuc} A transitive class is equal to the union of
+its successor.  
+\begin{align}
+\mm{\vdash} \mc{A} \in {\rm V}\quad\Rightarrow\quad \mm{\vdash} ( {\rm Tr}~
+    \mc{A} \leftrightarrow \bigcup {\rm suc}~\mc{A} = \mc{A}
+    )\label{eq:unisuc}\tag{unisuc}
+\end{align}
+\end{lemma}
+
+\begin{lemma}\blTitle{suctr} The successor of a transitive class is
+transitive.  
+\begin{align}
+\mm{\vdash} ( {\rm Tr}~\mc{A} \rightarrow {\rm Tr}~{\rm suc}~\mc{A}
+    )\label{eq:suctr}\tag{suctr}
+\end{align}
+\end{lemma}
+
+
+A set is well ordered by a relation (think $<$) such that every subset of that set has a least element according to that relation.
+The theorem below says that $R$ well-orders $A$, if for some subset $B$ of $A$, then there is some element of $B$ without a predecessor.
+
+
+\begin{lemma}\blTitle{tz6.26} All nonempty (possibly proper) subclasses of
+$\mc{A}$, which has a
+       well-founded relation $R$, have $R$-minimal elements. 
+\begin{align}
+\mm{\vdash} ( ( ( R~{\rm We}~\mc{A} \wedge R~{\rm Se}~\mc{A} ) \wedge ( \mc{B}
+    \subseteq \mc{A} \wedge \mc{B} \ne \varnothing ) ) \rightarrow \exists
+    \msc{y} \in \mc{B}~{\rm Pred} ( R , \mc{B} , \msc{y} ) = \varnothing
+    )\label{eq:tz6.26}\tag{tz6.26}
+\end{align}
+\end{lemma}
+
+
+Back to ordinal numbers.
+
+\begin{metadefinition}\blTitle{df-on} Define the class of all ordinal numbers. 
+\begin{align}
+\mm{\vdash} {\rm On} = \{ \msc{x} ~\vert~ {\rm Ord}~ \msc{x}
+    \}\label{eq:df-on}\tag{df-on}
+\end{align}
+\end{metadefinition}
+
+
+\begin{metadefinition}\blTitle{df-lim} Define the limit ordinal predicate, which
+is true for a nonempty ordinal
+     that is not a successor (i.e. that is the union of itself).  
+\begin{align}
+\mm{\vdash} ( {\rm Lim} \mc{A} \leftrightarrow ( {\rm Ord}~ \mc{A} \wedge \mc{A}
+    \ne \varnothing \wedge \mc{A} = \bigcup \mc{A} )
+    )\label{eq:df-lim}\tag{df-lim}
+\end{align}
+\end{metadefinition}
+
+
+\begin{lemma}\blTitle{ordeq} Equality theorem for the ordinal predicate. 
+\begin{align}
+\mm{\vdash} ( \mc{A} = \mc{B} \rightarrow ( {\rm Ord}~ \mc{A} \leftrightarrow
+    {\rm Ord}~ \mc{B} ) )\label{eq:ordeq}\tag{ordeq}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\blTitle{elong} An ordinal number is an ordinal set. 
+\begin{align}
+\mm{\vdash} ( \mc{A} \in V \rightarrow ( \mc{A} \in {\rm On} \leftrightarrow
+    {\rm Ord}~ \mc{A} ) )\label{eq:elong}\tag{elong}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\blTitle{eloni} An ordinal number has the ordinal property. 
+\begin{align}
+\mm{\vdash} ( \mc{A} \in {\rm On} \rightarrow {\rm Ord}~ \mc{A}
+    )\label{eq:eloni}\tag{eloni}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\blTitle{elon2} An ordinal number is an ordinal set. 
+\begin{align}
+\mm{\vdash} ( \mc{A} \in {\rm On} \leftrightarrow ( {\rm Ord}~ \mc{A} \wedge
+    \mc{A} \in {\rm V} ) )\label{eq:elon2}\tag{elon2}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\blTitle{limeq} Equality theorem for the limit predicate. 
+\begin{align}
+\mm{\vdash} ( \mc{A} = \mc{B} \rightarrow ( {\rm Lim} \mc{A} \leftrightarrow
+    {\rm Lim} \mc{B} ) )\label{eq:limeq}\tag{limeq}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\blTitle{ordwe} Epsilon well-orders every ordinal. 
+\begin{align}
+\mm{\vdash} ( {\rm Ord}~ \mc{A} \rightarrow {\rm E} ~{\rm We}~ \mc{A}
+    )\label{eq:ordwe}\tag{ordwe}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\blTitle{ordtr} An ordinal class is transitive.  
+\begin{align}
+\mm{\vdash} ( {\rm Ord}~ \mc{A} \rightarrow {\rm Tr}~ \mc{A}
+    )\label{eq:ordtr}\tag{ordtr}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\blTitle{ordfr} Epsilon is well-founded on an ordinal class. 
+\begin{align}
+\mm{\vdash} ( {\rm Ord}~ \mc{A} \rightarrow {\rm E} {\rm Fr} \mc{A}
+    )\label{eq:ordfr}\tag{ordfr}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\blTitle{ordelss} An element of an ordinal class is a subset
+of it.  
+\begin{align}
+\mm{\vdash} ( ( {\rm Ord}~ \mc{A} \wedge \mc{B} \in \mc{A} ) \rightarrow \mc{B}
+    \subseteq \mc{A} )\label{eq:ordelss}\tag{ordelss}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\blTitle{tron} The class of all ordinal numbers is
+transitive.  
+\begin{align}
+\mm{\vdash} {\rm Tr}~ {\rm On}\label{eq:tron}\tag{tron}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\blTitle{elelsuc} Membership in a successor.  
+\begin{align}
+\mm{\vdash} ( \mc{A} \in \mc{B} \rightarrow \mc{A} \in {\rm suc}~ \mc{B}
+    )\label{eq:elelsuc}\tag{elelsuc}
+\end{align}
+\end{lemma}
+
+
+

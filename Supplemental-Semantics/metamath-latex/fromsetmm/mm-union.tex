@@ -1,0 +1,82 @@
+% This LaTeX file was created by Metamath on 6-Mar-2024 11:48 AM.
+\begin{restatable}{axiom}{axun}~\otherTitle{ax-un}~ Axiom of Union.  An axiom of Zermelo-Fraenkel
+set theory.  It states
+       that a set $\msc{y}$ exists that includes the union of a given set
+$\msc{x}$
+       i.e. the collection of all members of the members of $\msc{x}$.       ~
+\begin{align}
+\vdash \exists \msc{y} \forall \msc{z} ( \exists \msc{w} ( \msc{z} \in \msc{w}
+    \wedge \msc{w} \in \msc{x} ) \rightarrow \msc{z} \in \msc{y}
+    )\label{eq:ax-un}\tag{ax-un}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{axiom}{axreg}~\otherTitle{ax-reg}~ Axiom of Regularity.  An axiom of
+Zermelo-Fraenkel set theory.  Also
+       called the Axiom of Foundation.  A rather non-intuitive axiom that
+       denies more than it asserts, it states (in the form of {\tt zfreg})
+that
+       every nonempty set contains a set disjoint from itself.  One
+consequence
+       is that it denies the existence of a set containing itself ({\tt
+elirrv}). ~
+\begin{align}
+\vdash ( \exists \msc{y} \msc{y} \in \msc{x} \rightarrow \exists \msc{y} (
+    \msc{y} \in \msc{x} \wedge \forall \msc{z} ( \msc{z} \in \msc{y}
+    \rightarrow \lnot \msc{z} \in \msc{x} ) ) )\label{eq:ax-reg}\tag{ax-reg}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{axiom}{axinf}~\otherTitle{ax-inf}~ Axiom of Infinity.  An axiom of
+Zermelo-Fraenkel set theory.  
+       It asserts that given a starting set $\msc{x}$, an infinite set
+$\msc{y}$ built
+       from it exists.  
+\begin{align}
+\vdash \exists \msc{y} ( \msc{x} \in \msc{y} \wedge \forall \msc{z} ( \msc{z}
+    \in \msc{y} \rightarrow \exists \msc{w} ( \msc{z} \in \msc{w} \wedge
+    \msc{w} \in \msc{y} ) ) )\label{eq:ax-inf}\tag{ax-inf}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{axiom}{axac}~\otherTitle{ax-ac}~ Axiom of Choice.  The Axiom of Choice (AC) is
+usually considered an
+       extension of ZF set theory rather than a proper part of it.  It is
+       sometimes considered philosophically controversial because it asserts
+       the existence of a set without telling us what the set is.  ZF set
+       theory that includes AC is called ZFC.
+  ~
+\begin{align}
+\vdash \exists \msc{y} \forall \msc{z} \forall \msc{w} ( ( \msc{z} \in \msc{w}
+    \wedge \msc{w} \in \msc{x} ) \rightarrow \exists \msc{v} \forall \msc{u} (
+    \exists \msc{t} ( ( \msc{u} \in \msc{w} \wedge \msc{w} \in \msc{t} ) \wedge
+    ( \msc{u} \in \msc{t} \wedge \msc{t} \in \msc{y} ) ) \leftrightarrow
+    \msc{u} = \msc{v} ) )\label{eq:ax-ac}\tag{ax-ac}
+\end{align}
+\end{restatable}
+
+\dftc
+%\begin{restatable}{metadefinition}{dftc}~\otherTitle{df-tc}~ The transitive closure function. 
+%\begin{align}
+%\vdash \,\mathrm{TC} = ( \msc{x} \in \,\mathrm{V} \mapsto \bigcap \{ \msc{y} |
+%    ( \msc{x} \subseteq \msc{y} \wedge \,\mathrm{Tr} \msc{y} ) \}
+%    )\label{eq:df-tc}\tag{df-tc}
+%\end{align}
+%\end{restatable}
+
+\tctwo
+%\begin{restatable}{lemma}{tctwo}~\otherTitle{tc2}~ A variant of the definition of the transitive
+%closure function, using
+%       instead the smallest transitive set containing $\mc{A}$ as a member,
+%gives
+%       almost the same set, except that $\mc{A}$ itself must be added because
+%it
+%       is not usually a member of $( \,\mathrm{TC} ` \mc{A} )$ (and it is
+%never a member if
+%       $\mc{A}$ is well-founded).  ~
+%\begin{align}
+%\vdash \mc{A} \in \,\mathrm{V}\quad\Rightarrow\quad \vdash ( ( \,\mathrm{TC} `
+%    \mc{A} ) \cup \{ \mc{A} \} ) = \bigcap \{ \msc{x}~\vert~( \mc{A} \in \msc{x}
+%    \wedge \,\mathrm{Tr} \msc{x} ) \}\label{eq:tc2}\tag{tc2}
+%\end{align}
+%\end{restatable}

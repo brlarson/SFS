@@ -1,0 +1,1038 @@
+% This LaTeX file was created by Metamath on 18-Feb-2024 9:42 PM.
+\begin{restatable}{metadefinition}{dfblatantwo}~\blTitle{df-bl.atan2}~ Distribute @ over conjunction, two
+terms.
+\begin{align}
+\vdash ( \msc{t} \in \mathbf{T} \rightarrow ( ( \mathfrak{M} \models ( (
+    \mw{\varphi} \wedge \mw{\psi} ) @ \msc{t} ) ) \leftrightarrow (
+    \mathfrak{M} \models ( ( \mw{\varphi} @ \msc{t} ) \wedge ( \mw{\psi} @
+    \msc{t} ) ) ) ) )\label{eq:df-bl.atan2}\tag{df-bl.atan2}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{bltantwoi}~\blTitle{bl.atan2i}~ Distribute @ over conjunction, two terms,
+inference.
+\begin{align}
+\vdash \msc{t} \in \mathbf{T}\quad\Rightarrow \notag \\ 
+	\quad \vdash ( ( \mathfrak{M}
+    \models ( ( \mw{\varphi} \wedge \mw{\psi} ) @ \msc{t} ) ) \leftrightarrow (
+    \mathfrak{M} \models ( ( \mw{\varphi} @ \msc{t} ) \wedge ( \mw{\psi} @
+    \msc{t} ) ) ) )\label{eq:bl.atan2i}\tag{bl.atan2i}
+\end{align}
+\end{restatable}
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash \msc{t} \in \mathbf{T}&\text{Hyp~atan2i.1}\notag%bl.atan2i.1
+  \\ 2 &&  & \vdash ( \msc{t} \in \mathbf{T} \rightarrow ( ( \mathfrak{M}
+     ~\models ( ( \mw{\varphi} \wedge \mw{\psi} ) @ \msc{t}
+     ~) ) \leftrightarrow ( \mathfrak{M} \models ( (
+     ~\mw{\varphi} @ \msc{t} ) \wedge ( \mw{\psi} @ \msc{t}
+     ~) ) ) ) )&(\mbox{\ref{eq:df-bl.atan2}})\notag
+  \\ 3 &&  & \vdash ( ( \mathfrak{M} \models ( ( \mw{\varphi} \wedge \mw{\psi}
+     ~) @ \msc{t} ) ) \leftrightarrow ( \mathfrak{M}
+     ~\models ( ( \mw{\varphi} @ \msc{t} ) \wedge (
+     ~\mw{\psi} @ \msc{t} ) ) )
+     ~)&(\mbox{\ref{eq:ax-mp}},1,2)\notag
+\end{align}
+\end{proof}
+
+\begin{restatable}{lemma}{bltanthreei}~\blTitle{bl.atan3i}~ Distribute @ over conjunction, three
+terms, inference.
+\begin{align}
+\vdash \msc{t} \in \mathbf{T}\quad\Rightarrow \notag \\ 
+	\quad \vdash ( ( \mathfrak{M}
+    \models ( ( \mw{\varphi} \wedge \mw{\psi} \wedge \mw{\chi} ) @ \msc{t} ) )
+    \leftrightarrow ( \mathfrak{M} \models ( ( \mw{\varphi} @ \msc{t} ) \wedge
+    ( \mw{\psi} @ \msc{t} ) \wedge ( \mw{\chi} @ \msc{t} ) ) )
+    )\label{eq:bl.atan3i}\tag{bl.atan3i}
+\end{align}
+\end{restatable}
+
+\begin{proof}
+\begin{align}
+  1 &&  & &(\mbox{\ref{eq:?}})\notag
+\end{align}
+\end{proof}
+
+\begin{restatable}{lemma}{bltanthreeri}~\blTitle{bl.atan3ri}~ Distribute @ over conjunction, three
+terms (right), inference.
+\begin{align}
+\vdash \msc{t} \in \mathbf{T}\quad\Rightarrow \notag \\ 
+	\quad \vdash ( ( \mathfrak{M}
+    \models ( ( \mw{\varphi} \wedge ( \mw{\psi} \wedge \mw{\chi} ) ) @ \msc{t}
+    ) ) \leftrightarrow ( \mathfrak{M} \models ( ( \mw{\varphi} @ \msc{t} )
+    \wedge ( ( \mw{\psi} @ \msc{t} ) \wedge ( \mw{\chi} @ \msc{t} ) ) ) )
+    )\label{eq:bl.atan3ri}\tag{bl.atan3ri}
+\end{align}
+\end{restatable}
+
+\begin{proof}
+\begin{align}
+  1 &&  & &(\mbox{\ref{eq:?}})\notag
+\end{align}
+\end{proof}
+
+\begin{restatable}{lemma}{bltanthreeli}~\blTitle{bl.atan3li}~ Distribute @ over conjunction, three
+terms (left), inference.
+\begin{align}
+\vdash \msc{t} \in \mathbf{T}\quad\Rightarrow \notag \\ 
+	\quad \vdash ( ( \mathfrak{M}
+    \models ( ( ( \mw{\varphi} \wedge \mw{\psi} ) \wedge \mw{\chi} ) @ \msc{t}
+    ) ) \leftrightarrow ( \mathfrak{M} \models ( ( ( \mw{\varphi} @ \msc{t} )
+    \wedge ( \mw{\psi} @ \msc{t} ) ) \wedge ( \mw{\chi} @ \msc{t} ) ) )
+    )\label{eq:bl.atan3li}\tag{bl.atan3li}
+\end{align}
+\end{restatable}
+
+\begin{proof}
+\begin{align}
+  1 &&  & &(\mbox{\ref{eq:?}})\notag
+\end{align}
+\end{proof}
+
+\begin{restatable}{metadefinition}{dfblatortwo}~\blTitle{df-bl.ator2}~ Distribute @ over disjunction, two
+terms.
+\begin{align}
+\vdash ( \msc{t} \in \mathbf{T} \rightarrow ( ( \mathfrak{M} \models ( (
+    \mw{\varphi} \vee \mw{\psi} ) @ \msc{t} ) ) \leftrightarrow ( \mathfrak{M}
+    \models ( ( \mw{\varphi} @ \msc{t} ) \vee ( \mw{\psi} @ \msc{t} ) ) ) )
+    )\label{eq:df-bl.ator2}\tag{df-bl.ator2}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{bltortwoi}~\blTitle{bl.ator2i}~ Distribute @ over disjunction, two terms,
+inference.
+\begin{align}
+\vdash \msc{t} \in \mathbf{T}\quad\Rightarrow \notag \\ 
+	\quad \vdash ( ( \mathfrak{M}
+    \models ( ( \mw{\varphi} \vee \mw{\psi} ) @ \msc{t} ) ) \leftrightarrow (
+    \mathfrak{M} \models ( ( \mw{\varphi} @ \msc{t} ) \vee ( \mw{\psi} @
+    \msc{t} ) ) ) )\label{eq:bl.ator2i}\tag{bl.ator2i}
+\end{align}
+\end{restatable}
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash \msc{t} \in \mathbf{T}&\text{Hyp~ator2i.1}\notag%bl.ator2i.1
+  \\ 2 &&  & \vdash ( \msc{t} \in \mathbf{T} \rightarrow ( ( \mathfrak{M}
+     ~\models ( ( \mw{\varphi} \vee \mw{\psi} ) @ \msc{t} )
+     ~) \leftrightarrow ( \mathfrak{M} \models ( (
+     ~\mw{\varphi} @ \msc{t} ) \vee ( \mw{\psi} @ \msc{t} )
+     ~) ) ) )&(\mbox{\ref{eq:df-bl.ator2}})\notag
+  \\ 3 &&  & \vdash ( ( \mathfrak{M} \models ( ( \mw{\varphi} \vee \mw{\psi} )
+     ~@ \msc{t} ) ) \leftrightarrow ( \mathfrak{M} \models
+     ~( ( \mw{\varphi} @ \msc{t} ) \vee ( \mw{\psi} @
+     ~\msc{t} ) ) ) )&(\mbox{\ref{eq:ax-mp}},1,2)\notag
+\end{align}
+\end{proof}
+
+\begin{restatable}{lemma}{bltorthreei}~\blTitle{bl.ator3i}~ Distribute @ over disjunction, three
+terms, inference.
+\begin{align}
+\vdash \msc{t} \in \mathbf{T}\quad\Rightarrow \notag \\ 
+	\quad \vdash ( ( \mathfrak{M}
+    \models ( ( \mw{\varphi} \vee \mw{\psi} \vee \mw{\chi} ) @ \msc{t} ) )
+    \leftrightarrow ( \mathfrak{M} \models ( ( \mw{\varphi} @ \msc{t} ) \vee (
+    \mw{\psi} @ \msc{t} ) \vee ( \mw{\chi} @ \msc{t} ) ) )
+    )\label{eq:bl.ator3i}\tag{bl.ator3i}
+\end{align}
+\end{restatable}
+
+\begin{proof}
+\begin{align}
+  1 &&  & &(\mbox{\ref{eq:?}})\notag
+\end{align}
+\end{proof}
+
+\begin{restatable}{lemma}{bltorthreeri}~\blTitle{bl.ator3ri}~ Distribute @ over disjunction, three
+terms (right), inference.
+\begin{align}
+\vdash \msc{t} \in \mathbf{T}\quad\Rightarrow \notag \\ 
+	\quad \vdash ( ( \mathfrak{M}
+    \models ( ( \mw{\varphi} \vee ( \mw{\psi} \vee \mw{\chi} ) ) @ \msc{t} ) )
+    \leftrightarrow ( \mathfrak{M} \models ( ( \mw{\varphi} @ \msc{t} ) \vee (
+    ( \mw{\psi} @ \msc{t} ) \vee ( \mw{\chi} @ \msc{t} ) ) ) )
+    )\label{eq:bl.ator3ri}\tag{bl.ator3ri}
+\end{align}
+\end{restatable}
+
+\begin{proof}
+\begin{align}
+  1 &&  & &(\mbox{\ref{eq:?}})\notag
+\end{align}
+\end{proof}
+
+\begin{restatable}{lemma}{bltorthreeli}~\blTitle{bl.ator3li}~ Distribute @ over disjunction, three
+terms (right), inference.
+\begin{align}
+\vdash \msc{t} \in \mathbf{T}\quad\Rightarrow \notag \\ 
+	\quad \vdash ( ( \mathfrak{M}
+    \models ( ( ( \mw{\varphi} \vee \mw{\psi} ) \vee \mw{\chi} ) @ \msc{t} ) )
+    \leftrightarrow ( \mathfrak{M} \models ( ( ( \mw{\varphi} @ \msc{t} ) \vee
+    ( \mw{\psi} @ \msc{t} ) ) \vee ( \mw{\chi} @ \msc{t} ) ) )
+    )\label{eq:bl.ator3li}\tag{bl.ator3li}
+\end{align}
+\end{restatable}
+
+\begin{proof}
+\begin{align}
+  1 &&  & &(\mbox{\ref{eq:?}})\notag
+\end{align}
+\end{proof}
+
+\begin{restatable}{metadefinition}{dfblatbi}~\blTitle{df-bl.atbi}~ Distribute @ over biconditional.
+\begin{align}
+\vdash ( \msc{t} \in \mathbf{T} \rightarrow ( ( \mathfrak{M} \models ( (
+    \mw{\varphi} \leftrightarrow \mw{\psi} ) @ \msc{t} ) ) \leftrightarrow (
+    \mathfrak{M} \models ( ( \mw{\varphi} @ \msc{t} ) \leftrightarrow (
+    \mw{\psi} @ \msc{t} ) ) ) ) )\label{eq:df-bl.atbi}\tag{df-bl.atbi}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{blatbii}~\blTitle{bl.atbii}~ @ Equivalence (biconditional) for
+predicates, inference.
+\begin{align}
+\vdash \msc{t_1} \in \mathbf{T}\quad\&\quad \vdash \msc{t_2} \in
+    \mathbf{T}\quad\&\quad \vdash ( \mw{\varphi} \leftrightarrow \mw{\psi}
+    )\quad\&\quad \vdash \msc{t_1} = \msc{t_2}\quad\Rightarrow \notag \\ 
+	\quad \vdash ( (
+    \mathfrak{M} \models ( \mw{\varphi} @ \msc{t_1} ) ) \leftrightarrow (
+    \mathfrak{M} \models ( \mw{\psi} @ \msc{t_2} ) )
+    )\label{eq:bl.atbii}\tag{bl.atbii}
+\end{align}
+\end{restatable}
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash \msc{t_1} = \msc{t_2}&\text{Hyp~atbii.4}\notag%bl.atbii.4
+  \\ 2 &&  & \vdash ( \mw{\varphi} \leftrightarrow \mw{\psi}
+     ~)&\text{Hyp~atbii.3}\notag%bl.atbii.3
+  \\ 3 &&  & \vdash \msc{t_1} \in
+     ~\mathbf{T}&\text{Hyp~atbii.1}\notag%bl.atbii.1
+  \\ 4 &&  & \vdash \msc{t_2} \in
+     ~\mathbf{T}&\text{Hyp~atbii.2}\notag%bl.atbii.2
+  \\ 5 &&  & \vdash ( ( \msc{t_1} = \msc{t_2} \wedge ( \mw{\varphi}
+     ~\leftrightarrow \mw{\psi} ) ) \rightarrow ( (
+     ~\mathfrak{M} \models ( \mw{\varphi} @ \msc{t_1} ) )
+     ~\leftrightarrow ( \mathfrak{M} \models ( \mw{\psi} @
+     ~\msc{t_2} ) ) )
+     ~)&(\mbox{\ref{eq:ax-bl.atbi}},3,4)\notag
+  \\ 6 &&  & \vdash ( ( \mathfrak{M} \models ( \mw{\varphi} @ \msc{t_1} ) )
+     ~\leftrightarrow ( \mathfrak{M} \models ( \mw{\psi} @
+     ~\msc{t_2} ) ) )&(\mbox{\ref{eq:mp2an}},1,2,5)\notag
+\end{align}
+\end{proof}
+
+\begin{restatable}{metadefinition}{dfblatnot}~\blTitle{df-bl.atnot}~ Distribute @ over complement
+\begin{align}
+\vdash ( \msc{t} \in \mathbf{T} \rightarrow ( \mathfrak{M} \models ( ( \lnot
+    \mw{\varphi} @ \msc{t} ) \leftrightarrow \lnot ( \mw{\varphi} @ \msc{t} ) )
+    ) )\label{eq:df-bl.atnot}\tag{df-bl.atnot}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{blatnoti}~\blTitle{bl.atnoti}~ Distribute @ over complement, inference
+\begin{align}
+\vdash \msc{t} \in \mathbf{T}\quad\Rightarrow \notag \\ 
+	\quad \vdash ( \mathfrak{M}
+    \models ( ( \lnot \mw{\varphi} @ \msc{t} ) \leftrightarrow \lnot (
+    \mw{\varphi} @ \msc{t} ) ) )\label{eq:bl.atnoti}\tag{bl.atnoti}
+\end{align}
+\end{restatable}
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash \msc{t} \in \mathbf{T}&\text{Hyp~atnot.1}\notag%bl.atnot.1
+  \\ 2 &&  & \vdash ( \msc{t} \in \mathbf{T} \rightarrow ( \mathfrak{M} \models
+     ~( ( \lnot \mw{\varphi} @ \msc{t} ) \leftrightarrow
+     ~\lnot ( \mw{\varphi} @ \msc{t} ) ) )
+     ~)&(\mbox{\ref{eq:df-bl.atnot}})\notag
+  \\ 3 &&  & \vdash ( \mathfrak{M} \models ( ( \lnot \mw{\varphi} @ \msc{t} )
+     ~\leftrightarrow \lnot ( \mw{\varphi} @ \msc{t} ) )
+     ~)&(\mbox{\ref{eq:ax-mp}},1,2)\notag
+\end{align}
+\end{proof}
+
+\begin{restatable}{metadefinition}{dfblatadtwo}~\blTitle{df-bl.atad2}~ Distribute @ over addition, two
+terms.
+\begin{align}
+\vdash ( ( \msc{t} \in \mathbf{T} \wedge \mc{B} \in \mathbb{R} \wedge \mc{C}
+    \in \mathbb{R} ) \rightarrow ( \mathfrak{M} \models ( ( \mc{B} + \mc{C} ) @
+    \msc{t} ) ) = ( \mathfrak{M} \models ( ( \mc{B} @ \msc{t} ) + ( \mc{C} @
+    \msc{t} ) ) ) )\label{eq:df-bl.atad2}\tag{df-bl.atad2}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{bltadtwoi}~\blTitle{bl.atad2i}~ Distribute @ over addition, two terms,
+inference.
+\begin{align}
+\vdash ( \msc{t} \in \mathbf{T} \wedge \mc{B} \in \mathbb{R} \wedge \mc{C} \in
+    \mathbb{R} )\quad\Rightarrow \notag \\ 
+	\quad \vdash ( \mathfrak{M} \models ( ( \mc{B}
+    + \mc{C} ) @ \msc{t} ) ) = ( \mathfrak{M} \models ( ( \mc{B} @ \msc{t} ) +
+    ( \mc{C} @ \msc{t} ) ) )\label{eq:bl.atad2i}\tag{bl.atad2i}
+\end{align}
+\end{restatable}
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash ( \msc{t} \in \mathbf{T} \wedge \mc{B} \in \mathbb{R} \wedge
+     ~\mc{C} \in \mathbb{R}
+     ~)&\text{Hyp~atad2i.1}\notag%bl.atad2i.1
+  \\ 2 &&  & \vdash ( ( \msc{t} \in \mathbf{T} \wedge \mc{B} \in \mathbb{R}
+     ~\wedge \mc{C} \in \mathbb{R} ) \rightarrow (
+     ~\mathfrak{M} \models ( ( \mc{B} + \mc{C} ) @ \msc{t}
+     ~) ) = ( \mathfrak{M} \models ( ( \mc{B} @ \msc{t} ) +
+     ~( \mc{C} @ \msc{t} ) ) )
+     ~)&(\mbox{\ref{eq:df-bl.atad2}})\notag
+  \\ 3 &&  & \vdash ( \mathfrak{M} \models ( ( \mc{B} + \mc{C} ) @ \msc{t} ) )
+     ~= ( \mathfrak{M} \models ( ( \mc{B} @ \msc{t} ) + (
+     ~\mc{C} @ \msc{t} ) )
+     ~)&(\mbox{\ref{eq:ax-mp}},1,2)\notag
+\end{align}
+\end{proof}
+
+\begin{restatable}{lemma}{bltadthree}~\blTitle{bl.atad3}~ Distribute @ over addition, three terms $(
+\mc{A} + ( \mc{B} + \mc{C} ) ) @ \msc{t} )$.
+\begin{align}
+\vdash \msc{t} \in \mathbf{T}\quad\&\quad \vdash \mc{A} \in
+    \mathbb{R}\quad\&\quad \vdash \mc{B} \in \mathbb{R}\quad\&\quad \vdash
+    \mc{C} \in \mathbb{R}\quad\Rightarrow \notag \\ 
+	\quad \vdash ( \mathfrak{M} \models (
+    ( \mc{A} + ( \mc{B} + \mc{C} ) ) @ \msc{t} ) ) = ( \mathfrak{M} \models ( (
+    \mc{A} @ \msc{t} ) + ( ( \mc{B} @ \msc{t} ) + ( \mc{C} @ \msc{t} ) ) )
+    )\label{eq:bl.atad3}\tag{bl.atad3}
+\end{align}
+\end{restatable}
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash \msc{t} \in \mathbf{T}&\text{Hyp~atad3.1}\notag%bl.atad3.1
+  \\ 2 &&  & \vdash \mc{A} \in \mathbb{R}&\text{Hyp~atad3.2}\notag%bl.atad3.2
+  \\ 3 &&  & \vdash \mc{B} \in \mathbb{R}&\text{Hyp~atad3.3}\notag%bl.atad3.3
+  \\ 4 &&  & \vdash \mc{C} \in \mathbb{R}&\text{Hyp~atad3.4}\notag%bl.atad3.4
+  \\ 5 &&  & \vdash ( \mc{B} + \mc{C} ) \in
+     ~\mathbb{R}&(\mbox{\ref{eq:readdcli}},3,4)\notag
+  \\ 6 &&  & \vdash ( \msc{t} \in \mathbf{T} \wedge \mc{A} \in \mathbb{R}
+     ~\wedge ( \mc{B} + \mc{C} ) \in \mathbb{R}
+     ~)&(\mbox{\ref{eq:3pm3.2i}},1,2,5)\notag
+  \\ 7 &&  & \vdash ( \mathfrak{M} \models ( ( \mc{A} + ( \mc{B} + \mc{C} ) ) @
+     ~\msc{t} ) ) = ( \mathfrak{M} \models ( ( \mc{A} @
+     ~\msc{t} ) + ( ( \mc{B} + \mc{C} ) @ \msc{t} ) )
+     ~)&(\mbox{\ref{eq:bl.atad2i}},6)\notag
+  \\ 8 &&  & \vdash ( \mathfrak{M} \models ( ( \mc{A} @ \msc{t} ) + ( ( \mc{B}
+     ~+ \mc{C} ) @ \msc{t} ) ) ) = ( ( \mathfrak{M} \models
+     ~( \mc{A} @ \msc{t} ) ) + ( \mathfrak{M} \models ( (
+     ~\mc{B} + \mc{C} ) @ \msc{t} ) )
+     ~)&(\mbox{\ref{eq:df-bl.add}})\notag
+  \\ 9 &&  & \vdash \msc{t} \in \mathbf{T}&\text{Hyp~atad3.1}\notag%bl.atad3.1
+  \\ 10 &&  & \vdash \mc{B} \in \mathbb{R}&\text{Hyp~atad3.3}\notag%bl.atad3.3
+  \\ 11 &&  & \vdash \mc{C} \in \mathbb{R}&\text{Hyp~atad3.4}\notag%bl.atad3.4
+  \\ 12 &&  & \vdash ( \msc{t} \in \mathbf{T} \wedge \mc{B} \in \mathbb{R}
+     ~\wedge \mc{C} \in \mathbb{R}
+     ~)&(\mbox{\ref{eq:3pm3.2i}},9,10,11)\notag
+  \\ 13 &&  & \vdash ( \mathfrak{M} \models ( ( \mc{B} + \mc{C} ) @ \msc{t} ) )
+     ~= ( \mathfrak{M} \models ( ( \mc{B} @ \msc{t} ) + (
+     ~\mc{C} @ \msc{t} ) )
+     ~)&(\mbox{\ref{eq:bl.atad2i}},12)\notag
+  \\ 14 &&  & \vdash ( ( \mathfrak{M} \models ( \mc{A} @ \msc{t} ) ) + (
+     ~\mathfrak{M} \models ( ( \mc{B} + \mc{C} ) @ \msc{t}
+     ~) ) ) = ( ( \mathfrak{M} \models ( \mc{A} @ \msc{t} )
+     ~) + ( \mathfrak{M} \models ( ( \mc{B} @ \msc{t} ) + (
+     ~\mc{C} @ \msc{t} ) ) )
+     ~)&(\mbox{\ref{eq:oveq2i}},13)\notag
+  \\ 15 &&  & \vdash ( \mathfrak{M} \models ( ( \mc{A} + ( \mc{B} + \mc{C} ) )
+     ~@ \msc{t} ) ) = ( ( \mathfrak{M} \models ( \mc{A} @
+     ~\msc{t} ) ) + ( \mathfrak{M} \models ( ( \mc{B} @
+     ~\msc{t} ) + ( \mc{C} @ \msc{t} ) ) )
+     ~)&(\mbox{\ref{eq:3eqtri}},7,8,14)\notag
+  \\ 16 &&  & \vdash ( \mathfrak{M} \models ( ( \mc{A} @ \msc{t} ) + ( ( \mc{B}
+     ~@ \msc{t} ) + ( \mc{C} @ \msc{t} ) ) ) ) = ( (
+     ~\mathfrak{M} \models ( \mc{A} @ \msc{t} ) ) + (
+     ~\mathfrak{M} \models ( ( \mc{B} @ \msc{t} ) + (
+     ~\mc{C} @ \msc{t} ) ) )
+     ~)&(\mbox{\ref{eq:df-bl.add}})\notag
+  \\ 17 &&  & \vdash ( \mathfrak{M} \models ( ( \mc{A} + ( \mc{B} + \mc{C} ) )
+     ~@ \msc{t} ) ) = ( \mathfrak{M} \models ( ( \mc{A} @
+     ~\msc{t} ) + ( ( \mc{B} @ \msc{t} ) + ( \mc{C} @
+     ~\msc{t} ) ) ) )&(\mbox{\ref{eq:eqtr4i}},15,16)\notag
+\end{align}
+\end{proof}
+
+\begin{restatable}{lemma}{bltadthreel}~\blTitle{bl.atad3l}~ Distribute @ over addition, three terms,
+left $( ( \mc{A} + \mc{B} ) + \mc{C} ) @ \msc{t} )$.
+\begin{align}
+\vdash \msc{t} \in \mathbf{T}\quad\&\quad \vdash \mc{A} \in
+    \mathbb{R}\quad\&\quad \vdash \mc{B} \in \mathbb{R}\quad\&\quad \vdash
+    \mc{C} \in \mathbb{R}\quad\Rightarrow \notag \\ 
+	\quad \vdash ( \mathfrak{M} \models (
+    ( ( \mc{A} + \mc{B} ) + \mc{C} ) @ \msc{t} ) ) = ( \mathfrak{M} \models ( (
+    ( \mc{A} @ \msc{t} ) + ( \mc{B} @ \msc{t} ) ) + ( \mc{C} @ \msc{t} ) )
+    )\label{eq:bl.atad3l}\tag{bl.atad3l}
+\end{align}
+\end{restatable}
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash \msc{t} \in \mathbf{T}&\text{Hyp~atad3l.1}\notag%bl.atad3l.1
+  \\ 2 &&  & \vdash \mc{A} \in \mathbb{R}&\text{Hyp~atad3l.2}\notag%bl.atad3l.2
+  \\ 3 &&  & \vdash \mc{B} \in \mathbb{R}&\text{Hyp~atad3l.3}\notag%bl.atad3l.3
+  \\ 4 &&  & \vdash ( \mc{A} + \mc{B} ) \in
+     ~\mathbb{R}&(\mbox{\ref{eq:readdcli}},2,3)\notag
+  \\ 5 &&  & \vdash \mc{C} \in \mathbb{R}&\text{Hyp~atad3l.4}\notag%bl.atad3l.4
+  \\ 6 &&  & \vdash ( \msc{t} \in \mathbf{T} \wedge ( \mc{A} + \mc{B} ) \in
+     ~\mathbb{R} \wedge \mc{C} \in \mathbb{R}
+     ~)&(\mbox{\ref{eq:3pm3.2i}},1,4,5)\notag
+  \\ 7 &&  & \vdash ( \mathfrak{M} \models ( ( ( \mc{A} + \mc{B} ) + \mc{C} ) @
+     ~\msc{t} ) ) = ( \mathfrak{M} \models ( ( ( \mc{A} +
+     ~\mc{B} ) @ \msc{t} ) + ( \mc{C} @ \msc{t} ) )
+     ~)&(\mbox{\ref{eq:bl.atad2i}},6)\notag
+  \\ 8 &&  & \vdash ( \mathfrak{M} \models ( ( ( \mc{A} + \mc{B} ) @ \msc{t} )
+     ~+ ( \mc{C} @ \msc{t} ) ) ) = ( ( \mathfrak{M} \models
+     ~( ( \mc{A} + \mc{B} ) @ \msc{t} ) ) + ( \mathfrak{M}
+     ~\models ( \mc{C} @ \msc{t} ) )
+     ~)&(\mbox{\ref{eq:df-bl.add}})\notag
+  \\ 9 &&  & \vdash \msc{t} \in
+     ~\mathbf{T}&\text{Hyp~atad3l.1}\notag%bl.atad3l.1
+  \\ 10 &&  & \vdash \mc{A} \in
+     ~\mathbb{R}&\text{Hyp~atad3l.2}\notag%bl.atad3l.2
+  \\ 11 &&  & \vdash \mc{B} \in
+     ~\mathbb{R}&\text{Hyp~atad3l.3}\notag%bl.atad3l.3
+  \\ 12 &&  & \vdash ( \msc{t} \in \mathbf{T} \wedge \mc{A} \in \mathbb{R}
+     ~\wedge \mc{B} \in \mathbb{R}
+     ~)&(\mbox{\ref{eq:3pm3.2i}},9,10,11)\notag
+  \\ 13 &&  & \vdash ( \mathfrak{M} \models ( ( \mc{A} + \mc{B} ) @ \msc{t} ) )
+     ~= ( \mathfrak{M} \models ( ( \mc{A} @ \msc{t} ) + (
+     ~\mc{B} @ \msc{t} ) )
+     ~)&(\mbox{\ref{eq:bl.atad2i}},12)\notag
+  \\ 14 &&  & \vdash ( ( \mathfrak{M} \models ( ( \mc{A} + \mc{B} ) @ \msc{t} )
+     ~) + ( \mathfrak{M} \models ( \mc{C} @ \msc{t} ) ) ) =
+     ~( ( \mathfrak{M} \models ( ( \mc{A} @ \msc{t} ) + (
+     ~\mc{B} @ \msc{t} ) ) ) + ( \mathfrak{M} \models (
+     ~\mc{C} @ \msc{t} ) )
+     ~)&(\mbox{\ref{eq:oveq1i}},13)\notag
+  \\ 15 &&  & \vdash ( \mathfrak{M} \models ( ( ( \mc{A} + \mc{B} ) + \mc{C} )
+     ~@ \msc{t} ) ) = ( ( \mathfrak{M} \models ( ( \mc{A} @
+     ~\msc{t} ) + ( \mc{B} @ \msc{t} ) ) ) + ( \mathfrak{M}
+     ~\models ( \mc{C} @ \msc{t} ) )
+     ~)&(\mbox{\ref{eq:3eqtri}},7,8,14)\notag
+  \\ 16 &&  & \vdash ( \mathfrak{M} \models ( ( ( \mc{A} @ \msc{t} ) + ( \mc{B}
+     ~@ \msc{t} ) ) + ( \mc{C} @ \msc{t} ) ) ) = ( (
+     ~\mathfrak{M} \models ( ( \mc{A} @ \msc{t} ) + (
+     ~\mc{B} @ \msc{t} ) ) ) + ( \mathfrak{M} \models (
+     ~\mc{C} @ \msc{t} ) )
+     ~)&(\mbox{\ref{eq:df-bl.add}})\notag
+  \\ 17 &&  & \vdash ( \mathfrak{M} \models ( ( ( \mc{A} + \mc{B} ) + \mc{C} )
+     ~@ \msc{t} ) ) = ( \mathfrak{M} \models ( ( ( \mc{A} @
+     ~\msc{t} ) + ( \mc{B} @ \msc{t} ) ) + ( \mc{C} @
+     ~\msc{t} ) ) )&(\mbox{\ref{eq:eqtr4i}},15,16)\notag
+\end{align}
+\end{proof}
+
+\begin{restatable}{lemma}{blatad}~\blTitle{bl.atad}~ Distribute @ over addition, wff-list.
+\begin{align}
+\vdash ( \msc{t} \in \mathbf{T} \wedge +( \msc{csl_1} ) \in \mathbb{R} \wedge
+    +( \msc{csl_2} ) \in \mathbb{R} )\quad\Rightarrow \notag \\ 
+	\quad \vdash (
+    \mathfrak{M} \models ( +( \msc{csl_1} , \msc{csl_2} ) @ \msc{t} ) ) = (
+    \mathfrak{M} \models ( ( +( \msc{csl_1} ) @ \msc{t} ) + ( +( \msc{csl_2} )
+    @ \msc{t} ) ) )\label{eq:bl.atad}\tag{bl.atad}
+\end{align}
+\end{restatable}
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash ( \msc{t} \in \mathbf{T} \wedge +( \msc{csl_1} ) \in
+     ~\mathbb{R} \wedge +( \msc{csl_2} ) \in \mathbb{R}
+     ~)&\text{Hyp~atad.1}\notag%bl.atad.1
+  \\ 2 && @2:\  & \vdash \msc{t} \in
+     ~\mathbf{T}&(\mbox{\ref{eq:simp1i}},1)\notag
+  \\ 3 &&  & \vdash \msc{t} \in \mathbf{T}&(@2)\notag
+  \\ 4 &&  & \vdash +( \msc{csl_1} , \msc{csl_2} ) = ( +( \msc{csl_1} ) + +(
+     ~\msc{csl_2} ) )&(\mbox{\ref{eq:df-bl.add2}})\notag
+  \\ 5 &&  & \vdash \msc{t} = \msc{t}&(\mbox{\ref{eq:eqid}})\notag
+  \\ 6 &&  & \vdash ( \mathfrak{M} \models ( +( \msc{csl_1} , \msc{csl_2} ) @
+     ~\msc{t} ) ) = ( \mathfrak{M} \models ( ( +(
+     ~\msc{csl_1} ) + +( \msc{csl_2} ) ) @ \msc{t} )
+     ~)&(\mbox{\ref{eq:bl.ateqci}},2,3,4,5)\notag
+  \\ 7 &&  & \vdash ( \msc{t} \in \mathbf{T} \wedge +( \msc{csl_1} ) \in
+     ~\mathbb{R} \wedge +( \msc{csl_2} ) \in \mathbb{R}
+     ~)&\text{Hyp~atad.1}\notag%bl.atad.1
+  \\ 8 &&  & \vdash ( ( \msc{t} \in \mathbf{T} \wedge +( \msc{csl_1} ) \in
+     ~\mathbb{R} \wedge +( \msc{csl_2} ) \in \mathbb{R} )
+     ~\rightarrow ( \mathfrak{M} \models ( ( +( \msc{csl_1}
+     ~) + +( \msc{csl_2} ) ) @ \msc{t} ) ) = ( \mathfrak{M}
+     ~\models ( ( +( \msc{csl_1} ) @ \msc{t} ) + ( +(
+     ~\msc{csl_2} ) @ \msc{t} ) ) )
+     ~)&(\mbox{\ref{eq:df-bl.atad2}})\notag
+  \\ 9 &&  & \vdash ( \mathfrak{M} \models ( ( +( \msc{csl_1} ) + +(
+     ~\msc{csl_2} ) ) @ \msc{t} ) ) = ( \mathfrak{M}
+     ~\models ( ( +( \msc{csl_1} ) @ \msc{t} ) + ( +(
+     ~\msc{csl_2} ) @ \msc{t} ) )
+     ~)&(\mbox{\ref{eq:ax-mp}},7,8)\notag
+  \\ 10 &&  & \vdash ( \mathfrak{M} \models ( +( \msc{csl_1} , \msc{csl_2} ) @
+     ~\msc{t} ) ) = ( \mathfrak{M} \models ( ( +(
+     ~\msc{csl_1} ) @ \msc{t} ) + ( +( \msc{csl_2} ) @
+     ~\msc{t} ) ) )&(\mbox{\ref{eq:eqtri}},6,9)\notag
+\end{align}
+\end{proof}
+
+\begin{restatable}{metadefinition}{dfblatmultwo}~\blTitle{df-bl.atmul2}~ Distribute @ over multiplication,
+two terms.
+\begin{align}
+\vdash ( ( \msc{t} \in \mathbf{T} \wedge \mc{B} \in \mathbb{R} \wedge \mc{C}
+    \in \mathbb{R} ) \rightarrow ( \mathfrak{M} \models ( ( \mc{B} \cdot \mc{C}
+    ) @ \msc{t} ) ) = ( \mathfrak{M} \models ( ( \mc{B} @ \msc{t} ) \cdot (
+    \mc{C} @ \msc{t} ) ) ) )\label{eq:df-bl.atmul2}\tag{df-bl.atmul2}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{bltmultwoi}~\blTitle{bl.atmul2i}~ Distribute @ over multiplication, two
+terms, inference.
+\begin{align}
+\vdash ( \msc{t} \in \mathbf{T} \wedge \mc{B} \in \mathbb{R} \wedge \mc{C} \in
+    \mathbb{R} )\quad\Rightarrow \notag \\ 
+	\quad \vdash ( \mathfrak{M} \models ( ( \mc{B}
+    \cdot \mc{C} ) @ \msc{t} ) ) = ( \mathfrak{M} \models ( ( \mc{B} @ \msc{t}
+    ) \cdot ( \mc{C} @ \msc{t} ) ) )\label{eq:bl.atmul2i}\tag{bl.atmul2i}
+\end{align}
+\end{restatable}
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash ( \msc{t} \in \mathbf{T} \wedge \mc{B} \in \mathbb{R} \wedge
+     ~\mc{C} \in \mathbb{R}
+     ~)&\text{Hyp~atmul2i.1}\notag%bl.atmul2i.1
+  \\ 2 &&  & \vdash ( ( \msc{t} \in \mathbf{T} \wedge \mc{B} \in \mathbb{R}
+     ~\wedge \mc{C} \in \mathbb{R} ) \rightarrow (
+     ~\mathfrak{M} \models ( ( \mc{B} \cdot \mc{C} ) @
+     ~\msc{t} ) ) = ( \mathfrak{M} \models ( ( \mc{B} @
+     ~\msc{t} ) \cdot ( \mc{C} @ \msc{t} ) ) )
+     ~)&(\mbox{\ref{eq:df-bl.atmul2}})\notag
+  \\ 3 &&  & \vdash ( \mathfrak{M} \models ( ( \mc{B} \cdot \mc{C} ) @ \msc{t}
+     ~) ) = ( \mathfrak{M} \models ( ( \mc{B} @ \msc{t} )
+     ~\cdot ( \mc{C} @ \msc{t} ) )
+     ~)&(\mbox{\ref{eq:ax-mp}},1,2)\notag
+\end{align}
+\end{proof}
+
+\begin{restatable}{lemma}{bltmulthree}~\blTitle{bl.atmul3}~ Distribute @ over multiplication, three
+terms $( \mc{A} \cdot ( \mc{B} \cdot \mc{C} ) ) @ \msc{t} )$.
+\begin{align}
+\vdash \msc{t} \in \mathbf{T}\quad\&\quad \vdash \mc{A} \in
+    \mathbb{R}\quad\&\quad \vdash \mc{B} \in \mathbb{R}\quad\&\quad \vdash
+    \mc{C} \in \mathbb{R}\quad\Rightarrow \notag \\ 
+	\quad \vdash ( \mathfrak{M} \models (
+    ( \mc{A} \cdot ( \mc{B} \cdot \mc{C} ) ) @ \msc{t} ) ) = ( \mathfrak{M}
+    \models ( ( \mc{A} @ \msc{t} ) \cdot ( ( \mc{B} @ \msc{t} ) \cdot ( \mc{C}
+    @ \msc{t} ) ) ) )\label{eq:bl.atmul3}\tag{bl.atmul3}
+\end{align}
+\end{restatable}
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash \msc{t} \in \mathbf{T}&\text{Hyp~atmul3.1}\notag%bl.atmul3.1
+  \\ 2 &&  & \vdash \mc{A} \in \mathbb{R}&\text{Hyp~atmul3.2}\notag%bl.atmul3.2
+  \\ 3 &&  & \vdash \mc{B} \in \mathbb{R}&\text{Hyp~atmul3.3}\notag%bl.atmul3.3
+  \\ 4 &&  & \vdash \mc{C} \in \mathbb{R}&\text{Hyp~atmul3.4}\notag%bl.atmul3.4
+  \\ 5 &&  & \vdash ( \mc{B} \cdot \mc{C} ) \in
+     ~\mathbb{R}&(\mbox{\ref{eq:remulcli}},3,4)\notag
+  \\ 6 &&  & \vdash ( \msc{t} \in \mathbf{T} \wedge \mc{A} \in \mathbb{R}
+     ~\wedge ( \mc{B} \cdot \mc{C} ) \in \mathbb{R}
+     ~)&(\mbox{\ref{eq:3pm3.2i}},1,2,5)\notag
+  \\ 7 &&  & \vdash ( \mathfrak{M} \models ( ( \mc{A} \cdot ( \mc{B} \cdot
+     ~\mc{C} ) ) @ \msc{t} ) ) = ( \mathfrak{M} \models ( (
+     ~\mc{A} @ \msc{t} ) \cdot ( ( \mc{B} \cdot \mc{C} ) @
+     ~\msc{t} ) ) )&(\mbox{\ref{eq:bl.atmul2i}},6)\notag
+  \\ 8 &&  & \vdash ( \mathfrak{M} \models ( ( \mc{A} @ \msc{t} ) \cdot ( (
+     ~\mc{B} \cdot \mc{C} ) @ \msc{t} ) ) ) = ( (
+     ~\mathfrak{M} \models ( \mc{A} @ \msc{t} ) ) \cdot (
+     ~\mathfrak{M} \models ( ( \mc{B} \cdot \mc{C} ) @
+     ~\msc{t} ) ) )&(\mbox{\ref{eq:df-bl.mul}})\notag
+  \\ 9 &&  & \vdash \msc{t} \in
+     ~\mathbf{T}&\text{Hyp~atmul3.1}\notag%bl.atmul3.1
+  \\ 10 &&  & \vdash \mc{B} \in
+     ~\mathbb{R}&\text{Hyp~atmul3.3}\notag%bl.atmul3.3
+  \\ 11 &&  & \vdash \mc{C} \in
+     ~\mathbb{R}&\text{Hyp~atmul3.4}\notag%bl.atmul3.4
+  \\ 12 &&  & \vdash ( \msc{t} \in \mathbf{T} \wedge \mc{B} \in \mathbb{R}
+     ~\wedge \mc{C} \in \mathbb{R}
+     ~)&(\mbox{\ref{eq:3pm3.2i}},9,10,11)\notag
+  \\ 13 &&  & \vdash ( \mathfrak{M} \models ( ( \mc{B} \cdot \mc{C} ) @ \msc{t}
+     ~) ) = ( \mathfrak{M} \models ( ( \mc{B} @ \msc{t} )
+     ~\cdot ( \mc{C} @ \msc{t} ) )
+     ~)&(\mbox{\ref{eq:bl.atmul2i}},12)\notag
+  \\ 14 &&  & \vdash ( ( \mathfrak{M} \models ( \mc{A} @ \msc{t} ) ) \cdot (
+     ~\mathfrak{M} \models ( ( \mc{B} \cdot \mc{C} ) @
+     ~\msc{t} ) ) ) = ( ( \mathfrak{M} \models ( \mc{A} @
+     ~\msc{t} ) ) \cdot ( \mathfrak{M} \models ( ( \mc{B} @
+     ~\msc{t} ) \cdot ( \mc{C} @ \msc{t} ) ) )
+     ~)&(\mbox{\ref{eq:oveq2i}},13)\notag
+  \\ 15 &&  & \vdash ( \mathfrak{M} \models ( ( \mc{A} \cdot ( \mc{B} \cdot
+     ~\mc{C} ) ) @ \msc{t} ) ) = ( ( \mathfrak{M} \models (
+     ~\mc{A} @ \msc{t} ) ) \cdot ( \mathfrak{M} \models ( (
+     ~\mc{B} @ \msc{t} ) \cdot ( \mc{C} @ \msc{t} ) ) )
+     ~)&(\mbox{\ref{eq:3eqtri}},7,8,14)\notag
+  \\ 16 &&  & \vdash ( \mathfrak{M} \models ( ( \mc{A} @ \msc{t} ) \cdot ( (
+     ~\mc{B} @ \msc{t} ) \cdot ( \mc{C} @ \msc{t} ) ) ) ) =
+     ~( ( \mathfrak{M} \models ( \mc{A} @ \msc{t} ) ) \cdot
+     ~( \mathfrak{M} \models ( ( \mc{B} @ \msc{t} ) \cdot (
+     ~\mc{C} @ \msc{t} ) ) )
+     ~)&(\mbox{\ref{eq:df-bl.mul}})\notag
+  \\ 17 &&  & \vdash ( \mathfrak{M} \models ( ( \mc{A} \cdot ( \mc{B} \cdot
+     ~\mc{C} ) ) @ \msc{t} ) ) = ( \mathfrak{M} \models ( (
+     ~\mc{A} @ \msc{t} ) \cdot ( ( \mc{B} @ \msc{t} ) \cdot
+     ~( \mc{C} @ \msc{t} ) ) )
+     ~)&(\mbox{\ref{eq:eqtr4i}},15,16)\notag
+\end{align}
+\end{proof}
+
+\begin{restatable}{lemma}{bltmulthreel}~\blTitle{bl.atmul3l}~ Distribute @ over multiplication, three
+terms, left $( ( \mc{A} \cdot \mc{B} ) \cdot \mc{C} ) @ \msc{t} )$.
+\begin{align}
+\vdash \msc{t} \in \mathbf{T}\quad\&\quad \vdash \mc{A} \in
+    \mathbb{R}\quad\&\quad \vdash \mc{B} \in \mathbb{R}\quad\&\quad \vdash
+    \mc{C} \in \mathbb{R}\quad\Rightarrow \notag \\ 
+	\quad \vdash ( \mathfrak{M} \models (
+    ( ( \mc{A} \cdot \mc{B} ) \cdot \mc{C} ) @ \msc{t} ) ) = ( \mathfrak{M}
+    \models ( ( ( \mc{A} @ \msc{t} ) \cdot ( \mc{B} @ \msc{t} ) ) \cdot (
+    \mc{C} @ \msc{t} ) ) )\label{eq:bl.atmul3l}\tag{bl.atmul3l}
+\end{align}
+\end{restatable}
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash \msc{t} \in \mathbf{T}&\text{Hyp~atmul3l.1}\notag%bl.atmul3l.1
+  \\ 2 &&  & \vdash \mc{A} \in
+     ~\mathbb{R}&\text{Hyp~atmul3l.2}\notag%bl.atmul3l.2
+  \\ 3 &&  & \vdash \mc{B} \in
+     ~\mathbb{R}&\text{Hyp~atmul3l.3}\notag%bl.atmul3l.3
+  \\ 4 &&  & \vdash ( \mc{A} \cdot \mc{B} ) \in
+     ~\mathbb{R}&(\mbox{\ref{eq:remulcli}},2,3)\notag
+  \\ 5 &&  & \vdash \mc{C} \in
+     ~\mathbb{R}&\text{Hyp~atmul3l.4}\notag%bl.atmul3l.4
+  \\ 6 &&  & \vdash ( \msc{t} \in \mathbf{T} \wedge ( \mc{A} \cdot \mc{B} ) \in
+     ~\mathbb{R} \wedge \mc{C} \in \mathbb{R}
+     ~)&(\mbox{\ref{eq:3pm3.2i}},1,4,5)\notag
+  \\ 7 &&  & \vdash ( \mathfrak{M} \models ( ( ( \mc{A} \cdot \mc{B} ) \cdot
+     ~\mc{C} ) @ \msc{t} ) ) = ( \mathfrak{M} \models ( ( (
+     ~\mc{A} \cdot \mc{B} ) @ \msc{t} ) \cdot ( \mc{C} @
+     ~\msc{t} ) ) )&(\mbox{\ref{eq:bl.atmul2i}},6)\notag
+  \\ 8 &&  & \vdash ( \mathfrak{M} \models ( ( ( \mc{A} \cdot \mc{B} ) @
+     ~\msc{t} ) \cdot ( \mc{C} @ \msc{t} ) ) ) = ( (
+     ~\mathfrak{M} \models ( ( \mc{A} \cdot \mc{B} ) @
+     ~\msc{t} ) ) \cdot ( \mathfrak{M} \models ( \mc{C} @
+     ~\msc{t} ) ) )&(\mbox{\ref{eq:df-bl.mul}})\notag
+  \\ 9 &&  & \vdash \msc{t} \in
+     ~\mathbf{T}&\text{Hyp~atmul3l.1}\notag%bl.atmul3l.1
+  \\ 10 &&  & \vdash \mc{A} \in
+     ~\mathbb{R}&\text{Hyp~atmul3l.2}\notag%bl.atmul3l.2
+  \\ 11 &&  & \vdash \mc{B} \in
+     ~\mathbb{R}&\text{Hyp~atmul3l.3}\notag%bl.atmul3l.3
+  \\ 12 &&  & \vdash ( \msc{t} \in \mathbf{T} \wedge \mc{A} \in \mathbb{R}
+     ~\wedge \mc{B} \in \mathbb{R}
+     ~)&(\mbox{\ref{eq:3pm3.2i}},9,10,11)\notag
+  \\ 13 &&  & \vdash ( \mathfrak{M} \models ( ( \mc{A} \cdot \mc{B} ) @ \msc{t}
+     ~) ) = ( \mathfrak{M} \models ( ( \mc{A} @ \msc{t} )
+     ~\cdot ( \mc{B} @ \msc{t} ) )
+     ~)&(\mbox{\ref{eq:bl.atmul2i}},12)\notag
+  \\ 14 &&  & \vdash ( ( \mathfrak{M} \models ( ( \mc{A} \cdot \mc{B} ) @
+     ~\msc{t} ) ) \cdot ( \mathfrak{M} \models ( \mc{C} @
+     ~\msc{t} ) ) ) = ( ( \mathfrak{M} \models ( ( \mc{A} @
+     ~\msc{t} ) \cdot ( \mc{B} @ \msc{t} ) ) ) \cdot (
+     ~\mathfrak{M} \models ( \mc{C} @ \msc{t} ) )
+     ~)&(\mbox{\ref{eq:oveq1i}},13)\notag
+  \\ 15 &&  & \vdash ( \mathfrak{M} \models ( ( ( \mc{A} \cdot \mc{B} ) \cdot
+     ~\mc{C} ) @ \msc{t} ) ) = ( ( \mathfrak{M} \models ( (
+     ~\mc{A} @ \msc{t} ) \cdot ( \mc{B} @ \msc{t} ) ) )
+     ~\cdot ( \mathfrak{M} \models ( \mc{C} @ \msc{t} ) )
+     ~)&(\mbox{\ref{eq:3eqtri}},7,8,14)\notag
+  \\ 16 &&  & \vdash ( \mathfrak{M} \models ( ( ( \mc{A} @ \msc{t} ) \cdot (
+     ~\mc{B} @ \msc{t} ) ) \cdot ( \mc{C} @ \msc{t} ) ) ) =
+     ~( ( \mathfrak{M} \models ( ( \mc{A} @ \msc{t} ) \cdot
+     ~( \mc{B} @ \msc{t} ) ) ) \cdot ( \mathfrak{M} \models
+     ~( \mc{C} @ \msc{t} ) )
+     ~)&(\mbox{\ref{eq:df-bl.mul}})\notag
+  \\ 17 &&  & \vdash ( \mathfrak{M} \models ( ( ( \mc{A} \cdot \mc{B} ) \cdot
+     ~\mc{C} ) @ \msc{t} ) ) = ( \mathfrak{M} \models ( ( (
+     ~\mc{A} @ \msc{t} ) \cdot ( \mc{B} @ \msc{t} ) ) \cdot
+     ~( \mc{C} @ \msc{t} ) )
+     ~)&(\mbox{\ref{eq:eqtr4i}},15,16)\notag
+\end{align}
+\end{proof}
+
+\begin{restatable}{lemma}{blatmul}~\blTitle{bl.atmul}~ Distribute @ over addition, wff-list.
+\begin{align}
+\vdash ( \msc{t} \in \mathbf{T} \wedge \cdot( \msc{csl_1} ) \in \mathbb{R}
+    \wedge \cdot( \msc{csl_2} ) \in \mathbb{R} )\quad\Rightarrow \notag \\ 
+	\quad \vdash (
+    \mathfrak{M} \models ( \cdot( \msc{csl_1} , \msc{csl_2} ) @ \msc{t} ) ) = (
+    \mathfrak{M} \models ( ( \cdot( \msc{csl_1} ) @ \msc{t} ) \cdot ( \cdot(
+    \msc{csl_2} ) @ \msc{t} ) ) )\label{eq:bl.atmul}\tag{bl.atmul}
+\end{align}
+\end{restatable}
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash ( \msc{t} \in \mathbf{T} \wedge \cdot( \msc{csl_1} ) \in
+     ~\mathbb{R} \wedge \cdot( \msc{csl_2} ) \in \mathbb{R}
+     ~)&\text{Hyp~atmul.1}\notag%bl.atmul.1
+  \\ 2 && @2:\  & \vdash \msc{t} \in
+     ~\mathbf{T}&(\mbox{\ref{eq:simp1i}},1)\notag
+  \\ 3 &&  & \vdash \msc{t} \in \mathbf{T}&(@2)\notag
+  \\ 4 &&  & \vdash \cdot( \msc{csl_1} , \msc{csl_2} ) = ( \cdot( \msc{csl_1} )
+     ~\cdot \cdot( \msc{csl_2} )
+     ~)&(\mbox{\ref{eq:df-bl.mul2}})\notag
+  \\ 5 &&  & \vdash \msc{t} = \msc{t}&(\mbox{\ref{eq:eqid}})\notag
+  \\ 6 &&  & \vdash ( \mathfrak{M} \models ( \cdot( \msc{csl_1} , \msc{csl_2} )
+     ~@ \msc{t} ) ) = ( \mathfrak{M} \models ( ( \cdot(
+     ~\msc{csl_1} ) \cdot \cdot( \msc{csl_2} ) ) @ \msc{t}
+     ~) )&(\mbox{\ref{eq:bl.ateqci}},2,3,4,5)\notag
+  \\ 7 &&  & \vdash ( \msc{t} \in \mathbf{T} \wedge \cdot( \msc{csl_1} ) \in
+     ~\mathbb{R} \wedge \cdot( \msc{csl_2} ) \in \mathbb{R}
+     ~)&\text{Hyp~atmul.1}\notag%bl.atmul.1
+  \\ 8 &&  & \vdash ( ( \msc{t} \in \mathbf{T} \wedge \cdot( \msc{csl_1} ) \in
+     ~\mathbb{R} \wedge \cdot( \msc{csl_2} ) \in \mathbb{R}
+     ~) \rightarrow ( \mathfrak{M} \models ( ( \cdot(
+     ~\msc{csl_1} ) \cdot \cdot( \msc{csl_2} ) ) @ \msc{t}
+     ~) ) = ( \mathfrak{M} \models ( ( \cdot( \msc{csl_1} )
+     ~@ \msc{t} ) \cdot ( \cdot( \msc{csl_2} ) @ \msc{t} )
+     ~) ) )&(\mbox{\ref{eq:df-bl.atmul2}})\notag
+  \\ 9 &&  & \vdash ( \mathfrak{M} \models ( ( \cdot( \msc{csl_1} ) \cdot
+     ~\cdot( \msc{csl_2} ) ) @ \msc{t} ) ) = ( \mathfrak{M}
+     ~\models ( ( \cdot( \msc{csl_1} ) @ \msc{t} ) \cdot (
+     ~\cdot( \msc{csl_2} ) @ \msc{t} ) )
+     ~)&(\mbox{\ref{eq:ax-mp}},7,8)\notag
+  \\ 10 &&  & \vdash ( \mathfrak{M} \models ( \cdot( \msc{csl_1} , \msc{csl_2}
+     ~) @ \msc{t} ) ) = ( \mathfrak{M} \models ( ( \cdot(
+     ~\msc{csl_1} ) @ \msc{t} ) \cdot ( \cdot( \msc{csl_2}
+     ~) @ \msc{t} ) ) )&(\mbox{\ref{eq:eqtri}},6,9)\notag
+\end{align}
+\end{proof}
+
+\begin{restatable}{metadefinition}{dfblatsub}~\blTitle{df-bl.atsub}~ Distribute @ over subtraction.
+\begin{align}
+\vdash ( ( \msc{t} \in \mathbf{T} \wedge \mc{B} \in \mathbb{R} \wedge \mc{C}
+    \in \mathbb{R} ) \rightarrow ( \mathfrak{M} \models ( ( \mc{B} \minus
+    \mc{C} ) @ \msc{t} ) ) = ( \mathfrak{M} \models ( ( \mc{B} @ \msc{t} )
+    \minus ( \mc{C} @ \msc{t} ) ) ) )\label{eq:df-bl.atsub}\tag{df-bl.atsub}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{blatsubi}~\blTitle{bl.atsubi}~ Distribute @ over subtraction, inference.
+\begin{align}
+\vdash ( \msc{t} \in \mathbf{T} \wedge \mc{B} \in \mathbb{R} \wedge \mc{C} \in
+    \mathbb{R} )\quad\Rightarrow \notag \\ 
+	\quad \vdash ( \mathfrak{M} \models ( ( \mc{B}
+    \minus \mc{C} ) @ \msc{t} ) ) = ( \mathfrak{M} \models ( ( \mc{B} @ \msc{t}
+    ) \minus ( \mc{C} @ \msc{t} ) ) )\label{eq:bl.atsubi}\tag{bl.atsubi}
+\end{align}
+\end{restatable}
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash ( \msc{t} \in \mathbf{T} \wedge \mc{B} \in \mathbb{R} \wedge
+     ~\mc{C} \in \mathbb{R}
+     ~)&\text{Hyp~atsubi.1}\notag%bl.atsubi.1
+  \\ 2 &&  & \vdash ( ( \msc{t} \in \mathbf{T} \wedge \mc{B} \in \mathbb{R}
+     ~\wedge \mc{C} \in \mathbb{R} ) \rightarrow (
+     ~\mathfrak{M} \models ( ( \mc{B} \minus \mc{C} ) @
+     ~\msc{t} ) ) = ( \mathfrak{M} \models ( ( \mc{B} @
+     ~\msc{t} ) \minus ( \mc{C} @ \msc{t} ) ) )
+     ~)&(\mbox{\ref{eq:df-bl.atsub}})\notag
+  \\ 3 &&  & \vdash ( \mathfrak{M} \models ( ( \mc{B} \minus \mc{C} ) @ \msc{t}
+     ~) ) = ( \mathfrak{M} \models ( ( \mc{B} @ \msc{t} )
+     ~\minus ( \mc{C} @ \msc{t} ) )
+     ~)&(\mbox{\ref{eq:ax-mp}},1,2)\notag
+\end{align}
+\end{proof}
+
+\begin{restatable}{metadefinition}{dfblatdiv}~\blTitle{df-bl.atdiv}~ Distribute @ over division.
+\begin{align}
+\vdash ( ( \msc{t} \in \mathbf{T} \wedge \mc{B} \in \mathbb{R} \wedge \mc{C}
+    \in \mathbb{R} ) \rightarrow ( \mathfrak{M} \models ( ( \mc{B} / \mc{C} ) @
+    \msc{t} ) ) = ( \mathfrak{M} \models ( ( \mc{B} @ \msc{t} ) / ( \mc{C} @
+    \msc{t} ) ) ) )\label{eq:df-bl.atdiv}\tag{df-bl.atdiv}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{blatdivi}~\blTitle{bl.atdivi}~ Distribute @ over division, inference.
+\begin{align}
+\vdash ( \msc{t} \in \mathbf{T} \wedge \mc{B} \in \mathbb{R} \wedge \mc{C} \in
+    \mathbb{R} )\quad\Rightarrow \notag \\ 
+	\quad \vdash ( \mathfrak{M} \models ( ( \mc{B}
+    / \mc{C} ) @ \msc{t} ) ) = ( \mathfrak{M} \models ( ( \mc{B} @ \msc{t} ) /
+    ( \mc{C} @ \msc{t} ) ) )\label{eq:bl.atdivi}\tag{bl.atdivi}
+\end{align}
+\end{restatable}
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash ( \msc{t} \in \mathbf{T} \wedge \mc{B} \in \mathbb{R} \wedge
+     ~\mc{C} \in \mathbb{R}
+     ~)&\text{Hyp~atdivi.1}\notag%bl.atdivi.1
+  \\ 2 &&  & \vdash ( ( \msc{t} \in \mathbf{T} \wedge \mc{B} \in \mathbb{R}
+     ~\wedge \mc{C} \in \mathbb{R} ) \rightarrow (
+     ~\mathfrak{M} \models ( ( \mc{B} / \mc{C} ) @ \msc{t}
+     ~) ) = ( \mathfrak{M} \models ( ( \mc{B} @ \msc{t} ) /
+     ~( \mc{C} @ \msc{t} ) ) )
+     ~)&(\mbox{\ref{eq:df-bl.atdiv}})\notag
+  \\ 3 &&  & \vdash ( \mathfrak{M} \models ( ( \mc{B} / \mc{C} ) @ \msc{t} ) )
+     ~= ( \mathfrak{M} \models ( ( \mc{B} @ \msc{t} ) / (
+     ~\mc{C} @ \msc{t} ) )
+     ~)&(\mbox{\ref{eq:ax-mp}},1,2)\notag
+\end{align}
+\end{proof}
+
+\begin{restatable}{metadefinition}{dfblatum}~\blTitle{df-bl.atum}~ Distribute @ over unary minus.
+\begin{align}
+\vdash ( \msc{t} \in \mathbf{T} \rightarrow ( \mathfrak{M} \models ( \textrm{-}
+    \mc{A} @ \msc{t} ) ) = ( \mathfrak{M} \models \textrm{-} ( \mc{A} @ \msc{t}
+    ) ) )\label{eq:df-bl.atum}\tag{df-bl.atum}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{blatumi}~\blTitle{bl.atumi}~ Distribute @ over unary minus, inference.
+\begin{align}
+\vdash \msc{t} \in \mathbf{T}\quad\Rightarrow \notag \\ 
+	\quad \vdash ( \mathfrak{M}
+    \models ( \textrm{-} \mc{A} @ \msc{t} ) ) = ( \mathfrak{M} \models
+    \textrm{-} ( \mc{A} @ \msc{t} ) )\label{eq:bl.atumi}\tag{bl.atumi}
+\end{align}
+\end{restatable}
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash \msc{t} \in \mathbf{T}&\text{Hyp~atumi.1}\notag%bl.atumi.1
+  \\ 2 &&  & \vdash ( \msc{t} \in \mathbf{T} \rightarrow ( \mathfrak{M} \models
+     ~( \textrm{-} \mc{A} @ \msc{t} ) ) = ( \mathfrak{M}
+     ~\models \textrm{-} ( \mc{A} @ \msc{t} ) )
+     ~)&(\mbox{\ref{eq:df-bl.atum}})\notag
+  \\ 3 &&  & \vdash ( \mathfrak{M} \models ( \textrm{-} \mc{A} @ \msc{t} ) ) =
+     ~( \mathfrak{M} \models \textrm{-} ( \mc{A} @ \msc{t}
+     ~) )&(\mbox{\ref{eq:ax-mp}},1,2)\notag
+\end{align}
+\end{proof}
+
+\begin{restatable}{metadefinition}{dfblateq}~\blTitle{df-bl.ateq}~ Distribute @ over equality.
+\begin{align}
+\vdash ( ( \msc{t} \in \mathbf{T} \wedge \mc{A} \in \mathbb{R} \wedge \mc{B}
+    \in \mathbb{R} ) \rightarrow ( ( \mathfrak{M} \models ( \mc{A} = \mc{B} @
+    \msc{t} ) ) \leftrightarrow ( \mathfrak{M} \models ( \mc{A} @ \msc{t} ) = (
+    \mc{B} @ \msc{t} ) ) ) )\label{eq:df-bl.ateq}\tag{df-bl.ateq}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{blateq}~\blTitle{bl.ateq}~ Distribute @ over equality, inference.
+\begin{align}
+\vdash \msc{t} \in \mathbf{T}\quad\&\quad \vdash ( \mc{A} \in \mathbb{R} \wedge
+    \mc{B} \in \mathbb{R} )\quad\Rightarrow \notag \\ 
+	\quad \vdash ( ( \mathfrak{M}
+    \models ( \mc{A} = \mc{B} @ \msc{t} ) ) \leftrightarrow ( \mathfrak{M}
+    \models ( \mc{A} @ \msc{t} ) = ( \mc{B} @ \msc{t} ) )
+    )\label{eq:bl.ateq}\tag{bl.ateq}
+\end{align}
+\end{restatable}
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash \msc{t} \in \mathbf{T}&\text{Hyp~ateq.1}\notag%bl.ateq.1
+  \\ 2 &&  & \vdash ( \mc{A} \in \mathbb{R} \wedge \mc{B} \in \mathbb{R}
+     ~)&\text{Hyp~ateq.2}\notag%bl.ateq.2
+  \\ 3 &&  & \vdash ( \msc{t} \in \mathbf{T} \wedge ( \mc{A} \in \mathbb{R}
+     ~\wedge \mc{B} \in \mathbb{R} )
+     ~)&(\mbox{\ref{eq:pm3.2i}},1,2)\notag
+  \\ 4 &&  & \vdash ( ( ( \msc{t} \in \mathbf{T} \wedge \mc{A} \in \mathbb{R} )
+     ~\wedge \mc{B} \in \mathbb{R} ) \leftrightarrow (
+     ~\msc{t} \in \mathbf{T} \wedge ( \mc{A} \in \mathbb{R}
+     ~\wedge \mc{B} \in \mathbb{R} ) )
+     ~)&(\mbox{\ref{eq:anass}})\notag
+  \\ 5 &&  & \vdash ( ( \msc{t} \in \mathbf{T} \wedge \mc{A} \in \mathbb{R} )
+     ~\wedge \mc{B} \in \mathbb{R}
+     ~)&(\mbox{\ref{eq:mpbir}},3,4)\notag
+  \\ 6 &&  & \vdash ( ( \msc{t} \in \mathbf{T} \wedge \mc{A} \in \mathbb{R}
+     ~\wedge \mc{B} \in \mathbb{R} ) \leftrightarrow ( (
+     ~\msc{t} \in \mathbf{T} \wedge \mc{A} \in \mathbb{R} )
+     ~\wedge \mc{B} \in \mathbb{R} )
+     ~)&(\mbox{\ref{eq:df-3an}})\notag
+  \\ 7 &&  & \vdash ( \msc{t} \in \mathbf{T} \wedge \mc{A} \in \mathbb{R}
+     ~\wedge \mc{B} \in \mathbb{R}
+     ~)&(\mbox{\ref{eq:mpbir}},5,6)\notag
+  \\ 8 &&  & \vdash ( ( \msc{t} \in \mathbf{T} \wedge \mc{A} \in \mathbb{R}
+     ~\wedge \mc{B} \in \mathbb{R} ) \rightarrow ( (
+     ~\mathfrak{M} \models ( \mc{A} = \mc{B} @ \msc{t} ) )
+     ~\leftrightarrow ( \mathfrak{M} \models ( \mc{A} @
+     ~\msc{t} ) = ( \mc{B} @ \msc{t} ) ) )
+     ~)&(\mbox{\ref{eq:df-bl.ateq}})\notag
+  \\ 9 &&  & \vdash ( ( \mathfrak{M} \models ( \mc{A} = \mc{B} @ \msc{t} ) )
+     ~\leftrightarrow ( \mathfrak{M} \models ( \mc{A} @
+     ~\msc{t} ) = ( \mc{B} @ \msc{t} ) )
+     ~)&(\mbox{\ref{eq:ax-mp}},7,8)\notag
+\end{align}
+\end{proof}
+
+\begin{restatable}{metadefinition}{dfblatlt}~\blTitle{df-bl.atlt}~ Distribute @ over less than.
+\begin{align}
+\vdash ( ( \msc{t} \in \mathbf{T} \wedge \mc{A} \in \mathbb{R} \wedge \mc{B}
+    \in \mathbb{R} ) \rightarrow ( ( \mathfrak{M} \models ( \mc{A} < \mc{B} @
+    \msc{t} ) ) \leftrightarrow ( \mathfrak{M} \models ( \mc{A} @ \msc{t} ) < (
+    \mc{B} @ \msc{t} ) ) ) )\label{eq:df-bl.atlt}\tag{df-bl.atlt}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{blatlti}~\blTitle{bl.atlti}~ Distribute @ over less than, inference.
+\begin{align}
+\vdash \msc{t} \in \mathbf{T}\quad\&\quad \vdash ( \mc{A} \in \mathbb{R} \wedge
+    \mc{B} \in \mathbb{R} )\quad\Rightarrow \notag \\ 
+	\quad \vdash ( ( \mathfrak{M}
+    \models ( \mc{A} < \mc{B} @ \msc{t} ) ) \leftrightarrow ( \mathfrak{M}
+    \models ( \mc{A} @ \msc{t} ) < ( \mc{B} @ \msc{t} ) )
+    )\label{eq:bl.atlti}\tag{bl.atlti}
+\end{align}
+\end{restatable}
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash \msc{t} \in \mathbf{T}&\text{Hyp~atlti.1}\notag%bl.atlti.1
+  \\ 2 &&  & \vdash ( \mc{A} \in \mathbb{R} \wedge \mc{B} \in \mathbb{R}
+     ~)&\text{Hyp~atlti.2}\notag%bl.atlti.2
+  \\ 3 &&  & \vdash ( \msc{t} \in \mathbf{T} \wedge ( \mc{A} \in \mathbb{R}
+     ~\wedge \mc{B} \in \mathbb{R} )
+     ~)&(\mbox{\ref{eq:pm3.2i}},1,2)\notag
+  \\ 4 &&  & \vdash ( ( ( \msc{t} \in \mathbf{T} \wedge \mc{A} \in \mathbb{R} )
+     ~\wedge \mc{B} \in \mathbb{R} ) \leftrightarrow (
+     ~\msc{t} \in \mathbf{T} \wedge ( \mc{A} \in \mathbb{R}
+     ~\wedge \mc{B} \in \mathbb{R} ) )
+     ~)&(\mbox{\ref{eq:anass}})\notag
+  \\ 5 &&  & \vdash ( ( \msc{t} \in \mathbf{T} \wedge \mc{A} \in \mathbb{R} )
+     ~\wedge \mc{B} \in \mathbb{R}
+     ~)&(\mbox{\ref{eq:mpbir}},3,4)\notag
+  \\ 6 &&  & \vdash ( ( \msc{t} \in \mathbf{T} \wedge \mc{A} \in \mathbb{R}
+     ~\wedge \mc{B} \in \mathbb{R} ) \leftrightarrow ( (
+     ~\msc{t} \in \mathbf{T} \wedge \mc{A} \in \mathbb{R} )
+     ~\wedge \mc{B} \in \mathbb{R} )
+     ~)&(\mbox{\ref{eq:df-3an}})\notag
+  \\ 7 &&  & \vdash ( \msc{t} \in \mathbf{T} \wedge \mc{A} \in \mathbb{R}
+     ~\wedge \mc{B} \in \mathbb{R}
+     ~)&(\mbox{\ref{eq:mpbir}},5,6)\notag
+  \\ 8 &&  & \vdash ( ( \msc{t} \in \mathbf{T} \wedge \mc{A} \in \mathbb{R}
+     ~\wedge \mc{B} \in \mathbb{R} ) \rightarrow ( (
+     ~\mathfrak{M} \models ( \mc{A} < \mc{B} @ \msc{t} ) )
+     ~\leftrightarrow ( \mathfrak{M} \models ( \mc{A} @
+     ~\msc{t} ) < ( \mc{B} @ \msc{t} ) ) )
+     ~)&(\mbox{\ref{eq:df-bl.atlt}})\notag
+  \\ 9 &&  & \vdash ( ( \mathfrak{M} \models ( \mc{A} < \mc{B} @ \msc{t} ) )
+     ~\leftrightarrow ( \mathfrak{M} \models ( \mc{A} @
+     ~\msc{t} ) < ( \mc{B} @ \msc{t} ) )
+     ~)&(\mbox{\ref{eq:ax-mp}},7,8)\notag
+\end{align}
+\end{proof}
+
+\begin{restatable}{lemma}{blatami}~\blTitle{bl.atami}~ Distribute @ over at most, inference.
+\begin{align}
+\vdash \msc{t} \in \mathbf{T}\quad\&\quad \vdash ( \mc{A} \in \mathbb{R} \wedge
+    \mc{B} \in \mathbb{R} )\quad\Rightarrow \notag \\ 
+	\quad \vdash ( ( \mathfrak{M}
+    \models ( \mc{A} \le \mc{B} @ \msc{t} ) ) \leftrightarrow ( \mathfrak{M}
+    \models ( \mc{A} @ \msc{t} ) \le ( \mc{B} @ \msc{t} ) )
+    )\label{eq:bl.atami}\tag{bl.atami}
+\end{align}
+\end{restatable}
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash \msc{t} \in \mathbf{T}&\text{Hyp~atami.1}\notag%bl.atami.1
+  \\ 2 &&  & \vdash ( ( \mathfrak{M} , \msc{t} \models \mc{A} \le \mc{B} )
+     ~\leftrightarrow ( \mathfrak{M} , \msc{t} \models
+     ~\mc{A} ) \le ( \mathfrak{M} , \msc{t} \models \mc{B}
+     ~) )&(\mbox{\ref{eq:df-bl.amt}},1)\notag
+  \\ 3 &&  & \vdash \msc{t} \in \mathbf{T}&\text{Hyp~atami.1}\notag%bl.atami.1
+  \\ 4 &&  & \vdash ( ( \mathfrak{M} \models ( \mc{A} \le \mc{B} @ \msc{t} ) )
+     ~\leftrightarrow ( \mathfrak{M} , \msc{t} \models
+     ~\mc{A} \le \mc{B} )
+     ~)&(\mbox{\ref{eq:ax-bl.at}},3)\notag
+  \\ 5 &&  & \vdash \msc{t} \in \mathbf{T}&\text{Hyp~atami.1}\notag%bl.atami.1
+  \\ 6 &&  & \vdash ( \mathfrak{M} \models ( \mc{A} @ \msc{t} ) ) = (
+     ~\mathfrak{M} , \msc{t} \models \mc{A}
+     ~)&(\mbox{\ref{eq:ax-bl.atc}},5)\notag
+  \\ 7 &&  & \vdash \msc{t} \in \mathbf{T}&\text{Hyp~atami.1}\notag%bl.atami.1
+  \\ 8 &&  & \vdash ( \mathfrak{M} \models ( \mc{B} @ \msc{t} ) ) = (
+     ~\mathfrak{M} , \msc{t} \models \mc{B}
+     ~)&(\mbox{\ref{eq:ax-bl.atc}},7)\notag
+  \\ 9 &&  & \vdash ( ( \mathfrak{M} \models ( \mc{A} @ \msc{t} ) ) \le (
+     ~\mathfrak{M} \models ( \mc{B} @ \msc{t} ) )
+     ~\leftrightarrow ( \mathfrak{M} , \msc{t} \models
+     ~\mc{A} ) \le ( \mathfrak{M} , \msc{t} \models \mc{B}
+     ~) )&(\mbox{\ref{eq:breq12i}},6,8)\notag
+  \\ 10 &&  & \vdash ( ( \mathfrak{M} \models ( \mc{A} \le \mc{B} @ \msc{t} ) )
+     ~\leftrightarrow ( \mathfrak{M} \models ( \mc{A} @
+     ~\msc{t} ) ) \le ( \mathfrak{M} \models ( \mc{B} @
+     ~\msc{t} ) ) )&(\mbox{\ref{eq:3bitr4i}},2,4,9)\notag
+  \\ 11 &&  & \vdash ( ( \mathfrak{M} \models ( \mc{A} @ \msc{t} ) \le ( \mc{B}
+     ~@ \msc{t} ) ) \leftrightarrow ( \mathfrak{M} \models
+     ~( \mc{A} @ \msc{t} ) ) \le ( \mathfrak{M} \models (
+     ~\mc{B} @ \msc{t} ) )
+     ~)&(\mbox{\ref{eq:df-bl.am}})\notag
+  \\ 12 &&  & \vdash ( ( \mathfrak{M} \models ( \mc{A} \le \mc{B} @ \msc{t} ) )
+     ~\leftrightarrow ( \mathfrak{M} \models ( \mc{A} @
+     ~\msc{t} ) \le ( \mc{B} @ \msc{t} ) )
+     ~)&(\mbox{\ref{eq:bitr4i}},10,11)\notag
+\end{align}
+\end{proof}
+
+\begin{restatable}{metadefinition}{dfblatal}~\blTitle{df-bl.atal}~ Distribute @ over universal
+quantification.
+\begin{align}
+\vdash ( \msc{t} \in \mathbf{T} \rightarrow ( ( \mathfrak{M} \models ( \forall
+    \msc{x} \in \mc{A} \mw{\varphi} @ \msc{t} ) ) \leftrightarrow (
+    \mathfrak{M} \models \forall \msc{x} \in \mc{A} ( \mw{\varphi} @ \msc{t} )
+    ) ) )\label{eq:df-bl.atal}\tag{df-bl.atal}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{metadefinition}{dfblatexi}~\blTitle{df-bl.atexi}~ Distribute @ over existential
+quantification, inference.
+\begin{align}
+\vdash \msc{t} \in \mathbf{T}\quad\Rightarrow \notag \\ 
+	\quad \vdash ( ( \mathfrak{M}
+    \models ( \exists \msc{x} \in \mc{A} \mw{\varphi} @ \msc{t} ) )
+    \leftrightarrow ( \mathfrak{M} \models \exists \msc{x} \in \mc{A} (
+    \mw{\varphi} @ \msc{t} ) ) )\label{eq:df-bl.atexi}\tag{df-bl.atexi}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{metadefinition}{dfblatsum}~\blTitle{df-bl.atsum}~ Distribute @ over summation.
+\begin{align}
+\vdash ( \msc{t} \in \mathbf{T} \rightarrow ( \mathfrak{M} \models ( \sum
+    \msc{x} \in \mc{A} \mc{B} @ \msc{t} ) ) = ( \mathfrak{M} \models \sum
+    \msc{x} \in \mc{A} ( \mc{B} @ \msc{t} ) )
+    )\label{eq:df-bl.atsum}\tag{df-bl.atsum}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{metadefinition}{dfblatprod}~\blTitle{df-bl.atprod}~ Distribute @ over product.
+\begin{align}
+\vdash ( \msc{t} \in \mathbf{T} \rightarrow ( \mathfrak{M} \models ( \prod
+    \msc{x} \in \mc{A} \mc{B} @ \msc{t} ) ) = ( \mathfrak{M} \models \prod
+    \msc{x} \in \mc{A} ( \mc{B} @ \msc{t} ) )
+    )\label{eq:df-bl.atprod}\tag{df-bl.atprod}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{blatqq}~\blTitle{bl.atqq}~ Distribute @ over conditional expression.
+\begin{align}
+\vdash \msc{t} \in \mathbf{T}\quad\Rightarrow \notag \\ 
+	\quad \vdash ( \mathfrak{M}
+    \models ( \,\mathrm{if} ( \mw{\varphi} , \mc{A} , \mc{B} ) @ \msc{t} ) ) =
+    ( \mathfrak{M} \models \,\mathrm{if} ( ( \mw{\varphi} @ \msc{t} ) , (
+    \mc{A} @ \msc{t} ) , ( \mc{B} @ \msc{t} ) )
+    )\label{eq:bl.atqq}\tag{bl.atqq}
+\end{align}
+\end{restatable}
+
+\begin{proof}
+\begin{align}
+  1 &&  & &(\mbox{\ref{eq:?}})\notag
+\end{align}
+\end{proof}
+

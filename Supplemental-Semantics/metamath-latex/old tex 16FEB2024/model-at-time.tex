@@ -1,0 +1,167 @@
+% This LaTeX file was created by Metamath on 17-Feb-2024 3:57 AM.
+\begin{restatable}{metadefinition}{dfblbit}~\blTitle{df-bl.bit}~ $\mathfrak{M}$ biconditional at
+$\msc{t}$.
+\begin{align}
+\vdash \msc{t} \in \mathbf{T}\quad\Rightarrow \notag \\ 
+	 \notag \\ 
+	\quad \vdash ( ( \mathfrak{M} ,
+    \msc{t} \models ( \mw{\varphi} \leftrightarrow \mw{\psi} ) )
+    \leftrightarrow ( ( \mathfrak{M} , \msc{t} \models \mw{\varphi} )
+    \leftrightarrow ( \mathfrak{M} , \msc{t} \models \mw{\psi} ) )
+    )\label{eq:df-bl.bit}\tag{df-bl.bit}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{metadefinition}{dfblant}~\blTitle{df-bl.ant}~ $\mathfrak{M}$ conjunction at
+$\msc{t}$.
+\begin{align}
+\vdash \msc{t} \in \mathbf{T}\quad\Rightarrow \notag \\ 
+	 \notag \\ 
+	\quad \vdash ( ( \mathfrak{M} ,
+    \msc{t} \models ( \mw{\varphi} \wedge \mw{\psi} ) ) \leftrightarrow ( (
+    \mathfrak{M} , \msc{t} \models \mw{\varphi} ) \wedge ( \mathfrak{M} ,
+    \msc{t} \models \mw{\psi} ) ) )\label{eq:df-bl.ant}\tag{df-bl.ant}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{metadefinition}{dfblort}~\blTitle{df-bl.ort}~ $\mathfrak{M}$ disjunction at
+$\msc{t}$.
+\begin{align}
+\vdash \msc{t} \in \mathbf{T}\quad\Rightarrow \notag \\ 
+	 \notag \\ 
+	\quad \vdash ( ( \mathfrak{M} ,
+    \msc{t} \models ( \mw{\varphi} \vee \mw{\psi} ) ) \leftrightarrow ( (
+    \mathfrak{M} , \msc{t} \models \mw{\varphi} ) \vee ( \mathfrak{M} , \msc{t}
+    \models \mw{\psi} ) ) )\label{eq:df-bl.ort}\tag{df-bl.ort}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{metadefinition}{dfblimt}~\blTitle{df-bl.imt}~ $\mathfrak{M}$ implication at
+$\msc{t}$.
+\begin{align}
+\vdash \msc{t} \in \mathbf{T}\quad\Rightarrow \notag \\ 
+	 \notag \\ 
+	\quad \vdash ( ( \mathfrak{M} ,
+    \msc{t} \models ( \mw{\varphi} \rightarrow \mw{\psi} ) ) \leftrightarrow (
+    ( \mathfrak{M} , \msc{t} \models \mw{\varphi} ) \rightarrow ( \mathfrak{M}
+    , \msc{t} \models \mw{\psi} ) ) )\label{eq:df-bl.imt}\tag{df-bl.imt}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{metadefinition}{dfblnott}~\blTitle{df-bl.nott}~ $\mathfrak{M}$ complement at
+$\msc{t}$.
+\begin{align}
+\vdash \msc{t} \in \mathbf{T}\quad\Rightarrow \notag \\ 
+	 \notag \\ 
+	\quad \vdash ( ( \mathfrak{M} ,
+    \msc{t} \models \lnot \mw{\varphi} ) \leftrightarrow \lnot ( \mathfrak{M} ,
+    \msc{t} \models \mw{\varphi} ) )\label{eq:df-bl.nott}\tag{df-bl.nott}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{metadefinition}{dfbladdt}~\blTitle{df-bl.addt}~ $\mathfrak{M}$ addition at $\msc{t}$.
+\begin{align}
+\vdash ( \msc{t} \in \mathbf{T} \wedge \mc{A} \in \mathbb{R} \wedge \mc{B} \in
+    \mathbb{R} )\quad\Rightarrow \notag \\ 
+	 \notag \\ 
+	\quad \vdash ( \mathfrak{M} , \msc{t} \models (
+    \mc{A} + \mc{B} ) ) = ( ( \mathfrak{M} , \msc{t} \models \mc{A} ) + (
+    \mathfrak{M} , \msc{t} \models \mc{B} )
+    )\label{eq:df-bl.addt}\tag{df-bl.addt}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{metadefinition}{dfblsubt}~\blTitle{df-bl.subt}~ $\mathfrak{M}$ subtraction at
+$\msc{t}$.
+\begin{align}
+\vdash ( \msc{t} \in \mathbf{T} \wedge \mc{A} \in \mathbb{R} \wedge \mc{B} \in
+    \mathbb{R} )\quad\Rightarrow \notag \\ 
+	 \notag \\ 
+	\quad \vdash ( \mathfrak{M} , \msc{t} \models (
+    \mc{A} \minus \mc{B} ) ) = ( ( \mathfrak{M} , \msc{t} \models \mc{A} )
+    \minus ( \mathfrak{M} , \msc{t} \models \mc{B} )
+    )\label{eq:df-bl.subt}\tag{df-bl.subt}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{metadefinition}{dfblmult}~\blTitle{df-bl.mult}~ $\mathfrak{M}$ multiplication at
+$\msc{t}$.
+\begin{align}
+\vdash ( \msc{t} \in \mathbf{T} \wedge \mc{A} \in \mathbb{R} \wedge \mc{B} \in
+    \mathbb{R} )\quad\Rightarrow \notag \\ 
+	 \notag \\ 
+	\quad \vdash ( \mathfrak{M} , \msc{t} \models (
+    \mc{A} \cdot \mc{B} ) ) = ( ( \mathfrak{M} , \msc{t} \models \mc{A} ) \cdot
+    ( \mathfrak{M} , \msc{t} \models \mc{B} )
+    )\label{eq:df-bl.mult}\tag{df-bl.mult}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{metadefinition}{dfbldivt}~\blTitle{df-bl.divt}~ $\mathfrak{M}$ multiplication at
+$\msc{t}$.
+\begin{align}
+\vdash ( \msc{t} \in \mathbf{T} \wedge \mc{A} \in \mathbb{R} \wedge \mc{B} \in
+    \mathbb{R} )\quad\Rightarrow \notag \\ 
+	 \notag \\ 
+	\quad \vdash ( \mathfrak{M} , \msc{t} \models (
+    \mc{A} / \mc{B} ) ) = ( ( \mathfrak{M} , \msc{t} \models \mc{A} ) / (
+    \mathfrak{M} , \msc{t} \models \mc{B} )
+    )\label{eq:df-bl.divt}\tag{df-bl.divt}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{metadefinition}{dfblumt}~\blTitle{df-bl.umt}~ $\mathfrak{M}$ negation at $\msc{t}$.
+\begin{align}
+\vdash ( \msc{t} \in \mathbf{T} \wedge \mc{A} \in \mathbb{R}
+    )\quad\Rightarrow \notag \\ 
+	 \notag \\ 
+	\quad \vdash ( \mathfrak{M} , \msc{t} \models \textrm{-}
+    \mc{A} ) = \textrm{-} ( \mathfrak{M} , \msc{t} \models \mc{A}
+    )\label{eq:df-bl.umt}\tag{df-bl.umt}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{metadefinition}{dfbleqt}~\blTitle{df-bl.eqt}~ $\mathfrak{M}$ equality is equality.
+\begin{align}
+\vdash \msc{t} \in \mathbf{T}\quad\Rightarrow \notag \\ 
+	 \notag \\ 
+	\quad \vdash ( ( \mathfrak{M} ,
+    \msc{t} \models \mc{A} = \mc{B} ) \leftrightarrow ( \mathfrak{M} , \msc{t}
+    \models \mc{A} ) = ( \mathfrak{M} , \msc{t} \models \mc{B} )
+    )\label{eq:df-bl.eqt}\tag{df-bl.eqt}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{metadefinition}{dfblltt}~\blTitle{df-bl.ltt}~ $\mathfrak{M}$ less-than is less-than.
+\begin{align}
+\vdash \msc{t} \in \mathbf{T}\quad\Rightarrow \notag \\ 
+	 \notag \\ 
+	\quad \vdash ( ( \mathfrak{M} ,
+    \msc{t} \models \mc{A} < \mc{B} ) \leftrightarrow ( \mathfrak{M} , \msc{t}
+    \models \mc{A} ) < ( \mathfrak{M} , \msc{t} \models \mc{B} )
+    )\label{eq:df-bl.ltt}\tag{df-bl.ltt}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{metadefinition}{dfblamt}~\blTitle{df-bl.amt}~ $\mathfrak{M}$ at-most is at-most.
+\begin{align}
+\vdash \msc{t} \in \mathbf{T}\quad\Rightarrow \notag \\ 
+	 \notag \\ 
+	\quad \vdash ( ( \mathfrak{M} ,
+    \msc{t} \models \mc{A} \le \mc{B} ) \leftrightarrow ( \mathfrak{M} ,
+    \msc{t} \models \mc{A} ) \le ( \mathfrak{M} , \msc{t} \models \mc{B} )
+    )\label{eq:df-bl.amt}\tag{df-bl.amt}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{metadefinition}{dfbltyt}~\blTitle{df-bl.tyt}~ $\mathfrak{M}$ retains type.
+  Similar to ax-bl.ty, but applies to $\msc{t}$.
+\begin{align}
+\vdash \msc{t} \in \mathbf{T}\quad\Rightarrow \notag \\ 
+	 \notag \\ 
+	\quad \vdash ( \mc{A} \in \mc{B}
+    \leftrightarrow ( \mathfrak{M} , \msc{t} \models \mc{A} ) \in \mc{B}
+    )\label{eq:df-bl.tyt}\tag{df-bl.tyt}
+\end{align}
+\end{restatable}
+

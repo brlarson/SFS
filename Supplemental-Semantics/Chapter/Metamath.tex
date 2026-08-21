@@ -1,0 +1,485 @@
+%Metamath.tex
+
+\section{Metamath Preliminaries}\label{sec:metamathprelim}
+
+\bemph{Metamath}\footnote{http://us.metamath.org/index.html} will be used to prove as theorems in set theory, what are assumed by the BLESS proof tool as axioms and inference rules.  Metamath is a
+\begin{itemize}
+  \item language to express mathematics, thus ``meta-''
+  \item tool suite; especially Metamath Proof Explorer (checker)
+  \item library of over 10,000 proofs, individually named and consecutively numbered, starting from set theory axioms 
+\end{itemize}
+
+%Metamath is hard to understand.  XML files include ``metadata", data-about-data, to flexibly-express structured information.  The XML metadata defines the structure of the information.  
+
+The ``meta-'' in Metamath means its subject is math.  Metamath does math about math.  
+
+Metamath allows you to define your own mathematical system.  Once defined you can prove interesting things about your mathematical system.
+
+Metamath language allows expression of (other) mathematical systems, and prove theorems about those mathematical systems, which will in turn be used to prove theorems about the math you want to use.  Here Metamath will used to prove soundness about the proof rules used by the BLESS proof engine.  For BLESS, Metamath is used to prove that each proof rule is \bemph{sound}, either tautology or inference rule, always producing true facts from true facts.
+
+\section{Metamath Symbols}\label{sec:metamathsymbols}
+
+Metamath symbols (Table \ref{tab:sym}) follow customary usage.  Symbols introduced especially for BLESS (Table \ref{tab:blesssym}) are explained when their use is defined.  Variable symbols (Table \ref{tab:var}) have what are effectively types.
+
+Most of the steps in a Metamath proof assure the syntax is correct.  As part of this, variable symbols can be used in ways such that the syntax enforces types.  The proofs pretty-printed in \LaTeX omit steps that assure syntactical correctness.
+
+%For example, the proof for bl.that (\ref{}) is represented in the bless.mm database as
+%\begin{lstlisting}
+%${
+%bl.that.1 $e |- ph $.
+%$( theorems are true $)
+%bl.that $p |- ( ph <-> true )
+%	$=
+%	$( wffs for bitr4i  ph= ph  ps= ( ph -> ph )  ch= true  $)
+%	  wph wph wph wi wtrue
+%	$( wffs for a1bi ph= ph  ps= ph $)
+%	  wph wph
+%	bl.that.1
+%	a1bi  $( |- ( ph <-> ( ph -> ph ) )  $)
+%	wph df-true $( |- ( true <-> ( ph -> ph ) ) $)
+%	$( by bitr4i |- ( ph <-> ps )  and  |- ( ch <-> ps )  =>  |- ( ph <-> ch )
+%		with ph= ph  ps= ( ph -> ph )  ch= true  $)
+%	bitr4i
+%	$( |- ( ph <-> true ) $)
+%	$.
+%$}
+%$( end of bl.that $)
+%\end{lstlisting}
+%
+%Symbols \lstba{$(} and \lstba{$)} delimit comments;  \lstba{$\{} and \lstba{$\}} delimit scope.
+
+%\begin{description}
+%\item[$$] 
+%\end{description}
+
+%\input{../metamath-latex/MakeSymbols}
+
+\pagebreak
+ \section{Axioms}\label{sec:axioms}
+
+\pn The axioms of \texttt{set.mm} are listed below.  The letters in parentheses by the right-hand margin is the name of the axiom when used in proofs.
+
+\pn The first `axiom' is really the inference rule, Modus Ponens.  It's called `axiom' by Metamath because it's assumed.  Other inference rules will be proved using Modus Ponens as theorems.  The $\vdash$ symbol means ``a proof exists for", or more colloquially ``is true"..  The $\&$ and $\Rightarrow$ symbols are part of the simple metalanguage used by Metamath, and are not used in theorems or proofs.  $\&$ separates hypotheses of an inference rule\footnote{BLESS will introduce a different ampersand that means concurrent composition.}; $\Rightarrow$ separates the hypotheses from the conclusion.
+
+\pn The Rule of \bemph{Modus Ponens} states:  if a proof exists for $\varphi$, and a proof exists that $\varphi$ implies $\psi$ ($\rightarrow$ means implies), then we can conclude that $\psi$ has a proof.
+
+\begin{axiom}\label{axi:ax-mp} Rule of Modus Ponens.  
+\begin{align}
+\vdash \varphi\quad\&\quad \vdash ( \varphi \rightarrow \psi
+    )\quad\Rightarrow\quad \vdash \psi\label{eq:ax-mp}\tag{ax-mp}
+\end{align}
+\end{axiom}
+
+\subsection{Axioms of Propositional Logic}\label{sec:proplogic}
+
+\pn Propositions are statements which are either true or false, if not meaningless.  "This statement is a lie." is an example of a meaningless statement that is neither true nor false. $\lnot$ means not.
+
+\begin{axiom}\label{axi:ax-1} Axiom of Simplification 
+\begin{align}
+\vdash ( \varphi \rightarrow ( \psi \rightarrow \varphi )
+    )\label{eq:ax-1}\tag{ax-1}
+\end{align}
+\end{axiom}
+\begin{axiom}\label{axi:ax-2} Axiom of Distribution 
+\begin{align}
+\vdash ( ( \varphi \rightarrow ( \psi \rightarrow \chi ) ) \rightarrow ( (
+    \varphi \rightarrow \psi ) \rightarrow ( \varphi \rightarrow \chi ) )
+    )\label{eq:ax-2}\tag{ax-2}
+\end{align}
+\end{axiom}
+\begin{axiom}\label{axi:ax-3} Axiom of Contraposition   
+\begin{align}
+\vdash ( ( \lnot \varphi \rightarrow \lnot \psi ) \rightarrow ( \psi
+    \rightarrow \varphi ) )\label{eq:ax-3}\tag{ax-3}
+\end{align}
+\end{axiom}
+
+\subsection{Axioms of Predicate Calculus with Equality}
+
+\pn Predicate calculus extends predicate logic with variables, quantifiers, and equality.  $\forall$ means for-all;
+$\exists$ means there-exists. 
+
+\begin{axiom}\label{axi:ax-gen} Rule of Generalization. 
+\begin{align}
+\vdash \varphi\quad\Rightarrow\quad \vdash \forall x
+    \varphi\label{eq:ax-gen}\tag{ax-gen}
+\end{align}
+\end{axiom}
+\begin{axiom}\label{axi:ax-4} Axiom of Quantified Implication. 
+\begin{align}
+\vdash ( \forall x ( \varphi \rightarrow \psi ) \rightarrow ( \forall x \varphi
+    \rightarrow \forall x \psi ) )\label{eq:ax-4}\tag{ax-4}
+\end{align}
+\end{axiom}
+\begin{axiom}\label{axi:ax-5} Axiom of Distinctness.  \begin{align}
+\vdash ( \varphi \rightarrow \forall x \varphi )\label{eq:ax-5}\tag{ax-5}
+\end{align}
+\end{axiom}
+\begin{axiom}\label{axi:ax-6} Axiom of Existence. 
+\begin{align}
+\vdash \lnot \forall x \lnot x = y\label{eq:ax-6}\tag{ax-6}
+\end{align}
+\end{axiom}
+\begin{axiom}\label{axi:ax-7} Axiom of Equality.  
+\begin{align}
+\vdash ( x = y \rightarrow ( x = z \rightarrow y = z )
+    )\label{eq:ax-7}\tag{ax-7}
+\end{align}
+\end{axiom}
+\begin{axiom}\label{axi:ax-8} Axiom of Left Equality for Binary Predicate. 
+\begin{align}
+\vdash ( x = y \rightarrow ( x \in z \rightarrow y \in z )
+    )\label{eq:ax-8}\tag{ax-8}
+\end{align}
+\end{axiom}
+\begin{axiom}\label{axi:ax-9} Axiom of Right Equality for Binary Predicate. 
+\begin{align}
+\vdash ( x = y \rightarrow ( z \in x \rightarrow z \in y )
+    )\label{eq:ax-9}\tag{ax-9}
+\end{align}
+\end{axiom}
+\begin{axiom}\label{axi:ax-10} Axiom of Quantified Negation.  
+\begin{align}
+\vdash ( \lnot \forall x \varphi \rightarrow \forall x \lnot \forall x \varphi
+    )\label{eq:ax-10}\tag{ax-10}
+\end{align}
+\end{axiom}
+\begin{axiom}\label{axi:ax-11} Axiom of Quantifier Commutation.  
+\begin{align}
+\vdash ( \forall x \forall y \varphi \rightarrow \forall y \forall x \varphi
+    )\label{eq:ax-11}\tag{ax-11}
+\end{align}
+\end{axiom}
+\begin{axiom}\label{axi:ax-12} Axiom of Substitution.  
+\begin{align}
+\vdash ( x = y \rightarrow ( \forall y \varphi \rightarrow \forall x ( x = y
+    \rightarrow \varphi ) ) )\label{eq:ax-12}\tag{ax-12}
+\end{align}
+\end{axiom}
+\begin{axiom}\label{axi:ax-13} Axiom of Quantified Equality. 
+\begin{align}
+\vdash ( \lnot x = y \rightarrow ( y = z \rightarrow \forall x \,y = z )
+    )\label{eq:ax-13}\tag{ax-13}
+\end{align}
+\end{axiom}
+
+\subsection{Axioms of Zermelo-Frankel with Choice (ZFC) set theory}\label{sec.zfc}
+
+\pn Predicate calculus introduced variables and the equality relation between them, but wasn't specific
+about what they were.  With the addition of axioms of set theory, variables are sets.
+
+\begin{axiom}\label{axi:ax-ext} Axiom of Extensionality.  
+\begin{align}
+\vdash ( \forall z ( z \in x \leftrightarrow z \in y ) \rightarrow x = y
+    )\label{eq:ax-ext}\tag{ax-ext}
+\end{align}
+\end{axiom}
+\begin{axiom}\label{axi:ax-rep} Axiom of Replacement.  
+\begin{align}
+\vdash ( \forall w \exists y \forall z ( \forall y \varphi \rightarrow z = y )
+    \rightarrow \exists y \forall z ( z \in y \leftrightarrow \exists w ( w \in
+    x \wedge \forall y \varphi ) ) )\label{eq:ax-rep}\tag{ax-rep}
+\end{align}
+\end{axiom}
+\begin{axiom}\label{axi:ax-pow} Axiom of Power Sets. 
+\begin{align}
+\vdash \exists y \forall z ( \forall w ( w \in z \rightarrow w \in x )
+    \rightarrow z \in y )\label{eq:ax-pow}\tag{ax-pow}
+\end{align}
+\end{axiom}
+\begin{axiom}\label{axi:ax-un} Axiom of Union. 
+\begin{align}
+\vdash \exists y \forall z ( \exists w ( z \in w \wedge w \in x ) \rightarrow z
+    \in y )\label{eq:ax-un}\tag{ax-un}
+\end{align}
+\end{axiom}
+\begin{axiom}\label{axi:ax-reg} Axiom of Regularity. 
+\begin{align}
+\vdash ( \exists y \,y \in x \rightarrow \exists y ( y \in x \wedge \forall z (
+    z \in y \rightarrow \lnot z \in x ) ) )\label{eq:ax-reg}\tag{ax-reg}
+\end{align}
+\end{axiom}
+\begin{axiom}\label{axi:ax-inf} Axiom of Infinity. 
+\begin{align}
+\vdash \exists y ( x \in y \wedge \forall z ( z \in y \rightarrow \exists w ( z
+    \in w \wedge w \in y ) ) )\label{eq:ax-inf}\tag{ax-inf}
+\end{align}
+\end{axiom}
+\begin{axiom}\label{axi:ax-ac} Axiom of Choice.  
+\begin{align}
+\vdash \exists y \forall z \forall w ( ( z \in w \wedge w \in x ) \rightarrow 
+    \exists v \forall u ( \exists t ( ( u \in w \wedge w \in t ) \wedge ( u \in
+    t \wedge t \in y ) ) \leftrightarrow u = v ) )\label{eq:ax-ac}\tag{ax-ac}
+\end{align}
+\end{axiom}
+
+
+% \section{Metamath Definitions Theorems and Axioms}\label{sec:tanda}
+%
+%\begin{axiom}\label{axi:ax-mp} Rule of Modus Ponens.  
+%\begin{align}
+%\vdash \varphi\quad\&\quad \vdash ( \varphi \rightarrow \mw{\psi}
+%    )\quad\Rightarrow\quad \vdash \mw{\psi}\label{eq:ax-mp}\tag{ax-mp}
+%\end{align}
+%\end{axiom}
+%\begin{axiom}\label{axi:ax-1} Axiom of Simplification 
+%\begin{align}
+%\vdash ( \varphi \rightarrow ( \mw{\psi} \rightarrow \varphi )
+%    )\label{eq:ax-1}\tag{ax-1}
+%\end{align}
+%\end{axiom}
+%\begin{axiom}\label{axi:ax-2} Axiom of Distribution 
+%\begin{align}
+%\vdash ( ( \varphi \rightarrow ( \mw{\psi} \rightarrow \chi ) ) \rightarrow ( (
+%    \varphi \rightarrow \mw{\psi} ) \rightarrow ( \varphi \rightarrow \chi ) )
+%    )\label{eq:ax-2}\tag{ax-2}
+%\end{align}
+%\end{axiom}
+%\begin{axiom}\label{axi:ax-3} Axiom of Contraposition   
+%\begin{align}
+%\vdash ( ( \lnot \varphi \rightarrow \lnot \mw{\psi} ) \rightarrow ( \mw{\psi}
+%    \rightarrow \varphi ) )\label{eq:ax-3}\tag{ax-3}
+%\end{align}
+%\end{axiom}
+%\begin{axiom}\label{axi:ax-gen} Rule of Generalization. 
+%\begin{align}
+%\vdash \varphi\quad\Rightarrow\quad \vdash \forall x
+%    \varphi\label{eq:ax-gen}\tag{ax-gen}
+%\end{align}
+%\end{axiom}
+%\begin{axiom}\label{axi:ax-4} Axiom of Quantified Implication. 
+%\begin{align}
+%\vdash ( \forall x ( \varphi \rightarrow \mw{\psi} ) \rightarrow ( \forall x \varphi
+%    \rightarrow \forall x \mw{\psi} ) )\label{eq:ax-4}\tag{ax-4}
+%\end{align}
+%\end{axiom}
+%\begin{axiom}\label{axi:ax-5} Axiom of Distinctness.  \begin{align}
+%\vdash ( \varphi \rightarrow \forall x \varphi )\label{eq:ax-5}\tag{ax-5}
+%\end{align}
+%\end{axiom}
+%\begin{axiom}\label{axi:ax-6} Axiom of Existence. 
+%\begin{align}
+%\vdash \lnot \forall x \lnot x = y\label{eq:ax-6}\tag{ax-6}
+%\end{align}
+%\end{axiom}
+%\begin{axiom}\label{axi:ax-7} Axiom of Equality.  
+%\begin{align}
+%\vdash ( x = y \rightarrow ( x = z \rightarrow y = z )
+%    )\label{eq:ax-7}\tag{ax-7}
+%\end{align}
+%\end{axiom}
+%\begin{axiom}\label{axi:ax-8} Axiom of Left Equality for Binary Predicate. 
+%\begin{align}
+%\vdash ( x = y \rightarrow ( x \in z \rightarrow y \in z )
+%    )\label{eq:ax-8}\tag{ax-8}
+%\end{align}
+%\end{axiom}
+%\begin{axiom}\label{axi:ax-9} Axiom of Right Equality for Binary Predicate. 
+%\begin{align}
+%\vdash ( x = y \rightarrow ( z \in x \rightarrow z \in y )
+%    )\label{eq:ax-9}\tag{ax-9}
+%\end{align}
+%\end{axiom}
+%\begin{axiom}\label{axi:ax-10} Axiom of Quantified Negation.  
+%\begin{align}
+%\vdash ( \lnot \forall x \varphi \rightarrow \forall x \lnot \forall x \varphi
+%    )\label{eq:ax-10}\tag{ax-10}
+%\end{align}
+%\end{axiom}
+%\begin{axiom}\label{axi:ax-11} Axiom of Quantifier Commutation.  
+%\begin{align}
+%\vdash ( \forall x \forall y \varphi \rightarrow \forall y \forall x \varphi
+%    )\label{eq:ax-11}\tag{ax-11}
+%\end{align}
+%\end{axiom}
+%\begin{axiom}\label{axi:ax-12} Axiom of Substitution.  
+%\begin{align}
+%\vdash ( x = y \rightarrow ( \forall y \varphi \rightarrow \forall x ( x = y
+%    \rightarrow \varphi ) ) )\label{eq:ax-12}\tag{ax-12}
+%\end{align}
+%\end{axiom}
+%\begin{axiom}\label{axi:ax-13} Axiom of Quantified Equality. 
+%\begin{align}
+%\vdash ( \lnot x = y \rightarrow ( y = z \rightarrow \forall x \,y = z )
+%    )\label{eq:ax-13}\tag{ax-13}
+%\end{align}
+%\end{axiom}
+%\begin{axiom}\label{axi:ax-ext} Axiom of Extensionality.  
+%\begin{align}
+%\vdash ( \forall z ( z \in x \leftrightarrow z \in y ) \rightarrow x = y
+%    )\label{eq:ax-ext}\tag{ax-ext}
+%\end{align}
+%\end{axiom}
+%\begin{axiom}\label{axi:ax-rep} Axiom of Replacement.  
+%\begin{align}
+%\vdash ( \forall w \exists y \forall z ( \forall y \varphi \rightarrow z = y )
+%    \rightarrow \exists y \forall z ( z \in y \leftrightarrow \exists w ( w \in
+%    x \wedge \forall y \varphi ) ) )\label{eq:ax-rep}\tag{ax-rep}
+%\end{align}
+%\end{axiom}
+%\begin{axiom}\label{axi:ax-pow} Axiom of Power Sets. 
+%\begin{align}
+%\vdash \exists y \forall z ( \forall w ( w \in z \rightarrow w \in x )
+%    \rightarrow z \in y )\label{eq:ax-pow}\tag{ax-pow}
+%\end{align}
+%\end{axiom}
+%\begin{axiom}\label{axi:ax-un} Axiom of Union. 
+%\begin{align}
+%\vdash \exists y \forall z ( \exists w ( z \in w \wedge w \in x ) \rightarrow z
+%    \in y )\label{eq:ax-un}\tag{ax-un}
+%\end{align}
+%\end{axiom}
+%\begin{axiom}\label{axi:ax-reg} Axiom of Regularity. 
+%\begin{align}
+%\vdash ( \exists y \,y \in x \rightarrow \exists y ( y \in x \wedge \forall z (
+%    z \in y \rightarrow \lnot z \in x ) ) )\label{eq:ax-reg}\tag{ax-reg}
+%\end{align}
+%\end{axiom}
+%\begin{axiom}\label{axi:ax-inf} Axiom of Infinity. 
+%\begin{align}
+%\vdash \exists y ( x \in y \wedge \forall z ( z \in y \rightarrow \exists w ( z
+%    \in w \wedge w \in y ) ) )\label{eq:ax-inf}\tag{ax-inf}
+%\end{align}
+%\end{axiom}
+%\begin{axiom}\label{axi:ax-ac} Axiom of Choice.  
+%\begin{align}
+%\vdash \exists y \forall z \forall w ( ( z \in w \wedge w \in x ) \rightarrow 
+%    \exists v \forall u ( \exists t ( ( u \in w \wedge w \in t ) \wedge ( u \in
+%    t \wedge t \in y ) ) \leftrightarrow u = v ) )\label{eq:ax-ac}\tag{ax-ac}
+%\end{align}
+%\end{axiom}
+
+\subsection{Class and Well-formed Formula Definitions}\label{sec:clwff}
+
+\begin{definition}\otherTitle{cv} Set variable is also class variable
+\begin{align}
+{\rm class} x\label{eq:cv}\tag{cv}
+\end{align}
+\end{definition}
+\begin{definition}\otherTitle{wcel} Extend wff definition to include the
+membership connective between
+       classes.
+\begin{align}
+{\rm wff} A \in B\label{eq:wcel}\tag{wcel}
+\end{align}
+\end{definition}
+
+\begin{definition}\otherTitle{wa} Extend wff definition to include conjunction
+('and').
+\begin{align}
+{\rm wff} ( \varphi \wedge \mw{\psi} )\label{eq:wa}\tag{wa}
+\end{align}
+\end{definition}
+\begin{definition}\otherTitle{wi} If $\varphi$ and $\psi$ are wff's, so is $(
+\varphi  \rightarrow  \mw{\psi} )$ or `` $\varphi$ implies
+     $\psi$." 
+\begin{align}
+{\rm wff} ( \varphi \rightarrow \mw{\psi} )\label{eq:wi}\tag{wi}
+\end{align}
+\end{definition}
+
+\subsection{Symbol Definitions}\label{sec:symdef}
+
+\begin{definition}\otherTitle{df-an} Define conjunction (logical 'and'). 
+\begin{align}
+\vdash ( ( \varphi \wedge \mw{\psi} ) \leftrightarrow \lnot ( \varphi \rightarrow
+    \lnot \mw{\psi} ) )\label{eq:df-an}\tag{df-an}
+\end{align}
+\end{definition}
+
+\begin{definition}\otherTitle{df-or} Define disjunction (logical 'or'). 
+\begin{align}
+\vdash ( ( \varphi \vee \mw{\psi} ) \leftrightarrow ( \lnot \varphi \rightarrow \mw{\psi}
+    ) )\label{eq:df-or}\tag{df-or}
+\end{align}
+\end{definition}
+
+\begin{definition}\otherTitle{df-ltxr} Define 'less than' on the set of
+extended reals. 
+\begin{align}
+\vdash < = ( \{ \langle x , y \rangle | ( x \in \mathbb{R} \wedge y \in
+    \mathbb{R} \wedge x <_\mathbb{R} y ) \} \cup ( ( ( \mathbb{R} \cup \{
+    -\infty \} ) \times \{ +\infty \} ) \cup ( \{ -\infty \} \times \mathbb{R}
+    ) ) )\label{eq:df-ltxr}\tag{df-ltxr}
+\end{align}
+\end{definition}
+
+\begin{definition}\otherTitle{df-tru} Definition of the truth value ``true", or
+``verum", denoted by $\top$.
+\begin{align}
+\vdash ( \top \leftrightarrow ( \forall x \,x = x \rightarrow \forall x \,x = x
+    ) )\label{eq:df-tru}\tag{df-tru}
+\end{align}
+
+\end{definition}
+\begin{definition}\otherTitle{df-fal} Definition of the truth value ``false",
+or ``falsum", denoted by $\bot$.
+\begin{align}
+\vdash ( \bot \leftrightarrow \lnot \top )\label{eq:df-fal}\tag{df-fal}
+\end{align}
+\end{definition}
+
+
+
+%\subsection{Ordinal Numbers}\label{sec:ordinal}
+%
+%\pn Ordinal numbers create natural numbers out of pure set theory.  Just the existence of The Empty Set, and the operation of creating a new set by listing its elements.
+%
+%\pn I'm rather skeptical about the existence of The Empty Set, but accept the hypothesis for now.
+%
+%\input{../metamath-latex/ordinal}
+%
+%\subsection{Well-Founded Induction}\label{sec:wfinduction}
+%
+%\begin{theorem}\label{the:tz6.26} All nonempty (possibly proper) subclasses of
+%$\mc{A}$, which has a
+%       well-founded relation $R$, have $R$-minimal elements.  
+%\begin{align}
+%\mm{\vdash} ( ( ( R {\rm We} \mc{A} \wedge R {\rm Se} \mc{A} ) \wedge ( \mc{B}
+%    \subseteq \mc{A} \wedge \mc{B} \ne \varnothing ) ) \rightarrow \exists
+%    \msc{y} \in \mc{B} {\rm Pred} ( R , \mc{B} , \msc{y} ) = \varnothing
+%    )\label{eq:tz6.26}\tag{tz6.26}
+%\end{align}
+%\end{theorem}
+%
+%\begin{theorem}\label{the:wfi} The Principle of Well-Founded Induction. 
+% This principle states that if $\mc{B}$ is a
+%       subclass of a well-ordered class $\mc{A}$ with the property that every
+%       element of $\mc{B}$ whose inital segment is included in $\mc{A}$ is itself
+%       equal to $\mc{A}$.
+%\begin{align}
+%\mm{\vdash} ( ( ( R {\rm We} \mc{A} \wedge R {\rm Se} \mc{A} ) \wedge ( \mc{B}
+%    \subseteq \mc{A} \wedge \forall \msc{y} \in \mc{A} ( {\rm Pred} ( R ,
+%    \mc{A} , \msc{y} ) \subseteq \mc{B} \rightarrow \msc{y} \in \mc{B} ) ) )
+%    \rightarrow \mc{A} = \mc{B} )\label{eq:wfi}\tag{wfi}
+%\end{align}
+%\end{theorem}
+%
+%\begin{theorem}\label{the:wfisg} Well-Founded Induction Schema.  If a property
+%passes from all elements
+%       less than $\msc{y}$ of a well-founded class $\mc{A}$ to $\msc{y}$
+%itself (induction
+%       hypothesis), then the property holds for all elements of $\mc{A}$.
+%       (Contributed by Scott Fenton, 11-Feb-2011.)
+%\begin{align}
+%\mm{\vdash} ( \msc{y} \in \mc{A} \rightarrow ( \forall \msc{z} \in {\rm Pred} (
+%    R , \mc{A} , \msc{y} ) {[} \msc{z} / \msc{y}
+%    {]} \mw{\varphi} \rightarrow \mw{\varphi} )
+%    )\quad\Rightarrow\quad \mm{\vdash} ( ( R {\rm We} \mc{A} \wedge R {\rm Se}
+%    \mc{A} ) \rightarrow \forall \msc{y} \in \mc{A} \mw{\varphi}
+%    )\label{eq:wfisg}\tag{wfisg}
+%\end{align}
+%\end{theorem}
+%
+%\subsection{Russell's definition description binder (inverted iota)}\label{sec:russell}
+%
+%The one-and-only operator: $\mathrm{\rotatebox[origin=C]{180}{$\iota$}} $.
+%
+%\input{../metamath-latex/russel}
+%
+%\subsection{Recursive Definition Generator}\label{sec:recdefgen}
+%
+%\input{../metamath-latex/reddefgen}
+%
+
+

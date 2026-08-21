@@ -1,0 +1,54 @@
+%OtherSemantics.tex
+
+
+\ksec{Multiplicities Semantics (KerML 8.4.4.12)}
+
+\pn A \texttt{Multiplicity}, defined using \texttt{multiplicity}, is a \texttt{Feature}.  Multiplicities are defined by ranges of natural numbers enclosed in square brackets for which the lower bound may be omitted.  A star (\texttt{*}) indicates the upper bound is unbounded.\footnote{\texttt{*} does not mean \emph{infinity}; it must be some, as yet undetermined, natural number.}
+
+\pn Multiplicities of types define their allowed cardinality.
+
+\begin{lstlisting}
+type Wheels [2..4];
+\end{lstlisting}
+is equivalent to
+\begin{lstlisting}
+type Wheels {
+  multiplicity [2..4]
+}
+\end{lstlisting}
+and means that the number of wheels can be 2, 3, or 4.
+
+\pn Semantics of multiplicities on types is defined by \ref{eq:df-typemultiplicity} and  \ref{eq:df-typemultiplicityrange}.
+
+\pn Multiplicity is more commonly applied to features.
+
+\begin{lstlisting}
+classifier C {
+  feature f [n];
+}
+\end{lstlisting}
+is equivalent to 
+\begin{lstlisting}
+classifier C {
+  feature f {
+    multiplicity [n];
+  }
+}
+\end{lstlisting}
+
+\pn Semantics of multiplicities on features is defined by:  \ref{eq:df-fixedfeaturemultiplicity}, \ref{eq:df-undefinedfeaturemultiplicity},\\ \ref{eq:df-featuremultiplicityrange}, \ref{eq:df-featuremultiplicityrangestar}.
+
+\ksec{Metadata Semantics (KerML 8.4.4.13)}
+
+\comment{I've struggled through \emph{OMG Meta Object Facility (MOF) Core Specification
+Version 2.5.1} and  \emph{MOF Support for Semantic Structures
+Version 1.0}, but don't understand.  The metaclasses in KerML.kerml  have been very helpful in understanding the abstract syntax--particularly noting derived features.
+However, I frequently find conflicts between an entity's metaclass, and the library entity it must specialize. }
+
+\ksec{Packages Semantics (KerML 8.4.4.14)}
+
+\pn \texttt{Packages} do not have instance-level semantics (they do not affect instances).
+
+\comment{Why aren't packages defined in Core?  What is the utility of conditional imports that could not be better done by configuration management tools?}
+
+

@@ -1,0 +1,771 @@
+% This LaTeX file was created by Metamath on 24-Dec-2023 8:33 PM.
+\begin{metadefinition}\blTitle{df-bl.al} {At least}
+\begin{align}
+\vdash ( \mc{A} \geq \mc{B} \leftrightarrow \mc{B} \le \mc{A} )\label{eq:df-bl.al}\tag{df-bl.al}
+\end{align}
+\end{metadefinition}
+
+\begin{metadefinition}\blTitle{df-bl.gt} {Greater than}
+\begin{align}
+\vdash ( \mc{A} > \mc{B} \leftrightarrow \mc{B} < \mc{A} )\label{eq:df-bl.gt}\tag{df-bl.gt}
+\end{align}
+\end{metadefinition}
+
+\begin{lemma}\blTitle{bl.npucani} {Add/Subtract Same: $a \minus ( a + b ) =
+\textrm{-} b$}
+\begin{align}
+\vdash \mc{A} \in \mathbb{C}\quad\&\quad \vdash \mc{B} \in
+    \mathbb{C}\quad\Rightarrow\quad \vdash ( \mc{A} \minus ( \mc{A} + \mc{B} ) ) = \textrm{-}
+    B\label{eq:bl.npucani}\tag{bl.npucani}
+\end{align}
+\end{lemma}
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash \mc{A} \in \mathbb{C}&\text{Hyp~npucani.1}\notag%bl.npucani.1
+  \\ 2 &&  & \vdash \mc{A} \in \mathbb{C}&\text{Hyp~npucani.1}\notag%bl.npucani.1
+  \\ 3 &&  & \vdash \mc{B} \in \mathbb{C}&\text{Hyp~npucani.2}\notag%bl.npucani.2
+  \\ 4 &&  & \vdash ( \mc{A} \in \mathbb{C} \wedge \mc{A} \in \mathbb{C} \wedge \mc{B} \in
+     \mathbb{C} )&(\mbox{\ref{eq:3pm3.2i}},1,2,3)\notag
+  \\ 5 &&  & \vdash ( ( \mc{A} \in \mathbb{C} \wedge \mc{A} \in \mathbb{C} \wedge \mc{B} \in
+     \mathbb{C} ) \rightarrow ( ( \mc{A} \minus \mc{A} ) \minus \mc{B} )
+     = ( \mc{A} \minus ( \mc{A} + \mc{B} ) )
+     )&(\mbox{\ref{eq:subsub4}})\notag
+  \\ 6 &&  & \vdash ( ( \mc{A} \minus \mc{A} ) \minus \mc{B} ) = ( \mc{A} \minus ( \mc{A} + \mc{B} )
+     )&(\mbox{\ref{eq:ax-mp}},4,5)\notag
+  \\ 7 &&  & \vdash \mc{A} \in \mathbb{C}&\text{Hyp~npucani.1}\notag%bl.npucani.1
+  \\ 8 &&  & \vdash ( \mc{A} \in \mathbb{C} \rightarrow ( \mc{A} \minus \mc{A} ) = 0
+     )&(\mbox{\ref{eq:subid}})\notag
+  \\ 9 &&  & \vdash ( \mc{A} \minus \mc{A} ) = 0&(\mbox{\ref{eq:ax-mp}},7,8)\notag
+  \\ 10 &&  & \vdash \mc{A} \in \mathbb{C}&\text{Hyp~npucani.1}\notag%bl.npucani.1
+  \\ 11 &&  & \vdash \mc{A} \in \mathbb{C}&\text{Hyp~npucani.1}\notag%bl.npucani.1
+  \\ 12 &&  & \vdash ( \mc{A} \in \mathbb{C} \wedge \mc{A} \in \mathbb{C}
+     )&(\mbox{\ref{eq:pm3.2i}},10,11)\notag
+  \\ 13 &&  & \vdash ( ( \mc{A} \in \mathbb{C} \wedge \mc{A} \in \mathbb{C} ) \rightarrow
+     ( \mc{A} \minus \mc{A} ) \in \mathbb{C}
+     )&(\mbox{\ref{eq:subcl}})\notag
+  \\ 14 &&  & \vdash ( \mc{A} \minus \mc{A} ) \in
+     \mathbb{C}&(\mbox{\ref{eq:ax-mp}},12,13)\notag
+  \\ 15 &&  & \vdash 0 \in \mathbb{C}&(\mbox{\ref{eq:0cn}})\notag
+  \\ 16 &&  & \vdash \mc{B} \in \mathbb{C}&\text{Hyp~npucani.2}\notag%bl.npucani.2
+  \\ 17 &&  & \vdash ( ( \mc{A} \minus \mc{A} ) \in \mathbb{C} \wedge 0 \in \mathbb{C}
+     \wedge \mc{B} \in \mathbb{C}
+     )&(\mbox{\ref{eq:3pm3.2i}},14,15,16)\notag
+  \\ 18 &&  & \vdash 
+     \begin{array}{c}
+     ( ( ( \mc{A} \minus \mc{A} ) \in \mathbb{C} \wedge 0 \in \mathbb{C}
+     \wedge \mc{B} \in \mathbb{C} ) \rightarrow \\
+     ( ( ( \mc{A} \minus
+     \mc{A} ) \minus \mc{B} ) = ( 0 \minus \mc{B} ) \leftrightarrow ( A
+     \minus \mc{A} ) = 0 ) )
+     \end{array}
+     &(\mbox{\ref{eq:subcan2}})\notag
+  \\ 19 &&  & \vdash ( ( ( \mc{A} \minus \mc{A} ) \minus \mc{B} ) = ( 0 \minus \mc{B} )
+     \leftrightarrow ( \mc{A} \minus \mc{A} ) = 0
+     )&(\mbox{\ref{eq:ax-mp}},17,18)\notag
+  \\ 20 &&  & \vdash ( ( \mc{A} \minus \mc{A} ) \minus \mc{B} ) = ( 0 \minus B
+     )&(\mbox{\ref{eq:mpbir}},9,19)\notag
+  \\ 21 &&  & \vdash ( \mc{A} \minus ( \mc{A} + \mc{B} ) ) = ( 0 \minus B
+     )&(\mbox{\ref{eq:eqtr3i}},6,20)\notag
+  \\ 22 &&  & \vdash \textrm{-} \mc{B} = ( 0 \minus B
+     )&(\mbox{\ref{eq:df-neg}})\notag
+  \\ 23 &&  & \vdash ( \mc{A} \minus ( \mc{A} + \mc{B} ) ) = \textrm{-}
+     B&(\mbox{\ref{eq:eqtr4i}},21,22)\notag
+\end{align}
+\end{proof}
+
+\begin{lemma}\blTitle{bl.npucan} {Add/Subtract Same: $a \minus ( a + b ) =
+\textrm{-} b$}
+\begin{align}
+\vdash ( ( \mc{A} \in \mathbb{C} \wedge \mc{B} \in \mathbb{C} ) \rightarrow ( \mc{A} \minus (
+    \mc{A} + \mc{B} ) ) = \textrm{-} \mc{B} )\label{eq:bl.npucan}\tag{bl.npucan}
+\end{align}
+\end{lemma}
+
+
+\begin{proof}
+\begin{align}
+  1 && @1:\  & \vdash ( ( \mc{A} \in \mathbb{C} \wedge \mc{B} \in \mathbb{C} )
+     \rightarrow \mc{A} \in \mathbb{C}
+     )&(\mbox{\ref{eq:simpl}})\notag
+  \\ 2 &&  & \vdash ( ( \mc{A} \in \mathbb{C} \wedge \mc{B} \in \mathbb{C} ) \rightarrow
+     \mc{A} \in \mathbb{C} )&(@1)\notag
+  \\ 3 && @3:\  & \vdash ( ( \mc{A} \in \mathbb{C} \wedge \mc{B} \in \mathbb{C} )
+     \rightarrow \mc{B} \in \mathbb{C}
+     )&(\mbox{\ref{eq:simpr}})\notag
+  \\ 4 &&  & \vdash ( ( \mc{A} \in \mathbb{C} \wedge \mc{B} \in \mathbb{C} ) \rightarrow
+     ( \mc{A} \in \mathbb{C} \wedge \mc{A} \in \mathbb{C} \wedge B
+     \in \mathbb{C} ) )&(\mbox{\ref{eq:3jca}},1,2,3)\notag
+  \\ 5 &&  & \vdash 
+     \begin{array}{c}
+     ( ( \mc{A} \in \mathbb{C} \wedge \mc{A} \in \mathbb{C} \wedge \mc{B} \in
+     \mathbb{C} ) \rightarrow \\
+     ( ( \mc{A} \minus \mc{A} ) \minus \mc{B} )
+     = ( \mc{A} \minus ( \mc{A} + \mc{B} ) )
+     )
+     \end{array}
+     &(\mbox{\ref{eq:subsub4}})\notag
+  \\ 6 &&  & \vdash ( ( \mc{A} \in \mathbb{C} \wedge \mc{B} \in \mathbb{C} ) \rightarrow
+     ( ( \mc{A} \minus \mc{A} ) \minus \mc{B} ) = ( \mc{A} \minus ( \mc{A} + \mc{B} ) )
+     )&(\mbox{\ref{eq:syl}},4,5)\notag
+  \\ 7 &&  & \vdash ( \mc{A} \in \mathbb{C} \rightarrow ( \mc{A} \minus \mc{A} ) = 0
+     )&(\mbox{\ref{eq:subid}})\notag
+  \\ 8 &&  & \vdash ( ( \mc{A} \in \mathbb{C} \wedge \mc{B} \in \mathbb{C} ) \rightarrow
+     ( \mc{A} \minus \mc{A} ) = 0 )&(\mbox{\ref{eq:adantr}},7)\notag
+  \\ 9 &&  & \vdash ( ( \mc{A} \in \mathbb{C} \wedge \mc{B} \in \mathbb{C} ) \rightarrow
+     \mc{A} \in \mathbb{C} )&(@1)\notag
+  \\ 10 &&  & \vdash ( ( \mc{A} \in \mathbb{C} \wedge \mc{A} \in \mathbb{C} ) \rightarrow
+     ( \mc{A} \minus \mc{A} ) \in \mathbb{C}
+     )&(\mbox{\ref{eq:subcl}})\notag
+  \\ 11 &&  & \vdash ( ( \mc{A} \in \mathbb{C} \wedge \mc{B} \in \mathbb{C} ) \rightarrow
+     ( \mc{A} \minus \mc{A} ) \in \mathbb{C}
+     )&(\mbox{\ref{eq:syldan}},9,10)\notag
+  \\ 12 &&  & \vdash 0 \in \mathbb{C}&(\mbox{\ref{eq:0cn}})\notag
+  \\ 13 &&  & \vdash ( ( \mc{A} \in \mathbb{C} \wedge \mc{B} \in \mathbb{C} ) \rightarrow
+     0 \in \mathbb{C} )&(\mbox{\ref{eq:a1i}},12)\notag
+  \\ 14 &&  & \vdash ( ( \mc{A} \in \mathbb{C} \wedge \mc{B} \in \mathbb{C} ) \rightarrow
+     \mc{B} \in \mathbb{C} )&(@3)\notag
+  \\ 15 &&  & \vdash ( ( \mc{A} \in \mathbb{C} \wedge \mc{B} \in \mathbb{C} ) \rightarrow
+     ( ( \mc{A} \minus \mc{A} ) \in \mathbb{C} \wedge 0 \in
+     \mathbb{C} \wedge \mc{B} \in \mathbb{C} )
+     )&(\mbox{\ref{eq:3jca}},11,13,14)\notag
+  \\ 16 &&  & \vdash 
+     \begin{array}{c}
+     ( ( ( \mc{A} \minus \mc{A} ) \in \mathbb{C} \wedge 0 \in \mathbb{C}
+     \wedge \mc{B} \in \mathbb{C} ) \rightarrow \\
+      ( ( ( \mc{A} \minus
+     \mc{A} ) \minus \mc{B} ) = ( 0 \minus \mc{B} ) \leftrightarrow ( A
+     \minus \mc{A} ) = 0 ) )
+     \end{array}
+     &(\mbox{\ref{eq:subcan2}})\notag
+  \\ 17 &&  & \vdash 
+     \begin{array}{c}
+     ( ( \mc{A} \in \mathbb{C} \wedge \mc{B} \in \mathbb{C} ) \rightarrow \\
+     ( ( ( \mc{A} \minus \mc{A} ) \minus \mc{B} ) = ( 0 \minus \mc{B} )
+     \leftrightarrow ( \mc{A} \minus \mc{A} ) = 0 )
+     )
+     \end{array}
+     &(\mbox{\ref{eq:syl}},15,16)\notag
+  \\ 18 &&  & \vdash ( ( \mc{A} \in \mathbb{C} \wedge \mc{B} \in \mathbb{C} ) \rightarrow
+     ( ( \mc{A} \minus \mc{A} ) \minus \mc{B} ) = ( 0 \minus \mc{B} )
+     )&(\mbox{\ref{eq:mpbird}},8,17)\notag
+  \\ 19 &&  & \vdash ( ( \mc{A} \in \mathbb{C} \wedge \mc{B} \in \mathbb{C} ) \rightarrow
+     ( \mc{A} \minus ( \mc{A} + \mc{B} ) ) = ( 0 \minus \mc{B} )
+     )&(\mbox{\ref{eq:eqtr3d}},6,18)\notag
+  \\ 20 &&  & \vdash \textrm{-} \mc{B} = ( 0 \minus B
+     )&(\mbox{\ref{eq:df-neg}})\notag
+  \\ 21 &&  & \vdash ( ( \mc{A} \in \mathbb{C} \wedge \mc{B} \in \mathbb{C} ) \rightarrow
+     ( \mc{A} \minus ( \mc{A} + \mc{B} ) ) = \textrm{-} B
+     )&(\mbox{\ref{eq:syl6eqr}},19,20)\notag
+\end{align}
+\end{proof}
+
+\begin{lemma}\blTitle{bl.npucan2i} {Add/Subtract Same: $b \minus ( a + b )
+= \textrm{-} a$}
+\begin{align}
+\vdash \mc{A} \in \mathbb{C}\quad\&\quad \vdash \mc{B} \in
+    \mathbb{C}\quad\Rightarrow\quad \vdash ( \mc{B} \minus ( \mc{A} + \mc{B} ) ) = \textrm{-}
+    A\label{eq:bl.npucan2i}\tag{bl.npucan2i}
+\end{align}
+\end{lemma}
+
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash \mc{B} \in \mathbb{C}&\text{Hyp~npucan2i.2}\notag%bl.npucan2i.2
+  \\ 2 &&  & \vdash \mc{A} \in \mathbb{C}&\text{Hyp~npucan2i.1}\notag%bl.npucan2i.1
+  \\ 3 &&  & \vdash \mc{B} \in \mathbb{C}&\text{Hyp~npucan2i.2}\notag%bl.npucan2i.2
+  \\ 4 &&  & \vdash ( \mc{A} + \mc{B} ) \in \mathbb{C}&(\mbox{\ref{eq:addcli}},2,3)\notag
+  \\ 5 &&  & \vdash ( \mc{B} \in \mathbb{C} \wedge ( \mc{A} + \mc{B} ) \in \mathbb{C}
+     )&(\mbox{\ref{eq:pm3.2i}},1,4)\notag
+  \\ 6 &&  & \vdash
+     \begin{array}{c}
+     ( ( \mc{B} \in \mathbb{C} \wedge ( \mc{A} + \mc{B} ) \in \mathbb{C} )
+     \rightarrow \\
+     ( \mc{B} + \textrm{-} ( \mc{A} + \mc{B} ) ) = ( \mc{B} \minus
+     ( \mc{A} + \mc{B} ) ) )
+     \end{array}
+     &(\mbox{\ref{eq:negsub}})\notag
+  \\ 7 &&  & \vdash ( \mc{B} + \textrm{-} ( \mc{A} + \mc{B} ) ) = ( \mc{B} \minus ( \mc{A} + \mc{B} )
+     )&(\mbox{\ref{eq:ax-mp}},5,6)\notag
+  \\ 8 &&  & \vdash \mc{A} \in \mathbb{C}&\text{Hyp~npucan2i.1}\notag%bl.npucan2i.1
+  \\ 9 &&  & \vdash \mc{B} \in \mathbb{C}&\text{Hyp~npucan2i.2}\notag%bl.npucan2i.2
+  \\ 10 &&  & \vdash ( \mc{A} \in \mathbb{C} \wedge \mc{B} \in \mathbb{C}
+     )&(\mbox{\ref{eq:pm3.2i}},8,9)\notag
+  \\ 11 &&  & \vdash ( ( \mc{A} \in \mathbb{C} \wedge \mc{B} \in \mathbb{C} ) \rightarrow
+     \textrm{-} ( \mc{A} + \mc{B} ) = ( \textrm{-} \mc{A} + \textrm{-} B
+     ) )&(\mbox{\ref{eq:negdi}})\notag
+  \\ 12 &&  & \vdash \textrm{-} ( \mc{A} + \mc{B} ) = ( \textrm{-} \mc{A} + \textrm{-} B
+     )&(\mbox{\ref{eq:ax-mp}},10,11)\notag
+  \\ 13 &&  & \vdash ( \mc{B} + \textrm{-} ( \mc{A} + \mc{B} ) ) = ( \mc{B} + ( \textrm{-} \mc{A} +
+     \textrm{-} \mc{B} ) )&(\mbox{\ref{eq:oveq2i}},12)\notag
+  \\ 14 &&  & \vdash ( \mc{B} \minus ( \mc{A} + \mc{B} ) ) = ( \mc{B} + ( \textrm{-} \mc{A} + \textrm{-}
+     \mc{B} ) )&(\mbox{\ref{eq:eqtr3i}},7,13)\notag
+  \\ 15 &&  & \vdash \mc{B} \in \mathbb{C}&\text{Hyp~npucan2i.2}\notag%bl.npucan2i.2
+  \\ 16 &&  & \vdash \mc{A} \in \mathbb{C}&\text{Hyp~npucan2i.1}\notag%bl.npucan2i.1
+  \\ 17 && @17:\  & \vdash \textrm{-} \mc{A} \in
+     \mathbb{C}&(\mbox{\ref{eq:negcli}},16)\notag
+  \\ 18 &&  & \vdash \mc{B} \in \mathbb{C}&\text{Hyp~npucan2i.2}\notag%bl.npucan2i.2
+  \\ 19 &&  & \vdash \textrm{-} \mc{B} \in
+     \mathbb{C}&(\mbox{\ref{eq:negcli}},18)\notag
+  \\ 20 &&  & \vdash ( \mc{B} \in \mathbb{C} \wedge \textrm{-} \mc{A} \in \mathbb{C}
+     \wedge \textrm{-} \mc{B} \in \mathbb{C}
+     )&(\mbox{\ref{eq:3pm3.2i}},15,17,19)\notag
+  \\ 21 &&  & \vdash 
+     \begin{array}{c}
+     ( ( \mc{B} \in \mathbb{C} \wedge \textrm{-} \mc{A} \in \mathbb{C}
+     \wedge \textrm{-} \mc{B} \in \mathbb{C} ) \rightarrow \\
+     ( B
+     + ( \textrm{-} \mc{A} + \textrm{-} \mc{B} ) ) = ( \textrm{-} A
+     + ( \mc{B} + \textrm{-} \mc{B} ) )
+     )
+     \end{array}
+     &(\mbox{\ref{eq:add12}})\notag
+  \\ 22 &&  & \vdash ( \mc{B} + ( \textrm{-} \mc{A} + \textrm{-} \mc{B} ) ) = ( \textrm{-} \mc{A} +
+     ( \mc{B} + \textrm{-} \mc{B} )
+     )&(\mbox{\ref{eq:ax-mp}},20,21)\notag
+  \\ 23 &&  & \vdash ( \mc{B} \minus ( \mc{A} + \mc{B} ) ) = ( \textrm{-} \mc{A} + ( \mc{B} + \textrm{-}
+     \mc{B} ) )&(\mbox{\ref{eq:eqtri}},14,22)\notag
+  \\ 24 &&  & \vdash \mc{B} \in \mathbb{C}&\text{Hyp~npucan2i.2}\notag%bl.npucan2i.2
+  \\ 25 &&  & \vdash ( \mc{B} \in \mathbb{C} \rightarrow ( \mc{B} + \textrm{-} \mc{B} ) = 0
+     )&(\mbox{\ref{eq:negid}})\notag
+  \\ 26 &&  & \vdash ( \mc{B} + \textrm{-} \mc{B} ) =
+     0&(\mbox{\ref{eq:ax-mp}},24,25)\notag
+  \\ 27 &&  & \vdash ( \textrm{-} \mc{A} + ( \mc{B} + \textrm{-} \mc{B} ) ) = ( \textrm{-} \mc{A} +
+     0 )&(\mbox{\ref{eq:oveq2i}},26)\notag
+  \\ 28 &&  & \vdash \textrm{-} \mc{A} \in \mathbb{C}&(@17)\notag
+  \\ 29 &&  & \vdash ( \textrm{-} \mc{A} \in \mathbb{C} \rightarrow ( \textrm{-} \mc{A} +
+     0 ) = \textrm{-} \mc{A} )&(\mbox{\ref{eq:addid1}})\notag
+  \\ 30 &&  & \vdash ( \textrm{-} \mc{A} + 0 ) = \textrm{-}
+     A&(\mbox{\ref{eq:ax-mp}},28,29)\notag
+  \\ 31 &&  & \vdash ( \mc{B} \minus ( \mc{A} + \mc{B} ) ) = \textrm{-}
+     A&(\mbox{\ref{eq:3eqtri}},23,27,30)\notag
+\end{align}
+\end{proof}
+
+\begin{lemma}\blTitle{bl.npucan2d} {Add/Subtract Same: $b \minus ( a + b )
+= \textrm{-} a$ deduction form}
+\begin{align}
+\vdash ( \mw{\varphi} \rightarrow \mc{A} \in \mathbb{C} )\quad\&\quad \vdash (
+    \mw{\varphi} \rightarrow \mc{B} \in \mathbb{C} )\quad\Rightarrow\quad \vdash (
+    \mw{\varphi} \rightarrow ( \mc{B} \minus ( \mc{A} + \mc{B} ) ) = \textrm{-} A
+    )\label{eq:bl.npucan2d}\tag{bl.npucan2d}
+\end{align}
+\end{lemma}
+
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash ( \mw{\varphi} \rightarrow \mc{B} \in \mathbb{C}
+    )&\text{Hyp~npucan2d.2}\notag%bl.npucan2d.2
+  \\ 2 &&  & \vdash ( \mw{\varphi} \rightarrow \mc{A} \in \mathbb{C}
+    )&\text{Hyp~npucan2d.1}\notag%bl.npucan2d.1
+  \\ 3 &&  & \vdash ( \mw{\varphi} \rightarrow ( \mc{B} \minus \textrm{-} \mc{A} ) = ( B
+    + \mc{A} ) )&(\mbox{\ref{eq:subnegd}},1,2)\notag
+  \\ 4 &&  & \vdash ( \mc{A} + \mc{B} ) = ( \mc{B} + \mc{A} )&(\mbox{\ref{eq:addcomgi}})\notag
+  \\ 5 &&  & \vdash ( \mw{\varphi} \rightarrow ( \mc{A} + \mc{B} ) = ( \mc{B} + \mc{A} )
+    )&(\mbox{\ref{eq:a1i}},4)\notag
+  \\ 6 &&  & \vdash ( \mw{\varphi} \rightarrow ( \mc{B} \minus \textrm{-} \mc{A} ) = ( A
+    + \mc{B} ) )&(\mbox{\ref{eq:eqtr4d}},3,5)\notag
+  \\ 7 &&  & \vdash ( \mw{\varphi} \rightarrow ( \mc{B} \minus ( \mc{B} \minus \textrm{-}
+    \mc{A} ) ) = ( \mc{B} \minus ( \mc{A} + \mc{B} ) )
+    )&(\mbox{\ref{eq:oveq2d}},6)\notag
+  \\ 8 &&  & \vdash ( \mw{\varphi} \rightarrow ( \mc{B} \minus ( \mc{A} + \mc{B} ) ) = ( B
+    \minus ( \mc{B} \minus \textrm{-} \mc{A} ) )
+    )&(\mbox{\ref{eq:eqcomd}},7)\notag
+  \\ 9 &&  & \vdash ( \mw{\varphi} \rightarrow \mc{B} \in \mathbb{C}
+    )&\text{Hyp~npucan2d.2}\notag%bl.npucan2d.2
+  \\ 10 &&  & \vdash ( \mw{\varphi} \rightarrow \mc{A} \in \mathbb{C}
+    )&\text{Hyp~npucan2d.1}\notag%bl.npucan2d.1
+  \\ 11 &&  & \vdash ( \mw{\varphi} \rightarrow \textrm{-} \mc{A} \in \mathbb{C}
+    )&(\mbox{\ref{eq:negcld}},10)\notag
+  \\ 12 &&  & \vdash ( \mw{\varphi} \rightarrow ( \mc{B} \minus ( \mc{B} \minus
+    \textrm{-} \mc{A} ) ) = \textrm{-} A
+    )&(\mbox{\ref{eq:nncand}},9,11)\notag
+  \\ 13 &&  & \vdash ( \mw{\varphi} \rightarrow ( \mc{B} \minus ( \mc{A} + \mc{B} ) ) =
+    \textrm{-} \mc{A} )&(\mbox{\ref{eq:eqtrd}},8,12)\notag
+\end{align}
+\end{proof}
+
+\begin{lemma}\blTitle{bl.npucan2} {Add/Subtract Same: $b \minus ( a + b ) =
+\textrm{-} a$}
+\begin{align}
+\vdash ( ( \mc{A} \in \mathbb{C} \wedge \mc{B} \in \mathbb{C} ) \rightarrow ( \mc{B} \minus (
+    \mc{A} + \mc{B} ) ) = \textrm{-} \mc{A} )\label{eq:bl.npucan2}\tag{bl.npucan2}
+\end{align}
+\end{lemma}
+
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash ( ( \mc{A} \in \mathbb{C} \wedge \mc{B} \in \mathbb{C} ) \rightarrow A
+    \in \mathbb{C} )&(\mbox{\ref{eq:simpl}})\notag
+  \\ 2 &&  & \vdash ( ( \mc{A} \in \mathbb{C} \wedge \mc{B} \in \mathbb{C} ) \rightarrow
+    \mc{B} \in \mathbb{C} )&(\mbox{\ref{eq:simpr}})\notag
+  \\ 3 &&  & \vdash ( ( \mc{A} \in \mathbb{C} \wedge \mc{B} \in \mathbb{C} ) \rightarrow
+    ( \mc{B} \minus ( \mc{A} + \mc{B} ) ) = \textrm{-} A
+    )&(\mbox{\ref{eq:bl.npucan2d}},1,2)\notag
+\end{align}
+\end{proof}
+
+\begin{lemma}\blTitle{bl.subadd4} {Associativity: $( a \minus b ) + ( c
+\minus d ) = ( a + c ) \minus ( b + d )$}
+\begin{align}
+\vdash ( ( ( \mc{A} \in \mathbb{C} \wedge \mc{B} \in \mathbb{C} ) \wedge ( \mc{C} \in
+    \mathbb{C} \wedge \mc{D} \in \mathbb{C} ) ) \rightarrow ( ( \mc{A} \minus \mc{B} ) + ( C
+    \minus \mc{D} ) ) = ( ( \mc{A} + \mc{C} ) \minus ( \mc{B} + \mc{D} ) )
+    )\label{eq:bl.subadd4}\tag{bl.subadd4}
+\end{align}
+\end{lemma}
+
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash 
+     \begin{array}{c}
+     ( ( ( \mc{A} \in \mathbb{C} \wedge \mc{C} \in \mathbb{C} ) \wedge ( B
+     \in \mathbb{C} \wedge \mc{D} \in \mathbb{C} ) )
+     \rightarrow \\
+      ( ( \mc{A} + \mc{C} ) \minus ( \mc{B} + \mc{D} ) ) = ( ( A
+     \minus \mc{B} ) + ( \mc{C} \minus \mc{D} ) )
+     )
+     \end{array}
+     &(\mbox{\ref{eq:addsub4}})\notag
+  \\ 2 &&  & \vdash 
+     \begin{array}{c}
+     ( ( ( \mc{A} \in \mathbb{C} \wedge \mc{C} \in \mathbb{C} ) \wedge ( B
+     \in \mathbb{C} \wedge \mc{D} \in \mathbb{C} ) )
+     \leftrightarrow \\
+      ( \mc{A} \in \mathbb{C} \wedge ( \mc{C} \in
+     \mathbb{C} \wedge ( \mc{B} \in \mathbb{C} \wedge \mc{D} \in
+     \mathbb{C} ) ) ) )
+     \end{array}
+     &(\mbox{\ref{eq:anass}})\notag
+  \\ 3 &&  & \vdash ( ( \mc{B} \in \mathbb{C} \wedge \mc{D} \in \mathbb{C} )
+     \leftrightarrow ( \mc{D} \in \mathbb{C} \wedge \mc{B} \in
+     \mathbb{C} ) )&(\mbox{\ref{eq:ancom}})\notag
+  \\ 4 &&  & \vdash ( ( \mc{C} \in \mathbb{C} \wedge ( \mc{B} \in \mathbb{C} \wedge \mc{D} \in
+     \mathbb{C} ) ) \leftrightarrow ( \mc{C} \in \mathbb{C}
+     \wedge ( \mc{D} \in \mathbb{C} \wedge \mc{B} \in \mathbb{C} ) )
+     )&(\mbox{\ref{eq:anbi2i}},3)\notag
+  \\ 5 &&  & \vdash ( ( ( \mc{C} \in \mathbb{C} \wedge \mc{D} \in \mathbb{C} ) \wedge B
+     \in \mathbb{C} ) \leftrightarrow ( \mc{C} \in \mathbb{C}
+     \wedge ( \mc{D} \in \mathbb{C} \wedge \mc{B} \in \mathbb{C} ) )
+     )&(\mbox{\ref{eq:anass}})\notag
+  \\ 6 &&  & \vdash ( ( \mc{C} \in \mathbb{C} \wedge ( \mc{D} \in \mathbb{C} \wedge \mc{B} \in
+     \mathbb{C} ) ) \leftrightarrow ( ( \mc{C} \in \mathbb{C}
+     \wedge \mc{D} \in \mathbb{C} ) \wedge \mc{B} \in \mathbb{C} )
+     )&(\mbox{\ref{eq:bicomi}},5)\notag
+  \\ 7 &&  & \vdash ( ( \mc{C} \in \mathbb{C} \wedge ( \mc{B} \in \mathbb{C} \wedge \mc{D} \in
+     \mathbb{C} ) ) \leftrightarrow ( ( \mc{C} \in \mathbb{C}
+     \wedge \mc{D} \in \mathbb{C} ) \wedge \mc{B} \in \mathbb{C} )
+     )&(\mbox{\ref{eq:bitri}},4,6)\notag
+  \\ 8 &&  & \vdash 
+     \begin{array}{c}
+     ( ( \mc{A} \in \mathbb{C} \wedge ( \mc{C} \in \mathbb{C} \wedge ( B
+     \in \mathbb{C} \wedge \mc{D} \in \mathbb{C} ) ) )
+     \leftrightarrow \\
+     ( \mc{A} \in \mathbb{C} \wedge ( ( \mc{C} \in
+     \mathbb{C} \wedge \mc{D} \in \mathbb{C} ) \wedge \mc{B} \in
+     \mathbb{C} ) ) )
+     \end{array}
+     &(\mbox{\ref{eq:anbi2i}},7)\notag
+  \\ 9 &&  & \vdash ( ( ( \mc{C} \in \mathbb{C} \wedge \mc{D} \in \mathbb{C} ) \wedge B
+     \in \mathbb{C} ) \leftrightarrow ( \mc{B} \in \mathbb{C}
+     \wedge ( \mc{C} \in \mathbb{C} \wedge \mc{D} \in \mathbb{C} ) )
+     )&(\mbox{\ref{eq:ancom}})\notag
+  \\ 10 &&  & \vdash 
+     \begin{array}{c}
+     ( ( \mc{A} \in \mathbb{C} \wedge ( ( \mc{C} \in \mathbb{C} \wedge D
+     \in \mathbb{C} ) \wedge \mc{B} \in \mathbb{C} ) )
+     \leftrightarrow \\
+      ( \mc{A} \in \mathbb{C} \wedge ( \mc{B} \in
+     \mathbb{C} \wedge ( \mc{C} \in \mathbb{C} \wedge \mc{D} \in
+     \mathbb{C} ) ) ) )
+     \end{array}
+     &(\mbox{\ref{eq:anbi2i}},9)\notag
+  \\ 11 &&  & \vdash 
+     \begin{array}{c}
+     ( ( \mc{A} \in \mathbb{C} \wedge ( \mc{C} \in \mathbb{C} \wedge ( B
+     \in \mathbb{C} \wedge \mc{D} \in \mathbb{C} ) ) )
+     \leftrightarrow \\
+      ( \mc{A} \in \mathbb{C} \wedge ( \mc{B} \in
+     \mathbb{C} \wedge ( \mc{C} \in \mathbb{C} \wedge \mc{D} \in
+     \mathbb{C} ) ) ) )
+     \end{array}
+     &(\mbox{\ref{eq:bitri}},8,10)\notag
+  \\ 12 &&  & \vdash 
+     \begin{array}{c}
+     ( ( ( \mc{A} \in \mathbb{C} \wedge \mc{B} \in \mathbb{C} ) \wedge (
+     \mc{C} \in \mathbb{C} \wedge \mc{D} \in \mathbb{C} ) )
+     \leftrightarrow \\
+     ( \mc{A} \in \mathbb{C} \wedge ( \mc{B} \in
+     \mathbb{C} \wedge ( \mc{C} \in \mathbb{C} \wedge \mc{D} \in
+     \mathbb{C} ) ) ) )
+     \end{array}
+     &(\mbox{\ref{eq:anass}})\notag
+  \\ 13 &&  & \vdash 
+     \begin{array}{c}
+     ( ( \mc{A} \in \mathbb{C} \wedge ( \mc{B} \in \mathbb{C} \wedge ( C
+     \in \mathbb{C} \wedge \mc{D} \in \mathbb{C} ) ) )
+     \leftrightarrow \\
+     ( ( \mc{A} \in \mathbb{C} \wedge \mc{B} \in
+     \mathbb{C} ) \wedge ( \mc{C} \in \mathbb{C} \wedge \mc{D} \in
+     \mathbb{C} ) ) )
+     \end{array}
+     &(\mbox{\ref{eq:bicomi}},12)\notag
+  \\ 14 &&  & \vdash 
+     \begin{array}{c}
+     ( ( \mc{A} \in \mathbb{C} \wedge ( \mc{C} \in \mathbb{C} \wedge ( B
+     \in \mathbb{C} \wedge \mc{D} \in \mathbb{C} ) ) )
+     \leftrightarrow \\
+     ( ( \mc{A} \in \mathbb{C} \wedge \mc{B} \in
+     \mathbb{C} ) \wedge ( \mc{C} \in \mathbb{C} \wedge \mc{D} \in
+     \mathbb{C} ) ) )
+     \end{array}
+     &(\mbox{\ref{eq:bitri}},11,13)\notag
+  \\ 15 &&  & \vdash 
+     \begin{array}{c}
+     ( ( ( \mc{A} \in \mathbb{C} \wedge \mc{C} \in \mathbb{C} ) \wedge (
+     \mc{B} \in \mathbb{C} \wedge \mc{D} \in \mathbb{C} ) )
+     \leftrightarrow \\
+      ( ( \mc{A} \in \mathbb{C} \wedge \mc{B} \in
+     \mathbb{C} ) \wedge ( \mc{C} \in \mathbb{C} \wedge \mc{D} \in
+     \mathbb{C} ) ) )
+     \end{array}
+     &(\mbox{\ref{eq:bitri}},2,14)\notag
+  \\ 16 &&  & \vdash 
+     \begin{array}{c}
+     ( ( ( ( \mc{A} \in \mathbb{C} \wedge \mc{C} \in \mathbb{C} ) \wedge
+     ( \mc{B} \in \mathbb{C} \wedge \mc{D} \in \mathbb{C} ) )
+     \rightarrow \\
+     ( ( \mc{A} + \mc{C} ) \minus ( \mc{B} + \mc{D} ) ) = ( ( A
+     \minus \mc{B} ) + ( \mc{C} \minus \mc{D} ) ) ) \leftrightarrow \\
+     ( ( (
+     \mc{A} \in \mathbb{C} \wedge \mc{B} \in \mathbb{C} ) \wedge ( C
+     \in \mathbb{C} \wedge \mc{D} \in \mathbb{C} ) )
+     \rightarrow \\
+     ( ( \mc{A} + \mc{C} ) \minus ( \mc{B} + \mc{D} ) ) = ( ( A
+     \minus \mc{B} ) + ( \mc{C} \minus \mc{D} ) ) )
+     )
+     \end{array}
+     &(\mbox{\ref{eq:imbi1i}},15)\notag
+  \\ 17 &&  & \vdash 
+     \begin{array}{c}
+     ( ( ( \mc{A} + \mc{C} ) \minus ( \mc{B} + \mc{D} ) ) = ( ( \mc{A} \minus \mc{B} ) + ( C
+     \minus \mc{D} ) ) \leftrightarrow \\
+     ( ( \mc{A} \minus \mc{B} ) + ( C
+     \minus \mc{D} ) ) = ( ( \mc{A} + \mc{C} ) \minus ( \mc{B} + \mc{D} ) )
+     )
+     \end{array}
+     &(\mbox{\ref{eq:eqcom}})\notag
+     \displaybreak
+  \\ 18 &&  & \vdash 
+     \begin{array}{c}
+     ( ( ( ( \mc{A} \in \mathbb{C} \wedge \mc{B} \in \mathbb{C} ) \wedge
+     ( \mc{C} \in \mathbb{C} \wedge \mc{D} \in \mathbb{C} ) )
+     \rightarrow \\
+     ( ( \mc{A} + \mc{C} ) \minus ( \mc{B} + \mc{D} ) ) = ( ( A
+     \minus \mc{B} ) + ( \mc{C} \minus \mc{D} ) ) ) \leftrightarrow \\
+      ( ( (
+     \mc{A} \in \mathbb{C} \wedge \mc{B} \in \mathbb{C} ) \wedge ( C
+     \in \mathbb{C} \wedge \mc{D} \in \mathbb{C} ) )
+     \rightarrow \\
+      ( ( \mc{A} \minus \mc{B} ) + ( \mc{C} \minus \mc{D} ) ) = ( (
+     \mc{A} + \mc{C} ) \minus ( \mc{B} + \mc{D} ) ) )
+     )
+     \end{array}
+     &(\mbox{\ref{eq:imbi2i}},17)\notag
+  \\ 19 &&  & \vdash 
+     \begin{array}{c}
+     ( ( ( ( \mc{A} \in \mathbb{C} \wedge \mc{C} \in \mathbb{C} ) \wedge
+     ( \mc{B} \in \mathbb{C} \wedge \mc{D} \in \mathbb{C} ) )
+     \rightarrow \\
+     ( ( \mc{A} + \mc{C} ) \minus ( \mc{B} + \mc{D} ) ) = ( ( A
+     \minus \mc{B} ) + ( \mc{C} \minus \mc{D} ) ) ) \leftrightarrow \\
+      ( ( (
+     \mc{A} \in \mathbb{C} \wedge \mc{B} \in \mathbb{C} ) \wedge ( C
+     \in \mathbb{C} \wedge \mc{D} \in \mathbb{C} ) )
+     \rightarrow \\
+      ( ( \mc{A} \minus \mc{B} ) + ( \mc{C} \minus \mc{D} ) ) = ( (
+     \mc{A} + \mc{C} ) \minus ( \mc{B} + \mc{D} ) ) )
+     )
+     \end{array}
+     &(\mbox{\ref{eq:bitri}},16,18)\notag
+  \\ 20 &&  & \vdash 
+     \begin{array}{c}
+     ( ( ( \mc{A} \in \mathbb{C} \wedge \mc{B} \in \mathbb{C} ) \wedge (
+     \mc{C} \in \mathbb{C} \wedge \mc{D} \in \mathbb{C} ) )
+     \rightarrow \\
+      ( ( \mc{A} \minus \mc{B} ) + ( \mc{C} \minus \mc{D} ) ) = ( (
+     \mc{A} + \mc{C} ) \minus ( \mc{B} + \mc{D} ) )
+     )
+     \end{array}
+     &(\mbox{\ref{eq:mpbi}},1,19)\notag
+\end{align}
+\end{proof}
+
+\begin{lemma}\blTitle{bl.rnegsub} {Unary Minus: $( \textrm{-} a + b ) = ( b
+\minus a )$}
+\begin{align}
+\vdash ( ( \mc{A} \in \mathbb{C} \wedge \mc{B} \in \mathbb{C} ) \rightarrow ( \textrm{-}
+    \mc{A} + \mc{B} ) = ( \mc{B} \minus \mc{A} ) )\label{eq:bl.rnegsub}\tag{bl.rnegsub}
+\end{align}
+\end{lemma}
+
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash ( ( \mc{B} \in \mathbb{C} \wedge \mc{A} \in \mathbb{C} ) \rightarrow ( B
+     + \textrm{-} \mc{A} ) = ( \mc{B} \minus \mc{A} )
+     )&(\mbox{\ref{eq:negsub}})\notag
+  \\ 2 &&  & \vdash ( ( \mc{B} \in \mathbb{C} \wedge \mc{A} \in \mathbb{C} )
+     \leftrightarrow ( \mc{A} \in \mathbb{C} \wedge \mc{B} \in
+     \mathbb{C} ) )&(\mbox{\ref{eq:ancom}})\notag
+  \\ 3 &&  & \vdash 
+     \begin{array}{c}
+     ( ( ( \mc{B} \in \mathbb{C} \wedge \mc{A} \in \mathbb{C} )
+     \rightarrow \\
+      ( \mc{B} + \textrm{-} \mc{A} ) = ( \mc{B} \minus \mc{A} ) )
+     \leftrightarrow ( ( \mc{A} \in \mathbb{C} \wedge \mc{B} \in
+     \mathbb{C} ) \rightarrow ( \mc{B} + \textrm{-} \mc{A} ) = ( B
+     \minus \mc{A} ) ) )
+     \end{array}
+     &(\mbox{\ref{eq:imbi1i}},2)\notag
+  \\ 4 &&  & \vdash ( \mc{B} + \textrm{-} \mc{A} ) = ( \textrm{-} \mc{A} + B
+     )&(\mbox{\ref{eq:addcomgi}})\notag
+  \\ 5 &&  & \vdash ( ( \mc{B} + \textrm{-} \mc{A} ) = ( \mc{B} \minus \mc{A} ) \leftrightarrow (
+     \textrm{-} \mc{A} + \mc{B} ) = ( \mc{B} \minus \mc{A} )
+     )&(\mbox{\ref{eq:eqeq1i}},4)\notag
+  \\ 6 &&  & \vdash  
+     \begin{array}{c}
+     ( ( ( \mc{A} \in \mathbb{C} \wedge \mc{B} \in \mathbb{C} )
+     \rightarrow ( \mc{B} + \textrm{-} \mc{A} ) = ( \mc{B} \minus \mc{A} ) )
+     \leftrightarrow \\
+     ( ( \mc{A} \in \mathbb{C} \wedge \mc{B} \in
+     \mathbb{C} ) \rightarrow ( \textrm{-} \mc{A} + \mc{B} ) = ( B
+     \minus \mc{A} ) ) )
+     \end{array}
+     &(\mbox{\ref{eq:imbi2i}},5)\notag
+  \\ 7 &&  & \vdash  
+     \begin{array}{c}
+     ( ( ( \mc{B} \in \mathbb{C} \wedge \mc{A} \in \mathbb{C} )
+     \rightarrow ( \mc{B} + \textrm{-} \mc{A} ) = ( \mc{B} \minus \mc{A} ) )
+     \leftrightarrow \\
+     ( ( \mc{A} \in \mathbb{C} \wedge \mc{B} \in
+     \mathbb{C} ) \rightarrow ( \textrm{-} \mc{A} + \mc{B} ) = ( B
+     \minus \mc{A} ) ) )
+     \end{array}
+     &(\mbox{\ref{eq:bitri}},3,6)\notag
+  \\ 8 &&  & \vdash ( ( \mc{A} \in \mathbb{C} \wedge \mc{B} \in \mathbb{C} ) \rightarrow
+     ( \textrm{-} \mc{A} + \mc{B} ) = ( \mc{B} \minus \mc{A} )
+     )&(\mbox{\ref{eq:mpbi}},1,7)\notag
+\end{align}
+\end{proof}
+
+\begin{lemma}\blTitle{bl.uaddsub} {Unary Minus: $( \textrm{-} a + b )
+\minus c = b \minus ( a + c )$}
+\begin{align}
+\vdash ( ( \mc{A} \in \mathbb{C} \wedge \mc{B} \in \mathbb{C} \wedge \mc{C} \in \mathbb{C} )
+    \rightarrow ( ( \textrm{-} \mc{A} + \mc{B} ) \minus \mc{C} ) = ( \mc{B} \minus ( \mc{A} + \mc{C} ) )
+    )\label{eq:bl.uaddsub}\tag{bl.uaddsub}
+\end{align}
+\end{lemma}
+
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash ( ( \mc{A} \in \mathbb{C} \wedge \mc{B} \in \mathbb{C} ) \rightarrow (
+     \textrm{-} \mc{A} + \mc{B} ) = ( \mc{B} \minus \mc{A} )
+     )&(\mbox{\ref{eq:bl.rnegsub}})\notag
+  \\ 2 &&  & \vdash ( ( \mc{A} \in \mathbb{C} \wedge \mc{B} \in \mathbb{C} \wedge \mc{C} \in
+     \mathbb{C} ) \rightarrow ( \textrm{-} \mc{A} + \mc{B} ) = ( B
+     \minus \mc{A} ) )&(\mbox{\ref{eq:3adant3}},1)\notag
+  \\ 3 && @3:\  & \vdash ( ( \mc{A} \in \mathbb{C} \wedge \mc{B} \in \mathbb{C} \wedge C
+     \in \mathbb{C} ) \rightarrow \mc{A} \in \mathbb{C}
+     )&(\mbox{\ref{eq:simp1}})\notag
+  \\ 4 &&  & \vdash ( \mc{A} \in \mathbb{C} \rightarrow \textrm{-} \mc{A} \in \mathbb{C}
+     )&(\mbox{\ref{eq:negcl}})\notag
+  \\ 5 &&  & \vdash ( ( \mc{A} \in \mathbb{C} \wedge \mc{B} \in \mathbb{C} \wedge \mc{C} \in
+     \mathbb{C} ) \rightarrow \textrm{-} \mc{A} \in \mathbb{C}
+     )&(\mbox{\ref{eq:syl}},3,4)\notag
+  \\ 6 && @6:\  & \vdash ( ( \mc{A} \in \mathbb{C} \wedge \mc{B} \in \mathbb{C} \wedge C
+     \in \mathbb{C} ) \rightarrow \mc{B} \in \mathbb{C}
+     )&(\mbox{\ref{eq:simp2}})\notag
+  \\ 7 &&  & \vdash ( ( \textrm{-} \mc{A} \in \mathbb{C} \wedge \mc{B} \in \mathbb{C} )
+     \rightarrow ( \textrm{-} \mc{A} + \mc{B} ) \in \mathbb{C}
+     )&(\mbox{\ref{eq:addcl}})\notag
+  \\ 8 &&  & \vdash ( ( \mc{A} \in \mathbb{C} \wedge \mc{B} \in \mathbb{C} \wedge \mc{C} \in
+     \mathbb{C} ) \rightarrow ( \textrm{-} \mc{A} + \mc{B} ) \in
+     \mathbb{C} )&(\mbox{\ref{eq:syl2anc}},5,6,7)\notag
+  \\ 9 &&  & \vdash ( ( \mc{A} \in \mathbb{C} \wedge \mc{B} \in \mathbb{C} \wedge \mc{C} \in
+     \mathbb{C} ) \rightarrow \mc{B} \in \mathbb{C}
+     )&(@6)\notag
+  \\ 10 &&  & \vdash ( ( \mc{A} \in \mathbb{C} \wedge \mc{B} \in \mathbb{C} \wedge \mc{C} \in
+     \mathbb{C} ) \rightarrow \mc{A} \in \mathbb{C}
+     )&(@3)\notag
+  \\ 11 &&  & \vdash ( ( \mc{A} \in \mathbb{C} \wedge \mc{B} \in \mathbb{C} \wedge \mc{C} \in
+     \mathbb{C} ) \rightarrow ( \mc{B} \in \mathbb{C} \wedge A
+     \in \mathbb{C} ) )&(\mbox{\ref{eq:jca}},9,10)\notag
+  \\ 12 &&  & \vdash ( ( \mc{B} \in \mathbb{C} \wedge \mc{A} \in \mathbb{C} ) \rightarrow
+     ( \mc{B} \minus \mc{A} ) \in \mathbb{C}
+     )&(\mbox{\ref{eq:subcl}})\notag
+  \\ 13 &&  & \vdash ( ( \mc{A} \in \mathbb{C} \wedge \mc{B} \in \mathbb{C} \wedge \mc{C} \in
+     \mathbb{C} ) \rightarrow ( \mc{B} \minus \mc{A} ) \in
+     \mathbb{C} )&(\mbox{\ref{eq:syl}},11,12)\notag
+  \\ 14 && @14:\  & \vdash ( ( \mc{A} \in \mathbb{C} \wedge \mc{B} \in \mathbb{C} \wedge
+     \mc{C} \in \mathbb{C} ) \rightarrow \mc{C} \in \mathbb{C}
+     )&(\mbox{\ref{eq:simp3}})\notag
+  \\ 15 &&  & \vdash   
+     \begin{array}{c}
+     ( ( \mc{A} \in \mathbb{C} \wedge \mc{B} \in \mathbb{C} \wedge \mc{C} \in
+     \mathbb{C} ) \rightarrow \\
+     ( ( \textrm{-} \mc{A} + \mc{B} ) \in
+     \mathbb{C} \wedge ( \mc{B} \minus \mc{A} ) \in \mathbb{C}
+     \wedge \mc{C} \in \mathbb{C} )
+     )
+     \end{array}
+     &(\mbox{\ref{eq:3jca}},8,13,14)\notag
+  \\ 16 &&  & \vdash  
+     \begin{array}{c}
+     ( ( ( \textrm{-} \mc{A} + \mc{B} ) \in \mathbb{C} \wedge ( \mc{B} \minus
+     \mc{A} ) \in \mathbb{C} \wedge \mc{C} \in \mathbb{C} )
+     \rightarrow \\
+      ( ( ( \textrm{-} \mc{A} + \mc{B} ) \minus \mc{C} ) = ( (
+     \mc{B} \minus \mc{A} ) \minus \mc{C} ) \leftrightarrow \\
+      ( \textrm{-}
+     \mc{A} + \mc{B} ) = ( \mc{B} \minus \mc{A} ) )
+     )
+     \end{array}
+     &(\mbox{\ref{eq:subcan2}})\notag
+  \\ 17 &&  & \vdash  
+     \begin{array}{c}
+     ( ( \mc{A} \in \mathbb{C} \wedge \mc{B} \in \mathbb{C} \wedge \mc{C} \in
+     \mathbb{C} ) \rightarrow \\
+      ( ( ( \textrm{-} \mc{A} + \mc{B} )
+     \minus \mc{C} ) = ( ( \mc{B} \minus \mc{A} ) \minus \mc{C} )
+     \leftrightarrow \\
+      ( \textrm{-} \mc{A} + \mc{B} ) = ( \mc{B} \minus \mc{A} )
+     ) )
+     \end{array}
+     &(\mbox{\ref{eq:syl}},15,16)\notag
+  \\ 18 &&  & \vdash  
+     \begin{array}{c}
+     ( ( \mc{A} \in \mathbb{C} \wedge \mc{B} \in \mathbb{C} \wedge \mc{C} \in
+     \mathbb{C} ) \rightarrow \\
+     ( ( \textrm{-} \mc{A} + \mc{B} )
+     \minus \mc{C} ) = ( ( \mc{B} \minus \mc{A} ) \minus \mc{C} )
+     )
+     \end{array}
+     &(\mbox{\ref{eq:mpbird}},2,17)\notag
+  \\ 19 &&  & \vdash ( ( \mc{A} \in \mathbb{C} \wedge \mc{B} \in \mathbb{C} \wedge \mc{C} \in
+     \mathbb{C} ) \rightarrow \mc{B} \in \mathbb{C}
+     )&(@6)\notag
+  \\ 20 &&  & \vdash ( ( \mc{A} \in \mathbb{C} \wedge \mc{B} \in \mathbb{C} \wedge \mc{C} \in
+     \mathbb{C} ) \rightarrow \mc{A} \in \mathbb{C}
+     )&(@3)\notag
+  \\ 21 &&  & \vdash ( ( \mc{A} \in \mathbb{C} \wedge \mc{B} \in \mathbb{C} \wedge \mc{C} \in
+     \mathbb{C} ) \rightarrow \mc{C} \in \mathbb{C}
+     )&(@14)\notag
+  \\ 22 &&  & \vdash ( ( \mc{A} \in \mathbb{C} \wedge \mc{B} \in \mathbb{C} \wedge \mc{C} \in
+     \mathbb{C} ) \rightarrow 
+     ( \mc{B} \in \mathbb{C} \wedge A
+     \in \mathbb{C} \wedge \mc{C} \in \mathbb{C} )
+     )&(\mbox{\ref{eq:3jca}},19,20,21)\notag
+  \\ 23 &&  & \vdash  
+     \begin{array}{c}
+     ( ( \mc{B} \in \mathbb{C} \wedge \mc{A} \in \mathbb{C} \wedge \mc{C} \in
+     \mathbb{C} ) \rightarrow \\
+      ( ( \mc{B} \minus \mc{A} ) \minus \mc{C} )
+     = ( \mc{B} \minus ( \mc{A} + \mc{C} ) )
+     )
+     \end{array}
+     &(\mbox{\ref{eq:subsub4}})\notag
+     \displaybreak
+  \\ 24 &&  & \vdash  
+     \begin{array}{c}
+     ( ( \mc{A} \in \mathbb{C} \wedge \mc{B} \in \mathbb{C} \wedge \mc{C} \in
+     \mathbb{C} ) \rightarrow \\
+     ( ( \mc{B} \minus \mc{A} ) \minus \mc{C} )
+     = ( \mc{B} \minus ( \mc{A} + \mc{C} ) )
+     )
+     \end{array}
+     &(\mbox{\ref{eq:syl}},22,23)\notag
+  \\ 25 &&  & \vdash  
+     \begin{array}{c}
+     ( ( \mc{A} \in \mathbb{C} \wedge \mc{B} \in \mathbb{C} \wedge \mc{C} \in
+     \mathbb{C} ) \rightarrow \\
+     ( ( \textrm{-} \mc{A} + \mc{B} )
+     \minus \mc{C} ) = ( \mc{B} \minus ( \mc{A} + \mc{C} ) )
+     )
+     \end{array}
+     &(\mbox{\ref{eq:eqtrd}},18,24)\notag
+\end{align}
+\end{proof}
+
+\begin{lemma}\blTitle{bl.addusub} {Unary Minus: $( a + \textrm{-} b )
+\minus c = a \minus ( b + c )$}
+\begin{align}
+\vdash ( ( \mc{A} \in \mathbb{C} \wedge \mc{B} \in \mathbb{C} \wedge \mc{C} \in \mathbb{C} )
+    \rightarrow ( ( \mc{A} + \textrm{-} \mc{B} ) \minus \mc{C} ) = ( \mc{A} \minus ( \mc{B} + \mc{C} ) )
+    )\label{eq:bl.addusub}\tag{bl.addusub}
+\end{align}
+\end{lemma}
+
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash ( ( \mc{A} \in \mathbb{C} \wedge \mc{B} \in \mathbb{C} \wedge \mc{C} \in
+    \mathbb{C} ) \leftrightarrow ( ( \mc{A} \in \mathbb{C}
+    \wedge \mc{B} \in \mathbb{C} ) \wedge \mc{C} \in \mathbb{C} )
+    )&(\mbox{\ref{eq:df-3an}})\notag
+  \\ 2 &&  & \vdash ( ( \mc{A} \in \mathbb{C} \wedge \mc{B} \in \mathbb{C} \wedge \mc{C} \in
+    \mathbb{C} ) \rightarrow ( ( \mc{A} \in \mathbb{C} \wedge
+    \mc{B} \in \mathbb{C} ) \wedge \mc{C} \in \mathbb{C} )
+    )&(\mbox{\ref{eq:biimpi}},1)\notag
+  \\ 3 &&  & \vdash ( ( \mc{A} \in \mathbb{C} \wedge \mc{B} \in \mathbb{C} ) \rightarrow
+    ( \mc{B} \in \mathbb{C} \wedge \mc{A} \in \mathbb{C} )
+    )&(\mbox{\ref{eq:pm3.22}})\notag
+  \\ 4 &&  & \vdash ( ( ( \mc{A} \in \mathbb{C} \wedge \mc{B} \in \mathbb{C} ) \wedge C
+    \in \mathbb{C} ) \rightarrow ( ( \mc{B} \in \mathbb{C}
+    \wedge \mc{A} \in \mathbb{C} ) \wedge \mc{C} \in \mathbb{C} )
+    )&(\mbox{\ref{eq:anim1i}},3)\notag
+  \\ 5 &&  & \vdash ( ( \mc{B} \in \mathbb{C} \wedge \mc{A} \in \mathbb{C} \wedge \mc{C} \in
+    \mathbb{C} ) \leftrightarrow ( ( \mc{B} \in \mathbb{C}
+    \wedge \mc{A} \in \mathbb{C} ) \wedge \mc{C} \in \mathbb{C} )
+    )&(\mbox{\ref{eq:df-3an}})\notag
+  \\ 6 &&  & \vdash ( ( ( \mc{B} \in \mathbb{C} \wedge \mc{A} \in \mathbb{C} ) \wedge C
+    \in \mathbb{C} ) \rightarrow ( \mc{B} \in \mathbb{C}
+    \wedge \mc{A} \in \mathbb{C} \wedge \mc{C} \in \mathbb{C} )
+    )&(\mbox{\ref{eq:biimpri}},5)\notag
+  \\ 7 &&  & \vdash ( ( ( \mc{A} \in \mathbb{C} \wedge \mc{B} \in \mathbb{C} ) \wedge C
+    \in \mathbb{C} ) \rightarrow ( \mc{B} \in \mathbb{C}
+    \wedge \mc{A} \in \mathbb{C} \wedge \mc{C} \in \mathbb{C} )
+    )&(\mbox{\ref{eq:syl}},4,6)\notag
+  \\ 8 &&  & \vdash ( ( \mc{A} \in \mathbb{C} \wedge \mc{B} \in \mathbb{C} \wedge \mc{C} \in
+    \mathbb{C} ) \rightarrow ( \mc{B} \in \mathbb{C} \wedge A
+    \in \mathbb{C} \wedge \mc{C} \in \mathbb{C} )
+    )&(\mbox{\ref{eq:syl}},2,7)\notag
+  \\ 9 &&  & \vdash ( \textrm{-} \mc{B} + \mc{A} ) = ( \mc{A} + \textrm{-} B
+    )&(\mbox{\ref{eq:addcomgi}})\notag
+  \\ 10 &&  & \vdash ( ( \textrm{-} \mc{B} + \mc{A} ) \minus \mc{C} ) = ( ( \mc{A} + \textrm{-} \mc{B} )
+    \minus \mc{C} )&(\mbox{\ref{eq:oveq1i}},9)\notag
+  \\ 11 &&  & \vdash ( ( \mc{B} \in \mathbb{C} \wedge \mc{A} \in \mathbb{C} \wedge \mc{C} \in
+    \mathbb{C} ) \rightarrow ( ( \textrm{-} \mc{B} + \mc{A} )
+    \minus \mc{C} ) = ( ( \mc{A} + \textrm{-} \mc{B} ) \minus \mc{C} )
+    )&(\mbox{\ref{eq:a1i}},10)\notag
+  \\ 12 &&  & \vdash ( ( \mc{B} \in \mathbb{C} \wedge \mc{A} \in \mathbb{C} \wedge \mc{C} \in
+    \mathbb{C} ) \rightarrow ( ( \textrm{-} \mc{B} + \mc{A} )
+    \minus \mc{C} ) = ( \mc{A} \minus ( \mc{B} + \mc{C} ) )
+    )&(\mbox{\ref{eq:bl.uaddsub}})\notag
+  \\ 13 &&  & \vdash ( ( \mc{B} \in \mathbb{C} \wedge \mc{A} \in \mathbb{C} \wedge \mc{C} \in
+    \mathbb{C} ) \rightarrow ( ( \mc{A} + \textrm{-} \mc{B} )
+    \minus \mc{C} ) = ( \mc{A} \minus ( \mc{B} + \mc{C} ) )
+    )&(\mbox{\ref{eq:eqtr3d}},11,12)\notag
+  \\ 14 &&  & \vdash ( ( \mc{A} \in \mathbb{C} \wedge \mc{B} \in \mathbb{C} \wedge \mc{C} \in
+    \mathbb{C} ) \rightarrow ( ( \mc{A} + \textrm{-} \mc{B} )
+    \minus \mc{C} ) = ( \mc{A} \minus ( \mc{B} + \mc{C} ) )
+    )&(\mbox{\ref{eq:syl}},8,13)\notag
+\end{align}
+\end{proof}
+

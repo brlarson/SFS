@@ -1,0 +1,281 @@
+%AssociationSemantics.tex
+
+\ksec{Associations Semantics (KerML 8.4.4.5.1)}
+
+\pn An \bemph{association} is a  {classifier} that classifies links between things.
+At least two of association features must be association {ends}\index{end}.
+An association is also a {relationship} between the types of its association ends, called its related types.
+Associations can also have features that are not end features.
+
+\pn An association must specialize, directly or indirectly, \texttt{Links::Link}.
+
+\pn The end features of an association identify the participants in the links that are {instances}
+of the association and must have multiplicity [1..1].
+
+\pn Lexical ordering matters for associations.
+For binary associations, the two related
+types are identified as the \bemph{source} type and the \bemph{target} type (which may be the same).
+For associations with more than
+two association ends (``n-ary"), the first related type is the source type and all the remaining related types are target
+types.
+
+\ecaption{association}
+\begin{lstlisting}
+assoc Ownership { // Specializes Links::BinaryLink by default.
+  end feature owner[1] : LegalEntity; // Redefines BinaryLink::source.
+  end feature ownedAsset[1] : Asset; // Redefines BinaryLink::target.
+  feature valuationOnPurchase : MonetaryValue;
+}
+\end{lstlisting}
+
+\pn For a binary association, the source and target ends are already declared to have multiplicity [1..1], so this
+does not need to be redeclared in redefinitions of these features. 
+
+\begin{lstlisting}
+assoc Ownership {
+  end owner : LegalEntity;
+  end ownedAsset : Asset;
+  feature valuationOnPurchase : MonetaryValue;
+}
+\end{lstlisting}
+
+\pn However, for non-binary associations, the end
+multiplicity must be explicitly declared as [1..1] to override the usual default of [0..*].
+
+\subsection{Binary Associations}
+
+\pn Associations implicitly specialize \texttt{Links::Link}.
+
+\ecaption{Link}
+\begin{lstlisting}
+    abstract assoc Link specializes Anything {
+        doc
+        /*
+         * Link is the most general association between two or more things.
+         */
+        feature participant: Anything[2..*] nonunique ordered;
+    }
+\end{lstlisting}
+
+\pn Abstract associations need not have ends, but nevertheless have at least two participants which may be anything.
+
+\pn Associations with two ends implicitly specialize \texttt{Links::BinaryLink}.
+
+\ecaption{BinaryLink}
+\begin{lstlisting}
+    assoc all BinaryLink specializes Link {
+        doc
+        /*
+         * BinaryLink is the most general binary association between exactly two things, 
+         * nominally directed from source to target.
+         */       
+        feature participant: Anything[2] nonunique ordered redefines Link::participant;   
+        end feature source: Anything[1] subsets participant;
+        end feature target: Anything[1] subsets participant;
+    }
+\end{lstlisting}
+
+\pn Consider a binary association $A$ specializing association $L$ which must explicitly or implicitly specialize \texttt{BinaryLink} having two ends.
+The first end (source) has identifier $s$ and type $S$.  The second end (target) has identifier $t$ and type $T$.  Association $A$ is represented as the class of triples having the first element \textbf{assoc}, the second element the wonce of ``A", and the third element the triple $\langle C,D,E\rangle$.
+$C$ is the class for type $L$.  $D$ is the class having a single element $\langle\textbf{end},``s",\langle w,s \rangle\rangle$ for end feature $s$.
+ $E$ is the class having a single element $\langle\textbf{end},``t",\langle w,t \rangle\rangle$ for end feature $t$.
+
+\begin{definition}~\blTitle{df-binassoc}~   Define Binary Association
+\begin{align}
+\texttt{assoc}~ A~\texttt{:>}~L~\{ \texttt{end}~ s ~\texttt{:}~ S\texttt{;} \texttt{end}~ t ~\texttt{:}~ T\texttt{;} \}~\Rightarrow  \notag \\
+\vdash \mc{A} = \{~\langle \textbf{assoc},w,\langle  \mc{C}, \mc{D}, \mc{E}\rangle\rangle ~\vert~
+w=W(``A")~ \wedge 
+ \mc{C}=\{~c~\vert ~c \in  \mc{L}~\}~\wedge~\notag \\
+~s\in  \mc{S}~\wedge~ \mc{D}~=~\{~\langle\textbf{end},``s",\langle w,s \rangle\rangle~\}~\wedge \notag \\
+~t\in  \mc{T}~\wedge~ \mc{E}~=~\{~\langle\textbf{end},``t",\langle w,t \rangle\rangle~\}~\}~\label{eq:df-binassoc}\tag{df-binassoc}
+\end{align}
+\end{definition}
+
+
+\subsection{Cross Features}
+
+\pn Cross features restrict associations so that linked classifiers must refer to each other.\index{cross feature}
+
+\pn For a binary association, one or both association ends can be explicitly declared to subset across feature owned by
+the other related type. 
+This is done with cross subsetting, which is a special kind of subsetting relationship specified
+using the keyword \texttt{crosses} or the symbol \texttt{=>}. 
+
+\pn Only end features may have cross subsetting relationships, and an
+end feature can have at most one owned cross subsetting.
+
+\ecaption{ cross subsetting}
+\begin{lstlisting}
+classifier LegalEntity {
+  feature assetsOwned [*] ordered : Asset;
+}
+classifier Asset {
+  feature owningEntities [1..*] : LegalEntity;
+}
+assoc AssetOwnership {
+  end owner : LegalEntity => ownedAsset.owningEntities;
+  end ownedAsset : Asset => owner.assetsOwned;
+  feature valuationOnPurchase : MonetaryValue;
+}
+\end{lstlisting}
+
+\pn The cross subsetting by a binary association must be a feature chain starting with the other feature.
+Thus the cross subsetting of \texttt{owner} is a feature chain starting with \texttt{ownedAsset}.
+Conversely, the cross subsetting of \texttt{ownedAsset} is a feature chain starting with \texttt{owner}.
+
+\pn Just because the cross feature restriction is met, does not mean an instance of the association exists.  The restriction is only necessary.
+
+\pn Inserting the \texttt{all} keyword requires an association instance to exist whenever the cross feature restriction is met.  Then the restriction is sufficient.
+
+\pn The definition of binary association cross feature is very similar to \ref{eq:df-binassoc} with the addition that the $f$ feature of $s$ equal $t$,
+and the $g$ feature of $t$ equal $s$.
+
+\begin{definition}~\blTitle{df-binassocx}~   Define Binary Association Cross Feature
+\begin{align}
+\texttt{classifier} ~S~ \{ \texttt{feature} ~f ~\texttt{:}~ T\texttt{;} \}~~~~ \notag \\
+\texttt{classifier} ~T~ \{ \texttt{feature} ~g ~\texttt{:}~ S\texttt{;} \}~~~~ \notag \\
+\texttt{assoc}~ A~\texttt{:>}~L~\{ \texttt{end}~ s ~\texttt{:}~ S~\texttt{=>}~t.g\texttt{;} \texttt{end}~ t ~\texttt{:}~ T~\texttt{=>}~s.f~\texttt{;} \}~\Rightarrow  \notag \\
+\vdash  \mc{A} = \{~\langle \textbf{assoc},w,\langle  \mc{C},\mc{D},\mc{E}\rangle\rangle ~\vert~
+w=W(``A")~ \wedge 
+\mc{C}=\{~c~\vert ~c \in \mc{L}~\}~\wedge~\notag \\
+~s\in \mc{S}~\wedge~s.f=t~\wedge~\mc{D}~=~\{~\langle\textbf{end},``s",\langle w,s \rangle\rangle~\}~\wedge \notag \\
+~t\in \mc{T}~\wedge~t.g=s~\wedge~\mc{E}~=~\{~\langle\textbf{end},``t",\langle w,t \rangle\rangle~\}~\}~\label{eq:df-binassocx}\tag{df-binassocx}
+\end{align}
+\end{definition}
+
+\subsection{Owned Cross Features}
+
+\pn It is also possible to declare cross features directly in the declaration of the ends of an association, rather than nested
+in the related types of the association. 
+Such owned cross features are declared between the \texttt{end} and \texttt{feature}
+keywords of the association end declarations.
+
+\pn Using cross subsetting:
+\ecaption{cross subsetting}
+\begin{lstlisting}
+classifier LegalEntity {
+  feature assetsOwned [*] ordered : Asset;
+}
+classifier Asset {
+  feature owningEntities [1..*] : LegalEntity;
+}
+assoc AssetOwnership {
+  end owner : LegalEntity => ownedAsset.owningEntities;
+  end ownedAsset : Asset => owner.assetsOwned;
+  feature valuationOnPurchase : MonetaryValue;
+}
+\end{lstlisting}
+
+\pn Using owned cross features:
+\ecaption{owned cross features}
+\begin{lstlisting}
+assoc AssetOwnership {
+  end owningEntities[1..*] feature owner : LegalEntity;
+  end assetsOwned[*] ordered feature ownedAsset : Asset;
+  feature valuationOnPurchase : MonetaryValue;
+}
+\end{lstlisting}
+
+\pn In fact, the feature identifiers \texttt{owningEntities} and \texttt{assetsOwned} are unnecessary.  
+Which feature crossed is determined by type and multiplicity.
+
+\ecaption{AssetOwnership}
+\begin{lstlisting}
+assoc AssetOwnership {
+  end [1..*] feature owner : LegalEntity;
+  end [*] ordered feature ownedAsset : Asset;
+  feature valuationOnPurchase : MonetaryValue;
+}
+\end{lstlisting}
+
+\pn What would happen if \texttt{LegalEntity} could lease assets in addition to owning them?
+
+\ecaption{LegalEntity}
+\begin{lstlisting}
+classifier LegalEntity {
+  feature assetsOwned [*] ordered : Asset;
+  feature assetsLeased [*] ordered : Asset;
+}
+\end{lstlisting}
+
+\pn Binary associations having owned cross features have the same semantics as \ref{eq:df-binassocx}.
+
+
+\subsection{Self-Link}
+
+\pn Self link asserts its end are the same (identity).  Curiously, \texttt{SelfLink} uses both cross subsetting and owned cross feature.
+Seems like \texttt{thisThing} and \texttt{sameThing} should be sufficient to assert identity.  What does \texttt{self2} mean?
+Shouldn't it be just \texttt{self}?
+
+\ecaption{SelfLink}
+\begin{lstlisting}
+ assoc all SelfLink specializes BinaryLink {
+    doc
+    /*
+     * SelfLink is a binary association in which the things at the two ends are asserted
+     * to be the same.
+     */      
+    language "Domain" /* thisThing = sameThing */
+    end feature thisThing: Anything redefines source subsets sameThing crosses sameThing.self;
+    end self2 [1] feature sameThing: Anything redefines target subsets thisThing;
+}
+\end{lstlisting}
+
+\subsection{N-ary Associations}\label{sec:naryassoc}
+
+\pn Associations having more than two ends (n-ary) specialize \texttt{Links::Link}.  Though the spec says the first end is the source, and subsequent ends are targets, there is nothing in \texttt{Links::Link} which names either.
+
+\pn Formal semantics for n-ary associations generalize \ref{eq:df-binassoc}.
+
+\begin{definition}~\blTitle{df-assoc}~   Define N-ary Association
+\begin{align}
+\texttt{assoc}~ A~\texttt{:>}~L~\{ \texttt{end}~ t_1 ~\texttt{:}~ T_1\texttt{;}~\ldots~ \texttt{end}~ t_n ~\texttt{:}~ T_n\texttt{;} \}~\Rightarrow  \notag \\
+\vdash \mc{A} = \{~\langle \textbf{assoc},w,\langle \mc{C},\mc{D_1},\ldots,\mc{D_n}\rangle\rangle ~\vert~
+w=W(``A")~ \wedge 
+\mc{C}=\{~c~\vert ~c \in \mc{L}~\}~\wedge~\notag \\
+~t_1\in \mc{T_1}~\wedge~\mc{D_1}~=~\{~\langle\textbf{end},``t_1",\langle w,t_1 \rangle\rangle~\}~\wedge \notag \\
+~~~\ldots~\wedge~~~~~~~~~~~~~ \notag \\
+~t_n\in \mc{T_n}~\wedge~\mc{D_n}~=~\{~\langle\textbf{end},``t_n",\langle w,t_n \rangle\rangle~\}~\}~\label{eq:df-assoc}\tag{df-assoc}
+\end{align}
+\end{definition}
+
+\pn The \texttt{crosses} or \texttt{=>} notation for cross features does not work for n-ary associations, but the owned cross features does.
+But what could owned cross features of n-ary associations mean?  The association example \texttt{ProductSelection\_N-ary.kerml} gives an example for N=3.
+
+\ecaption{N-ary Cross Features}
+\begin{lstlisting}
+	assoc ProductSelection {
+		end [0..1] feature cart: ShoppingCart[1];
+		end [0..*] feature selectedProduct: Product[1];
+		end [1..1] feature account : Account[1];
+	}
+\end{lstlisting}
+
+\pn The example is elaborated with named end features, then nested cross features, and finally implied cross subsetting of Cartesian-product features.  Given end multiplicities other than [1] its wildly convoluted.  Don't bother with cross features of n-ary associations; you'll just make an incomprehensible mess.
+
+\ecaption{AgreedAssetOwnership}
+\begin{lstlisting}
+assoc AgreedAssetOwnership {
+  end [*] feature owner : LegalEntity;
+  end [*] ordered feature ownedAsset : Asset;
+  end [0..1] feature agreement : OwnershipAgreement;
+}
+\end{lstlisting}
+
+\pn The cross multiplicity [0..1] for \texttt{agreement} requires that, for every pair of a \texttt{LegalEntity} and an \texttt{Asset}, at most
+one \texttt{AgreedAssetOwnership} instance may link that \texttt{LegalEntity} as its \texttt{ownerandAsset} as its \texttt{ownedAsset} to
+an \texttt{OwnershipAgreement} as its \texttt{agreement}. Similarly, every pair of a \texttt{LegalEntity} as \texttt{owner} and an
+\texttt{OwnershipAgreement} as \texttt{agreement} may be linked to any number of \texttt{Assets} as \texttt{ownedAsset}, including none at
+all, as declared by the cross multiplicity of \texttt{ownedAsset}. This collection of linked \texttt{Assests} is ordered, as declared
+by the cross ordering of \texttt{ownedAsset}. The same applies to the cross multiplicity of \texttt{owner}.
+
+\ksec{Association Structures (KerML 8.4.4.5.2)}
+
+\texttt{AssociationStructure} is both \texttt{Association} and \texttt{Structure}, and specializes (directly, indirectly, or implicitly) \texttt{Objects::LinkObject} which specializes 
+both \texttt{Links::Link} and \texttt{Objects::Object}.
+
+Therefore an association structure instance is an \texttt{Occurrence} having duration.
+
+Associations are timeless.  Association structure instances have existence.
+
+

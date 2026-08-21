@@ -1,0 +1,639 @@
+% This LaTeX file was created by Metamath on 6-Mar-2024 11:48 AM.
+
+\dfc
+%\begin{restatable}{metadefinition}{dfc}~\otherTitle{df-c}~ Define the set of complex numbers.  \begin{align}
+%\vdash \mathbb{C} = ( \mathcal{R} \times \mathcal{R} )\label{eq:df-c}\tag{df-c}
+%\end{align}
+%\end{restatable}
+
+\dfr
+%\begin{restatable}{metadefinition}{dfr}~\otherTitle{df-r}~ Define the set of real numbers. 
+%\begin{align}
+%\vdash \mathbb{R} = ( \mathcal{R} \times \{ 0_\mathcal{R} \}
+%    )\label{eq:df-r}\tag{df-r}
+%\end{align}
+%\end{restatable}
+
+
+\begin{restatable}{axiom}{axresscn}~\otherTitle{ax-resscn}~ The real numbers are a subset of the
+complex numbers. 
+\begin{align}
+\vdash \mathbb{R} \subseteq \mathbb{C}\label{eq:ax-resscn}\tag{ax-resscn}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{0cn}~\otherTitle{0cn}~ Zero is a complex number. 
+\begin{align}
+\vdash 0 \in \mathbb{C}\label{eq:0cn}\tag{0cn}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{addcan}~\otherTitle{addcan}~ Cancellation law for addition.  T\ ~
+\begin{align}
+\vdash ( ( \mc{A} \in \mathbb{C} \wedge \mc{B} \in \mathbb{C} \wedge \mc{C} \in
+    \mathbb{C} ) \rightarrow ( ( \mc{A} + \mc{B} ) = ( \mc{A} + \mc{C} )
+    \leftrightarrow \mc{B} = \mc{C} ) )\label{eq:addcan}\tag{addcan}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{add12}~\otherTitle{add12}~ Commutative/associative law that swaps the
+first two terms in a triple
+     sum.  ~
+\begin{align}
+\vdash ( ( \mc{A} \in \mathbb{C} \wedge \mc{B} \in \mathbb{C} \wedge \mc{C} \in
+    \mathbb{C} ) \rightarrow ( \mc{A} + ( \mc{B} + \mc{C} ) ) = ( \mc{B} + (
+    \mc{A} + \mc{C} ) ) )\label{eq:add12}\tag{add12}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{addcl}~\otherTitle{addcl}~ Addition of Complex Numbers is Complex.~
+\begin{align}
+\vdash ( ( \mc{A} \in \mathbb{C} \wedge \mc{B} \in \mathbb{C} ) \rightarrow (
+    \mc{A} + \mc{B} ) \in \mathbb{C} )\label{eq:addcl}\tag{addcl}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{readdcl}~\otherTitle{readdcl}~ Addition of Real Numbers is Real,     ~
+\begin{align}
+\vdash ( ( \mc{A} \in \mathbb{R} \wedge \mc{B} \in \mathbb{R} ) \rightarrow (
+    \mc{A} + \mc{B} ) \in \mathbb{R} )\label{eq:readdcl}\tag{readdcl}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{mulcl}~\otherTitle{mulcl}~ Multiplication of Complex Numbers is Complex.     ~
+\begin{align}
+\vdash ( ( \mc{A} \in \mathbb{C} \wedge \mc{B} \in \mathbb{C} ) \rightarrow (
+    \mc{A} \times \mc{B} ) \in \mathbb{C} )\label{eq:mulcl}\tag{mulcl}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{remulcl}~\otherTitle{remulcl}~ Multitplication  of Real Numbers is Real,    ~
+\begin{align}
+\vdash ( ( \mc{A} \in \mathbb{R} \wedge \mc{B} \in \mathbb{R} ) \rightarrow (
+    \mc{A} \times \mc{B} ) \in \mathbb{R} )\label{eq:remulcl}\tag{remulcl}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{mulcom}~\otherTitle{mulcom}~ Multiplication Commutes.     ~
+\begin{align}
+\vdash ( ( \mc{A} \in \mathbb{C} \wedge \mc{B} \in \mathbb{C} ) \rightarrow (
+    \mc{A} \times \mc{B} ) = ( \mc{B} \times \mc{A} )
+    )\label{eq:mulcom}\tag{mulcom}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{mulass}~\otherTitle{mulass}~ 
+Multiplication is Associative.
+\begin{align}
+\vdash ( ( \mc{A} \in \mathbb{C} \wedge \mc{B} \in \mathbb{C} \wedge \mc{C} \in
+    \mathbb{C} ) \rightarrow ( ( \mc{A} \times \mc{B} ) \times \mc{C} ) = (
+    \mc{A} \times ( \mc{B} \times \mc{C} ) ) )\label{eq:mulass}\tag{mulass}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{recn}~\otherTitle{recn}~ A real number is a complex number. 
+~
+\begin{align}
+\vdash ( \mc{A} \in \mathbb{R} \rightarrow \mc{A} \in \mathbb{C}
+    )\label{eq:recn}\tag{recn}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{0re}~\otherTitle{0re}~ The number 0 is real.   ~
+\begin{align}
+\vdash 0 \in \mathbb{R}\label{eq:0re}\tag{0re}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{addcli}~\otherTitle{addcli}~ Closure law for addition.  ~
+\begin{align}
+\vdash \mc{A} \in \mathbb{C}\quad\&\quad \vdash \mc{B} \in
+    \mathbb{C}\quad\Rightarrow\quad \vdash ( \mc{A} + \mc{B} ) \in
+    \mathbb{C}\label{eq:addcli}\tag{addcli}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{mulcli}~\otherTitle{mulcli}~ Closure law for multiplication. 
+~
+\begin{align}
+\vdash \mc{A} \in \mathbb{C}\quad\&\quad \vdash \mc{B} \in
+    \mathbb{C}\quad\Rightarrow\quad \vdash ( \mc{A} \times \mc{B} ) \in
+    \mathbb{C}\label{eq:mulcli}\tag{mulcli}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{mulcomi}~\otherTitle{mulcomi}~ Commutative law for multiplication. 
+~
+\begin{align}
+\vdash \mc{A} \in \mathbb{C}\quad\&\quad \vdash \mc{B} \in
+    \mathbb{C}\quad\Rightarrow\quad \vdash ( \mc{A} \times \mc{B} ) = ( \mc{B}
+    \times \mc{A} )\label{eq:mulcomi}\tag{mulcomi}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{addassi}~\otherTitle{addassi}~ Associative law for addition. 
+\begin{align}
+\vdash \mc{A} \in \mathbb{C}\quad\&\quad \vdash \mc{B} \in
+    \mathbb{C}\quad\&\quad \vdash \mc{C} \in \mathbb{C}\quad\Rightarrow\quad
+    \vdash ( ( \mc{A} + \mc{B} ) + \mc{C} ) = ( \mc{A} + ( \mc{B} + \mc{C} )
+    )\label{eq:addassi}\tag{addassi}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{adddii}~\otherTitle{adddii}~ Distributive law (left-distributivity). 
+~
+\begin{align}
+\vdash \mc{A} \in \mathbb{C}\quad\&\quad \vdash \mc{B} \in
+    \mathbb{C}\quad\&\quad \vdash \mc{C} \in \mathbb{C}\quad\Rightarrow\quad
+    \vdash ( \mc{A} \times ( \mc{B} + \mc{C} ) ) = ( ( \mc{A} \times \mc{B} ) + (
+    \mc{A} \times \mc{C} ) )\label{eq:adddii}\tag{adddii}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{recni}~\otherTitle{recni}~ A real number is a complex number. 
+~
+\begin{align}
+\vdash \mc{A} \in \mathbb{R}\quad\Rightarrow\quad \vdash \mc{A} \in
+    \mathbb{C}\label{eq:recni}\tag{recni}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{remulcli}~\otherTitle{remulcli}~ Closure law for multiplication of reals. 
+~
+\begin{align}
+\vdash \mc{A} \in \mathbb{R}\quad\&\quad \vdash \mc{B} \in
+    \mathbb{R}\quad\Rightarrow\quad \vdash ( \mc{A} \times \mc{B} ) \in
+    \mathbb{R}\label{eq:remulcli}\tag{remulcli}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{metadefinition}{dfltxr}~\otherTitle{df-ltxr}~ Define 'less than' on the set of
+extended reals.        ~
+\begin{align}
+\vdash < = ( \{ \langle \msc{x} , \msc{y} \rangle~\vert~( \msc{x} \in \mathbb{R}
+    \wedge \msc{y} \in \mathbb{R} \wedge \msc{x} <_\mathbb{R} \msc{y} ) \} \cup
+    ( ( ( \mathbb{R} \cup \{ -\infty \} ) \times \{ +\infty \} ) \cup ( \{
+    -\infty \} \times \mathbb{R} ) ) )\label{eq:df-ltxr}\tag{df-ltxr}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{ressxr}~\otherTitle{ressxr}~ The standard reals are a subset of the
+extended reals.  ~
+\begin{align}
+\vdash \mathbb{R} \subseteq \mathbb{R}^{\ast}\label{eq:ressxr}\tag{ressxr}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{lttr}~\otherTitle{lttr}~ Less than is transitive.
+\begin{align}
+\vdash ( ( \mc{A} \in \mathbb{R} \wedge \mc{B} \in \mathbb{R} \wedge \mc{C} \in
+    \mathbb{R} ) \rightarrow ( ( \mc{A} < \mc{B} \wedge \mc{B} < \mc{C} )
+    \rightarrow \mc{A} < \mc{C} ) )\label{eq:lttr}\tag{lttr}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{leloe}~\otherTitle{leloe}~ 'Less than or equal to' expressed in terms of
+'less than' or 'equals'.
+     ~
+\begin{align}
+\vdash ( ( \mc{A} \in \mathbb{R} \wedge \mc{B} \in \mathbb{R} ) \rightarrow (
+    \mc{A} \le \mc{B} \leftrightarrow ( \mc{A} < \mc{B} \vee \mc{A} = \mc{B} )
+    ) )\label{eq:leloe}\tag{leloe}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{ltle}~\otherTitle{ltle}~ 'Less than' implies 'less than or equal to'. 
+~
+\begin{align}
+\vdash ( ( \mc{A} \in \mathbb{R} \wedge \mc{B} \in \mathbb{R} ) \rightarrow (
+    \mc{A} < \mc{B} \rightarrow \mc{A} \le \mc{B} ) )\label{eq:ltle}\tag{ltle}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{ltnr}~\otherTitle{ltnr}~ 'Less than' is irreflexive.  ~
+\begin{align}
+\vdash ( \mc{A} \in \mathbb{R} \rightarrow \lnot \mc{A} < \mc{A}
+    )\label{eq:ltnr}\tag{ltnr}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{leid}~\otherTitle{leid}~ 'Less than or equal to' is reflexive. 
+~
+\begin{align}
+\vdash ( \mc{A} \in \mathbb{R} \rightarrow \mc{A} \le \mc{A}
+    )\label{eq:leid}\tag{leid}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{lenlti}~\otherTitle{lenlti}~ 'Less than or equal to' in terms of 'less
+than'.  ~
+\begin{align}
+\vdash \mc{A} \in \mathbb{R}\quad\&\quad \vdash \mc{B} \in
+    \mathbb{R}\quad\Rightarrow\quad \vdash ( \mc{A} \le \mc{B} \leftrightarrow
+    \lnot \mc{B} < \mc{A} )\label{eq:lenlti}\tag{lenlti}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{ltnei}~\otherTitle{ltnei}~ 'Less than' implies not equal. 
+\begin{align}
+\vdash \mc{A} \in \mathbb{R}\quad\&\quad \vdash \mc{B} \in
+    \mathbb{R}\quad\Rightarrow\quad \vdash ( \mc{A} < \mc{B} \rightarrow \mc{B}
+    \ne \mc{A} )\label{eq:ltnei}\tag{ltnei}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{letri}~\otherTitle{letri}~ 'Less than or equal to' is transitive. 
+~
+\begin{align}
+\vdash \mc{A} \in \mathbb{R}\quad\&\quad \vdash \mc{B} \in
+    \mathbb{R}\quad\&\quad \vdash \mc{C} \in \mathbb{R}\quad\Rightarrow\quad
+    \vdash ( ( \mc{A} \le \mc{B} \wedge \mc{B} \le \mc{C} ) \rightarrow \mc{A}
+    \le \mc{C} )\label{eq:letri}\tag{letri}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{addid1}~\otherTitle{addid1}~ $0$ is an additive identity.  
+       ~
+\begin{align}
+\vdash ( \mc{A} \in \mathbb{C} \rightarrow ( \mc{A} + 0 ) = \mc{A}
+    )\label{eq:addid1}\tag{addid1}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{mul12i}~\otherTitle{mul12i}~ Commutative/associative law that swaps the
+first two factors in a triple
+       product.  ~  ~
+\begin{align}
+\vdash \mc{A} \in \mathbb{C}\quad\&\quad \vdash \mc{B} \in
+    \mathbb{C}\quad\&\quad \vdash \mc{C} \in \mathbb{C}\quad\Rightarrow\quad
+    \vdash ( \mc{A} \times ( \mc{B} \times \mc{C} ) ) = ( \mc{B} \times ( \mc{A}
+    \times \mc{C} ) )\label{eq:mul12i}\tag{mul12i}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{metadefinition}{dfneg}~\otherTitle{df-neg}~ Define the negative of a number (unary
+minus).  
+\begin{align}
+\vdash \textrm{-} \mc{A} = ( 0 \minus \mc{A} )\label{eq:df-neg}\tag{df-neg}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{negeqi}~\otherTitle{negeqi}~ Equality inference for negatives. 
+~
+\begin{align}
+\vdash \mc{A} = \mc{B}\quad\Rightarrow\quad \vdash \textrm{-} \mc{A} =
+    \textrm{-} \mc{B}\label{eq:negeqi}\tag{negeqi}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{negcl}~\otherTitle{negcl}~ Closure law for negative.  ~
+\begin{align}
+\vdash ( \mc{A} \in \mathbb{C} \rightarrow \textrm{-} \mc{A} \in \mathbb{C}
+    )\label{eq:negcl}\tag{negcl}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{subcl}~\otherTitle{subcl}~ Closure law for subtraction.  ~
+       ~
+\begin{align}
+\vdash ( ( \mc{A} \in \mathbb{C} \wedge \mc{B} \in \mathbb{C} ) \rightarrow (
+    \mc{A} \minus \mc{B} ) \in \mathbb{C} )\label{eq:subcl}\tag{subcl}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{mul01}~\otherTitle{mul01}~ Multiplication by $0$.    ~
+\begin{align}
+\vdash ( \mc{A} \in \mathbb{C} \rightarrow ( \mc{A} \times 0 ) = 0
+    )\label{eq:mul01}\tag{mul01}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{pncan}~\otherTitle{pncan}~ Cancellation law for subtraction. 
+~
+     ~
+\begin{align}
+\vdash ( ( \mc{A} \in \mathbb{C} \wedge \mc{B} \in \mathbb{C} ) \rightarrow ( (
+    \mc{A} + \mc{B} ) \minus \mc{B} ) = \mc{A} )\label{eq:pncan}\tag{pncan}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{pncan2}~\otherTitle{pncan2}~ Cancellation law for subtraction. 
+~
+\begin{align}
+\vdash ( ( \mc{A} \in \mathbb{C} \wedge \mc{B} \in \mathbb{C} ) \rightarrow ( (
+    \mc{A} + \mc{B} ) \minus \mc{A} ) = \mc{B} )\label{eq:pncan2}\tag{pncan2}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{npcan}~\otherTitle{npcan}~ Cancellation law for subtraction. 
+~
+     ~
+\begin{align}
+\vdash ( ( \mc{A} \in \mathbb{C} \wedge \mc{B} \in \mathbb{C} ) \rightarrow ( (
+    \mc{A} \minus \mc{B} ) + \mc{B} ) = \mc{A} )\label{eq:npcan}\tag{npcan}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{subid}~\otherTitle{subid}~ Subtraction of a number from itself. 
+~
+     ~
+\begin{align}
+\vdash ( \mc{A} \in \mathbb{C} \rightarrow ( \mc{A} \minus \mc{A} ) = 0
+    )\label{eq:subid}\tag{subid}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{subid1}~\otherTitle{subid1}~ Identity law for subtraction.  
+\begin{align}
+\vdash ( \mc{A} \in \mathbb{C} \rightarrow ( \mc{A} \minus 0 ) = \mc{A}
+    )\label{eq:subid1}\tag{subid1}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{subcan2}~\otherTitle{subcan2}~ Cancellation law for subtraction. 
+~
+\begin{align}
+\vdash ( ( \mc{A} \in \mathbb{C} \wedge \mc{B} \in \mathbb{C} \wedge \mc{C} \in
+    \mathbb{C} ) \rightarrow ( ( \mc{A} \minus \mc{C} ) = ( \mc{B} \minus
+    \mc{C} ) \leftrightarrow \mc{A} = \mc{B} ) )\label{eq:subcan2}\tag{subcan2}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{subsub3}~\otherTitle{subsub3}~ Law for double subtraction.  
+\begin{align}
+\vdash ( ( \mc{A} \in \mathbb{C} \wedge \mc{B} \in \mathbb{C} \wedge \mc{C} \in
+    \mathbb{C} ) \rightarrow ( \mc{A} \minus ( \mc{B} \minus \mc{C} ) ) = ( (
+    \mc{A} + \mc{C} ) \minus \mc{B} ) )\label{eq:subsub3}\tag{subsub3}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{subsub4}~\otherTitle{subsub4}~ Law for double subtraction.  
+\begin{align}
+\vdash ( ( \mc{A} \in \mathbb{C} \wedge \mc{B} \in \mathbb{C} \wedge \mc{C} \in
+    \mathbb{C} ) \rightarrow ( ( \mc{A} \minus \mc{B} ) \minus \mc{C} ) = (
+    \mc{A} \minus ( \mc{B} + \mc{C} ) ) )\label{eq:subsub4}\tag{subsub4}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{addsub4}~\otherTitle{addsub4}~ Rearrangement of 4 terms in a mixed
+addition and subtraction.
+     ~
+\begin{align}
+\vdash ( ( ( \mc{A} \in \mathbb{C} \wedge \mc{B} \in \mathbb{C} ) \wedge (
+    \mc{C} \in \mathbb{C} \wedge \mc{D} \in \mathbb{C} ) ) \rightarrow ( (
+    \mc{A} + \mc{B} ) \minus ( \mc{C} + \mc{D} ) ) = ( ( \mc{A} \minus \mc{C} )
+    + ( \mc{B} \minus \mc{D} ) ) )\label{eq:addsub4}\tag{addsub4}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{subadd4}~\otherTitle{subadd4}~ Rearrangement of 4 terms in a mixed
+addition and subtraction.
+     ~
+\begin{align}
+\vdash ( ( ( \mc{A} \in \mathbb{C} \wedge \mc{B} \in \mathbb{C} ) \wedge (
+    \mc{C} \in \mathbb{C} \wedge \mc{D} \in \mathbb{C} ) ) \rightarrow ( (
+    \mc{A} \minus \mc{B} ) \minus ( \mc{C} \minus \mc{D} ) ) = ( ( \mc{A} +
+    \mc{D} ) \minus ( \mc{B} + \mc{C} ) ) )\label{eq:subadd4}\tag{subadd4}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{negid}~\otherTitle{negid}~ Addition of a number and its negative. 
+~
+\begin{align}
+\vdash ( \mc{A} \in \mathbb{C} \rightarrow ( \mc{A} + \textrm{-} \mc{A} ) = 0
+    )\label{eq:negid}\tag{negid}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{negsub}~\otherTitle{negsub}~ Relationship between subtraction and
+negative.    ~
+\begin{align}
+\vdash ( ( \mc{A} \in \mathbb{C} \wedge \mc{B} \in \mathbb{C} ) \rightarrow (
+    \mc{A} + \textrm{-} \mc{B} ) = ( \mc{A} \minus \mc{B} )
+    )\label{eq:negsub}\tag{negsub}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{negdi}~\otherTitle{negdi}~ Distribution of negative over addition. 
+~
+     ~
+\begin{align}
+\vdash ( ( \mc{A} \in \mathbb{C} \wedge \mc{B} \in \mathbb{C} ) \rightarrow
+    \textrm{-} ( \mc{A} + \mc{B} ) = ( \textrm{-} \mc{A} + \textrm{-} \mc{B} )
+    )\label{eq:negdi}\tag{negdi}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{negsubdi2}~\otherTitle{negsubdi2}~ Distribution of negative over
+subtraction.  ~
+\begin{align}
+\vdash ( ( \mc{A} \in \mathbb{C} \wedge \mc{B} \in \mathbb{C} ) \rightarrow
+    \textrm{-} ( \mc{A} \minus \mc{B} ) = ( \mc{B} \minus \mc{A} )
+    )\label{eq:negsubdi2}\tag{negsubdi2}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{negcli}~\otherTitle{negcli}~ Closure law for negative.  ~
+\begin{align}
+\vdash \mc{A} \in \mathbb{C}\quad\Rightarrow\quad \vdash \textrm{-} \mc{A} \in
+    \mathbb{C}\label{eq:negcli}\tag{negcli}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{pncan3i}~\otherTitle{pncan3i}~ Subtraction and addition of equals. 
+~
+\begin{align}
+\vdash \mc{A} \in \mathbb{C}\quad\&\quad \vdash \mc{B} \in
+    \mathbb{C}\quad\Rightarrow\quad \vdash ( \mc{A} + ( \mc{B} \minus \mc{A} )
+    ) = \mc{B}\label{eq:pncan3i}\tag{pncan3i}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{negcld}~\otherTitle{negcld}~ Closure law for negative.  ~
+\begin{align}
+\vdash ( \mw{\varphi} \rightarrow \mc{A} \in \mathbb{C} )\quad\Rightarrow\quad
+    \vdash ( \mw{\varphi} \rightarrow \textrm{-} \mc{A} \in \mathbb{C}
+    )\label{eq:negcld}\tag{negcld}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{nncand}~\otherTitle{nncand}~ Cancellation law for subtraction. 
+~
+\begin{align}
+\vdash ( \mw{\varphi} \rightarrow \mc{A} \in \mathbb{C} )\quad\&\quad \vdash (
+    \mw{\varphi} \rightarrow \mc{B} \in \mathbb{C} )\quad\Rightarrow\quad
+    \vdash ( \mw{\varphi} \rightarrow ( \mc{A} \minus ( \mc{A} \minus \mc{B} )
+    ) = \mc{B} )\label{eq:nncand}\tag{nncand}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{subnegd}~\otherTitle{subnegd}~ Relationship between subtraction and
+negative.  ~
+\begin{align}
+\vdash ( \mw{\varphi} \rightarrow \mc{A} \in \mathbb{C} )\quad\&\quad \vdash (
+    \mw{\varphi} \rightarrow \mc{B} \in \mathbb{C} )\quad\Rightarrow\quad
+    \vdash ( \mw{\varphi} \rightarrow ( \mc{A} \minus \textrm{-} \mc{B} ) = (
+    \mc{A} + \mc{B} ) )\label{eq:subnegd}\tag{subnegd}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{mulcan2}~\otherTitle{mulcan2}~ Cancellation law for multiplication. 
+~
+     ~
+\begin{align}
+\vdash ( ( \mc{A} \in \mathbb{C} \wedge \mc{B} \in \mathbb{C} \wedge ( \mc{C}
+    \in \mathbb{C} \wedge \mc{C} \ne 0 ) ) \rightarrow ( ( \mc{A} \times \mc{C}
+    ) = ( \mc{B} \times \mc{C} ) \leftrightarrow \mc{A} = \mc{B} )
+    )\label{eq:mulcan2}\tag{mulcan2}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{mulle0b}~\otherTitle{mulle0b}~ A condition for multiplication to be
+nonpositive.  ~
+\begin{align}
+\vdash ( ( \mc{A} \in \mathbb{R} \wedge \mc{B} \in \mathbb{R} ) \rightarrow ( (
+    \mc{A} \times \mc{B} ) \le 0 \leftrightarrow ( ( \mc{A} \le 0 \wedge 0 \le
+    \mc{B} ) \vee ( 0 \le \mc{A} \wedge \mc{B} \le 0 ) ) )
+    )\label{eq:mulle0b}\tag{mulle0b}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{0z}~\otherTitle{0z}~ Zero is an integer.  ~
+\begin{align}
+\vdash 0 \in \mathbb{Z}\label{eq:0z}\tag{0z}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{subsub4}~\otherTitle{subsub4}~ Law for double subtraction.  
+\begin{align}
+\vdash ( ( \mc{A} \in \mathbb{C} \wedge \mc{B} \in \mathbb{C} \wedge \mc{C} \in
+    \mathbb{C} ) \rightarrow ( ( \mc{A} \minus \mc{B} ) \minus \mc{C} ) = (
+    \mc{A} \minus ( \mc{B} + \mc{C} ) ) )\label{eq:subsub4}\tag{subsub4}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{readdcli}~\otherTitle{readdcli}~ Closure law for addition of reals. 
+~
+\begin{align}
+\vdash \mc{A} \in \mathbb{R}\quad\&\quad \vdash \mc{B} \in
+    \mathbb{R}\quad\Rightarrow\quad \vdash ( \mc{A} + \mc{B} ) \in
+    \mathbb{R}\label{eq:readdcli}\tag{readdcli}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{letri3}~\otherTitle{letri3}~ Trichotomy law.  ~
+\begin{align}
+\vdash ( ( \mc{A} \in \mathbb{R} \wedge \mc{B} \in \mathbb{R} ) \rightarrow (
+    \mc{A} = \mc{B} \leftrightarrow ( \mc{A} \le \mc{B} \wedge \mc{B} \le
+    \mc{A} ) ) )\label{eq:letri3}\tag{letri3}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{leadd2i}~\otherTitle{leadd2i}~ Addition to both sides of 'less than or
+equal to'.  ~
+\begin{align}
+\vdash \mc{A} \in \mathbb{R}\quad\&\quad \vdash \mc{B} \in
+    \mathbb{R}\quad\&\quad \vdash \mc{C} \in \mathbb{R}\quad\Rightarrow\quad
+    \vdash ( \mc{A} \le \mc{B} \leftrightarrow ( \mc{C} + \mc{A} ) \le ( \mc{C}
+    + \mc{B} ) )\label{eq:leadd2i}\tag{leadd2i}
+\end{align}
+\end{restatable}
+
+\dfnn
+%\begin{restatable}{metadefinition}{dfnn}~\otherTitle{df-nn}~ Define the set of positive integers.  
+%\begin{align}
+%\vdash \mathbb{N} = ( \,\mathrm{rec} ( ( \msc{x} \in \,\mathrm{V} \mapsto (
+%    \msc{x} + 1 ) ) , 1 ) `` \,\mathrm{\omega} )\label{eq:df-nn}\tag{df-nn}
+%\end{align}
+%\end{restatable}
+
+\dfno
+%\begin{restatable}{metadefinition}{dfno}~\otherTitle{df-n0}~ Define the set of nonnegative integers. 
+%~
+%\begin{align}
+%\vdash \mathbb{N}_0 = ( \mathbb{N} \cup \{ 0 \} )\label{eq:df-n0}\tag{df-n0}
+%\end{align}
+%\end{restatable}
+
+\dfz
+%\begin{restatable}{metadefinition}{dfz}~\otherTitle{df-z}~ Define the set of integers, which are the
+%positive and negative integers
+%     together with zero.  
+%\begin{align}
+%\vdash \mathbb{Z} = \{ \msc{n} \in \mathbb{R}~\vert~( \msc{n} = 0 \vee \msc{n} \in
+%    \mathbb{N} \vee \textrm{-} \msc{n} \in \mathbb{N} )
+%    \}\label{eq:df-z}\tag{df-z}
+%\end{align}
+%\end{restatable}
+
+\dfq
+
+\begin{restatable}{lemma}{zre}~\otherTitle{zre}~ An integer is a real.  ~
+\begin{align}
+\vdash ( N \in \mathbb{Z} \rightarrow N \in \mathbb{R} )\label{eq:zre}\tag{zre}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{zcn}~\otherTitle{zcn}~ An integer is a complex number.  
+\begin{align}
+\vdash ( N \in \mathbb{Z} \rightarrow N \in \mathbb{C} )\label{eq:zcn}\tag{zcn}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{zsscn}~\otherTitle{zsscn}~ The integers are a subset of the complex
+numbers.  ~
+\begin{align}
+\vdash \mathbb{Z} \subseteq \mathbb{C}\label{eq:zsscn}\tag{zsscn}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{zaddcl}~\otherTitle{zaddcl}~ Closure of addition of integers. 
+\begin{align}
+\vdash ( ( M \in \mathbb{Z} \wedge N \in \mathbb{Z} ) \rightarrow ( M + N ) \in
+    \mathbb{Z} )\label{eq:zaddcl}\tag{zaddcl}
+\end{align}
+\end{restatable}
+
+
+\begin{restatable}{lemma}{elioo1}~\otherTitle{elioo1}~ Membership in an open interval of extended
+reals.  ~  ~
+\begin{align}
+\vdash ( ( \mc{A} \in \mathbb{R}^{\ast} \wedge \mc{B} \in \mathbb{R}^{\ast} )
+    \rightarrow ( \mc{C} \in ( \mc{A} (,) \mc{B} ) \leftrightarrow ( \mc{C} \in
+    \mathbb{R}^{\ast} \wedge \mc{A} < \mc{C} \wedge \mc{C} < \mc{B} ) )
+    )\label{eq:elioo1}\tag{elioo1}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{elioc1}~\otherTitle{elioc1}~ Membership in an open-below, closed-above
+interval of extended reals.
+       ~  ~
+\begin{align}
+\vdash ( ( \mc{A} \in \mathbb{R}^{\ast} \wedge \mc{B} \in \mathbb{R}^{\ast} )
+    \rightarrow ( \mc{C} \in ( \mc{A} (,] \mc{B} ) \leftrightarrow ( \mc{C} \in
+    \mathbb{R}^{\ast} \wedge \mc{A} < \mc{C} \wedge \mc{C} \le \mc{B} ) )
+    )\label{eq:elioc1}\tag{elioc1}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{elico1}~\otherTitle{elico1}~ Membership in a closed-below, open-above
+interval of extended reals.
+       ~  ~
+\begin{align}
+\vdash ( ( \mc{A} \in \mathbb{R}^{\ast} \wedge \mc{B} \in \mathbb{R}^{\ast} )
+    \rightarrow ( \mc{C} \in ( \mc{A} [,) \mc{B} ) \leftrightarrow ( \mc{C} \in
+    \mathbb{R}^{\ast} \wedge \mc{A} \le \mc{C} \wedge \mc{C} < \mc{B} ) )
+    )\label{eq:elico1}\tag{elico1}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{elicc1}~\otherTitle{elicc1}~ Membership in a closed interval of extended
+reals.  ~  ~
+\begin{align}
+\vdash ( ( \mc{A} \in \mathbb{R}^{\ast} \wedge \mc{B} \in \mathbb{R}^{\ast} )
+    \rightarrow ( \mc{C} \in ( \mc{A} [,] \mc{B} ) \leftrightarrow ( \mc{C} \in
+    \mathbb{R}^{\ast} \wedge \mc{A} \le \mc{C} \wedge \mc{C} \le \mc{B} ) )
+    )\label{eq:elicc1}\tag{elicc1}
+\end{align}
+\end{restatable}
+

@@ -1,0 +1,780 @@
+%MakeMMrefs.tex
+
+\begin{lemma}\otherTitle{3anass} Associative law for triple conjunction. 
+(Contributed by NM,
+     8-Apr-1994.)
+\begin{align}
+\vdash ( ( {\color{formulacolor}\varphi} \wedge {\color{formulacolor}\psi}
+    \wedge {\color{formulacolor}\chi} ) \leftrightarrow (
+    {\color{formulacolor}\varphi} \wedge ( {\color{formulacolor}\psi} \wedge
+    {\color{formulacolor}\chi} ) ) )\label{eq:3anass}\tag{3anass}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{3orass} Associative law for triple disjunction. 
+(Contributed by NM,
+     8-Apr-1994.)
+\begin{align}
+\vdash ( ( {\color{formulacolor}\varphi} \vee {\color{formulacolor}\psi} \vee
+    {\color{formulacolor}\chi} ) \leftrightarrow (
+    {\color{formulacolor}\varphi} \vee ( {\color{formulacolor}\psi} \vee
+    {\color{formulacolor}\chi} ) ) )\label{eq:3orass}\tag{3orass}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{3bitri} A chained inference from transitive law for
+logical equivalence.
+       (Contributed by NM, 5-Aug-1993.)
+\begin{align}
+\vdash ( {\color{formulacolor}\varphi} \leftrightarrow
+    {\color{formulacolor}\psi} )\quad\&\quad \vdash (
+    {\color{formulacolor}\psi} \leftrightarrow {\color{formulacolor}\chi}
+    )\quad\&\quad \vdash ( {\color{formulacolor}\chi} \leftrightarrow
+    {\color{formulacolor}\theta} )\quad\Rightarrow\quad \vdash (
+    {\color{formulacolor}\varphi} \leftrightarrow {\color{formulacolor}\theta}
+    )\label{eq:3bitri}\tag{3bitri}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{3imtr3i} A mixed syllogism inference, useful for
+removing a definition from both
+       sides of an implication.  (Contributed by NM, 10-Aug-1994.)
+\begin{align}
+\vdash ( {\color{formulacolor}\varphi} \rightarrow {\color{formulacolor}\psi}
+    )\quad\&\quad \vdash ( {\color{formulacolor}\varphi} \leftrightarrow
+    {\color{formulacolor}\chi} )\quad\&\quad \vdash (
+    {\color{formulacolor}\psi} \leftrightarrow {\color{formulacolor}\theta}
+    )\quad\Rightarrow\quad \vdash ( {\color{formulacolor}\chi} \rightarrow
+    {\color{formulacolor}\theta} )\label{eq:3imtr3i}\tag{3imtr3i}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{3imtr4i} A mixed syllogism inference, useful for
+applying a definition to both
+       sides of an implication.  (Contributed by NM, 5-Aug-1993.)
+\begin{align}
+\vdash ( {\color{formulacolor}\varphi} \rightarrow {\color{formulacolor}\psi}
+    )\quad\&\quad \vdash ( {\color{formulacolor}\chi} \leftrightarrow
+    {\color{formulacolor}\varphi} )\quad\&\quad \vdash (
+    {\color{formulacolor}\theta} \leftrightarrow {\color{formulacolor}\psi}
+    )\quad\Rightarrow\quad \vdash ( {\color{formulacolor}\chi} \rightarrow
+    {\color{formulacolor}\theta} )\label{eq:3imtr4i}\tag{3imtr4i}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{a1bi} Inference rule introducing a theorem as an
+antecedent.  (Contributed by
+       NM, 5-Aug-1993.)  (Proof shortened by Wolf Lammen, 11-Nov-2012.)
+\begin{align}
+\vdash {\color{formulacolor}\varphi}\quad\Rightarrow\quad \vdash (
+    {\color{formulacolor}\psi} \leftrightarrow ( {\color{formulacolor}\varphi}
+    \rightarrow {\color{formulacolor}\psi} ) )\label{eq:a1bi}\tag{a1bi}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{a1tru} Anything implies $\top$.  (Contributed by FL,
+20-Mar-2011.)  (Proof
+     shortened by Anthony Hart, 1-Aug-2011.)
+\begin{align}
+\vdash ( {\color{formulacolor}\varphi} \rightarrow \top )\label{eq:a1tru}\tag{a1tru}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{anbi12i} Conjoin both sides of two equivalences. 
+(Contributed by NM,
+       5-Aug-1993.)
+\begin{align}
+\vdash ( {\color{formulacolor}\varphi} \leftrightarrow
+    {\color{formulacolor}\psi} )\quad\&\quad \vdash (
+    {\color{formulacolor}\chi} \leftrightarrow {\color{formulacolor}\theta}
+    )\quad\Rightarrow\quad \vdash ( ( {\color{formulacolor}\varphi} \wedge
+    {\color{formulacolor}\chi} ) \leftrightarrow ( {\color{formulacolor}\psi}
+    \wedge {\color{formulacolor}\theta} ) )\label{eq:anbi12i}\tag{anbi12i}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{anbi1i} Introduce a right conjunct to both sides of a
+logical equivalence.
+       (Contributed by NM, 5-Aug-1993.)  (Proof shortened by Wolf Lammen,
+       16-Nov-2013.)
+\begin{align}
+\vdash ( {\color{formulacolor}\varphi} \leftrightarrow
+    {\color{formulacolor}\psi} )\quad\Rightarrow\quad \vdash ( (
+    {\color{formulacolor}\varphi} \wedge {\color{formulacolor}\chi} )
+    \leftrightarrow ( {\color{formulacolor}\psi} \wedge
+    {\color{formulacolor}\chi} ) )\label{eq:anbi1i}\tag{anbi1i}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{anbi2i} Introduce a left conjunct to both sides of a
+logical equivalence.
+       (Contributed by NM, 5-Aug-1993.)  (Proof shortened by Wolf Lammen,
+       16-Nov-2013.)
+\begin{align}
+\vdash ( {\color{formulacolor}\varphi} \leftrightarrow
+    {\color{formulacolor}\psi} )\quad\Rightarrow\quad \vdash ( (
+    {\color{formulacolor}\chi} \wedge {\color{formulacolor}\varphi} )
+    \leftrightarrow ( {\color{formulacolor}\chi} \wedge
+    {\color{formulacolor}\psi} ) )\label{eq:anbi2i}\tag{anbi2i}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{ancom} Commutative law for conjunction.  Theorem *4.3
+of [WhiteheadRussell]
+     p. 118.  (Contributed by NM, 25-Jun-1998.)  (Proof shortened by Wolf
+     Lammen, 4-Nov-2012.)
+\begin{align}
+\vdash ( ( {\color{formulacolor}\varphi} \wedge {\color{formulacolor}\psi} )
+    \leftrightarrow ( {\color{formulacolor}\psi} \wedge
+    {\color{formulacolor}\varphi} ) )\label{eq:ancom}\tag{ancom}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{andir} Distributive law for conjunction.  (Contributed
+by NM, 12-Aug-1994.)
+\begin{align}
+\vdash ( ( ( {\color{formulacolor}\varphi} \vee {\color{formulacolor}\psi} )
+    \wedge {\color{formulacolor}\chi} ) \leftrightarrow ( (
+    {\color{formulacolor}\varphi} \wedge {\color{formulacolor}\chi} ) \vee (
+    {\color{formulacolor}\psi} \wedge {\color{formulacolor}\chi} ) )
+    )\label{eq:andir}\tag{andir}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{anidm} Idempotent law for conjunction.  (Contributed
+by NM, 5-Aug-1993.)  (Proof
+     shortened by Wolf Lammen, 14-Mar-2014.)
+\begin{align}
+\vdash ( ( {\color{formulacolor}\varphi} \wedge {\color{formulacolor}\varphi} )
+    \leftrightarrow {\color{formulacolor}\varphi} )\label{eq:anidm}\tag{anidm}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{ax-1} Axiom \{\em Simp\}.  Axiom A1 of [Margaris] p.
+49.  One of the 3 axioms of
+     propositional calculus.  The 3 axioms are also given as Definition 2.1 of
+     [Hamilton] p. 28.  This axiom is called \{\em Simp\} or "the principle of
+     simplification" in \{\em Principia Mathematica\} (Theorem *2.02 of
+     [WhiteheadRussell] p. 100) because "it enables us to pass from the joint
+     assertion of ${\color{formulacolor}\varphi}$ and
+${\color{formulacolor}\psi}$ to the assertion of
+${\color{formulacolor}\varphi}$ simply."
+     (Contributed by NM, 5-Aug-1993.)
+\begin{align}
+\vdash ( {\color{formulacolor}\varphi} \rightarrow ( {\color{formulacolor}\psi}
+    \rightarrow {\color{formulacolor}\varphi} ) )\label{eq:ax-1}\tag{ax-1}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{ax-mp} Rule of Modus Ponens.  The postulated inference
+rule of propositional
+       calculus.  See e.g.  Rule 1 of [Hamilton] p. 73.  The rule says, "if
+       ${\color{formulacolor}\varphi}$ is true, and
+${\color{formulacolor}\varphi}$ implies ${\color{formulacolor}\psi}$, then
+${\color{formulacolor}\psi}$ must also be
+       true."  This rule is sometimes called "detachment," since it detaches
+       the minor premise from the major premise.  "Modus ponens" is short for
+       "modus ponendo ponens," a Latin phrase that means "the mood that by
+       affirming affirms" [Sanford] p. 39.  This rule is similar to the rule
+of
+       modus tollens {\tt mto}.
+
+       Note:  In some web page displays such as the Statement List, the
+symbols
+       "\&" and "=\}" informally indicate the relationship between the
+hypotheses
+       and the assertion (conclusion), abbreviating the English words "and"
+and
+       "implies."  They are not part of the formal language.  (Contributed by
+       NM, 5-Aug-1993.)
+\begin{align}
+\vdash {\color{formulacolor}\varphi}\quad\&\quad \vdash (
+    {\color{formulacolor}\varphi} \rightarrow {\color{formulacolor}\psi}
+    )\quad\Rightarrow\quad \vdash {\color{formulacolor}\psi}\label{eq:ax-mp}\tag{ax-mp}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{bicomi} Inference from commutative law for logical
+equivalence.  (Contributed by
+       NM, 5-Aug-1993.)
+\begin{align}
+\vdash ( {\color{formulacolor}\varphi} \leftrightarrow
+    {\color{formulacolor}\psi} )\quad\Rightarrow\quad \vdash (
+    {\color{formulacolor}\psi} \leftrightarrow {\color{formulacolor}\varphi}
+    )\label{eq:bicomi}\tag{bicomi}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{biid} Principle of identity for logical equivalence. 
+Theorem *4.2 of
+     [WhiteheadRussell] p. 117.  (Contributed by NM, 5-Aug-1993.)
+\begin{align}
+\vdash ( {\color{formulacolor}\varphi} \leftrightarrow
+    {\color{formulacolor}\varphi} )\label{eq:biid}\tag{biid}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{biimpi} Infer an implication from a logical
+equivalence.  (Contributed by NM,
+       5-Aug-1993.)
+\begin{align}
+\vdash ( {\color{formulacolor}\varphi} \leftrightarrow
+    {\color{formulacolor}\psi} )\quad\Rightarrow\quad \vdash (
+    {\color{formulacolor}\varphi} \rightarrow {\color{formulacolor}\psi}
+    )\label{eq:biimpi}\tag{biimpi}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{biimpri} Infer a converse implication from a logical
+equivalence.  (Contributed
+       by NM, 5-Aug-1993.)  (Proof shortened by Wolf Lammen, 16-Sep-2013.)
+\begin{align}
+\vdash ( {\color{formulacolor}\varphi} \leftrightarrow
+    {\color{formulacolor}\psi} )\quad\Rightarrow\quad \vdash (
+    {\color{formulacolor}\psi} \rightarrow {\color{formulacolor}\varphi}
+    )\label{eq:biimpri}\tag{biimpri}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{bitr2i} An inference from transitive law for logical
+equivalence.  (Contributed
+       by NM, 5-Aug-1993.)
+\begin{align}
+\vdash ( {\color{formulacolor}\varphi} \leftrightarrow
+    {\color{formulacolor}\psi} )\quad\&\quad \vdash (
+    {\color{formulacolor}\psi} \leftrightarrow {\color{formulacolor}\chi}
+    )\quad\Rightarrow\quad \vdash ( {\color{formulacolor}\chi} \leftrightarrow
+    {\color{formulacolor}\varphi} )\label{eq:bitr2i}\tag{bitr2i}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{bitr3} Closed nested implication form of {\tt bitr3i}.
+Derived automatically from
+     {\tt bitr3VD}.  (Contributed by Alan Sare, 31-Dec-2011.)
+     (Proof modification is discouraged.)  (New usage is discouraged.)
+\begin{align}
+\vdash ( ( {\color{formulacolor}\varphi} \leftrightarrow
+    {\color{formulacolor}\psi} ) \rightarrow ( ( {\color{formulacolor}\varphi}
+    \leftrightarrow {\color{formulacolor}\chi} ) \rightarrow (
+    {\color{formulacolor}\psi} \leftrightarrow {\color{formulacolor}\chi} ) )
+    )\label{eq:bitr3}\tag{bitr3}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{bitr3i} An inference from transitive law for logical
+equivalence.  (Contributed
+       by NM, 5-Aug-1993.)
+\begin{align}
+\vdash ( {\color{formulacolor}\psi} \leftrightarrow
+    {\color{formulacolor}\varphi} )\quad\&\quad \vdash (
+    {\color{formulacolor}\psi} \leftrightarrow {\color{formulacolor}\chi}
+    )\quad\Rightarrow\quad \vdash ( {\color{formulacolor}\varphi}
+    \leftrightarrow {\color{formulacolor}\chi} )\label{eq:bitr3i}\tag{bitr3i}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{bitr4i} An inference from transitive law for logical
+equivalence.  (Contributed
+       by NM, 5-Aug-1993.)
+\begin{align}
+\vdash ( {\color{formulacolor}\varphi} \leftrightarrow
+    {\color{formulacolor}\psi} )\quad\&\quad \vdash (
+    {\color{formulacolor}\chi} \leftrightarrow {\color{formulacolor}\psi}
+    )\quad\Rightarrow\quad \vdash ( {\color{formulacolor}\varphi}
+    \leftrightarrow {\color{formulacolor}\chi} )\label{eq:bitr4i}\tag{bitr4i}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{bitri} An inference from transitive law for logical
+equivalence.  (Contributed
+       by NM, 5-Aug-1993.)  (Proof shortened by Wolf Lammen, 13-Oct-2012.)
+\begin{align}
+\vdash ( {\color{formulacolor}\varphi} \leftrightarrow
+    {\color{formulacolor}\psi} )\quad\&\quad \vdash (
+    {\color{formulacolor}\psi} \leftrightarrow {\color{formulacolor}\chi}
+    )\quad\Rightarrow\quad \vdash ( {\color{formulacolor}\varphi}
+    \leftrightarrow {\color{formulacolor}\chi} )\label{eq:bitri}\tag{bitri}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{con1bii} A contraposition inference.  (Contributed by
+NM, 5-Aug-1993.)  (Proof
+       shortened by Wolf Lammen, 13-Oct-2012.)
+\begin{align}
+\vdash ( \lnot {\color{formulacolor}\varphi} \leftrightarrow
+    {\color{formulacolor}\psi} )\quad\Rightarrow\quad \vdash ( \lnot
+    {\color{formulacolor}\psi} \leftrightarrow {\color{formulacolor}\varphi}
+    )\label{eq:con1bii}\tag{con1bii}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{con4bii} A contraposition inference.  (Contributed by
+NM, 21-May-1994.)
+\begin{align}
+\vdash ( \lnot {\color{formulacolor}\varphi} \leftrightarrow \lnot
+    {\color{formulacolor}\psi} )\quad\Rightarrow\quad \vdash (
+    {\color{formulacolor}\varphi} \leftrightarrow {\color{formulacolor}\psi}
+    )\label{eq:con4bii}\tag{con4bii}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{df-an} Define conjunction (logical 'and').  Definition
+of [Margaris] p. 49.  When
+     both the left and right operand are true, the result is true; when either
+     is false, the result is false.  For example, it is true that
+     $( 2 = 2 \wedge 3 = 3 )$.  After we define the constant true $\top$
+     ({\tt df-tru}) and the constant false $\bot$ ({\tt df-fal}), we will be
+able
+     to prove these truth table values: $( ( \top \wedge \top )
+\leftrightarrow \top )$
+     ({\tt truantru}), $( ( \top \wedge \bot ) \leftrightarrow \bot )$ ({\tt
+truanfal}),
+     $( ( \bot \wedge \top ) \leftrightarrow \bot )$ ({\tt falantru}), and
+     $( ( \bot \wedge \bot ) \leftrightarrow \bot )$ ({\tt falanfal}).
+
+     Contrast with $\vee$ ({\tt df-or}), $\rightarrow$ ({\tt wi}), $\barwedge$
+({\tt df-nan}),
+     and $\veebar$ ({\tt df-xor}) .  (Contributed by NM, 5-Aug-1993.)
+\begin{align}
+\vdash ( ( {\color{formulacolor}\varphi} \wedge {\color{formulacolor}\psi} )
+    \leftrightarrow \lnot ( {\color{formulacolor}\varphi} \rightarrow \lnot
+    {\color{formulacolor}\psi} ) )\label{eq:df-an}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{df-or} Define disjunction (logical 'or').  Definition
+of [Margaris] p. 49.  When
+     the left operand, right operand, or both are true, the result is true;
+     when both sides are false, the result is false.  For example, it is true
+     that $( 2 = 3 \vee 4 = 4 )$ ({\tt ex-or}).  After we define the constant
+     true $\top$ ({\tt df-tru}) and the constant false $\bot$ ({\tt df-fal}),
+we
+     will be able to prove these truth table values:
+     $( ( \top \vee \top ) \leftrightarrow \top )$ ({\tt truortru}), $( ( \top
+\vee \bot ) \leftrightarrow \top )$
+     ({\tt truorfal}), $( ( \bot \vee \top ) \leftrightarrow \top )$ ({\tt
+falortru}), and
+     $( ( \bot \vee \bot ) \leftrightarrow \bot )$ ({\tt falorfal}).
+
+     This is our first use of the biconditional connective in a definition; we
+     use the biconditional connective in place of the traditional "\{=def=\}",
+     which means the same thing, except that we can manipulate the
+     biconditional connective directly in proofs rather than having to rely on
+     an informal definition substitution rule.  Note that if we mechanically
+     substitute $( \lnot {\color{formulacolor}\varphi} \rightarrow
+{\color{formulacolor}\psi} )$ for $( {\color{formulacolor}\varphi} \vee
+{\color{formulacolor}\psi} )$, we end up with an
+     instance of previously proved theorem {\tt biid}.  This is the
+justification
+     for the definition, along with the fact that it introduces a new symbol
+     $\vee$.  Contrast with $\wedge$ ({\tt df-an}), $\rightarrow$ ({\tt wi}),
+$\barwedge$
+     ({\tt df-nan}), and $\veebar$ ({\tt df-xor}) .  (Contributed by NM,
+     5-Aug-1993.)
+\begin{align}
+\vdash ( ( {\color{formulacolor}\varphi} \vee {\color{formulacolor}\psi} )
+    \leftrightarrow ( \lnot {\color{formulacolor}\varphi} \rightarrow
+    {\color{formulacolor}\psi} ) )\label{df-or}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{df-tru} Definition of $\top$, a tautology. $\top$ is a
+constant true.  In this
+     definition {\tt biid} is used as an antecedent, however, any true wff,
+such as
+     an axiom, can be used in its place.  (Contributed by Anthony Hart,
+     13-Oct-2010.)
+\begin{align}
+\vdash ( \top \leftrightarrow ( {\color{formulacolor}\varphi} \leftrightarrow
+    {\color{formulacolor}\varphi} ) )\label{df-tru}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{eqid} Law of identity (reflexivity of class equality).
+Theorem 6.4 of [Quine]
+       p. 41.
+
+       This law is thought to have originated with Aristotle (\{\em
+Metaphysics\},
+       Book VII, Part 17).  (Thanks to Stefan Allan for this information.)
+       (Contributed by NM, 5-Aug-1993.)
+\begin{align}
+\vdash {\color{classcolor}A} = {\color{classcolor}A}\label{eq:eqid}\tag{eqid}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{exmid} Law of excluded middle, also called the
+principle of \{\em tertium non datur\}.
+     Theorem *2.11 of [WhiteheadRussell] p. 101.  It says that something is
+     either true or not true; there are no in-between values of truth.  This
+is
+     an essential distinction of our classical logic and is not a theorem of
+     intuitionistic logic.  (Contributed by NM, 5-Aug-1993.)
+\begin{align}
+\vdash ( {\color{formulacolor}\varphi} \vee \lnot {\color{formulacolor}\varphi}
+    )\label{eq:exmid}\tag{exmid}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{falim} $\bot$ implies anything.  (Contributed by FL,
+20-Mar-2011.)  (Proof
+     shortened by Anthony Hart, 1-Aug-2011.)
+\begin{align}
+\vdash ( \bot \rightarrow {\color{formulacolor}\varphi} )\label{eq:falim}\tag{falim}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{idd} Principle of identity with antecedent. 
+(Contributed by NM,
+     26-Nov-1995.)
+\begin{align}
+\vdash ( {\color{formulacolor}\varphi} \rightarrow ( {\color{formulacolor}\psi}
+    \rightarrow {\color{formulacolor}\psi} ) )\label{eq:idd}\tag{idd}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{imim2i} Inference adding common antecedents in an
+implication.  (Contributed by
+       NM, 5-Aug-1993.)
+\begin{align}
+\vdash ( {\color{formulacolor}\varphi} \rightarrow {\color{formulacolor}\psi}
+    )\quad\Rightarrow\quad \vdash ( ( {\color{formulacolor}\chi} \rightarrow
+    {\color{formulacolor}\varphi} ) \rightarrow ( {\color{formulacolor}\chi}
+    \rightarrow {\color{formulacolor}\psi} ) )\label{eq:imim2i}\tag{imim2i}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{imim2i} Inference adding common antecedents in an
+implication.  (Contributed by
+       NM, 5-Aug-1993.)
+\begin{align}
+\vdash ( {\color{formulacolor}\varphi} \rightarrow {\color{formulacolor}\psi}
+    )\quad\Rightarrow\quad \vdash ( ( {\color{formulacolor}\chi} \rightarrow
+    {\color{formulacolor}\varphi} ) \rightarrow ( {\color{formulacolor}\chi}
+    \rightarrow {\color{formulacolor}\psi} ) )\label{eq:imim2i}\tag{imim2i}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{impbii} Infer an equivalence from an implication and
+its converse.  (Contributed
+       by NM, 5-Aug-1993.)
+\begin{align}
+\vdash ( {\color{formulacolor}\varphi} \rightarrow {\color{formulacolor}\psi}
+    )\quad\&\quad \vdash ( {\color{formulacolor}\psi} \rightarrow
+    {\color{formulacolor}\varphi} )\quad\Rightarrow\quad \vdash (
+    {\color{formulacolor}\varphi} \leftrightarrow {\color{formulacolor}\psi}
+    )\label{eq:impbii}\tag{impbii}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{leid} 'Less than or equal to' is reflexive. 
+(Contributed by NM,
+     18-Aug-1999.)
+\begin{align}
+\vdash ( {\color{classcolor}A} \in \mathbb{R} \rightarrow {\color{classcolor}A}
+    \le {\color{classcolor}A} )\label{eq:leid}\tag{leid}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{notbii} Negate both sides of a logical equivalence. 
+(Contributed by NM,
+       5-Aug-1993.)  (Proof shortened by Wolf Lammen, 19-May-2013.)
+\begin{align}
+\vdash ( {\color{formulacolor}\varphi} \leftrightarrow
+    {\color{formulacolor}\psi} )\quad\Rightarrow\quad \vdash ( \lnot
+    {\color{formulacolor}\varphi} \leftrightarrow \lnot
+    {\color{formulacolor}\psi} )\label{eq:notbii}\tag{notbii}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{notnot} Double negation.  Theorem *4.13 of
+[WhiteheadRussell] p. 117.
+     (Contributed by NM, 5-Aug-1993.)
+\begin{align}
+\vdash ( {\color{formulacolor}\varphi} \leftrightarrow \lnot \lnot
+    {\color{formulacolor}\varphi} )\label{eq:notnot}\tag{notnot}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{olc} Introduction of a disjunct.  Axiom *1.3 of
+[WhiteheadRussell] p. 96.
+     (Contributed by NM, 30-Aug-1993.)
+\begin{align}
+\vdash ( {\color{formulacolor}\varphi} \rightarrow ( {\color{formulacolor}\psi}
+    \vee {\color{formulacolor}\varphi} ) )\label{eq:olc}\tag{olc}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{orbi12i} Infer the disjunction of two equivalences. 
+(Contributed by NM,
+       5-Aug-1993.)
+\begin{align}
+\vdash ( {\color{formulacolor}\varphi} \leftrightarrow
+    {\color{formulacolor}\psi} )\quad\&\quad \vdash (
+    {\color{formulacolor}\chi} \leftrightarrow {\color{formulacolor}\theta}
+    )\quad\Rightarrow\quad \vdash ( ( {\color{formulacolor}\varphi} \vee
+    {\color{formulacolor}\chi} ) \leftrightarrow ( {\color{formulacolor}\psi}
+    \vee {\color{formulacolor}\theta} ) )\label{eq:orbi12i}\tag{orbi12i}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{orbi1i} Inference adding a right disjunct to both
+sides of a logical
+       equivalence.  (Contributed by NM, 5-Aug-1993.)
+\begin{align}
+\vdash ( {\color{formulacolor}\varphi} \leftrightarrow
+    {\color{formulacolor}\psi} )\quad\Rightarrow\quad \vdash ( (
+    {\color{formulacolor}\varphi} \vee {\color{formulacolor}\chi} )
+    \leftrightarrow ( {\color{formulacolor}\psi} \vee
+    {\color{formulacolor}\chi} ) )\label{eq:orbi1i}\tag{orbi1i}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{orbi2i} Inference adding a left disjunct to both sides
+of a logical
+       equivalence.  (Contributed by NM, 5-Aug-1993.)  (Proof shortened by
+Wolf
+       Lammen, 12-Dec-2012.)
+\begin{align}
+\vdash ( {\color{formulacolor}\varphi} \leftrightarrow
+    {\color{formulacolor}\psi} )\quad\Rightarrow\quad \vdash ( (
+    {\color{formulacolor}\chi} \vee {\color{formulacolor}\varphi} )
+    \leftrightarrow ( {\color{formulacolor}\chi} \vee
+    {\color{formulacolor}\psi} ) )\label{eq:orbi2i}\tag{orbi2i}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{orc} Introduction of a disjunct.  Theorem *2.2 of
+[WhiteheadRussell] p. 104.
+     (Contributed by NM, 30-Aug-1993.)
+\begin{align}
+\vdash ( {\color{formulacolor}\varphi} \rightarrow (
+    {\color{formulacolor}\varphi} \vee {\color{formulacolor}\psi} )
+    )\label{eq:orc}\tag{orc}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{orcom} Commutative law for disjunction.  Theorem *4.31
+of [WhiteheadRussell]
+     p. 118.  (Contributed by NM, 5-Aug-1993.)  (Proof shortened by Wolf
+     Lammen, 15-Nov-2012.)
+\begin{align}
+\vdash ( ( {\color{formulacolor}\varphi} \vee {\color{formulacolor}\psi} )
+    \leftrightarrow ( {\color{formulacolor}\psi} \vee
+    {\color{formulacolor}\varphi} ) )\label{eq:orcom}\tag{orcom}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{ordir} Distributive law for disjunction.  (Contributed
+by NM, 12-Aug-1994.)
+\begin{align}
+\vdash ( ( ( {\color{formulacolor}\varphi} \wedge {\color{formulacolor}\psi} )
+    \vee {\color{formulacolor}\chi} ) \leftrightarrow ( (
+    {\color{formulacolor}\varphi} \vee {\color{formulacolor}\chi} ) \wedge (
+    {\color{formulacolor}\psi} \vee {\color{formulacolor}\chi} ) )
+    )\label{eq:ordir}\tag{ordir}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{oridm} Idempotent law for disjunction.  Theorem *4.25
+of [WhiteheadRussell]
+     p. 117.  (Contributed by NM, 5-Aug-1993.)  (Proof shortened by Andrew
+     Salmon, 16-Apr-2011.)  (Proof shortened by Wolf Lammen, 10-Mar-2013.)
+\begin{align}
+\vdash ( ( {\color{formulacolor}\varphi} \vee {\color{formulacolor}\varphi} )
+    \leftrightarrow {\color{formulacolor}\varphi} )\label{eq:oridm}\tag{oridm}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{pm2.61} Theorem *2.61 of [WhiteheadRussell] p. 107. 
+Useful for eliminating an
+     antecedent.  (Contributed by NM, 5-Aug-1993.)  (Proof shortened by Wolf
+     Lammen, 22-Sep-2013.)
+\begin{align}
+\vdash ( ( {\color{formulacolor}\varphi} \rightarrow {\color{formulacolor}\psi}
+    ) \rightarrow ( ( \lnot {\color{formulacolor}\varphi} \rightarrow
+    {\color{formulacolor}\psi} ) \rightarrow {\color{formulacolor}\psi} )
+    )\label{eq:pm2.61}\tag{pm2.61}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{pm2.86i} Inference based on {\tt pm2.86}. 
+(Contributed by NM, 5-Aug-1993.)  (Proof
+       shortened by Wolf Lammen, 3-Apr-2013.)
+\begin{align}
+\vdash ( ( {\color{formulacolor}\varphi} \rightarrow {\color{formulacolor}\psi}
+    ) \rightarrow ( {\color{formulacolor}\varphi} \rightarrow
+    {\color{formulacolor}\chi} ) )\quad\Rightarrow\quad \vdash (
+    {\color{formulacolor}\varphi} \rightarrow ( {\color{formulacolor}\psi}
+    \rightarrow {\color{formulacolor}\chi} ) )\label{eq:pm2.86i}\tag{pm2.86i}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{pm4.44} Theorem *4.44 of [WhiteheadRussell] p. 119. 
+(Contributed by NM,
+     3-Jan-2005.)
+\begin{align}
+\vdash ( {\color{formulacolor}\varphi} \leftrightarrow (
+    {\color{formulacolor}\varphi} \vee ( {\color{formulacolor}\varphi} \wedge
+    {\color{formulacolor}\psi} ) ) )\label{eq:pm4.44}\tag{pm4.44}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{pm4.45} Theorem *4.45 of [WhiteheadRussell] p. 119. 
+(Contributed by NM,
+     3-Jan-2005.)
+\begin{align}
+\vdash ( {\color{formulacolor}\varphi} \leftrightarrow (
+    {\color{formulacolor}\varphi} \wedge ( {\color{formulacolor}\varphi} \vee
+    {\color{formulacolor}\psi} ) ) )\label{eq:pm4.45}\tag{pm4.45}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{pm4.45im} Conjunction with implication.  Compare
+Theorem *4.45 of [WhiteheadRussell]
+     p. 119.  (Contributed by NM, 17-May-1998.)
+\begin{align}
+\vdash ( {\color{formulacolor}\varphi} \leftrightarrow (
+    {\color{formulacolor}\varphi} \wedge ( {\color{formulacolor}\psi}
+    \rightarrow {\color{formulacolor}\varphi} ) ) )\label{eq:pm4.45im}\tag{pm4.45im}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{pm4.56} Theorem *4.56 of [WhiteheadRussell] p. 120. 
+(Contributed by NM,
+     3-Jan-2005.)
+\begin{align}
+\vdash ( ( \lnot {\color{formulacolor}\varphi} \wedge \lnot
+    {\color{formulacolor}\psi} ) \leftrightarrow \lnot (
+    {\color{formulacolor}\varphi} \vee {\color{formulacolor}\psi} )
+    )\label{eq:pm4.56}\tag{pm4.56}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{simpl} Elimination of a conjunct.  Theorem *3.26
+(Simp) of [WhiteheadRussell]
+     p. 112.  (Contributed by NM, 5-Aug-1993.)  (Proof shortened by Wolf
+     Lammen, 13-Nov-2012.)
+\begin{align}
+\vdash ( ( {\color{formulacolor}\varphi} \wedge {\color{formulacolor}\psi} )
+    \rightarrow {\color{formulacolor}\varphi} )\label{eq:simpl}\tag{simpl}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{syl} An inference version of the transitive laws for
+implication {\tt imim2} and
+       {\tt imim1}, which Russell and Whitehead call "the principle of the
+       syllogism...because...the syllogism in Barbara is derived from them"
+       (quote after Theorem *2.06 of [WhiteheadRussell] p. 101).  Some authors
+       call this law a "hypothetical syllogism."
+
+       (A bit of trivia: this is the most commonly referenced assertion in our
+       database.  In second place is {\tt eqid}, followed by {\tt syl2anc},
+       {\tt adantr}, {\tt syl3anc}, and {\tt ax-mp}.  The Metamath program
+command 'show
+       usage' shows the number of references.)  (Contributed by NM,
+       5-Aug-1993.)  (Proof shortened by O'Cat, 20-Oct-2011.)  (Proof
+shortened
+       by Wolf Lammen, 26-Jul-2012.)
+\begin{align}
+\vdash ( {\color{formulacolor}\varphi} \rightarrow {\color{formulacolor}\psi}
+    )\quad\&\quad \vdash ( {\color{formulacolor}\psi} \rightarrow
+    {\color{formulacolor}\chi} )\quad\Rightarrow\quad \vdash (
+    {\color{formulacolor}\varphi} \rightarrow {\color{formulacolor}\chi}
+    )\label{eq:syl}\tag{syl}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{sylbi} A mixed syllogism inference from a
+biconditional and an implication.
+       Useful for substituting an antecedent with a definition.  (Contributed
+       by NM, 5-Aug-1993.)
+\begin{align}
+\vdash ( {\color{formulacolor}\varphi} \leftrightarrow
+    {\color{formulacolor}\psi} )\quad\&\quad \vdash (
+    {\color{formulacolor}\psi} \rightarrow {\color{formulacolor}\chi}
+    )\quad\Rightarrow\quad \vdash ( {\color{formulacolor}\varphi} \rightarrow
+    {\color{formulacolor}\chi} )\label{eq:sylbi}\tag{sylbi}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{sylibr} A mixed syllogism inference from an
+implication and a biconditional.
+       Useful for substituting a consequent with a definition.  (Contributed
+by
+       NM, 5-Aug-1993.)
+\begin{align}
+\vdash ( {\color{formulacolor}\varphi} \rightarrow {\color{formulacolor}\psi}
+    )\quad\&\quad \vdash ( {\color{formulacolor}\chi} \leftrightarrow
+    {\color{formulacolor}\psi} )\quad\Rightarrow\quad \vdash (
+    {\color{formulacolor}\varphi} \rightarrow {\color{formulacolor}\chi}
+    )\label{eq:sylibr}\tag{sylibr}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{trant} A true antecedent can be removed.  (Contributed
+by FL, 16-Apr-2012.)
+\begin{align}
+\vdash ( ( \top \rightarrow {\color{formulacolor}\varphi} ) \leftrightarrow
+    {\color{formulacolor}\varphi} )\label{eq:trant}\tag{trant}
+\end{align}
+\end{lemma}
+
+

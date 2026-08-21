@@ -1,0 +1,510 @@
+% This LaTeX file was created by Metamath on 9-Oct-2021 11:49 AM.
+\begin{metadefinition}\blTitle{cio} Extend class notation with Russell's
+definition description binder
+     (inverted iota).
+\begin{align}
+{\rm \mm{class}~} ( \mathrm{\rotatebox[origin=C]{180}{$\iota$}} \msc{x}
+    \mw{\varphi} )\label{eq:cio}\tag{cio}
+\end{align}
+\end{metadefinition}
+
+\begin{lemma}\blTitle{iotajust} Soundness justification theorem for {\tt
+df-iota}.  (Contributed by Andrew
+       Salmon, 29-Jun-2011.)
+\begin{align}
+\mm{\vdash} \bigcup \{ \msc{y} ~\vert~ \{ \msc{x} ~\vert~ \mw{\varphi} \} = \{
+    \msc{y} \} \} = \bigcup \{ \msc{z} ~\vert~ \{ \msc{x} ~\vert~ \mw{\varphi}
+    \} = \{ \msc{z} \} \}\label{eq:iotajust}\tag{iotajust}
+\end{align}
+\end{lemma}
+
+
+\begin{metadefinition}\blTitle{df-iota} Define Russell's definition description
+binder, which can be read as
+       ``the unique $\msc{x}$ such that $\mw{\varphi}$," where $\mw{\varphi}$
+ordinarily contains
+       $\msc{x}$ as a free variable.  Our definition is meaningful only when
+there
+       is exactly one $\msc{x}$ such that $\mw{\varphi}$ is true (see {\tt
+iotaval});
+       otherwise, it evaluates to the empty set (see {\tt iotanul}).  Russell
+used
+       the inverted iota symbol $\mathrm{\rotatebox[origin=C]{180}{$\iota$}}$
+to represent the binder.
+
+       Sometimes proofs need to expand an iota-based definition.  That is,
+       given ``X = the x for which ... x ... x ..." holds, the proof needs to
+       get to ``...  X ...  X ...".  A general strategy to do this is to use
+       {\tt riotacl2} (or {\tt iotacl} for unbounded iota), as demonstrated in
+the
+       proof of {\tt supub}.  This can be easier than applying {\tt riotasbc}
+or a
+       version that applies an explicit substitution, because substituting an
+       iota into its own property always has a bound variable clash which must
+       be first renamed or else guarded with NF.
+
+       (Contributed by Andrew Salmon, 30-Jun-2011.)
+\begin{align}
+\mm{\vdash} ( \mathrm{\rotatebox[origin=C]{180}{$\iota$}} \msc{x} \mw{\varphi}
+    ) = \bigcup \{ \msc{y} ~\vert~ \{ \msc{x} ~\vert~ \mw{\varphi} \} = \{
+    \msc{y} \} \}\label{eq:df-iota}\tag{df-iota}
+\end{align}
+\end{metadefinition}
+
+\begin{lemma}\blTitle{dfiota2} Alternate definition for descriptions. 
+Definition 8.18 in [Quine]
+       p. 56.  (Contributed by Andrew Salmon, 30-Jun-2011.)
+\begin{align}
+\mm{\vdash} ( \mathrm{\rotatebox[origin=C]{180}{$\iota$}} \msc{x} \mw{\varphi}
+    ) = \bigcup \{ \msc{y} ~\vert~ \forall \msc{x} ( \mw{\varphi}
+    \leftrightarrow \msc{x} = \msc{y} ) \}\label{eq:dfiota2}\tag{dfiota2}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\blTitle{nfiota1} Bound-variable hypothesis builder for the
+$\mathrm{\rotatebox[origin=C]{180}{$\iota$}}$ class.  (Contributed
+       by Andrew Salmon, 11-Jul-2011.)  (Revised by Mario Carneiro,
+       15-Oct-2016.)
+\begin{align}
+\mm{\vdash} % \underline{\Finv} 
+\msc{x} (
+    \mathrm{\rotatebox[origin=C]{180}{$\iota$}} \msc{x} \mw{\varphi}
+    )\label{eq:nfiota1}\tag{nfiota1}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\blTitle{nfiotad} Deduction version of {\tt nfiota}. 
+(Contributed by NM, 18-Feb-2013.)
+\begin{align}
+\mm{\vdash} \Finv 
+\msc{y} \mw{\varphi}\quad\&\quad \mm{\vdash} ( \mw{\varphi}
+    \rightarrow \Finv 
+    \msc{x} \mw{\psi} )\quad\Rightarrow\quad \mm{\vdash} (
+    \mw{\varphi} \rightarrow % \underline{\Finv} 
+    \msc{x} (
+    \mathrm{\rotatebox[origin=C]{180}{$\iota$}} \msc{y} \mw{\psi} )
+    )\label{eq:nfiotad}\tag{nfiotad}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\blTitle{nfiota} Bound-variable hypothesis builder for the
+$\mathrm{\rotatebox[origin=C]{180}{$\iota$}}$ class.  (Contributed
+       by NM, 23-Aug-2011.)
+\begin{align}
+\mm{\vdash} % \Finv 
+\msc{x} \mw{\varphi}\quad\Rightarrow\quad \mm{\vdash}
+  %  \underline{\Finv} 
+  \msc{x} ( \mathrm{\rotatebox[origin=C]{180}{$\iota$}}
+    \msc{y} \mw{\varphi} )\label{eq:nfiota}\tag{nfiota}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\blTitle{iotajust} Soundness justification theorem for {\tt
+df-iota}.  (Contributed by Andrew
+       Salmon, 29-Jun-2011.)
+\begin{align}
+\mm{\vdash} \bigcup \{ \msc{y} ~\vert~ \{ \msc{x} ~\vert~ \mw{\varphi} \} = \{
+    \msc{y} \} \} = \bigcup \{ \msc{z} ~\vert~ \{ \msc{x} ~\vert~ \mw{\varphi}
+    \} = \{ \msc{z} \} \}\label{eq:iotajust}\tag{iotajust}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\blTitle{iotaeq} Equality theorem for descriptions. 
+(Contributed by Andrew Salmon,
+       30-Jun-2011.)
+\begin{align}
+\mm{\vdash} ( \forall \msc{x} \msc{x} = \msc{y} \rightarrow (
+    \mathrm{\rotatebox[origin=C]{180}{$\iota$}} \msc{x} \mw{\varphi} ) = (
+    \mathrm{\rotatebox[origin=C]{180}{$\iota$}} \msc{y} \mw{\varphi} )
+    )\label{eq:iotaeq}\tag{iotaeq}
+\end{align}
+\end{lemma}
+
+
+%\begin{lemma}\blTitle{iotabi} Equivalence theorem for descriptions. 
+%(Contributed by Andrew Salmon,
+%       30-Jun-2011.)
+%\begin{align}
+%\mm{\vdash} ( \forall \msc{x} ( \mw{\varphi} \leftrightarrow \mw{\psi} )
+%    \rightarrow ( \mathrm{\rotatebox[origin=C]{180}{$\iota$}} \msc{x}
+%    \mw{\varphi} ) = ( \mathrm{\rotatebox[origin=C]{180}{$\iota$}} \msc{x}
+%    \mw{\psi} ) )\label{eq:iotabi}\tag{iotabi}
+%\end{align}
+%\end{lemma}
+
+%
+%\begin{lemma}\blTitle{iotaval} Theorem 8.19 in [Quine] p. 57.  This
+%theorem is the fundamental property
+%       of iota.  (Contributed by Andrew Salmon, 11-Jul-2011.)
+%\begin{align}
+%\mm{\vdash} ( \forall \msc{x} ( \mw{\varphi} \leftrightarrow \msc{x} = \msc{y}
+%    ) \rightarrow ( \mathrm{\rotatebox[origin=C]{180}{$\iota$}} \msc{x}
+%    \mw{\varphi} ) = \msc{y} )\label{eq:iotaval}\tag{iotaval}
+%\end{align}
+%\end{lemma}
+
+%
+%\begin{lemma}\blTitle{iotauni} Equivalence between two different forms of
+%$\mathrm{\rotatebox[origin=C]{180}{$\iota$}}$.  (Contributed by
+%       Andrew Salmon, 12-Jul-2011.)
+%\begin{align}
+%\mm{\vdash} ( \exists{!} \msc{x} \mw{\varphi} \rightarrow (
+%    \mathrm{\rotatebox[origin=C]{180}{$\iota$}} \msc{x} \mw{\varphi} ) =
+%    \bigcup \{ \msc{x} ~\vert~ \mw{\varphi} \} )\label{eq:iotauni}\tag{iotauni}
+%\end{align}
+%\end{lemma}
+
+%
+%\begin{lemma}\blTitle{iotaint} Equivalence between two different forms of
+%$\mathrm{\rotatebox[origin=C]{180}{$\iota$}}$.  (Contributed by
+%       Mario Carneiro, 24-Dec-2016.)
+%\begin{align}
+%\mm{\vdash} ( \exists{!} \msc{x} \mw{\varphi} \rightarrow (
+%    \mathrm{\rotatebox[origin=C]{180}{$\iota$}} \msc{x} \mw{\varphi} ) =
+%    \bigcap \{ \msc{x} ~\vert~ \mw{\varphi} \} )\label{eq:iotaint}\tag{iotaint}
+%\end{align}
+%\end{lemma}
+
+%
+%\begin{lemma}\blTitle{iota1} Property of iota.  (Contributed by NM,
+%23-Aug-2011.)  (Revised by Mario
+%       Carneiro, 23-Dec-2016.)
+%\begin{align}
+%\mm{\vdash} ( \exists{!} \msc{x} \mw{\varphi} \rightarrow ( \mw{\varphi}
+%    \leftrightarrow ( \mathrm{\rotatebox[origin=C]{180}{$\iota$}} \msc{x}
+%    \mw{\varphi} ) = \msc{x} ) )\label{eq:iota1}\tag{iota1}
+%\end{align}
+%\end{lemma}
+
+%
+%\begin{lemma}\blTitle{iotanul} Theorem 8.22 in [Quine] p. 57.  This
+%theorem is the result if there
+%       isn't exactly one $\msc{x}$ that satisfies $\mw{\varphi}$. 
+%(Contributed by Andrew
+%       Salmon, 11-Jul-2011.)
+%\begin{align}
+%\mm{\vdash} ( \lnot \exists{!} \msc{x} \mw{\varphi} \rightarrow (
+%    \mathrm{\rotatebox[origin=C]{180}{$\iota$}} \msc{x} \mw{\varphi} ) =
+%    \varnothing )\label{eq:iotanul}\tag{iotanul}
+%\end{align}
+%\end{lemma}
+
+%
+%\begin{lemma}\blTitle{iotassuni} The
+%$\mathrm{\rotatebox[origin=C]{180}{$\iota$}}$ class is a subset of the union
+%of all elements satisfying
+%       $\mw{\varphi}$.  (Contributed by Mario Carneiro, 24-Dec-2016.)
+%\begin{align}
+%\mm{\vdash} ( \mathrm{\rotatebox[origin=C]{180}{$\iota$}} \msc{x} \mw{\varphi}
+%    ) \subseteq \bigcup \{ \msc{x} ~\vert~ \mw{\varphi}
+%    \}\label{eq:iotassuni}\tag{iotassuni}
+%\end{align}
+%\end{lemma}
+
+%
+%\begin{lemma}\blTitle{iotaex} Theorem 8.23 in [Quine] p. 58.  This theorem
+%proves the existence of the
+%       $\mathrm{\rotatebox[origin=C]{180}{$\iota$}}$ class under our
+%definition.  (Contributed by Andrew Salmon,
+%       11-Jul-2011.)
+%\begin{align}
+%\mm{\vdash} ( \mathrm{\rotatebox[origin=C]{180}{$\iota$}} \msc{x} \mw{\varphi}
+%    ) \in {\rm V}\label{eq:iotaex}\tag{iotaex}
+%\end{align}
+%\end{lemma}
+
+%
+%\begin{lemma}\blTitle{iota4} Theorem *14.22 in [WhiteheadRussell] p. 190. 
+%(Contributed by Andrew
+%       Salmon, 12-Jul-2011.)
+%\begin{align}
+%\mm{\vdash} ( \exists{!} \msc{x} \mw{\varphi} \rightarrow \underaccent{\dot}
+%  {[}
+%    ( \mathrm{\rotatebox[origin=C]{180}{$\iota$}} \msc{x} \mw{\varphi} ) /
+%    \msc{x} \underaccent{\dot}
+%    {]} \mw{\varphi} )\label{eq:iota4}\tag{iota4}
+%\end{align}
+%\end{lemma}
+
+%
+%\begin{lemma}\blTitle{iota4an} Theorem *14.23 in [WhiteheadRussell] p.
+%191.  (Contributed by Andrew
+%     Salmon, 12-Jul-2011.)
+%\begin{align}
+%\mm{\vdash} ( \exists{!} \msc{x} ( \mw{\varphi} \wedge \mw{\psi} ) \rightarrow
+%   \underaccent{\dot}
+%   {[} ( \mathrm{\rotatebox[origin=C]{180}{$\iota$}} \msc{x}
+%    ( \mw{\varphi} \wedge \mw{\psi} ) ) / \msc{x} \underaccent{\dot}
+%    {]}
+%    \mw{\varphi} )\label{eq:iota4an}\tag{iota4an}
+%\end{align}
+%\end{lemma}
+
+%
+%\begin{lemma}\blTitle{iota5} A method for computing iota.  (Contributed by
+%NM, 17-Sep-2013.)
+%\begin{align}
+%\mm{\vdash} ( ( \mw{\varphi} \wedge \mc{A} \in V ) \rightarrow ( \mw{\psi}
+%    \leftrightarrow \msc{x} = \mc{A} ) )\quad\Rightarrow\quad \mm{\vdash} ( (
+%    \mw{\varphi} \wedge \mc{A} \in V ) \rightarrow (
+%    \mathrm{\rotatebox[origin=C]{180}{$\iota$}} \msc{x} \mw{\psi} ) = \mc{A}
+%    )\label{eq:iota5}\tag{iota5}
+%\end{align}
+%\end{lemma}
+
+%
+%\begin{lemma}\blTitle{iotabidv} Formula-building deduction rule for iota. 
+%(Contributed by NM,
+%       20-Aug-2011.)
+%\begin{align}
+%\mm{\vdash} ( \mw{\varphi} \rightarrow ( \mw{\psi} \leftrightarrow \mw{\chi} )
+%    )\quad\Rightarrow\quad \mm{\vdash} ( \mw{\varphi} \rightarrow (
+%    \mathrm{\rotatebox[origin=C]{180}{$\iota$}} \msc{x} \mw{\psi} ) = (
+%    \mathrm{\rotatebox[origin=C]{180}{$\iota$}} \msc{x} \mw{\chi} )
+%    )\label{eq:iotabidv}\tag{iotabidv}
+%\end{align}
+%\end{lemma}
+
+%
+%\begin{lemma}\blTitle{iotabii} Formula-building deduction rule for iota. 
+%(Contributed by Mario
+%       Carneiro, 2-Oct-2015.)
+%\begin{align}
+%\mm{\vdash} ( \mw{\varphi} \leftrightarrow \mw{\psi} )\quad\Rightarrow\quad
+%    \mm{\vdash} ( \mathrm{\rotatebox[origin=C]{180}{$\iota$}} \msc{x}
+%    \mw{\varphi} ) = ( \mathrm{\rotatebox[origin=C]{180}{$\iota$}} \msc{x}
+%    \mw{\psi} )\label{eq:iotabii}\tag{iotabii}
+%\end{align}
+%\end{lemma}
+
+%
+%\begin{lemma}\blTitle{iotacl} Membership law for descriptions.
+%
+%     This can useful for expanding an unbounded iota-based definition (see
+%     {\tt df-iota}).  If you have a bounded iota-based definition, {\tt
+%riotacl2} may
+%     be useful.
+%
+%     (Contributed by Andrew Salmon, 1-Aug-2011.)
+%\begin{align}
+%\mm{\vdash} ( \exists{!} \msc{x} \mw{\varphi} \rightarrow (
+%    \mathrm{\rotatebox[origin=C]{180}{$\iota$}} \msc{x} \mw{\varphi} ) \in \{
+%    \msc{x} ~\vert~ \mw{\varphi} \} )\label{eq:iotacl}\tag{iotacl}
+%\end{align}
+%\end{lemma}
+
+%
+%\begin{lemma}\blTitle{iota2df} A condition that allows us to represent
+%``the unique element such that
+%         $\mw{\varphi}$" with a class expression $\mc{A}$.  (Contributed by
+%NM,
+%         30-Dec-2014.)
+%\begin{align}
+%\mm{\vdash} ( \mw{\varphi} \rightarrow \mc{B} \in V )\quad\&\quad \mm{\vdash} (
+%    \mw{\varphi} \rightarrow \exists{!} \msc{x} \mw{\psi} )\quad\&\quad
+%    \mm{\vdash} ( ( \mw{\varphi} \wedge \msc{x} = \mc{B} ) \rightarrow (
+%    \mw{\psi} \leftrightarrow \mw{\chi} ) ) \\
+%    \quad\&\quad \mm{\vdash}
+%     \Finv 
+%    \msc{x} \mw{\varphi}\quad\&\quad \mm{\vdash} ( \mw{\varphi} \rightarrow
+%    \Finv  
+%    \msc{x} \mw{\chi} )\quad\&\quad \mm{\vdash} ( \mw{\varphi}
+%    \rightarrow 
+%    \underline{\Finv} 
+%    \msc{x} \mc{B} )\quad\Rightarrow\quad
+%    \mm{\vdash} ( \mw{\varphi} \rightarrow ( \mw{\chi} \leftrightarrow (
+%    \mathrm{\rotatebox[origin=C]{180}{$\iota$}} \msc{x} \mw{\psi} ) = \mc{B} )
+%    )\label{eq:iota2df}\tag{iota2df}
+%\end{align}
+%\end{lemma}
+
+%
+%\begin{lemma}\blTitle{iota2d} A condition that allows us to represent
+%``the unique element such that
+%       $\mw{\varphi}$" with a class expression $\mc{A}$.  (Contributed by NM,
+%       30-Dec-2014.)
+%\begin{align}
+%\mm{\vdash} ( \mw{\varphi} \rightarrow \mc{B} \in V )\quad\&\quad \mm{\vdash} (
+%    \mw{\varphi} \rightarrow \exists{!} \msc{x} \mw{\psi} )\quad\&\quad
+%    \mm{\vdash} ( ( \mw{\varphi} \wedge \msc{x} = \mc{B} ) \rightarrow (
+%    \mw{\psi} \leftrightarrow \mw{\chi} ) )\quad\Rightarrow\quad \mm{\vdash} (
+%    \mw{\varphi} \rightarrow ( \mw{\chi} \leftrightarrow (
+%    \mathrm{\rotatebox[origin=C]{180}{$\iota$}} \msc{x} \mw{\psi} ) = \mc{B} )
+%    )\label{eq:iota2d}\tag{iota2d}
+%\end{align}
+%\end{lemma}
+
+%
+%\begin{lemma}\blTitle{iota2} The unique element such that $\mw{\varphi}$. 
+%(Contributed by Jeff Madsen,
+%       1-Jun-2011.)  (Revised by Mario Carneiro, 23-Dec-2016.)
+%\begin{align}
+%\mm{\vdash} ( \msc{x} = \mc{A} \rightarrow ( \mw{\varphi} \leftrightarrow
+%    \mw{\psi} ) )\quad\Rightarrow\quad \mm{\vdash} ( ( \mc{A} \in \mc{B} \wedge
+%    \exists{!} \msc{x} \mw{\varphi} ) \rightarrow ( \mw{\psi} \leftrightarrow (
+%    \mathrm{\rotatebox[origin=C]{180}{$\iota$}} \msc{x} \mw{\varphi} ) = \mc{A}
+%    ) )\label{eq:iota2}\tag{iota2}
+%\end{align}
+%\end{lemma}
+
+%
+%\begin{lemma}\blTitle{iota5f} A method for computing iota.  (Contributed
+%by Scott Fenton,
+%       13-Dec-2017.)
+%\begin{align}
+%\mm{\vdash} \Finv  
+%\msc{x} \mw{\varphi}\quad\&\quad \mm{\vdash}
+%   \underline{\Finv} 
+%  \msc{x} \mc{A}\quad\&\quad \mm{\vdash} ( ( \mw{\varphi}
+%    \wedge \mc{A} \in V ) \rightarrow ( \mw{\psi} \leftrightarrow \msc{x} =
+%    \mc{A} ) )\quad\Rightarrow\quad \mm{\vdash} ( ( \mw{\varphi} \wedge \mc{A}
+%    \in V ) \rightarrow ( \mathrm{\rotatebox[origin=C]{180}{$\iota$}} \msc{x}
+%    \mw{\psi} ) = \mc{A} )\label{eq:iota5f}\tag{iota5f}
+%\end{align}
+%\end{lemma}
+
+%
+%\begin{lemma}\blTitle{iotain} Equivalence between two different forms of
+%$\mathrm{\rotatebox[origin=C]{180}{$\iota$}}$.  (Contributed by
+%       Andrew Salmon, 15-Jul-2011.)
+%\begin{align}
+%\mm{\vdash} ( \exists{!} \msc{x} \mw{\varphi} \rightarrow \bigcap \{ \msc{x}
+%    ~\vert~ \mw{\varphi} \} = ( \mathrm{\rotatebox[origin=C]{180}{$\iota$}}
+%    \msc{x} \mw{\varphi} ) )\label{eq:iotain}\tag{iotain}
+%\end{align}
+%\end{lemma}
+
+%
+%\begin{lemma}\blTitle{iotaexeu} The iota class exists.  This theorem does
+%not require {\tt ax-nul} for its
+%       proof.  (Contributed by Andrew Salmon, 11-Jul-2011.)
+%\begin{align}
+%\mm{\vdash} ( \exists{!} \msc{x} \mw{\varphi} \rightarrow (
+%    \mathrm{\rotatebox[origin=C]{180}{$\iota$}} \msc{x} \mw{\varphi} ) \in {\rm
+%    V} )\label{eq:iotaexeu}\tag{iotaexeu}
+%\end{align}
+%\end{lemma}
+
+%
+%\begin{lemma}\blTitle{iotasbc} Definition *14.01 in [WhiteheadRussell] p.
+%184.  In Principia
+%       Mathematica, Russell and Whitehead define
+%$\mathrm{\rotatebox[origin=C]{180}{$\iota$}}$ in terms of a
+%       function of $( \mathrm{\rotatebox[origin=C]{180}{$\iota$}} \msc{x}
+%\mw{\varphi} )$.  Their definition differs in that a
+%       function of $( \mathrm{\rotatebox[origin=C]{180}{$\iota$}} \msc{x}
+%\mw{\varphi} )$ evaluates to ``false" when there isn't a
+%       single $\msc{x}$ that satisfies $\mw{\varphi}$.  (Contributed by Andrew
+%Salmon,
+%       11-Jul-2011.)
+%\begin{align}
+%\mm{\vdash} ( \exists{!} \msc{x} \mw{\varphi} \rightarrow (
+%    \underaccent{\dot}
+%    {[} ( \mathrm{\rotatebox[origin=C]{180}{$\iota$}} \msc{x}
+%    \mw{\varphi} ) / \msc{y} \underaccent{\dot}
+%    {]} \mw{\psi} \leftrightarrow
+%    \exists \msc{y} ( \forall \msc{x} ( \mw{\varphi} \leftrightarrow \msc{x} =
+%    \msc{y} ) \wedge \mw{\psi} ) ) )\label{eq:iotasbc}\tag{iotasbc}
+%\end{align}
+%\end{lemma}
+
+%
+%\begin{lemma}\blTitle{iotasbc2} Theorem *14.111 in [WhiteheadRussell] p.
+%184.  (Contributed by Andrew
+%       Salmon, 11-Jul-2011.)
+%\begin{align}
+%\mm{\vdash} ( ( \exists{!} \msc{x} \mw{\varphi} \wedge \exists{!} \msc{x}
+%    \mw{\psi} ) \rightarrow ( \underaccent{\dot}{[} (
+%    \mathrm{\rotatebox[origin=C]{180}{$\iota$}} \msc{x} \mw{\varphi} ) /
+%    \msc{y} \underaccent{\dot}
+%    {]} \underaccent{\dot}{[} (
+%    \mathrm{\rotatebox[origin=C]{180}{$\iota$}} \msc{x} \mw{\psi} ) / \msc{z}
+%    \underaccent{\dot}{]} \mw{\chi} \leftrightarrow \exists \msc{y} \exists
+%    \msc{z} ( \forall \msc{x} ( \mw{\varphi} \leftrightarrow \msc{x} = \msc{y}
+%    ) \wedge \forall \msc{x} ( \mw{\psi} \leftrightarrow \msc{x} = \msc{z} )
+%    \wedge \mw{\chi} ) ) )\label{eq:iotasbc2}\tag{iotasbc2}
+%\end{align}
+%\end{lemma}
+
+%
+%\begin{lemma}\blTitle{iotaequ} Theorem *14.2 in [WhiteheadRussell] p. 189.
+%(Contributed by Andrew
+%       Salmon, 11-Jul-2011.)
+%\begin{align}
+%\mm{\vdash} ( \mathrm{\rotatebox[origin=C]{180}{$\iota$}} \msc{x} \msc{x} =
+%    \msc{y} ) = \msc{y}\label{eq:iotaequ}\tag{iotaequ}
+%\end{align}
+%\end{lemma}
+
+%
+%\begin{lemma}\blTitle{iotavalb} Theorem *14.202 in [WhiteheadRussell] p.
+%189.  A biconditional version
+%       of {\tt iotaval}.  (Contributed by Andrew Salmon, 11-Jul-2011.)
+%\begin{align}
+%\mm{\vdash} ( \exists{!} \msc{x} \mw{\varphi} \rightarrow ( \forall \msc{x} (
+%    \mw{\varphi} \leftrightarrow \msc{x} = \msc{y} ) \leftrightarrow (
+%    \mathrm{\rotatebox[origin=C]{180}{$\iota$}} \msc{x} \mw{\varphi} ) =
+%    \msc{y} ) )\label{eq:iotavalb}\tag{iotavalb}
+%\end{align}
+%\end{lemma}
+
+%
+%\begin{lemma}\blTitle{iotasbc5} Theorem *14.205 in [WhiteheadRussell] p.
+%190.  (Contributed by Andrew
+%       Salmon, 11-Jul-2011.)
+%\begin{align}
+%\mm{\vdash} ( \exists{!} \msc{x} \mw{\varphi} \rightarrow (
+%   \underaccent{\dot}
+%   {[} ( \mathrm{\rotatebox[origin=C]{180}{$\iota$}} \msc{x}
+%    \mw{\varphi} ) / \msc{y} \underaccent{\dot}
+%    {]} \mw{\psi} \leftrightarrow
+%    \exists \msc{y} ( \msc{y} = ( \mathrm{\rotatebox[origin=C]{180}{$\iota$}}
+%    \msc{x} \mw{\varphi} ) \wedge \mw{\psi} ) )
+%    )\label{eq:iotasbc5}\tag{iotasbc5}
+%\end{align}
+%\end{lemma}
+
+%
+%\begin{lemma}\blTitle{iotavalsb} Theorem *14.242 in [WhiteheadRussell] p.
+%192.  (Contributed by Andrew
+%       Salmon, 11-Jul-2011.)
+%\begin{align}
+%\mm{\vdash} ( \forall \msc{x} ( \mw{\varphi} \leftrightarrow \msc{x} = \msc{y}
+%    ) \rightarrow ( \underaccent{\dot}
+%    {[} \msc{y} / \msc{z}
+%    \underaccent{\dot}
+%    {]} \mw{\psi} \leftrightarrow \underaccent{\dot}
+%    {[} (
+%    \mathrm{\rotatebox[origin=C]{180}{$\iota$}} \msc{x} \mw{\varphi} ) /
+%    \msc{z} \underaccent{\dot}
+%    {]} \mw{\psi} )
+%    )\label{eq:iotavalsb}\tag{iotavalsb}
+%\end{align}
+%\end{lemma}
+
+%
+%\begin{lemma}\blTitle{iotasbcq} Theorem *14.272 in [WhiteheadRussell] p.
+%193.  (Contributed by Andrew
+%       Salmon, 11-Jul-2011.)
+%\begin{align}
+%\mm{\vdash} ( \forall \msc{x} ( \mw{\varphi} \leftrightarrow \mw{\psi} )
+%    \rightarrow ( \underaccent{\dot}
+%    {[} (
+%    \mathrm{\rotatebox[origin=C]{180}{$\iota$}} \msc{x} \mw{\varphi} ) /
+%    \msc{y} \underaccent{\dot}
+%    {]} \mw{\chi} \leftrightarrow
+%    \underaccent{\dot}
+%    {[} ( \mathrm{\rotatebox[origin=C]{180}{$\iota$}} \msc{x}
+%    \mw{\psi} ) / \msc{y} \underaccent{\dot}
+%    {]} \mw{\chi} )
+%    )\label{eq:iotasbcq}\tag{iotasbcq}
+%\end{align}
+%\end{lemma}
+
+%
+

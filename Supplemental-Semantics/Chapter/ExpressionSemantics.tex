@@ -1,0 +1,99 @@
+%ExpressionSemantics.tex
+
+
+\ksec{Expressions Semantics (KerML 8.4.4.9)}\label{sec:expressions}
+
+%\comment{Unfortunately, an  \texttt{Expression} when declared with \texttt{expr} is a \texttt{Step}--not calculation of a value.
+%Other parts of Expression define what we normally think of as expression.
+%Other than \texttt{Expression} being a step (feature) there seems to be no difference of \texttt{expr} from a \texttt{function} other than general confusion because an expression is something used in assignment (and other things) to calculate a value.
+%}
+%
+%No timing semantics.
+
+\pn An \bemph{expression} returns a \bemph{value} (\ref{sec:value})--not performs a \texttt{Step}.  Therefore, \texttt{Expression} evaluation takes no time, and thus is suitable for binding, initialization, defaults, and constraints.   If modeling calculation of a value during operation is desired, use  \texttt{Performances::Computation}.  
+
+\pn This requires changing the specialization of metaclass \texttt{Expression} from \texttt{Step} to \texttt{Feature}.
+\ecaption{metaclass Expression}
+\begin{lstlisting}
+  metaclass Expression specializes Feature {
+  	derived var feature 'function' : Function[0..1] subsets 'type';
+  	derived var feature result : Feature[1..1] subsets output;
+  }		
+\end{lstlisting}
+
+\pn Because  \texttt{Expression} is now a \texttt{Feature} rather than a \texttt{Step},
+
+ \pn Expressions (and Functions and Predicates) are \emph{pure}.
+ Expressions have no side effects.\footnote{to have formal semantics}
+
+\pn Expressions do not reference \texttt{self}.
+
+\pn Expressions may have 0 or more inputs.
+
+\pn Expressions produce a single result, whose value is uniquely determined by the values of their inputs.\footnote{to have formal semantics}
+
+\pn Specializations of Expressions may not change parameter identifiers, nor their order,
+and may add parameters only at the end (thus preserving parameter order of their generalizations).
+
+\pn Type inferencing of expressions are contravariant (see \ref{sec:contra})
+
+\begin{bnf}
+Expression =
+  FeaturePrefix
+  'expr' FeatureDeclaration ValuePart?
+  FunctionBody 
+\end{bnf}
+
+\subsection{Extending Expression for SFS}\label{sec:extendingexpression}
+
+\pn Currently, SFS are added to KerML and SysML models with ``Domain'' language annotations.
+Hopefully, these annotations will use the same expression as KerML and SysML.
+By adding non-executable expressions, invariant clauses (\texttt{inv}) could express semantics directly.
+
+\pn Add non-executable expressions to \texttt{BaseExpression}.
+A \texttt{NonExecutableExpression} cannot be used for initialization, assignment, or transition conditions.
+Validations after parsing could easily detect misuse of non-executable expressions.
+
+\begin{bnf}
+BaseExpression ::=
+  NullExpression
+  | LiteralExpression
+  | FeatureReferenceExpression
+  | MetadataAccessExpression
+  | InvocationExpression
+  | ConstructorExpression
+  | BodyExpression
+  | {\color{orange}NonExecutableExpression}
+\end{bnf}
+
+\begin{bnf}
+NonExecutableExpression ::=
+  'timed' PrimaryExpression 'at' TimeExpression
+| 'shifted' PrimaryExpression 'by' IntegerExpression
+| 'forall' Identifier ( ',' Identifier )* ':' Type 'in' RangeOrBoolean 
+    'are' BooleanExpression
+| ( 'exists' | 'numberof' )
+    Identifier ( ',' Identifier )* ':' Type 'in' RangeOrBoolean 
+    'that' BooleanExpression
+| ( 'productof' | 'sumof' )
+    Identifier ( ',' Identifier )* ':' Type 'in' RangeOrBoolean 
+    'that' PrimaryExpression
+\end{bnf}
+\begin{description}
+\item[ \texttt{IntegerExpression}:]  expression sans units with integer numbers 
+\item[\texttt{TimeExpression}: ]  expression having time units with real (quantity) numbers
+\item[\texttt{BooleanExpression}: ]  expression resulting in \emph{true} or  \emph{false}.
+\end{description}
+
+\begin{bnf}
+RangeOrBoolean ::=
+  PrimaryExpression RangeSymbol PrimaryExpression
+  | BooleanExpression
+\end{bnf}
+
+\begin{bnf}
+RangeSymbol ::= '..' | '.,' | ',.' | ',,'
+\end{bnf}
+
+
+

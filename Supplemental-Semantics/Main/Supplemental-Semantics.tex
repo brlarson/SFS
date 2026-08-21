@@ -1,0 +1,288 @@
+%Supplemental-Semantics.tex
+
+%  Define supplemental, formal semantics for KerML and SysMLv2
+
+
+%\inputonly{}
+
+\documentclass[fleqn,openany]{book}
+\newcommand{\kermlversion}{1.0}
+\newcommand{\sysmlversion}{2.0}
+%\newcommand{\annexletter}{Z}
+\newcommand{\lang}{KerML}
+\newcommand{\langs}{SysML}
+\newcommand{\logicid}{Domain}
+%\newcommand{\package}{BLESS}
+%\newcommand{\typedomain}{BLESS} %{AADL Unified}
+
+% FORMAT
+%\input{../Format/BLESSformat}
+\input{../Format/KerMLformat}
+
+% Diagrams and Pictures
+\input{../Diagram/MultitudeLogo}
+
+
+\title{
+\includegraphics[width=3in]{../pics/SMClogo} \\
+Supplemental Formal Semantics for KerML and SysML v2 %by Modal Logic and Set Theory % \\  Annex~\annexname \\
+\vspace{0.5in}
+%\includegraphics[width=3in]{../pics/SMClogo}
+ }
+ %\multitudelogo{0.3} \\
+%Version \blessversion}
+\author{Brian R Larson\thanks{brl@multitude.net}\\ 
+\copyright ~\textsf{Multitude Corporation 2024-2026}
+}
+\date{updated:~\today}                                           % Activate to display a given date or no date
+%\thanks{(c) Multitude Corporation, 2024 \\
+%%\includegraphics[width=3in]{../pics/SMClogo} 
+%}
+
+%%%%%%%%%  START OF DOCUMENT %%%%%%%%%%%%%%%%%
+\begin{document}
+\maketitle
+\pagebreak
+
+\chapter*{Foreward}\label{chapter:foreword}
+\input{../Chapter/Foreword}
+\input{../Chapter/Intro_chapter}
+
+\tableofcontents 
+
+\listoffigures
+
+\listoftables
+
+\listofexamples
+
+% from \usepackage{thmtools}  
+%\listofrules
+%\listofmath
+
+%\listoftheorems[show={theorem}]
+%\listoftheorems[ignoreall, show=vc]
+\normalsize
+
+\setcounter{chapter}{-1}
+%\chapter{Introduction}\label{chapter:introduction}
+%\input{../Chapter/Intro_chapter}
+
+
+\chapter{Metaphysics}\label{chapter:metaphysics}
+\input{../Chapter/Metaphysics_chapter}
+
+\section{Reasoning About Time}\label{sec:time}
+\input{../Chapter/Time_chapter}
+
+\part{KerML Semantics}\label{part:kerml}
+
+\chapter{KerML Semantics Overview}\label{chapter:kermloverview}
+\input{../Chapter/KerMLSemanticsOverview}
+
+\chapter{Core Semantics}\label{chapter:coresemantics}
+\input{../Chapter/CoreSemanticsChapter}
+
+\input{../Chapter/ClassifierSemantics}
+
+%\input{../Chapter/adding_assertions}
+
+\input{../Chapter/KernelSemanticsChapter}
+
+\input{../Chapter/ClassSemantics}
+
+\input{../Chapter/StructureSemantics}
+
+\input{../Chapter/AssociationSemantics}
+
+\input{../Chapter/ConnectorSemantics}
+
+\input{../Chapter/SuccessionSemantics}
+
+\input{../Chapter/BehaviorSemantics}
+
+\input{../Chapter/ExpressionSemantics}
+
+\input{../Chapter/InteractionSemantics}
+
+\input{../Chapter/FlowSemantics}
+
+\input{../Chapter/ValueSemantics}
+
+\input{../Chapter/OtherSemantics}
+
+
+\chapter{KerML Type Inferencing Rules}\label{chapter:kermltype}
+\input{../Chapter/KerMLTypeInferencing}
+
+
+\chapter{KerML Model Execution}\label{chapter:execution}
+
+\comment{This is to be the equivalent of Appendix A in KerML v1.0 Beta 2.}
+\input{../Chapter/KerMLExecution}
+
+\part{SysML Semantics}\label{part:sysml}
+
+\chapter{SysML Semantics Overview}\label{chapter:sysmloverview}
+\input{../Chapter/SysMLSemanticsOverview}
+
+\chapter{SysML Semantics}\label{chapter:sysmlsemantics}
+
+\part{Math}\label{part:math}
+
+%\appendix
+%%\part{Math for KerML}\label{part:math}
+%\lfoot{\textsf{Math for KerML}~}
+\renewcommand\thechapter{\Alph{chapter}}
+
+
+%%%%%%%%%%  MATH  %%%%%%%%%%%%%%%%%%
+\chapter{Informal Mathematics}\label{chapter:simplemath}
+\input{../Chapter/Simple_math_chapter}
+
+\chapter{Formal Mathematics}\label{chapter:math}
+\input{../Chapter/Mathematics_chapter}
+
+\chapter{\logicid~Logic}\label{chapter:KL}
+\input{../Chapter/TemporalLogic}
+
+\chapter{Metamath Proof System}\label{chapter:metamath}
+\input{../Chapter/Metamath}
+
+%%%%%%%%%%%%  BLESS THEOREMS  %%%%%%%%%%%%%
+\chapter{\logicid~ Theorems}\label{chapter:theorems}
+\normalsize
+
+\section{Define Metamath Grammar for Symbols Defined for \logicid}
+\allowdisplaybreaks{
+\input{../metamath-latex/frombless/bless-lemmas-wff-list}
+}  %end of allowdisplaybreaks
+
+\section{Helpers}
+\allowdisplaybreaks{
+\input{../metamath-latex/frombless/bless-lemmas-helpers}
+}  %end of allowdisplaybreaks
+
+\section{Well-Formed Formula Substitution}
+\allowdisplaybreaks{
+\input{../metamath-latex/frombless/bless-lemmas-wff-subs}
+}  %end of allowdisplaybreaks
+
+\section{WFF-list Logic}
+\subsection{WFF-list Conjunction}
+\allowdisplaybreaks{
+\input{../metamath-latex/frombless/bless-lemmas-wff-list-conj}
+}  %end of allowdisplaybreaks
+
+\subsection{WFF-list Disjunction}
+\allowdisplaybreaks{
+\input{../metamath-latex/frombless/bless-lemmas-wff-list-disj}
+}  %end of allowdisplaybreaks
+
+\subsection{WFF-list Combined Conjunction and Disjunction}
+\allowdisplaybreaks{
+\input{../metamath-latex/frombless/bless-lemmas-wff-list-both}
+}  %end of allowdisplaybreaks
+
+\section{Class-list Expressions}
+\subsection{Class-list Definitions}\label{subsec:classlist}
+\allowdisplaybreaks{
+\input{../metamath-latex/frombless/bless-lemmas-class-list}
+}  %end of allowdisplaybreaks
+
+\subsection{Class-list Add and Multiply}
+\allowdisplaybreaks{
+\input{../metamath-latex/frombless/bless-lemmas-add-mult}
+}  %end of allowdisplaybreaks
+
+\section{\logicid~ Logic}
+\subsection{\logicid~ Definitions}
+\allowdisplaybreaks{
+\input{../metamath-latex/frombless/bless-lemmas-temporal}
+}  %end of allowdisplaybreaks
+
+\subsection{Time: $\mathbf{T}$}
+\allowdisplaybreaks{
+\input{../metamath-latex/frombless/bless-lemmas-time-intervals}
+}  %end of allowdisplaybreaks
+
+\subsection{\logicid~ Interpretation}\label{subsec:interpretation}
+\allowdisplaybreaks{
+\input{../metamath-latex/frombless/bless-lemmas-logic-model}
+}  %end of allowdisplaybreaks
+
+%\subsection{Model-at-time}
+\allowdisplaybreaks{
+\input{../metamath-latex/frombless/model-at-time}
+}  %end of allowdisplaybreaks
+
+\section{ @ operator}
+\subsection{Define @}
+\allowdisplaybreaks{
+\input{../metamath-latex/frombless/at-def}
+}  %end of allowdisplaybreaks
+
+\subsection{Distribute @}
+\allowdisplaybreaks{
+\input{../metamath-latex/frombless/bless-lemmas-distribute-at}
+}  %end of allowdisplaybreaks
+
+\section{ Time-Shift operator}
+\subsection{Define Time-Shift}
+\allowdisplaybreaks{
+\input{../metamath-latex/frombless/ts-def}
+}  %end of allowdisplaybreaks
+
+\subsection{Distribute Time-Shift}
+\allowdisplaybreaks{
+\input{../metamath-latex/frombless/bless-lemmas-distribute-ts}
+}  %end of allowdisplaybreaks
+
+%%%%%%%%%%% METAMATH THEOREMS %%%%%%%%%%%
+\chapter{Metamath Theorems from  \texttt{set.mm}}\label{chapter:mm}
+
+\section{Propositional Logic}\label{sec:prop}
+\input{../metamath-latex/fromsetmm/mm-propositional-calculus}
+
+\section{Predicate Calculus}\label{sec:predicatecalc}
+\input{../metamath-latex/fromsetmm/mm-pc}
+
+\section{Axiom of Extensionality}\label{sec:extensionality}
+\input{../metamath-latex/fromsetmm/mm-extensionality}
+
+\section{Axiom of Replacement}\label{sec:replacement}
+\input{../metamath-latex/fromsetmm/mm-replacement}
+
+\section{Axiom of Power Sets}\label{sec:axpowerset}
+\input{../metamath-latex/fromsetmm/mm-power-sets}
+
+\section{Axiom of Union}\label{sec:axunion}
+\input{../metamath-latex/fromsetmm/mm-union}
+
+\section{Numbers}\label{sec:mmnumbers}
+\input{../metamath-latex/fromsetmm/mm-numbers}
+
+\section{Words over a set}\label{sec:words}
+\input{../metamath-latex/fromsetmm/mm-words}
+
+\section{Sums}\label{sec:sums}
+\input{../metamath-latex/fromsetmm/mm-sums}
+
+\section{Extensible Structures}\label{sec:exstrut}
+\input{../metamath-latex/fromsetmm/mm-extensible-structure}
+
+\section{Mathbox}
+\input{../metamath-latex/fromsetmm/mm-mathbox}
+
+
+% ---------------------------------------------------------------- back matter
+%PUT ALPHABETIZED GLOSSARY HERE?
+
+\bibliography{../bib/ss}  
+\bibliographystyle{plain}
+
+
+\lfoot{\textsf{Index}}
+\printindex
+
+\end{document}  

@@ -1,0 +1,215 @@
+%BehaviorSemantics.tex
+
+\ksec{Behaviors (KerML 8.4.4.7.1)}
+
+\texttt{Behaviors}\index{behavior} are \texttt{Classes} which implicitly specialize \texttt{Performances::Performance} which is an \texttt{Occur\-rence} disjoint from \texttt{Object}.  Because structures specialize \texttt{Object}, behaviors and structures must be disjoint.  A behavior exists in time because it is an \texttt{Occur\-rence}.  
+
+Behaviors may have parameters\index{parameter} which are features having direction \texttt{in}\index{in}, \texttt{out}\index{out}, or \texttt{inout}\index{inout}.  Curiously, there is no definition as to the meaning of directed features other than input, output, or both (see \S\ref{sec:variables}).
+
+\ecaption{behavior}
+\begin{lstlisting}
+// Specializes Performances::Performance by default.
+behavior TakePicture {
+  in scene : Scene;
+  out picture : Picture;
+}
+\end{lstlisting}
+
+Parameters are ordered in the lexical order they are declared in the body of a behavior. They may appear at any
+location within the body.
+
+If a behavior (subclassifier) specializes another behavior (superclassifier), then each of the owned parameters
+of the subclassifier behavior must, in order, redefine the parameter at the same position of each of the superclassifier
+behaviors. The redefining parameters shall have the same direction as the redefined parameters.
+
+Here, behavior \texttt{C} specializes both \texttt{A} and \texttt{B}:
+\ecaption{behavior specializes}
+\begin{lstlisting}
+behavior A { in a1; out a2; }
+behavior B { in b1; out b2; }
+behavior C specializes A, B {
+  in c1 redefines a1, b1;
+  out c2 redefines a2, b2;
+}
+\end{lstlisting}
+
+Because subclassifier behavior parameters implicitly redefine their superclassifers' parameters in order, this is equivalent:
+\ecaption{behavior specializes equivalent}
+\begin{lstlisting}
+behavior C specializes A, B {
+  in c1;
+  out c2;
+}
+\end{lstlisting}
+
+Behaviors having only parameters don't actually do anything.  For that other features are needed.
+
+\ecaption{TakePicture}
+\begin{lstlisting}
+behavior Focus { in scene : Scene; out image : Image; }
+behavior Shoot { in image : Image; out picture : Picture; }
+behavior TakePicture {
+  in scene : Scene;
+  out picture : Picture;
+  binding focus.scene = scene;
+  composite step focus : Focus;
+  succession focus then shoot;
+  composite flow focus.image to shoot.image;
+  composite step shoot : Shoot;
+  binding picture = shoot.picture;
+}
+\end{lstlisting}
+
+\pn By \S\ref{par:cnp}, composite steps \texttt{focus} and \texttt{shoot} occur during \texttt{TakePicture}:\\
+\texttt{during(focus,TakePicture)}~~\texttt{during(shoot,TakePictrue)}\\
+By \ref{eq:df-succession} and \texttt{succession focus then shoot}:\\
+\texttt{precedes(focus,shoot)}\\
+By \ref{eq:df-bind} input and output parameters are forced to be identical.  There does not seem to be direction restrictions for parameter binding.\\
+By \S\ref{sec:flows} a value is transferred from output \texttt{focus.image} to input \texttt{shoot.image} by a flow.
+
+\ksec{Steps (KerML 8.4.4.7.2)}
+
+\pn A \texttt{Step}\index{step} is a \texttt{feature} typed by a \texttt{Behavior}.  Anything can have a step--not just behaviors.
+
+\pn Steps are most useful when ordered by successions or succession flows.  Otherwise, the occurrences of steps can overlap.
+
+\pn Parameter features of steps can be connected with binding connectors.
+
+Steps declared in the body of a behavior are the owned steps of the featuring behavior.
+\ecaption{step}
+\begin{lstlisting}
+behavior Focus { in scene : Scene; out image : Image; }
+behavior Shoot { in image : Image; out picture : Picture; }
+behavior TakePicture {
+  in scene : Scene;
+  out picture : Picture;
+  composite step focus : Focus;
+  composite step shoot : Shoot;
+}
+\end{lstlisting}
+
+\pn \texttt{Performance} has both \texttt{enclosedPerformances} and \texttt{subperformances} which is \texttt{composite}.  They seem redundant because time-enclosed performances have lifetimes within their parent performance, which is the same meaning as ``composite".
+
+\ecaption{enclosedPerformances}
+\begin{lstlisting}
+		step enclosedPerformances: Performance[0..*] subsets performances, timeEnclosedOccurrences
+			intersects performances, timeEnclosedOccurrences {
+			doc
+			/*
+			 * timeEnclosedOccurrences of this Performance that are also Performances.
+			 */
+		}
+\end{lstlisting}
+
+\ecaption{subperformances}
+\begin{lstlisting}
+composite step subperformances: Performance[0..*] subsets enclosedPerformances, suboccurrences
+	intersects enclosedPerformances, suboccurrences {
+  feature redefines this default (that as Performance).this {
+    doc
+		/*
+		 * The default "this" context of a subperformance is the same as that of its owning Performance.
+		 * This means that the context for any Performance that is in a composition tree rooted
+		 * in a Performance that is not itself owned by an Object is the root Performance. If the
+		 * root Performance is an ownedPerformance of an Object, then that Object is the context.
+		 */
+	}
+	feature redefines thisPerformance default (that as Performance).thisPerformance;
+}		
+\end{lstlisting}
+\comment{What?}
+
+\pn A \texttt{Step} whose \texttt{owningType} is a \texttt{Behavior} or another \texttt{Step} must directly or indirectly subset
+ \texttt{Performan\-ces::Performance::enclosedPerformances}.
+
+\pn A composite \texttt{Step} whose \texttt{owningType} is a \texttt{Structure} or a \texttt{Feature} typed by a \texttt{Structure} must directly or
+indirectly subset \texttt{Objects::Object::ownedPerformances} (\ref{ownedPerformances}).
+
+\ksec{Functions Semantics (KerML 8.4.4.8)}\label{sec:functions}
+
+\pn Functions\index{function} are not behaviors.  They merely determine values.
+This is a significant change for SFS requiring a change in the specialization of metaclasses (\ref{fig:classdiagram}).
+
+\pn The \texttt{Function} metaclass specializes \texttt{Classifier} instead of \texttt{Behavior}.
+\ecaption{metaclass Function}
+\begin{lstlisting}
+  metaclass Function specializes Classifier {
+  	derived var feature expression : Expression[0..*] subsets 'feature';
+  	derived var feature result : Feature[1..1] subsets output;
+  }		
+\end{lstlisting}
+
+\pn A \texttt{Function} directly, indirectly, or implicitly specializes \texttt{Performances::Evaluation} which specializes \texttt{Anything}
+instead of \texttt{Performance}.
+
+\ecaption{Performances::Evaluation}
+\begin{lstlisting}
+	abstract function Evaluation specializes Anything {
+		doc
+		/*
+		 * Evaluation is the most general class of functions that may be evaluated to determine
+		 * a result.
+		 */
+		return result: Anything[0..*] nonunique;
+	}
+\end{lstlisting}
+
+\pn To model computation by the system use  \texttt{Performances::Computation}. 
+\ecaption{Performances::Computation}
+\begin{lstlisting}
+	abstract behavior Computation specializes Performance, Evaluation {
+		doc
+		/*
+		 * Computation is a specialization of Performance and Evaluation for the case of
+		 * computing a result.
+		 */
+			
+	}
+\end{lstlisting}
+
+\pn The feature \texttt{Performances::evaluations} is changed to subset  \texttt{things} rather than  \texttt{performances}. 
+\ecaption{Performances::evaluations}
+\begin{lstlisting}
+	abstract expr evaluations: Evaluation[0..*] nonunique subsets things {
+		doc
+		/*
+		 * evaluations is a specialization of things for evaluations of Functions.
+		 */
+	}
+\end{lstlisting}
+
+\pn Because behavior \texttt{Computation} was added, it needs a corresponding feature, \texttt{computations}.
+\begin{lstlisting}
+	abstract step computations: Computation[0..*] nonunique subsets performances {
+		doc
+		/*
+		 * computations is a specialization of performances for the Computation.
+		 */
+	}
+\end{lstlisting}
+
+
+\pn The value of the result can be specified as a naked expression at the end:
+
+\ecaption{function}
+\begin{lstlisting}
+function Average {
+  in scores[1..*] : Rational; 
+  return : Rational;
+  sum(scores) / size(scores)
+}
+\end{lstlisting}
+
+or bound to the return parameter:
+\ecaption{bound return parameter}
+\begin{lstlisting}
+function Average {
+  in scores[1..*] : Rational; 
+  return : Rational = sum(scores) / size(scores);
+}
+\end{lstlisting}
+
+%No special timing semantics for \texttt{Function} other than being a \texttt{Behavior}.
+%
+%However, in SFS, \texttt{Expression} is a \texttt{Value} not a \texttt{Step}.  If an expression is to be evaluated by the system being modeled, wrap it in a function to be a \texttt{Performances::Evaluation} so it is an \texttt{Occurrence}.
+

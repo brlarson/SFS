@@ -1,0 +1,1619 @@
+% This LaTeX file was created by Metamath on 22-Jul-2024 3:29 PM.
+\begin{restatable}{metadefinition}{dfblatan2}~\blTitle{df-bl.atan2}~ Distribute @ over conjunction, two
+terms.
+\begin{align}
+\vdash ( \tau \in \mathbf{T} \rightarrow ( \mathbf{I} \lsem ( ( \mw{\varphi}
+    \wedge \mw{\psi} ) @ \tau ) \rsem \leftrightarrow \mathbf{I} \lsem ( (
+    \mw{\varphi} @ \tau ) \wedge ( \mw{\psi} @ \tau ) ) \rsem )
+    )\label{eq:df-bl.atan2}\tag{df-bl.atan2}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{blatan2i}~\blTitle{bl.atan2i}~ Distribute @ over conjunction, two terms,
+inference.
+\begin{align}
+\vdash \tau \in \mathbf{T}\quad\Rightarrow\quad \vdash ( \mathbf{I} \lsem ( (
+    \mw{\varphi} \wedge \mw{\psi} ) @ \tau ) \rsem \leftrightarrow \mathbf{I}
+    \lsem ( ( \mw{\varphi} @ \tau ) \wedge ( \mw{\psi} @ \tau ) ) \rsem
+    )\label{eq:bl.atan2i}\tag{bl.atan2i}
+\end{align}
+\end{restatable}
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash \tau \in \mathbf{T}&\text{Hyp~atan2i.1}\notag%bl.atan2i.1
+  \\ 2 &&  & \vdash ( \tau \in \mathbf{T} \rightarrow ( \mathbf{I} \lsem ( (
+      \mw{\varphi} \wedge \mw{\psi} ) @ \tau ) \rsem
+      \leftrightarrow \mathbf{I} \lsem ( ( \mw{\varphi} @
+      \tau ) \wedge ( \mw{\psi} @ \tau ) ) \rsem )
+      )&(\mbox{\ref{eq:df-bl.atan2}})\notag
+  \\ 3 &&  & \vdash ( \mathbf{I} \lsem ( ( \mw{\varphi} \wedge \mw{\psi} ) @
+      \tau ) \rsem \leftrightarrow \mathbf{I} \lsem ( (
+      \mw{\varphi} @ \tau ) \wedge ( \mw{\psi} @ \tau ) )
+      \rsem )&(\mbox{\ref{eq:ax-mp}},1,2)\notag
+\end{align}
+\end{proof}
+
+\begin{restatable}{lemma}{blatan3i}~\blTitle{bl.atan3i}~ Distribute @ over conjunction, three
+terms, inference.
+\begin{align}
+\vdash \tau \in \mathbf{T}\quad\Rightarrow\quad \vdash ( \mathbf{I} \lsem ( (
+    \mw{\varphi} \wedge \mw{\psi} \wedge \mw{\chi} ) @ \tau ) \rsem
+    \leftrightarrow \mathbf{I} \lsem ( ( \mw{\varphi} @ \tau ) \wedge (
+    \mw{\psi} @ \tau ) \wedge ( \mw{\chi} @ \tau ) ) \rsem
+    )\label{eq:bl.atan3i}\tag{bl.atan3i}
+\end{align}
+\end{restatable}
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash \tau \in \mathbf{T}&\text{Hyp~atan3i.1}\notag%bl.atan3i.1
+  \\ 2 &&  & \vdash ( \mathbf{I} \lsem ( ( \mw{\varphi} \wedge \mw{\psi} \wedge
+      \mw{\chi} ) @ \tau ) \rsem \leftrightarrow \mathbf{I}
+      \lsem ( \mw{\varphi} \wedge \mw{\psi} \wedge
+      \mw{\chi} ) , \tau \rsem
+      )&(\mbox{\ref{eq:df-bl.at}},1)\notag
+  \\ 3 &&  & \vdash ( ( \mw{\varphi} \wedge \mw{\psi} \wedge \mw{\chi} )
+      \leftrightarrow ( ( \mw{\varphi} \wedge \mw{\psi} )
+      \wedge \mw{\chi} ) )&(\mbox{\ref{eq:df-3an}})\notag
+  \\ 4 &&  & \vdash \tau \in \mathbf{T}&\text{Hyp~atan3i.1}\notag%bl.atan3i.1
+  \\ 5 &&  & \vdash \tau \in \mathbf{T}&\text{Hyp~atan3i.1}\notag%bl.atan3i.1
+  \\ 6 &&  & \vdash \tau = \tau&(\mbox{\ref{eq:eqid}})\notag
+  \\ 7 &&  & \vdash ( \tau \in \mathbf{T} \wedge \tau \in \mathbf{T} \wedge
+      \tau = \tau )&(\mbox{\ref{eq:3pm3.2i}},4,5,6)\notag
+  \\ 8 &&  & \vdash ( ( \tau \in \mathbf{T} \wedge \tau \in \mathbf{T} \wedge
+      \tau = \tau ) \rightarrow \notag \\ & & & \qquad
+       ( ( ( \mw{\varphi} \wedge
+      \mw{\psi} \wedge \mw{\chi} ) \leftrightarrow ( (
+      \mw{\varphi} \wedge \mw{\psi} ) \wedge \mw{\chi} ) )
+      \leftrightarrow  \notag \\ & & & \qquad
+      ( \mathbf{I} \lsem ( \mw{\varphi}
+      \wedge \mw{\psi} \wedge \mw{\chi} ) , \tau \rsem
+      \leftrightarrow \mathbf{I} \lsem ( ( \mw{\varphi}
+      \wedge \mw{\psi} ) \wedge \mw{\chi} ) , \tau \rsem )
+      ) )&(\mbox{\ref{eq:ax-bl.bi}})\notag
+  \\ 9 &&  & \vdash ( ( ( \mw{\varphi} \wedge \mw{\psi} \wedge \mw{\chi} )
+      \leftrightarrow ( ( \mw{\varphi} \wedge \mw{\psi} )
+      \wedge \mw{\chi} ) ) \leftrightarrow  \notag \\ & & & \qquad
+      ( \mathbf{I}
+      \lsem ( \mw{\varphi} \wedge \mw{\psi} \wedge
+      \mw{\chi} ) , \tau \rsem \leftrightarrow \mathbf{I}
+      \lsem ( ( \mw{\varphi} \wedge \mw{\psi} ) \wedge
+      \mw{\chi} ) , \tau \rsem )
+      )&(\mbox{\ref{eq:ax-mp}},7,8)\notag
+  \\ 10 &&  & \vdash ( \mathbf{I} \lsem ( \mw{\varphi} \wedge \mw{\psi} \wedge
+      \mw{\chi} ) , \tau \rsem \leftrightarrow \mathbf{I}
+      \lsem ( ( \mw{\varphi} \wedge \mw{\psi} ) \wedge
+      \mw{\chi} ) , \tau \rsem
+      )&(\mbox{\ref{eq:mpbi}},3,9)\notag
+  \\ 11 &&  & \vdash ( \mathbf{I} \lsem ( ( \mw{\varphi} \wedge \mw{\psi}
+      \wedge \mw{\chi} ) @ \tau ) \rsem \leftrightarrow
+      \mathbf{I} \lsem ( ( \mw{\varphi} \wedge \mw{\psi} )
+      \wedge \mw{\chi} ) , \tau \rsem
+      )&(\mbox{\ref{eq:bitri}},2,10)\notag
+  \\ 12 &&  & \vdash \tau \in \mathbf{T}&\text{Hyp~atan3i.1}\notag%bl.atan3i.1
+  \\ 13 &&  & \vdash ( \mathbf{I} \lsem ( ( \mw{\varphi} \wedge \mw{\psi} )
+      \wedge \mw{\chi} ) , \tau \rsem \leftrightarrow (
+      \mathbf{I} \lsem ( \mw{\varphi} \wedge \mw{\psi} ) ,
+      \tau \rsem \wedge \mathbf{I} \lsem \mw{\chi} , \tau
+      \rsem ) )&(\mbox{\ref{eq:df-bl.ant}},12)\notag
+  \\ 14 &&  & \vdash ( \mathbf{I} \lsem ( ( \mw{\varphi} \wedge \mw{\psi}
+      \wedge \mw{\chi} ) @ \tau ) \rsem \leftrightarrow (
+      \mathbf{I} \lsem ( \mw{\varphi} \wedge \mw{\psi} ) ,
+      \tau \rsem \wedge \mathbf{I} \lsem \mw{\chi} , \tau
+      \rsem ) )&(\mbox{\ref{eq:bitri}},11,13)\notag
+  \\ 15 &&  & \vdash \tau \in \mathbf{T}&\text{Hyp~atan3i.1}\notag%bl.atan3i.1
+  \\ 16 &&  & \vdash ( \mathbf{I} \lsem ( \mw{\varphi} \wedge \mw{\psi} ) ,
+      \tau \rsem \leftrightarrow ( \mathbf{I} \lsem
+      \mw{\varphi} , \tau \rsem \wedge \mathbf{I} \lsem
+      \mw{\psi} , \tau \rsem )
+      )&(\mbox{\ref{eq:df-bl.ant}},15)\notag
+  \\ 17 &&  & \vdash ( ( \mathbf{I} \lsem ( \mw{\varphi} \wedge \mw{\psi} ) ,
+      \tau \rsem \wedge \mathbf{I} \lsem \mw{\chi} , \tau
+      \rsem ) \leftrightarrow ( ( \mathbf{I} \lsem
+      \mw{\varphi} , \tau \rsem \wedge \mathbf{I} \lsem
+      \mw{\psi} , \tau \rsem ) \wedge \mathbf{I} \lsem
+      \mw{\chi} , \tau \rsem )
+      )&(\mbox{\ref{eq:anbi1i}},16)\notag
+  \\ 18 &&  & \vdash ( \mathbf{I} \lsem ( ( \mw{\varphi} \wedge \mw{\psi}
+      \wedge \mw{\chi} ) @ \tau ) \rsem \leftrightarrow ( (
+      \mathbf{I} \lsem \mw{\varphi} , \tau \rsem \wedge
+      \mathbf{I} \lsem \mw{\psi} , \tau \rsem ) \wedge
+      \mathbf{I} \lsem \mw{\chi} , \tau \rsem )
+      )&(\mbox{\ref{eq:bitri}},14,17)\notag
+  \\ 19 &&  & \vdash ( ( \mathbf{I} \lsem \mw{\varphi} , \tau \rsem \wedge
+      \mathbf{I} \lsem \mw{\psi} , \tau \rsem \wedge
+      \mathbf{I} \lsem \mw{\chi} , \tau \rsem )
+      \leftrightarrow ( ( \mathbf{I} \lsem \mw{\varphi} ,
+      \tau \rsem \wedge \mathbf{I} \lsem \mw{\psi} , \tau
+      \rsem ) \wedge \mathbf{I} \lsem \mw{\chi} , \tau
+      \rsem ) )&(\mbox{\ref{eq:df-3an}})\notag
+  \\ 20 &&  & \vdash ( \mathbf{I} \lsem ( ( \mw{\varphi} \wedge \mw{\psi}
+      \wedge \mw{\chi} ) @ \tau ) \rsem \leftrightarrow (
+      \mathbf{I} \lsem \mw{\varphi} , \tau \rsem \wedge
+      \mathbf{I} \lsem \mw{\psi} , \tau \rsem \wedge
+      \mathbf{I} \lsem \mw{\chi} , \tau \rsem )
+      )&(\mbox{\ref{eq:bitr4i}},18,19)\notag
+  \\ 21 &&  & \vdash \tau \in \mathbf{T}&\text{Hyp~atan3i.1}\notag%bl.atan3i.1
+  \\ 22 &&  & \vdash ( \mathbf{I} \lsem ( \mw{\varphi} @ \tau ) \rsem
+      \leftrightarrow \mathbf{I} \lsem \mw{\varphi} , \tau
+      \rsem )&(\mbox{\ref{eq:df-bl.at}},21)\notag
+  \\ 23 &&  & \vdash \tau \in \mathbf{T}&\text{Hyp~atan3i.1}\notag%bl.atan3i.1
+  \\ 24 &&  & \vdash ( \mathbf{I} \lsem ( \mw{\psi} @ \tau ) \rsem
+      \leftrightarrow \mathbf{I} \lsem \mw{\psi} , \tau
+      \rsem )&(\mbox{\ref{eq:df-bl.at}},23)\notag
+  \\ 25 &&  & \vdash \tau \in \mathbf{T}&\text{Hyp~atan3i.1}\notag%bl.atan3i.1
+  \\ 26 &&  & \vdash ( \mathbf{I} \lsem ( \mw{\chi} @ \tau ) \rsem
+      \leftrightarrow \mathbf{I} \lsem \mw{\chi} , \tau
+      \rsem )&(\mbox{\ref{eq:df-bl.at}},25)\notag
+  \\ 27 &&  & \vdash ( ( \mathbf{I} \lsem ( \mw{\varphi} @ \tau ) \rsem \wedge
+      \mathbf{I} \lsem ( \mw{\psi} @ \tau ) \rsem \wedge
+      \mathbf{I} \lsem ( \mw{\chi} @ \tau ) \rsem )
+      \leftrightarrow ( \mathbf{I} \lsem \mw{\varphi} ,
+      \tau \rsem \wedge \mathbf{I} \lsem \mw{\psi} , \tau
+      \rsem \wedge \mathbf{I} \lsem \mw{\chi} , \tau \rsem
+      ) )&(\mbox{\ref{eq:3anbi123i}},22,24,26)\notag
+  \\ 28 &&  & \vdash ( \mathbf{I} \lsem ( ( \mw{\varphi} \wedge \mw{\psi}
+      \wedge \mw{\chi} ) @ \tau ) \rsem \leftrightarrow (
+      \mathbf{I} \lsem ( \mw{\varphi} @ \tau ) \rsem \wedge
+      \mathbf{I} \lsem ( \mw{\psi} @ \tau ) \rsem \wedge
+      \mathbf{I} \lsem ( \mw{\chi} @ \tau ) \rsem )
+      )&(\mbox{\ref{eq:bitr4i}},20,27)\notag
+  \\ 29 &&  & \vdash ( \mathbf{I} \lsem ( ( \mw{\varphi} @ \tau ) \wedge (
+      \mw{\psi} @ \tau ) \wedge ( \mw{\chi} @ \tau ) )
+      \rsem \leftrightarrow  \notag \\ & & & \qquad
+      ( \mathbf{I} \lsem (
+      \mw{\varphi} @ \tau ) \rsem \wedge \mathbf{I} \lsem (
+      \mw{\psi} @ \tau ) \rsem \wedge \mathbf{I} \lsem (
+      \mw{\chi} @ \tau ) \rsem )
+      )&(\mbox{\ref{eq:bl.3an}})\notag
+  \\ 30 &&  & \vdash ( \mathbf{I} \lsem ( ( \mw{\varphi} \wedge \mw{\psi}
+      \wedge \mw{\chi} ) @ \tau ) \rsem \leftrightarrow
+      \mathbf{I} \lsem ( ( \mw{\varphi} @ \tau ) \wedge (
+      \mw{\psi} @ \tau ) \wedge ( \mw{\chi} @ \tau ) )
+      \rsem )&(\mbox{\ref{eq:bitr4i}},28,29)\notag
+\end{align}
+\end{proof}
+
+\begin{restatable}{lemma}{blatan3ri}~\blTitle{bl.atan3ri}~ Distribute @ over conjunction, three
+terms (right), inference.
+\begin{align}
+\vdash \tau \in \mathbf{T}\quad\Rightarrow\quad \vdash ( \mathbf{I} \lsem ( (
+    \mw{\varphi} \wedge ( \mw{\psi} \wedge \mw{\chi} ) ) @ \tau ) \rsem
+    \leftrightarrow \mathbf{I} \lsem ( ( \mw{\varphi} @ \tau ) \wedge ( (
+    \mw{\psi} @ \tau ) \wedge ( \mw{\chi} @ \tau ) ) ) \rsem
+    )\label{eq:bl.atan3ri}\tag{bl.atan3ri}
+\end{align}
+\end{restatable}
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash ( \mathbf{I} \lsem ( ( \mw{\varphi} @ \tau ) \wedge ( (
+      \mw{\psi} @ \tau ) \wedge ( \mw{\chi} @ \tau ) ) )
+      \rsem \leftrightarrow \notag \\ & & & \qquad
+       ( \mathbf{I} \lsem (
+      \mw{\varphi} @ \tau ) \rsem \wedge \mathbf{I} \lsem (
+      ( \mw{\psi} @ \tau ) \wedge ( \mw{\chi} @ \tau ) )
+      \rsem ) )&(\mbox{\ref{eq:df-bl.an}})\notag
+  \\ 2 &&  & \vdash \tau = \tau&(\mbox{\ref{eq:eqid}})\notag
+  \\ 3 &&  & \vdash ( ( \mw{\varphi} \wedge \mw{\psi} \wedge \mw{\chi} )
+      \leftrightarrow ( ( \mw{\varphi} \wedge \mw{\psi} )
+      \wedge \mw{\chi} ) )&(\mbox{\ref{eq:df-3an}})\notag
+  \\ 4 &&  & \vdash ( ( ( \mw{\varphi} \wedge \mw{\psi} ) \wedge \mw{\chi} )
+      \leftrightarrow ( \mw{\varphi} \wedge ( \mw{\psi}
+      \wedge \mw{\chi} ) ) )&(\mbox{\ref{eq:anass}})\notag
+  \\ 5 &&  & \vdash ( ( \mw{\varphi} \wedge \mw{\psi} \wedge \mw{\chi} )
+      \leftrightarrow ( \mw{\varphi} \wedge ( \mw{\psi}
+      \wedge \mw{\chi} ) )
+      )&(\mbox{\ref{eq:bitri}},3,4)\notag
+  \\ 6 &&  & \vdash ( \tau = \tau \wedge ( ( \mw{\varphi} \wedge \mw{\psi}
+      \wedge \mw{\chi} ) \leftrightarrow ( \mw{\varphi}
+      \wedge ( \mw{\psi} \wedge \mw{\chi} ) ) )
+      )&(\mbox{\ref{eq:pm3.2i}},2,5)\notag
+  \\ 7 &&  & \vdash \tau \in \mathbf{T}&\text{Hyp~atan3ri.1}\notag%bl.atan3ri.1
+  \\ 8 &&  & \vdash \tau \in \mathbf{T}&\text{Hyp~atan3ri.1}\notag%bl.atan3ri.1
+  \\ 9 &&  & \vdash ( ( \tau = \tau \wedge ( ( \mw{\varphi} \wedge \mw{\psi}
+      \wedge \mw{\chi} ) \leftrightarrow ( \mw{\varphi}
+      \wedge ( \mw{\psi} \wedge \mw{\chi} ) ) ) )
+      \rightarrow  \notag \\ & & & \qquad
+      ( \mathbf{I} \lsem ( ( \mw{\varphi}
+      \wedge \mw{\psi} \wedge \mw{\chi} ) @ \tau ) \rsem
+      \leftrightarrow \mathbf{I} \lsem ( ( \mw{\varphi}
+      \wedge ( \mw{\psi} \wedge \mw{\chi} ) ) @ \tau )
+      \rsem ) )&(\mbox{\ref{eq:df-bl.atbi}},7,8)\notag
+  \\ 10 && @10:\  & \vdash ( \mathbf{I} \lsem ( ( \mw{\varphi} \wedge \mw{\psi}
+      \wedge \mw{\chi} ) @ \tau ) \rsem \leftrightarrow
+      \mathbf{I} \lsem ( ( \mw{\varphi} \wedge ( \mw{\psi}
+      \wedge \mw{\chi} ) ) @ \tau ) \rsem
+      )&(\mbox{\ref{eq:ax-mp}},6,9)\notag
+  \\ 11 &&  & \vdash \tau \in
+      \mathbf{T}&\text{Hyp~atan3ri.1}\notag%bl.atan3ri.1
+  \\ 12 &&  & \vdash ( \mathbf{I} \lsem ( ( \mw{\varphi} \wedge ( \mw{\psi}
+      \wedge \mw{\chi} ) ) @ \tau ) \rsem \leftrightarrow
+      \mathbf{I} \lsem ( \mw{\varphi} \wedge ( \mw{\psi}
+      \wedge \mw{\chi} ) ) , \tau \rsem
+      )&(\mbox{\ref{eq:df-bl.at}},11)\notag
+  \\ 13 &&  & \vdash \tau \in
+      \mathbf{T}&\text{Hyp~atan3ri.1}\notag%bl.atan3ri.1
+  \\ 14 &&  & \vdash ( \mathbf{I} \lsem ( \mw{\varphi} \wedge ( \mw{\psi}
+      \wedge \mw{\chi} ) ) , \tau \rsem \leftrightarrow (
+      \mathbf{I} \lsem \mw{\varphi} , \tau \rsem \wedge
+      \mathbf{I} \lsem ( \mw{\psi} \wedge \mw{\chi} ) ,
+      \tau \rsem ) )&(\mbox{\ref{eq:df-bl.ant}},13)\notag
+  \\ 15 &&  & \vdash ( \mathbf{I} \lsem ( ( \mw{\varphi} \wedge \mw{\psi}
+      \wedge \mw{\chi} ) @ \tau ) \rsem \leftrightarrow (
+      \mathbf{I} \lsem \mw{\varphi} , \tau \rsem \wedge
+      \mathbf{I} \lsem ( \mw{\psi} \wedge \mw{\chi} ) ,
+      \tau \rsem )
+      )&(\mbox{\ref{eq:3bitri}},10,12,14)\notag
+  \\ 16 &&  & \vdash \tau \in
+      \mathbf{T}&\text{Hyp~atan3ri.1}\notag%bl.atan3ri.1
+  \\ 17 &&  & \vdash ( \mathbf{I} \lsem ( \mw{\varphi} @ \tau ) \rsem
+      \leftrightarrow \mathbf{I} \lsem \mw{\varphi} , \tau
+      \rsem )&(\mbox{\ref{eq:df-bl.at}},16)\notag
+  \\ 18 &&  & \vdash ( \mathbf{I} \lsem \mw{\varphi} , \tau \rsem
+      \leftrightarrow \mathbf{I} \lsem ( \mw{\varphi} @
+      \tau ) \rsem )&(\mbox{\ref{eq:bicomi}},17)\notag
+  \\ 19 &&  & \vdash \tau \in
+      \mathbf{T}&\text{Hyp~atan3ri.1}\notag%bl.atan3ri.1
+  \\ 20 &&  & \vdash ( \mathbf{I} \lsem ( \mw{\psi} \wedge \mw{\chi} ) , \tau
+      \rsem \leftrightarrow ( \mathbf{I} \lsem \mw{\psi} ,
+      \tau \rsem \wedge \mathbf{I} \lsem \mw{\chi} , \tau
+      \rsem ) )&(\mbox{\ref{eq:df-bl.ant}},19)\notag
+  \\ 21 &&  & \vdash \tau \in
+      \mathbf{T}&\text{Hyp~atan3ri.1}\notag%bl.atan3ri.1
+  \\ 22 &&  & \vdash ( \mathbf{I} \lsem ( \mw{\psi} @ \tau ) \rsem
+      \leftrightarrow \mathbf{I} \lsem \mw{\psi} , \tau
+      \rsem )&(\mbox{\ref{eq:df-bl.at}},21)\notag
+  \\ 23 &&  & \vdash \tau \in
+      \mathbf{T}&\text{Hyp~atan3ri.1}\notag%bl.atan3ri.1
+  \\ 24 &&  & \vdash ( \mathbf{I} \lsem ( \mw{\chi} @ \tau ) \rsem
+      \leftrightarrow \mathbf{I} \lsem \mw{\chi} , \tau
+      \rsem )&(\mbox{\ref{eq:df-bl.at}},23)\notag
+  \\ 25 &&  & \vdash ( ( \mathbf{I} \lsem ( \mw{\psi} @ \tau ) \rsem \wedge
+      \mathbf{I} \lsem ( \mw{\chi} @ \tau ) \rsem )
+      \leftrightarrow ( \mathbf{I} \lsem \mw{\psi} , \tau
+      \rsem \wedge \mathbf{I} \lsem \mw{\chi} , \tau \rsem
+      ) )&(\mbox{\ref{eq:anbi12i}},22,24)\notag
+  \\ 26 &&  & \vdash ( \mathbf{I} \lsem ( \mw{\psi} \wedge \mw{\chi} ) , \tau
+      \rsem \leftrightarrow ( \mathbf{I} \lsem ( \mw{\psi}
+      @ \tau ) \rsem \wedge \mathbf{I} \lsem ( \mw{\chi} @
+      \tau ) \rsem ) )&(\mbox{\ref{eq:bitr4i}},20,25)\notag
+  \\ 27 &&  & \vdash ( ( \mathbf{I} \lsem \mw{\varphi} , \tau \rsem \wedge
+      \mathbf{I} \lsem ( \mw{\psi} \wedge \mw{\chi} ) ,
+      \tau \rsem ) \leftrightarrow ( \mathbf{I} \lsem (
+      \mw{\varphi} @ \tau ) \rsem \wedge ( \mathbf{I} \lsem
+      ( \mw{\psi} @ \tau ) \rsem \wedge \mathbf{I} \lsem (
+      \mw{\chi} @ \tau ) \rsem ) )
+      )&(\mbox{\ref{eq:anbi12i}},18,26)\notag
+  \\ 28 &&  & \vdash ( \mathbf{I} \lsem ( ( \mw{\varphi} \wedge \mw{\psi}
+      \wedge \mw{\chi} ) @ \tau ) \rsem \leftrightarrow (
+      \mathbf{I} \lsem ( \mw{\varphi} @ \tau ) \rsem \wedge
+      ( \mathbf{I} \lsem ( \mw{\psi} @ \tau ) \rsem \wedge
+      \mathbf{I} \lsem ( \mw{\chi} @ \tau ) \rsem ) )
+      )&(\mbox{\ref{eq:bitri}},15,27)\notag
+  \\ 29 &&  & \vdash ( \mathbf{I} \lsem ( ( \mw{\psi} @ \tau ) \wedge (
+      \mw{\chi} @ \tau ) ) \rsem \leftrightarrow (
+      \mathbf{I} \lsem ( \mw{\psi} @ \tau ) \rsem \wedge
+      \mathbf{I} \lsem ( \mw{\chi} @ \tau ) \rsem )
+      )&(\mbox{\ref{eq:df-bl.an}})\notag
+  \\ 30 &&  & \vdash ( ( \mathbf{I} \lsem ( \mw{\varphi} @ \tau ) \rsem \wedge
+      \mathbf{I} \lsem ( ( \mw{\psi} @ \tau ) \wedge (
+      \mw{\chi} @ \tau ) ) \rsem ) \leftrightarrow  \notag \\ & & & \qquad
+      (
+      \mathbf{I} \lsem ( \mw{\varphi} @ \tau ) \rsem \wedge
+      ( \mathbf{I} \lsem ( \mw{\psi} @ \tau ) \rsem \wedge
+      \mathbf{I} \lsem ( \mw{\chi} @ \tau ) \rsem ) )
+      )&(\mbox{\ref{eq:anbi2i}},29)\notag
+  \\ 31 &&  & \vdash ( \mathbf{I} \lsem ( ( \mw{\varphi} \wedge \mw{\psi}
+      \wedge \mw{\chi} ) @ \tau ) \rsem \leftrightarrow (
+      \mathbf{I} \lsem ( \mw{\varphi} @ \tau ) \rsem \wedge
+      \mathbf{I} \lsem ( ( \mw{\psi} @ \tau ) \wedge (
+      \mw{\chi} @ \tau ) ) \rsem )
+      )&(\mbox{\ref{eq:bitr4i}},28,30)\notag
+  \\ 32 &&  & \vdash ( \mathbf{I} \lsem ( ( \mw{\varphi} \wedge \mw{\psi}
+      \wedge \mw{\chi} ) @ \tau ) \rsem \leftrightarrow
+      \mathbf{I} \lsem ( ( \mw{\varphi} \wedge ( \mw{\psi}
+      \wedge \mw{\chi} ) ) @ \tau ) \rsem )&(@10)\notag
+  \\ 33 &&  & \vdash ( \mathbf{I} \lsem ( ( \mw{\varphi} \wedge ( \mw{\psi}
+      \wedge \mw{\chi} ) ) @ \tau ) \rsem \leftrightarrow
+      \mathbf{I} \lsem ( ( \mw{\varphi} @ \tau ) \wedge ( (
+      \mw{\psi} @ \tau ) \wedge ( \mw{\chi} @ \tau ) ) )
+      \rsem )&(\mbox{\ref{eq:3bitr2ri}},1,31,32)\notag
+\end{align}
+\end{proof}
+
+\begin{restatable}{lemma}{blatan3li}~\blTitle{bl.atan3li}~ Distribute @ over conjunction, three
+terms (left), inference.
+\begin{align}
+\vdash \tau \in \mathbf{T}\quad\Rightarrow\quad \vdash ( \mathbf{I} \lsem ( ( (
+    \mw{\varphi} \wedge \mw{\psi} ) \wedge \mw{\chi} ) @ \tau ) \rsem
+    \leftrightarrow \mathbf{I} \lsem ( ( ( \mw{\varphi} @ \tau ) \wedge (
+    \mw{\psi} @ \tau ) ) \wedge ( \mw{\chi} @ \tau ) ) \rsem
+    )\label{eq:bl.atan3li}\tag{bl.atan3li}
+\end{align}
+\end{restatable}
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash ( \mathbf{I} \lsem ( ( ( \mw{\varphi} @ \tau ) \wedge (
+      \mw{\psi} @ \tau ) ) \wedge ( \mw{\chi} @ \tau ) )
+      \rsem \leftrightarrow  \notag \\ & & & \qquad
+      ( \mathbf{I} \lsem ( (
+      \mw{\varphi} @ \tau ) \wedge ( \mw{\psi} @ \tau ) )
+      \rsem \wedge \mathbf{I} \lsem ( \mw{\chi} @ \tau )
+      \rsem ) )&(\mbox{\ref{eq:df-bl.an}})\notag
+  \\ 2 &&  & \vdash \tau = \tau&(\mbox{\ref{eq:eqid}})\notag
+  \\ 3 &&  & \vdash ( ( \mw{\varphi} \wedge \mw{\psi} \wedge \mw{\chi} )
+      \leftrightarrow ( ( \mw{\varphi} \wedge \mw{\psi} )
+      \wedge \mw{\chi} ) )&(\mbox{\ref{eq:df-3an}})\notag
+  \\ 4 &&  & \vdash ( \tau = \tau \wedge ( ( \mw{\varphi} \wedge \mw{\psi}
+      \wedge \mw{\chi} ) \leftrightarrow ( ( \mw{\varphi}
+      \wedge \mw{\psi} ) \wedge \mw{\chi} ) )
+      )&(\mbox{\ref{eq:pm3.2i}},2,3)\notag
+  \\ 5 &&  & \vdash \tau \in \mathbf{T}&\text{Hyp~atan3li.1}\notag%bl.atan3li.1
+  \\ 6 &&  & \vdash \tau \in \mathbf{T}&\text{Hyp~atan3li.1}\notag%bl.atan3li.1
+  \\ 7 &&  & \vdash ( ( \tau = \tau \wedge ( ( \mw{\varphi} \wedge \mw{\psi}
+      \wedge \mw{\chi} ) \leftrightarrow ( ( \mw{\varphi}
+      \wedge \mw{\psi} ) \wedge \mw{\chi} ) ) ) \rightarrow \notag \\ & & & \qquad
+      ( \mathbf{I} \lsem ( ( \mw{\varphi} \wedge \mw{\psi}
+      \wedge \mw{\chi} ) @ \tau ) \rsem \leftrightarrow
+      \mathbf{I} \lsem ( ( ( \mw{\varphi} \wedge \mw{\psi}
+      ) \wedge \mw{\chi} ) @ \tau ) \rsem )
+      )&(\mbox{\ref{eq:df-bl.atbi}},5,6)\notag
+  \\ 8 && @8:\  & \vdash ( \mathbf{I} \lsem ( ( \mw{\varphi} \wedge \mw{\psi}
+      \wedge \mw{\chi} ) @ \tau ) \rsem \leftrightarrow
+      \mathbf{I} \lsem ( ( ( \mw{\varphi} \wedge \mw{\psi}
+      ) \wedge \mw{\chi} ) @ \tau ) \rsem
+      )&(\mbox{\ref{eq:ax-mp}},4,7)\notag
+  \\ 9 &&  & \vdash \tau \in \mathbf{T}&\text{Hyp~atan3li.1}\notag%bl.atan3li.1
+  \\ 10 &&  & \vdash ( \mathbf{I} \lsem ( ( ( \mw{\varphi} \wedge \mw{\psi} )
+      \wedge \mw{\chi} ) @ \tau ) \rsem \leftrightarrow
+      \mathbf{I} \lsem ( ( \mw{\varphi} \wedge \mw{\psi} )
+      \wedge \mw{\chi} ) , \tau \rsem
+      )&(\mbox{\ref{eq:df-bl.at}},9)\notag
+  \\ 11 &&  & \vdash \tau \in
+      \mathbf{T}&\text{Hyp~atan3li.1}\notag%bl.atan3li.1
+  \\ 12 &&  & \vdash ( \mathbf{I} \lsem ( ( \mw{\varphi} \wedge \mw{\psi} )
+      \wedge \mw{\chi} ) , \tau \rsem \leftrightarrow (
+      \mathbf{I} \lsem ( \mw{\varphi} \wedge \mw{\psi} ) ,
+      \tau \rsem \wedge \mathbf{I} \lsem \mw{\chi} , \tau
+      \rsem ) )&(\mbox{\ref{eq:df-bl.ant}},11)\notag
+  \\ 13 &&  & \vdash ( \mathbf{I} \lsem ( ( \mw{\varphi} \wedge \mw{\psi}
+      \wedge \mw{\chi} ) @ \tau ) \rsem \leftrightarrow (
+      \mathbf{I} \lsem ( \mw{\varphi} \wedge \mw{\psi} ) ,
+      \tau \rsem \wedge \mathbf{I} \lsem \mw{\chi} , \tau
+      \rsem ) )&(\mbox{\ref{eq:3bitri}},8,10,12)\notag
+  \\ 14 &&  & \vdash \tau \in
+      \mathbf{T}&\text{Hyp~atan3li.1}\notag%bl.atan3li.1
+  \\ 15 &&  & \vdash ( \mathbf{I} \lsem ( \mw{\varphi} \wedge \mw{\psi} ) ,
+      \tau \rsem \leftrightarrow ( \mathbf{I} \lsem
+      \mw{\varphi} , \tau \rsem \wedge \mathbf{I} \lsem
+      \mw{\psi} , \tau \rsem )
+      )&(\mbox{\ref{eq:df-bl.ant}},14)\notag
+  \\ 16 &&  & \vdash \tau \in
+      \mathbf{T}&\text{Hyp~atan3li.1}\notag%bl.atan3li.1
+  \\ 17 &&  & \vdash ( \mathbf{I} \lsem ( \mw{\varphi} @ \tau ) \rsem
+      \leftrightarrow \mathbf{I} \lsem \mw{\varphi} , \tau
+      \rsem )&(\mbox{\ref{eq:df-bl.at}},16)\notag
+  \\ 18 &&  & \vdash \tau \in
+      \mathbf{T}&\text{Hyp~atan3li.1}\notag%bl.atan3li.1
+  \\ 19 &&  & \vdash ( \mathbf{I} \lsem ( \mw{\psi} @ \tau ) \rsem
+      \leftrightarrow \mathbf{I} \lsem \mw{\psi} , \tau
+      \rsem )&(\mbox{\ref{eq:df-bl.at}},18)\notag
+  \\ 20 &&  & \vdash ( ( \mathbf{I} \lsem ( \mw{\varphi} @ \tau ) \rsem \wedge
+      \mathbf{I} \lsem ( \mw{\psi} @ \tau ) \rsem )
+      \leftrightarrow ( \mathbf{I} \lsem \mw{\varphi} ,
+      \tau \rsem \wedge \mathbf{I} \lsem \mw{\psi} , \tau
+      \rsem ) )&(\mbox{\ref{eq:anbi12i}},17,19)\notag
+  \\ 21 &&  & \vdash ( \mathbf{I} \lsem ( \mw{\varphi} \wedge \mw{\psi} ) ,
+      \tau \rsem \leftrightarrow ( \mathbf{I} \lsem (
+      \mw{\varphi} @ \tau ) \rsem \wedge \mathbf{I} \lsem (
+      \mw{\psi} @ \tau ) \rsem )
+      )&(\mbox{\ref{eq:bitr4i}},15,20)\notag
+  \\ 22 &&  & \vdash \tau \in
+      \mathbf{T}&\text{Hyp~atan3li.1}\notag%bl.atan3li.1
+  \\ 23 &&  & \vdash ( \mathbf{I} \lsem ( \mw{\chi} @ \tau ) \rsem
+      \leftrightarrow \mathbf{I} \lsem \mw{\chi} , \tau
+      \rsem )&(\mbox{\ref{eq:df-bl.at}},22)\notag
+  \\ 24 &&  & \vdash ( \mathbf{I} \lsem \mw{\chi} , \tau \rsem \leftrightarrow
+      \mathbf{I} \lsem ( \mw{\chi} @ \tau ) \rsem
+      )&(\mbox{\ref{eq:bicomi}},23)\notag
+  \\ 25 &&  & \vdash ( ( \mathbf{I} \lsem ( \mw{\varphi} \wedge \mw{\psi} ) ,
+      \tau \rsem \wedge \mathbf{I} \lsem \mw{\chi} , \tau
+      \rsem ) \leftrightarrow ( ( \mathbf{I} \lsem (
+      \mw{\varphi} @ \tau ) \rsem \wedge \mathbf{I} \lsem (
+      \mw{\psi} @ \tau ) \rsem ) \wedge \mathbf{I} \lsem (
+      \mw{\chi} @ \tau ) \rsem )
+      )&(\mbox{\ref{eq:anbi12i}},21,24)\notag
+  \\ 26 &&  & \vdash ( \mathbf{I} \lsem ( ( \mw{\varphi} \wedge \mw{\psi}
+      \wedge \mw{\chi} ) @ \tau ) \rsem \leftrightarrow ( (
+      \mathbf{I} \lsem ( \mw{\varphi} @ \tau ) \rsem \wedge
+      \mathbf{I} \lsem ( \mw{\psi} @ \tau ) \rsem ) \wedge
+      \mathbf{I} \lsem ( \mw{\chi} @ \tau ) \rsem )
+      )&(\mbox{\ref{eq:bitri}},13,25)\notag
+  \\ 27 &&  & \vdash ( \mathbf{I} \lsem ( ( \mw{\varphi} @ \tau ) \wedge (
+      \mw{\psi} @ \tau ) ) \rsem \leftrightarrow (
+      \mathbf{I} \lsem ( \mw{\varphi} @ \tau ) \rsem \wedge
+      \mathbf{I} \lsem ( \mw{\psi} @ \tau ) \rsem )
+      )&(\mbox{\ref{eq:df-bl.an}})\notag
+  \\ 28 &&  & \vdash ( ( \mathbf{I} \lsem ( ( \mw{\varphi} @ \tau ) \wedge (
+      \mw{\psi} @ \tau ) ) \rsem \wedge \mathbf{I} \lsem (
+      \mw{\chi} @ \tau ) \rsem ) \leftrightarrow \notag \\ & & & \qquad
+       ( (
+      \mathbf{I} \lsem ( \mw{\varphi} @ \tau ) \rsem \wedge
+      \mathbf{I} \lsem ( \mw{\psi} @ \tau ) \rsem ) \wedge
+      \mathbf{I} \lsem ( \mw{\chi} @ \tau ) \rsem )
+      )&(\mbox{\ref{eq:anbi1i}},27)\notag
+  \\ 29 &&  & \vdash ( \mathbf{I} \lsem ( ( \mw{\varphi} \wedge \mw{\psi}
+      \wedge \mw{\chi} ) @ \tau ) \rsem \leftrightarrow (
+      \mathbf{I} \lsem ( ( \mw{\varphi} @ \tau ) \wedge (
+      \mw{\psi} @ \tau ) ) \rsem \wedge \mathbf{I} \lsem (
+      \mw{\chi} @ \tau ) \rsem )
+      )&(\mbox{\ref{eq:bitr4i}},26,28)\notag
+  \\ 30 &&  & \vdash ( \mathbf{I} \lsem ( ( \mw{\varphi} \wedge \mw{\psi}
+      \wedge \mw{\chi} ) @ \tau ) \rsem \leftrightarrow
+      \mathbf{I} \lsem ( ( ( \mw{\varphi} \wedge \mw{\psi}
+      ) \wedge \mw{\chi} ) @ \tau ) \rsem )&(@8)\notag
+  \\ 31 &&  & \vdash ( \mathbf{I} \lsem ( ( ( \mw{\varphi} \wedge \mw{\psi} )
+      \wedge \mw{\chi} ) @ \tau ) \rsem \leftrightarrow
+      \mathbf{I} \lsem ( ( ( \mw{\varphi} @ \tau ) \wedge (
+      \mw{\psi} @ \tau ) ) \wedge ( \mw{\chi} @ \tau ) )
+      \rsem )&(\mbox{\ref{eq:3bitr2ri}},1,29,30)\notag
+\end{align}
+\end{proof}
+
+\begin{restatable}{metadefinition}{dfblator2}~\blTitle{df-bl.ator2}~ Distribute @ over disjunction, two
+terms.
+\begin{align}
+\vdash ( \tau \in \mathbf{T} \rightarrow ( \mathbf{I} \lsem ( ( \mw{\varphi}
+    \vee \mw{\psi} ) @ \tau ) \rsem \leftrightarrow \mathbf{I} \lsem ( (
+    \mw{\varphi} @ \tau ) \vee ( \mw{\psi} @ \tau ) ) \rsem )
+    )\label{eq:df-bl.ator2}\tag{df-bl.ator2}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{blator2i}~\blTitle{bl.ator2i}~ Distribute @ over disjunction, two terms,
+inference.
+\begin{align}
+\vdash \tau \in \mathbf{T}\quad\Rightarrow\quad \vdash ( \mathbf{I} \lsem ( (
+    \mw{\varphi} \vee \mw{\psi} ) @ \tau ) \rsem \leftrightarrow \mathbf{I}
+    \lsem ( ( \mw{\varphi} @ \tau ) \vee ( \mw{\psi} @ \tau ) ) \rsem
+    )\label{eq:bl.ator2i}\tag{bl.ator2i}
+\end{align}
+\end{restatable}
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash \tau \in \mathbf{T}&\text{Hyp~ator2i.1}\notag%bl.ator2i.1
+  \\ 2 &&  & \vdash ( \tau \in \mathbf{T} \rightarrow ( \mathbf{I} \lsem ( (
+      \mw{\varphi} \vee \mw{\psi} ) @ \tau ) \rsem
+      \leftrightarrow \mathbf{I} \lsem ( ( \mw{\varphi} @
+      \tau ) \vee ( \mw{\psi} @ \tau ) ) \rsem )
+      )&(\mbox{\ref{eq:df-bl.ator2}})\notag
+  \\ 3 &&  & \vdash ( \mathbf{I} \lsem ( ( \mw{\varphi} \vee \mw{\psi} ) @ \tau
+      ) \rsem \leftrightarrow \mathbf{I} \lsem ( (
+      \mw{\varphi} @ \tau ) \vee ( \mw{\psi} @ \tau ) )
+      \rsem )&(\mbox{\ref{eq:ax-mp}},1,2)\notag
+\end{align}
+\end{proof}
+
+\begin{restatable}{lemma}{blator3i}~\blTitle{bl.ator3i}~ Distribute @ over disjunction, three
+terms, inference.  Restated to keep the disjuncts separately
+boldI[[.]]-wrapped rather than re-wrapping the whole disjunction (as the
+original did, via the now-weakened bl.3or): that re-wrap needed bl.3or's
+full (now-unsound-in-general) biconditional, and this form is exactly what
+the proof already establishes from only the sound @/timed-bracket machinery
+(df-bl.at/df-bl.ort/df-3or), so nothing is lost -- see Lean4SFS/SFS.lean's
+dl\_3or\_sound finding.
+\begin{align}
+\vdash \tau \in \mathbf{T}\quad\Rightarrow\quad \vdash ( \mathbf{I} \lsem ( (
+    \mw{\varphi} \vee \mw{\psi} \vee \mw{\chi} ) @ \tau ) \rsem
+    \leftrightarrow ( \mathbf{I} \lsem ( \mw{\varphi} @ \tau ) \rsem \vee
+    \mathbf{I} \lsem ( \mw{\psi} @ \tau ) \rsem \vee \mathbf{I} \lsem (
+    \mw{\chi} @ \tau ) \rsem ) )\label{eq:bl.ator3i}\tag{bl.ator3i}
+\end{align}
+\end{restatable}
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash \tau \in \mathbf{T}&\text{Hyp~ator3i.1}\notag
+  \\ 2 &&  & \vdash ( \mathbf{I} \lsem ( ( \mw{\varphi} \vee \mw{\psi}
+      \vee \mw{\chi} ) @ \tau ) \rsem \leftrightarrow \mathbf{I}
+      \lsem ( \mw{\varphi} \vee \mw{\psi} \vee \mw{\chi} ) , \tau
+      \rsem )&(\mbox{\ref{eq:df-bl.at}},1)\notag
+  \\ 3 &&  & \vdash ( ( \mw{\varphi} \vee \mw{\psi} \vee \mw{\chi} )
+      \leftrightarrow ( ( \mw{\varphi} \vee \mw{\psi} ) \vee \mw{\chi}
+      ) )&(\mbox{\ref{eq:df-3or}})\notag
+  \\ 4 &&  & \vdash \tau \in
+      \mathbf{T}&\text{Hyp~ator3i.1}\notag
+  \\ 5 &&  & \vdash ( ( ( \mw{\varphi} \vee \mw{\psi} \vee \mw{\chi} )
+      \leftrightarrow ( ( \mw{\varphi} \vee \mw{\psi} ) \vee \mw{\chi}
+      ) ) \rightarrow ( \mathbf{I} \lsem ( \mw{\varphi} \vee \mw{\psi}
+      \vee \mw{\chi} ) , \tau \rsem \leftrightarrow \mathbf{I} \lsem (
+      ( \mw{\varphi} \vee \mw{\psi} ) \vee \mw{\chi} ) , \tau \rsem )
+      )&(\mbox{\ref{eq:bl.monobit}},4)\notag
+  \\ 6 &&  & \vdash ( \mathbf{I} \lsem ( \mw{\varphi} \vee \mw{\psi}
+      \vee \mw{\chi} ) , \tau \rsem \leftrightarrow \mathbf{I} \lsem (
+      ( \mw{\varphi} \vee \mw{\psi} ) \vee \mw{\chi} ) , \tau \rsem
+      )&(\mbox{\ref{eq:ax-mp}},3,5)\notag
+  \\ 7 &&  & \vdash \tau \in
+      \mathbf{T}&\text{Hyp~ator3i.1}\notag
+  \\ 8 &&  & \vdash ( \mathbf{I} \lsem ( ( \mw{\varphi} \vee \mw{\psi}
+      ) \vee \mw{\chi} ) , \tau \rsem \leftrightarrow ( \mathbf{I}
+      \lsem ( \mw{\varphi} \vee \mw{\psi} ) , \tau \rsem \vee
+      \mathbf{I} \lsem \mw{\chi} , \tau \rsem )
+      )&(\mbox{\ref{eq:df-bl.ort}},7)\notag
+  \\ 9 &&  & \vdash \tau \in
+      \mathbf{T}&\text{Hyp~ator3i.1}\notag
+  \\ 10 &&  & \vdash ( \mathbf{I} \lsem ( \mw{\varphi} \vee \mw{\psi}
+      ) , \tau \rsem \leftrightarrow ( \mathbf{I} \lsem \mw{\varphi} ,
+      \tau \rsem \vee \mathbf{I} \lsem \mw{\psi} , \tau \rsem )
+      )&(\mbox{\ref{eq:df-bl.ort}},9)\notag
+  \\ 11 &&  & \vdash ( ( \mathbf{I} \lsem ( \mw{\varphi} \vee
+      \mw{\psi} ) , \tau \rsem \vee \mathbf{I} \lsem \mw{\chi} , \tau
+      \rsem ) \leftrightarrow ( ( \mathbf{I} \lsem \mw{\varphi} , \tau
+      \rsem \vee \mathbf{I} \lsem \mw{\psi} , \tau \rsem ) \vee
+      \mathbf{I} \lsem \mw{\chi} , \tau \rsem )
+      )&(\mbox{\ref{eq:orbi1i}},10)\notag
+  \\ 12 &&  & \vdash ( \mathbf{I} \lsem ( ( \mw{\varphi} \vee
+      \mw{\psi} ) \vee \mw{\chi} ) , \tau \rsem \leftrightarrow ( (
+      \mathbf{I} \lsem \mw{\varphi} , \tau \rsem \vee \mathbf{I} \lsem
+      \mw{\psi} , \tau \rsem ) \vee \mathbf{I} \lsem \mw{\chi} , \tau
+      \rsem ) )&(\mbox{\ref{eq:bitri}},8,11)\notag
+  \\ 13 &&  & \vdash ( \mathbf{I} \lsem ( \mw{\varphi} \vee \mw{\psi}
+      \vee \mw{\chi} ) , \tau \rsem \leftrightarrow ( ( \mathbf{I}
+      \lsem \mw{\varphi} , \tau \rsem \vee \mathbf{I} \lsem \mw{\psi}
+      , \tau \rsem ) \vee \mathbf{I} \lsem \mw{\chi} , \tau \rsem )
+      )&(\mbox{\ref{eq:bitri}},6,12)\notag
+  \\ 14 &&  & \vdash ( \mathbf{I} \lsem ( ( \mw{\varphi} \vee
+      \mw{\psi} \vee \mw{\chi} ) @ \tau ) \rsem \leftrightarrow ( (
+      \mathbf{I} \lsem \mw{\varphi} , \tau \rsem \vee \mathbf{I} \lsem
+      \mw{\psi} , \tau \rsem ) \vee \mathbf{I} \lsem \mw{\chi} , \tau
+      \rsem ) )&(\mbox{\ref{eq:bitri}},2,13)\notag
+  \\ 15 &&  & \vdash ( ( \mathbf{I} \lsem \mw{\varphi} , \tau \rsem
+      \vee \mathbf{I} \lsem \mw{\psi} , \tau \rsem \vee \mathbf{I}
+      \lsem \mw{\chi} , \tau \rsem ) \leftrightarrow ( ( \mathbf{I}
+      \lsem \mw{\varphi} , \tau \rsem \vee \mathbf{I} \lsem \mw{\psi}
+      , \tau \rsem ) \vee \mathbf{I} \lsem \mw{\chi} , \tau \rsem )
+      )&(\mbox{\ref{eq:df-3or}})\notag
+  \\ 16 &&  & \vdash ( \mathbf{I} \lsem ( ( \mw{\varphi} \vee
+      \mw{\psi} \vee \mw{\chi} ) @ \tau ) \rsem \leftrightarrow (
+      \mathbf{I} \lsem \mw{\varphi} , \tau \rsem \vee \mathbf{I} \lsem
+      \mw{\psi} , \tau \rsem \vee \mathbf{I} \lsem \mw{\chi} , \tau
+      \rsem ) )&(\mbox{\ref{eq:bitr4i}},14,15)\notag
+  \\ 17 &&  & \vdash \tau \in
+      \mathbf{T}&\text{Hyp~ator3i.1}\notag
+  \\ 18 &&  & \vdash ( \mathbf{I} \lsem ( \mw{\varphi} @ \tau ) \rsem
+      \leftrightarrow \mathbf{I} \lsem \mw{\varphi} , \tau \rsem
+      )&(\mbox{\ref{eq:df-bl.at}},17)\notag
+  \\ 19 &&  & \vdash \tau \in
+      \mathbf{T}&\text{Hyp~ator3i.1}\notag
+  \\ 20 &&  & \vdash ( \mathbf{I} \lsem ( \mw{\psi} @ \tau ) \rsem
+      \leftrightarrow \mathbf{I} \lsem \mw{\psi} , \tau \rsem
+      )&(\mbox{\ref{eq:df-bl.at}},19)\notag
+  \\ 21 &&  & \vdash \tau \in
+      \mathbf{T}&\text{Hyp~ator3i.1}\notag
+  \\ 22 &&  & \vdash ( \mathbf{I} \lsem ( \mw{\chi} @ \tau ) \rsem
+      \leftrightarrow \mathbf{I} \lsem \mw{\chi} , \tau \rsem
+      )&(\mbox{\ref{eq:df-bl.at}},21)\notag
+  \\ 23 &&  & \vdash ( ( \mathbf{I} \lsem ( \mw{\varphi} @ \tau )
+      \rsem \vee \mathbf{I} \lsem ( \mw{\psi} @ \tau ) \rsem \vee
+      \mathbf{I} \lsem ( \mw{\chi} @ \tau ) \rsem ) \leftrightarrow (
+      \mathbf{I} \lsem \mw{\varphi} , \tau \rsem \vee \mathbf{I} \lsem
+      \mw{\psi} , \tau \rsem \vee \mathbf{I} \lsem \mw{\chi} , \tau
+      \rsem ) )&(\mbox{\ref{eq:3orbi123i}},18,20,22)\notag
+  \\ 24 &&  & \vdash ( \mathbf{I} \lsem ( ( \mw{\varphi} \vee
+      \mw{\psi} \vee \mw{\chi} ) @ \tau ) \rsem \leftrightarrow (
+      \mathbf{I} \lsem ( \mw{\varphi} @ \tau ) \rsem \vee \mathbf{I}
+      \lsem ( \mw{\psi} @ \tau ) \rsem \vee \mathbf{I} \lsem (
+      \mw{\chi} @ \tau ) \rsem )
+      )&(\mbox{\ref{eq:bitr4i}},16,23)\notag
+\end{align}
+\end{proof}
+
+\begin{restatable}{lemma}{blator3ri}~\blTitle{bl.ator3ri}~ Distribute @ over disjunction, three
+terms (right), inference.  Restated for the same reason as bl.ator3i above.
+\begin{align}
+\vdash \tau \in \mathbf{T}\quad\Rightarrow\quad \vdash ( \mathbf{I} \lsem ( (
+    \mw{\varphi} \vee ( \mw{\psi} \vee \mw{\chi} ) ) @ \tau ) \rsem
+    \leftrightarrow ( \mathbf{I} \lsem ( \mw{\varphi} @ \tau ) \rsem \vee (
+    \mathbf{I} \lsem ( \mw{\psi} @ \tau ) \rsem \vee \mathbf{I} \lsem (
+    \mw{\chi} @ \tau ) \rsem ) ) )\label{eq:bl.ator3ri}\tag{bl.ator3ri}
+\end{align}
+\end{restatable}
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash \tau \in
+      \mathbf{T}&\text{Hyp~ator3ri.1}\notag
+  \\ 2 &&  & \vdash ( \mathbf{I} \lsem ( ( \mw{\varphi} \vee (
+      \mw{\psi} \vee \mw{\chi} ) ) @ \tau ) \rsem \leftrightarrow
+      \mathbf{I} \lsem ( \mw{\varphi} \vee ( \mw{\psi} \vee \mw{\chi} )
+      ) , \tau \rsem )&(\mbox{\ref{eq:df-bl.at}},1)\notag
+  \\ 3 &&  & \vdash \tau \in
+      \mathbf{T}&\text{Hyp~ator3ri.1}\notag
+  \\ 4 &&  & \vdash ( \mathbf{I} \lsem ( \mw{\varphi} \vee ( \mw{\psi}
+      \vee \mw{\chi} ) ) , \tau \rsem \leftrightarrow ( \mathbf{I}
+      \lsem \mw{\varphi} , \tau \rsem \vee \mathbf{I} \lsem ( \mw{\psi}
+      \vee \mw{\chi} ) , \tau \rsem )
+      )&(\mbox{\ref{eq:df-bl.ort}},3)\notag
+  \\ 5 &&  & \vdash \tau \in
+      \mathbf{T}&\text{Hyp~ator3ri.1}\notag
+  \\ 6 &&  & \vdash ( \mathbf{I} \lsem ( \mw{\varphi} @ \tau ) \rsem
+      \leftrightarrow \mathbf{I} \lsem \mw{\varphi} , \tau \rsem
+      )&(\mbox{\ref{eq:df-bl.at}},5)\notag
+  \\ 7 &&  & \vdash ( \mathbf{I} \lsem \mw{\varphi} , \tau \rsem
+      \leftrightarrow \mathbf{I} \lsem ( \mw{\varphi} @ \tau ) \rsem
+      )&(\mbox{\ref{eq:bicomi}},6)\notag
+  \\ 8 &&  & \vdash \tau \in
+      \mathbf{T}&\text{Hyp~ator3ri.1}\notag
+  \\ 9 &&  & \vdash ( \mathbf{I} \lsem ( \mw{\psi} \vee \mw{\chi} ) ,
+      \tau \rsem \leftrightarrow ( \mathbf{I} \lsem \mw{\psi} , \tau
+      \rsem \vee \mathbf{I} \lsem \mw{\chi} , \tau \rsem )
+      )&(\mbox{\ref{eq:df-bl.ort}},8)\notag
+  \\ 10 &&  & \vdash \tau \in
+      \mathbf{T}&\text{Hyp~ator3ri.1}\notag
+  \\ 11 &&  & \vdash ( \mathbf{I} \lsem ( \mw{\psi} @ \tau ) \rsem
+      \leftrightarrow \mathbf{I} \lsem \mw{\psi} , \tau \rsem
+      )&(\mbox{\ref{eq:df-bl.at}},10)\notag
+  \\ 12 &&  & \vdash ( \mathbf{I} \lsem \mw{\psi} , \tau \rsem
+      \leftrightarrow \mathbf{I} \lsem ( \mw{\psi} @ \tau ) \rsem
+      )&(\mbox{\ref{eq:bicomi}},11)\notag
+  \\ 13 &&  & \vdash \tau \in
+      \mathbf{T}&\text{Hyp~ator3ri.1}\notag
+  \\ 14 &&  & \vdash ( \mathbf{I} \lsem ( \mw{\chi} @ \tau ) \rsem
+      \leftrightarrow \mathbf{I} \lsem \mw{\chi} , \tau \rsem
+      )&(\mbox{\ref{eq:df-bl.at}},13)\notag
+  \\ 15 &&  & \vdash ( \mathbf{I} \lsem \mw{\chi} , \tau \rsem
+      \leftrightarrow \mathbf{I} \lsem ( \mw{\chi} @ \tau ) \rsem
+      )&(\mbox{\ref{eq:bicomi}},14)\notag
+  \\ 16 &&  & \vdash ( \mathbf{I} \lsem ( \mw{\chi} @ \tau ) \rsem
+      \leftrightarrow \mathbf{I} \lsem ( \mw{\chi} @ \tau ) \rsem
+      )&(\mbox{\ref{eq:biid}})\notag
+  \\ 17 &&  & \vdash ( \mathbf{I} \lsem \mw{\chi} , \tau \rsem
+      \leftrightarrow \mathbf{I} \lsem ( \mw{\chi} @ \tau ) \rsem
+      )&(\mbox{\ref{eq:bitri}},15,16)\notag
+  \\ 18 &&  & \vdash ( ( \mathbf{I} \lsem \mw{\psi} , \tau \rsem \vee
+      \mathbf{I} \lsem \mw{\chi} , \tau \rsem ) \leftrightarrow (
+      \mathbf{I} \lsem ( \mw{\psi} @ \tau ) \rsem \vee \mathbf{I}
+      \lsem ( \mw{\chi} @ \tau ) \rsem )
+      )&(\mbox{\ref{eq:orbi12i}},12,17)\notag
+  \\ 19 &&  & \vdash ( \mathbf{I} \lsem ( \mw{\psi} \vee \mw{\chi} ) ,
+      \tau \rsem \leftrightarrow ( \mathbf{I} \lsem ( \mw{\psi} @ \tau
+      ) \rsem \vee \mathbf{I} \lsem ( \mw{\chi} @ \tau ) \rsem )
+      )&(\mbox{\ref{eq:bitri}},9,18)\notag
+  \\ 20 &&  & \vdash ( ( \mathbf{I} \lsem \mw{\varphi} , \tau \rsem
+      \vee \mathbf{I} \lsem ( \mw{\psi} \vee \mw{\chi} ) , \tau \rsem
+      ) \leftrightarrow ( \mathbf{I} \lsem ( \mw{\varphi} @ \tau )
+      \rsem \vee ( \mathbf{I} \lsem ( \mw{\psi} @ \tau ) \rsem \vee
+      \mathbf{I} \lsem ( \mw{\chi} @ \tau ) \rsem ) )
+      )&(\mbox{\ref{eq:orbi12i}},7,19)\notag
+  \\ 21 &&  & \vdash ( \mathbf{I} \lsem ( \mw{\varphi} \vee (
+      \mw{\psi} \vee \mw{\chi} ) ) , \tau \rsem \leftrightarrow (
+      \mathbf{I} \lsem ( \mw{\varphi} @ \tau ) \rsem \vee ( \mathbf{I}
+      \lsem ( \mw{\psi} @ \tau ) \rsem \vee \mathbf{I} \lsem (
+      \mw{\chi} @ \tau ) \rsem ) )
+      )&(\mbox{\ref{eq:bitri}},4,20)\notag
+  \\ 22 &&  & \vdash ( \mathbf{I} \lsem ( ( \mw{\varphi} \vee (
+      \mw{\psi} \vee \mw{\chi} ) ) @ \tau ) \rsem \leftrightarrow (
+      \mathbf{I} \lsem ( \mw{\varphi} @ \tau ) \rsem \vee ( \mathbf{I}
+      \lsem ( \mw{\psi} @ \tau ) \rsem \vee \mathbf{I} \lsem (
+      \mw{\chi} @ \tau ) \rsem ) )
+      )&(\mbox{\ref{eq:bitri}},2,21)\notag
+\end{align}
+\end{proof}
+
+\begin{restatable}{lemma}{blator3li}~\blTitle{bl.ator3li}~ Distribute @ over disjunction, three
+terms (left), inference.  Restated for the same reason as bl.ator3i above.
+\begin{align}
+\vdash \tau \in \mathbf{T}\quad\Rightarrow\quad \vdash ( \mathbf{I} \lsem ( (
+    ( \mw{\varphi} \vee \mw{\psi} ) \vee \mw{\chi} ) @ \tau ) \rsem
+    \leftrightarrow ( ( \mathbf{I} \lsem ( \mw{\varphi} @ \tau ) \rsem \vee
+    \mathbf{I} \lsem ( \mw{\psi} @ \tau ) \rsem ) \vee \mathbf{I} \lsem (
+    \mw{\chi} @ \tau ) \rsem ) )\label{eq:bl.ator3li}\tag{bl.ator3li}
+\end{align}
+\end{restatable}
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash \tau \in
+      \mathbf{T}&\text{Hyp~ator3li.1}\notag
+  \\ 2 &&  & \vdash ( \mathbf{I} \lsem ( ( ( \mw{\varphi} \vee
+      \mw{\psi} ) \vee \mw{\chi} ) @ \tau ) \rsem \leftrightarrow
+      \mathbf{I} \lsem ( ( \mw{\varphi} \vee \mw{\psi} ) \vee \mw{\chi}
+      ) , \tau \rsem )&(\mbox{\ref{eq:df-bl.at}},1)\notag
+  \\ 3 &&  & \vdash \tau \in
+      \mathbf{T}&\text{Hyp~ator3li.1}\notag
+  \\ 4 &&  & \vdash ( \mathbf{I} \lsem ( ( \mw{\varphi} \vee \mw{\psi}
+      ) \vee \mw{\chi} ) , \tau \rsem \leftrightarrow ( \mathbf{I}
+      \lsem ( \mw{\varphi} \vee \mw{\psi} ) , \tau \rsem \vee
+      \mathbf{I} \lsem \mw{\chi} , \tau \rsem )
+      )&(\mbox{\ref{eq:df-bl.ort}},3)\notag
+  \\ 5 &&  & \vdash \tau \in
+      \mathbf{T}&\text{Hyp~ator3li.1}\notag
+  \\ 6 &&  & \vdash ( \mathbf{I} \lsem ( \mw{\varphi} \vee \mw{\psi} )
+      , \tau \rsem \leftrightarrow ( \mathbf{I} \lsem \mw{\varphi} ,
+      \tau \rsem \vee \mathbf{I} \lsem \mw{\psi} , \tau \rsem )
+      )&(\mbox{\ref{eq:df-bl.ort}},5)\notag
+  \\ 7 &&  & \vdash \tau \in
+      \mathbf{T}&\text{Hyp~ator3li.1}\notag
+  \\ 8 &&  & \vdash ( \mathbf{I} \lsem ( \mw{\varphi} @ \tau ) \rsem
+      \leftrightarrow \mathbf{I} \lsem \mw{\varphi} , \tau \rsem
+      )&(\mbox{\ref{eq:df-bl.at}},7)\notag
+  \\ 9 &&  & \vdash ( \mathbf{I} \lsem \mw{\varphi} , \tau \rsem
+      \leftrightarrow \mathbf{I} \lsem ( \mw{\varphi} @ \tau ) \rsem
+      )&(\mbox{\ref{eq:bicomi}},8)\notag
+  \\ 10 &&  & \vdash \tau \in
+      \mathbf{T}&\text{Hyp~ator3li.1}\notag
+  \\ 11 &&  & \vdash ( \mathbf{I} \lsem ( \mw{\psi} @ \tau ) \rsem
+      \leftrightarrow \mathbf{I} \lsem \mw{\psi} , \tau \rsem
+      )&(\mbox{\ref{eq:df-bl.at}},10)\notag
+  \\ 12 &&  & \vdash ( \mathbf{I} \lsem \mw{\psi} , \tau \rsem
+      \leftrightarrow \mathbf{I} \lsem ( \mw{\psi} @ \tau ) \rsem
+      )&(\mbox{\ref{eq:bicomi}},11)\notag
+  \\ 13 &&  & \vdash ( ( \mathbf{I} \lsem \mw{\varphi} , \tau \rsem
+      \vee \mathbf{I} \lsem \mw{\psi} , \tau \rsem ) \leftrightarrow (
+      \mathbf{I} \lsem ( \mw{\varphi} @ \tau ) \rsem \vee \mathbf{I}
+      \lsem ( \mw{\psi} @ \tau ) \rsem )
+      )&(\mbox{\ref{eq:orbi12i}},9,12)\notag
+  \\ 14 &&  & \vdash ( \mathbf{I} \lsem ( \mw{\varphi} \vee \mw{\psi}
+      ) , \tau \rsem \leftrightarrow ( \mathbf{I} \lsem ( \mw{\varphi}
+      @ \tau ) \rsem \vee \mathbf{I} \lsem ( \mw{\psi} @ \tau ) \rsem
+      ) )&(\mbox{\ref{eq:bitri}},6,13)\notag
+  \\ 15 &&  & \vdash \tau \in
+      \mathbf{T}&\text{Hyp~ator3li.1}\notag
+  \\ 16 &&  & \vdash ( \mathbf{I} \lsem ( \mw{\chi} @ \tau ) \rsem
+      \leftrightarrow \mathbf{I} \lsem \mw{\chi} , \tau \rsem
+      )&(\mbox{\ref{eq:df-bl.at}},15)\notag
+  \\ 17 &&  & \vdash ( \mathbf{I} \lsem \mw{\chi} , \tau \rsem
+      \leftrightarrow \mathbf{I} \lsem ( \mw{\chi} @ \tau ) \rsem
+      )&(\mbox{\ref{eq:bicomi}},16)\notag
+  \\ 18 &&  & \vdash ( ( \mathbf{I} \lsem ( \mw{\varphi} \vee \mw{\psi}
+      ) , \tau \rsem \vee \mathbf{I} \lsem \mw{\chi} , \tau \rsem )
+      \leftrightarrow ( ( \mathbf{I} \lsem ( \mw{\varphi} @ \tau )
+      \rsem \vee \mathbf{I} \lsem ( \mw{\psi} @ \tau ) \rsem ) \vee
+      \mathbf{I} \lsem ( \mw{\chi} @ \tau ) \rsem )
+      )&(\mbox{\ref{eq:orbi12i}},14,17)\notag
+  \\ 19 &&  & \vdash ( \mathbf{I} \lsem ( ( \mw{\varphi} \vee
+      \mw{\psi} ) \vee \mw{\chi} ) , \tau \rsem \leftrightarrow ( (
+      \mathbf{I} \lsem ( \mw{\varphi} @ \tau ) \rsem \vee \mathbf{I}
+      \lsem ( \mw{\psi} @ \tau ) \rsem ) \vee \mathbf{I} \lsem (
+      \mw{\chi} @ \tau ) \rsem ) )&(\mbox{\ref{eq:bitri}},4,18)\notag
+  \\ 20 &&  & \vdash ( \mathbf{I} \lsem ( ( ( \mw{\varphi} \vee
+      \mw{\psi} ) \vee \mw{\chi} ) @ \tau ) \rsem \leftrightarrow ( (
+      \mathbf{I} \lsem ( \mw{\varphi} @ \tau ) \rsem \vee \mathbf{I}
+      \lsem ( \mw{\psi} @ \tau ) \rsem ) \vee \mathbf{I} \lsem (
+      \mw{\chi} @ \tau ) \rsem ) )&(\mbox{\ref{eq:bitri}},2,19)\notag
+\end{align}
+\end{proof}
+
+\begin{restatable}{metadefinition}{dfblatbi}~\blTitle{df-bl.atbi}~ Definition of @ Equivalence
+(biconditional) for predicates.
+\begin{align}
+\vdash \tau_1 \in \mathbf{T}\quad\&\quad \vdash \tau_2 \in
+    \mathbf{T}\quad\Rightarrow\quad \vdash ( ( \tau_1 = \tau_2 \wedge (
+    \mw{\varphi} \leftrightarrow \mw{\psi} ) ) \rightarrow ( \mathbf{I} \lsem (
+    \mw{\varphi} @ \tau_1 ) \rsem \leftrightarrow \mathbf{I} \lsem ( \mw{\psi}
+    @ \tau_2 ) \rsem ) )\label{eq:df-bl.atbi}\tag{df-bl.atbi}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{blatbii}~\blTitle{bl.atbii}~ @ Equivalence (biconditional) for
+predicates, inference.
+\begin{align}
+\vdash \tau_1 \in \mathbf{T}\quad\&\quad \vdash \tau_2 \in
+    \mathbf{T}\quad\&\quad \vdash ( \mw{\varphi} \leftrightarrow \mw{\psi}
+    )\quad\&\quad \vdash \tau_1 = \tau_2\quad\Rightarrow\quad \vdash (
+    \mathbf{I} \lsem ( \mw{\varphi} @ \tau_1 ) \rsem \leftrightarrow \mathbf{I}
+    \lsem ( \mw{\psi} @ \tau_2 ) \rsem )\label{eq:bl.atbii}\tag{bl.atbii}
+\end{align}
+\end{restatable}
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash \tau_1 = \tau_2&\text{Hyp~atbii.4}\notag%bl.atbii.4
+  \\ 2 &&  & \vdash ( \mw{\varphi} \leftrightarrow \mw{\psi}
+      )&\text{Hyp~atbii.3}\notag%bl.atbii.3
+  \\ 3 &&  & \vdash \tau_1 \in \mathbf{T}&\text{Hyp~atbii.1}\notag%bl.atbii.1
+  \\ 4 &&  & \vdash \tau_2 \in \mathbf{T}&\text{Hyp~atbii.2}\notag%bl.atbii.2
+  \\ 5 &&  & \vdash ( ( \tau_1 = \tau_2 \wedge ( \mw{\varphi} \leftrightarrow
+      \mw{\psi} ) ) \rightarrow ( \mathbf{I} \lsem (
+      \mw{\varphi} @ \tau_1 ) \rsem \leftrightarrow
+      \mathbf{I} \lsem ( \mw{\psi} @ \tau_2 ) \rsem )
+      )&(\mbox{\ref{eq:df-bl.atbi}},3,4)\notag
+  \\ 6 &&  & \vdash ( \mathbf{I} \lsem ( \mw{\varphi} @ \tau_1 ) \rsem
+      \leftrightarrow \mathbf{I} \lsem ( \mw{\psi} @ \tau_2
+      ) \rsem )&(\mbox{\ref{eq:mp2an}},1,2,5)\notag
+\end{align}
+\end{proof}
+
+\begin{restatable}{metadefinition}{dfblatnot}~\blTitle{df-bl.atnot}~ Distribute @ over complement
+\begin{align}
+\vdash ( \tau \in \mathbf{T} \rightarrow \mathbf{I} \lsem ( ( \lnot
+    \mw{\varphi} @ \tau ) \leftrightarrow \lnot ( \mw{\varphi} @ \tau ) ) \rsem
+    )\label{eq:df-bl.atnot}\tag{df-bl.atnot}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{blatnoti}~\blTitle{bl.atnoti}~ Distribute @ over complement, inference
+\begin{align}
+\vdash \tau \in \mathbf{T}\quad\Rightarrow\quad \vdash \mathbf{I} \lsem ( (
+    \lnot \mw{\varphi} @ \tau ) \leftrightarrow \lnot ( \mw{\varphi} @ \tau ) )
+    \rsem\label{eq:bl.atnoti}\tag{bl.atnoti}
+\end{align}
+\end{restatable}
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash \tau \in \mathbf{T}&\text{Hyp~atnot.1}\notag%bl.atnot.1
+  \\ 2 &&  & \vdash ( \tau \in \mathbf{T} \rightarrow \mathbf{I} \lsem ( (
+      \lnot \mw{\varphi} @ \tau ) \leftrightarrow \lnot (
+      \mw{\varphi} @ \tau ) ) \rsem
+      )&(\mbox{\ref{eq:df-bl.atnot}})\notag
+  \\ 3 &&  & \vdash \mathbf{I} \lsem ( ( \lnot \mw{\varphi} @ \tau )
+      \leftrightarrow \lnot ( \mw{\varphi} @ \tau ) )
+      \rsem&(\mbox{\ref{eq:ax-mp}},1,2)\notag
+\end{align}
+\end{proof}
+
+\begin{restatable}{metadefinition}{dfblatad2}~\blTitle{df-bl.atad2}~ Distribute @ over addition, two
+terms.
+\begin{align}
+\vdash ( ( \tau \in \mathbf{T} \wedge \mc{B} \in \mathbb{R} \wedge \mc{C} \in
+    \mathbb{R} ) \rightarrow \mathbf{I} \lsem ( ( \mc{B} + \mc{C} ) @ \tau )
+    \rsem = \mathbf{I} \lsem ( ( \mc{B} @ \tau ) + ( \mc{C} @ \tau ) ) \rsem
+    )\label{eq:df-bl.atad2}\tag{df-bl.atad2}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{blatad2i}~\blTitle{bl.atad2i}~ Distribute @ over addition, two terms,
+inference.
+\begin{align}
+\vdash ( \tau \in \mathbf{T} \wedge \mc{B} \in \mathbb{R} \wedge \mc{C} \in
+    \mathbb{R} )\quad\Rightarrow\quad \vdash \mathbf{I} \lsem ( ( \mc{B} +
+    \mc{C} ) @ \tau ) \rsem = \mathbf{I} \lsem ( ( \mc{B} @ \tau ) + ( \mc{C} @
+    \tau ) ) \rsem\label{eq:bl.atad2i}\tag{bl.atad2i}
+\end{align}
+\end{restatable}
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash ( \tau \in \mathbf{T} \wedge \mc{B} \in \mathbb{R} \wedge
+      \mc{C} \in \mathbb{R}
+      )&\text{Hyp~atad2i.1}\notag%bl.atad2i.1
+  \\ 2 &&  & \vdash ( ( \tau \in \mathbf{T} \wedge \mc{B} \in \mathbb{R} \wedge
+      \mc{C} \in \mathbb{R} ) \rightarrow \mathbf{I} \lsem
+      ( ( \mc{B} + \mc{C} ) @ \tau ) \rsem = \mathbf{I}
+      \lsem ( ( \mc{B} @ \tau ) + ( \mc{C} @ \tau ) ) \rsem
+      )&(\mbox{\ref{eq:df-bl.atad2}})\notag
+  \\ 3 &&  & \vdash \mathbf{I} \lsem ( ( \mc{B} + \mc{C} ) @ \tau ) \rsem =
+      \mathbf{I} \lsem ( ( \mc{B} @ \tau ) + ( \mc{C} @
+      \tau ) ) \rsem&(\mbox{\ref{eq:ax-mp}},1,2)\notag
+\end{align}
+\end{proof}
+
+\begin{restatable}{lemma}{blatad3}~\blTitle{bl.atad3}~ Distribute @ over addition, three terms $(
+\mc{A} + ( \mc{B} + \mc{C} ) ) @ \tau )$.
+\begin{align}
+\vdash \tau \in \mathbf{T}\quad\&\quad \vdash \mc{A} \in \mathbb{R}\quad\&\quad
+    \vdash \mc{B} \in \mathbb{R}\quad\&\quad \vdash \mc{C} \in
+    \mathbb{R}\quad\Rightarrow \notag \\ %& & & \qquad
+      \quad \vdash \mathbf{I} \lsem ( ( \mc{A} + (
+    \mc{B} + \mc{C} ) ) @ \tau ) \rsem = \mathbf{I} \lsem ( ( \mc{A} @ \tau ) +
+    ( ( \mc{B} @ \tau ) + ( \mc{C} @ \tau ) ) )
+    \rsem\label{eq:bl.atad3}\tag{bl.atad3}
+\end{align}
+\end{restatable}
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash \tau \in \mathbf{T}&\text{Hyp~atad3.1}\notag%bl.atad3.1
+  \\ 2 &&  & \vdash \mc{A} \in \mathbb{R}&\text{Hyp~atad3.2}\notag%bl.atad3.2
+  \\ 3 &&  & \vdash \mc{B} \in \mathbb{R}&\text{Hyp~atad3.3}\notag%bl.atad3.3
+  \\ 4 &&  & \vdash \mc{C} \in \mathbb{R}&\text{Hyp~atad3.4}\notag%bl.atad3.4
+  \\ 5 &&  & \vdash ( \mc{B} + \mc{C} ) \in
+      \mathbb{R}&(\mbox{\ref{eq:readdcli}},3,4)\notag
+  \\ 6 &&  & \vdash ( \tau \in \mathbf{T} \wedge \mc{A} \in \mathbb{R} \wedge (
+      \mc{B} + \mc{C} ) \in \mathbb{R}
+      )&(\mbox{\ref{eq:3pm3.2i}},1,2,5)\notag
+  \\ 7 &&  & \vdash \mathbf{I} \lsem ( ( \mc{A} + ( \mc{B} + \mc{C} ) ) @ \tau
+      ) \rsem = \mathbf{I} \lsem ( ( \mc{A} @ \tau ) + ( (
+      \mc{B} + \mc{C} ) @ \tau ) )
+      \rsem&(\mbox{\ref{eq:bl.atad2i}},6)\notag
+  \\ 8 &&  & \vdash \mathbf{I} \lsem ( ( \mc{A} @ \tau ) + ( ( \mc{B} + \mc{C}
+      ) @ \tau ) ) \rsem = ( \mathbf{I} \lsem ( \mc{A} @
+      \tau ) \rsem + \mathbf{I} \lsem ( ( \mc{B} + \mc{C} )
+      @ \tau ) \rsem )&(\mbox{\ref{eq:df-bl.add}})\notag
+  \\ 9 &&  & \vdash \tau \in \mathbf{T}&\text{Hyp~atad3.1}\notag%bl.atad3.1
+  \\ 10 &&  & \vdash \mc{B} \in \mathbb{R}&\text{Hyp~atad3.3}\notag%bl.atad3.3
+  \\ 11 &&  & \vdash \mc{C} \in \mathbb{R}&\text{Hyp~atad3.4}\notag%bl.atad3.4
+  \\ 12 &&  & \vdash ( \tau \in \mathbf{T} \wedge \mc{B} \in \mathbb{R} \wedge
+      \mc{C} \in \mathbb{R}
+      )&(\mbox{\ref{eq:3pm3.2i}},9,10,11)\notag
+  \\ 13 &&  & \vdash \mathbf{I} \lsem ( ( \mc{B} + \mc{C} ) @ \tau ) \rsem =
+      \mathbf{I} \lsem ( ( \mc{B} @ \tau ) + ( \mc{C} @
+      \tau ) ) \rsem&(\mbox{\ref{eq:bl.atad2i}},12)\notag
+  \\ 14 &&  & \vdash ( \mathbf{I} \lsem ( \mc{A} @ \tau ) \rsem + \mathbf{I}
+      \lsem ( ( \mc{B} + \mc{C} ) @ \tau ) \rsem ) = (
+      \mathbf{I} \lsem ( \mc{A} @ \tau ) \rsem + \mathbf{I}
+      \lsem ( ( \mc{B} @ \tau ) + ( \mc{C} @ \tau ) ) \rsem
+      )&(\mbox{\ref{eq:oveq2i}},13)\notag
+  \\ 15 &&  & \vdash \mathbf{I} \lsem ( ( \mc{A} + ( \mc{B} + \mc{C} ) ) @ \tau
+      ) \rsem = ( \mathbf{I} \lsem ( \mc{A} @ \tau ) \rsem
+      + \mathbf{I} \lsem ( ( \mc{B} @ \tau ) + ( \mc{C} @
+      \tau ) ) \rsem
+      )&(\mbox{\ref{eq:3eqtri}},7,8,14)\notag
+  \\ 16 &&  & \vdash \mathbf{I} \lsem ( ( \mc{A} @ \tau ) + ( ( \mc{B} @ \tau )
+      + ( \mc{C} @ \tau ) ) ) \rsem = ( \mathbf{I} \lsem (
+      \mc{A} @ \tau ) \rsem + \mathbf{I} \lsem ( ( \mc{B} @
+      \tau ) + ( \mc{C} @ \tau ) ) \rsem
+      )&(\mbox{\ref{eq:df-bl.add}})\notag
+  \\ 17 &&  & \vdash \mathbf{I} \lsem ( ( \mc{A} + ( \mc{B} + \mc{C} ) ) @ \tau
+      ) \rsem = \mathbf{I} \lsem ( ( \mc{A} @ \tau ) + ( (
+      \mc{B} @ \tau ) + ( \mc{C} @ \tau ) ) )
+      \rsem&(\mbox{\ref{eq:eqtr4i}},15,16)\notag
+\end{align}
+\end{proof}
+
+\begin{restatable}{lemma}{blatad3l}~\blTitle{bl.atad3l}~ Distribute @ over addition, three terms,
+left $( ( \mc{A} + \mc{B} ) + \mc{C} ) @ \tau )$.
+\begin{align}
+\vdash \tau \in \mathbf{T}\quad\&\quad \vdash \mc{A} \in \mathbb{R}\quad\&\quad
+    \vdash \mc{B} \in \mathbb{R}\quad\&\quad \vdash \mc{C} \in
+    \mathbb{R}\quad\Rightarrow \notag \\ %& & & \qquad
+      \quad \vdash \mathbf{I} \lsem ( ( ( \mc{A} +
+    \mc{B} ) + \mc{C} ) @ \tau ) \rsem = \mathbf{I} \lsem ( ( ( \mc{A} @ \tau )
+    + ( \mc{B} @ \tau ) ) + ( \mc{C} @ \tau ) )
+    \rsem\label{eq:bl.atad3l}\tag{bl.atad3l}
+\end{align}
+\end{restatable}
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash \tau \in \mathbf{T}&\text{Hyp~atad3l.1}\notag%bl.atad3l.1
+  \\ 2 &&  & \vdash \mc{A} \in \mathbb{R}&\text{Hyp~atad3l.2}\notag%bl.atad3l.2
+  \\ 3 &&  & \vdash \mc{B} \in \mathbb{R}&\text{Hyp~atad3l.3}\notag%bl.atad3l.3
+  \\ 4 &&  & \vdash ( \mc{A} + \mc{B} ) \in
+      \mathbb{R}&(\mbox{\ref{eq:readdcli}},2,3)\notag
+  \\ 5 &&  & \vdash \mc{C} \in \mathbb{R}&\text{Hyp~atad3l.4}\notag%bl.atad3l.4
+  \\ 6 &&  & \vdash ( \tau \in \mathbf{T} \wedge ( \mc{A} + \mc{B} ) \in
+      \mathbb{R} \wedge \mc{C} \in \mathbb{R}
+      )&(\mbox{\ref{eq:3pm3.2i}},1,4,5)\notag
+  \\ 7 &&  & \vdash \mathbf{I} \lsem ( ( ( \mc{A} + \mc{B} ) + \mc{C} ) @ \tau
+      ) \rsem = \mathbf{I} \lsem ( ( ( \mc{A} + \mc{B} ) @
+      \tau ) + ( \mc{C} @ \tau ) )
+      \rsem&(\mbox{\ref{eq:bl.atad2i}},6)\notag
+  \\ 8 &&  & \vdash \mathbf{I} \lsem ( ( ( \mc{A} + \mc{B} ) @ \tau ) + (
+      \mc{C} @ \tau ) ) \rsem = ( \mathbf{I} \lsem ( (
+      \mc{A} + \mc{B} ) @ \tau ) \rsem + \mathbf{I} \lsem (
+      \mc{C} @ \tau ) \rsem
+      )&(\mbox{\ref{eq:df-bl.add}})\notag
+  \\ 9 &&  & \vdash \tau \in \mathbf{T}&\text{Hyp~atad3l.1}\notag%bl.atad3l.1
+  \\ 10 &&  & \vdash \mc{A} \in
+      \mathbb{R}&\text{Hyp~atad3l.2}\notag%bl.atad3l.2
+  \\ 11 &&  & \vdash \mc{B} \in
+      \mathbb{R}&\text{Hyp~atad3l.3}\notag%bl.atad3l.3
+  \\ 12 &&  & \vdash ( \tau \in \mathbf{T} \wedge \mc{A} \in \mathbb{R} \wedge
+      \mc{B} \in \mathbb{R}
+      )&(\mbox{\ref{eq:3pm3.2i}},9,10,11)\notag
+  \\ 13 &&  & \vdash \mathbf{I} \lsem ( ( \mc{A} + \mc{B} ) @ \tau ) \rsem =
+      \mathbf{I} \lsem ( ( \mc{A} @ \tau ) + ( \mc{B} @
+      \tau ) ) \rsem&(\mbox{\ref{eq:bl.atad2i}},12)\notag
+  \\ 14 &&  & \vdash ( \mathbf{I} \lsem ( ( \mc{A} + \mc{B} ) @ \tau ) \rsem +
+      \mathbf{I} \lsem ( \mc{C} @ \tau ) \rsem ) = (
+      \mathbf{I} \lsem ( ( \mc{A} @ \tau ) + ( \mc{B} @
+      \tau ) ) \rsem + \mathbf{I} \lsem ( \mc{C} @ \tau )
+      \rsem )&(\mbox{\ref{eq:oveq1i}},13)\notag
+  \\ 15 &&  & \vdash \mathbf{I} \lsem ( ( ( \mc{A} + \mc{B} ) + \mc{C} ) @ \tau
+      ) \rsem = ( \mathbf{I} \lsem ( ( \mc{A} @ \tau ) + (
+      \mc{B} @ \tau ) ) \rsem + \mathbf{I} \lsem ( \mc{C} @
+      \tau ) \rsem )&(\mbox{\ref{eq:3eqtri}},7,8,14)\notag
+  \\ 16 &&  & \vdash \mathbf{I} \lsem ( ( ( \mc{A} @ \tau ) + ( \mc{B} @ \tau )
+      ) + ( \mc{C} @ \tau ) ) \rsem = ( \mathbf{I} \lsem (
+      ( \mc{A} @ \tau ) + ( \mc{B} @ \tau ) ) \rsem +
+      \mathbf{I} \lsem ( \mc{C} @ \tau ) \rsem
+      )&(\mbox{\ref{eq:df-bl.add}})\notag
+  \\ 17 &&  & \vdash \mathbf{I} \lsem ( ( ( \mc{A} + \mc{B} ) + \mc{C} ) @ \tau
+      ) \rsem = \mathbf{I} \lsem ( ( ( \mc{A} @ \tau ) + (
+      \mc{B} @ \tau ) ) + ( \mc{C} @ \tau ) )
+      \rsem&(\mbox{\ref{eq:eqtr4i}},15,16)\notag
+\end{align}
+\end{proof}
+
+\begin{restatable}{lemma}{blatad}~\blTitle{bl.atad}~ Distribute @ over addition, class list.
+\begin{align}
+\vdash ( \tau \in \mathbf{T} \wedge {\oplus\hspace{-1pt}[} \msc{csl_1} ] \in
+    \mathbb{R} \wedge {\oplus\hspace{-1pt}[} \msc{csl_2} ] \in \mathbb{R}
+    )\quad\Rightarrow\quad \vdash \mathbf{I} \lsem ( {\oplus\hspace{-1pt}[}
+    \msc{csl_1} , \msc{csl_2} ] @ \tau ) \rsem = \mathbf{I} \lsem ( (
+    {\oplus\hspace{-1pt}[} \msc{csl_1} ] @ \tau ) + ( {\oplus\hspace{-1pt}[}
+    \msc{csl_2} ] @ \tau ) ) \rsem\label{eq:bl.atad}\tag{bl.atad}
+\end{align}
+\end{restatable}
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash ( \tau \in \mathbf{T} \wedge {\oplus\hspace{-1pt}[}
+      \msc{csl_1} ] \in \mathbb{R} \wedge
+      {\oplus\hspace{-1pt}[} \msc{csl_2} ] \in \mathbb{R}
+      )&\text{Hyp~atad.1}\notag%bl.atad.1
+  \\ 2 && @2:\  & \vdash \tau \in \mathbf{T}&(\mbox{\ref{eq:simp1i}},1)\notag
+  \\ 3 &&  & \vdash \tau \in \mathbf{T}&(@2)\notag
+  \\ 4 &&  & \vdash {\oplus\hspace{-1pt}[} \msc{csl_1} , \msc{csl_2} ] = (
+      {\oplus\hspace{-1pt}[} \msc{csl_1} ] +
+      {\oplus\hspace{-1pt}[} \msc{csl_2} ]
+      )&(\mbox{\ref{eq:df-bl.add2}})\notag
+  \\ 5 &&  & \vdash \tau = \tau&(\mbox{\ref{eq:eqid}})\notag
+  \\ 6 &&  & \vdash \mathbf{I} \lsem ( {\oplus\hspace{-1pt}[} \msc{csl_1} ,
+      \msc{csl_2} ] @ \tau ) \rsem = \mathbf{I} \lsem ( (
+      {\oplus\hspace{-1pt}[} \msc{csl_1} ] +
+      {\oplus\hspace{-1pt}[} \msc{csl_2} ] ) @ \tau )
+      \rsem&(\mbox{\ref{eq:bl.ateqci}},2,3,4,5)\notag
+  \\ 7 &&  & \vdash ( \tau \in \mathbf{T} \wedge {\oplus\hspace{-1pt}[}
+      \msc{csl_1} ] \in \mathbb{R} \wedge
+      {\oplus\hspace{-1pt}[} \msc{csl_2} ] \in \mathbb{R}
+      )&\text{Hyp~atad.1}\notag%bl.atad.1
+  \\ 8 &&  & \vdash ( ( \tau \in \mathbf{T} \wedge {\oplus\hspace{-1pt}[}
+      \msc{csl_1} ] \in \mathbb{R} \wedge
+      {\oplus\hspace{-1pt}[} \msc{csl_2} ] \in \mathbb{R} )
+      \rightarrow  \notag \\ & & & \qquad
+      \mathbf{I} \lsem ( (
+      {\oplus\hspace{-1pt}[} \msc{csl_1} ] +
+      {\oplus\hspace{-1pt}[} \msc{csl_2} ] ) @ \tau ) \rsem
+      = \mathbf{I} \lsem ( ( {\oplus\hspace{-1pt}[}
+      \msc{csl_1} ] @ \tau ) + ( {\oplus\hspace{-1pt}[}
+      \msc{csl_2} ] @ \tau ) ) \rsem
+      )&(\mbox{\ref{eq:df-bl.atad2}})\notag
+  \\ 9 &&  & \vdash \mathbf{I} \lsem ( ( {\oplus\hspace{-1pt}[} \msc{csl_1} ] +
+      {\oplus\hspace{-1pt}[} \msc{csl_2} ] ) @ \tau ) \rsem
+      = \mathbf{I} \lsem ( ( {\oplus\hspace{-1pt}[}
+      \msc{csl_1} ] @ \tau ) + ( {\oplus\hspace{-1pt}[}
+      \msc{csl_2} ] @ \tau ) )
+      \rsem&(\mbox{\ref{eq:ax-mp}},7,8)\notag
+  \\ 10 &&  & \vdash \mathbf{I} \lsem ( {\oplus\hspace{-1pt}[} \msc{csl_1} ,
+      \msc{csl_2} ] @ \tau ) \rsem = \mathbf{I} \lsem ( (
+      {\oplus\hspace{-1pt}[} \msc{csl_1} ] @ \tau ) + (
+      {\oplus\hspace{-1pt}[} \msc{csl_2} ] @ \tau ) )
+      \rsem&(\mbox{\ref{eq:eqtri}},6,9)\notag
+\end{align}
+\end{proof}
+
+\begin{restatable}{metadefinition}{dfblatmul2}~\blTitle{df-bl.atmul2}~ Distribute @ over multiplication,
+two terms.
+\begin{align}
+\vdash ( ( \tau \in \mathbf{T} \wedge \mc{B} \in \mathbb{R} \wedge \mc{C} \in
+    \mathbb{R} ) \rightarrow \mathbf{I} \lsem ( ( \mc{B} \times \mc{C} ) @ \tau
+    ) \rsem = \mathbf{I} \lsem ( ( \mc{B} @ \tau ) \times ( \mc{C} @ \tau ) )
+    \rsem )\label{eq:df-bl.atmul2}\tag{df-bl.atmul2}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{blatmul2i}~\blTitle{bl.atmul2i}~ Distribute @ over multiplication, two
+terms, inference.
+\begin{align}
+\vdash ( \tau \in \mathbf{T} \wedge \mc{B} \in \mathbb{R} \wedge \mc{C} \in
+    \mathbb{R} )\quad\Rightarrow\quad \vdash \mathbf{I} \lsem ( ( \mc{B} \times
+    \mc{C} ) @ \tau ) \rsem = \mathbf{I} \lsem ( ( \mc{B} @ \tau ) \times (
+    \mc{C} @ \tau ) ) \rsem\label{eq:bl.atmul2i}\tag{bl.atmul2i}
+\end{align}
+\end{restatable}
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash ( \tau \in \mathbf{T} \wedge \mc{B} \in \mathbb{R} \wedge
+      \mc{C} \in \mathbb{R}
+      )&\text{Hyp~atmul2i.1}\notag%bl.atmul2i.1
+  \\ 2 &&  & \vdash ( ( \tau \in \mathbf{T} \wedge \mc{B} \in \mathbb{R} \wedge
+      \mc{C} \in \mathbb{R} ) \rightarrow \mathbf{I} \lsem
+      ( ( \mc{B} \times \mc{C} ) @ \tau ) \rsem = \mathbf{I}
+      \lsem ( ( \mc{B} @ \tau ) \times ( \mc{C} @ \tau ) )
+      \rsem )&(\mbox{\ref{eq:df-bl.atmul2}})\notag
+  \\ 3 &&  & \vdash \mathbf{I} \lsem ( ( \mc{B} \times \mc{C} ) @ \tau ) \rsem =
+      \mathbf{I} \lsem ( ( \mc{B} @ \tau ) \times ( \mc{C} @
+      \tau ) ) \rsem&(\mbox{\ref{eq:ax-mp}},1,2)\notag
+\end{align}
+\end{proof}
+
+\begin{restatable}{lemma}{blatmul3}~\blTitle{bl.atmul3}~ Distribute @ over multiplication, three
+terms $( \mc{A} \times ( \mc{B} \times \mc{C} ) ) @ \tau )$.
+\begin{align}
+\vdash \tau \in \mathbf{T}\quad\&\quad \vdash \mc{A} \in \mathbb{R}\quad\&\quad
+    \vdash \mc{B} \in \mathbb{R}\quad\&\quad \vdash \mc{C} \in
+    \mathbb{R}\quad\Rightarrow \notag \\ %& & & \qquad
+      \quad \vdash \mathbf{I} \lsem ( ( \mc{A} \times (
+    \mc{B} \times \mc{C} ) ) @ \tau ) \rsem = \mathbf{I} \lsem ( ( \mc{A} @ \tau
+    ) \times ( ( \mc{B} @ \tau ) \times ( \mc{C} @ \tau ) ) )
+    \rsem\label{eq:bl.atmul3}\tag{bl.atmul3}
+\end{align}
+\end{restatable}
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash \tau \in \mathbf{T}&\text{Hyp~atmul3.1}\notag%bl.atmul3.1
+  \\ 2 &&  & \vdash \mc{A} \in \mathbb{R}&\text{Hyp~atmul3.2}\notag%bl.atmul3.2
+  \\ 3 &&  & \vdash \mc{B} \in \mathbb{R}&\text{Hyp~atmul3.3}\notag%bl.atmul3.3
+  \\ 4 &&  & \vdash \mc{C} \in \mathbb{R}&\text{Hyp~atmul3.4}\notag%bl.atmul3.4
+  \\ 5 &&  & \vdash ( \mc{B} \times \mc{C} ) \in
+      \mathbb{R}&(\mbox{\ref{eq:remulcli}},3,4)\notag
+  \\ 6 &&  & \vdash ( \tau \in \mathbf{T} \wedge \mc{A} \in \mathbb{R} \wedge (
+      \mc{B} \times \mc{C} ) \in \mathbb{R}
+      )&(\mbox{\ref{eq:3pm3.2i}},1,2,5)\notag
+  \\ 7 &&  & \vdash \mathbf{I} \lsem ( ( \mc{A} \times ( \mc{B} \times \mc{C} ) )
+      @ \tau ) \rsem = \mathbf{I} \lsem ( ( \mc{A} @ \tau )
+      \times ( ( \mc{B} \times \mc{C} ) @ \tau ) )
+      \rsem&(\mbox{\ref{eq:bl.atmul2i}},6)\notag
+  \\ 8 &&  & \vdash \mathbf{I} \lsem ( ( \mc{A} @ \tau ) \times ( ( \mc{B} \times
+      \mc{C} ) @ \tau ) ) \rsem = ( \mathbf{I} \lsem (
+      \mc{A} @ \tau ) \rsem \times \mathbf{I} \lsem ( (
+      \mc{B} \times \mc{C} ) @ \tau ) \rsem
+      )&(\mbox{\ref{eq:df-bl.mul}})\notag
+  \\ 9 &&  & \vdash \tau \in \mathbf{T}&\text{Hyp~atmul3.1}\notag%bl.atmul3.1
+  \\ 10 &&  & \vdash \mc{B} \in
+      \mathbb{R}&\text{Hyp~atmul3.3}\notag%bl.atmul3.3
+  \\ 11 &&  & \vdash \mc{C} \in
+      \mathbb{R}&\text{Hyp~atmul3.4}\notag%bl.atmul3.4
+  \\ 12 &&  & \vdash ( \tau \in \mathbf{T} \wedge \mc{B} \in \mathbb{R} \wedge
+      \mc{C} \in \mathbb{R}
+      )&(\mbox{\ref{eq:3pm3.2i}},9,10,11)\notag
+  \\ 13 &&  & \vdash \mathbf{I} \lsem ( ( \mc{B} \times \mc{C} ) @ \tau ) \rsem
+      = \mathbf{I} \lsem ( ( \mc{B} @ \tau ) \times ( \mc{C}
+      @ \tau ) )
+      \rsem&(\mbox{\ref{eq:bl.atmul2i}},12)\notag
+  \\ 14 &&  & \vdash ( \mathbf{I} \lsem ( \mc{A} @ \tau ) \rsem \times
+      \mathbf{I} \lsem ( ( \mc{B} \times \mc{C} ) @ \tau )
+      \rsem ) = ( \mathbf{I} \lsem ( \mc{A} @ \tau ) \rsem
+      \times \mathbf{I} \lsem ( ( \mc{B} @ \tau ) \times (
+      \mc{C} @ \tau ) ) \rsem
+      )&(\mbox{\ref{eq:oveq2i}},13)\notag
+  \\ 15 &&  & \vdash \mathbf{I} \lsem ( ( \mc{A} \times ( \mc{B} \times \mc{C} )
+      ) @ \tau ) \rsem = ( \mathbf{I} \lsem ( \mc{A} @ \tau
+      ) \rsem \times \mathbf{I} \lsem ( ( \mc{B} @ \tau )
+      \times ( \mc{C} @ \tau ) ) \rsem
+      )&(\mbox{\ref{eq:3eqtri}},7,8,14)\notag
+  \\ 16 &&  & \vdash \mathbf{I} \lsem ( ( \mc{A} @ \tau ) \times ( ( \mc{B} @
+      \tau ) \times ( \mc{C} @ \tau ) ) ) \rsem = (
+      \mathbf{I} \lsem ( \mc{A} @ \tau ) \rsem \times
+      \mathbf{I} \lsem ( ( \mc{B} @ \tau ) \times ( \mc{C} @
+      \tau ) ) \rsem )&(\mbox{\ref{eq:df-bl.mul}})\notag
+  \\ 17 &&  & \vdash \mathbf{I} \lsem ( ( \mc{A} \times ( \mc{B} \times \mc{C} )
+      ) @ \tau ) \rsem = \mathbf{I} \lsem ( ( \mc{A} @ \tau
+      ) \times ( ( \mc{B} @ \tau ) \times ( \mc{C} @ \tau ) )
+      ) \rsem&(\mbox{\ref{eq:eqtr4i}},15,16)\notag
+\end{align}
+\end{proof}
+
+\begin{restatable}{lemma}{blatmul3l}~\blTitle{bl.atmul3l}~ Distribute @ over multiplication, three
+terms, left $( ( \mc{A} \times \mc{B} ) \times \mc{C} ) @ \tau )$.
+\begin{align}
+\vdash \tau \in \mathbf{T}\quad\&\quad \vdash \mc{A} \in \mathbb{R}\quad\&\quad
+    \vdash \mc{B} \in \mathbb{R}\quad\&\quad \vdash \mc{C} \in
+    \mathbb{R}\quad\Rightarrow \notag \\ %& & & \qquad
+      \quad \vdash \mathbf{I} \lsem ( ( ( \mc{A} \times
+    \mc{B} ) \times \mc{C} ) @ \tau ) \rsem = \mathbf{I} \lsem ( ( ( \mc{A} @
+    \tau ) \times ( \mc{B} @ \tau ) ) \times ( \mc{C} @ \tau ) )
+    \rsem\label{eq:bl.atmul3l}\tag{bl.atmul3l}
+\end{align}
+\end{restatable}
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash \tau \in \mathbf{T}&\text{Hyp~atmul3l.1}\notag%bl.atmul3l.1
+  \\ 2 &&  & \vdash \mc{A} \in
+      \mathbb{R}&\text{Hyp~atmul3l.2}\notag%bl.atmul3l.2
+  \\ 3 &&  & \vdash \mc{B} \in
+      \mathbb{R}&\text{Hyp~atmul3l.3}\notag%bl.atmul3l.3
+  \\ 4 &&  & \vdash ( \mc{A} \times \mc{B} ) \in
+      \mathbb{R}&(\mbox{\ref{eq:remulcli}},2,3)\notag
+  \\ 5 &&  & \vdash \mc{C} \in
+      \mathbb{R}&\text{Hyp~atmul3l.4}\notag%bl.atmul3l.4
+  \\ 6 &&  & \vdash ( \tau \in \mathbf{T} \wedge ( \mc{A} \times \mc{B} ) \in
+      \mathbb{R} \wedge \mc{C} \in \mathbb{R}
+      )&(\mbox{\ref{eq:3pm3.2i}},1,4,5)\notag
+  \\ 7 &&  & \vdash \mathbf{I} \lsem ( ( ( \mc{A} \times \mc{B} ) \times \mc{C} )
+      @ \tau ) \rsem = \mathbf{I} \lsem ( ( ( \mc{A} \times
+      \mc{B} ) @ \tau ) \times ( \mc{C} @ \tau ) )
+      \rsem&(\mbox{\ref{eq:bl.atmul2i}},6)\notag
+  \\ 8 &&  & \vdash \mathbf{I} \lsem ( ( ( \mc{A} \times \mc{B} ) @ \tau ) \times
+      ( \mc{C} @ \tau ) ) \rsem = ( \mathbf{I} \lsem ( (
+      \mc{A} \times \mc{B} ) @ \tau ) \rsem \times \mathbf{I}
+      \lsem ( \mc{C} @ \tau ) \rsem
+      )&(\mbox{\ref{eq:df-bl.mul}})\notag
+  \\ 9 &&  & \vdash \tau \in \mathbf{T}&\text{Hyp~atmul3l.1}\notag%bl.atmul3l.1
+  \\ 10 &&  & \vdash \mc{A} \in
+      \mathbb{R}&\text{Hyp~atmul3l.2}\notag%bl.atmul3l.2
+  \\ 11 &&  & \vdash \mc{B} \in
+      \mathbb{R}&\text{Hyp~atmul3l.3}\notag%bl.atmul3l.3
+  \\ 12 &&  & \vdash ( \tau \in \mathbf{T} \wedge \mc{A} \in \mathbb{R} \wedge
+      \mc{B} \in \mathbb{R}
+      )&(\mbox{\ref{eq:3pm3.2i}},9,10,11)\notag
+  \\ 13 &&  & \vdash \mathbf{I} \lsem ( ( \mc{A} \times \mc{B} ) @ \tau ) \rsem
+      = \mathbf{I} \lsem ( ( \mc{A} @ \tau ) \times ( \mc{B}
+      @ \tau ) )
+      \rsem&(\mbox{\ref{eq:bl.atmul2i}},12)\notag
+  \\ 14 &&  & \vdash ( \mathbf{I} \lsem ( ( \mc{A} \times \mc{B} ) @ \tau )
+      \rsem \times \mathbf{I} \lsem ( \mc{C} @ \tau ) \rsem
+      ) = ( \mathbf{I} \lsem ( ( \mc{A} @ \tau ) \times (
+      \mc{B} @ \tau ) ) \rsem \times \mathbf{I} \lsem (
+      \mc{C} @ \tau ) \rsem
+      )&(\mbox{\ref{eq:oveq1i}},13)\notag
+  \\ 15 &&  & \vdash \mathbf{I} \lsem ( ( ( \mc{A} \times \mc{B} ) \times \mc{C}
+      ) @ \tau ) \rsem = ( \mathbf{I} \lsem ( ( \mc{A} @
+      \tau ) \times ( \mc{B} @ \tau ) ) \rsem \times
+      \mathbf{I} \lsem ( \mc{C} @ \tau ) \rsem
+      )&(\mbox{\ref{eq:3eqtri}},7,8,14)\notag
+  \\ 16 &&  & \vdash \mathbf{I} \lsem ( ( ( \mc{A} @ \tau ) \times ( \mc{B} @
+      \tau ) ) \times ( \mc{C} @ \tau ) ) \rsem = (
+      \mathbf{I} \lsem ( ( \mc{A} @ \tau ) \times ( \mc{B} @
+      \tau ) ) \rsem \times \mathbf{I} \lsem ( \mc{C} @ \tau
+      ) \rsem )&(\mbox{\ref{eq:df-bl.mul}})\notag
+  \\ 17 &&  & \vdash \mathbf{I} \lsem ( ( ( \mc{A} \times \mc{B} ) \times \mc{C}
+      ) @ \tau ) \rsem = \mathbf{I} \lsem ( ( ( \mc{A} @
+      \tau ) \times ( \mc{B} @ \tau ) ) \times ( \mc{C} @
+      \tau ) ) \rsem&(\mbox{\ref{eq:eqtr4i}},15,16)\notag
+\end{align}
+\end{proof}
+
+\begin{restatable}{lemma}{blatmul}~\blTitle{bl.atmul}~ Distribute @ over multiplication, class
+list.
+\begin{align}
+\vdash ( \tau \in \mathbf{T} \wedge {\otimes\hspace{-1pt}[} \msc{csl_1} ] \in
+    \mathbb{R} \wedge {\otimes\hspace{-1pt}[} \msc{csl_2} ] \in \mathbb{R}
+    )\quad\Rightarrow\quad \vdash \mathbf{I} \lsem ( {\otimes\hspace{-1pt}[}
+    \msc{csl_1} , \msc{csl_2} ] @ \tau ) \rsem = \mathbf{I} \lsem ( (
+    {\otimes\hspace{-1pt}[} \msc{csl_1} ] @ \tau ) \times (
+    {\otimes\hspace{-1pt}[} \msc{csl_2} ] @ \tau ) )
+    \rsem\label{eq:bl.atmul}\tag{bl.atmul}
+\end{align}
+\end{restatable}
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash ( \tau \in \mathbf{T} \wedge {\otimes\hspace{-1pt}[}
+      \msc{csl_1} ] \in \mathbb{R} \wedge
+      {\otimes\hspace{-1pt}[} \msc{csl_2} ] \in \mathbb{R}
+      )&\text{Hyp~atmul.1}\notag%bl.atmul.1
+  \\ 2 && @2:\  & \vdash \tau \in \mathbf{T}&(\mbox{\ref{eq:simp1i}},1)\notag
+  \\ 3 &&  & \vdash \tau \in \mathbf{T}&(@2)\notag
+  \\ 4 &&  & \vdash {\otimes\hspace{-1pt}[} \msc{csl_1} , \msc{csl_2} ] = (
+      {\otimes\hspace{-1pt}[} \msc{csl_1} ] \times
+      {\otimes\hspace{-1pt}[} \msc{csl_2} ]
+      )&(\mbox{\ref{eq:df-bl.mul2}})\notag
+  \\ 5 &&  & \vdash \tau = \tau&(\mbox{\ref{eq:eqid}})\notag
+  \\ 6 &&  & \vdash \mathbf{I} \lsem ( {\otimes\hspace{-1pt}[} \msc{csl_1} ,
+      \msc{csl_2} ] @ \tau ) \rsem = \mathbf{I} \lsem ( (
+      {\otimes\hspace{-1pt}[} \msc{csl_1} ] \times
+      {\otimes\hspace{-1pt}[} \msc{csl_2} ] ) @ \tau )
+      \rsem&(\mbox{\ref{eq:bl.ateqci}},2,3,4,5)\notag
+  \\ 7 &&  & \vdash ( \tau \in \mathbf{T} \wedge {\otimes\hspace{-1pt}[}
+      \msc{csl_1} ] \in \mathbb{R} \wedge
+      {\otimes\hspace{-1pt}[} \msc{csl_2} ] \in \mathbb{R}
+      )&\text{Hyp~atmul.1}\notag%bl.atmul.1
+  \\ 8 &&  & \vdash ( ( \tau \in \mathbf{T} \wedge {\otimes\hspace{-1pt}[}
+      \msc{csl_1} ] \in \mathbb{R} \wedge
+      {\otimes\hspace{-1pt}[} \msc{csl_2} ] \in \mathbb{R}
+      ) \rightarrow \notag \\ & & & \qquad
+       \mathbf{I} \lsem ( (
+      {\otimes\hspace{-1pt}[} \msc{csl_1} ] \times
+      {\otimes\hspace{-1pt}[} \msc{csl_2} ] ) @ \tau )
+      \rsem = \mathbf{I} \lsem ( ( {\otimes\hspace{-1pt}[}
+      \msc{csl_1} ] @ \tau ) \times (
+      {\otimes\hspace{-1pt}[} \msc{csl_2} ] @ \tau ) )
+      \rsem )&(\mbox{\ref{eq:df-bl.atmul2}})\notag
+  \\ 9 &&  & \vdash \mathbf{I} \lsem ( ( {\otimes\hspace{-1pt}[} \msc{csl_1} ]
+      \times {\otimes\hspace{-1pt}[} \msc{csl_2} ] ) @ \tau
+      ) \rsem = \mathbf{I} \lsem ( (
+      {\otimes\hspace{-1pt}[} \msc{csl_1} ] @ \tau ) \times
+      ( {\otimes\hspace{-1pt}[} \msc{csl_2} ] @ \tau ) )
+      \rsem&(\mbox{\ref{eq:ax-mp}},7,8)\notag
+  \\ 10 &&  & \vdash \mathbf{I} \lsem ( {\otimes\hspace{-1pt}[} \msc{csl_1} ,
+      \msc{csl_2} ] @ \tau ) \rsem = \mathbf{I} \lsem ( (
+      {\otimes\hspace{-1pt}[} \msc{csl_1} ] @ \tau ) \times
+      ( {\otimes\hspace{-1pt}[} \msc{csl_2} ] @ \tau ) )
+      \rsem&(\mbox{\ref{eq:eqtri}},6,9)\notag
+\end{align}
+\end{proof}
+
+\begin{restatable}{metadefinition}{dfblatsub}~\blTitle{df-bl.atsub}~ Distribute @ over subtraction.
+\begin{align}
+\vdash ( ( \tau \in \mathbf{T} \wedge \mc{B} \in \mathbb{R} \wedge \mc{C} \in
+    \mathbb{R} ) \rightarrow \mathbf{I} \lsem ( ( \mc{B} \minus \mc{C} ) @ \tau
+    ) \rsem = \mathbf{I} \lsem ( ( \mc{B} @ \tau ) \minus ( \mc{C} @ \tau ) )
+    \rsem )\label{eq:df-bl.atsub}\tag{df-bl.atsub}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{blatsubi}~\blTitle{bl.atsubi}~ Distribute @ over subtraction, inference.
+\begin{align}
+\vdash ( \tau \in \mathbf{T} \wedge \mc{B} \in \mathbb{R} \wedge \mc{C} \in
+    \mathbb{R} )\quad\Rightarrow\quad \vdash \mathbf{I} \lsem ( ( \mc{B} \minus
+    \mc{C} ) @ \tau ) \rsem = \mathbf{I} \lsem ( ( \mc{B} @ \tau ) \minus (
+    \mc{C} @ \tau ) ) \rsem\label{eq:bl.atsubi}\tag{bl.atsubi}
+\end{align}
+\end{restatable}
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash ( \tau \in \mathbf{T} \wedge \mc{B} \in \mathbb{R} \wedge
+      \mc{C} \in \mathbb{R}
+      )&\text{Hyp~atsubi.1}\notag%bl.atsubi.1
+  \\ 2 &&  & \vdash ( ( \tau \in \mathbf{T} \wedge \mc{B} \in \mathbb{R} \wedge
+      \mc{C} \in \mathbb{R} ) \rightarrow \mathbf{I} \lsem
+      ( ( \mc{B} \minus \mc{C} ) @ \tau ) \rsem =
+      \mathbf{I} \lsem ( ( \mc{B} @ \tau ) \minus ( \mc{C}
+      @ \tau ) ) \rsem
+      )&(\mbox{\ref{eq:df-bl.atsub}})\notag
+  \\ 3 &&  & \vdash \mathbf{I} \lsem ( ( \mc{B} \minus \mc{C} ) @ \tau ) \rsem
+      = \mathbf{I} \lsem ( ( \mc{B} @ \tau ) \minus (
+      \mc{C} @ \tau ) )
+      \rsem&(\mbox{\ref{eq:ax-mp}},1,2)\notag
+\end{align}
+\end{proof}
+
+\begin{restatable}{metadefinition}{dfblatdiv}~\blTitle{df-bl.atdiv}~ Distribute @ over division.
+\begin{align}
+\vdash ( ( \tau \in \mathbf{T} \wedge \mc{B} \in \mathbb{R} \wedge \mc{C} \in
+    \mathbb{R} ) \rightarrow \mathbf{I} \lsem ( ( \mc{B} / \mc{C} ) @ \tau )
+    \rsem = \mathbf{I} \lsem ( ( \mc{B} @ \tau ) / ( \mc{C} @ \tau ) ) \rsem
+    )\label{eq:df-bl.atdiv}\tag{df-bl.atdiv}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{blatdivi}~\blTitle{bl.atdivi}~ Distribute @ over division, inference.
+\begin{align}
+\vdash ( \tau \in \mathbf{T} \wedge \mc{B} \in \mathbb{R} \wedge \mc{C} \in
+    \mathbb{R} )\quad\Rightarrow\quad \vdash \mathbf{I} \lsem ( ( \mc{B} /
+    \mc{C} ) @ \tau ) \rsem = \mathbf{I} \lsem ( ( \mc{B} @ \tau ) / ( \mc{C} @
+    \tau ) ) \rsem\label{eq:bl.atdivi}\tag{bl.atdivi}
+\end{align}
+\end{restatable}
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash ( \tau \in \mathbf{T} \wedge \mc{B} \in \mathbb{R} \wedge
+      \mc{C} \in \mathbb{R}
+      )&\text{Hyp~atdivi.1}\notag%bl.atdivi.1
+  \\ 2 &&  & \vdash ( ( \tau \in \mathbf{T} \wedge \mc{B} \in \mathbb{R} \wedge
+      \mc{C} \in \mathbb{R} ) \rightarrow \mathbf{I} \lsem
+      ( ( \mc{B} / \mc{C} ) @ \tau ) \rsem = \mathbf{I}
+      \lsem ( ( \mc{B} @ \tau ) / ( \mc{C} @ \tau ) ) \rsem
+      )&(\mbox{\ref{eq:df-bl.atdiv}})\notag
+  \\ 3 &&  & \vdash \mathbf{I} \lsem ( ( \mc{B} / \mc{C} ) @ \tau ) \rsem =
+      \mathbf{I} \lsem ( ( \mc{B} @ \tau ) / ( \mc{C} @
+      \tau ) ) \rsem&(\mbox{\ref{eq:ax-mp}},1,2)\notag
+\end{align}
+\end{proof}
+
+\begin{restatable}{metadefinition}{dfblatum}~\blTitle{df-bl.atum}~ Distribute @ over unary minus.
+\begin{align}
+\vdash ( \tau \in \mathbf{T} \rightarrow \mathbf{I} \lsem ( \textrm{-} \mc{A} @
+    \tau ) \rsem = \mathbf{I} \lsem \textrm{-} ( \mc{A} @ \tau ) \rsem
+    )\label{eq:df-bl.atum}\tag{df-bl.atum}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{blatumi}~\blTitle{bl.atumi}~ Distribute @ over unary minus, inference.
+\begin{align}
+\vdash \tau \in \mathbf{T}\quad\Rightarrow\quad \vdash \mathbf{I} \lsem (
+    \textrm{-} \mc{A} @ \tau ) \rsem = \mathbf{I} \lsem \textrm{-} ( \mc{A} @
+    \tau ) \rsem\label{eq:bl.atumi}\tag{bl.atumi}
+\end{align}
+\end{restatable}
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash \tau \in \mathbf{T}&\text{Hyp~atumi.1}\notag%bl.atumi.1
+  \\ 2 &&  & \vdash ( \tau \in \mathbf{T} \rightarrow \mathbf{I} \lsem (
+      \textrm{-} \mc{A} @ \tau ) \rsem = \mathbf{I} \lsem
+      \textrm{-} ( \mc{A} @ \tau ) \rsem
+      )&(\mbox{\ref{eq:df-bl.atum}})\notag
+  \\ 3 &&  & \vdash \mathbf{I} \lsem ( \textrm{-} \mc{A} @ \tau ) \rsem =
+      \mathbf{I} \lsem \textrm{-} ( \mc{A} @ \tau )
+      \rsem&(\mbox{\ref{eq:ax-mp}},1,2)\notag
+\end{align}
+\end{proof}
+
+\begin{restatable}{metadefinition}{dfblateq}~\blTitle{df-bl.ateq}~ Distribute @ over equality.
+\begin{align}
+\vdash ( ( \tau \in \mathbf{T} \wedge \mc{A} \in \mathbb{R} \wedge \mc{B} \in
+    \mathbb{R} ) \rightarrow ( \mathbf{I} \lsem ( \mc{A} = \mc{B} @ \tau )
+    \rsem \leftrightarrow \mathbf{I} \lsem ( \mc{A} @ \tau ) = ( \mc{B} @ \tau
+    ) \rsem ) )\label{eq:df-bl.ateq}\tag{df-bl.ateq}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{blateq}~\blTitle{bl.ateq}~ Distribute @ over equality, inference.
+\begin{align}
+\vdash \tau \in \mathbf{T}\quad\&\quad \vdash ( \mc{A} \in \mathbb{R} \wedge
+    \mc{B} \in \mathbb{R} )\quad\Rightarrow\quad \vdash ( \mathbf{I} \lsem (
+    \mc{A} = \mc{B} @ \tau ) \rsem \leftrightarrow \mathbf{I} \lsem ( \mc{A} @
+    \tau ) = ( \mc{B} @ \tau ) \rsem )\label{eq:bl.ateq}\tag{bl.ateq}
+\end{align}
+\end{restatable}
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash \tau \in \mathbf{T}&\text{Hyp~ateq.1}\notag%bl.ateq.1
+  \\ 2 &&  & \vdash ( \mc{A} \in \mathbb{R} \wedge \mc{B} \in \mathbb{R}
+      )&\text{Hyp~ateq.2}\notag%bl.ateq.2
+  \\ 3 &&  & \vdash ( \tau \in \mathbf{T} \wedge ( \mc{A} \in \mathbb{R} \wedge
+      \mc{B} \in \mathbb{R} )
+      )&(\mbox{\ref{eq:pm3.2i}},1,2)\notag
+  \\ 4 &&  & \vdash ( ( ( \tau \in \mathbf{T} \wedge \mc{A} \in \mathbb{R} )
+      \wedge \mc{B} \in \mathbb{R} ) \leftrightarrow ( \tau
+      \in \mathbf{T} \wedge ( \mc{A} \in \mathbb{R} \wedge
+      \mc{B} \in \mathbb{R} ) )
+      )&(\mbox{\ref{eq:anass}})\notag
+  \\ 5 &&  & \vdash ( ( \tau \in \mathbf{T} \wedge \mc{A} \in \mathbb{R} )
+      \wedge \mc{B} \in \mathbb{R}
+      )&(\mbox{\ref{eq:mpbir}},3,4)\notag
+  \\ 6 &&  & \vdash ( ( \tau \in \mathbf{T} \wedge \mc{A} \in \mathbb{R} \wedge
+      \mc{B} \in \mathbb{R} ) \leftrightarrow ( ( \tau \in
+      \mathbf{T} \wedge \mc{A} \in \mathbb{R} ) \wedge
+      \mc{B} \in \mathbb{R} )
+      )&(\mbox{\ref{eq:df-3an}})\notag
+  \\ 7 &&  & \vdash ( \tau \in \mathbf{T} \wedge \mc{A} \in \mathbb{R} \wedge
+      \mc{B} \in \mathbb{R}
+      )&(\mbox{\ref{eq:mpbir}},5,6)\notag
+  \\ 8 &&  & \vdash ( ( \tau \in \mathbf{T} \wedge \mc{A} \in \mathbb{R} \wedge
+      \mc{B} \in \mathbb{R} ) \rightarrow ( \mathbf{I}
+      \lsem ( \mc{A} = \mc{B} @ \tau ) \rsem
+      \leftrightarrow \mathbf{I} \lsem ( \mc{A} @ \tau ) =
+      ( \mc{B} @ \tau ) \rsem )
+      )&(\mbox{\ref{eq:df-bl.ateq}})\notag
+  \\ 9 &&  & \vdash ( \mathbf{I} \lsem ( \mc{A} = \mc{B} @ \tau ) \rsem
+      \leftrightarrow \mathbf{I} \lsem ( \mc{A} @ \tau ) =
+      ( \mc{B} @ \tau ) \rsem
+      )&(\mbox{\ref{eq:ax-mp}},7,8)\notag
+\end{align}
+\end{proof}
+
+\begin{restatable}{metadefinition}{dfblatlt}~\blTitle{df-bl.atlt}~ Distribute @ over less than.
+\begin{align}
+\vdash ( ( \tau \in \mathbf{T} \wedge \mc{A} \in \mathbb{R} \wedge \mc{B} \in
+    \mathbb{R} ) \rightarrow ( \mathbf{I} \lsem ( \mc{A} < \mc{B} @ \tau )
+    \rsem \leftrightarrow \mathbf{I} \lsem ( \mc{A} @ \tau ) < ( \mc{B} @ \tau
+    ) \rsem ) )\label{eq:df-bl.atlt}\tag{df-bl.atlt}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{blatlti}~\blTitle{bl.atlti}~ Distribute @ over less than, inference.
+\begin{align}
+\vdash \tau \in \mathbf{T}\quad\&\quad \vdash ( \mc{A} \in \mathbb{R} \wedge
+    \mc{B} \in \mathbb{R} )\quad\Rightarrow\quad \vdash ( \mathbf{I} \lsem (
+    \mc{A} < \mc{B} @ \tau ) \rsem \leftrightarrow \mathbf{I} \lsem ( \mc{A} @
+    \tau ) < ( \mc{B} @ \tau ) \rsem )\label{eq:bl.atlti}\tag{bl.atlti}
+\end{align}
+\end{restatable}
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash \tau \in \mathbf{T}&\text{Hyp~atlti.1}\notag%bl.atlti.1
+  \\ 2 &&  & \vdash ( \mc{A} \in \mathbb{R} \wedge \mc{B} \in \mathbb{R}
+      )&\text{Hyp~atlti.2}\notag%bl.atlti.2
+  \\ 3 &&  & \vdash ( \tau \in \mathbf{T} \wedge ( \mc{A} \in \mathbb{R} \wedge
+      \mc{B} \in \mathbb{R} )
+      )&(\mbox{\ref{eq:pm3.2i}},1,2)\notag
+  \\ 4 &&  & \vdash ( ( ( \tau \in \mathbf{T} \wedge \mc{A} \in \mathbb{R} )
+      \wedge \mc{B} \in \mathbb{R} ) \leftrightarrow ( \tau
+      \in \mathbf{T} \wedge ( \mc{A} \in \mathbb{R} \wedge
+      \mc{B} \in \mathbb{R} ) )
+      )&(\mbox{\ref{eq:anass}})\notag
+  \\ 5 &&  & \vdash ( ( \tau \in \mathbf{T} \wedge \mc{A} \in \mathbb{R} )
+      \wedge \mc{B} \in \mathbb{R}
+      )&(\mbox{\ref{eq:mpbir}},3,4)\notag
+  \\ 6 &&  & \vdash ( ( \tau \in \mathbf{T} \wedge \mc{A} \in \mathbb{R} \wedge
+      \mc{B} \in \mathbb{R} ) \leftrightarrow ( ( \tau \in
+      \mathbf{T} \wedge \mc{A} \in \mathbb{R} ) \wedge
+      \mc{B} \in \mathbb{R} )
+      )&(\mbox{\ref{eq:df-3an}})\notag
+  \\ 7 &&  & \vdash ( \tau \in \mathbf{T} \wedge \mc{A} \in \mathbb{R} \wedge
+      \mc{B} \in \mathbb{R}
+      )&(\mbox{\ref{eq:mpbir}},5,6)\notag
+  \\ 8 &&  & \vdash ( ( \tau \in \mathbf{T} \wedge \mc{A} \in \mathbb{R} \wedge
+      \mc{B} \in \mathbb{R} ) \rightarrow ( \mathbf{I}
+      \lsem ( \mc{A} < \mc{B} @ \tau ) \rsem
+      \leftrightarrow \mathbf{I} \lsem ( \mc{A} @ \tau ) <
+      ( \mc{B} @ \tau ) \rsem )
+      )&(\mbox{\ref{eq:df-bl.atlt}})\notag
+  \\ 9 &&  & \vdash ( \mathbf{I} \lsem ( \mc{A} < \mc{B} @ \tau ) \rsem
+      \leftrightarrow \mathbf{I} \lsem ( \mc{A} @ \tau ) <
+      ( \mc{B} @ \tau ) \rsem
+      )&(\mbox{\ref{eq:ax-mp}},7,8)\notag
+\end{align}
+\end{proof}
+
+\begin{restatable}{lemma}{blatami}~\blTitle{bl.atami}~ Distribute @ over at most, inference.
+\begin{align}
+\vdash \tau \in \mathbf{T}\quad\&\quad \vdash ( \mc{A} \in \mathbb{R} \wedge
+    \mc{B} \in \mathbb{R} )\quad\Rightarrow\quad \vdash ( \mathbf{I} \lsem (
+    \mc{A} \le \mc{B} @ \tau ) \rsem \leftrightarrow \mathbf{I} \lsem ( \mc{A}
+    @ \tau ) \le ( \mc{B} @ \tau ) \rsem )\label{eq:bl.atami}\tag{bl.atami}
+\end{align}
+\end{restatable}
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash \tau \in \mathbf{T}&\text{Hyp~atami.1}\notag%bl.atami.1
+  \\ 2 &&  & \vdash ( \mathbf{I} \lsem \mc{A} \le \mc{B} , \tau \rsem
+      \leftrightarrow \mathbf{I} \lsem \mc{A} , \tau \rsem
+      \le \mathbf{I} \lsem \mc{B} , \tau \rsem
+      )&(\mbox{\ref{eq:df-bl.amt}},1)\notag
+  \\ 3 &&  & \vdash \tau \in \mathbf{T}&\text{Hyp~atami.1}\notag%bl.atami.1
+  \\ 4 &&  & \vdash ( \mathbf{I} \lsem ( \mc{A} \le \mc{B} @ \tau ) \rsem
+      \leftrightarrow \mathbf{I} \lsem \mc{A} \le \mc{B} ,
+      \tau \rsem )&(\mbox{\ref{eq:df-bl.at}},3)\notag
+  \\ 5 &&  & \vdash \tau \in \mathbf{T}&\text{Hyp~atami.1}\notag%bl.atami.1
+  \\ 6 &&  & \vdash \mathbf{I} \lsem ( \mc{A} @ \tau ) \rsem = \mathbf{I} \lsem
+      \mc{A} , \tau
+      \rsem&(\mbox{\ref{eq:df-bl.atc}},5)\notag
+  \\ 7 &&  & \vdash \tau \in \mathbf{T}&\text{Hyp~atami.1}\notag%bl.atami.1
+  \\ 8 &&  & \vdash \mathbf{I} \lsem ( \mc{B} @ \tau ) \rsem = \mathbf{I} \lsem
+      \mc{B} , \tau
+      \rsem&(\mbox{\ref{eq:df-bl.atc}},7)\notag
+  \\ 9 &&  & \vdash ( \mathbf{I} \lsem ( \mc{A} @ \tau ) \rsem \le \mathbf{I}
+      \lsem ( \mc{B} @ \tau ) \rsem \leftrightarrow
+      \mathbf{I} \lsem \mc{A} , \tau \rsem \le \mathbf{I}
+      \lsem \mc{B} , \tau \rsem
+      )&(\mbox{\ref{eq:breq12i}},6,8)\notag
+  \\ 10 &&  & \vdash ( \mathbf{I} \lsem ( \mc{A} \le \mc{B} @ \tau ) \rsem
+      \leftrightarrow \mathbf{I} \lsem ( \mc{A} @ \tau )
+      \rsem \le \mathbf{I} \lsem ( \mc{B} @ \tau ) \rsem
+      )&(\mbox{\ref{eq:3bitr4i}},2,4,9)\notag
+  \\ 11 &&  & \vdash ( \mathbf{I} \lsem ( \mc{A} @ \tau ) \le ( \mc{B} @ \tau )
+      \rsem \leftrightarrow \mathbf{I} \lsem ( \mc{A} @
+      \tau ) \rsem \le \mathbf{I} \lsem ( \mc{B} @ \tau )
+      \rsem )&(\mbox{\ref{eq:df-bl.am}})\notag
+  \\ 12 &&  & \vdash ( \mathbf{I} \lsem ( \mc{A} \le \mc{B} @ \tau ) \rsem
+      \leftrightarrow \mathbf{I} \lsem ( \mc{A} @ \tau )
+      \le ( \mc{B} @ \tau ) \rsem
+      )&(\mbox{\ref{eq:bitr4i}},10,11)\notag
+\end{align}
+\end{proof}
+
+\begin{restatable}{metadefinition}{dfblatal}~\blTitle{df-bl.atal}~ Distribute @ over universal
+quantification.
+\begin{align}
+\vdash ( \tau \in \mathbf{T} \rightarrow ( \mathbf{I} \lsem ( \forall \msc{x}
+    \in \mc{A}~\mw{\varphi} @ \tau ) \rsem \leftrightarrow \mathbf{I} \lsem
+    \forall \msc{x} \in \mc{A} ( \mw{\varphi} @ \tau ) \rsem )
+    )\label{eq:df-bl.atal}\tag{df-bl.atal}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{metadefinition}{dfblatexi}~\blTitle{df-bl.atexi}~ Distribute @ over existential
+quantification, inference.
+\begin{align}
+\vdash \tau \in \mathbf{T}\quad\Rightarrow\quad \vdash ( \mathbf{I} \lsem (
+    \exists \msc{x} \in \mc{A}~\mw{\varphi} @ \tau ) \rsem \leftrightarrow
+    \mathbf{I} \lsem \exists \msc{x} \in \mc{A} ( \mw{\varphi} @ \tau ) \rsem
+    )\label{eq:df-bl.atexi}\tag{df-bl.atexi}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{metadefinition}{dfblatsum}~\blTitle{df-bl.atsum}~ Distribute @ over summation.
+\begin{align}
+\vdash ( \tau \in \mathbf{T} \rightarrow \mathbf{I} \lsem ( \sum \msc{x} \in
+    \mc{A} \mc{B} @ \tau ) \rsem = \mathbf{I} \lsem \sum \msc{x} \in \mc{A} (
+    \mc{B} @ \tau ) \rsem )\label{eq:df-bl.atsum}\tag{df-bl.atsum}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{metadefinition}{dfblatprod}~\blTitle{df-bl.atprod}~ Distribute @ over product.
+\begin{align}
+\vdash ( \tau \in \mathbf{T} \rightarrow \mathbf{I} \lsem ( \prod \msc{x} \in
+    \mc{A} \mc{B} @ \tau ) \rsem = \mathbf{I} \lsem \prod \msc{x} \in \mc{A} (
+    \mc{B} @ \tau ) \rsem )\label{eq:df-bl.atprod}\tag{df-bl.atprod}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{metadefinition}{dfblatqq}~\blTitle{df-bl.atqq}~ Distribute @ over conditional
+expression.
+\begin{align}
+\vdash \tau \in \mathbf{T}\quad\Rightarrow\quad \vdash \mathbf{I} \lsem (
+    \,\mathrm{if} ( \mw{\varphi} , \mc{A} , \mc{B} ) @ \tau ) \rsem =
+    \mathbf{I} \lsem \,\mathrm{if} ( ( \mw{\varphi} @ \tau ) , ( \mc{A} @ \tau
+    ) , ( \mc{B} @ \tau ) ) \rsem\label{eq:df-bl.atqq}\tag{df-bl.atqq}
+\end{align}
+\end{restatable}
+

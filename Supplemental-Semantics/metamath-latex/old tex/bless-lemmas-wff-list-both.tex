@@ -1,0 +1,210 @@
+% This LaTeX file was created by Metamath on 24-Dec-2023 8:33 PM.
+\begin{lemma}\blTitle{bl.dbo2a} {Distribution or-over-and two terms with
+wff-lists}
+\begin{align}
+\vdash ( \bigwedge( \mwl{l_1} ( \mw{\varphi} \vee \mw{\psi} ) ) \leftrightarrow
+    ( ( \mw{\varphi} \wedge \bigwedge( \mwl{l_1} ) ) \vee ( \mw{\psi} \wedge
+    \bigwedge( \mwl{l_1} ) ) ) )\label{eq:bl.dbo2a}\tag{bl.dbo2a}
+\end{align}
+\end{lemma}
+
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash ( \bigwedge( \mwl{l_1} ( \mw{\varphi} \vee \mw{\psi} ) )
+     \leftrightarrow \bigwedge( ( \mw{\varphi} \vee
+     \mw{\psi} ) \mwl{l_1} )
+     )&(\mbox{\ref{eq:bl.ancomwlwl}})\notag
+  \\ 2 &&  & \vdash ( \bigwedge( ( \mw{\varphi} \vee \mw{\psi} ) \mwl{l_1} )
+     \leftrightarrow ( \bigwedge( ( \mw{\varphi} \vee
+     \mw{\psi} ) ) \wedge \bigwedge( \mwl{l_1} ) )
+     )&(\mbox{\ref{eq:df-bl.lan2wl}})\notag
+  \\ 3 &&  & \vdash ( \bigwedge( \mwl{l_1} ( \mw{\varphi} \vee \mw{\psi} ) )
+     \leftrightarrow ( \bigwedge( ( \mw{\varphi} \vee
+     \mw{\psi} ) ) \wedge \bigwedge( \mwl{l_1} ) )
+     )&(\mbox{\ref{eq:bitri}},1,2)\notag
+  \\ 4 &&  & \vdash ( \bigwedge( ( \mw{\varphi} \vee \mw{\psi} ) )
+     \leftrightarrow ( \mw{\varphi} \vee \mw{\psi} )
+     )&(\mbox{\ref{eq:df-bl.lan1}})\notag
+  \\ 5 &&  & \vdash ( ( \bigwedge( ( \mw{\varphi} \vee \mw{\psi} ) ) \wedge
+     \bigwedge( \mwl{l_1} ) ) \leftrightarrow ( (
+     \mw{\varphi} \vee \mw{\psi} ) \wedge \bigwedge(
+     \mwl{l_1} ) ) )&(\mbox{\ref{eq:anbi1i}},4)\notag
+  \\ 6 &&  & \vdash ( ( ( \mw{\varphi} \vee \mw{\psi} ) \wedge \bigwedge(
+     \mwl{l_1} ) ) \leftrightarrow ( ( \mw{\varphi} \wedge
+     \bigwedge( \mwl{l_1} ) ) \vee ( \mw{\psi} \wedge
+     \bigwedge( \mwl{l_1} ) ) )
+     )&(\mbox{\ref{eq:andir}})\notag
+  \\ 7 &&  & \vdash ( \bigwedge( \mwl{l_1} ( \mw{\varphi} \vee \mw{\psi} ) )
+     \leftrightarrow ( ( \mw{\varphi} \wedge \bigwedge(
+     \mwl{l_1} ) ) \vee ( \mw{\psi} \wedge \bigwedge(
+     \mwl{l_1} ) ) )
+     )&(\mbox{\ref{eq:3bitri}},3,5,6)\notag
+\end{align}
+\end{proof}
+
+\begin{lemma}\blTitle{bl.dba2o} {Distribution and-over-or two terms with
+wff-lists.}
+\begin{align}
+\vdash ( \bigvee( \mwl{l_1} ( \mw{\varphi} \wedge \mw{\psi} ) ) \leftrightarrow
+    ( ( \mw{\varphi} \vee \bigvee( \mwl{l_1} ) ) \wedge ( \mw{\psi} \vee
+    \bigvee( \mwl{l_1} ) ) ) )\label{eq:bl.dba2o}\tag{bl.dba2o}
+\end{align}
+\end{lemma}
+
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash ( \bigvee( \mwl{l_1} ( \mw{\varphi} \wedge \mw{\psi} ) )
+     \leftrightarrow \bigvee( ( \mw{\varphi} \wedge
+     \mw{\psi} ) \mwl{l_1} )
+     )&(\mbox{\ref{eq:bl.orcomwlwl}})\notag
+  \\ 2 &&  & \vdash ( \bigvee( ( \mw{\varphi} \wedge \mw{\psi} ) \mwl{l_1} )
+     \leftrightarrow ( \bigvee( ( \mw{\varphi} \wedge
+     \mw{\psi} ) ) \vee \bigvee( \mwl{l_1} ) )
+     )&(\mbox{\ref{eq:df-bl.lor2wl}})\notag
+  \\ 3 &&  & \vdash ( \bigvee( \mwl{l_1} ( \mw{\varphi} \wedge \mw{\psi} ) )
+     \leftrightarrow ( \bigvee( ( \mw{\varphi} \wedge
+     \mw{\psi} ) ) \vee \bigvee( \mwl{l_1} ) )
+     )&(\mbox{\ref{eq:bitri}},1,2)\notag
+  \\ 4 &&  & \vdash ( \bigvee( ( \mw{\varphi} \wedge \mw{\psi} ) )
+     \leftrightarrow ( \mw{\varphi} \wedge \mw{\psi} )
+     )&(\mbox{\ref{eq:df-bl.lor1}})\notag
+  \\ 5 &&  & \vdash ( ( \bigvee( ( \mw{\varphi} \wedge \mw{\psi} ) ) \vee
+     \bigvee( \mwl{l_1} ) ) \leftrightarrow ( (
+     \mw{\varphi} \wedge \mw{\psi} ) \vee \bigvee(
+     \mwl{l_1} ) ) )&(\mbox{\ref{eq:orbi1i}},4)\notag
+  \\ 6 &&  & \vdash ( ( ( \mw{\varphi} \wedge \mw{\psi} ) \vee \bigvee(
+     \mwl{l_1} ) ) \leftrightarrow ( ( \mw{\varphi} \vee
+     \bigvee( \mwl{l_1} ) ) \wedge ( \mw{\psi} \vee
+     \bigvee( \mwl{l_1} ) ) )
+     )&(\mbox{\ref{eq:ordir}})\notag
+  \\ 7 &&  & \vdash ( \bigvee( \mwl{l_1} ( \mw{\varphi} \wedge \mw{\psi} ) )
+     \leftrightarrow ( ( \mw{\varphi} \vee \bigvee(
+     \mwl{l_1} ) ) \wedge ( \mw{\psi} \vee \bigvee(
+     \mwl{l_1} ) ) )
+     )&(\mbox{\ref{eq:3bitri}},3,5,6)\notag
+\end{align}
+\end{proof}
+
+\begin{lemma}\blTitle{bl.dbo2awl} {Distribution or-over-and with wff-lists.}
+\begin{align}
+\vdash ( \bigwedge( \mwl{l_1} \bigvee( \mwl{l_2} \mwl{l_3} ) ) \leftrightarrow
+    ( ( \bigvee( \mwl{l_2} ) \wedge \bigwedge( \mwl{l_1} ) ) \vee ( \bigvee(
+    \mwl{l_3} ) \wedge \bigwedge( \mwl{l_1} ) ) )
+    )\label{eq:bl.dbo2awl}\tag{bl.dbo2awl}
+\end{align}
+\end{lemma}
+
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash ( \bigwedge( \mwl{l_1} \bigvee( \mwl{l_2} \mwl{l_3} ) )
+     \leftrightarrow ( \bigwedge( \mwl{l_1} ) \wedge
+     \bigvee( \mwl{l_2} \mwl{l_3} ) )
+     )&(\mbox{\ref{eq:bl.anplw}})\notag
+  \\ 2 &&  & \vdash ( ( \bigwedge( \mwl{l_1} ) \wedge \bigvee( \mwl{l_2}
+     \mwl{l_3} ) ) \leftrightarrow ( \bigvee( \mwl{l_2}
+     \mwl{l_3} ) \wedge \bigwedge( \mwl{l_1} ) )
+     )&(\mbox{\ref{eq:ancom}})\notag
+  \\ 3 &&  & \vdash 
+    \begin{array}{c}
+    ( ( \bigwedge( \mwl{l_1} \bigvee( \mwl{l_2} \mwl{l_3} ) )
+     \leftrightarrow ( \bigwedge( \mwl{l_1} ) \wedge
+     \bigvee( \mwl{l_2} \mwl{l_3} ) ) )  \\
+      \leftrightarrow \\ (
+     \bigwedge( \mwl{l_1} \bigvee( \mwl{l_2} \mwl{l_3} ) )
+     \leftrightarrow ( \bigvee( \mwl{l_2} \mwl{l_3} )
+     \wedge \bigwedge( \mwl{l_1} ) ) )
+     )
+     \end{array}
+     &(\mbox{\ref{eq:bibi2i}},2)\notag
+  \\ 4 &&  & \vdash ( \bigwedge( \mwl{l_1} \bigvee( \mwl{l_2} \mwl{l_3} ) )
+     \leftrightarrow ( \bigvee( \mwl{l_2} \mwl{l_3} )
+     \wedge \bigwedge( \mwl{l_1} ) )
+     )&(\mbox{\ref{eq:mpbi}},1,3)\notag
+  \\ 5 &&  & \vdash ( \bigvee( \mwl{l_2} \mwl{l_3} ) \leftrightarrow ( \bigvee(
+     \mwl{l_2} ) \vee \bigvee( \mwl{l_3} ) )
+     )&(\mbox{\ref{eq:df-bl.lor2wl}})\notag
+  \\ 6 &&  & \vdash ( ( \bigvee( \mwl{l_2} \mwl{l_3} ) \wedge \bigwedge(
+     \mwl{l_1} ) ) \leftrightarrow ( ( \bigvee( \mwl{l_2}
+     ) \vee \bigvee( \mwl{l_3} ) ) \wedge \bigwedge(
+     \mwl{l_1} ) ) )&(\mbox{\ref{eq:anbi1i}},5)\notag
+  \\ 7 &&  & \vdash 
+    \begin{array}{c}  
+     ( ( ( \bigvee( \mwl{l_2} ) \vee \bigvee( \mwl{l_3} ) )
+     \wedge \bigwedge( \mwl{l_1} ) ) \\
+      \leftrightarrow \\ ( (
+     \bigvee( \mwl{l_2} ) \wedge \bigwedge( \mwl{l_1} ) )
+     \vee ( \bigvee( \mwl{l_3} ) \wedge \bigwedge(
+     \mwl{l_1} ) ) ) )
+     \end{array}
+        &(\mbox{\ref{eq:andir}})\notag
+  \\ 8 &&  & \vdash ( \bigwedge( \mwl{l_1} \bigvee( \mwl{l_2} \mwl{l_3} ) )
+     \leftrightarrow ( ( \bigvee( \mwl{l_2} ) \wedge
+     \bigwedge( \mwl{l_1} ) ) \vee ( \bigvee( \mwl{l_3} )
+     \wedge \bigwedge( \mwl{l_1} ) ) )
+     )&(\mbox{\ref{eq:3bitri}},4,6,7)\notag
+\end{align}
+\end{proof}
+
+\begin{lemma}\blTitle{bl.dba2owl} {Distribution and-over-or with wff lists.}
+\begin{align}
+\vdash ( \bigvee( \mwl{l_1} \bigwedge( \mwl{l_2} \mwl{l_3} ) ) \leftrightarrow
+    ( ( \bigwedge( \mwl{l_2} ) \vee \bigvee( \mwl{l_1} ) ) \wedge ( \bigwedge(
+    \mwl{l_3} ) \vee \bigvee( \mwl{l_1} ) ) )
+    )\label{eq:bl.dba2owl}\tag{bl.dba2owl}
+\end{align}
+\end{lemma}
+
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash ( \bigvee( \mwl{l_1} \bigwedge( \mwl{l_2} \mwl{l_3} ) )
+     \leftrightarrow ( \bigvee( \mwl{l_1} ) \vee
+     \bigwedge( \mwl{l_2} \mwl{l_3} ) )
+     )&(\mbox{\ref{eq:bl.orplw}})\notag
+  \\ 2 &&  & \vdash ( ( \bigvee( \mwl{l_1} ) \vee \bigwedge( \mwl{l_2}
+     \mwl{l_3} ) ) \leftrightarrow ( \bigwedge( \mwl{l_2}
+     \mwl{l_3} ) \vee \bigvee( \mwl{l_1} ) )
+     )&(\mbox{\ref{eq:orcom}})\notag
+  \\ 3 &&  & \vdash
+    \begin{array}{c}    
+     ( ( \bigvee( \mwl{l_1} \bigwedge( \mwl{l_2} \mwl{l_3} ) )
+     \leftrightarrow ( \bigvee( \mwl{l_1} ) \vee
+     \bigwedge( \mwl{l_2} \mwl{l_3} ) ) ) \\ \leftrightarrow \\
+     ( \bigvee( \mwl{l_1} \bigwedge( \mwl{l_2} \mwl{l_3} )
+     ) \leftrightarrow ( \bigwedge( \mwl{l_2} \mwl{l_3} )
+     \vee \bigvee( \mwl{l_1} ) ) )
+     )
+     \end{array}
+     & (\mbox{\ref{eq:bibi2i}},2)\notag
+  \\ 4 &&  & \vdash ( \bigvee( \mwl{l_1} \bigwedge( \mwl{l_2} \mwl{l_3} ) )
+     \leftrightarrow ( \bigwedge( \mwl{l_2} \mwl{l_3} )
+     \vee \bigvee( \mwl{l_1} ) )
+     )&(\mbox{\ref{eq:mpbi}},1,3)\notag
+  \\ 5 &&  & \vdash ( \bigwedge( \mwl{l_2} \mwl{l_3} ) \leftrightarrow (
+     \bigwedge( \mwl{l_2} ) \wedge \bigwedge( \mwl{l_3} )
+     ) )&(\mbox{\ref{eq:df-bl.lan2wl}})\notag
+  \\ 6 &&  & \vdash ( ( \bigwedge( \mwl{l_2} \mwl{l_3} ) \vee \bigvee(
+     \mwl{l_1} ) ) \leftrightarrow ( ( \bigwedge(
+     \mwl{l_2} ) \wedge \bigwedge( \mwl{l_3} ) ) \vee
+     \bigvee( \mwl{l_1} ) )
+     )&(\mbox{\ref{eq:orbi1i}},5)\notag
+  \\ 7 &&  & \vdash 
+    \begin{array}{c}    
+    ( ( ( \bigwedge( \mwl{l_2} ) \wedge \bigwedge( \mwl{l_3} )
+     ) \vee \bigvee( \mwl{l_1} ) ) \\ \leftrightarrow \\ ( (
+     \bigwedge( \mwl{l_2} ) \vee \bigvee( \mwl{l_1} ) )
+     \wedge ( \bigwedge( \mwl{l_3} ) \vee \bigvee(
+     \mwl{l_1} ) ) ) )
+     \end{array}
+     &(\mbox{\ref{eq:ordir}})\notag
+  \\ 8 &&  & \vdash ( \bigvee( \mwl{l_1} \bigwedge( \mwl{l_2} \mwl{l_3} ) )
+     \leftrightarrow ( ( \bigwedge( \mwl{l_2} ) \vee
+     \bigvee( \mwl{l_1} ) ) \wedge ( \bigwedge( \mwl{l_3}
+     ) \vee \bigvee( \mwl{l_1} ) ) )
+     )&(\mbox{\ref{eq:3bitri}},4,6,7)\notag
+\end{align}
+\end{proof}
+

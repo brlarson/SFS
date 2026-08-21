@@ -1,0 +1,30 @@
+%InteractionSemantics.tex
+
+\ksec{Interactions Semantics (KerML 8.4.4.10)}
+
+\pn An \texttt{Interaction} is both an \texttt{Association} and a \texttt{Behavior}, and, therefore, the semantic constraints for both \texttt{Associations} (see KerML \S8.4.4.5 ) and \texttt{Behaviors} (see KerML \S8.4.4.7 ) apply.  A binary \texttt{Interaction} (with exactly two end Features), implicitly specializes \texttt{Links::BinaryLink}.  Otherwise, \texttt{Interaction} implicitly specializes \texttt{Links::Link}.
+
+\pn These constraints require an N-ary Interaction to have the form (with implied relationships included):
+
+\begin{lstlisting}
+interaction I specializes Link::Link, Performances::Performance { 
+  end feature e1 subsets Links::Link::participant;
+  end feature e2 subsets Links::Link::participant;
+  ...
+  end feature eN subsets Links::Link::participant; 
+}
+\end{lstlisting}
+
+A binary Interaction has the form:
+\begin{lstlisting}
+interaction B specializes Links::BinaryLink, Performances::Performance { 
+  end feature e1 redefines Links::BinaryLink::source;
+  end feature e2 redefines Links::BinaryLink::target;
+}
+\end{lstlisting}
+
+\pn Because \texttt{Behavior} specializes \texttt{Performance}, an  \texttt{Interaction} is an \texttt{Occurrence}, which happens once.
+Therefore, when used (as the type of a feature) it needs to have multiplicity [0..*] to occur an unknown and unlimited number of times.
+
+\pn A \texttt{Transfer} is an \texttt{Interaction} which is both a \texttt{Performance} and a \texttt{BinaryLink}.  A \texttt{Transfer} represents the transfer of a payload from the source of the interaction to the target of the interaction.
+

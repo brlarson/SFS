@@ -1,0 +1,134 @@
+%FlowSemantics.tex
+
+\ksec{Flows (KerML 8.4.4.10.2)}\label{sec:flows}
+
+\pn  A \texttt{Flow} is both a \texttt{Step} and a \texttt{Connector}.  A \texttt{Flow} is a feature typed by a \texttt{Transfer}.
+A \texttt{Flow} with \texttt{ownedEndFeatures} must specialize \texttt{Transfers::flowTransfers}.
+\ecaption{}
+\begin{lstlisting}
+    abstract flow flowTransfers: FlowTransfer[0..*] nonunique subsets transfers {
+        doc
+        /*
+         * flowTransfers is a specialization of transfers restricted to type FlowTransfers.
+         * It is the default subsetting for non-succession flows.
+         */
+         
+        end feature source: Occurrence redefines FlowTransfer::source, transfers::source;
+        end feature target: Occurrence redefines FlowTransfer::target, transfers::target;
+    }
+\end{lstlisting}
+
+\pn \texttt{Transfer.isInstant} should default to true.
+
+\comment{Source and target should be directed features of a  \texttt{Behavior}-- not  \texttt{Occurrences} themselves.}
+
+\subsection{Message Transfer}\label{subsec:messagetransfer}	 
+
+\pn \texttt{MessageTransfer} differs from \texttt{FlowTransfer} in how transfers occur.
+
+\ecaption{MessageTransfer}
+\begin{lstlisting}
+	interaction MessageTransfer specializes Transfer {
+		doc
+		/*
+		 * A MessageTransfer is a Transfer that does not specify where items are picked
+		 * up and dropped off (see FlowTransfer).  They are sent by SendPerformances and
+		 * accepted by AcceptPerformances.
+		 */
+	}
+\end{lstlisting}
+
+\texttt{MessageTransfer}, \texttt{SendPerformance}, \texttt{AcceptPerformance} are considered with \texttt{SendAction} and \texttt{AcceptAction} in  \ref{sec:action}.
+
+\subsection{Flow Transfer}\label{subsec:flowtransfer}	 
+\ecaption{FlowTransfer}
+\begin{lstlisting}
+	interaction FlowTransfer specializes Transfer disjoint from MessageTransfer {
+		doc
+		/*
+		 * A FlowTransfer is a Transfer identifying an output feature of the source from which
+		 * to pick up items and an input feature of the target to drop them off. They can
+		 * start when items are available at the source and move or copy them to the target.
+		 */
+		 
+		feature isMove: Boolean[1] default true {
+			doc
+			/*
+			 * If isMove is true, then all items leave the source at the start
+			 * of the transfer.
+			 */
+		}
+        
+        feature isPush: Boolean[1] default true {
+            doc
+            /*
+             * If isPush is true, then the transfer begins when the payload is available
+             * at the source.
+             */
+        }
+    . . .
+\end{lstlisting}
+
+\pn \texttt{FlowTransfer} needs temporal semantics.  Consider:
+
+\begin{lstlisting}
+flow of i : T from b1.f1_out to b2.f2_in;
+\end{lstlisting}
+\begin{itemize}
+\item The payload is \texttt{i}, typed by  \texttt{T}.
+\item The source behavior  \texttt{b1} is typed by behavior \texttt{B1} which has  \texttt{out} feature  \texttt{f1\_out}.
+\item The target behavior  \texttt{b2} is typed by behavior \texttt{B2} which has  \texttt{in} feature  \texttt{f2\_in}.
+\item Features \texttt{f1\_out} and  \texttt{f2\_in} must also be typed by  \texttt{T}.  
+\item A transfer is initiated when \texttt{f1\_out} changes value (\texttt{isPush} is true).
+\item A transfer completes by setting the value of  \texttt{f2\_in} to the new value of  \texttt{f1\_out} .
+\item The (immediate) transfer takes no time (\texttt{isInstant} is true).
+\item The payload disappears from \texttt{f1\_out} and appears at  \texttt{f2\_in} (\texttt{isMove} is true).
+\end{itemize}
+
+
+\begin{restatable}{definition}{blitemflow}~\blTitle{df-bl.itemflow}~ Define Item Flow
+\begin{align}
+\texttt{flow of i:T from b1.f1\_out to b2.f2\_in;} \Rightarrow \notag \\
+\vdash (\tau \in \textbf{T} ~\wedge~ \tau = \texttt{changed}(\texttt{f1\_out},\tau)~\wedge~ \textbf{I}\langle \texttt{f1\_out},\tau\rangle~=~\textbf{I}\langle \texttt{f2\_in},\tau+\delta\rangle  \notag \\
+\wedge~\textbf{I}\langle\texttt{f1\_out},\tau+\delta\rangle~=~\emptyset~\wedge~\textbf{I}\langle\texttt{f2\_in},\tau\rangle~=~\emptyset~)
+\label{eq:df-bl.itemflow}\tag{df-bl.itemflow}
+\end{align}
+\end{restatable}
+
+\pn In other words, when the value of feature \texttt{f1\_out} changes (becomes non-empty) at time $\tau$, the value of \texttt{f2\_out} becomes the new value at time
+$\tau+\delta$.
+
+\pn Formal semantics of \texttt{FlowTransfer} requires that \texttt{isInstant}, \texttt{isMove}, and \texttt{isPush} all be true.  Default for \texttt{isInstant} is missing.
+
+%\comment{Multiple issues:  ItemFlow specializes Connector and Step, so it's a Classifier.  But the checkItemFlowSpecialization constraint requires that ItemFlows specialize Transfers::transfers, which is a \emph{feature}.  The metaclass definition of ItemFlow does not correspond to Transfers::Transfer.}
+%
+%\begin{lstlisting}
+%		metaclass ItemFlow specializes Connector, Step {
+%			derived feature itemType : Classifier[0..*];
+%			derived feature targetInputFeature : Feature[0..1];
+%			derived feature sourceOutputFeature : Feature[0..1];
+%			derived feature itemFlowEnd : ItemFlowEnd[0..2] subsets connectorEnd;
+%			derived feature itemFeature : ItemFeature[0..1] subsets ownedFeature;
+%			derived feature 'interaction' : Interaction[0..*] redefines association, 'behavior';
+%		}		
+%\end{lstlisting}
+%
+%\begin{lstlisting}
+%	interaction Transfer specializes Performance, BinaryLink {	
+%		end feature source: Occurrence[0..*] redefines BinaryLink::source {
+%			feature sourceOutput: Occurrence[0..*];
+%		}	
+%		end feature target: Occurrence[0..*] redefines BinaryLink::target {
+%		    feature targetInput: Occurrence[0..*];
+%		}
+%		readonly feature isInstant: Boolean[1] { }
+%		feature item: Anything[1..*] { }
+%		feature itemNum: Natural [1] = size(item);
+%		private instantNum: Natural[1] = if isInstant? 1 else 0;
+%		private binding instant[instantNum] of startShot[0..1] = endShot[0..1] { }
+%	}
+%\end{lstlisting}
+
+%\comment{ItemFlow::itemType is typed by Classifier; Transfer::item can be Anything.}
+
+

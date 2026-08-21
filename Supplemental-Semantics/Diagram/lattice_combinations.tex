@@ -1,0 +1,123 @@
+%lattice_combinations.tex
+%draw lattices for insertion sequential and concurrent combination
+
+\setcounter{lwidth}{600}
+\setcounter{lheight}{150}
+
+\begin{picture}(\value{lwidth},\value{lheight})(0,0)
+%\graphpaper(0,0)(\value{lwidth},\value{lheight})
+
+\setcounter{circlediameter}{15}
+\thicklines
+
+%DRAW LATTICES INSERTION COMBINATION
+\color{blue}
+
+\drawarc{1}{6}{1}{7}{1}{16}
+\drawarc{1}{6}{1}{7}{2}{16}
+\drawarc{1}{6}{1}{7}{3}{16}
+\drawarc{1}{6}{1}{7}{4}{16}
+
+\drawarc{2}{6}{2}{16}{3}{40}
+\drawarc{2}{6}{2}{16}{4}{40}
+\drawarc{2}{6}{2}{16}{5}{40}
+\drawarc{2}{6}{2}{16}{6}{40}
+
+\drawarc{4}{6}{3}{40}{2}{16}
+\drawarc{4}{6}{4}{40}{2}{16}
+\drawarc{4}{6}{5}{40}{2}{16}
+\drawarc{4}{6}{6}{40}{2}{16}
+
+\drawarc{5}{6}{1}{16}{1}{7}
+\drawarc{5}{6}{2}{16}{1}{7}
+\drawarc{5}{6}{3}{16}{1}{7}
+\drawarc{5}{6}{4}{16}{1}{7}
+
+\color{green}
+\drawtextnode %{row}{numrows}{node}{numnodesinrow}{text}
+	{1}{6}{1}{7}{$\ell_1$}
+
+\drawtextnode{2}{6}{2}{16}{$\ell_2$}
+\drawtextnode{5}{6}{2}{16}{$u_2$}
+
+\drawtextnode{6}{6}{1}{7}{$u_1$}
+
+\color{black}
+\put(50,0){\scalebox{\nodetextscalefactor}[\nodetextscalefactor]
+	{$\intervalsub{i}{1}[e=\intervalsub{i}{2}]$}}
+
+%\color{black}
+%\put(-20,137){\scalebox{\nodetextscalefactor}[\nodetextscalefactor]
+%	{$\intervalsub{i}{1}=(V_{1},E_{1})$}}
+%\put(-20,67){\scalebox{\nodetextscalefactor}[\nodetextscalefactor]
+%	{$\intervalsub{i}{2}=(V_{2},E_{2})$}}
+
+%SEQUENTIAL COMBINATION
+\color{blue}
+\drawarc{1}{11}{3}{7}{5}{16}
+\drawarc{1}{11}{3}{7}{6}{16}
+\drawarc{1}{11}{3}{7}{7}{16}
+\drawarc{1}{11}{3}{7}{8}{16}
+
+\drawarc{4}{11}{5}{16}{3}{7}
+\drawarc{4}{11}{6}{16}{3}{7}
+\drawarc{4}{11}{7}{16}{3}{7}
+\drawarc{4}{11}{8}{16}{3}{7}
+
+\drawarc{5}{11}{3}{7}{5}{16}
+\drawarc{5}{11}{3}{7}{6}{16}
+\drawarc{5}{11}{3}{7}{7}{16}
+\drawarc{5}{11}{3}{7}{8}{16}
+
+\drawarc{9}{11}{5}{16}{3}{7}
+\drawarc{9}{11}{6}{16}{3}{7}
+\drawarc{9}{11}{7}{16}{3}{7}
+\drawarc{9}{11}{8}{16}{3}{7}
+
+\color{green}
+\drawtextnode %{row}{numrows}{node}{numnodesinrow}{text}
+	{1}{11}{3}{7}{$\ell_1$}
+\drawtextnode{5}{11}{3}{7}{$u_1=\ell_2$}
+%\drawnode{5}{11}{3}{7}
+
+\drawtextnode{10}{11}{3}{7}{$u_2$}
+
+\color{black}
+\put(210,0){\scalebox{\nodetextscalefactor}[\nodetextscalefactor]
+	{$\intervalsub{i}{1}\curvearrowright\intervalsub{i}{2}$}}
+	
+%CONCURRENT COMBINATION
+\color{blue}
+\drawarc{1}{11}{6}{7}{9}{16}
+\drawarc{1}{11}{6}{7}{10}{16}
+\drawarc{1}{11}{6}{7}{11}{16}
+\drawarc{1}{11}{6}{7}{12}{16}
+\drawarc{1}{11}{6}{7}{13}{16}
+\drawarc{1}{11}{6}{7}{14}{16}
+\drawarc{1}{11}{6}{7}{15}{16}
+\drawarc{1}{11}{6}{7}{16}{16}
+
+\drawarc{4}{11}{9}{16}{6}{7}
+\drawarc{4}{11}{10}{16}{6}{7}
+\drawarc{4}{11}{11}{16}{6}{7}
+\drawarc{4}{11}{12}{16}{6}{7}
+\drawarc{4}{11}{13}{16}{6}{7}
+\drawarc{4}{11}{14}{16}{6}{7}
+\drawarc{4}{11}{15}{16}{6}{7}
+\drawarc{4}{11}{16}{16}{6}{7}
+
+
+\color{green}
+\drawtextnode %{row}{numrows}{node}{numnodesinrow}{text}
+	{1}{11}{6}{7}{$\ell_1=\ell_2$}
+\drawtextnode{5}{11}{6}{7}{$u_1=u_2$}
+%\drawnode{5}{11}{3}{7}
+
+
+\color{black}
+\put(430,60){\scalebox{\nodetextscalefactor}[\nodetextscalefactor]
+	{$\intervalsub{i}{1} \downdownarrows\intervalsub{i}{2}$}}
+
+
+
+\end{picture}

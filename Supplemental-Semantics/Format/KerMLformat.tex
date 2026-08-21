@@ -1,0 +1,565 @@
+%KerMLformat.tex
+
+\usepackage[parfill]{parskip}    % Activate to begin paragraphs with an empty line rather than an indent
+\usepackage{color}
+\usepackage{calc}			%need to overcome: ! Missing number, treated as zero. <to be read again>
+\usepackage{epstopdf}
+
+%% LaTeX - Article customise
+
+%%% PACKAGES
+\usepackage{cite} % will properly break citation lists across lines
+\usepackage{booktabs} 	% for much better looking tables
+\usepackage{array} 			% for better arrays (eg matrices) in maths
+\usepackage{paralist} 		% very flexible & customisable lists (eg. enumerate/itemize, etc.)
+\usepackage{verbatim} 		% adds environment for commenting out blocks of text & for better verbatim
+%conflicts with tocloft \usepackage{subfigure} 	% make it possible to include more than one captioned figure/table in a single float
+
+%  THEOREMS
+\usepackage{amsthm} 		% for theorem styles
+\usepackage{thmtools}      % for theorem tools \declaretheorem and \declaretheoremstyle 
+\usepackage{thm-restate}  %  restatable theorems
+%\usepackage{amsopn}		% for \DeclareMathOperator
+\usepackage{soul} 			% for underlining
+
+%  FONTS and SYMBOLS
+\usepackage{amssymb} 	% for math symbols
+\usepackage{amsmath}		% for \DeclareMathOperator
+\usepackage{semantic} 		% for logic symbols and inference rules
+\usepackage{txfonts}			% for \llbracket and \rrbracket
+\usepackage{MnSymbol}	% for \nsqsubset \ \nmodels and \mathsf
+\usepackage{accents}     % for \underaccent
+\usepackage{courier}  % make typewriter font Courier so \texttt has bold
+%\usepackage{phonetic}      % for \riota
+%\usepackage[fleqn]{amsmath} 	% for math words like wp
+%\usepackage[mathscr]{eucal} % for Euler math script fonts
+%\usepackage{eufrak} 		% for Euler Fraktur font
+
+%  GRAPHICS
+\usepackage{graphicx}
+\usepackage{tikz}				%graphics package, uses PGF
+\usepackage{graphpap}		% for graphpaper in the picture environment
+\DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `dirname #1`/`basename #1 .tif`.png}
+%\input xy							% for XY-pic to draw graphs
+%\xyoption{all}					% use XY-graph feature "combinatoric drawing language"
+
+\usepackage{ragged2e} 	% for FlushRight and FlushLeft justifications
+%\usepackage{graphs}		% for lattice drawing--doesn't work with TeXShop
+%\usepackage{calc}				% for expressions in length calculations
+\usepackage{ifthen}			% for if-then-else
+\usepackage{wrapfig}		% to wrap text around figures with \begin{wrapfigure} environment
+\usepackage{makeidx}		%MakeIndex
+\usepackage{fancyhdr}     %header and footer style
+\usepackage{lastpage}     %determines LastPage number
+\usepackage{supertabular}  %breaks-up tables bigger than one page
+%hyperref want to be last package
+\usepackage[hyperfootnotes=false]{hyperref}		% makes clickable hyperlinks
+\usepackage{xr-hyper}    %external references  use \zref{LRM-x} for LRM references
+
+% LISTINGS
+\usepackage{listings}      %listings package for BLESS/AADL program text
+%\usepackage{minitoc}      %table of contents for each Part
+\usepackage{chngcntr}  % prevent reset of paragraph counter
+\usepackage{fancyvrb}  % fancy verbatim for BNF
+%\usepackage{alltt}
+
+%%%  CHAPTER APPEARANCE
+\usepackage[Lenny]{fncychap}
+%\usepackage[Conny]{fncychap}
+\usepackage{titlesec}
+\usepackage[nottoc,notlof,notlot]{tocbibind} % Put the bibliography in the ToC
+\usepackage[titles]{tocloft} % Alter the style of the Table of Contents
+\usepackage{makeidx}		% for using MakeIndex
+
+% PAGE/MARGIN PARAMETERS
+\setlength\textwidth{450 pt}
+\setlength\textheight{8.5in}
+\setlength\topmargin{0 pt}
+\setlength\oddsidemargin{20 pt}
+\setlength\evensidemargin{20 pt}
+\setlength\headheight{10pt}
+
+%HEADER-FOOTER
+\pagestyle{fancy}
+\setlength\headheight{23pt}
+\lhead{\textsf{\nouppercase{\leftmark}}}
+\rhead{\textsf{\nouppercase{\rightmark}}}
+%\rhead{\textsf{\thesection}}
+%\chead{}
+%\rfoot{\color{red}\textsf{\blessversion}} 
+%\rfoot{\textsf{\nouppercase{\rightmark}}}
+%\cfoot{\multitudelogo{0.04}}
+\cfoot{}
+\rfoot{-\thepage-}
+%\rfoot{\color{red}\textsf{[\blessversion]}}
+\renewcommand\headrule{\hrule height 2pt width\headwidth}
+
+
+%%%%%%%%%% NUMBERING %%%%%%%%%%%%%%%%%%
+%\renewcommand{\thechapter}{\arabic{chapter}}
+\renewcommand{\thepart}{\Roman{part}}
+\renewcommand{\thechapter}{\arabic{chapter}}
+\renewcommand{\thesection}{\thechapter.\arabic{section}}
+\renewcommand{\thesubsection}{\thesection.\arabic{subsection}}
+\renewcommand{\thesubsubsection}{\thesubsection.\roman{subsubsection}}
+
+% COLORS
+\definecolor{commentcolor}{gray}{0.6}
+\definecolor{codebackgroundcolor}{rgb}{0.9,0.99,0.9}
+\definecolor{glossarycolor}{rgb}{1.0,0.0,1.0}
+\definecolor{paragraphnumbercolor}{rgb}{0.99,0.60,0.60}
+%colors for Metamath proofs
+\definecolor{wffcolor}{rgb}{0,0,0.9}
+\definecolor{wfflstcolor}{rgb}{0.0,0.5,0.3}
+\definecolor{formulacolor}{rgb}{0,0.1,1}
+\definecolor{variablecolor}{rgb}{1,0.2,0}
+\definecolor{classcolor}{rgb}{0.7,0.2,0.6}
+\definecolor{actioncolor}{rgb}{1,0.8,0.2}
+\definecolor{assertioncolor}{rgb}{1.0,0.7,0.0}
+\definecolor{blcolor}{rgb}{0.1,0,.8}
+\definecolor{leancolor}{rgb}{1.0,0,1.0}
+\definecolor{leanyellow}{rgb}{0.7,0.7,0}
+\definecolor{assertedactioncolor}{rgb}{0,1,0}
+\definecolor{setmmcolor}{rgb}{0.2,0.3,0.1}
+
+% MATH COLORING
+%well-formed formulas
+\newcommand{\mw}[1]{{\color{wffcolor}#1}}
+%well-formed formula lists
+\newcommand{\mwl}[1]{{\color{wfflstcolor}#1}}
+%set variables
+\newcommand{\msc}[1]{{\color{variablecolor}#1}}
+%classes
+\newcommand{\mc}[1]{{\color{classcolor}#1}}
+%metamath type-names wff class setvar
+\newcommand{\mm}[1]{{\color{gray}#1}}
+%assertions
+\newcommand{\mass}[1]{{\color{assertioncolor}#1}}
+%actions
+\newcommand{\mact}[1]{{\color{actioncolor}#1}}
+%asserted actions
+\newcommand{\maa}[1]{{\color{assertedactioncolor}#1}}
+
+
+%SYMBOL for empty class
+\newcommand{\emptyclass}{\mc{\emptyset}}
+
+
+%  size of text in listings
+\newcommand{\listingsize}{\footnotesize}
+%define a language for listings
+\lstdefinelanguage{kerml}
+	{ 
+	keywords={},
+	morekeywords=[2]{ 
+about, abstract, alias, all, and, as, assoc, behavior, binding, bool, by, chains, class, crosses,
+classifier, comment, composite, conjugate, conjugates, conjugation, connector, datatype, 
+default, dependency, derived, differences, disjoining, disjoint, doc, else, end, expr, 
+false, feature, featured, featuring, filter, first, flow, for, from, function, hastype, if, 
+intersects, implies, import, in, inout, interaction, inv, inverse, inverting, istype, 
+language, member, metaclass, metadata, multiplicity, namespace, nonunique, not, null, of, 
+or, ordered, out, package, portion, predicate, private, protected, public, readonly, 
+redefines, redefinition, references, rep, return, specialization, specializes, step, 
+struct, subclassifier, subset, subsets, subtype, succession, then, to, true, type, typed, 
+typing, unions, var, xor
+},
+	sensitive=true,
+	morecomment=[l]{//},
+	columns=[r]fixed,
+	basicstyle=\ttfamily\listingsize,
+	tabsize=2,
+%	otherkeywords= {
+%	(, ),  [, ], ;,  ~, @, #, &, ^, |, *, **, +, -, /, ->, ., .., :, :: %, \{, \}, :>, :>>, ::>, <, <=, =, :=, ==, ===, !=, !==, >, >=, ?, ??, .?
+%  }
+	}
+	
+\lstset{language=kerml,
+%    basicstyle=\tiny,
+	keywordstyle={[1]\bfseries\color{blue}},  	%symbols
+	keywordstyle={[2]\bfseries\color{blue}},  %BLESS keywords
+	commentstyle={\itshape\color{commentcolor}},  %comments
+	frame=single,
+	frameround=tttt,
+	backgroundcolor= \color{codebackgroundcolor},	
+%	lineskip=-3pt,
+%	escapechar=\#,  %use to insert some LaTeX command in the listing
+%	numbers=left
+	}
+
+%switch font size to large temporarily for \lstinline
+\newcommand{\lstk}[1]
+{\lstset{language=kerml,basicstyle=\ttfamily\large}\lstinline{#1}\lstset{language=kerml,basicstyle=\ttfamily\listingsize}}
+
+%define a language for Lean 4 listings (Lean4SFS/SFS.lean, Lean4SFS/DSL.lean)
+\lstdefinelanguage{lean}
+	{
+	keywords={},
+	morekeywords=[2]{
+theorem, lemma, def, abbrev, structure, inductive, class, instance, axiom, opaque,
+example, where, deriving, extends, mutual, namespace, section, end, open, import,
+universe, variable, set_option, noncomputable, partial, unsafe, private, protected,
+scoped, local, macro, macro_rules, syntax, notation, infix, infixl, infixr, prefix,
+postfix, elab, elab_rules, attribute, by, do, let, fun, match, with, if, then, else,
+have, show, suffices, from, calc, this, sorry, exact, apply, intro, intros, rfl, rw,
+simp, constructor, cases, rcases, obtain, induction, refine, use, forall, Type, Prop,
+Sort
+},
+	sensitive=true,
+	morecomment=[l]{--},
+	morecomment=[s]{/-}{-/},
+	morestring=[b]",
+	columns=[r]fixed,
+	basicstyle=\ttfamily\listingsize,
+	tabsize=2,
+	}
+
+\lstset{language=lean,
+	keywordstyle={[2]\bfseries\color{blue}},
+	commentstyle={\itshape\color{commentcolor}},
+	frame=single,
+	frameround=tttt,
+	backgroundcolor= \color{codebackgroundcolor},
+	}
+%restore kerml as the document-wide default language -- the \lstset{language=lean,...} call
+%above (needed to attach frame/commentstyle/etc. to the lean language) would otherwise silently
+%make lean the default for every later \begin{lstlisting} in the book that doesn't say
+%[language=kerml] explicitly. Select Lean listings per-call with \begin{lstlisting}[language=lean].
+\lstset{language=kerml}
+
+
+\renewcommand{\comment}[1]{{\color{commentcolor}{#1}}}
+
+\newcommand{\ksec}[1]{\section{#1}}
+%\newcommand{\ksec}[1]{\section{  [ #1 ]}\addcontentsline{toc}{section}{#1}}
+
+%%%% LIST OF CODE %%%%
+\newcommand\ecaption[1]{\addcontentsline{xmp}{example}{#1}}
+\makeatletter
+\newcommand\listofexamples{\chapter*{\huge{List of Example Code}}\@starttoc{xmp}}
+\newcommand\l@example[2]{\@dottedtocline{1}{1.5em}{2.3em}{#1} {#2}}
+\makeatother
+
+
+\newcommand{\Finv}{\rotatebox[origin=C]{180}{$\mathsf{F}$}}
+
+\newcommand\specialcaret{%
+  \stackengine{0pt}{\ \,}{\scalebox{1.5}[2]{\raisebox{-1ex}{\string^}}}{O}{c}{F}{T}{L}}
+
+
+%%%% LIST OF MATH %%%%
+\newcommand\lom[1]{\addcontentsline{lom}{math}{#1}}
+\makeatletter
+\newcommand\listofmath{\chapter*{\huge{Metamath Metadefinitions and Metatheorems}}\@starttoc{lom}}
+\newcommand\l@math[2]{\@dottedtocline{1}{1.5em}{2.3em}{#1} {#2}}
+\makeatother
+
+%%%% LIST OF INFERENCE RULES %%%%
+\newcommand\loir[1]{\addcontentsline{loir}{rule}{#1}}
+\makeatletter
+\newcommand\listofrules{\chapter*{\huge{Semantic Definitions}}\@starttoc{loir}}
+\newcommand\l@rule[2]{\@dottedtocline{1}{1.5em}{2.3em}{#1} {#2}}
+\makeatother
+
+%%% ToC APPEARANCE
+\makeatletter
+\renewcommand*{\l@subsection}{\@dottedtocline{2}{3.8em}{4em}} %\@dottedtocline{?seclevel ?}{?indent ?}{?numwidth ?}.
+\renewcommand*{\l@section}{\@dottedtocline{1}{1.5em}{3.3em}} %\@dottedtocline{?seclevel ?}{?indent ?}{?numwidth ?}.
+\makeatother
+\renewcommand{\cftsecfont}{\rmfamily\mdseries\upshape}
+\renewcommand{\cftsecpagefont}{\rmfamily\mdseries\upshape} % No bold!
+\setlength{\cfttabnumwidth}{3em}  %make list of tables number width bigger
+\setlength{\cftsubsecnumwidth}{20em}% Set length of number width in ToC for \subsection
+\setlength{\cftsecnumwidth}{6em}% Set length of number width in ToC for \section
+\setlength{\cftchapnumwidth}{2em}% Set length of number width in ToC for \chapter
+
+%%% INDEX
+\makeindex		% cause LaTeX to record index entries
+\newcommand{\bemph}[1]		%BLESS emphasis
+	{\emph{#1}\index{#1}}	%end of \bemph
+\newcommand{\textidx}[1]  %text word into index
+  {\texttt{#1}\index{#1@\texttt{#1}}}
+%\newcommand{\remph}[1]		%Requirements emphasis
+%	{\emph{#1}\index{#1}\footnote{requirement R\arabic{section}.\arabic{subsection}.\arabic{subsubsection}(\arabic{paragraph}):  \emph{#1}}%
+%	\index{zzzR\arabic{section}.\arabic{subsection}.\arabic{subsubsection}(\arabic{paragraph})@R\arabic{section}.\arabic{subsection}.\arabic{subsubsection}(\arabic{paragraph}) #1}}	%end of \remph
+%\newcommand{\rindex}[1]  %Requirements index	
+%	{\index{#1}\footnote{requirement R\arabic{section}.\arabic{subsection}.\arabic{subsubsection}(\arabic{paragraph}):  \emph{#1}}%
+%	\index{zzzR\arabic{section}.\arabic{subsection}.\arabic{subsubsection}(\arabic{paragraph})@R\arabic{section}.\arabic{subsection}.\arabic{subsubsection}(\arabic{paragraph}) #1}}	%end of \rindex
+
+%THEOREM STYLES
+\newtheoremstyle{semanticsstyle} %name of theorem style is "semanticsstyle"
+	{3pt} %space-above
+	{3pt} %space-below
+	{\upshape} %body-style
+	{-10pt} %indent
+	{\scshape\raggedright} %head-style
+	{ } %head-after-punct
+	{ } %head-after-space
+	{ } %head-full-spec
+
+%\theoremstyle{semanticsstyle}
+%\theoremstyle{plain}
+
+% counter for verification conditions
+%\newcounter{vccounter}
+\declaretheoremstyle[
+spaceabove=-10pt, spacebelow=-10pt,
+headfont=\normalfont\bfseries,
+notefont=\mdseries, notebraces={(}{)},
+bodyfont=\normalfont,
+postheadspace=2pt,
+qed={}
+]{blstyle}
+
+\declaretheorem[name=Theorem,style=blstyle,numbered=no,
+   shaded={rulecolor=green,rulewidth=2pt,bgcolor=white}]{theorem}
+\declaretheorem[name={Lean Theorem},style=blstyle,numbered=no,
+   shaded={rulecolor=green,rulewidth=2pt,bgcolor=white}]{leantheorem}
+%\newtheorem{theorem}{Theorem} %[section]
+\declaretheorem[name=Definition,style=blstyle,numbered=no,
+   shaded={rulecolor=red,rulewidth=2pt,bgcolor=white}]{definition}
+\declaretheorem[name={Lean Definition},style=blstyle,numbered=no,
+   shaded={rulecolor=red,rulewidth=2pt,bgcolor=white}]{leandefinition}
+\declaretheorem[name=Metadefinition,style=blstyle,numbered=no,
+   shaded={rulecolor=blue!50!black,rulewidth=2pt,bgcolor=white}]{metadefinition}
+%\newtheorem{definition}{Definition} %[section]
+\declaretheorem[name=Metatheorem,style=blstyle,numbered=no,
+  shaded={rulecolor=orange,rulewidth=2pt,bgcolor=white},]{lemma}
+%\newtheorem{lemma}{Lemma}  %[theorem]{Lemma}
+\declaretheorem[name=Axiom,style=blstyle, numbered=no,
+   shaded={rulecolor=yellow!50!black,rulewidth=2pt,bgcolor=white}]{axiom}
+\declaretheorem[name={Lean Axiom},style=blstyle, numbered=no,
+   shaded={rulecolor=yellow!50!black,rulewidth=2pt,bgcolor=white}]{leanaxiom}
+%\newtheorem{axiom}{Axiom} %[section]
+\declaretheorem[name={Verification Condition},style=blstyle]{vc}
+%\newtheorem{vc}{Verification Condition} %[vccounter]
+
+% shorter align environment replacement
+\newenvironment{salign}
+  {\vspace{-8pt}
+  \[
+  }
+  {
+  \]
+  \vspace{-10pt}
+  }
+
+\newcommand{\leanTitle}[2]{\emph{\large\tt\color{leancolor}#1}~~{#2}
+  \index{zzzl@\color{leancolor}Lean!\tt#1}\lom{\textcolor{leancolor}{\tt#1}~#2}}
+
+%replace "\label{def:" or "\label{the:" with  "\blTitle{" on all metamath-generated lemmas (BLESS theorems)
+\newcommand{\blTitle}[2]{\emph{\large\tt\color{blcolor}#1}~~{#2}
+  \index{zzzbl@\color{blcolor}Metatheorems!\tt#1}\lom{\textcolor{blcolor}{\tt#1}~#2}}
+
+%replace "\label{def:" with  "\otherTitle{" on all metamath-generated lemmas (everything else)
+\newcommand{\otherTitle}[2]{\emph{\large\tt\color{setmmcolor}#1}~~{#2}
+  \index{zzzmm@\color{setmmcolor}Metatheorems (from set.mm)!\tt#1}\lom{\textcolor{setmmcolor}{\tt#1}~#2}}
+   
+\newcommand{\ruleTitle}[2]{~{\bf\large #1}~~{\it#2}
+  \index{zzzrule@Semantic Definitions!#1}\loir{{\bf#1}~{\it#2}}}
+   
+%replace "\ref{eq:" with "\mmref{"
+\newcommand{\mmref}[1]{{\color{orange}\ref{#1}}}   
+
+% replace "\label{eq:"  with "\label{"
+
+% replace "\notag \\ && & \qquad " with " "
+
+%put Metamath theorem identifier in index, and make its label
+\newcommand{\mmlabel}[1]
+  {\label{eq:#1}\index{Metatheorems!#1}
+}% end of \mmlabel 
+
+% GLOSSARY ENTRIES
+\setlength{\fboxrule}{2pt}
+\newcommand{\gloss}[2]
+  {\index{#1|textbf} {\color{glossarycolor}\begin{center}\fbox{\parbox{\linewidth-1in}{\textbf{#1:}~~#2}}\end{center}}}
+
+%PREVENT RESET OF PARAGRAPH COUNTER
+%\usepackage{chngcntr}
+\counterwithout{paragraph}{section}
+\counterwithout{paragraph}{subsection}
+\counterwithout{paragraph}{subsubsection}
+
+%COUNTER RESET
+\makeatletter
+%\@addtoreset{paragraph}{chapter}
+\@addtoreset{paragraph}{section}
+%\@addtoreset{legalityrule}{chapter}
+%\@addtoreset{legalityrule}{section}
+%\@addtoreset{namingrule}{chapter}
+%\@addtoreset{namingrule}{section}
+%\@addtoreset{consistencyrule}{chapter}
+%\@addtoreset{consistencyrule}{section}
+%\@addtoreset{semantic}{chapter}
+%\@addtoreset{semantic}{section}
+%\@addtoreset{chapter}{part}
+\makeatother
+
+%PARAGRAPH NUMBERS
+% pn
+\newlength{\pnwidth}	%declare paragraph number width
+\newcommand\pn{
+	\stepcounter{paragraph}
+	\settowidth{\pnwidth}{(\arabic{paragraph})~~}  %get width of (1)
+	\hspace{-\pnwidth}
+	\raisebox{1pt}
+	{\color{paragraphnumbercolor}\small(\arabic{paragraph})}~}
+%\newcommand\pn{}
+
+%SYMBOLS FOR << AND >>
+\newcommand{\llx}{\ll\!\!}	%left <<
+\newcommand{\xgg}{\!\!\gg} 	%right >>
+
+%WORDS THAT ARE MATH OPERATORS
+\DeclareMathOperator*{\w}{\mathsf{wp}}
+\DeclareMathOperator*{\biff}{\lrarrow}
+\DeclareMathOperator*{\interferencefree}{interference-free}
+%\DeclareMathOperator*{\bif}{if}
+%\DeclareMathOperator*{\bfi}{fi}
+\DeclareMathOperator*{\bguard}{)~>}
+\DeclareMathOperator*{\band}{\wedge}
+\DeclareMathOperator*{\bor}{\vee}
+%\DeclareMathOperator*{\bxor}{xor}
+%\DeclareMathOperator*{\bnot}{not}
+\DeclareMathOperator*{\modulus}{\mathsf{mod}}
+\DeclareMathOperator*{\bdiv}{\mathsf{div}}
+\DeclareMathOperator*{\bcard}{\mathsf{card}}
+\DeclareMathOperator*{\bmin}{\mathsf{min}}
+\DeclareMathOperator*{\brem}{\mathsf{rem}}
+\DeclareMathOperator*{\intervalstart}{\mathsf{start}}
+\DeclareMathOperator*{\intervalend}{\mathsf{end}}
+\DeclareMathOperator*{\plusarrow}{+=>}
+\DeclareMathOperator*{\btops}{\mathsf{tops}}
+\DeclareMathOperator*{\bnow}{\mathsf{now}}
+\DeclareMathOperator*{\dotdot}{..}
+\DeclareMathOperator*{\commadot}{,.}
+\DeclareMathOperator*{\dotcomma}{..\,}
+\DeclareMathOperator*{\commacomma}{,,}
+
+% LATTICE DRAWING
+% counters for lattice drawing
+\newcounter{xnode}		%node center x coordinate
+\newcounter{ynode}		%node center y coordinate
+\newcounter{lwidth}		%lattice width
+\newcounter{lheight}		%lattice height
+\newcounter{noderow}	%node row
+\newcounter{numrows} %number of rows
+\newcounter{node}			%which node in row
+\newcounter{numnodesinrow}	%number of nodes in row
+\newcounter{nodespacing}	%length between node centers
+\newcounter{circlediameter}	%diameter of circles drawn
+\newcommand{\nodetextscalefactor}{1}	%scale factor for scalebox of text in lattice nodes
+
+% DRAW NODE
+\newcommand{\drawnode}[4] %{row}{numrows}{node}{numnodesinrow}
+	{
+	\setcounter{xnode}{#3 * (\value{lwidth} / (#4 + 1))}
+	\setcounter{ynode}{\value{lheight} - #1 * (\value{lheight} / (#2 + 1))}
+	\put(\value{xnode},\value{ynode}){\circle*{\value{circlediameter}}}
+	{\color{black} 
+		\put(\value{xnode},\value{ynode}){\circle{\value{circlediameter}}}
+		}
+	}
+	%end of \drawnode
+
+% DRAW NODE WITH TEXT
+\newcommand{\drawtextnode}[5] %{row}{numrows}{node}{numnodesinrow}{text}
+	{
+	\setcounter{xnode}{#3 * (\value{lwidth} / (#4 + 1))}
+	\setcounter{ynode}{\value{lheight} - #1 * (\value{lheight} / (#2 + 1))}
+	\put(\value{xnode},\value{ynode}){\circle*{\value{circlediameter}}}
+	{\color{black} 
+		\put(\value{xnode},\value{ynode}){\circle{\value{circlediameter}}}
+		%move 1/2 width left and 1/2 height down
+%		\addtocounter{xnode}{0-(\value{circlediameter}/4)}
+%		\addtocounter{ynode}{0-(\value{circlediameter}/4)}
+		\put(\value{xnode},\value{ynode}){#5}  %\scalebox{\nodetextscalefactor}{#5}}
+		}
+	}
+	%end of \drawnode
+
+% DRAW NODE ROW
+\newcommand{\drawnoderow}[3] %{row}{numrows}{numnodesinrow}
+	{
+	\setcounter{xnode}{\value{lwidth} / (#3 + 1)}
+	\setcounter{ynode}{\value{lheight} - #1 * (\value{lheight} / (#2 + 1))}
+	\multiput(\value{xnode},\value{ynode})(\value{xnode},0){#3}{\circle*{\value{circlediameter}}}
+	{\color{black} 
+		\multiput(\value{xnode},\value{ynode})(\value{xnode},0){#3}{\circle{\value{circlediameter}}}
+		}
+	}
+	%end of \drawnode
+
+% DRAW ARC TO LOWER ROW
+	\newcounter{xsource}	%x coordinate of source node
+	\newcounter{ysource}	%y coordinate of source node
+	\newcounter{xmid}	%x coordinate of midpoint node
+	\newcounter{ymid}	%y coordinate of midpoint node
+	\newcounter{xdest}	%x coordinate of destination node
+	\newcounter{ydest}	%y coordinate of destination node
+\newcommand{\drawarc}[6]	%{row}{numrows}{fromnode}{nodesinfromrow}{tonode}{nodesintorow}
+	{
+	\setcounter{xsource}{#3 * \value{lwidth} / (#4 + 1)}	%fromnode*width/(nodesinfromrow+1)
+	\setcounter{xdest}{#5 * \value{lwidth} / (#6 + 1)}	%tonode*width/(nodesintorow+1)
+	\setcounter{xmid}{(\value{xsource}+ \value{xdest})/2}					%midpoint is average
+	\setcounter{ysource}{\value{lheight} - #1 * (\value{lheight} / (#2 + 1))
+				 %- (\value{circlediameter}/2)
+				 }	%height-row*height/(numrows+1)
+	\setcounter{ydest}{\value{lheight} - (#1 + 1) * (\value{lheight} / (#2 + 1))
+				 %+ (\value{circlediameter}/2)
+				 }	%height-(row+1)*height/(numrows+1)
+	\setcounter{ymid}{(\value{ysource}+ \value{ydest})/2}					%midpoint is average
+	\ifthenelse{#4 > #6}			% nodesinfromrow < 	nodesintorow		 
+		{\setcounter{ymid}{(\value{ysource} + (3*\value{ydest}))/4}	}				
+		{\setcounter{ymid}{(\value{ydest} + (3*\value{ysource}))/4}		}				
+%	\qbezier(\value{xsource},\value{ysource})
+%			(\value{xmid},\value{ysource})
+%			(\value{xmid}, \value{ymid})
+%	\qbezier(\value{xmid}, \value{ymid})
+%			(\value{xmid}, \value{ydest})
+%			(\value{xdest}, \value{ydest})	
+	\qbezier(\value{xsource}, \value{ysource})
+			(\value{xmid}, \value{ymid})
+			(\value{xdest}, \value{ydest})	
+	}
+	%end of \drawarc
+
+% MATHEMATICAL MEANING DEFINITION "M" (must be in math mode)
+%make interval shape
+\newcommand{\interval}[1]{\ensuremath{
+	{\color{red}\underline{\mathbf{\mathfrak{#1}}}}}}		
+%make interval shape with subscript
+\newcommand{\intervalsub}[2]{\ensuremath{
+	{\color{red}\underline{\mathbf{\mathfrak{#1}}}_{#2}}}}
+%make M[[]]		
+\newcommand{\md}[1]{\ensuremath{\llbracket\mathfrak{M}\models~#1\rrbracket}}	
+%make Mi[[]]
+\newcommand{\mdi}[1]{\ensuremath{\llbracket\mathfrak{M}_{\interval{i}}\models~#1\rrbracket}}	
+%make Ms[[]]
+\newcommand{\mds}[1]{\ensuremath{\llbracket\mathfrak{M}_{s}\models~#1\rrbracket}}	
+%make Mx[[]]
+\newcommand{\mdx}[2]{\ensuremath{\llbracket\mathfrak{M}_{#2}\models~#1\rrbracket}}	
+
+%SEMANTICS COMMENTS
+\newcommand{\ssc}[1]{{\color{commentcolor}\textit{(#1)}}}
+
+%these eliminate unnecessary stuff from BAv2
+\newcommand{\JP}[1]{}
+\newcommand{\quoteBA}[2]{#2}
+\newcommand{\refBA}[1]{}
+\newcommand{\twoBA}[2]{}
+\newcommand{\notBA}[1]{}
+\newcommand{\reconciliation}[1]{} 
+
+%create mini tables of contents for each part (minitoc)
+%\doparttoc
+\newcommand{\riota}{\j}
+
+%BNF environment for grammar text
+\newenvironment{bnf}
+	{\VerbatimEnvironment\begin{BVerbatim}[commandchars=\\\{\},fontfamily=courier,obeytabs=true,tabsize=3]}
+	{\end{BVerbatim}}
+
+%put tilde in the middle
+\newcommand{\midtilde}{\raisebox{-0.3\baselineskip}{\textbf\textasciitilde}}
+

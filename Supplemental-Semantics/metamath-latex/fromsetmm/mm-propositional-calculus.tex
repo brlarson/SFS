@@ -1,0 +1,1090 @@
+% This LaTeX file was created by Metamath on 6-Mar-2024 11:48 AM.
+\begin{restatable}{axiom}{axmp}~\otherTitle{ax-mp}~ Rule of Modus Ponens.  
+Modus Ponens is the fundamental rule of inference upon which all others are defined.
+\begin{align}
+\vdash \mw{\varphi}\quad\&\quad \vdash ( \mw{\varphi} \rightarrow \mw{\psi}
+    )\quad\Rightarrow\quad \vdash \mw{\psi}\label{eq:ax-mp}\tag{ax-mp}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{axiom}{ax1}~\otherTitle{ax-1}~ Axiom -Simp-.  This axiom is called -Simp- or ``the principle of
+     simplification" in Principia Mathematica because ``it enables us to pass from the joint
+     assertion of $\mw{\varphi}$ and $\mw{\psi}$ to the assertion of
+$\mw{\varphi}$ simply".  
+\begin{align}
+\vdash ( \mw{\varphi} \rightarrow ( \mw{\psi} \rightarrow \mw{\varphi} )
+    )\label{eq:ax-1}\tag{ax-1}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{axiom}{ax2}~\otherTitle{ax-2}~ Axiom -Frege-.    It ``distributes" an antecedent over two
+     consequents.  
+\begin{align}
+\vdash ( ( \mw{\varphi} \rightarrow ( \mw{\psi} \rightarrow \mw{\chi} ) )
+    \rightarrow ( ( \mw{\varphi} \rightarrow \mw{\psi} ) \rightarrow (
+    \mw{\varphi} \rightarrow \mw{\chi} ) ) )\label{eq:ax-2}\tag{ax-2}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{axiom}{ax3}~\otherTitle{ax-3}~ Axiom -Transp-.   It swaps or ``transposes" the order of the
+     consequents when negation is removed.  
+\begin{align}
+\vdash ( ( \lnot \mw{\varphi} \rightarrow \lnot \mw{\psi} ) \rightarrow (
+    \mw{\psi} \rightarrow \mw{\varphi} ) )\label{eq:ax-3}\tag{ax-3}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{mp2b}~\otherTitle{mp2b}~ A double modus ponens inference.  
+\begin{align}
+\vdash \mw{\varphi}\quad\&\quad \vdash ( \mw{\varphi} \rightarrow \mw{\psi}
+    )\quad\&\quad \vdash ( \mw{\psi} \rightarrow \mw{\chi}
+    )\quad\Rightarrow\quad \vdash \mw{\chi}\label{eq:mp2b}\tag{mp2b}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{a1i}~\otherTitle{a1i}~ Inference introducing an antecedent. 
+\begin{align}
+\vdash \mw{\varphi}\quad\Rightarrow\quad \vdash ( \mw{\psi} \rightarrow
+    \mw{\varphi} )\label{eq:a1i}\tag{a1i}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{imim2i}~\otherTitle{imim2i}~ Inference adding common antecedents in an
+implication.  
+\begin{align}
+\vdash ( \mw{\varphi} \rightarrow \mw{\psi} )\quad\Rightarrow\quad \vdash ( (
+    \mw{\chi} \rightarrow \mw{\varphi} ) \rightarrow ( \mw{\chi} \rightarrow
+    \mw{\psi} ) )\label{eq:imim2i}\tag{imim2i}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{syl}~\otherTitle{syl}~ Hypothetical
+       Syllogism.  
+\begin{align}
+\vdash ( \mw{\varphi} \rightarrow \mw{\psi} )\quad\&\quad \vdash ( \mw{\psi}
+    \rightarrow \mw{\chi} )\quad\Rightarrow\quad \vdash ( \mw{\varphi}
+    \rightarrow \mw{\chi} )\label{eq:syl}\tag{syl}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{id}~\otherTitle{id}~ Principle of identity.  
+\begin{align}
+\vdash ( \mw{\varphi} \rightarrow \mw{\varphi} )\label{eq:id}\tag{id}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{idd}~\otherTitle{idd}~ Principle of identity with antecedent.
+\begin{align}
+\vdash ( \mw{\varphi} \rightarrow ( \mw{\psi} \rightarrow \mw{\psi} )
+    )\label{eq:idd}\tag{idd}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{pm2.86i}~\otherTitle{pm2.86i}~ Inference associated with {\tt pm2.86}.\footnote{Theorems starting with ``pm''
+are from Principia Mathematica and use its numbering.} 
+\begin{align}
+\vdash ( ( \mw{\varphi} \rightarrow \mw{\psi} ) \rightarrow ( \mw{\varphi}
+    \rightarrow \mw{\chi} ) )\quad\Rightarrow\quad \vdash ( \mw{\varphi}
+    \rightarrow ( \mw{\psi} \rightarrow \mw{\chi} )
+    )\label{eq:pm2.86i}\tag{pm2.86i}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{notnot}~\otherTitle{notnot}~ Double negation introduction. 
+\begin{align}
+\vdash ( \mw{\varphi} \rightarrow \lnot \lnot \mw{\varphi}
+    )\label{eq:notnot}\tag{notnot}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{pm2.61}~\otherTitle{pm2.61}~ Theorem *2.61 of Principia Mathematica. 
+Useful for eliminating an antecedent. 
+\begin{align}
+\vdash ( ( \mw{\varphi} \rightarrow \mw{\psi} ) \rightarrow ( ( \lnot
+    \mw{\varphi} \rightarrow \mw{\psi} ) \rightarrow \mw{\psi} )
+    )\label{eq:pm2.61}\tag{pm2.61}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{impbii}~\otherTitle{impbii}~ Infer an equivalence from an implication and
+its converse.  
+\begin{align}
+\vdash ( \mw{\varphi} \rightarrow \mw{\psi} )\quad\&\quad \vdash ( \mw{\psi}
+    \rightarrow \mw{\varphi} )\quad\Rightarrow\quad \vdash ( \mw{\varphi}
+    \leftrightarrow \mw{\psi} )\label{eq:impbii}\tag{impbii}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{biimpi}~\otherTitle{biimpi}~ Infer an implication from a logical
+equivalence.  
+\begin{align}
+\vdash ( \mw{\varphi} \leftrightarrow \mw{\psi} )\quad\Rightarrow\quad \vdash (
+    \mw{\varphi} \rightarrow \mw{\psi} )\label{eq:biimpi}\tag{biimpi}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{sylbi}~\otherTitle{sylbi}~ A mixed syllogism inference from a
+biconditional and an implication.
+\begin{align}
+\vdash ( \mw{\varphi} \leftrightarrow \mw{\psi} )\quad\&\quad \vdash (
+    \mw{\psi} \rightarrow \mw{\chi} )\quad\Rightarrow\quad \vdash (
+    \mw{\varphi} \rightarrow \mw{\chi} )\label{eq:sylbi}\tag{sylbi}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{biimpr}~\otherTitle{biimpr}~ Property of the biconditional connective. 
+\begin{align}
+\vdash ( ( \mw{\varphi} \leftrightarrow \mw{\psi} ) \rightarrow ( \mw{\psi}
+    \rightarrow \mw{\varphi} ) )\label{eq:biimpr}\tag{biimpr}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{bicom}~\otherTitle{bicom}~ Commutative law for the biconditional. 
+\begin{align}
+\vdash ( ( \mw{\varphi} \leftrightarrow \mw{\psi} ) \leftrightarrow ( \mw{\psi}
+    \leftrightarrow \mw{\varphi} ) )\label{eq:bicom}\tag{bicom}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{bicomi}~\otherTitle{bicomi}~ Inference from commutative law for logical
+equivalence.
+\begin{align}
+\vdash ( \mw{\varphi} \leftrightarrow \mw{\psi} )\quad\Rightarrow\quad \vdash (
+    \mw{\psi} \leftrightarrow \mw{\varphi} )\label{eq:bicomi}\tag{bicomi}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{biimpri}~\otherTitle{biimpri}~ Infer a converse implication from a logical
+equivalence.  
+\begin{align}
+\vdash ( \mw{\varphi} \leftrightarrow \mw{\psi} )\quad\Rightarrow\quad \vdash (
+    \mw{\psi} \rightarrow \mw{\varphi} )\label{eq:biimpri}\tag{biimpri}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{mpbi}~\otherTitle{mpbi}~ An inference from a biconditional, related to
+modus ponens.
+\begin{align}
+\vdash \mw{\varphi}\quad\&\quad \vdash ( \mw{\varphi} \leftrightarrow \mw{\psi}
+    )\quad\Rightarrow\quad \vdash \mw{\psi}\label{eq:mpbi}\tag{mpbi}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{mpbir}~\otherTitle{mpbir}~ An inference from a biconditional, related to
+modus ponens.
+\begin{align}
+\vdash \mw{\psi}\quad\&\quad \vdash ( \mw{\varphi} \leftrightarrow \mw{\psi}
+    )\quad\Rightarrow\quad \vdash \mw{\varphi}\label{eq:mpbir}\tag{mpbir}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{mpbid}~\otherTitle{mpbid}~ A deduction from a biconditional, related to
+modus ponens.  
+\begin{align}
+\vdash ( \mw{\varphi} \rightarrow \mw{\psi} )\quad\&\quad \vdash ( \mw{\varphi}
+    \rightarrow ( \mw{\psi} \leftrightarrow \mw{\chi} ) )\quad\Rightarrow\quad
+    \vdash ( \mw{\varphi} \rightarrow \mw{\chi} )\label{eq:mpbid}\tag{mpbid}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{sylibr}~\otherTitle{sylibr}~ A mixed syllogism inference from an
+implication and a biconditional.
+\begin{align}
+\vdash ( \mw{\varphi} \rightarrow \mw{\psi} )\quad\&\quad \vdash ( \mw{\chi}
+    \leftrightarrow \mw{\psi} )\quad\Rightarrow\quad \vdash ( \mw{\varphi}
+    \rightarrow \mw{\chi} )\label{eq:sylibr}\tag{sylibr}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{mpbird}~\otherTitle{mpbird}~ A deduction from a biconditional, related to
+modus ponens.  
+\begin{align}
+\vdash ( \mw{\varphi} \rightarrow \mw{\chi} )\quad\&\quad \vdash ( \mw{\varphi}
+    \rightarrow ( \mw{\psi} \leftrightarrow \mw{\chi} ) )\quad\Rightarrow\quad
+    \vdash ( \mw{\varphi} \rightarrow \mw{\psi} )\label{eq:mpbird}\tag{mpbird}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{biid}~\otherTitle{biid}~ Principle of identity for logical equivalence.
+\begin{align}
+\vdash ( \mw{\varphi} \leftrightarrow \mw{\varphi} )\label{eq:biid}\tag{biid}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{bitri}~\otherTitle{bitri}~ An inference from transitive law for logical
+equivalence.  
+\begin{align}
+\vdash ( \mw{\varphi} \leftrightarrow \mw{\psi} )\quad\&\quad \vdash (
+    \mw{\psi} \leftrightarrow \mw{\chi} )\quad\Rightarrow\quad \vdash (
+    \mw{\varphi} \leftrightarrow \mw{\chi} )\label{eq:bitri}\tag{bitri}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{bitr2i}~\otherTitle{bitr2i}~ An inference from transitive law for logical
+equivalence.  
+\begin{align}
+\vdash ( \mw{\varphi} \leftrightarrow \mw{\psi} )\quad\&\quad \vdash (
+    \mw{\psi} \leftrightarrow \mw{\chi} )\quad\Rightarrow\quad \vdash (
+    \mw{\chi} \leftrightarrow \mw{\varphi} )\label{eq:bitr2i}\tag{bitr2i}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{bitr3i}~\otherTitle{bitr3i}~ An inference from transitive law for logical
+equivalence. 
+\begin{align}
+\vdash ( \mw{\psi} \leftrightarrow \mw{\varphi} )\quad\&\quad \vdash (
+    \mw{\psi} \leftrightarrow \mw{\chi} )\quad\Rightarrow\quad \vdash (
+    \mw{\varphi} \leftrightarrow \mw{\chi} )\label{eq:bitr3i}\tag{bitr3i}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{bitr4i}~\otherTitle{bitr4i}~ An inference from transitive law for logical
+equivalence.  
+\begin{align}
+\vdash ( \mw{\varphi} \leftrightarrow \mw{\psi} )\quad\&\quad \vdash (
+    \mw{\chi} \leftrightarrow \mw{\psi} )\quad\Rightarrow\quad \vdash (
+    \mw{\varphi} \leftrightarrow \mw{\chi} )\label{eq:bitr4i}\tag{bitr4i}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{bitrd}~\otherTitle{bitrd}~ Deduction form of {\tt bitri}.  
+\begin{align}
+\vdash ( \mw{\varphi} \rightarrow ( \mw{\psi} \leftrightarrow \mw{\chi} )
+    )\quad\&\quad \vdash ( \mw{\varphi} \rightarrow ( \mw{\chi} \leftrightarrow
+    \mw{\theta} ) )\quad\Rightarrow\quad \vdash ( \mw{\varphi} \rightarrow (
+    \mw{\psi} \leftrightarrow \mw{\theta} ) )\label{eq:bitrd}\tag{bitrd}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{bitr4d}~\otherTitle{bitr4d}~ Deduction form of {\tt bitr4i}. 
+\begin{align}
+\vdash ( \mw{\varphi} \rightarrow ( \mw{\psi} \leftrightarrow \mw{\chi} )
+    )\quad\&\quad \vdash ( \mw{\varphi} \rightarrow ( \mw{\theta}
+    \leftrightarrow \mw{\chi} ) )\quad\Rightarrow\quad \vdash ( \mw{\varphi}
+    \rightarrow ( \mw{\psi} \leftrightarrow \mw{\theta} )
+    )\label{eq:bitr4d}\tag{bitr4d}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{3imtr3i}~\otherTitle{3imtr3i}~ A mixed syllogism inference, useful for
+removing a definition from both
+       sides of an implication. 
+\begin{align}
+\vdash ( \mw{\varphi} \rightarrow \mw{\psi} )\quad\&\quad \vdash ( \mw{\varphi}
+    \leftrightarrow \mw{\chi} )\quad\&\quad \vdash ( \mw{\psi} \leftrightarrow
+    \mw{\theta} )\quad\Rightarrow\quad \vdash ( \mw{\chi} \rightarrow
+    \mw{\theta} )\label{eq:3imtr3i}\tag{3imtr3i}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{3imtr4i}~\otherTitle{3imtr4i}~ A mixed syllogism inference, useful for
+applying a definition to both
+       sides of an implication. 
+\begin{align}
+\vdash ( \mw{\varphi} \rightarrow \mw{\psi} )\quad\&\quad \vdash ( \mw{\chi}
+    \leftrightarrow \mw{\varphi} )\quad\&\quad \vdash ( \mw{\theta}
+    \leftrightarrow \mw{\psi} )\quad\Rightarrow\quad \vdash ( \mw{\chi}
+    \rightarrow \mw{\theta} )\label{eq:3imtr4i}\tag{3imtr4i}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{3bitri}~\otherTitle{3bitri}~ A chained inference from transitive law for
+logical equivalence.
+\begin{align}
+\vdash ( \mw{\varphi} \leftrightarrow \mw{\psi} )\quad\&\quad \vdash (
+    \mw{\psi} \leftrightarrow \mw{\chi} )\quad\&\quad \vdash ( \mw{\chi}
+    \leftrightarrow \mw{\theta} )\quad\Rightarrow\quad \vdash ( \mw{\varphi}
+    \leftrightarrow \mw{\theta} )\label{eq:3bitri}\tag{3bitri}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{3bitr2ri}~\otherTitle{3bitr2ri}~ A chained inference from transitive law
+for logical equivalence.
+\begin{align}
+\vdash ( \mw{\varphi} \leftrightarrow \mw{\psi} )\quad\&\quad \vdash (
+    \mw{\chi} \leftrightarrow \mw{\psi} )\quad\&\quad \vdash ( \mw{\chi}
+    \leftrightarrow \mw{\theta} )\quad\Rightarrow\quad \vdash ( \mw{\theta}
+    \leftrightarrow \mw{\varphi} )\label{eq:3bitr2ri}\tag{3bitr2ri}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{3bitr4i}~\otherTitle{3bitr4i}~ A chained inference from transitive law for
+logical equivalence. 
+\begin{align}
+\vdash ( \mw{\varphi} \leftrightarrow \mw{\psi} )\quad\&\quad \vdash (
+    \mw{\chi} \leftrightarrow \mw{\varphi} )\quad\&\quad \vdash ( \mw{\theta}
+    \leftrightarrow \mw{\psi} )\quad\Rightarrow\quad \vdash ( \mw{\chi}
+    \leftrightarrow \mw{\theta} )\label{eq:3bitr4i}\tag{3bitr4i}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{3bitr4ri}~\otherTitle{3bitr4ri}~ A chained inference from transitive law
+for logical equivalence.
+\begin{align}
+\vdash ( \mw{\varphi} \leftrightarrow \mw{\psi} )\quad\&\quad \vdash (
+    \mw{\chi} \leftrightarrow \mw{\varphi} )\quad\&\quad \vdash ( \mw{\theta}
+    \leftrightarrow \mw{\psi} )\quad\Rightarrow\quad \vdash ( \mw{\theta}
+    \leftrightarrow \mw{\chi} )\label{eq:3bitr4ri}\tag{3bitr4ri}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{con4bii}~\otherTitle{con4bii}~ A contraposition inference.  
+\begin{align}
+\vdash ( \lnot \mw{\varphi} \leftrightarrow \lnot \mw{\psi}
+    )\quad\Rightarrow\quad \vdash ( \mw{\varphi} \leftrightarrow \mw{\psi}
+    )\label{eq:con4bii}\tag{con4bii}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{mtbir}~\otherTitle{mtbir}~ An inference from a biconditional, related to
+modus tollens.
+       ~  ~
+\begin{align}
+\vdash \lnot \mw{\psi}\quad\&\quad \vdash ( \mw{\varphi} \leftrightarrow
+    \mw{\psi} )\quad\Rightarrow\quad \vdash \lnot
+    \mw{\varphi}\label{eq:mtbir}\tag{mtbir}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{notbii}~\otherTitle{notbii}~ Negate both sides of a logical equivalence. 
+~  ~
+\begin{align}
+\vdash ( \mw{\varphi} \leftrightarrow \mw{\psi} )\quad\Rightarrow\quad \vdash (
+    \lnot \mw{\varphi} \leftrightarrow \lnot \mw{\psi}
+    )\label{eq:notbii}\tag{notbii}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{imbi2i}~\otherTitle{imbi2i}~ Introduce an antecedent to both sides of a
+logical equivalence.  
+\begin{align}
+\vdash ( \mw{\varphi} \leftrightarrow \mw{\psi} )\quad\Rightarrow\quad \vdash (
+    ( \mw{\chi} \rightarrow \mw{\varphi} ) \leftrightarrow ( \mw{\chi}
+    \rightarrow \mw{\psi} ) )\label{eq:imbi2i}\tag{imbi2i}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{bibi2i}~\otherTitle{bibi2i}~ Inference adding a biconditional to the left
+in an equivalence.
+\begin{align}
+\vdash ( \mw{\varphi} \leftrightarrow \mw{\psi} )\quad\Rightarrow\quad \vdash (
+    ( \mw{\chi} \leftrightarrow \mw{\varphi} ) \leftrightarrow ( \mw{\chi}
+    \leftrightarrow \mw{\psi} ) )\label{eq:bibi2i}\tag{bibi2i}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{bibi1i}~\otherTitle{bibi1i}~ Inference adding a biconditional to the
+right in an equivalence.
+\begin{align}
+\vdash ( \mw{\varphi} \leftrightarrow \mw{\psi} )\quad\Rightarrow\quad \vdash (
+    ( \mw{\varphi} \leftrightarrow \mw{\chi} ) \leftrightarrow ( \mw{\psi}
+    \leftrightarrow \mw{\chi} ) )\label{eq:bibi1i}\tag{bibi1i}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{imbi1i}~\otherTitle{imbi1i}~ Introduce a consequent to both sides of a
+logical equivalence.
+\begin{align}
+\vdash ( \mw{\varphi} \leftrightarrow \mw{\psi} )\quad\Rightarrow\quad \vdash (
+    ( \mw{\varphi} \rightarrow \mw{\chi} ) \leftrightarrow ( \mw{\psi}
+    \rightarrow \mw{\chi} ) )\label{eq:imbi1i}\tag{imbi1i}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{bitr3}~\otherTitle{bitr3}~ Closed nested implication form of {\tt
+bitr3i}.  
+\begin{align}
+\vdash ( ( \mw{\varphi} \leftrightarrow \mw{\psi} ) \rightarrow ( (
+    \mw{\varphi} \leftrightarrow \mw{\chi} ) \rightarrow ( \mw{\psi}
+    \leftrightarrow \mw{\chi} ) ) )\label{eq:bitr3}\tag{bitr3}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{con1bii}~\otherTitle{con1bii}~ A contraposition inference.  
+\begin{align}
+\vdash ( \lnot \mw{\varphi} \leftrightarrow \mw{\psi} )\quad\Rightarrow\quad
+    \vdash ( \lnot \mw{\psi} \leftrightarrow \mw{\varphi}
+    )\label{eq:con1bii}\tag{con1bii}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{a1bi}~\otherTitle{a1bi}~ Inference introducing a theorem as an
+antecedent.  
+\begin{align}
+\vdash \mw{\varphi}\quad\Rightarrow\quad \vdash ( \mw{\psi} \leftrightarrow (
+    \mw{\varphi} \rightarrow \mw{\psi} ) )\label{eq:a1bi}\tag{a1bi}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{metadefinition}{wa}~\otherTitle{wa}~ Extend wff definition to include conjunction
+(``and").
+\begin{align}
+\,\mathrm{wff}~ ( \mw{\varphi} \wedge \mw{\psi} )\label{eq:wa}\tag{wa}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{metadefinition}{dfan}~\otherTitle{df-an}~ Define conjunction (logical ``and"). 
+\begin{align}
+\vdash ( ( \mw{\varphi} \wedge \mw{\psi} ) \leftrightarrow \lnot ( \mw{\varphi}
+    \rightarrow \lnot \mw{\psi} ) )\label{eq:df-an}\tag{df-an}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{pm3.24}~\otherTitle{pm3.24}~ Law of noncontradiction.  
+\begin{align}
+\vdash \lnot ( \mw{\varphi} \wedge \lnot \mw{\varphi}
+    )\label{eq:pm3.24}\tag{pm3.24}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{pm3.22}~\otherTitle{pm3.22}~ Theorem *3.22 of Principia Mathematica
+\begin{align}
+\vdash ( ( \mw{\varphi} \wedge \mw{\psi} ) \rightarrow ( \mw{\psi} \wedge
+    \mw{\varphi} ) )\label{eq:pm3.22}\tag{pm3.22}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{ancom}~\otherTitle{ancom}~ Commutative law for conjunction.  
+\begin{align}
+\vdash ( ( \mw{\varphi} \wedge \mw{\psi} ) \leftrightarrow ( \mw{\psi} \wedge
+    \mw{\varphi} ) )\label{eq:ancom}\tag{ancom}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{anass}~\otherTitle{anass}~ Associative law for conjunction.  
+\begin{align}
+\vdash ( ( ( \mw{\varphi} \wedge \mw{\psi} ) \wedge \mw{\chi} ) \leftrightarrow
+    ( \mw{\varphi} \wedge ( \mw{\psi} \wedge \mw{\chi} ) )
+    )\label{eq:anass}\tag{anass}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{pm3.2i}~\otherTitle{pm3.2i}~ Infer conjunction of premises.  
+\begin{align}
+\vdash \mw{\varphi}\quad\&\quad \vdash \mw{\psi}\quad\Rightarrow\quad \vdash (
+    \mw{\varphi} \wedge \mw{\psi} )\label{eq:pm3.2i}\tag{pm3.2i}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{adantr}~\otherTitle{adantr}~ Inference adding a conjunct to the right of
+an antecedent.  
+\begin{align}
+\vdash ( \mw{\varphi} \rightarrow \mw{\psi} )\quad\Rightarrow\quad \vdash ( (
+    \mw{\varphi} \wedge \mw{\chi} ) \rightarrow \mw{\psi}
+    )\label{eq:adantr}\tag{adantr}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{simpl}~\otherTitle{simpl}~ Elimination of a conjunct.  
+\begin{align}
+\vdash ( ( \mw{\varphi} \wedge \mw{\psi} ) \rightarrow \mw{\varphi}
+    )\label{eq:simpl}\tag{simpl}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{simpli}~\otherTitle{simpli}~ Inference eliminating a conjunct. 
+~
+\begin{align}
+\vdash ( \mw{\varphi} \wedge \mw{\psi} )\quad\Rightarrow\quad \vdash
+    \mw{\varphi}\label{eq:simpli}\tag{simpli}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{simpr}~\otherTitle{simpr}~ Elimination of a conjunct. 
+\begin{align}
+\vdash ( ( \mw{\varphi} \wedge \mw{\psi} ) \rightarrow \mw{\psi}
+    )\label{eq:simpr}\tag{simpr}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{simpri}~\otherTitle{simpri}~ Inference eliminating a conjunct. 
+\begin{align}
+\vdash ( \mw{\varphi} \wedge \mw{\psi} )\quad\Rightarrow\quad \vdash
+    \mw{\psi}\label{eq:simpri}\tag{simpri}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{intnan}~\otherTitle{intnan}~ Introduction of conjunct inside of a
+contradiction.  
+\begin{align}
+\vdash \lnot \mw{\varphi}\quad\Rightarrow\quad \vdash \lnot ( \mw{\psi} \wedge
+    \mw{\varphi} )\label{eq:intnan}\tag{intnan}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{intnanr}~\otherTitle{intnanr}~ Introduction of conjunct inside of a
+contradiction.  
+\begin{align}
+\vdash \lnot \mw{\varphi}\quad\Rightarrow\quad \vdash \lnot ( \mw{\varphi}
+    \wedge \mw{\psi} )\label{eq:intnanr}\tag{intnanr}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{jca}~\otherTitle{jca}~ Deduce conjunction of the consequents of two
+implications (``join
+       consequents with 'and'").  
+\begin{align}
+\vdash ( \mw{\varphi} \rightarrow \mw{\psi} )\quad\&\quad \vdash ( \mw{\varphi}
+    \rightarrow \mw{\chi} )\quad\Rightarrow\quad \vdash ( \mw{\varphi}
+    \rightarrow ( \mw{\psi} \wedge \mw{\chi} ) )\label{eq:jca}\tag{jca}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{pm4.24}~\otherTitle{pm4.24}~ Theorem *4.24 of Principia Mathematica
+\begin{align}
+\vdash ( \mw{\varphi} \leftrightarrow ( \mw{\varphi} \wedge \mw{\varphi} )
+    )\label{eq:pm4.24}\tag{pm4.24}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{anidm}~\otherTitle{anidm}~ Idempotent law for conjunction. 
+\begin{align}
+\vdash ( ( \mw{\varphi} \wedge \mw{\varphi} ) \leftrightarrow \mw{\varphi}
+    )\label{eq:anidm}\tag{anidm}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{syl2anc}~\otherTitle{syl2anc}~ Syllogism inference combined with
+contraction.  ~
+\begin{align}
+\vdash ( \mw{\varphi} \rightarrow \mw{\psi} )\quad\&\quad \vdash ( \mw{\varphi}
+    \rightarrow \mw{\chi} )\quad\&\quad \vdash ( ( \mw{\psi} \wedge \mw{\chi} )
+    \rightarrow \mw{\theta} )\quad\Rightarrow\quad \vdash ( \mw{\varphi}
+    \rightarrow \mw{\theta} )\label{eq:syl2anc}\tag{syl2anc}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{syldan}~\otherTitle{syldan}~ A syllogism deduction with conjoined
+antecedents.  ~  ~
+\begin{align}
+\vdash ( ( \mw{\varphi} \wedge \mw{\psi} ) \rightarrow \mw{\chi} )\quad\&\quad
+    \vdash ( ( \mw{\varphi} \wedge \mw{\chi} ) \rightarrow \mw{\theta}
+    )\quad\Rightarrow\quad \vdash ( ( \mw{\varphi} \wedge \mw{\psi} )
+    \rightarrow \mw{\theta} )\label{eq:syldan}\tag{syldan}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{anim12i}~\otherTitle{anim12i}~ Conjoin antecedents and consequents of two
+premises.  ~  ~
+\begin{align}
+\vdash ( \mw{\varphi} \rightarrow \mw{\psi} )\quad\&\quad \vdash ( \mw{\chi}
+    \rightarrow \mw{\theta} )\quad\Rightarrow\quad \vdash ( ( \mw{\varphi}
+    \wedge \mw{\chi} ) \rightarrow ( \mw{\psi} \wedge \mw{\theta} )
+    )\label{eq:anim12i}\tag{anim12i}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{anim1i}~\otherTitle{anim1i}~ Introduce conjunct to both sides of an
+implication.  ~
+\begin{align}
+\vdash ( \mw{\varphi} \rightarrow \mw{\psi} )\quad\Rightarrow\quad \vdash ( (
+    \mw{\varphi} \wedge \mw{\chi} ) \rightarrow ( \mw{\psi} \wedge \mw{\chi} )
+    )\label{eq:anim1i}\tag{anim1i}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{anbi2i}~\otherTitle{anbi2i}~ Introduce a left conjunct to both sides of a
+logical equivalence.
+       ~  ~
+\begin{align}
+\vdash ( \mw{\varphi} \leftrightarrow \mw{\psi} )\quad\Rightarrow\quad \vdash (
+    ( \mw{\chi} \wedge \mw{\varphi} ) \leftrightarrow ( \mw{\chi} \wedge
+    \mw{\psi} ) )\label{eq:anbi2i}\tag{anbi2i}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{anbi1i}~\otherTitle{anbi1i}~ Introduce a right conjunct to both sides of
+a logical equivalence.
+       ~  ~
+\begin{align}
+\vdash ( \mw{\varphi} \leftrightarrow \mw{\psi} )\quad\Rightarrow\quad \vdash (
+    ( \mw{\varphi} \wedge \mw{\chi} ) \leftrightarrow ( \mw{\psi} \wedge
+    \mw{\chi} ) )\label{eq:anbi1i}\tag{anbi1i}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{anbi12i}~\otherTitle{anbi12i}~ Conjoin both sides of two equivalences. 
+~
+\begin{align}
+\vdash ( \mw{\varphi} \leftrightarrow \mw{\psi} )\quad\&\quad \vdash (
+    \mw{\chi} \leftrightarrow \mw{\theta} )\quad\Rightarrow\quad \vdash ( (
+    \mw{\varphi} \wedge \mw{\chi} ) \leftrightarrow ( \mw{\psi} \wedge
+    \mw{\theta} ) )\label{eq:anbi12i}\tag{anbi12i}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{anbi2d}~\otherTitle{anbi2d}~ Deduction adding a left conjunct to both
+sides of a logical equivalence.
+       ~  ~
+\begin{align}
+\vdash ( \mw{\varphi} \rightarrow ( \mw{\psi} \leftrightarrow \mw{\chi} )
+    )\quad\Rightarrow\quad \vdash ( \mw{\varphi} \rightarrow ( ( \mw{\theta}
+    \wedge \mw{\psi} ) \leftrightarrow ( \mw{\theta} \wedge \mw{\chi} ) )
+    )\label{eq:anbi2d}\tag{anbi2d}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{mp2an}~\otherTitle{mp2an}~ An inference based on modus ponens. 
+~
+\begin{align}
+\vdash \mw{\varphi}\quad\&\quad \vdash \mw{\psi}\quad\&\quad \vdash ( (
+    \mw{\varphi} \wedge \mw{\psi} ) \rightarrow \mw{\chi}
+    )\quad\Rightarrow\quad \vdash \mw{\chi}\label{eq:mp2an}\tag{mp2an}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{pm4.45im}~\otherTitle{pm4.45im}~ Conjunction with implication.  
+\begin{align}
+\vdash ( \mw{\varphi} \leftrightarrow ( \mw{\varphi} \wedge ( \mw{\psi}
+    \rightarrow \mw{\varphi} ) ) )\label{eq:pm4.45im}\tag{pm4.45im}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{metadefinition}{dfor}~\otherTitle{df-or}~ Define disjunction (logical ``or"). 
+\begin{align}
+\vdash ( ( \mw{\varphi} \vee \mw{\psi} ) \leftrightarrow ( \lnot \mw{\varphi}
+    \rightarrow \mw{\psi} ) )\label{eq:df-or}\tag{df-or}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{orci}~\otherTitle{orci}~ Deduction introducing a disjunct. 
+
+\begin{align}
+\vdash \mw{\varphi}\quad\Rightarrow\quad \vdash ( \mw{\varphi} \vee \mw{\psi}
+    )\label{eq:orci}\tag{orci}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{olci}~\otherTitle{olci}~ Deduction introducing a disjunct. 
+\begin{align}
+\vdash \mw{\varphi}\quad\Rightarrow\quad \vdash ( \mw{\psi} \vee \mw{\varphi}
+    )\label{eq:olci}\tag{olci}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{orc}~\otherTitle{orc}~ Introduction of a disjunct. 
+\begin{align}
+\vdash ( \mw{\varphi} \rightarrow ( \mw{\varphi} \vee \mw{\psi} )
+    )\label{eq:orc}\tag{orc}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{olc}~\otherTitle{olc}~ Introduction of a disjunct.  
+\begin{align}
+\vdash ( \mw{\varphi} \rightarrow ( \mw{\psi} \vee \mw{\varphi} )
+    )\label{eq:olc}\tag{olc}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{orcom}~\otherTitle{orcom}~ Commutative law for disjunction.  
+\begin{align}
+\vdash ( ( \mw{\varphi} \vee \mw{\psi} ) \leftrightarrow ( \mw{\psi} \vee
+    \mw{\varphi} ) )\label{eq:orcom}\tag{orcom}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{exmid}~\otherTitle{exmid}~ Law of excluded middle, also called the
+principle of -tertium non datur-.  It says that something is
+     either true or not true; there are no in-between values of truth.  This
+is
+     an essential distinction of our classical logic and is not a theorem of
+     intuitionistic logic.  
+\begin{align}
+\vdash ( \mw{\varphi} \vee \lnot \mw{\varphi} )\label{eq:exmid}\tag{exmid}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{oridm}~\otherTitle{oridm}~ Idempotent law for disjunction. 
+\begin{align}
+\vdash ( ( \mw{\varphi} \vee \mw{\varphi} ) \leftrightarrow \mw{\varphi}
+    )\label{eq:oridm}\tag{oridm}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{orim12i}~\otherTitle{orim12i}~ Disjoin antecedents and consequents of two
+premises.  ~  ~
+\begin{align}
+\vdash ( \mw{\varphi} \rightarrow \mw{\psi} )\quad\&\quad \vdash ( \mw{\chi}
+    \rightarrow \mw{\theta} )\quad\Rightarrow\quad \vdash ( ( \mw{\varphi} \vee
+    \mw{\chi} ) \rightarrow ( \mw{\psi} \vee \mw{\theta} )
+    )\label{eq:orim12i}\tag{orim12i}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{orbi2i}~\otherTitle{orbi2i}~ Inference adding a left disjunct to both
+sides of a logical equivalence.
+       ~  ~
+\begin{align}
+\vdash ( \mw{\varphi} \leftrightarrow \mw{\psi} )\quad\Rightarrow\quad \vdash (
+    ( \mw{\chi} \vee \mw{\varphi} ) \leftrightarrow ( \mw{\chi} \vee \mw{\psi}
+    ) )\label{eq:orbi2i}\tag{orbi2i}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{orbi1i}~\otherTitle{orbi1i}~ Inference adding a right disjunct to both
+sides of a logical
+       equivalence.  ~
+\begin{align}
+\vdash ( \mw{\varphi} \leftrightarrow \mw{\psi} )\quad\Rightarrow\quad \vdash (
+    ( \mw{\varphi} \vee \mw{\chi} ) \leftrightarrow ( \mw{\psi} \vee \mw{\chi}
+    ) )\label{eq:orbi1i}\tag{orbi1i}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{orbi12i}~\otherTitle{orbi12i}~ Infer the disjunction of two equivalences. 
+~
+\begin{align}
+\vdash ( \mw{\varphi} \leftrightarrow \mw{\psi} )\quad\&\quad \vdash (
+    \mw{\chi} \leftrightarrow \mw{\theta} )\quad\Rightarrow\quad \vdash ( (
+    \mw{\varphi} \vee \mw{\chi} ) \leftrightarrow ( \mw{\psi} \vee \mw{\theta}
+    ) )\label{eq:orbi12i}\tag{orbi12i}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{orbi2d}~\otherTitle{orbi2d}~ Deduction adding a left disjunct to both
+sides of a logical equivalence.
+       ~
+\begin{align}
+\vdash ( \mw{\varphi} \rightarrow ( \mw{\psi} \leftrightarrow \mw{\chi} )
+    )\quad\Rightarrow\quad \vdash ( \mw{\varphi} \rightarrow ( ( \mw{\theta}
+    \vee \mw{\psi} ) \leftrightarrow ( \mw{\theta} \vee \mw{\chi} ) )
+    )\label{eq:orbi2d}\tag{orbi2d}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{orass}~\otherTitle{orass}~ Associative law for disjunction.  
+\begin{align}
+\vdash ( ( ( \mw{\varphi} \vee \mw{\psi} ) \vee \mw{\chi} ) \leftrightarrow (
+    \mw{\varphi} \vee ( \mw{\psi} \vee \mw{\chi} ) )
+    )\label{eq:orass}\tag{orass}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{animorl}~\otherTitle{animorl}~ Conjunction implies disjunction with one
+common formula (1/4).
+     ~
+\begin{align}
+\vdash ( ( \mw{\varphi} \wedge \mw{\psi} ) \rightarrow ( \mw{\varphi} \vee
+    \mw{\chi} ) )\label{eq:animorl}\tag{animorl}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{animorr}~\otherTitle{animorr}~ Conjunction implies disjunction with one
+common formula (2/4).
+     ~
+\begin{align}
+\vdash ( ( \mw{\varphi} \wedge \mw{\psi} ) \rightarrow ( \mw{\chi} \vee
+    \mw{\psi} ) )\label{eq:animorr}\tag{animorr}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{pm4.56}~\otherTitle{pm4.56}~ Theorem *4.56 of Principia Mathematica. 
+~
+\begin{align}
+\vdash ( ( \lnot \mw{\varphi} \wedge \lnot \mw{\psi} ) \leftrightarrow \lnot (
+    \mw{\varphi} \vee \mw{\psi} ) )\label{eq:pm4.56}\tag{pm4.56}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{pm4.44}~\otherTitle{pm4.44}~ Theorem *4.44 of Principia Mathematica. 
+~
+\begin{align}
+\vdash ( \mw{\varphi} \leftrightarrow ( \mw{\varphi} \vee ( \mw{\varphi} \wedge
+    \mw{\psi} ) ) )\label{eq:pm4.44}\tag{pm4.44}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{pm4.45}~\otherTitle{pm4.45}~ Theorem *4.45 of Principia Mathematica. 
+~
+\begin{align}
+\vdash ( \mw{\varphi} \leftrightarrow ( \mw{\varphi} \wedge ( \mw{\varphi} \vee
+    \mw{\psi} ) ) )\label{eq:pm4.45}\tag{pm4.45}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{andir}~\otherTitle{andir}~ Distributive law for conjunction. 
+~
+\begin{align}
+\vdash ( ( ( \mw{\varphi} \vee \mw{\psi} ) \wedge \mw{\chi} ) \leftrightarrow (
+    ( \mw{\varphi} \wedge \mw{\chi} ) \vee ( \mw{\psi} \wedge \mw{\chi} ) )
+    )\label{eq:andir}\tag{andir}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{metadefinition}{df3or}~\otherTitle{df-3or}~ Define disjunction ('or') of three wff's.
+\begin{align}
+\vdash ( ( \mw{\varphi} \vee \mw{\psi} \vee \mw{\chi} ) \leftrightarrow ( (
+    \mw{\varphi} \vee \mw{\psi} ) \vee \mw{\chi} )
+    )\label{eq:df-3or}\tag{df-3or}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{metadefinition}{df3an}~\otherTitle{df-3an}~ Define conjunction ('and') of three
+wff's.  
+\begin{align}
+\vdash ( ( \mw{\varphi} \wedge \mw{\psi} \wedge \mw{\chi} ) \leftrightarrow ( (
+    \mw{\varphi} \wedge \mw{\psi} ) \wedge \mw{\chi} )
+    )\label{eq:df-3an}\tag{df-3an}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{3orass}~\otherTitle{3orass}~ Associative law for triple disjunction. 
+~
+\begin{align}
+\vdash ( ( \mw{\varphi} \vee \mw{\psi} \vee \mw{\chi} ) \leftrightarrow (
+    \mw{\varphi} \vee ( \mw{\psi} \vee \mw{\chi} ) )
+    )\label{eq:3orass}\tag{3orass}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{3anass}~\otherTitle{3anass}~ Associative law for triple conjunction. 
+~
+\begin{align}
+\vdash ( ( \mw{\varphi} \wedge \mw{\psi} \wedge \mw{\chi} ) \leftrightarrow (
+    \mw{\varphi} \wedge ( \mw{\psi} \wedge \mw{\chi} ) )
+    )\label{eq:3anass}\tag{3anass}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{ordir}~\otherTitle{ordir}~ Distributive law for disjunction. 
+~
+\begin{align}
+\vdash ( ( ( \mw{\varphi} \wedge \mw{\psi} ) \vee \mw{\chi} ) \leftrightarrow (
+    ( \mw{\varphi} \vee \mw{\chi} ) \wedge ( \mw{\psi} \vee \mw{\chi} ) )
+    )\label{eq:ordir}\tag{ordir}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{3jca}~\otherTitle{3jca}~ Join consequents with conjunction. 
+~
+\begin{align}
+\vdash ( \mw{\varphi} \rightarrow \mw{\psi} )\quad\&\quad \vdash ( \mw{\varphi}
+    \rightarrow \mw{\chi} )\quad\&\quad \vdash ( \mw{\varphi} \rightarrow
+    \mw{\theta} )\quad\Rightarrow\quad \vdash ( \mw{\varphi} \rightarrow (
+    \mw{\psi} \wedge \mw{\chi} \wedge \mw{\theta} ) )\label{eq:3jca}\tag{3jca}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{3adant3}~\otherTitle{3adant3}~ Deduction adding a conjunct to antecedent. 
+~  ~
+\begin{align}
+\vdash ( ( \mw{\varphi} \wedge \mw{\psi} ) \rightarrow \mw{\chi}
+    )\quad\Rightarrow\quad \vdash ( ( \mw{\varphi} \wedge \mw{\psi} \wedge
+    \mw{\theta} ) \rightarrow \mw{\chi} )\label{eq:3adant3}\tag{3adant3}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{simp1}~\otherTitle{simp1}~ Simplification of triple conjunction. 
+~
+     ~
+\begin{align}
+\vdash ( ( \mw{\varphi} \wedge \mw{\psi} \wedge \mw{\chi} ) \rightarrow
+    \mw{\varphi} )\label{eq:simp1}\tag{simp1}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{simp2}~\otherTitle{simp2}~ Simplification of triple conjunction. 
+~
+     ~
+\begin{align}
+\vdash ( ( \mw{\varphi} \wedge \mw{\psi} \wedge \mw{\chi} ) \rightarrow
+    \mw{\psi} )\label{eq:simp2}\tag{simp2}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{simp3}~\otherTitle{simp3}~ Simplification of triple conjunction. 
+~
+     ~
+\begin{align}
+\vdash ( ( \mw{\varphi} \wedge \mw{\psi} \wedge \mw{\chi} ) \rightarrow
+    \mw{\chi} )\label{eq:simp3}\tag{simp3}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{simp1i}~\otherTitle{simp1i}~ Infer a conjunct from a triple conjunction. 
+~
+\begin{align}
+\vdash ( \mw{\varphi} \wedge \mw{\psi} \wedge \mw{\chi} )\quad\Rightarrow\quad
+    \vdash \mw{\varphi}\label{eq:simp1i}\tag{simp1i}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{simp2i}~\otherTitle{simp2i}~ Infer a conjunct from a triple conjunction. 
+~
+\begin{align}
+\vdash ( \mw{\varphi} \wedge \mw{\psi} \wedge \mw{\chi} )\quad\Rightarrow\quad
+    \vdash \mw{\psi}\label{eq:simp2i}\tag{simp2i}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{simp1bi}~\otherTitle{simp1bi}~ Deduce a conjunct from a triple
+conjunction.  ~
+\begin{align}
+\vdash ( \mw{\varphi} \leftrightarrow ( \mw{\psi} \wedge \mw{\chi} \wedge
+    \mw{\theta} ) )\quad\Rightarrow\quad \vdash ( \mw{\varphi} \rightarrow
+    \mw{\psi} )\label{eq:simp1bi}\tag{simp1bi}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{simp2bi}~\otherTitle{simp2bi}~ Deduce a conjunct from a triple
+conjunction.  ~
+\begin{align}
+\vdash ( \mw{\varphi} \leftrightarrow ( \mw{\psi} \wedge \mw{\chi} \wedge
+    \mw{\theta} ) )\quad\Rightarrow\quad \vdash ( \mw{\varphi} \rightarrow
+    \mw{\chi} )\label{eq:simp2bi}\tag{simp2bi}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{simp3bi}~\otherTitle{simp3bi}~ Deduce a conjunct from a triple
+conjunction.  ~
+\begin{align}
+\vdash ( \mw{\varphi} \leftrightarrow ( \mw{\psi} \wedge \mw{\chi} \wedge
+    \mw{\theta} ) )\quad\Rightarrow\quad \vdash ( \mw{\varphi} \rightarrow
+    \mw{\theta} )\label{eq:simp3bi}\tag{simp3bi}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{3simpa}~\otherTitle{3simpa}~ Simplification of triple conjunction. 
+~
+     ~
+\begin{align}
+\vdash ( ( \mw{\varphi} \wedge \mw{\psi} \wedge \mw{\chi} ) \rightarrow (
+    \mw{\varphi} \wedge \mw{\psi} ) )\label{eq:3simpa}\tag{3simpa}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{3anbi123i}~\otherTitle{3anbi123i}~ Join 3 biconditionals with conjunction. 
+~
+\begin{align}
+\vdash ( \mw{\varphi} \leftrightarrow \mw{\psi} )\quad\&\quad \vdash (
+    \mw{\chi} \leftrightarrow \mw{\theta} )\quad\&\quad \vdash ( \mw{\tau}
+    \leftrightarrow \mw{\eta} )\quad\Rightarrow\quad \vdash ( ( \mw{\varphi}
+    \wedge \mw{\chi} \wedge \mw{\tau} ) \leftrightarrow ( \mw{\psi} \wedge
+    \mw{\theta} \wedge \mw{\eta} ) )\label{eq:3anbi123i}\tag{3anbi123i}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{3orbi123i}~\otherTitle{3orbi123i}~ Join 3 biconditionals with disjunction. 
+~
+\begin{align}
+\vdash ( \mw{\varphi} \leftrightarrow \mw{\psi} )\quad\&\quad \vdash (
+    \mw{\chi} \leftrightarrow \mw{\theta} )\quad\&\quad \vdash ( \mw{\tau}
+    \leftrightarrow \mw{\eta} )\quad\Rightarrow\quad \vdash ( ( \mw{\varphi}
+    \vee \mw{\chi} \vee \mw{\tau} ) \leftrightarrow ( \mw{\psi} \vee
+    \mw{\theta} \vee \mw{\eta} ) )\label{eq:3orbi123i}\tag{3orbi123i}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{3pm3.2i}~\otherTitle{3pm3.2i}~ Infer conjunction of premises. 
+~
+\begin{align}
+\vdash \mw{\varphi}\quad\&\quad \vdash \mw{\psi}\quad\&\quad \vdash
+    \mw{\chi}\quad\Rightarrow\quad \vdash ( \mw{\varphi} \wedge \mw{\psi}
+    \wedge \mw{\chi} )\label{eq:3pm3.2i}\tag{3pm3.2i}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{mp3an}~\otherTitle{mp3an}~ An inference based on modus ponens. 
+~
+\begin{align}
+\vdash \mw{\varphi}\quad\&\quad \vdash \mw{\psi}\quad\&\quad \vdash
+    \mw{\chi}\quad\&\quad \vdash ( ( \mw{\varphi} \wedge \mw{\psi} \wedge
+    \mw{\chi} ) \rightarrow \mw{\theta} )\quad\Rightarrow\quad \vdash
+    \mw{\theta}\label{eq:mp3an}\tag{mp3an}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{metadefinition}{dftru}~\otherTitle{df-tru}~ Definition of the truth value ``true", or
+``verum", denoted by $\top$.
+\begin{align}
+\vdash ( \top \leftrightarrow ( \forall \msc{x} \msc{x} = \msc{x} \rightarrow
+    \forall \msc{x} \msc{x} = \msc{x} ) )\label{eq:df-tru}\tag{df-tru}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{tru}~\otherTitle{tru}~ The truth value $\top$ is provable. 
+~
+\begin{align}
+\vdash \top\label{eq:tru}\tag{tru}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{trut}~\otherTitle{trut}~ A proposition is equivalent to it being
+implied by $\top$.  
+\begin{align}
+\vdash ( \mw{\varphi} \leftrightarrow ( \top \rightarrow \mw{\varphi} )
+    )\label{eq:trut}\tag{trut}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{bitru}~\otherTitle{bitru}~ A theorem is equivalent to truth. 
+~
+\begin{align}
+\vdash \mw{\varphi}\quad\Rightarrow\quad \vdash ( \mw{\varphi} \leftrightarrow
+    \top )\label{eq:bitru}\tag{bitru}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{metadefinition}{dffal}~\otherTitle{df-fal}~ Definition of the truth value ``false",
+or ``falsum", denoted by $\bot$.
+\begin{align}
+\vdash ( \bot \leftrightarrow \lnot \top )\label{eq:df-fal}\tag{df-fal}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{fal}~\otherTitle{fal}~ The truth value $\bot$ is refutable. 
+~  ~
+\begin{align}
+\vdash \lnot \bot\label{eq:fal}\tag{fal}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{bifal}~\otherTitle{bifal}~ A contradiction is equivalent to falsehood. 
+~
+\begin{align}
+\vdash \lnot \mw{\varphi}\quad\Rightarrow\quad \vdash ( \mw{\varphi}
+    \leftrightarrow \bot )\label{eq:bifal}\tag{bifal}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{falim}~\otherTitle{falim}~ The truth value $\bot$ implies anything. 
+Also called the ``principle of
+     explosion", or ``ex falso [[sequitur]] quodlibet" (Latin for ``from
+     falsehood, anything [[follows]]"). 
+\begin{align}
+\vdash ( \bot \rightarrow \mw{\varphi} )\label{eq:falim}\tag{falim}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{dfnot}~\otherTitle{dfnot}~ Given falsum $\bot$, we can define the
+negation of a wff $\mw{\varphi}$ as the
+     statement that $\bot$ follows from assuming $\mw{\varphi}$.  
+\begin{align}
+\vdash ( \lnot \mw{\varphi} \leftrightarrow ( \mw{\varphi} \rightarrow \bot )
+    )\label{eq:dfnot}\tag{dfnot}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{nottru}~\otherTitle{nottru}~ A $\lnot$ identity.  ~
+\begin{align}
+\vdash ( \lnot \top \leftrightarrow \bot )\label{eq:nottru}\tag{nottru}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{notfal}~\otherTitle{notfal}~ A $\lnot$ identity.  ~
+\begin{align}
+\vdash ( \lnot \bot \leftrightarrow \top )\label{eq:notfal}\tag{notfal}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{3bitr2ri}~\otherTitle{3bitr2ri}~ A chained inference from transitive law
+for logical equivalence.
+       ~
+\begin{align}
+\vdash ( \mw{\varphi} \leftrightarrow \mw{\psi} )\quad\&\quad \vdash (
+    \mw{\chi} \leftrightarrow \mw{\psi} )\quad\&\quad \vdash ( \mw{\chi}
+    \leftrightarrow \mw{\theta} )\quad\Rightarrow\quad \vdash ( \mw{\theta}
+    \leftrightarrow \mw{\varphi} )\label{eq:3bitr2ri}\tag{3bitr2ri}
+\end{align}
+\end{restatable}
+

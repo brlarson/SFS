@@ -1,0 +1,379 @@
+% This LaTeX file was created by Metamath on 24-Dec-2023 8:33 PM.
+\begin{metadefinition}\blTitle{df-bl.atad2} {Distribute @ over addition, two
+terms}
+\begin{align}
+\vdash ( ( \msc{t} \in \mathbf{T} \wedge \mc{B} \in \mathbb{C} \wedge \mc{C} \in
+    \mathbb{C} ) \rightarrow ( ( \mc{B} + \mc{C} ) @ \msc{t} ) = ( ( \mc{B} @ \msc{t} ) + ( C
+    @ \msc{t} ) ) )\label{eq:df-bl.atad2}\tag{df-bl.atad2}
+\end{align}
+\end{metadefinition}
+
+
+\begin{metadefinition}\blTitle{df-bl.atmul2} {Distribute @ over multiplication,
+two terms}
+\begin{align}
+\vdash ( ( \msc{t} \in \mathbf{T} \wedge \mc{B} \in \mathbb{C} \wedge \mc{C} \in
+    \mathbb{C} ) \rightarrow ( ( \mc{B} \cdot \mc{C} ) @ \msc{t} ) = ( ( \mc{B} @ \msc{t} )
+    \cdot ( \mc{C} @ \msc{t} ) ) )\label{eq:df-bl.atmul2}\tag{df-bl.atmul2}
+\end{align}
+\end{metadefinition}
+
+
+\begin{metadefinition}\blTitle{df-bl.atsub} {Distribute @ over subtraction}
+\begin{align}
+\vdash ( ( \msc{t} \in \mathbf{T} \wedge \mc{B} \in \mathbb{C} \wedge \mc{C} \in
+    \mathbb{C} ) \rightarrow ( ( \mc{B} \minus \mc{C} ) @ \msc{t} ) = ( ( \mc{B} @ \msc{t} )
+    \minus ( \mc{C} @ \msc{t} ) ) )\label{eq:df-bl.atsub}\tag{df-bl.atsub}
+\end{align}
+\end{metadefinition}
+
+
+\begin{metadefinition}\blTitle{df-bl.atdiv} {Distribute @ over division}
+\begin{align}
+\vdash ( ( \msc{t} \in \mathbf{T} \wedge \mc{B} \in \mathbb{C} \wedge \mc{C} \in
+    \mathbb{C} ) \rightarrow ( ( \mc{B} / \mc{C} ) @ \msc{t} ) = ( ( \mc{B} @ \msc{t} ) / ( C
+    @ \msc{t} ) ) )\label{eq:df-bl.atdiv}\tag{df-bl.atdiv}
+\end{align}
+\end{metadefinition}
+
+
+\begin{metadefinition}\blTitle{df-bl.atan2} {Distribute @ over conjunction, two
+terms}
+\begin{align}
+\vdash ( \msc{t} \in \mathbf{T} \rightarrow ( ( ( \mw{\varphi} \wedge \mw{\psi}
+    ) @ \msc{t} ) \leftrightarrow ( ( \mw{\varphi} @ \msc{t} ) \wedge (
+    \mw{\psi} @ \msc{t} ) ) ) )\label{eq:df-bl.atan2}\tag{df-bl.atan2}
+\end{align}
+\end{metadefinition}
+
+
+\begin{metadefinition}\blTitle{df-bl.ator2} {Distribute @ over disjunction, two
+terms}
+\begin{align}
+\vdash ( \msc{t} \in \mathbf{T} \rightarrow ( ( ( \mw{\varphi} \vee \mw{\psi} )
+    @ \msc{t} ) \leftrightarrow ( ( \mw{\varphi} @ \msc{t} ) \vee ( \mw{\psi} @
+    \msc{t} ) ) ) )\label{eq:df-bl.ator2}\tag{df-bl.ator2}
+\end{align}
+\end{metadefinition}
+
+
+\begin{lemma}\blTitle{bl.atad3} {Distribute @ over addition, three terms} $(
+\mc{A} + ( \mc{B} + \mc{C} ) ) @ \msc{t} )$.
+\begin{align}
+\vdash \msc{t} \in \mathbf{T}\quad\&\quad \vdash \mc{A} \in \mathbb{C}\quad\&\quad
+    \vdash \mc{B} \in \mathbb{C}\quad\&\quad \vdash \mc{C} \in
+    \mathbb{C}\quad\Rightarrow \notag \\
+    \quad \vdash ( ( \mc{A} + ( \mc{B} + \mc{C} ) ) @ \msc{t} ) = (
+    ( \mc{A} @ \msc{t} ) + ( ( \mc{B} @ \msc{t} ) + ( \mc{C} @ \msc{t} ) )
+    )\label{eq:bl.atad3}\tag{bl.atad3}
+\end{align}
+\end{lemma}
+
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash \msc{t} \in \mathbf{T}&\text{Hyp~atad3.1}\notag%bl.atad3.1
+  \\ 2 &&  & \vdash \mc{A} \in \mathbb{C}&\text{Hyp~atad3.2}\notag%bl.atad3.2
+  \\ 3 &&  & \vdash \mc{B} \in \mathbb{C}&\text{Hyp~atad3.3}\notag%bl.atad3.3
+  \\ 4 &&  & \vdash \mc{C} \in \mathbb{C}&\text{Hyp~atad3.4}\notag%bl.atad3.4
+  \\ 5 &&  & \vdash ( \mc{B} + \mc{C} ) \in \mathbb{C}&(\mbox{\ref{eq:addcli}},3,4)\notag
+  \\ 6 &&  & \vdash ( \msc{t} \in \mathbf{T} \wedge \mc{A} \in \mathbb{C} \wedge ( B
+     + \mc{C} ) \in \mathbb{C}
+     )&(\mbox{\ref{eq:3pm3.2i}},1,2,5)\notag
+  \\ 7 &&  & \vdash 
+     \begin{array}{c}
+     ( ( \msc{t} \in \mathbf{T} \wedge \mc{A} \in \mathbb{C} \wedge (
+     \mc{B} + \mc{C} ) \in \mathbb{C} ) \rightarrow \notag \\ 
+     ( ( \mc{A} + ( \mc{B} + C
+     ) ) @ \msc{t} ) = ( ( \mc{A} @ \msc{t} ) + ( ( \mc{B} + \mc{C} ) @
+     \msc{t} ) ) )
+     \end{array}
+     &(\mbox{\ref{eq:df-bl.atad2}})\notag
+  \\ 8 &&  & \vdash ( ( \mc{A} + ( \mc{B} + \mc{C} ) ) @ \msc{t} ) = ( ( \mc{A} @ \msc{t} ) + ( ( B
+     + \mc{C} ) @ \msc{t} ) )&(\mbox{\ref{eq:ax-mp}},6,7)\notag
+  \\ 9 &&  & \vdash \msc{t} \in \mathbf{T}&\text{Hyp~atad3.1}\notag%bl.atad3.1
+  \\ 10 &&  & \vdash \mc{B} \in \mathbb{C}&\text{Hyp~atad3.3}\notag%bl.atad3.3
+  \\ 11 &&  & \vdash \mc{C} \in \mathbb{C}&\text{Hyp~atad3.4}\notag%bl.atad3.4
+  \\ 12 &&  & \vdash ( \msc{t} \in \mathbf{T} \wedge \mc{B} \in \mathbb{C} \wedge C
+     \in \mathbb{C}
+     )&(\mbox{\ref{eq:3pm3.2i}},9,10,11)\notag
+  \\ 13 &&  & \vdash 
+     \begin{array}{c}
+     ( ( \msc{t} \in \mathbf{T} \wedge \mc{B} \in \mathbb{C} \wedge
+     \mc{C} \in \mathbb{C} ) \rightarrow \notag \\
+      ( ( \mc{B} + \mc{C} ) @ \msc{t}
+     ) = ( ( \mc{B} @ \msc{t} ) + ( \mc{C} @ \msc{t} ) )
+     )
+     \end{array}
+     &(\mbox{\ref{eq:df-bl.atad2}})\notag
+  \\ 14 &&  & \vdash ( ( \mc{B} + \mc{C} ) @ \msc{t} ) = ( ( \mc{B} @ \msc{t} ) + ( \mc{C} @
+     \msc{t} ) )&(\mbox{\ref{eq:ax-mp}},12,13)\notag
+  \\ 15 &&  & \vdash ( ( \mc{A} @ \msc{t} ) + ( ( \mc{B} + \mc{C} ) @ \msc{t} ) ) = ( ( \mc{A} @
+     \msc{t} ) + ( ( \mc{B} @ \msc{t} ) + ( \mc{C} @ \msc{t} ) )
+     )&(\mbox{\ref{eq:oveq2i}},14)\notag
+  \\ 16 &&  & \vdash ( ( \mc{A} + ( \mc{B} + \mc{C} ) ) @ \msc{t} ) = ( ( \mc{A} @ \msc{t} ) + ( (
+     \mc{B} @ \msc{t} ) + ( \mc{C} @ \msc{t} ) )
+     )&(\mbox{\ref{eq:eqtri}},8,15)\notag
+\end{align}
+\end{proof}
+
+\begin{lemma}\blTitle{bl.atad3l} {Distribute @ over addition, three terms},
+left $( ( \mc{A} + \mc{B} ) + \mc{C} ) @ \msc{t} )$.
+\begin{align}
+\vdash \msc{t} \in \mathbf{T}\quad\&\quad \vdash \mc{A} \in \mathbb{C}\quad\&\quad
+    \vdash \mc{B} \in \mathbb{C}\quad\&\quad \vdash \mc{C} \in
+    \mathbb{C}\quad\Rightarrow \notag \\
+    \quad \vdash ( ( ( \mc{A} + \mc{B} ) + \mc{C} ) @ \msc{t} ) = (
+    ( ( \mc{A} @ \msc{t} ) + ( \mc{B} @ \msc{t} ) ) + ( \mc{C} @ \msc{t} )
+    )\label{eq:bl.atad3l}\tag{bl.atad3l}
+\end{align}
+\end{lemma}
+
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash \msc{t} \in \mathbf{T}&\text{Hyp~atad3l.1}\notag%bl.atad3l.1
+  \\ 2 &&  & \vdash \mc{A} \in \mathbb{C}&\text{Hyp~atad3l.2}\notag%bl.atad3l.2
+  \\ 3 &&  & \vdash \mc{B} \in \mathbb{C}&\text{Hyp~atad3l.3}\notag%bl.atad3l.3
+  \\ 4 &&  & \vdash ( \mc{A} + \mc{B} ) \in \mathbb{C}&(\mbox{\ref{eq:addcli}},2,3)\notag
+  \\ 5 &&  & \vdash \mc{C} \in \mathbb{C}&\text{Hyp~atad3l.4}\notag%bl.atad3l.4
+  \\ 6 &&  & \vdash ( \msc{t} \in \mathbf{T} \wedge ( \mc{A} + \mc{B} ) \in \mathbb{C}
+     \wedge \mc{C} \in \mathbb{C}
+     )&(\mbox{\ref{eq:3pm3.2i}},1,4,5)\notag
+  \\ 7 &&  & \vdash 
+     \begin{array}{c}
+     ( ( \msc{t} \in \mathbf{T} \wedge ( \mc{A} + \mc{B} ) \in \mathbb{C}
+     \wedge \mc{C} \in \mathbb{C} ) \rightarrow \notag \\
+      ( ( ( \mc{A} + \mc{B} ) +
+     \mc{C} ) @ \msc{t} ) = ( ( ( \mc{A} + \mc{B} ) @ \msc{t} ) + ( \mc{C} @
+     \msc{t} ) ) )
+     \end{array}
+     &(\mbox{\ref{eq:df-bl.atad2}})\notag
+  \\ 8 &&  & \vdash ( ( ( \mc{A} + \mc{B} ) + \mc{C} ) @ \msc{t} ) = ( ( ( \mc{A} + \mc{B} ) @ \msc{t} )
+     + ( \mc{C} @ \msc{t} ) )&(\mbox{\ref{eq:ax-mp}},6,7)\notag
+  \\ 9 &&  & \vdash \msc{t} \in
+     \mathbf{T}&\text{Hyp~atad3l.1}\notag%bl.atad3l.1
+  \\ 10 &&  & \vdash \mc{A} \in \mathbb{C}&\text{Hyp~atad3l.2}\notag%bl.atad3l.2
+  \\ 11 &&  & \vdash \mc{B} \in \mathbb{C}&\text{Hyp~atad3l.3}\notag%bl.atad3l.3
+  \\ 12 &&  & \vdash ( \msc{t} \in \mathbf{T} \wedge \mc{A} \in \mathbb{C} \wedge B
+     \in \mathbb{C}
+     )&(\mbox{\ref{eq:3pm3.2i}},9,10,11)\notag
+  \\ 13 &&  & \vdash 
+     \begin{array}{c}
+     ( ( \msc{t} \in \mathbf{T} \wedge \mc{A} \in \mathbb{C} \wedge
+     \mc{B} \in \mathbb{C} ) \rightarrow \notag \\
+      ( ( \mc{A} + \mc{B} ) @ \msc{t}
+     ) = ( ( \mc{A} @ \msc{t} ) + ( \mc{B} @ \msc{t} ) )
+     )
+     \end{array}
+     &(\mbox{\ref{eq:df-bl.atad2}})\notag
+  \\ 14 &&  & \vdash ( ( \mc{A} + \mc{B} ) @ \msc{t} ) = ( ( \mc{A} @ \msc{t} ) + ( \mc{B} @
+     \msc{t} ) )&(\mbox{\ref{eq:ax-mp}},12,13)\notag
+  \\ 15 &&  & \vdash ( ( ( \mc{A} + \mc{B} ) @ \msc{t} ) + ( \mc{C} @ \msc{t} ) ) = ( ( ( \mc{A} @
+     \msc{t} ) + ( \mc{B} @ \msc{t} ) ) + ( \mc{C} @ \msc{t} )
+     )&(\mbox{\ref{eq:oveq1i}},14)\notag
+  \\ 16 &&  & \vdash ( ( ( \mc{A} + \mc{B} ) + \mc{C} ) @ \msc{t} ) = ( ( ( \mc{A} @ \msc{t} ) + (
+     \mc{B} @ \msc{t} ) ) + ( \mc{C} @ \msc{t} )
+     )&(\mbox{\ref{eq:eqtri}},8,15)\notag
+\end{align}
+\end{proof}
+
+\begin{lemma}\blTitle{bl.atmul3} {Distribute @ over multiplication, three
+terms} $( \mc{A} \cdot ( \mc{B} \cdot \mc{C} ) ) @ \msc{t} )$.
+\begin{align}
+\vdash \msc{t} \in \mathbf{T}\quad\&\quad \vdash \mc{A} \in \mathbb{C}\quad\&\quad
+    \vdash \mc{B} \in \mathbb{C}\quad\&\quad \vdash \mc{C} \in
+    \mathbb{C}\quad\Rightarrow \notag \\
+    \quad \vdash ( ( \mc{A} \cdot ( \mc{B} \cdot \mc{C} ) ) @
+    \msc{t} ) = ( ( \mc{A} @ \msc{t} ) \cdot ( ( \mc{B} @ \msc{t} ) \cdot ( \mc{C} @ \msc{t} )
+    ) )\label{eq:bl.atmul3}\tag{bl.atmul3}
+\end{align}
+\end{lemma}
+
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash \msc{t} \in \mathbf{T}&\text{Hyp~atmul3.1}\notag%bl.atmul3.1
+  \\ 2 &&  & \vdash \mc{A} \in \mathbb{C}&\text{Hyp~atmul3.2}\notag%bl.atmul3.2
+  \\ 3 &&  & \vdash \mc{B} \in \mathbb{C}&\text{Hyp~atmul3.3}\notag%bl.atmul3.3
+  \\ 4 &&  & \vdash \mc{C} \in \mathbb{C}&\text{Hyp~atmul3.4}\notag%bl.atmul3.4
+  \\ 5 &&  & \vdash ( \mc{B} \cdot \mc{C} ) \in
+     \mathbb{C}&(\mbox{\ref{eq:mulcli}},3,4)\notag
+  \\ 6 &&  & \vdash ( \msc{t} \in \mathbf{T} \wedge \mc{A} \in \mathbb{C} \wedge ( B
+     \cdot \mc{C} ) \in \mathbb{C}
+     )&(\mbox{\ref{eq:3pm3.2i}},1,2,5)\notag
+  \\ 7 &&  & \vdash 
+     \begin{array}{c}
+     ( ( \msc{t} \in \mathbf{T} \wedge \mc{A} \in \mathbb{C} \wedge (
+     \mc{B} \cdot \mc{C} ) \in \mathbb{C} ) \rightarrow \notag \\
+     ( ( \mc{A} \cdot
+     ( \mc{B} \cdot \mc{C} ) ) @ \msc{t} ) = ( ( \mc{A} @ \msc{t} ) \cdot
+     ( ( \mc{B} \cdot \mc{C} ) @ \msc{t} ) )
+     )
+     \end{array}
+     &(\mbox{\ref{eq:df-bl.atmul2}})\notag
+  \\ 8 &&  & \vdash ( ( \mc{A} \cdot ( \mc{B} \cdot \mc{C} ) ) @ \msc{t} ) = ( ( \mc{A} @ \msc{t} )
+     \cdot ( ( \mc{B} \cdot \mc{C} ) @ \msc{t} )
+     )&(\mbox{\ref{eq:ax-mp}},6,7)\notag
+  \\ 9 &&  & \vdash \msc{t} \in
+     \mathbf{T}&\text{Hyp~atmul3.1}\notag%bl.atmul3.1
+  \\ 10 &&  & \vdash \mc{B} \in \mathbb{C}&\text{Hyp~atmul3.3}\notag%bl.atmul3.3
+  \\ 11 &&  & \vdash \mc{C} \in \mathbb{C}&\text{Hyp~atmul3.4}\notag%bl.atmul3.4
+  \\ 12 &&  & \vdash ( \msc{t} \in \mathbf{T} \wedge \mc{B} \in \mathbb{C} \wedge C
+     \in \mathbb{C}
+     )&(\mbox{\ref{eq:3pm3.2i}},9,10,11)\notag
+  \\ 13 &&  & \vdash 
+     \begin{array}{c}
+     ( ( \msc{t} \in \mathbf{T} \wedge \mc{B} \in \mathbb{C} \wedge
+     \mc{C} \in \mathbb{C} ) \rightarrow \\
+     ( ( \mc{B} \cdot \mc{C} ) @
+     \msc{t} ) = ( ( \mc{B} @ \msc{t} ) \cdot ( \mc{C} @ \msc{t} ) )
+     )
+     \end{array}
+     &(\mbox{\ref{eq:df-bl.atmul2}})\notag
+  \\ 14 &&  & \vdash ( ( \mc{B} \cdot \mc{C} ) @ \msc{t} ) = ( ( \mc{B} @ \msc{t} ) \cdot ( C
+     @ \msc{t} ) )&(\mbox{\ref{eq:ax-mp}},12,13)\notag
+  \\ 15 &&  & \vdash ( ( \mc{A} @ \msc{t} ) \cdot ( ( \mc{B} \cdot \mc{C} ) @ \msc{t} ) ) = (
+     ( \mc{A} @ \msc{t} ) \cdot ( ( \mc{B} @ \msc{t} ) \cdot ( \mc{C} @
+     \msc{t} ) ) )&(\mbox{\ref{eq:oveq2i}},14)\notag
+  \\ 16 &&  & \vdash ( ( \mc{A} \cdot ( \mc{B} \cdot \mc{C} ) ) @ \msc{t} ) = ( ( \mc{A} @ \msc{t}
+     ) \cdot ( ( \mc{B} @ \msc{t} ) \cdot ( \mc{C} @ \msc{t} ) )
+     )&(\mbox{\ref{eq:eqtri}},8,15)\notag
+\end{align}
+\end{proof}
+
+\begin{lemma}\blTitle{bl.atmul3l} {Distribute @ over multiplication, three
+terms, left} $( ( \mc{A} \cdot \mc{B} ) \cdot \mc{C} ) @ \msc{t} )$.
+\begin{align}
+\vdash \msc{t} \in \mathbf{T}\quad\&\quad \vdash \mc{A} \in \mathbb{C}\quad\&\quad
+    \vdash \mc{B} \in \mathbb{C}\quad\&\quad \vdash \mc{C} \in
+    \mathbb{C}\quad\Rightarrow \notag \\ \quad \vdash ( ( ( \mc{A} \cdot \mc{B} ) \cdot \mc{C} ) @
+    \msc{t} ) = ( ( ( \mc{A} @ \msc{t} ) \cdot ( \mc{B} @ \msc{t} ) ) \cdot ( \mc{C} @ \msc{t}
+    ) )\label{eq:bl.atmul3l}\tag{bl.atmul3l}
+\end{align}
+\end{lemma}
+
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash \msc{t} \in \mathbf{T}&\text{Hyp~atmul3l.1}\notag%bl.atmul3l.1
+  \\ 2 &&  & \vdash \mc{A} \in \mathbb{C}&\text{Hyp~atmul3l.2}\notag%bl.atmul3l.2
+  \\ 3 &&  & \vdash \mc{B} \in \mathbb{C}&\text{Hyp~atmul3l.3}\notag%bl.atmul3l.3
+  \\ 4 &&  & \vdash ( \mc{A} \cdot \mc{B} ) \in
+     \mathbb{C}&(\mbox{\ref{eq:mulcli}},2,3)\notag
+  \\ 5 &&  & \vdash \mc{C} \in \mathbb{C}&\text{Hyp~atmul3l.4}\notag%bl.atmul3l.4
+  \\ 6 &&  & \vdash ( \msc{t} \in \mathbf{T} \wedge ( \mc{A} \cdot \mc{B} ) \in
+     \mathbb{C} \wedge \mc{C} \in \mathbb{C}
+     )&(\mbox{\ref{eq:3pm3.2i}},1,4,5)\notag
+  \\ 7 &&  & \vdash 
+     \begin{array}{c}
+     ( ( \msc{t} \in \mathbf{T} \wedge ( \mc{A} \cdot \mc{B} ) \in
+     \mathbb{C} \wedge \mc{C} \in \mathbb{C} ) \rightarrow \\
+     ( (
+     ( \mc{A} \cdot \mc{B} ) \cdot \mc{C} ) @ \msc{t} ) = ( ( ( \mc{A} \cdot B
+     ) @ \msc{t} ) \cdot ( \mc{C} @ \msc{t} ) )
+     )
+     \end{array}
+     &(\mbox{\ref{eq:df-bl.atmul2}})\notag
+  \\ 8 &&  & \vdash ( ( ( \mc{A} \cdot \mc{B} ) \cdot \mc{C} ) @ \msc{t} ) = ( ( ( \mc{A} \cdot \mc{B} )
+     @ \msc{t} ) \cdot ( \mc{C} @ \msc{t} )
+     )&(\mbox{\ref{eq:ax-mp}},6,7)\notag
+  \\ 9 &&  & \vdash \msc{t} \in
+     \mathbf{T}&\text{Hyp~atmul3l.1}\notag%bl.atmul3l.1
+  \\ 10 &&  & \vdash \mc{A} \in \mathbb{C}&\text{Hyp~atmul3l.2}\notag%bl.atmul3l.2
+  \\ 11 &&  & \vdash \mc{B} \in \mathbb{C}&\text{Hyp~atmul3l.3}\notag%bl.atmul3l.3
+  \\ 12 &&  & \vdash ( \msc{t} \in \mathbf{T} \wedge \mc{A} \in \mathbb{C} \wedge B
+     \in \mathbb{C}
+     )&(\mbox{\ref{eq:3pm3.2i}},9,10,11)\notag
+  \\ 13 &&  & \vdash 
+     \begin{array}{c}
+     ( ( \msc{t} \in \mathbf{T} \wedge \mc{A} \in \mathbb{C} \wedge
+     \mc{B} \in \mathbb{C} ) \rightarrow \\
+      ( ( \mc{A} \cdot \mc{B} ) @
+     \msc{t} ) = ( ( \mc{A} @ \msc{t} ) \cdot ( \mc{B} @ \msc{t} ) )
+     )
+     \end{array}
+     &(\mbox{\ref{eq:df-bl.atmul2}})\notag
+  \\ 14 &&  & \vdash ( ( \mc{A} \cdot \mc{B} ) @ \msc{t} ) = ( ( \mc{A} @ \msc{t} ) \cdot ( B
+     @ \msc{t} ) )&(\mbox{\ref{eq:ax-mp}},12,13)\notag
+  \\ 15 &&  & \vdash ( ( ( \mc{A} \cdot \mc{B} ) @ \msc{t} ) \cdot ( \mc{C} @ \msc{t} ) ) = (
+     ( ( \mc{A} @ \msc{t} ) \cdot ( \mc{B} @ \msc{t} ) ) \cdot ( \mc{C} @
+     \msc{t} ) )&(\mbox{\ref{eq:oveq1i}},14)\notag
+  \\ 16 &&  & \vdash ( ( ( \mc{A} \cdot \mc{B} ) \cdot \mc{C} ) @ \msc{t} ) = ( ( ( \mc{A} @
+     \msc{t} ) \cdot ( \mc{B} @ \msc{t} ) ) \cdot ( \mc{C} @ \msc{t}
+     ) )&(\mbox{\ref{eq:eqtri}},8,15)\notag
+\end{align}
+\end{proof}
+
+\begin{lemma}\blTitle{bl.atan3} {Distribute @ over conjunction, three terms}
+%$\mw{\varphi} \wedge ( \mw{\psi} \wedge \mw{\chi} ) \,\mathrm{{\tt '}}$
+\begin{align}
+\vdash ( \msc{t} \in \mathbf{T} \rightarrow ( ( ( \mw{\varphi} \wedge (
+    \mw{\psi} \wedge \mw{\chi} ) ) @ \msc{t} ) \leftrightarrow ( ( \mw{\varphi}
+    @ \msc{t} ) \wedge ( ( \mw{\psi} @ \msc{t} ) \wedge ( \mw{\chi} @ \msc{t} )
+    ) ) ) )\label{eq:bl.atan3}\tag{bl.atan3}
+\end{align}
+\end{lemma}
+
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash ( \msc{t} \in \mathbf{T} \rightarrow ( ( ( \mw{\varphi} \wedge
+     ( \mw{\psi} \wedge \mw{\chi} ) ) @ \msc{t} )
+     \leftrightarrow ( ( \mw{\varphi} @ \msc{t} ) \wedge (
+     ( \mw{\psi} \wedge \mw{\chi} ) @ \msc{t} ) ) )
+     )&(\mbox{\ref{eq:df-bl.atan2}})\notag
+  \\ 2 &&  & \vdash ( \msc{t} \in \mathbf{T} \rightarrow ( ( ( \mw{\psi} \wedge
+     \mw{\chi} ) @ \msc{t} ) \leftrightarrow ( ( \mw{\psi}
+     @ \msc{t} ) \wedge ( \mw{\chi} @ \msc{t} ) ) )
+     )&(\mbox{\ref{eq:df-bl.atan2}})\notag
+  \\ 3 &&  & \vdash ( \msc{t} \in \mathbf{T} \rightarrow ( ( ( \mw{\varphi} @
+     \msc{t} ) \wedge ( ( \mw{\psi} \wedge \mw{\chi} ) @
+     \msc{t} ) ) \leftrightarrow ( ( \mw{\varphi} @
+     \msc{t} ) \wedge ( ( \mw{\psi} @ \msc{t} ) \wedge (
+     \mw{\chi} @ \msc{t} ) ) ) )
+     )&(\mbox{\ref{eq:anbi2d}},2)\notag
+  \\ 4 &&  & \vdash ( \msc{t} \in \mathbf{T} \rightarrow ( ( ( \mw{\varphi}
+     \wedge ( \mw{\psi} \wedge \mw{\chi} ) ) @ \msc{t} )
+     \leftrightarrow ( ( \mw{\varphi} @ \msc{t} ) \wedge (
+     ( \mw{\psi} @ \msc{t} ) \wedge ( \mw{\chi} @ \msc{t}
+     ) ) ) ) )&(\mbox{\ref{eq:bitrd}},1,3)\notag
+\end{align}
+\end{proof}
+
+\begin{lemma}\blTitle{bl.ator3} {Distribute @ over disjunction, three terms}
+%$\mw{\varphi} \vee ( \mw{\psi} \vee \mw{\chi} ) \,\mathrm{{\tt '}}$
+\begin{align}
+\vdash ( \msc{t} \in \mathbf{T} \rightarrow ( ( ( \mw{\varphi} \vee ( \mw{\psi}
+    \vee \mw{\chi} ) ) @ \msc{t} ) \leftrightarrow ( ( \mw{\varphi} @ \msc{t} )
+    \vee ( ( \mw{\psi} @ \msc{t} ) \vee ( \mw{\chi} @ \msc{t} ) ) ) )
+    )\label{eq:bl.ator3}\tag{bl.ator3}
+\end{align}
+\end{lemma}
+
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash ( \msc{t} \in \mathbf{T} \rightarrow ( ( ( \mw{\varphi} \vee (
+     \mw{\psi} \vee \mw{\chi} ) ) @ \msc{t} )
+     \leftrightarrow ( ( \mw{\varphi} @ \msc{t} ) \vee ( (
+     \mw{\psi} \vee \mw{\chi} ) @ \msc{t} ) ) )
+     )&(\mbox{\ref{eq:df-bl.ator2}})\notag
+  \\ 2 &&  & \vdash ( \msc{t} \in \mathbf{T} \rightarrow ( ( ( \mw{\psi} \vee
+     \mw{\chi} ) @ \msc{t} ) \leftrightarrow ( ( \mw{\psi}
+     @ \msc{t} ) \vee ( \mw{\chi} @ \msc{t} ) ) )
+     )&(\mbox{\ref{eq:df-bl.ator2}})\notag
+  \\ 3 &&  & \vdash ( \msc{t} \in \mathbf{T} \rightarrow ( ( ( \mw{\varphi} @
+     \msc{t} ) \vee ( ( \mw{\psi} \vee \mw{\chi} ) @
+     \msc{t} ) ) \leftrightarrow ( ( \mw{\varphi} @
+     \msc{t} ) \vee ( ( \mw{\psi} @ \msc{t} ) \vee (
+     \mw{\chi} @ \msc{t} ) ) ) )
+     )&(\mbox{\ref{eq:orbi2d}},2)\notag
+  \\ 4 &&  & \vdash ( \msc{t} \in \mathbf{T} \rightarrow ( ( ( \mw{\varphi}
+     \vee ( \mw{\psi} \vee \mw{\chi} ) ) @ \msc{t} )
+     \leftrightarrow ( ( \mw{\varphi} @ \msc{t} ) \vee ( (
+     \mw{\psi} @ \msc{t} ) \vee ( \mw{\chi} @ \msc{t} ) )
+     ) ) )&(\mbox{\ref{eq:bitrd}},1,3)\notag
+\end{align}
+\end{proof}
+

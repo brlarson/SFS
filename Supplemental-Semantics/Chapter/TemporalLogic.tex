@@ -1,0 +1,652 @@
+%TemporalLogic.tex
+
+\pn The logic used by \lang~ assertions allows reasoning about the timing behavior of machines, and thus is a temporal logic, but fundamentally different from other temporal logics used for specifying and verifying cyber-physical systems.  A good synopsis of other temporal logics used for the purpose can be found in \cite{Konur-2013}, which surveys 18 of them.  They are all, in some sense, \bemph{modal} logics which have operators for necessarily $\square$, possibly $\Diamond$, has-been $P$, will-be $F$, has-always-been $H$, will-always-be $G$, next \textbigcircle, since $S$, until $U$, and possibly others.  Some temporal logics have instants as their fundamental entity, others have intervals.  Some logics use linear time, others have branching time to model divergent (unknowable) conditions of the future.  Some logics have a metric for time, others don't.
+Some logics model time continuously, others model time discretely.
+Some logics are \bemph{propositional} others have quantification (for-all, there-exists) and are \bemph{first-order}.  Higher- or second-order logics allow logic formulas themselves as subjects.  First-order logics are restricted to ``normal" mathematical objects.  All of the logics surveyed in \cite{Konur-2013} are propositional or first-order.
+Some logics have an explicit concept of \bemph{now}, some are implicit, and others have none.
+Some logics are \bemph{decidable} in that the are methods which can determine if arbitrary formulas (predicates) are true or false, given some model of the domain being considered.  For most of the theoretically decidable logics, clever people have found ways to mechanically decide them by model checking.  LTL (linear-time temporal logic) and branching, CTL (computation tree logic) or CTL* (``full" computation tree logic) are the most used temporal logics having model checkers.
+Unfortunately, decidable logics are necessarily limited in their expressiveness.
+
+Some logics have deductive systems of axioms and inference rules which can be used to prove (or disprove) formulas in the logic. 
+A \bemph{deductive system} consists of a set
+% $\Lambda$ 
+of logical axioms, a set 
+% $\Sigma$ 
+of non-logical axioms and definitions, and a set 
+% $\{~\langle~\Gamma , \Phi~\rangle~\}$ 
+of inference rules.
+
+\pn If every true formula has a proof then the logic is \bemph{complete}.  All logics powerful enough to reason about numbers are known to be incomplete.
+If a deductive system can only prove formulas (theorems) which are true, the logic system is \bemph{sound}.
+Unfortunately, we cannot know, for certain, that the axioms assumed are true.  The best we can hope for is relative soundness--if explicitly declared axioms are true, then proved formulas are true.
+
+\textbf{\logicid ~characteristics:}
+\begin{description}
+\item[deductive] yes
+\item[modal] yes: @ and \lstinline{^}
+\item[metric] yes 
+\item[decidable] no 
+\item[fundamental entity] instant
+\item[temporal structure] linear
+\item[order] first
+\item[granularity] continuous
+\item[now] explicit
+\end{description}
+
+\pn \logicid~ can be considered ``modal" because each instant of time is a different ``world" with its own valuation.  (The bindings of values to variables at a particular instant of time is such a valuation.)
+
+\section{Temporal Precedence}\label{sec:precedence}
+
+\pn All instant models of time define a relation of \bemph{temporal precedence}, $\prec$, a.k.a ``before".
+Models of time can choose many different properties for $\prec$.  The properties of the \lang~ logic temporal precedence are marked with *.
+
+\begin{description}
+\item[reflexivity] $ \forall \tau(\tau\prec \tau)$
+\item[*irreflexivity] $ \forall \tau\lnot (\tau\prec \tau)$
+\item[*transitivity] $ \forall \tau\forall \tau_1\forall \tau_2(\tau\prec \tau_1\wedge \tau_1\prec \tau_2\rightarrow \tau\prec \tau_2)$
+\item[*asymmetry] $ \forall \tau\forall \tau_1\lnot (\tau\prec \tau_1\wedge \tau_1\prec \tau)$
+\item[anti-symmetry] $ \forall \tau\forall \tau_1(\tau\prec \tau_1\wedge \tau_1\prec \tau\rightarrow \tau=\tau_1)$
+\item[*linearity (trichotomy, connectedness)] $ \forall \tau\forall \tau_1(\tau=\tau_1\vee \tau\prec \tau_1\vee \tau_1\prec \tau)$
+\item[*beginning] $ \exists \tau\lnot \exists \tau_1(\tau_1\prec \tau)$
+\item[*end] $ \exists \tau\lnot \exists \tau_1(\tau\prec \tau_1)$
+\item[no beginning] $ \forall \tau\exists \tau_1(\tau_1\prec \tau)$
+\item[no end (unboundedness)] $ \forall \tau\exists \tau_1(\tau\prec \tau_1)$
+\item[*density] $ \forall \tau\forall \tau_1(\tau\prec \tau_1\rightarrow \exists \tau_2(\tau\prec \tau_2\wedge \tau_2\prec \tau_1))$
+\item[forward-discreteness] $ \forall \tau\forall \tau_1(\tau\prec \tau_1\rightarrow \exists \tau_2(\tau\prec \tau_2\wedge \tau_2\preccurlyeq \tau_1\wedge \lnot \exists u(\tau\prec u\wedge u\prec \tau_2)))$
+\item[backward-discreteness] $ \forall \tau\forall \tau_1(\tau_1\prec \tau\rightarrow \exists \tau_2(\tau_2\prec \tau\wedge \tau_1\preccurlyeq \tau_2\wedge \lnot \exists u(\tau_2\prec u\wedge u\prec \tau)))$
+\end{description}
+
+\pn \bemph{next} instant: given *density above, \logicid's temporal precedence $\prec$ admits no fixed
+``step size" $\delta$ that could serve as a general definition of ``the instant immediately following
+$\tau_1$"---between any two instants related by $\prec$, another instant is guaranteed to exist.  Rather
+than baking a step size into the definition (meaningless for a dense order, and arbitrary for any
+particular discretization), \bemph{next} is defined purely order-theoretically: $\tau_2$ is next after
+$\tau_1$ exactly when $\tau_1 \prec \tau_2$ and no instant lies strictly between them.
+
+\begin{definition}\blTitle{df-bl.next} {Define the next instant (successor, no delta)}
+\begin{align}
+\vdash (~ \texttt{next}( \tau_1, \tau_2 ) \leftrightarrow ( \tau_1 \prec \tau_2 \wedge \lnot \exists \tau
+    ( \tau_1 \prec \tau \wedge \tau \prec \tau_2 ) )~)
+    \label{eq:df-bl.next}\tag{df-bl.next}
+\end{align}
+\end{definition}
+
+\pn Because $\prec$ satisfies *density unrestricted over $\mathbf{T}$, $\texttt{next}(\tau_1,\tau_2)$ is
+provably unsatisfiable whenever $\tau_1,\tau_2$ range over all of $\mathbf{T}$
+(\ref{eq:bl.nextdense} below)---\texttt{next} only does useful work applied to a \emph{restricted} pair
+of instants known not to be separated by a third recognized one, e.g.\ the \texttt{birth}/\texttt{death}
+shots of two \texttt{Occurrence}s in \texttt{nearlyMeets} (\S\ref{sec:allen}), which are representable,
+recorded time values rather than arbitrary elements of the continuum, or instants drawn from a single
+discretized Period (\S\ref{sec:informal_timemodel}).  This is exactly the payoff of the order-theoretic
+definition over a fixed-$\delta$ one: it is uniformly correct across both regimes, degenerating silently
+to \bemph{false} in the fully dense case rather than committing to a granularity that isn't the
+modeler's to assume.
+
+\pn A useful consequence, provable directly from linearity and asymmetry of $\prec$ without appeal to
+density: if a next instant after $\tau_1$ exists at all, it is unique.
+
+\begin{lemma}\blTitle{bl.nextuniq} {Uniqueness of next (when it exists)}
+\begin{align}
+\vdash ( ( \texttt{next}( \tau_1, \tau_2 ) \wedge \texttt{next}( \tau_1, \tau_3 ) ) \rightarrow \tau_2 =
+    \tau_3 )\label{eq:bl.nextuniq}\tag{bl.nextuniq}
+\end{align}
+\end{lemma}
+
+\noindent\emph{Proof sketch (informal, pending Metamath formalization):} Suppose
+$\texttt{next}(\tau_1,\tau_2)$ and $\texttt{next}(\tau_1,\tau_3)$, and, for contradiction,
+$\tau_2 \ne \tau_3$.  By *linearity, either $\tau_2 \prec \tau_3$ or $\tau_3 \prec \tau_2$; the cases are
+symmetric, so take $\tau_2 \prec \tau_3$.  From $\texttt{next}(\tau_1,\tau_2)$, $\tau_1 \prec \tau_2$.
+So $\tau_1 \prec \tau_2 \prec \tau_3$ witnesses an instant ($\tau_2$) strictly between $\tau_1$ and
+$\tau_3$, contradicting the second conjunct of $\texttt{next}(\tau_1,\tau_3)$.  Hence $\tau_2 = \tau_3$.
+
+\begin{lemma}\blTitle{bl.nextdense} {next is empty under unrestricted density}
+\begin{align}
+\vdash ( \forall \tau\forall \tau_1 ( \tau \prec \tau_1 \rightarrow \exists \tau_2 ( \tau \prec \tau_2
+    \wedge \tau_2 \prec \tau_1 ) ) \rightarrow \lnot \exists \tau_1\exists \tau_2~\texttt{next}( \tau_1,
+    \tau_2 ) )\label{eq:bl.nextdense}\tag{bl.nextdense}
+\end{align}
+\end{lemma}
+
+\noindent\emph{Proof sketch (informal, pending Metamath formalization):} Instantiate the density
+hypothesis at any $\tau_1,\tau_2$ with $\texttt{next}(\tau_1,\tau_2)$ (which gives $\tau_1 \prec
+\tau_2$): density yields an instant strictly between them, directly contradicting the non-existence
+conjunct of \eqref{eq:df-bl.next}.
+
+\section{Hybrid Logics}\label{sec:hybridlogics}
+
+\pn The temporal logics closest to \logicid~ are called \bemph{hybrid logics} in that they extend a propositional temporal logic with quantifiers, and use \bemph{nominals} \cite{sep-logic-hybrid}\cite{Bull-1970}.  Nominals are atomic propositions which are true at exactly one $t \in T$.  With nominals, a \bemph{satisfaction operator} can be defined to represent that a formula $\phi$ is true at the exact instant which nominal $i$ is true,~~ $@_i \phi$
+ \cite{Alur94areally}.  Adding quantifiers over nominals allows expression that a formula is always true, $\forall i @_i \phi$, or is sometimes true, $\exists i @_i \phi$ \cite{Passy-Tinchev1985}.  
+ 
+\pn  Adding reference pointers, $\downarrow_i$ provide a mechanism for referring to the current time instant, a.k.a. \bemph{now} \cite{Goranko1996}.  A formula $\downarrow_i \phi$ is true at a given instant $t$ in a temporal model iff $\phi$ is true at $t$ whenever the nominal $i$ denotes $t$. 
+ 
+\pn  Some of the expressive features of \lang~ logic, such as evaluating a predicate at a particular time, or quantification over time, or \bemph{now} have been found useful by others.  Furthermore, this is not the place to explore subtle differences between concepts, or why \lang~ logic is more powerful or elegant.  %(it is!)
+ Rather to acknowledge some similarities of \lang~ logic with other independently-developed logics.
+ 
+ \section{\lang~Logic 0:  \logicid$_0$}\label{sec:bl0}
+ 
+\pn  As preliminary, a propositional subset of \logicid~ called \logicid$_0$ is presented.  A model, $\mathfrak{M}$ is defined as a tuple:
+ 
+ \begin{definition}\blTitle{df-bl.bl0} {Definition of \logicid$_0$} \\
+~~~where $\mathbf{T}$ is a set of time instants, \\
+~~~$\prec$ is a temporal precedence relation, \\
+~~~$\mathsf{PROP}$ is a set of proposition symbols, and \\
+~~~$\mathbf{I}_{t}$ is a valuation function for proposition symbols.
+\begin{align}
+\mathfrak{M} \equiv \langle \mathbf{T} , \prec , \mathsf{PROP} , \mathbf{I}_{t}
+    \rangle\label{eq:df-bl.bl0}\tag{df-bl.bl0}
+\end{align}
+\end{definition}
+
+% \(
+% \mathfrak{M} \equiv \langle \mathbf{T}, \prec, \mathsf{PROP}, V \rangle
+% \)
+ 
+
+\pn Formal models of temporal logics define a \bemph{temporal frame} consisting of its set of time instants (or intervals), $\mathbf{T}$,
+ and its temporal precedence operator, $\prec$,~~  $ \langle \mathbf{T}, \prec \rangle$.  
+ 
+% For $p \in \mathsf{PROP}$, $V(p) \subseteq \mathbf{T}$ is the set of times at which $p$ is true.
+% 
+% \begin{definition}\blTitle{df-bl.prop0} {Value of proposition a time
+%$\msc{\tau}$}
+%\begin{align}
+%\mm{\vdash} ( \mathfrak{M} , \msc{\tau} \models p \leftrightarrow \msc{\tau} \in ( V
+%    ` p ) )\label{eq:df-bl.prop0}\tag{df-bl.prop0}
+%\end{align}
+%\end{definition}
+
+ 
+\subsection{\logicid$_0$ Well-formed Formulas}\label{sec:bl0wff}
+
+\pn Given a set of proposition symbols $\mathsf{PROP} = \{ p, q, r, \ldots \}$, a set of time symbols $\{ \msc{\tau}, \msc{\tau_1}, \msc{\tau_2}, \ldots \}$, and a set of formula symbols
+$\{ \mw{\phi}, \mw{\psi}, \mw{\chi}, \ldots \}$ a well-formed formula for \logicid$_0$ is:
+
+\begin{definition}\blTitle{bl0wff} {Define well-formed formulas of \logicid$_0$}
+\begin{align}
+\mathsf{WFF}_0 := p~\vert~ \lnot\mw{\phi} ~\vert~ \mw{\phi} \wedge \mw{\psi}~\vert~\mw{\phi} \rightarrow \mw{\psi}~\vert~ \mw{\phi} @ \msc{\tau}~\vert~\msc{\tau_1} \prec \msc{\tau_2}~
+  \vert~\msc{\tau_1}=\msc{\tau_2}~\vert~\forall \msc{\tau} \in R~\mw{\phi}~\vert~(~\mw{\phi}~)~\vert~\top~\vert~\bot \label{eq:bl0wff}\tag{BL0-wff}
+\end{align}
+\end{definition}
+where $R$ is a range of the form  
+\[\msc{\tau} \in [ \msc{\tau_1} \dotdot \msc{\tau_2} ] \equiv \msc{\tau_1} \le \msc{\tau} \le \msc{\tau_2} \]  
+\[\msc{\tau} \in [ \msc{\tau_1} \commacomma \msc{\tau_2} ] \equiv \msc{\tau_1} < \msc{\tau} < \msc{\tau_2} \]  
+\[\msc{\tau} \in [ \msc{\tau_1} \dotcomma \msc{\tau_2} ] \equiv \msc{\tau_1} \le \msc{\tau} < \msc{\tau_2} \]  
+\[\msc{\tau} \in [ \msc{\tau_1} \commadot \msc{\tau_2} ] \equiv \msc{\tau_1} < \msc{\tau} \le \msc{\tau_2} \]
+
+
+\subsection{\logicid$_0$ Semantics}\label{sec:bl0sem}
+
+\pn Whenever practical, we will use Metamath's built-in definitions and theorems.
+\begin{description}
+\item[$\lnot$ ] \ref{eq:ax-3}
+\item[$\wedge$ ] \ref{eq:df-an}
+\item[$\rightarrow$ ]  \ref{eq:ax-2}  \ref{eq:ax-3}  \ref{eq:ax-4}
+\item[$\vee$ ]  \ref{eq:df-or}
+\item[$<$ ]  \ref{eq:df-ltxr}  ~\ref{eq:lttr}
+\item[$=$ ]  \ref{eq:ax-7}~\ref{eq:ax-8}~\ref{eq:ax-9}
+%\item[$(  )$] df-bothp
+\item[$\top$ ]  \ref{eq:df-tru}
+\item[$\bot$]  \ref{eq:df-fal}
+\end{description}
+
+\pn The notation, 
+\(\mathfrak{M} , t \models\)
+ means ``the model $\mathfrak{M}$ at time $t$ models \ldots";~~  \(\mathfrak{M} , t \equiv \mathfrak{M}_t\).
+
+$\vdash$ means ``deducible".  
+
+$\mathbb{R}$ is the set of real numbers.  
+
+\subsection{Time: $\mathbf{T}$}\label{sec:time}
+
+$\mathbf{T}$ is the set of real times between 0 and now, inclusive:
+
+\dfbltime
+%\begin{restatable}{metadefinition}{dfbltime}~\blTitle{df-bl.time}~ Define domain of time $\mathbf{T}$
+%from $\msc{\tau} = 0$ to $\mathsf{\mc{now}}$.
+%\begin{align}
+%\vdash \mathbf{T} = \{ \msc{x}~\vert~( \msc{x} \in \mathbb{R} \wedge 0 \le \msc{x}
+%    \wedge \msc{x} \le \mathsf{\mc{now}} )
+%    \}\label{eq:df-bl.time}\tag{df-bl.time}
+%\end{align}
+%\end{restatable}
+
+%\begin{definition}\blTitle{df-bl.time} {Define domain of time $\mathbf{T}$}
+%from $\msc{\tau} = 0$ to $\mathsf{\msc{now}}$
+%\begin{align}
+%\mm{\vdash} \mathbf{T} = \{ \msc{\tau}~\vert~( \msc{\tau} \in \mathbb{R} \wedge 0 \le
+%    \msc{\tau} \wedge \msc{\tau} \le \mathsf{\msc{now}} )
+%    \}\label{eq:df-bl.time}\tag{df-bl.time}
+%\end{align}
+%\end{definition}
+
+\pn Define temporal precedence.  (Note the subtle difference between $\prec$ and $<$).
+
+\dfblbefore
+%\begin{restatable}{metadefinition}{dfblbefore}~\blTitle{df-bl.before}~ Temporal Precedence (before).
+%\begin{align}
+%\vdash ( ( \msc{\tau_1} \in \mathbf{T} \wedge \msc{\tau_2} \in \mathbf{T} )
+%    \rightarrow ( \msc{\tau_1} \prec \msc{\tau_2} \leftrightarrow \msc{\tau_1} <
+%    \msc{\tau_2} ) )\label{eq:df-bl.before}\tag{df-bl.before}
+%\end{align}
+%\end{restatable}
+
+%\begin{definition}\blTitle{df-bl.before} {Temporal Precedence (before)}
+%\begin{align}
+%( \msc{\tau_1} \prec \msc{\tau_2} \leftrightarrow \msc{\tau_1} < \msc{\tau_2}
+%    )\label{eq:df-bl.before}\tag{df-bl.before}
+%\end{align}
+%\end{definition}
+
+\pn It's also useful to define ``before or coincident".  
+
+\dfblbeforeeq
+%\begin{restatable}{metadefinition}{dfblbeforeeq}~\blTitle{df-bl.beforeeq}~ Temporal Precedence (before or
+%coincident).
+%\begin{align}
+%\vdash ( ( \msc{\tau_1} \in \mathbf{T} \wedge \msc{\tau_2} \in \mathbf{T} )
+%    \rightarrow ( \msc{\tau_1} \preccurlyeq \msc{\tau_2} \leftrightarrow ( \msc{\tau_1}
+%    < \msc{\tau_2} \vee \msc{\tau_1} = \msc{\tau_2} ) )
+%    )\label{eq:df-bl.beforeeq}\tag{df-bl.beforeeq}
+%\end{align}
+%\end{restatable}
+
+%The @ operator specifies time of formula evaluation.  Note that $\varphi @ t_1$ has the same value evaluated at any time $t$.
+%
+%\begin{definition}\blTitle{df-bl.at} {@ specifies time of evaluation}
+%\begin{align}
+%( \mathfrak{M} , \msc{\tau} \models \mw{\varphi} @ \msc{\tau_1}
+%    \rightarrow \mathfrak{M} , \msc{\tau_1} \models \mw{\varphi}
+%    )\label{eq:df-bl.at}\tag{df-bl.at}
+%\end{align}
+%\end{definition}
+%
+%Applying a second @ has no effect.
+%
+%\begin{definition}\blTitle{df-bl.at2} {Second application of @ is
+%inconsequential}
+%\begin{align}
+% ( \mathfrak{M} , \msc{\tau} \models ( \mw{\varphi} @ \msc{\tau_1} ) @
+%    \msc{\tau_2} \rightarrow \mathfrak{M} , \msc{\tau_1} \models \mw{\varphi}
+%    )\label{eq:df-bl.at2}\tag{df-bl.at2}
+%\end{align}
+%\end{definition}
+
+\pn Time intervals are defined as ranges.  The closed interval is most intuitive.
+
+\begin{definition}\blTitle{df-bl.dd} {Define closed time interval}
+\begin{align}
+\mm{\vdash} ( \msc{\tau} \in [ \msc{\tau_1} .. \msc{\tau_2} ] \leftrightarrow (
+    \msc{\tau_1} \preccurlyeq \msc{\tau} \wedge \msc{\tau} \preccurlyeq \msc{\tau_2} )
+    )\label{eq:df-bl.dd}\tag{df-bl.dd}
+\end{align}
+\end{definition}
+
+\pn The open interval is necessary for specifying real-time behavior.
+
+\begin{definition}\blTitle{df-bl.cc} {Define open time interval}
+\begin{align}
+\mm{\vdash} ( \msc{\tau} \in [ \msc{\tau_1} ,, \msc{\tau_2} ] \leftrightarrow (
+    \msc{\tau_1} \prec \msc{\tau} \wedge \msc{\tau} \prec \msc{\tau_2} )
+    )\label{eq:df-bl.cc}\tag{df-bl.cc}
+\end{align}
+\end{definition}
+
+\pn Open-right and open-left are included for completeness, rarely used.
+
+\begin{definition}\blTitle{df-bl.cd} {Define open-left time interval}
+\begin{align}
+\mm{\vdash} ( \msc{\tau} \in [ \msc{\tau_1} ,. \msc{\tau_2} ] \leftrightarrow (
+    \msc{\tau_1} \prec \msc{\tau} \wedge \msc{\tau} \preccurlyeq \msc{\tau_2} )
+    )\label{eq:df-bl.cd}\tag{df-bl.cd}
+\end{align}
+\end{definition}
+
+\begin{definition}\blTitle{df-bl.dc} {Define open-right time interval}
+\begin{align}
+\mm{\vdash} ( \msc{\tau} \in [ \msc{\tau_1} ., \msc{\tau_2} ] \leftrightarrow (
+    \msc{\tau_1} \preccurlyeq \msc{\tau} \wedge \msc{\tau} \prec \msc{\tau_2} )
+    )\label{eq:df-bl.dc}\tag{df-bl.dc}
+\end{align}
+\end{definition}
+
+\pn Metamath uses a different representation for intervals.  $[t_{1}..t_{2}]$ is $( \msc{\tau_1} [,] \msc{\tau_2} )$.
+Proofs of universal and existential quantification over time ranges follow.
+
+\blalldd
+%\begin{restatable}{lemma}{blalldd}~\blTitle{bl.alldd}~ Universal quantification over closed time
+%interval [t1 .. t2].
+%\begin{align}
+%\vdash ( \msc{\tau_1} \in \mathbf{T} \wedge \msc{\tau_2} \in \mathbf{T}
+%    )\quad\Rightarrow \notag \\
+%	\quad \vdash ( \forall \msc{x} \in \mathbf{T} ( \msc{x}
+%    \in ( \msc{\tau_1} [,] \msc{\tau_2} ) \wedge \mw{\varphi} ) \leftrightarrow
+%    \forall \msc{x} \in \mathbf{T} ( \msc{\tau_1} \le \msc{x} \wedge \msc{x} \le
+%    \msc{\tau_2} \wedge \mw{\varphi} ) )\label{eq:bl.alldd}\tag{bl.alldd}
+%\end{align}
+%\end{restatable}
+Proof of {\tt bl.allldd} on page \pageref{proof:bl.alldd}.
+
+\blallcd
+%\begin{restatable}{lemma}{blallcd}~\blTitle{bl.allcd}~ Universal quantification over open-left
+%time interval [t1 ,. t2].
+%\begin{align}
+%\vdash ( \msc{\tau_1} \in \mathbf{T} \wedge \msc{\tau_2} \in \mathbf{T}
+%    )\quad\Rightarrow \notag \\
+%	\quad \vdash ( \forall \msc{x} \in \mathbf{T} ( \msc{x}
+%    \in ( \msc{\tau_1} (,] \msc{\tau_2} ) \wedge \mw{\varphi} ) \leftrightarrow
+%    \forall \msc{x} \in \mathbf{T} ( \msc{\tau_1} < \msc{x} \wedge \msc{x} \le
+%    \msc{\tau_2} \wedge \mw{\varphi} ) )\label{eq:bl.allcd}\tag{bl.allcd}
+%\end{align}
+%\end{restatable}
+Proof of {\tt bl.allcd} on page \pageref{proof:bl.allcd}.
+
+\blalldc
+%\begin{restatable}{lemma}{blalldc}~\blTitle{bl.alldc}~ Universal quantification over open-right
+%time interval [t1 ., t2].
+%\begin{align}
+%\vdash ( \msc{\tau_1} \in \mathbf{T} \wedge \msc{\tau_2} \in \mathbf{T}
+%    )\quad\Rightarrow \notag \\
+%	\quad \vdash ( \forall \msc{x} \in \mathbf{T} ( \msc{x}
+%    \in ( \msc{\tau_1} [,) \msc{\tau_2} ) \wedge \mw{\varphi} ) \leftrightarrow
+%    \forall \msc{x} \in \mathbf{T} ( \msc{\tau_1} \le \msc{x} \wedge \msc{x} <
+%    \msc{\tau_2} \wedge \mw{\varphi} ) )\label{eq:bl.alldc}\tag{bl.alldc}
+%\end{align}
+%\end{restatable}
+Proof of {\tt bl.alldc} on page \pageref{proof:bl.alldc}.
+
+\blallcc
+%\begin{restatable}{lemma}{blallcc}~\blTitle{bl.allcc}~ Universal quantification over open time
+%interval [t1 ,, t2].
+%\begin{align}
+%\vdash ( \msc{\tau_1} \in \mathbf{T} \wedge \msc{\tau_2} \in \mathbf{T}
+%    )\quad\Rightarrow \notag \\
+%	\quad \vdash ( \forall \msc{x} \in \mathbf{T} ( \msc{x}
+%    \in ( \msc{\tau_1} (,) \msc{\tau_2} ) \wedge \mw{\varphi} ) \leftrightarrow
+%    \forall \msc{x} \in \mathbf{T} ( \msc{\tau_1} < \msc{x} \wedge \msc{x} <
+%    \msc{\tau_2} \wedge \mw{\varphi} ) )\label{eq:bl.allcc}\tag{bl.allcc}
+%\end{align}
+%\end{restatable}
+Proof of {\tt bl.allcc} on page \pageref{proof:bl.allcc}.
+
+%Proofs of existential quantification over time uses the definition of existential quantification, and proofs of universal quantification over time.
+
+\begin{restatable}{lemma}{blexdd}~\blTitle{bl.exdd}~ Existential quantification over closed
+interval [t1 .. t2].
+\begin{align}
+\vdash ( \exists \msc{x} ( \msc{x} \in ( \msc{\tau_1} [,] \msc{\tau_2} ) \wedge
+    \mw{\varphi} ) \leftrightarrow \lnot \forall \msc{x} \lnot ( \msc{x} \in (
+    \msc{\tau_1} [,] \msc{\tau_2} ) \wedge \mw{\varphi} )
+    )\label{eq:bl.exdd}\tag{bl.exdd}
+\end{align}
+\end{restatable}
+Proof of {\tt bl.exdd} on page \pageref{proof:bl.exdd}.
+
+\begin{restatable}{lemma}{blexcc}~\blTitle{bl.excc}~ Existential quantification over open
+interval [t1 ,, t2].
+\begin{align}
+\vdash ( \exists \msc{x} ( \msc{x} \in ( \msc{\tau_1} (,) \msc{\tau_2} ) \wedge
+    \mw{\varphi} ) \leftrightarrow \lnot \forall \msc{x} \lnot ( \msc{x} \in (
+    \msc{\tau_1} (,) \msc{\tau_2} ) \wedge \mw{\varphi} )
+    )\label{eq:bl.excc}\tag{bl.excc}
+\end{align}
+\end{restatable}
+Proof of {\tt bl.excc} on page \pageref{proof:bl.excc}.
+
+\begin{restatable}{lemma}{blexcd}~\blTitle{bl.excd}~ Existential quantification over open-left
+interval [t1 ,. t2].
+\begin{align}
+\vdash ( \exists \msc{x} ( \msc{x} \in ( \msc{\tau_1} (,] \msc{\tau_2} ) \wedge
+    \mw{\varphi} ) \leftrightarrow \lnot \forall \msc{x} \lnot ( \msc{x} \in (
+    \msc{\tau_1} (,] \msc{\tau_2} ) \wedge \mw{\varphi} )
+    )\label{eq:bl.excd}\tag{bl.excd}
+\end{align}
+\end{restatable}
+Proof of {\tt bl.excd} on page \pageref{proof:bl.excd}.
+
+\begin{restatable}{lemma}{blexdc}~\blTitle{bl.exdc}~ Existential quantification over open-right
+interval [t1 ., t2].
+\begin{align}
+\vdash ( \exists \msc{x} ( \msc{x} \in ( \msc{\tau_1} [,) \msc{\tau_2} ) \wedge
+    \mw{\varphi} ) \leftrightarrow \lnot \forall \msc{x} \lnot ( \msc{x} \in (
+    \msc{\tau_1} [,) \msc{\tau_2} ) \wedge \mw{\varphi} )
+    )\label{eq:bl.exdc}\tag{bl.exdc}
+\end{align}
+\end{restatable}
+Proof of {\tt bl.exdc} on page \pageref{proof:bl.exdc}.
+
+ \section{\lang~ Logic:  \logicid}\label{sec:bl}
+
+ \logicid$_0$ is extended to the full \lang~ Logic (\logicid) by grounding its model directly in KerML: the propositional symbols ($\mathsf{PROP}$) are replaced by n-ary predicate symbols ($\mathsf{PRED}$) and terms ($\mathsf{TERM}$), built from constants ($\mathsf{CON}$), variables ($\mathsf{VAR}$), and n-ary function application ($\mathsf{FUNC}$), used to write formulas about a KerML design; and the propositional valuation $\mathbf{I}_t$ is replaced by an interpretation $\mathbf{I}$ of KerML design elements, contingent on the system boundary.
+
+ \pn Classical logic and set theory are used to define a many-world modal logic with a Kripke structure: possible worlds are time instants $\mathbf{T}$, the accessibility relation is temporal precedence $\prec$, and the valuation is the interpretation $\mathbf{I}$ (\S\ref{sec:modallogic}).
+
+ \dfmodel
+%\begin{restatable}{definition}{dfmodel}~\blTitle{df-model}~ A dynamic architecture model, $\mathfrak{M}$ is defined as a tuple
+%\begin{align}
+%\mathfrak{M} \equiv \langle \mathbf{T} , \prec , D, E, P, \mathbf{I}
+%    \rangle\label{eq:df-model}\tag{df-model}
+%\end{align}
+%\end{restatable}
+such that
+
+$\mathbf{T}$: is a set of time instants,
+
+$\prec$: is a temporal precedence relation,
+
+$D$: is a design expressed in KerML,
+
+$E$: is a selected KerML element in the design to be modeled $E \in D$,
+
+$P(\tau)$: is the system boundary at time $\tau \in \mathbf{T}$, and
+
+$\mathbf{I}\lsem d,\tau\rsem$: is an interpretation for design element $d\in D$ at time $\tau \in \mathbf{T}$.
+
+\pn $E$ will be treated as a set theory \bemph{class}: a collection defined by a rule.  The interpretation $\mathbf{I}\lsem E,\tau\rsem$ finds an element (member) of $E$ (if there is one) for any $\tau \in \mathbf{T}$; $E$ may have many possible elements at time $\tau$, and interpretation picks just one.
+
+\pn $P(\tau)$ is the system boundary where the system interacts with its environment.  It is called \bemph{P} in honor of the Parnas four variable model to represent the physical world sensors detect and actuators affect.  When modeling subsystems, $P$ represents the inputs and outputs of connected subsystems.  Constructing a model $\mathfrak{M}$ for $E$ is \bemph{execution}.
+
+\pn The interpretation $\mathbf{I}\lsem d,\tau\rsem$ is only defined for any element $d$ in the design $D$.  Furthermore, the interpretation is contingent on the values of the system boundary $P(\tau)$.
+
+\pn \texttt{Type} and \texttt{Classifier} elements have the same interpretation for all $\tau\in\mathbf{T}$, because they are immutable.  \texttt{Class} elements may have variable features, and lifetimes.  $\mathbf{I}\lsem d \rsem$ is the same at every time $\tau\in\mathbf{T}$:
+
+\dfblmodels
+%\begin{restatable}{definition}{dfblmodels}~\blTitle{df-bl.models}~ Define interpretation of predicate for
+%any $\tau \in \mathbf{T}$
+%\begin{align}
+%\vdash \tau \in \mathbf{T}\quad\Rightarrow\quad \vdash ( \mathbf{I} \lsem
+%    \mw{\varphi} \rsem \rightarrow \mathbf{I} \lsem \mw{\varphi} , \tau \rsem
+%    )\label{eq:df-bl.models}\tag{df-bl.models}
+%\end{align}
+%\end{restatable}
+
+\dfblmodelsc
+%\begin{restatable}{definition}{dfblmodelsc}~\blTitle{df-bl.modelsc}~ Define interpretation of values over
+%any $\tau \in \mathbf{T}$
+%\begin{align}
+%\vdash \tau \in \mathbf{T}\quad\Rightarrow\quad \vdash ( \mathbf{I} \lsem
+%    \mc{A} \rsem = \mc{B} \rightarrow \mathbf{I} \lsem \mc{A} , \tau \rsem =
+%    \mc{B} )\label{eq:df-bl.modelsc}\tag{df-bl.modelsc}
+%\end{align}
+%\end{restatable}
+
+\pn KerML classes may not exist for the whole duration of the system as a whole.  Define a predicate $\texttt{ex}(c,\tau)$ that returns true if class $c$ exists (is not empty $\emptyclass$) at time $\tau$ and false otherwise.  The interpretation of a classifier which doesn't exist is the empty class, $\emptyclass$.
+
+\dfexists
+%\begin{restatable}{definition}{dfexists}~\blTitle{df-bl.exists}~ Define element existence predicate
+%\begin{align}
+%\vdash (~ \texttt{ex}(c,\tau) \leftrightarrow \mathbf{I}\lsem c,\tau\rsem\neq\emptyclass~)
+%\label{eq:df-bl.exists}\tag{df-bl.exists}
+%\end{align}
+%\end{restatable}
+
+\pn The \bemph{birth} time of a KerML class $\texttt{birth}(c)$ is when it comes into existence.  The birth of $c$ is $\tau_b$ if-and-only-if $c$ exists at $\tau_b$ and does not exist before $\tau_b$.
+
+\dfbirth
+%\begin{restatable}{definition}{dfbirth}~\blTitle{df-bl.birth}~Define Birth time.
+%\begin{align}
+%\vdash (~\texttt{birth}(c)=\tau_b \leftrightarrow ( \texttt{ex}(c,\tau_b) \wedge \forall \tau \in (0[.)\tau_b)~\vert~ \lnot \texttt{ex}(c,\tau)~)~)
+%\label{eq:df-bl.birth}\tag{df-bl.birth}
+%\end{align}
+%\end{restatable}
+
+\pn The \bemph{death} time of a KerML class $\texttt{death}(c)$ is its last moment of existence.  The death of $c$ is $\tau_d$ if-and-only-if $c$ exists at $\tau_d$ and does not exist after $\tau_d$.
+
+\dfdeath
+%\begin{restatable}{definition}{dfdeath}~\blTitle{df-bl.death}~Define Death time.
+%\begin{align}
+%\vdash (~\texttt{death}(c)=\tau_d \leftrightarrow ( \texttt{ex}(c,\tau_d) \wedge \forall \tau \in (\tau_d(.]\mathsf{\mc{now}})~\vert~ \lnot \texttt{ex}(c,\tau)~)~)
+%\label{eq:df-bl.death}\tag{df-bl.death}
+%\end{align}
+%\end{restatable}
+
+\pn The lifetime of a KerML class $\texttt{life}(c)$ is the closed time interval between birth and death.
+
+\dflifetime
+%\begin{restatable}{definition}{dflifetime}~\blTitle{df-bl.lifetime}~Define Lifetime.
+%\begin{align}
+%\vdash \texttt{life}(c)~=~ (\texttt{birth}(c)~[.]~\texttt{death}(c))
+%\label{eq:df-bl.lifetime}\tag{df-bl.lifetime}
+%\end{align}
+%\end{restatable}
+
+\pn Writing formulas about $D$ still requires a syntactic signature of constants, variables, functions, and predicates, interpreted by $\mathbf{I}$ relative to $D$ and $P$, rather than an independent domain of discourse.
+
+ Where $\mathsf{CON}$ is a set of constants:
+
+ \( \mathsf{CON} \equiv \{ c, c_1, c_2, \ldots \} \)
+
+ variables $\mathsf{VAR}$ are lower case letters:
+
+ \( \mathsf{VAR} \equiv \{ \msc{u}, \msc{v}, \msc{w}, \msc{x}, \msc{y}, \msc{z}, \msc{v_1}, \msc{v_2}, \msc{v_3}, \ldots \} \)
+
+ types $\mathsf{TYPE}$ are the \texttt{Type} and \texttt{Classifier} elements of the design $D$ (\S\ref{sec:modallogic})
+
+ functions $\mathsf{FUNC}$ are n-ary:
+ 
+ \( \mathsf{FUNC} \equiv \{ f^1_0, f^1_1, f^1_2, \ldots, f^2_0, f^2_1, f^2_2, \ldots, f^n_0, f^n_1, f^n_2, \ldots \} \) 
+ 
+ terms $\mathsf{TERM}$ are plain terms (constants, variables, or function application on terms) $\mathsf{PT}$, or timed terms which have a temporal operator specifying the moment of evaluation $\mathsf{TT}$:
+ 
+ \( \mathsf{PT} \equiv \{ r~\vert~r \in  \mathsf{CON} \vee r \in  \mathsf{VAR} \vee r \in ( \exists f \in \mathsf{FUNC}~\vert~ f^n_j(r_1,r_2,\ldots,r_n)~)~\} \) for $r_1,r_2,\ldots,r_n~\in \mathsf{PT}$.
+ 
+ \( \mathsf{TT} \equiv \{ r@r_t~\vert~r \in  \mathsf{PT} \wedge r_t \in \mathsf{PT} \} \) provided the valuation of term $r_t$ is a moment in $\mathbf{T}$.
+ 
+  \( \mathsf{TERM} \equiv \mathsf{PT} \cup \mathsf{TT}  \)
+ 
+ predicates $ \mathsf{PRED}$ are n-ary:
+ 
+ \( \mathsf{PRED} \equiv \{ P^1_0, P^1_1, P^1_2, \ldots, P^2_0, P^2_1, P^2_2, \ldots, P^n_0, P^n_1, P^n_2, \ldots \} \) 
+ 
+ and $\mathbf{I}$ assigns a denotation to every non-logical symbol relative to the design $D$ and system boundary $P$:\\
+ $\mathbf{I}(c) \in D$ for $c \in \mathsf{CON}$;\\
+ $\mathbf{I}(f) \in D^n \rightarrow D$ for $f \in \mathsf{FUNC}$;\\
+ $\mathbf{I}(p) \in D^n \rightarrow \{\top,\bot\}$ for $p \in \mathsf{PRED}$; and \\
+ $\mathbf{I}_{t}(v) \in D$ for $v \in \mathsf{VAR}$.\\
+ Note, only variables have different values at different times $t$.
+ 
+ Well-formed formulas of \logicid~ extend those of \logicid$_0$ with predicates and variable equality, where terms $r_1, r_2, \ldots r_n$ are either variables, or functions applied to terms,
+ and $r_t \in \mathsf PT$ is a term whose valuation is in $\mathbf{T}$.
+ 
+ \begin{definition}\blTitle{blwff} {Define well-formed formulas of \logicid}
+\begin{align}
+\mathsf{WFF}:= \mathsf{WFF}_0~\vert~ P^n_j(r_1,r_2,\ldots,r_n)~ \vert~ P^n_j(r_1,r_2,\ldots,r_n)@r_t~ \vert~ r_1 = r_2 \label{eq:blwff}\tag{BL-wff}
+\end{align}
+\end{definition}
+
+ So what does the foregoing mean?
+
+ First, the domain of discourse is the KerML design $D$ itself, not an independent, abstract type universe.
+  \lang~ has no pointers, so the separation logic used to reason about them is unnecessary.  There are no objects having inheritance.
+
+All constants $\mathsf{CON}$ defined need to be numbers, booleans, or enumeration literals, or be constructed using arrays and records of constants.  Constants are constant.  The interpretation $\mathbf{I}(c)$ is the same at any time $t$.
+
+ Functions and predicates are not time dependent.  There are no function variables that may be changed during operation so they return different values for the same parameters.  This may seem overly restrictive to users of languages such as ML, LISP, or PROLOG, but not for programs that control machines.  There will be pre-defined functions like addition and multiplication, but functions may be user-defined, but must be side-effect free.
+
+However, variable values do change with time.  Some variables will correspond to the physical environment, such as the values of sensors, part of the system boundary $P(\tau)$.  Other variables will correspond to what the machine does, such as actions of actuators, also part of $P(\tau)$.  Variables will be used for persistent values held within components, and values exchanged between components.
+
+Variables can also be `ghosts' in that they don't exist in the system, but are used for reasoning.  For example, values of program variables can be assigned to ghost variables before entering a loop, so that the variables after loop termination can be compared with their prior values.  Another use would be to identify the value measured by a temperature sensor is the temperature of feed water into a boiler.
+ 
+\section{The Interpretation~$\mathbf{I}_{t}$}\label{sec:interpretation}
+ 
+The interpretation $\mathbf{I}_{t}$ defines the meaning of \logicid~ symbols at time $t$.  However, except for the variables in $VAR$, all other interpretations are constant at all times.  Some of the variables represent inputs to the system, sensors like a temperature measurement or a switch closing.  These are monitored variables.  Other variables represent outputs of the system, actuators like a motor or a LED.  These are controlled variables.
+
+All other variables are internal to the system.  The represent not just common variables that hold persistent values, but states, features (ports), and the transport of values between features.  
+
+Execution of \lang~ programs \emph{causes} the values of variables given by $\mathbf{I}_{t}$.  Execution, together with dynamic inputs to the machine being controlled creates a model $\mathfrak{M}$.
+
+When we say that a program is \bemph{correct}, that means that all possible models  $\mathfrak{M}$ having interpretation $\mathbf{I}_{t}$ will conform to the program's specification. 
+ 
+ \section{Models:  $\mathfrak{M}~\models$}\label{sec:models}
+ 
+ 
+ 
+ \section{Discrete Time \lang~ Logic: \logicid$_d$}\label{sec:BLd}
+ 
+ For reasoning about the behavior of periodic threads, a discrete-time operator was created.  Instead of evaluating predicate $p$ at time $t \in \mathbf{T}$ as in $p@t$, we evaluate predicate $p$ at a time shifted by a number of discrete durations from a reference time, usually \lstk{now} as in $p$\texttt{\^}$k$ where $k$ is an integer valued term.
+ 
+ For threads with periodic dispatch protocol, the durations are all the same and equal to the thread's \lstk{Period} property.  However, this need not be the case.  To determine pacemaker mode switching for atrial tachycardia response, the number of durations between non-refractory atrial senses which are shorter than the upper rate limit interval are tracked.  These durations are not necessarily the same, yet the discrete-time operator for the third most recent heartbeat is useful.
+ 
+ The \bemph{reference time} is usually \lstk{now}, but need not be.  The value of variable \lstk{v} two periods previously, at the next period, will be three periods previously:
+ \lstk{v^-2} = \lstk{(v^-3)^1}.  The \lstk{^1} shifts the reference time to the next period.  Discrete time (\lstk{^}) distributes; continuous time (\lstk{@}) does not.
+
+ 
+ \begin{definition}\blTitle{bl.nowrr} {$\mathsf{\msc{now}} \in \mathbb{R}$}
+\begin{align}
+\vdash \mathsf{\msc{now}} \in \mathbb{R}\label{eq:bl.nowrr}\tag{bl.nowrr}
+\end{align}
+\end{definition}
+
+\begin{definition}\blTitle{df-bl.ts} {Time-Shift Predicate}
+\begin{align}
+\vdash ( ( A \in \mathbb{Z} \wedge d \in \mathbb{R} ) \rightarrow ( ( \varphi
+  \string^   A ) \leftrightarrow ( \varphi @ ( \mathsf{\msc{now}} + ( d \cdot A
+    ) ) ) ) )\label{eq:df-bl.ts}\tag{df-bl.ts}
+\end{align}
+\end{definition}
+
+\begin{definition}\blTitle{df-bl.tsc} {Time-Shift Expression}
+\begin{align}
+\vdash ( ( A \in \mathbb{C} \wedge B \in \mathbb{Z} \wedge d \in \mathbb{R} )
+    \rightarrow ( A \string^ B ) = ( A @ ( \mathsf{\msc{now}} + ( d \cdot B ) )
+    ) )\label{eq:df-bl.tsc}\tag{df-bl.tsc}
+\end{align}
+\end{definition}
+
+\begin{definition}\blTitle{df-bl.tsdis} {Time-shift distributes over predicates}
+\begin{align}
+\vdash ( ( A \in \mathbb{Z} \wedge B \in \mathbb{Z} ) \rightarrow ( ( ( \varphi
+    \string^ A ) \string^ B ) \leftrightarrow ( \varphi \string^ ( A + B ) ) )
+    )\label{eq:df-bl.tsdis}\tag{df-bl.tsdis}
+\end{align}
+\end{definition}
+
+\begin{definition}\blTitle{df-bl.tsdisc} {Time-shift distributes over values}
+\begin{align}
+\vdash ( ( A \in \mathbb{Z} \wedge B \in \mathbb{Z} \wedge C \in \mathbb{C} )
+    \rightarrow ( ( C \string^ A ) \string^ B ) = ( C \string^ ( A + B ) )
+    )\label{eq:df-bl.tsdisc}\tag{df-bl.tsdisc}
+\end{align}
+\end{definition}
+
+\begin{lemma}\blTitle{bl.ts0} {Zero time shift, predicate}
+\begin{align}
+\vdash ( ( \varphi \string^ 0 ) \leftrightarrow ( \varphi @ \mathsf{\msc{now}}
+    ) )\label{eq:bl.ts0}\tag{bl.ts0}
+\end{align}
+\end{lemma}
+
+\begin{lemma}\blTitle{bl.ts0c} {Zero time shift, value}
+\begin{align}
+\vdash ( A \string^ 0 ) = ( A @ \mathsf{\msc{now}}
+    )\label{eq:bl.ts0c}\tag{bl.ts0c}
+\end{align}
+\end{lemma}
+
+ If the reference time is \lstk{now} then the value of term $r$:  \(r$\texttt{\^}$0 \equiv  r@\mathsf{\msc{now}} \)
+ 
+ 
+ 
+ 
+ 
+ 

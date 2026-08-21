@@ -1,0 +1,590 @@
+% This LaTeX file was created by Metamath on 22-Jul-2024 3:28 PM.
+\begin{restatable}{axiom}{axbltaut}~\blTitle{ax-bl.taut}~ Tautologies hold in interpretation
+$\mathbf{I}$.
+   ax-bl.taut says that if $\mw{\varphi}$ is tautology, it also holds in
+interpretation $\mathbf{I}$.
+\begin{align}
+\vdash ( \mw{\varphi} \rightarrow \mathbf{I} \lsem \mw{\varphi} \rsem
+    )\label{eq:ax-bl.taut}\tag{ax-bl.taut}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{blty}~\blTitle{bl.ty}~ Set membership in interpretation $\mathbf{I}$.
+Types of variables are constant under interpretation $\mathbf{I}$.  (Unproven
+in SFS.mm as of this writing.)
+\begin{align}
+\vdash ( \mc{A} \in \mc{B} \rightarrow \mathbf{I} \lsem \mc{A} \in \mc{B}
+    \rsem )\label{eq:bl.ty}\tag{bl.ty}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{metadefinition}{dfblim}~\blTitle{df-bl.im}~ Interpretation of implication.  Only
+the sound (modal K-axiom) direction is axiomatized: the converse is false
+in general (Lean/Mathlib formalization, Lean4SFS/SFS.lean's dl\_im\_sound,
+found a counterexample).
+\begin{align}
+\vdash ( \mathbf{I} \lsem ( \mw{\varphi} \rightarrow \mw{\psi} ) \rsem
+    \rightarrow ( \mathbf{I} \lsem \mw{\varphi} \rsem \rightarrow \mathbf{I}
+    \lsem \mw{\psi} \rsem ) )\label{eq:df-bl.im}\tag{df-bl.im}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{blmono}~\blTitle{bl.mono}~ Monotonicity of $\mathbf{I}$: any provable
+implication lifts through the interpretation.  This is the general tool for
+weakening a plain-logic fact $( \mw{\varphi} \rightarrow \mw{\psi} )$ into a
+$\mathbf{I}$-level implication, used repeatedly below wherever a
+formerly-axiomatized converse direction (df-bl.or, df-bl.not, bl.3or,
+bl.ex, ...) was removed as unsound.
+\begin{align}
+\vdash ( ( \mw{\varphi} \rightarrow \mw{\psi} ) \rightarrow ( \mathbf{I} \lsem
+    \mw{\varphi} \rsem \rightarrow \mathbf{I} \lsem \mw{\psi} \rsem )
+    )\label{eq:bl.mono}\tag{bl.mono}
+\end{align}
+\end{restatable}
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash ( ( \mw{\varphi} \rightarrow \mw{\psi} ) \rightarrow
+      \mathbf{I} \lsem ( \mw{\varphi} \rightarrow \mw{\psi} ) \rsem
+      )&(\mbox{\ref{eq:ax-bl.taut}})\notag
+  \\ 2 &&  & \vdash ( \mathbf{I} \lsem ( \mw{\varphi} \rightarrow
+      \mw{\psi} ) \rsem \rightarrow ( \mathbf{I} \lsem \mw{\varphi}
+      \rsem \rightarrow \mathbf{I} \lsem \mw{\psi} \rsem )
+      )&(\mbox{\ref{eq:df-bl.im}})\notag
+  \\ 3 &&  & \vdash ( ( \mw{\varphi} \rightarrow \mw{\psi} )
+      \rightarrow ( \mathbf{I} \lsem \mw{\varphi} \rsem \rightarrow
+      \mathbf{I} \lsem \mw{\psi} \rsem )
+      )&(\mbox{\ref{eq:syl}},1,2)\notag
+\end{align}
+\end{proof}
+
+\begin{restatable}{metadefinition}{dfblbi}~\blTitle{df-bl.bi}~ Interpretation of biconditional.  Only
+the sound direction is axiomatized: the converse is false in general
+(Lean4SFS/SFS.lean's dl\_bi\_sound).
+\begin{align}
+\vdash ( \mathbf{I} \lsem ( \mw{\varphi} \leftrightarrow \mw{\psi} ) \rsem
+    \rightarrow ( \mathbf{I} \lsem \mw{\varphi} \rsem \leftrightarrow
+    \mathbf{I} \lsem \mw{\psi} \rsem ) )\label{eq:df-bl.bi}\tag{df-bl.bi}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{metadefinition}{dfblan}~\blTitle{df-bl.an}~ Interpretation of conjunction.
+\begin{align}
+\vdash ( \mathbf{I} \lsem ( \mw{\varphi} \wedge \mw{\psi} ) \rsem
+    \leftrightarrow ( \mathbf{I} \lsem \mw{\varphi} \rsem \wedge \mathbf{I}
+    \lsem \mw{\psi} \rsem ) )\label{eq:df-bl.an}\tag{df-bl.an}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{bl3an}~\blTitle{bl.3an}~ Interpretation of conjunction, three wff.
+\begin{align}
+\vdash ( \mathbf{I} \lsem ( \mw{\varphi} \wedge \mw{\psi} \wedge \mw{\chi} )
+    \rsem \leftrightarrow ( \mathbf{I} \lsem \mw{\varphi} \rsem \wedge
+    \mathbf{I} \lsem \mw{\psi} \rsem \wedge \mathbf{I} \lsem \mw{\chi} \rsem )
+    )\label{eq:bl.3an}\tag{bl.3an}
+\end{align}
+\end{restatable}
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash ( ( \mw{\varphi} \wedge \mw{\psi} \wedge \mw{\chi} )
+      \leftrightarrow ( ( \mw{\varphi} \wedge \mw{\psi} )
+      \wedge \mw{\chi} ) )&(\mbox{\ref{eq:df-3an}})\notag
+  \\ 2 &&  & \vdash ( ( ( \mw{\varphi} \wedge \mw{\psi} \wedge \mw{\chi} )
+      \leftrightarrow ( ( \mw{\varphi} \wedge \mw{\psi} )
+      \wedge \mw{\chi} ) ) \rightarrow \mathbf{I} \lsem ( (
+      \mw{\varphi} \wedge \mw{\psi} \wedge \mw{\chi} )
+      \leftrightarrow ( ( \mw{\varphi} \wedge \mw{\psi} )
+      \wedge \mw{\chi} ) ) \rsem
+      )&(\mbox{\ref{eq:ax-bl.taut}})\notag
+  \\ 3 &&  & \vdash \mathbf{I} \lsem ( ( \mw{\varphi} \wedge \mw{\psi} \wedge
+      \mw{\chi} ) \leftrightarrow ( ( \mw{\varphi} \wedge
+      \mw{\psi} ) \wedge \mw{\chi} ) )
+      \rsem&(\mbox{\ref{eq:ax-mp}},1,2)\notag
+  \\ 4 &&  & \vdash ( \mathbf{I} \lsem ( ( \mw{\varphi} \wedge \mw{\psi} \wedge
+      \mw{\chi} ) \leftrightarrow ( ( \mw{\varphi} \wedge
+      \mw{\psi} ) \wedge \mw{\chi} ) ) \rsem
+      \rightarrow ( \mathbf{I} \lsem ( \mw{\varphi}
+      \wedge \mw{\psi} \wedge \mw{\chi} ) \rsem
+      \leftrightarrow \mathbf{I} \lsem ( ( \mw{\varphi}
+      \wedge \mw{\psi} ) \wedge \mw{\chi} ) \rsem )
+      )&(\mbox{\ref{eq:df-bl.bi}})\notag
+  \\ 5 &&  & \vdash ( \mathbf{I} \lsem ( \mw{\varphi} \wedge \mw{\psi} \wedge
+      \mw{\chi} ) \rsem \leftrightarrow \mathbf{I} \lsem (
+      ( \mw{\varphi} \wedge \mw{\psi} ) \wedge \mw{\chi} )
+      \rsem )&(\mbox{\ref{eq:ax-mp}},3,4)\notag
+  \\ 6 &&  & \vdash ( \mathbf{I} \lsem ( ( \mw{\varphi} \wedge \mw{\psi} )
+      \wedge \mw{\chi} ) \rsem \leftrightarrow ( \mathbf{I}
+      \lsem ( \mw{\varphi} \wedge \mw{\psi} ) \rsem \wedge
+      \mathbf{I} \lsem \mw{\chi} \rsem )
+      )&(\mbox{\ref{eq:df-bl.an}})\notag
+  \\ 7 &&  & \vdash ( \mathbf{I} \lsem ( \mw{\varphi} \wedge \mw{\psi} \wedge
+      \mw{\chi} ) \rsem \leftrightarrow ( \mathbf{I} \lsem
+      ( \mw{\varphi} \wedge \mw{\psi} ) \rsem \wedge
+      \mathbf{I} \lsem \mw{\chi} \rsem )
+      )&(\mbox{\ref{eq:bitri}},5,6)\notag
+  \\ 8 &&  & \vdash ( \mathbf{I} \lsem ( \mw{\varphi} \wedge \mw{\psi} ) \rsem
+      \leftrightarrow ( \mathbf{I} \lsem \mw{\varphi} \rsem
+      \wedge \mathbf{I} \lsem \mw{\psi} \rsem )
+      )&(\mbox{\ref{eq:df-bl.an}})\notag
+  \\ 9 &&  & \vdash ( ( \mathbf{I} \lsem ( \mw{\varphi} \wedge \mw{\psi} )
+      \rsem \wedge \mathbf{I} \lsem \mw{\chi} \rsem )
+      \leftrightarrow ( ( \mathbf{I} \lsem \mw{\varphi}
+      \rsem \wedge \mathbf{I} \lsem \mw{\psi} \rsem )
+      \wedge \mathbf{I} \lsem \mw{\chi} \rsem )
+      )&(\mbox{\ref{eq:anbi1i}},8)\notag
+  \\ 10 &&  & \vdash ( \mathbf{I} \lsem ( \mw{\varphi} \wedge \mw{\psi} \wedge
+      \mw{\chi} ) \rsem \leftrightarrow ( ( \mathbf{I}
+      \lsem \mw{\varphi} \rsem \wedge \mathbf{I} \lsem
+      \mw{\psi} \rsem ) \wedge \mathbf{I} \lsem \mw{\chi}
+      \rsem ) )&(\mbox{\ref{eq:bitri}},7,9)\notag
+  \\ 11 &&  & \vdash ( ( \mathbf{I} \lsem \mw{\varphi} \rsem \wedge \mathbf{I}
+      \lsem \mw{\psi} \rsem \wedge \mathbf{I} \lsem
+      \mw{\chi} \rsem ) \leftrightarrow ( ( \mathbf{I}
+      \lsem \mw{\varphi} \rsem \wedge \mathbf{I} \lsem
+      \mw{\psi} \rsem ) \wedge \mathbf{I} \lsem \mw{\chi}
+      \rsem ) )&(\mbox{\ref{eq:df-3an}})\notag
+  \\ 12 &&  & \vdash ( \mathbf{I} \lsem ( \mw{\varphi} \wedge \mw{\psi} \wedge
+      \mw{\chi} ) \rsem \leftrightarrow ( \mathbf{I} \lsem
+      \mw{\varphi} \rsem \wedge \mathbf{I} \lsem \mw{\psi}
+      \rsem \wedge \mathbf{I} \lsem \mw{\chi} \rsem )
+      )&(\mbox{\ref{eq:bitr4i}},10,11)\notag
+\end{align}
+\end{proof}
+
+\begin{restatable}{metadefinition}{dfblor}~\blTitle{df-bl.or}~ Interpretation of disjunction.  Only
+the sound direction is axiomatized: the converse
+($\mathbf{I}\lsem\mw{\varphi}\vee\mw{\psi}\rsem \rightarrow
+\mathbf{I}\lsem\mw{\varphi}\rsem\vee\mathbf{I}\lsem\mw{\psi}\rsem$) is false
+in general (Lean4SFS/SFS.lean's dl\_or\_sound).
+\begin{align}
+\vdash ( ( \mathbf{I} \lsem \mw{\varphi} \rsem \vee \mathbf{I} \lsem \mw{\psi}
+    \rsem ) \rightarrow \mathbf{I} \lsem ( \mw{\varphi} \vee \mw{\psi} ) \rsem
+    )\label{eq:df-bl.or}\tag{df-bl.or}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{bl3or}~\blTitle{bl.3or}~ Interpretation of disjunction, three wff.  Only the
+sound direction is axiomatized: the converse is false in general, same as
+df-bl.or itself (Lean4SFS/SFS.lean's dl\_3or\_sound).
+\begin{align}
+\vdash ( ( \mathbf{I} \lsem \mw{\varphi} \rsem \vee \mathbf{I} \lsem \mw{\psi}
+    \rsem \vee \mathbf{I} \lsem \mw{\chi} \rsem ) \rightarrow \mathbf{I} \lsem
+    ( \mw{\varphi} \vee \mw{\psi} \vee \mw{\chi} ) \rsem
+    )\label{eq:bl.3or}\tag{bl.3or}
+\end{align}
+\end{restatable}
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash ( ( \mathbf{I} \lsem \mw{\varphi} \rsem \vee \mathbf{I}
+      \lsem \mw{\psi} \rsem \vee \mathbf{I} \lsem \mw{\chi} \rsem )
+      \leftrightarrow ( ( \mathbf{I} \lsem \mw{\varphi} \rsem \vee
+      \mathbf{I} \lsem \mw{\psi} \rsem ) \vee \mathbf{I} \lsem \mw{\chi}
+      \rsem ) )&(\mbox{\ref{eq:df-3or}})\notag
+  \\ 2 &&  & \vdash ( ( \mathbf{I} \lsem \mw{\varphi} \rsem \vee
+      \mathbf{I} \lsem \mw{\psi} \rsem \vee \mathbf{I} \lsem \mw{\chi}
+      \rsem ) \rightarrow ( ( \mathbf{I} \lsem \mw{\varphi} \rsem \vee
+      \mathbf{I} \lsem \mw{\psi} \rsem ) \vee \mathbf{I} \lsem
+      \mw{\chi} \rsem ) )&(\mbox{\ref{eq:biimpi}},1)\notag
+  \\ 3 &&  & \vdash ( ( \mathbf{I} \lsem \mw{\varphi} \rsem \vee
+      \mathbf{I} \lsem \mw{\psi} \rsem ) \rightarrow \mathbf{I} \lsem (
+      \mw{\varphi} \vee \mw{\psi} ) \rsem
+      )&(\mbox{\ref{eq:df-bl.or}})\notag
+  \\ 4 &&  & \vdash ( ( ( \mathbf{I} \lsem \mw{\varphi} \rsem \vee
+      \mathbf{I} \lsem \mw{\psi} \rsem ) \vee \mathbf{I} \lsem
+      \mw{\chi} \rsem ) \rightarrow ( \mathbf{I} \lsem ( \mw{\varphi}
+      \vee \mw{\psi} ) \rsem \vee \mathbf{I} \lsem \mw{\chi} \rsem )
+      )&(\mbox{\ref{eq:orim1i}},3)\notag
+  \\ 5 &&  & \vdash ( ( \mathbf{I} \lsem \mw{\varphi} \rsem \vee
+      \mathbf{I} \lsem \mw{\psi} \rsem \vee \mathbf{I} \lsem \mw{\chi}
+      \rsem ) \rightarrow ( \mathbf{I} \lsem ( \mw{\varphi} \vee
+      \mw{\psi} ) \rsem \vee \mathbf{I} \lsem \mw{\chi} \rsem )
+      )&(\mbox{\ref{eq:syl}},2,4)\notag
+  \\ 6 &&  & \vdash ( ( \mathbf{I} \lsem ( \mw{\varphi} \vee \mw{\psi}
+      ) \rsem \vee \mathbf{I} \lsem \mw{\chi} \rsem ) \rightarrow
+      \mathbf{I} \lsem ( ( \mw{\varphi} \vee \mw{\psi} ) \vee \mw{\chi}
+      ) \rsem )&(\mbox{\ref{eq:df-bl.or}})\notag
+  \\ 7 &&  & \vdash ( ( \mathbf{I} \lsem \mw{\varphi} \rsem \vee
+      \mathbf{I} \lsem \mw{\psi} \rsem \vee \mathbf{I} \lsem \mw{\chi}
+      \rsem ) \rightarrow \mathbf{I} \lsem ( ( \mw{\varphi} \vee
+      \mw{\psi} ) \vee \mw{\chi} ) \rsem
+      )&(\mbox{\ref{eq:syl}},5,6)\notag
+  \\ 8 &&  & \vdash ( ( \mw{\varphi} \vee \mw{\psi} \vee \mw{\chi} )
+      \leftrightarrow ( ( \mw{\varphi} \vee \mw{\psi} ) \vee \mw{\chi}
+      ) )&(\mbox{\ref{eq:df-3or}})\notag
+  \\ 9 &&  & \vdash ( ( ( \mw{\varphi} \vee \mw{\psi} ) \vee \mw{\chi}
+      ) \rightarrow ( \mw{\varphi} \vee \mw{\psi} \vee \mw{\chi} )
+      )&(\mbox{\ref{eq:biimpri}},8)\notag
+  \\ 10 &&  & \vdash ( ( ( ( \mw{\varphi} \vee \mw{\psi} ) \vee
+      \mw{\chi} ) \rightarrow ( \mw{\varphi} \vee \mw{\psi} \vee
+      \mw{\chi} ) ) \rightarrow ( \mathbf{I} \lsem ( ( \mw{\varphi}
+      \vee \mw{\psi} ) \vee \mw{\chi} ) \rsem \rightarrow \mathbf{I}
+      \lsem ( \mw{\varphi} \vee \mw{\psi} \vee \mw{\chi} ) \rsem )
+      )&(\mbox{\ref{eq:bl.mono}})\notag
+  \\ 11 &&  & \vdash ( \mathbf{I} \lsem ( ( \mw{\varphi} \vee
+      \mw{\psi} ) \vee \mw{\chi} ) \rsem \rightarrow \mathbf{I} \lsem
+      ( \mw{\varphi} \vee \mw{\psi} \vee \mw{\chi} ) \rsem
+      )&(\mbox{\ref{eq:ax-mp}},9,10)\notag
+  \\ 12 &&  & \vdash ( ( \mathbf{I} \lsem \mw{\varphi} \rsem \vee
+      \mathbf{I} \lsem \mw{\psi} \rsem \vee \mathbf{I} \lsem \mw{\chi}
+      \rsem ) \rightarrow \mathbf{I} \lsem ( \mw{\varphi} \vee
+      \mw{\psi} \vee \mw{\chi} ) \rsem
+      )&(\mbox{\ref{eq:syl}},7,11)\notag
+\end{align}
+\end{proof}
+
+\begin{restatable}{metadefinition}{dfblnot}~\blTitle{df-bl.not}~ Interpretation of complement.  Only
+the sound direction is axiomatized: the converse
+($\lnot\mathbf{I}\lsem\mw{\varphi}\rsem \rightarrow
+\mathbf{I}\lsem\lnot\mw{\varphi}\rsem$) is false in general (Lean4SFS/
+SFS.lean's dl\_not\_sound).
+\begin{align}
+\vdash ( \mathbf{I} \lsem \lnot \mw{\varphi} \rsem \rightarrow \lnot
+    \mathbf{I} \lsem \mw{\varphi} \rsem )\label{eq:df-bl.not}\tag{df-bl.not}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{metadefinition}{dfblal}~\blTitle{df-bl.al}~ Exportation of universal quantification
+from interpretation $\mathbf{I}$.
+\begin{align}
+\vdash ( \mathbf{I} \lsem \forall \msc{x} \in \mc{A}~\mw{\varphi} \rsem
+    \leftrightarrow \forall \msc{x} \in \mc{A} \mathbf{I} \lsem \mw{\varphi}
+    \rsem )\label{eq:df-bl.al}\tag{df-bl.al}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{blmonobi}~\blTitle{bl.monobi}~ $\mathbf{I}$~respects logical equivalence -- the
+iff-congruence counterpart of bl.mono, same derivation pattern
+(ax-bl.taut necessitation + df-bl.bi's sound direction).
+\begin{align}
+\vdash ( ( \mw{\varphi} \leftrightarrow \mw{\psi} ) \rightarrow ( \mathbf{I}
+    \lsem \mw{\varphi} \rsem \leftrightarrow \mathbf{I} \lsem \mw{\psi} \rsem
+    ) )\label{eq:bl.monobi}\tag{bl.monobi}
+\end{align}
+\end{restatable}
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash ( ( \mw{\varphi} \leftrightarrow \mw{\psi} ) \rightarrow
+      \mathbf{I} \lsem ( \mw{\varphi} \leftrightarrow \mw{\psi} ) \rsem
+      )&(\mbox{\ref{eq:ax-bl.taut}})\notag
+  \\ 2 &&  & \vdash ( \mathbf{I} \lsem ( \mw{\varphi} \leftrightarrow
+      \mw{\psi} ) \rsem \rightarrow ( \mathbf{I} \lsem \mw{\varphi}
+      \rsem \leftrightarrow \mathbf{I} \lsem \mw{\psi} \rsem )
+      )&(\mbox{\ref{eq:df-bl.bi}})\notag
+  \\ 3 &&  & \vdash ( ( \mw{\varphi} \leftrightarrow \mw{\psi} )
+      \rightarrow ( \mathbf{I} \lsem \mw{\varphi} \rsem \leftrightarrow
+      \mathbf{I} \lsem \mw{\psi} \rsem )
+      )&(\mbox{\ref{eq:syl}},1,2)\notag
+\end{align}
+\end{proof}
+
+\begin{restatable}{lemma}{blal}~\blTitle{bl.al}~ Unrestricted version of df-bl.al, via ralv
+($\forall \msc{x} \in \,\mathrm{V}~\mw{\varphi} \leftrightarrow \forall
+\msc{x}~\mw{\varphi}$).
+\begin{align}
+\vdash ( \mathbf{I} \lsem \forall \msc{x} \mw{\varphi} \rsem \leftrightarrow
+    \forall \msc{x} \mathbf{I} \lsem \mw{\varphi} \rsem
+    )\label{eq:bl.al}\tag{bl.al}
+\end{align}
+\end{restatable}
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash ( \forall \msc{x} \in \,\mathrm{V} \mw{\varphi}
+      \leftrightarrow \forall \msc{x} \mw{\varphi}
+      )&(\mbox{\ref{eq:ralv}})\notag
+  \\ 2 &&  & \vdash ( \forall \msc{x} \mw{\varphi} \leftrightarrow
+      \forall \msc{x} \in \,\mathrm{V} \mw{\varphi}
+      )&(\mbox{\ref{eq:bicomi}},1)\notag
+  \\ 3 &&  & \vdash ( ( \forall \msc{x} \mw{\varphi} \leftrightarrow
+      \forall \msc{x} \in \,\mathrm{V} \mw{\varphi} ) \rightarrow (
+      \mathbf{I} \lsem \forall \msc{x} \mw{\varphi} \rsem
+      \leftrightarrow \mathbf{I} \lsem \forall \msc{x} \in \,\mathrm{V}
+      \mw{\varphi} \rsem ) )&(\mbox{\ref{eq:bl.monobi}})\notag
+  \\ 4 &&  & \vdash ( \mathbf{I} \lsem \forall \msc{x} \mw{\varphi}
+      \rsem \leftrightarrow \mathbf{I} \lsem \forall \msc{x} \in
+      \,\mathrm{V} \mw{\varphi} \rsem
+      )&(\mbox{\ref{eq:ax-mp}},2,3)\notag
+  \\ 5 &&  & \vdash ( \mathbf{I} \lsem \forall \msc{x} \in \,\mathrm{V}
+      \mw{\varphi} \rsem \leftrightarrow \forall \msc{x} \in
+      \,\mathrm{V} \mathbf{I} \lsem \mw{\varphi} \rsem
+      )&(\mbox{\ref{eq:df-bl.al}})\notag
+  \\ 6 &&  & \vdash ( \forall \msc{x} \in \,\mathrm{V} \mathbf{I} \lsem
+      \mw{\varphi} \rsem \leftrightarrow \forall \msc{x} \mathbf{I}
+      \lsem \mw{\varphi} \rsem )&(\mbox{\ref{eq:ralv}})\notag
+  \\ 7 &&  & \vdash ( \mathbf{I} \lsem \forall \msc{x} \in \,\mathrm{V}
+      \mw{\varphi} \rsem \leftrightarrow \forall \msc{x} \mathbf{I}
+      \lsem \mw{\varphi} \rsem )&(\mbox{\ref{eq:bitri}},5,6)\notag
+  \\ 8 &&  & \vdash ( \mathbf{I} \lsem \forall \msc{x} \mw{\varphi}
+      \rsem \leftrightarrow \forall \msc{x} \mathbf{I} \lsem
+      \mw{\varphi} \rsem )&(\mbox{\ref{eq:bitri}},4,7)\notag
+\end{align}
+\end{proof}
+
+\begin{restatable}{lemma}{blnf}~\blTitle{bl.nf}~ $\mathbf{I}\lsem\mw{\varphi}\rsem$ is vacuously quantifiable
+whenever $\mw{\varphi}$ is: needed so bl.ex's witness-elimination step
+(rexlimi) has the $\Finv$ hypothesis it needs on the boldI-wrapped side,
+not just the raw side (nfre1).
+\begin{align}
+\vdash \Finv \msc{x} \mw{\varphi}\quad\Rightarrow\quad \vdash \Finv \msc{x}
+    \mathbf{I} \lsem \mw{\varphi} \rsem\label{eq:bl.nf}\tag{bl.nf}
+\end{align}
+\end{restatable}
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash ( \mathbf{I} \lsem \forall \msc{x} \mw{\varphi} \rsem
+      \leftrightarrow \forall \msc{x} \mathbf{I} \lsem \mw{\varphi} \rsem
+      )&(\mbox{\ref{eq:bl.al}})\notag
+  \\ 2 &&  & \vdash \Finv \msc{x}
+      \mw{\varphi}&\text{Hyp~nf.1}\notag
+  \\ 3 &&  & \vdash ( \forall \msc{x} \mw{\varphi} \leftrightarrow
+      \mw{\varphi} )&(\mbox{\ref{eq:19.3}},2)\notag
+  \\ 4 &&  & \vdash ( ( \forall \msc{x} \mw{\varphi} \leftrightarrow
+      \mw{\varphi} ) \rightarrow ( \mathbf{I} \lsem \forall \msc{x}
+      \mw{\varphi} \rsem \leftrightarrow \mathbf{I} \lsem \mw{\varphi}
+      \rsem ) )&(\mbox{\ref{eq:bl.monobi}})\notag
+  \\ 5 &&  & \vdash ( \mathbf{I} \lsem \forall \msc{x} \mw{\varphi}
+      \rsem \leftrightarrow \mathbf{I} \lsem \mw{\varphi} \rsem
+      )&(\mbox{\ref{eq:ax-mp}},3,4)\notag
+  \\ 6 &&  & \vdash ( \forall \msc{x} \mathbf{I} \lsem \mw{\varphi}
+      \rsem \leftrightarrow \mathbf{I} \lsem \mw{\varphi} \rsem
+      )&(\mbox{\ref{eq:bitr3i}},1,5)\notag
+  \\ 7 &&  & \vdash ( \mathbf{I} \lsem \mw{\varphi} \rsem \rightarrow
+      \forall \msc{x} \mathbf{I} \lsem \mw{\varphi} \rsem
+      )&(\mbox{\ref{eq:biimpri}},6)\notag
+  \\ 8 &&  & \vdash \forall \msc{x} ( \mathbf{I} \lsem \mw{\varphi}
+      \rsem \rightarrow \forall \msc{x} \mathbf{I} \lsem \mw{\varphi}
+      \rsem )&(\mbox{\ref{eq:ax-gen}},7)\notag
+  \\ 9 &&  & \vdash ( \forall \msc{x} ( \mathbf{I} \lsem \mw{\varphi}
+      \rsem \rightarrow \forall \msc{x} \mathbf{I} \lsem \mw{\varphi}
+      \rsem ) \rightarrow \Finv \msc{x} \mathbf{I} \lsem \mw{\varphi}
+      \rsem )&(\mbox{\ref{eq:nf5-1}})\notag
+  \\ 10 &&  & \vdash \Finv \msc{x} \mathbf{I} \lsem \mw{\varphi}
+      \rsem&(\mbox{\ref{eq:ax-mp}},8,9)\notag
+\end{align}
+\end{proof}
+
+\begin{restatable}{lemma}{bldfrex2}~\blTitle{bl.dfrex2}~ Define existential quantification in
+interpretation $\mathbf{I}$.
+\begin{align}
+\vdash ( \mathbf{I} \lsem \exists \msc{x} \in \mc{A}~\mw{\varphi} \rsem
+    \leftrightarrow \mathbf{I} \lsem \lnot \forall \msc{x} \in \mc{A} \lnot
+    \mw{\varphi} \rsem )\label{eq:bl.dfrex2}\tag{bl.dfrex2}
+\end{align}
+\end{restatable}
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash ( \exists \msc{x} \in \mc{A}~\mw{\varphi} \leftrightarrow
+      \lnot \forall \msc{x} \in \mc{A} \lnot \mw{\varphi}
+      )&(\mbox{\ref{eq:dfrex2}})\notag
+  \\ 2 &&  & \vdash ( ( \exists \msc{x} \in \mc{A}~\mw{\varphi} \leftrightarrow
+      \lnot \forall \msc{x} \in \mc{A} \lnot \mw{\varphi} )
+      \rightarrow \mathbf{I} \lsem ( \exists \msc{x} \in
+      \mc{A}~\mw{\varphi} \leftrightarrow \lnot \forall
+      \msc{x} \in \mc{A} \lnot \mw{\varphi} ) \rsem
+      )&(\mbox{\ref{eq:ax-bl.taut}})\notag
+  \\ 3 &&  & \vdash \mathbf{I} \lsem ( \exists \msc{x} \in \mc{A}~\mw{\varphi}
+      \leftrightarrow \lnot \forall \msc{x} \in \mc{A}
+      \lnot \mw{\varphi} )
+      \rsem&(\mbox{\ref{eq:ax-mp}},1,2)\notag
+  \\ 4 &&  & \vdash ( \mathbf{I} \lsem ( \exists \msc{x} \in \mc{A}
+      \mw{\varphi} \leftrightarrow \lnot \forall \msc{x}
+      \in \mc{A} \lnot \mw{\varphi} ) \rsem \rightarrow
+      ( \mathbf{I} \lsem \exists \msc{x} \in \mc{A}
+      \mw{\varphi} \rsem \leftrightarrow \mathbf{I} \lsem
+      \lnot \forall \msc{x} \in \mc{A} \lnot \mw{\varphi}
+      \rsem ) )&(\mbox{\ref{eq:df-bl.bi}})\notag
+  \\ 5 &&  & \vdash ( \mathbf{I} \lsem \exists \msc{x} \in \mc{A}~\mw{\varphi}
+      \rsem \leftrightarrow \mathbf{I} \lsem \lnot \forall
+      \msc{x} \in \mc{A} \lnot \mw{\varphi} \rsem
+      )&(\mbox{\ref{eq:ax-mp}},3,4)\notag
+\end{align}
+\end{proof}
+
+\begin{restatable}{lemma}{blexraw}~\blTitle{bl.exraw}~ Raw (non-modal) restricted-existential-introduction
+fact, unconditional: the ordinary logic behind bl.ex, before any $\mathbf{I}$ is
+involved.
+\begin{align}
+\vdash ( ( \msc{x} \in \mc{A} \wedge \mw{\varphi} ) \rightarrow \exists
+    \msc{x} \in \mc{A}~\mw{\varphi} )\label{eq:bl.exraw}\tag{bl.exraw}
+\end{align}
+\end{restatable}
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash ( ( \msc{x} \in \mc{A} \wedge \mw{\varphi} ) \rightarrow
+      \exists \msc{x} ( \msc{x} \in \mc{A} \wedge \mw{\varphi} )
+      )&(\mbox{\ref{eq:19.8a}})\notag
+  \\ 2 &&  & \vdash ( \exists \msc{x} \in \mc{A}~\mw{\varphi}
+      \leftrightarrow \exists \msc{x} ( \msc{x} \in \mc{A} \wedge
+      \mw{\varphi} ) )&(\mbox{\ref{eq:df-rex}})\notag
+  \\ 3 &&  & \vdash ( \exists \msc{x} ( \msc{x} \in \mc{A} \wedge
+      \mw{\varphi} ) \rightarrow \exists \msc{x} \in \mc{A}
+      \mw{\varphi} )&(\mbox{\ref{eq:biimpri}},2)\notag
+  \\ 4 &&  & \vdash ( ( \msc{x} \in \mc{A} \wedge \mw{\varphi} )
+      \rightarrow \exists \msc{x} \in \mc{A}~\mw{\varphi}
+      )&(\mbox{\ref{eq:syl}},1,3)\notag
+\end{align}
+\end{proof}
+
+\begin{restatable}{lemma}{blexlemzero}~\blTitle{bl.exlem0}~ Helper for bl.ex.  Built from bl.exraw,
+bl.mono, bl.ty (types are constant under interpretation -- one of this
+file's own pre-existing unproven \$p placeholders, so this lemma inherits
+that gap rather than introducing a new one), and df-bl.an (sound both ways).
+\begin{align}
+\vdash ( ( \msc{x} \in \mc{A} \wedge \mathbf{I} \lsem \mw{\varphi} \rsem )
+    \rightarrow \mathbf{I} \lsem \exists \msc{x} \in \mc{A}~\mw{\varphi} \rsem
+    )\label{eq:bl.exlem0}\tag{bl.exlem0}
+\end{align}
+\end{restatable}
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash ( \msc{x} \in \mc{A} \rightarrow \mathbf{I} \lsem \msc{x}
+      \in \mc{A} \rsem )&(\mbox{\ref{eq:bl.ty}})\notag
+  \\ 2 &&  & \vdash ( ( \msc{x} \in \mc{A} \wedge \mathbf{I} \lsem
+      \mw{\varphi} \rsem ) \rightarrow ( \mathbf{I} \lsem \msc{x} \in
+      \mc{A} \rsem \wedge \mathbf{I} \lsem \mw{\varphi} \rsem )
+      )&(\mbox{\ref{eq:anim1i}},1)\notag
+  \\ 3 &&  & \vdash ( \mathbf{I} \lsem ( \msc{x} \in \mc{A} \wedge
+      \mw{\varphi} ) \rsem \leftrightarrow ( \mathbf{I} \lsem \msc{x}
+      \in \mc{A} \rsem \wedge \mathbf{I} \lsem \mw{\varphi} \rsem )
+      )&(\mbox{\ref{eq:df-bl.an}})\notag
+  \\ 4 &&  & \vdash ( ( \mathbf{I} \lsem \msc{x} \in \mc{A} \rsem
+      \wedge \mathbf{I} \lsem \mw{\varphi} \rsem ) \rightarrow
+      \mathbf{I} \lsem ( \msc{x} \in \mc{A} \wedge \mw{\varphi} ) \rsem
+      )&(\mbox{\ref{eq:biimpri}},3)\notag
+  \\ 5 &&  & \vdash ( ( \msc{x} \in \mc{A} \wedge \mathbf{I} \lsem
+      \mw{\varphi} \rsem ) \rightarrow \mathbf{I} \lsem ( \msc{x} \in
+      \mc{A} \wedge \mw{\varphi} ) \rsem
+      )&(\mbox{\ref{eq:syl}},2,4)\notag
+  \\ 6 &&  & \vdash ( ( \msc{x} \in \mc{A} \wedge \mw{\varphi} )
+      \rightarrow \exists \msc{x} \in \mc{A}~\mw{\varphi}
+      )&(\mbox{\ref{eq:bl.exraw}})\notag
+  \\ 7 &&  & \vdash ( ( ( \msc{x} \in \mc{A} \wedge \mw{\varphi} )
+      \rightarrow \exists \msc{x} \in \mc{A}~\mw{\varphi} ) \rightarrow
+      ( \mathbf{I} \lsem ( \msc{x} \in \mc{A} \wedge \mw{\varphi} )
+      \rsem \rightarrow \mathbf{I} \lsem \exists \msc{x} \in \mc{A}
+      \mw{\varphi} \rsem ) )&(\mbox{\ref{eq:bl.mono}})\notag
+  \\ 8 &&  & \vdash ( \mathbf{I} \lsem ( \msc{x} \in \mc{A} \wedge
+      \mw{\varphi} ) \rsem \rightarrow \mathbf{I} \lsem \exists \msc{x}
+      \in \mc{A}~\mw{\varphi} \rsem )&(\mbox{\ref{eq:ax-mp}},6,7)\notag
+  \\ 9 &&  & \vdash ( ( \msc{x} \in \mc{A} \wedge \mathbf{I} \lsem
+      \mw{\varphi} \rsem ) \rightarrow \mathbf{I} \lsem \exists \msc{x}
+      \in \mc{A}~\mw{\varphi} \rsem )&(\mbox{\ref{eq:syl}},5,8)\notag
+\end{align}
+\end{proof}
+
+\begin{restatable}{lemma}{blexlem}~\blTitle{bl.exlem}~ Exported form of bl.exlem0.
+\begin{align}
+\vdash ( \msc{x} \in \mc{A} \rightarrow ( \mathbf{I} \lsem \mw{\varphi} \rsem
+    \rightarrow \mathbf{I} \lsem \exists \msc{x} \in \mc{A}~\mw{\varphi} \rsem
+    ) )\label{eq:bl.exlem}\tag{bl.exlem}
+\end{align}
+\end{restatable}
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash ( ( \msc{x} \in \mc{A} \wedge \mathbf{I} \lsem
+      \mw{\varphi} \rsem ) \rightarrow \mathbf{I} \lsem \exists \msc{x}
+      \in \mc{A}~\mw{\varphi} \rsem )&(\mbox{\ref{eq:bl.exlem0}})\notag
+  \\ 2 &&  & \vdash ( \msc{x} \in \mc{A} \rightarrow ( \mathbf{I} \lsem
+      \mw{\varphi} \rsem \rightarrow \mathbf{I} \lsem \exists \msc{x}
+      \in \mc{A}~\mw{\varphi} \rsem ) )&(\mbox{\ref{eq:ex}},1)\notag
+\end{align}
+\end{proof}
+
+\begin{restatable}{lemma}{blex}~\blTitle{bl.ex}~ Exportation of existential quantification
+from interpretation $\mathbf{I}$.  Only the sound direction is axiomatized:
+the converse (the classic invalid $\exists$-to-$\forall$-swap-under-$\lnot$
+move -- different instants may need different witnesses) is false in
+general (Lean4SFS/SFS.lean's dl\_ex\_sound).
+\begin{align}
+\vdash ( \exists \msc{x} \in \mc{A} \mathbf{I} \lsem \mw{\varphi} \rsem
+    \rightarrow \mathbf{I} \lsem \exists \msc{x} \in \mc{A}~\mw{\varphi} \rsem
+    )\label{eq:bl.ex}\tag{bl.ex}
+\end{align}
+\end{restatable}
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash \Finv \msc{x} \exists \msc{x} \in \mc{A}
+      \mw{\varphi}&(\mbox{\ref{eq:nfre1}})\notag
+  \\ 2 &&  & \vdash \Finv \msc{x} \mathbf{I} \lsem \exists \msc{x} \in
+      \mc{A} \mw{\varphi} \rsem&(\mbox{\ref{eq:bl.nf}},1)\notag
+  \\ 3 &&  & \vdash ( \msc{x} \in \mc{A} \rightarrow ( \mathbf{I} \lsem
+      \mw{\varphi} \rsem \rightarrow \mathbf{I} \lsem \exists \msc{x}
+      \in \mc{A}~\mw{\varphi} \rsem )
+      )&(\mbox{\ref{eq:bl.exlem}})\notag
+  \\ 4 &&  & \vdash ( \exists \msc{x} \in \mc{A} \mathbf{I} \lsem
+      \mw{\varphi} \rsem \rightarrow \mathbf{I} \lsem \exists \msc{x}
+      \in \mc{A}~\mw{\varphi} \rsem
+      )&(\mbox{\ref{eq:rexlimi}},2,3)\notag
+\end{align}
+\end{proof}
+
+\begin{restatable}{metadefinition}{dfbladd}~\blTitle{df-bl.add}~ Interpretation of addition.
+\begin{align}
+\vdash \mathbf{I} \lsem ( \mc{A} + \mc{B} ) \rsem = ( \mathbf{I} \lsem \mc{A}
+    \rsem + \mathbf{I} \lsem \mc{B} \rsem )\label{eq:df-bl.add}\tag{df-bl.add}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{metadefinition}{dfblsub}~\blTitle{df-bl.sub}~ Interpretation of subtraction.
+\begin{align}
+\vdash \mathbf{I} \lsem ( \mc{A} \minus \mc{B} ) \rsem = ( \mathbf{I} \lsem
+    \mc{A} \rsem \minus \mathbf{I} \lsem \mc{B} \rsem
+    )\label{eq:df-bl.sub}\tag{df-bl.sub}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{metadefinition}{dfblmul}~\blTitle{df-bl.mul}~ Interpretation of multiplication.
+\begin{align}
+\vdash \mathbf{I} \lsem ( \mc{A} \times \mc{B} ) \rsem = ( \mathbf{I} \lsem
+    \mc{A} \rsem \times \mathbf{I} \lsem \mc{B} \rsem
+    )\label{eq:df-bl.mul}\tag{df-bl.mul}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{metadefinition}{dfbldiv}~\blTitle{df-bl.div}~ Interpretation of division.
+\begin{align}
+\vdash \mathbf{I} \lsem ( \mc{A} / \mc{B} ) \rsem = ( \mathbf{I} \lsem \mc{A}
+    \rsem / \mathbf{I} \lsem \mc{B} \rsem )\label{eq:df-bl.div}\tag{df-bl.div}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{metadefinition}{dfblum}~\blTitle{df-bl.um}~ Interpretation of negation.
+\begin{align}
+\vdash \mathbf{I} \lsem \textrm{-} \mc{A} \rsem = \textrm{-} \mathbf{I} \lsem
+    \mc{A} \rsem\label{eq:df-bl.um}\tag{df-bl.um}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{metadefinition}{dfbleq}~\blTitle{df-bl.eq}~ Interpretation of equality.
+\begin{align}
+\vdash ( \mathbf{I} \lsem \mc{A} = \mc{B} \rsem \leftrightarrow \mathbf{I}
+    \lsem \mc{A} \rsem = \mathbf{I} \lsem \mc{B} \rsem
+    )\label{eq:df-bl.eq}\tag{df-bl.eq}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{metadefinition}{dfbllt}~\blTitle{df-bl.lt}~ Interpretation of less-than.
+\begin{align}
+\vdash ( \mathbf{I} \lsem \mc{A} < \mc{B} \rsem \leftrightarrow \mathbf{I}
+    \lsem \mc{A} \rsem < \mathbf{I} \lsem \mc{B} \rsem
+    )\label{eq:df-bl.lt}\tag{df-bl.lt}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{metadefinition}{dfblam}~\blTitle{df-bl.am}~ Interpretation of at-most.
+\begin{align}
+\vdash ( \mathbf{I} \lsem \mc{A} \le \mc{B} \rsem \leftrightarrow \mathbf{I}
+    \lsem \mc{A} \rsem \le \mathbf{I} \lsem \mc{B} \rsem
+    )\label{eq:df-bl.am}\tag{df-bl.am}
+\end{align}
+\end{restatable}
+

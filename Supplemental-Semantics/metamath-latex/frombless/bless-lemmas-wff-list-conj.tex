@@ -1,0 +1,468 @@
+% This LaTeX file was created by Metamath on 22-Jul-2024 3:28 PM.
+\begin{restatable}{metadefinition}{dfbllan1}~\blTitle{df-bl.lan1}~ Conjunction of one WFF-list.
+\begin{align}
+\vdash ( \bigwedge[ \mw{\varphi} ] \leftrightarrow \mw{\varphi}
+    )\label{eq:df-bl.lan1}\tag{df-bl.lan1}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{metadefinition}{dfbllan2wl}~\blTitle{df-bl.lan2wl}~ Conjunction of two WFF-lists.
+\begin{align}
+\vdash ( \bigwedge[ \mwl{l_1} \mwl{l_2} ] \leftrightarrow ( \bigwedge[
+    \mwl{l_1} ] \wedge \bigwedge[ \mwl{l_2} ] )
+    )\label{eq:df-bl.lan2wl}\tag{df-bl.lan2wl}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{blan2wl}~\blTitle{bl.an2wl}~ Conjunction of two WFF.
+\begin{align}
+\vdash ( \bigwedge[ \mw{\varphi} \mw{\psi} ] \leftrightarrow ( \mw{\varphi}
+    \wedge \mw{\psi} ) )\label{eq:bl.an2wl}\tag{bl.an2wl}
+\end{align}
+\end{restatable}
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash ( \bigwedge[ \mw{\varphi} \mw{\psi} ] \leftrightarrow (
+      \bigwedge[ \mw{\varphi} ] \wedge \bigwedge[ \mw{\psi}
+      ] ) )&(\mbox{\ref{eq:df-bl.lan2wl}})\notag
+  \\ 2 &&  & \vdash ( \bigwedge[ \mw{\varphi} ] \leftrightarrow \mw{\varphi}
+      )&(\mbox{\ref{eq:df-bl.lan1}})\notag
+  \\ 3 &&  & \vdash ( \bigwedge[ \mw{\psi} ] \leftrightarrow \mw{\psi}
+      )&(\mbox{\ref{eq:df-bl.lan1}})\notag
+  \\ 4 &&  & \vdash ( ( \bigwedge[ \mw{\varphi} ] \wedge \bigwedge[ \mw{\psi} ]
+      ) \leftrightarrow ( \mw{\varphi} \wedge \mw{\psi} )
+      )&(\mbox{\ref{eq:anbi12i}},2,3)\notag
+  \\ 5 &&  & \vdash ( \bigwedge[ \mw{\varphi} \mw{\psi} ] \leftrightarrow (
+      \mw{\varphi} \wedge \mw{\psi} )
+      )&(\mbox{\ref{eq:bitri}},1,4)\notag
+\end{align}
+\end{proof}
+
+\begin{restatable}{lemma}{blan3wl}~\blTitle{bl.an3wl}~ Conjunction of three WFF.
+\begin{align}
+\vdash ( \bigwedge[ \mw{\varphi} \mw{\psi} \mw{\chi} ] \leftrightarrow (
+    \mw{\varphi} \wedge \mw{\psi} \wedge \mw{\chi} )
+    )\label{eq:bl.an3wl}\tag{bl.an3wl}
+\end{align}
+\end{restatable}
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash ( \bigwedge[ \mw{\varphi} \mw{\psi} \mw{\chi} ]
+      \leftrightarrow ( \bigwedge[ \mw{\varphi} ] \wedge
+      \bigwedge[ \mw{\psi} \mw{\chi} ] )
+      )&(\mbox{\ref{eq:df-bl.lan2wl}})\notag
+  \\ 2 &&  & \vdash ( \bigwedge[ \mw{\varphi} ] \leftrightarrow \mw{\varphi}
+      )&(\mbox{\ref{eq:df-bl.lan1}})\notag
+  \\ 3 &&  & \vdash ( \bigwedge[ \mw{\psi} \mw{\chi} ] \leftrightarrow (
+      \mw{\psi} \wedge \mw{\chi} )
+      )&(\mbox{\ref{eq:bl.an2wl}})\notag
+  \\ 4 &&  & \vdash ( ( \bigwedge[ \mw{\varphi} ] \wedge \bigwedge[ \mw{\psi}
+      \mw{\chi} ] ) \leftrightarrow ( \mw{\varphi} \wedge (
+      \mw{\psi} \wedge \mw{\chi} ) )
+      )&(\mbox{\ref{eq:anbi12i}},2,3)\notag
+  \\ 5 &&  & \vdash ( \bigwedge[ \mw{\varphi} \mw{\psi} \mw{\chi} ]
+      \leftrightarrow ( \mw{\varphi} \wedge ( \mw{\psi}
+      \wedge \mw{\chi} ) )
+      )&(\mbox{\ref{eq:bitri}},1,4)\notag
+  \\ 6 &&  & \vdash ( ( \mw{\varphi} \wedge \mw{\psi} \wedge \mw{\chi} )
+      \leftrightarrow ( \mw{\varphi} \wedge ( \mw{\psi}
+      \wedge \mw{\chi} ) ) )&(\mbox{\ref{eq:3anass}})\notag
+  \\ 7 &&  & \vdash ( \bigwedge[ \mw{\varphi} \mw{\psi} \mw{\chi} ]
+      \leftrightarrow ( \mw{\varphi} \wedge \mw{\psi}
+      \wedge \mw{\chi} )
+      )&(\mbox{\ref{eq:bitr4i}},5,6)\notag
+\end{align}
+\end{proof}
+
+\begin{restatable}{lemma}{blancomphwl}~\blTitle{bl.ancomphwl}~ Move first WFF to end of conjunction
+WFF-list.
+\begin{align}
+\vdash ( \bigwedge[ \mw{\varphi} \mwl{l_1} ] \leftrightarrow \bigwedge[
+    \mwl{l_1} \mw{\varphi} ] )\label{eq:bl.ancomphwl}\tag{bl.ancomphwl}
+\end{align}
+\end{restatable}
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash ( \bigwedge[ \mwl{l_1} \mw{\varphi} ] \leftrightarrow (
+      \bigwedge[ \mwl{l_1} ] \wedge \bigwedge[ \mw{\varphi}
+      ] ) )&(\mbox{\ref{eq:df-bl.lan2wl}})\notag
+  \\ 2 && @2:\  & \vdash ( \bigwedge[ \mw{\varphi} ] \leftrightarrow
+      \mw{\varphi} )&(\mbox{\ref{eq:df-bl.lan1}})\notag
+  \\ 3 &&  & \vdash ( ( \bigwedge[ \mwl{l_1} ] \wedge \bigwedge[ \mw{\varphi} ]
+      ) \leftrightarrow ( \bigwedge[ \mwl{l_1} ] \wedge
+      \mw{\varphi} ) )&(\mbox{\ref{eq:anbi2i}},2)\notag
+  \\ 4 &&  & \vdash ( \bigwedge[ \mw{\varphi} ] \leftrightarrow \mw{\varphi}
+      )&(@2)\notag
+  \\ 5 &&  & \vdash ( ( \bigwedge[ \mw{\varphi} ] \wedge \bigwedge[ \mwl{l_1} ]
+      ) \leftrightarrow ( \mw{\varphi} \wedge \bigwedge[
+      \mwl{l_1} ] ) )&(\mbox{\ref{eq:anbi1i}},4)\notag
+  \\ 6 &&  & \vdash ( \bigwedge[ \mw{\varphi} \mwl{l_1} ] \leftrightarrow (
+      \bigwedge[ \mw{\varphi} ] \wedge \bigwedge[ \mwl{l_1}
+      ] ) )&(\mbox{\ref{eq:df-bl.lan2wl}})\notag
+  \\ 7 &&  & \vdash ( ( \bigwedge[ \mwl{l_1} ] \wedge \mw{\varphi} )
+      \leftrightarrow ( \mw{\varphi} \wedge \bigwedge[
+      \mwl{l_1} ] ) )&(\mbox{\ref{eq:ancom}})\notag
+  \\ 8 &&  & \vdash ( ( \bigwedge[ \mwl{l_1} ] \wedge \mw{\varphi} )
+      \leftrightarrow \bigwedge[ \mw{\varphi} \mwl{l_1} ]
+      )&(\mbox{\ref{eq:3bitr4ri}},5,6,7)\notag
+  \\ 9 &&  & \vdash ( ( \bigwedge[ \mwl{l_1} ] \wedge \bigwedge[ \mw{\varphi} ]
+      ) \leftrightarrow \bigwedge[ \mw{\varphi} \mwl{l_1} ]
+      )&(\mbox{\ref{eq:bitri}},3,8)\notag
+  \\ 10 &&  & \vdash ( \bigwedge[ \mw{\varphi} \mwl{l_1} ] \leftrightarrow
+      \bigwedge[ \mwl{l_1} \mw{\varphi} ]
+      )&(\mbox{\ref{eq:bitr2i}},1,9)\notag
+\end{align}
+\end{proof}
+
+\begin{restatable}{lemma}{blancomwlwl}~\blTitle{bl.ancomwlwl}~ Commute conjunction of two WFF-lists.
+\begin{align}
+\vdash ( \bigwedge[ \mwl{l_1} \mwl{l_2} ] \leftrightarrow \bigwedge[ \mwl{l_2}
+    \mwl{l_1} ] )\label{eq:bl.ancomwlwl}\tag{bl.ancomwlwl}
+\end{align}
+\end{restatable}
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash ( ( \bigwedge[ \mwl{l_1} ] \wedge \bigwedge[ \mwl{l_2} ] )
+      \leftrightarrow ( \bigwedge[ \mwl{l_2} ] \wedge
+      \bigwedge[ \mwl{l_1} ] )
+      )&(\mbox{\ref{eq:ancom}})\notag
+  \\ 2 &&  & \vdash ( \bigwedge[ \mwl{l_1} \mwl{l_2} ] \leftrightarrow (
+      \bigwedge[ \mwl{l_1} ] \wedge \bigwedge[ \mwl{l_2} ]
+      ) )&(\mbox{\ref{eq:df-bl.lan2wl}})\notag
+  \\ 3 &&  & \vdash ( \bigwedge[ \mwl{l_2} \mwl{l_1} ] \leftrightarrow (
+      \bigwedge[ \mwl{l_2} ] \wedge \bigwedge[ \mwl{l_1} ]
+      ) )&(\mbox{\ref{eq:df-bl.lan2wl}})\notag
+  \\ 4 &&  & \vdash ( \bigwedge[ \mwl{l_1} \mwl{l_2} ] \leftrightarrow
+      \bigwedge[ \mwl{l_2} \mwl{l_1} ]
+      )&(\mbox{\ref{eq:3bitr4i}},1,2,3)\notag
+\end{align}
+\end{proof}
+
+\begin{restatable}{lemma}{blanpfw}~\blTitle{bl.anpfw}~ Pull first WFF from conjunction WFF-list.
+\begin{align}
+\vdash ( \bigwedge[ \mw{\varphi} \mwl{l_1} ] \leftrightarrow ( \mw{\varphi}
+    \wedge \bigwedge[ \mwl{l_1} ] ) )\label{eq:bl.anpfw}\tag{bl.anpfw}
+\end{align}
+\end{restatable}
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash ( \bigwedge[ \mw{\varphi} \mwl{l_1} ] \leftrightarrow (
+      \bigwedge[ \mw{\varphi} ] \wedge \bigwedge[ \mwl{l_1}
+      ] ) )&(\mbox{\ref{eq:df-bl.lan2wl}})\notag
+  \\ 2 &&  & \vdash ( \bigwedge[ \mw{\varphi} ] \leftrightarrow \mw{\varphi}
+      )&(\mbox{\ref{eq:df-bl.lan1}})\notag
+  \\ 3 &&  & \vdash ( ( \bigwedge[ \mw{\varphi} ] \wedge \bigwedge[ \mwl{l_1} ]
+      ) \leftrightarrow ( \mw{\varphi} \wedge \bigwedge[
+      \mwl{l_1} ] ) )&(\mbox{\ref{eq:anbi1i}},2)\notag
+  \\ 4 &&  & \vdash ( \bigwedge[ \mw{\varphi} \mwl{l_1} ] \leftrightarrow (
+      \mw{\varphi} \wedge \bigwedge[ \mwl{l_1} ] )
+      )&(\mbox{\ref{eq:bitri}},1,3)\notag
+\end{align}
+\end{proof}
+
+\begin{restatable}{lemma}{blanplw}~\blTitle{bl.anplw}~ Pull last WFF from conjunction WFF-list.
+\begin{align}
+\vdash ( \bigwedge[ \mwl{l_1} \mw{\varphi} ] \leftrightarrow ( \bigwedge[
+    \mwl{l_1} ] \wedge \mw{\varphi} ) )\label{eq:bl.anplw}\tag{bl.anplw}
+\end{align}
+\end{restatable}
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash ( \bigwedge[ \mwl{l_1} \mw{\varphi} ] \leftrightarrow (
+      \bigwedge[ \mwl{l_1} ] \wedge \bigwedge[ \mw{\varphi}
+      ] ) )&(\mbox{\ref{eq:df-bl.lan2wl}})\notag
+  \\ 2 &&  & \vdash ( \bigwedge[ \mw{\varphi} ] \leftrightarrow \mw{\varphi}
+      )&(\mbox{\ref{eq:df-bl.lan1}})\notag
+  \\ 3 &&  & \vdash ( ( \bigwedge[ \mwl{l_1} ] \wedge \bigwedge[ \mw{\varphi} ]
+      ) \leftrightarrow ( \bigwedge[ \mwl{l_1} ] \wedge
+      \mw{\varphi} ) )&(\mbox{\ref{eq:anbi2i}},2)\notag
+  \\ 4 &&  & \vdash ( \bigwedge[ \mwl{l_1} \mw{\varphi} ] \leftrightarrow (
+      \bigwedge[ \mwl{l_1} ] \wedge \mw{\varphi} )
+      )&(\mbox{\ref{eq:bitri}},1,3)\notag
+\end{align}
+\end{proof}
+
+\begin{restatable}{lemma}{blanabpf}~\blTitle{bl.anabpf}~ Absorb first term conjunction WFF-list.
+\begin{align}
+\vdash ( \bigwedge[ \bigwedge[ \mwl{l_1} ] \mwl{l_2} ] \leftrightarrow
+    \bigwedge[ \mwl{l_1} \mwl{l_2} ] )\label{eq:bl.anabpf}\tag{bl.anabpf}
+\end{align}
+\end{restatable}
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash ( \bigwedge[ \bigwedge[ \mwl{l_1} ] \mwl{l_2} ]
+      \leftrightarrow ( \bigwedge[ \bigwedge[ \mwl{l_1} ] ]
+      \wedge \bigwedge[ \mwl{l_2} ] )
+      )&(\mbox{\ref{eq:df-bl.lan2wl}})\notag
+  \\ 2 &&  & \vdash ( \bigwedge[ \mwl{l_1} \mwl{l_2} ] \leftrightarrow (
+      \bigwedge[ \mwl{l_1} ] \wedge \bigwedge[ \mwl{l_2} ]
+      ) )&(\mbox{\ref{eq:df-bl.lan2wl}})\notag
+  \\ 3 &&  & \vdash ( \bigwedge[ \bigwedge[ \mwl{l_1} ] ] \leftrightarrow
+      \bigwedge[ \mwl{l_1} ]
+      )&(\mbox{\ref{eq:df-bl.lan1}})\notag
+  \\ 4 &&  & \vdash ( ( \bigwedge[ \bigwedge[ \mwl{l_1} ] ] \wedge \bigwedge[
+      \mwl{l_2} ] ) \leftrightarrow ( \bigwedge[ \mwl{l_1}
+      ] \wedge \bigwedge[ \mwl{l_2} ] )
+      )&(\mbox{\ref{eq:anbi1i}},3)\notag
+  \\ 5 &&  & \vdash ( \bigwedge[ \mwl{l_1} \mwl{l_2} ] \leftrightarrow (
+      \bigwedge[ \bigwedge[ \mwl{l_1} ] ] \wedge \bigwedge[
+      \mwl{l_2} ] ) )&(\mbox{\ref{eq:bitr4i}},2,4)\notag
+  \\ 6 &&  & \vdash ( \bigwedge[ \bigwedge[ \mwl{l_1} ] \mwl{l_2} ]
+      \leftrightarrow \bigwedge[ \mwl{l_1} \mwl{l_2} ]
+      )&(\mbox{\ref{eq:bitr4i}},1,5)\notag
+\end{align}
+\end{proof}
+
+\begin{restatable}{lemma}{blanabpl}~\blTitle{bl.anabpl}~ Absorb last term conjunction WFF-list.
+\begin{align}
+\vdash ( \bigwedge[ \mwl{l_1} \bigwedge[ \mwl{l_2} ] ] \leftrightarrow
+    \bigwedge[ \mwl{l_1} \mwl{l_2} ] )\label{eq:bl.anabpl}\tag{bl.anabpl}
+\end{align}
+\end{restatable}
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash ( \bigwedge[ \bigwedge[ \mwl{l_2} ] ] \leftrightarrow
+      \bigwedge[ \mwl{l_2} ]
+      )&(\mbox{\ref{eq:df-bl.lan1}})\notag
+  \\ 2 &&  & \vdash ( ( \bigwedge[ \mwl{l_1} ] \wedge \bigwedge[ \bigwedge[
+      \mwl{l_2} ] ] ) \leftrightarrow ( \bigwedge[
+      \mwl{l_1} ] \wedge \bigwedge[ \mwl{l_2} ] )
+      )&(\mbox{\ref{eq:anbi2i}},1)\notag
+  \\ 3 &&  & \vdash ( \bigwedge[ \mwl{l_1} \bigwedge[ \mwl{l_2} ] ]
+      \leftrightarrow ( \bigwedge[ \mwl{l_1} ] \wedge
+      \bigwedge[ \bigwedge[ \mwl{l_2} ] ] )
+      )&(\mbox{\ref{eq:df-bl.lan2wl}})\notag
+  \\ 4 &&  & \vdash ( \bigwedge[ \mwl{l_1} \mwl{l_2} ] \leftrightarrow (
+      \bigwedge[ \mwl{l_1} ] \wedge \bigwedge[ \mwl{l_2} ]
+      ) )&(\mbox{\ref{eq:df-bl.lan2wl}})\notag
+  \\ 5 &&  & \vdash ( \bigwedge[ \mwl{l_1} \bigwedge[ \mwl{l_2} ] ]
+      \leftrightarrow \bigwedge[ \mwl{l_1} \mwl{l_2} ]
+      )&(\mbox{\ref{eq:3bitr4i}},2,3,4)\notag
+\end{align}
+\end{proof}
+
+\begin{restatable}{lemma}{blaisl}~\blTitle{bl.aisl}~ And-Introduction Schema of WFF (left).
+\begin{align}
+\vdash ( \bigwedge[ \mwl{l_1} \mw{\varphi} ] \rightarrow \mw{\varphi}
+    )\label{eq:bl.aisl}\tag{bl.aisl}
+\end{align}
+\end{restatable}
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash ( \bigwedge[ \mwl{l_1} \mw{\varphi} ] \leftrightarrow (
+      \bigwedge[ \mwl{l_1} ] \wedge \mw{\varphi} )
+      )&(\mbox{\ref{eq:bl.anplw}})\notag
+  \\ 2 &&  & \vdash ( ( \bigwedge[ \mwl{l_1} ] \wedge \mw{\varphi} )
+      \rightarrow \mw{\varphi}
+      )&(\mbox{\ref{eq:simpr}})\notag
+  \\ 3 &&  & \vdash ( \bigwedge[ \mwl{l_1} \mw{\varphi} ] \rightarrow
+      \mw{\varphi} )&(\mbox{\ref{eq:sylbi}},1,2)\notag
+\end{align}
+\end{proof}
+
+\begin{restatable}{lemma}{blaisr}~\blTitle{bl.aisr}~ And-Introduction Schema of WFF (right).
+\begin{align}
+\vdash ( \bigwedge[ \mw{\varphi} \mwl{l_1} ] \rightarrow \mw{\varphi}
+    )\label{eq:bl.aisr}\tag{bl.aisr}
+\end{align}
+\end{restatable}
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash ( \bigwedge[ \mw{\varphi} \mwl{l_1} ] \leftrightarrow (
+      \mw{\varphi} \wedge \bigwedge[ \mwl{l_1} ] )
+      )&(\mbox{\ref{eq:bl.anpfw}})\notag
+  \\ 2 &&  & \vdash ( ( \mw{\varphi} \wedge \bigwedge[ \mwl{l_1} ] )
+      \rightarrow \mw{\varphi}
+      )&(\mbox{\ref{eq:simpl}})\notag
+  \\ 3 &&  & \vdash ( \bigwedge[ \mw{\varphi} \mwl{l_1} ] \rightarrow
+      \mw{\varphi} )&(\mbox{\ref{eq:sylbi}},1,2)\notag
+\end{align}
+\end{proof}
+
+\begin{restatable}{lemma}{blaiswll}~\blTitle{bl.aiswll}~ And-Introduction Schema of WFF-list
+(left).
+\begin{align}
+\vdash ( \bigwedge[ \mwl{l_1} \mwl{l_2} ] \rightarrow \bigwedge[ \mwl{l_2} ]
+    )\label{eq:bl.aiswll}\tag{bl.aiswll}
+\end{align}
+\end{restatable}
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash ( \bigwedge[ \mwl{l_1} \mwl{l_2} ] \leftrightarrow (
+      \bigwedge[ \mwl{l_1} ] \wedge \bigwedge[ \mwl{l_2} ]
+      ) )&(\mbox{\ref{eq:df-bl.lan2wl}})\notag
+  \\ 2 &&  & \vdash ( ( \bigwedge[ \mwl{l_1} ] \wedge \bigwedge[ \mwl{l_2} ] )
+      \rightarrow \bigwedge[ \mwl{l_2} ]
+      )&(\mbox{\ref{eq:simpr}})\notag
+  \\ 3 &&  & \vdash ( \bigwedge[ \mwl{l_1} \mwl{l_2} ] \rightarrow \bigwedge[
+      \mwl{l_2} ] )&(\mbox{\ref{eq:sylbi}},1,2)\notag
+\end{align}
+\end{proof}
+
+\begin{restatable}{lemma}{blaiswlr}~\blTitle{bl.aiswlr}~ And-Introduction Schema of WFF-list
+(right).
+\begin{align}
+\vdash ( \bigwedge[ \mwl{l_1} \mwl{l_2} ] \rightarrow \bigwedge[ \mwl{l_1} ]
+    )\label{eq:bl.aiswlr}\tag{bl.aiswlr}
+\end{align}
+\end{restatable}
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash ( \bigwedge[ \mwl{l_1} \mwl{l_2} ] \leftrightarrow (
+      \bigwedge[ \mwl{l_1} ] \wedge \bigwedge[ \mwl{l_2} ]
+      ) )&(\mbox{\ref{eq:df-bl.lan2wl}})\notag
+  \\ 2 &&  & \vdash ( ( \bigwedge[ \mwl{l_1} ] \wedge \bigwedge[ \mwl{l_2} ] )
+      \rightarrow \bigwedge[ \mwl{l_1} ]
+      )&(\mbox{\ref{eq:simpl}})\notag
+  \\ 3 &&  & \vdash ( \bigwedge[ \mwl{l_1} \mwl{l_2} ] \rightarrow \bigwedge[
+      \mwl{l_1} ] )&(\mbox{\ref{eq:sylbi}},1,2)\notag
+\end{align}
+\end{proof}
+
+\begin{restatable}{lemma}{blancomphfirst}~\blTitle{bl.ancomphfirst}~ Make any wff first in conjunction
+wff-list
+\begin{align}
+\vdash ( \bigwedge[ \mwl{l_1} \mw{\varphi} \mwl{l_2} ] \leftrightarrow
+    \bigwedge[ \mw{\varphi} \mwl{l_2} \mwl{l_1} ]
+    )\label{eq:bl.ancomphfirst}\tag{bl.ancomphfirst}
+\end{align}
+\end{restatable}
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash ( \bigwedge[ \mwl{l_1} \mw{\varphi} \mwl{l_2} ]
+      \leftrightarrow \bigwedge[ \mw{\varphi} \mwl{l_2}
+      \mwl{l_1} ] )&(\mbox{\ref{eq:bl.ancomwlwl}})\notag
+\end{align}
+\end{proof}
+
+\begin{restatable}{lemma}{blancomphlast}~\blTitle{bl.ancomphlast}~ Make any wff last in conjunction
+wff-list
+\begin{align}
+\vdash ( \bigwedge[ \mwl{l_1} \mw{\varphi} \mwl{l_2} ] \leftrightarrow
+    \bigwedge[ \mwl{l_2} \mwl{l_1} \mw{\varphi} ]
+    )\label{eq:bl.ancomphlast}\tag{bl.ancomphlast}
+\end{align}
+\end{restatable}
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash ( \bigwedge[ \mwl{l_1} \mw{\varphi} \mwl{l_2} ]
+      \leftrightarrow \bigwedge[ \mwl{l_2} \mwl{l_1}
+      \mw{\varphi} ] )&(\mbox{\ref{eq:bl.ancomwlwl}})\notag
+\end{align}
+\end{proof}
+
+\begin{restatable}{lemma}{blanpmw}~\blTitle{bl.anpmw}~ Pull middle wff from conjunction wff-list
+\begin{align}
+\vdash ( \bigwedge[ \mwl{l_1} \mw{\varphi} \mwl{l_2} ] \leftrightarrow (
+    \mw{\varphi} \wedge \bigwedge[ \mwl{l_2} \mwl{l_1} ] )
+    )\label{eq:bl.anpmw}\tag{bl.anpmw}
+\end{align}
+\end{restatable}
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash ( \bigwedge[ \mwl{l_1} \mw{\varphi} \mwl{l_2} ]
+      \leftrightarrow \bigwedge[ \mw{\varphi} \mwl{l_2}
+      \mwl{l_1} ] )&(\mbox{\ref{eq:bl.ancomphfirst}})\notag
+  \\ 2 &&  & \vdash ( \bigwedge[ \mw{\varphi} \mwl{l_2} \mwl{l_1} ]
+      \leftrightarrow ( \mw{\varphi} \wedge \bigwedge[
+      \mwl{l_2} \mwl{l_1} ] )
+      )&(\mbox{\ref{eq:bl.anpfw}})\notag
+  \\ 3 &&  & \vdash ( \bigwedge[ \mwl{l_1} \mw{\varphi} \mwl{l_2} ]
+      \leftrightarrow ( \mw{\varphi} \wedge \bigwedge[
+      \mwl{l_2} \mwl{l_1} ] )
+      )&(\mbox{\ref{eq:bitri}},1,2)\notag
+\end{align}
+\end{proof}
+
+\begin{restatable}{lemma}{blanabpm}~\blTitle{bl.anabpm}~ Absorb parentheses, middle term in
+conjunction wff-list
+\begin{align}
+\vdash ( \bigwedge[ \mwl{l_1} \bigwedge[ \mwl{l_2} ] \mwl{l_3} ]
+    \leftrightarrow \bigwedge[ \mwl{l_1} \mwl{l_2} \mwl{l_3} ]
+    )\label{eq:bl.anabpm}\tag{bl.anabpm}
+\end{align}
+\end{restatable}
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash ( \bigwedge[ \mwl{l_1} \bigwedge[ \mwl{l_2} ] \mwl{l_3} ]
+      \leftrightarrow \bigwedge[ \bigwedge[ \mwl{l_2} ]
+      \mwl{l_3} \mwl{l_1} ]
+      )&(\mbox{\ref{eq:bl.ancomwlwl}})\notag
+  \\ 2 &&  & \vdash ( \bigwedge[ \bigwedge[ \mwl{l_2} ] \mwl{l_3} \mwl{l_1} ]
+      \leftrightarrow \bigwedge[ \mwl{l_2} \mwl{l_3}
+      \mwl{l_1} ] )&(\mbox{\ref{eq:bl.anabpf}})\notag
+  \\ 3 &&  & \vdash ( \bigwedge[ \mwl{l_2} \mwl{l_3} \mwl{l_1} ]
+      \leftrightarrow \bigwedge[ \mwl{l_1} \mwl{l_2}
+      \mwl{l_3} ] )&(\mbox{\ref{eq:bl.ancomwlwl}})\notag
+  \\ 4 &&  & \vdash ( \bigwedge[ \mwl{l_1} \bigwedge[ \mwl{l_2} ] \mwl{l_3} ]
+      \leftrightarrow \bigwedge[ \mwl{l_1} \mwl{l_2}
+      \mwl{l_3} ] )&(\mbox{\ref{eq:3bitri}},1,2,3)\notag
+\end{align}
+\end{proof}
+
+\begin{restatable}{lemma}{blais}~\blTitle{bl.ais}~ And-Introduction Schema of wff
+\begin{align}
+\vdash ( \bigwedge[ \mwl{l_1} \mw{\varphi} \mwl{l_2} ] \rightarrow \mw{\varphi}
+    )\label{eq:bl.ais}\tag{bl.ais}
+\end{align}
+\end{restatable}
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash ( \bigwedge[ \mwl{l_1} \mw{\varphi} \mwl{l_2} ]
+      \leftrightarrow ( \mw{\varphi} \wedge \bigwedge[
+      \mwl{l_2} \mwl{l_1} ] )
+      )&(\mbox{\ref{eq:bl.anpmw}})\notag
+  \\ 2 &&  & \vdash ( ( \mw{\varphi} \wedge \bigwedge[ \mwl{l_2} \mwl{l_1} ] )
+      \rightarrow \mw{\varphi}
+      )&(\mbox{\ref{eq:simpl}})\notag
+  \\ 3 &&  & \vdash ( \bigwedge[ \mwl{l_1} \mw{\varphi} \mwl{l_2} ] \rightarrow
+      \mw{\varphi} )&(\mbox{\ref{eq:sylbi}},1,2)\notag
+\end{align}
+\end{proof}
+
+\begin{restatable}{lemma}{blaiswl}~\blTitle{bl.aiswl}~ And-Introduction Schema of wff-list
+\begin{align}
+\vdash ( \bigwedge[ \mwl{l_1} \mwl{l_2} \mwl{l_3} ] \rightarrow \bigwedge[
+    \mwl{l_2} ] )\label{eq:bl.aiswl}\tag{bl.aiswl}
+\end{align}
+\end{restatable}
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash ( \bigwedge[ \mwl{l_1} \bigwedge[ \mwl{l_2} ] \mwl{l_3} ]
+      \leftrightarrow \bigwedge[ \mwl{l_1} \mwl{l_2}
+      \mwl{l_3} ] )&(\mbox{\ref{eq:bl.anabpm}})\notag
+  \\ 2 &&  & \vdash ( \bigwedge[ \mwl{l_1} \bigwedge[ \mwl{l_2} ] \mwl{l_3} ]
+      \leftrightarrow ( \bigwedge[ \mwl{l_2} ] \wedge
+      \bigwedge[ \mwl{l_3} \mwl{l_1} ] )
+      )&(\mbox{\ref{eq:bl.anpmw}})\notag
+  \\ 3 &&  & \vdash ( \bigwedge[ \mwl{l_1} \mwl{l_2} \mwl{l_3} ]
+      \leftrightarrow ( \bigwedge[ \mwl{l_2} ] \wedge
+      \bigwedge[ \mwl{l_3} \mwl{l_1} ] )
+      )&(\mbox{\ref{eq:bitr3i}},1,2)\notag
+  \\ 4 &&  & \vdash ( ( \bigwedge[ \mwl{l_2} ] \wedge \bigwedge[ \mwl{l_3}
+      \mwl{l_1} ] ) \rightarrow \bigwedge[ \mwl{l_2} ]
+      )&(\mbox{\ref{eq:simpl}})\notag
+  \\ 5 &&  & \vdash ( \bigwedge[ \mwl{l_1} \mwl{l_2} \mwl{l_3} ] \rightarrow
+      \bigwedge[ \mwl{l_2} ]
+      )&(\mbox{\ref{eq:sylbi}},3,4)\notag
+\end{align}
+\end{proof}
+

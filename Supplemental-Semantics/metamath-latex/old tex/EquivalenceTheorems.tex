@@ -1,0 +1,98 @@
+
+\begin{lemma}\otherTitle{imbi1i} Introduce a consequent to both sides of a
+logical equivalence.
+\begin{align}
+\vdash ( \varphi \leftrightarrow \psi )\quad\Rightarrow\quad \vdash ( ( \varphi
+    \rightarrow \chi ) \leftrightarrow ( \psi \rightarrow \chi )
+    )\label{eq:imbi1i}\tag{imbi1i}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{albii} Inference adding universal quantifier to both
+sides of an equivalence.
+\begin{align}
+\vdash ( \varphi \leftrightarrow \psi )\quad\Rightarrow\quad \vdash ( \forall x
+    \varphi \leftrightarrow \forall x \psi )\label{eq:albii}\tag{albii}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{lttr} Ordering on reals is transitive
+\begin{align}
+\vdash ( ( A \in \mathbb{R} \wedge B \in \mathbb{R} \wedge C \in \mathbb{R} )
+    \rightarrow ( ( A < B \wedge B < C ) \rightarrow A < C )
+    )\label{eq:lttr}\tag{lttr}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{equs3} Lemma used in proofs of substitution
+properties. 
+\begin{align}
+\vdash ( \exists x ( x = y \wedge \varphi ) \leftrightarrow \lnot \forall x ( x
+    = y \rightarrow \lnot \varphi ) )\label{eq:equs3}\tag{equs3}
+\end{align}
+\end{lemma}
+
+
+\begin{metadefinition}\blTitle{df-ex} Define existential quantification.
+$\exists \msc{x} \mw{\varphi}$ means ``there exists at
+     least one set $\msc{x}$ such that $\mw{\varphi}$ is true."  Definition of
+[Margaris]
+     p. 49.  (Contributed by NM, 10-Jan-1993.)
+\begin{align}
+\mm{\vdash} ( \exists \msc{x} \mw{\varphi} \leftrightarrow \lnot \forall
+    \msc{x} \lnot \mw{\varphi} )\label{eq:df-ex}\tag{df-ex}
+\end{align}
+\end{metadefinition}
+
+
+\begin{lemma}\otherTitle{3simpa} Simplification of triple conjunction. 
+(Contributed by NM,
+     21-Apr-1994.)
+\begin{align}
+\vdash ( ( \varphi \wedge \psi \wedge \chi ) \rightarrow ( \varphi \wedge \psi
+    ) )\label{eq:3simpa}\tag{3simpa}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{isstruct} The property of being a structure with
+components in $M \ldots N$.
+     (Contributed by Mario Carneiro, 29-Aug-2015.)
+\begin{align}
+\vdash ( F {\rm Struct} \langle M , N \rangle \leftrightarrow ( ( M \in
+    \mathbb{N} \wedge N \in \mathbb{N} \wedge M \le N ) \wedge {\rm Fun} ( F
+    \setminus \{ \varnothing \} ) \wedge {\rm dom} F \subseteq ( M \ldots N ) )
+    )\label{eq:isstruct}\tag{isstruct}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{a1bi} Inference rule introducing a lemma as an antecedent.  (Contributed by
+       NM, 5-Aug-1993.)  (Proof shortened by Wolf Lammen, 11-Nov-2012.)
+\begin{align}
+\vdash \varphi\quad\Rightarrow\quad \vdash ( \psi \leftrightarrow ( \varphi \rightarrow \psi ) )\label{eq:a1bi}\tag{a1bi}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{3bitr4ri} A chained inference from transitive law for logical equivalence.
+       (Contributed by NM, 2-Sep-1995.)
+\begin{align}
+\vdash ( \varphi \leftrightarrow \psi )\quad\&\quad \vdash ( \chi \leftrightarrow \varphi )\quad\&\quad \vdash ( \theta \leftrightarrow \psi )\quad\Rightarrow\quad \vdash ( \theta \leftrightarrow \chi
+    )\label{eq:3bitr4ri}\tag{3bitr4ri}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{3bitr4i} A chained inference from transitive law for logical equivalence.  This
+       inference is frequently used to apply a definition to both sides of a
+       logical equivalence.  (Contributed by NM, 3-Jan-1993.)
+\begin{align}
+\vdash ( \varphi \leftrightarrow \psi )\quad\&\quad \vdash ( \chi \leftrightarrow \varphi )\quad\&\quad \vdash ( \theta \leftrightarrow \psi )\quad\Rightarrow\quad \vdash ( \chi \leftrightarrow \theta
+    )\label{eq:3bitr4i}\tag{3bitr4i}
+\end{align}
+\end{lemma}
+

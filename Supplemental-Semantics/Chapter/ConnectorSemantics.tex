@@ -1,0 +1,277 @@
+%ConnectorSemantics.tex
+
+
+\ksec{Connectors Semantics (KerML 8.4.4.6)}
+
+\pn A \bemph{connector} is a feature typed by an {association}\index{association}.  Connectors are how associations become instances as links.
+Like an association, a connector has end features, known as its connector ends.  
+
+\pn Each connector end references a feature of the connector's domain using reference subsetting. 
+Reference subsetting has the same semantics as regular subsetting 
+but is used to syntactically differentiate one of the owned subsettings of a feature. While reference subsetting is used
+primarily for connector ends in KerML, it can actually be specified as an owned subsetting in the declaration of any
+kind of feature, using the \texttt{references} or \texttt{::>} symbol. A feature is allowed to have at most one owned subsetting
+that is a reference subsetting.
+
+\pn Because connectors are features themselves, they have a domain being the classifier which contains the connector.  A connector end's related feature must also be contained in the same domain classifier (or reachable by a feature chain).  The domain classifier provides a context for the connector and its related features.
+
+\pn In the following example, \texttt{Mounting} is an association structure; \texttt{mount} is the connector having type \texttt{Mounting}.
+
+\ecaption{Mounting}
+\begin{lstlisting}
+assoc struct Mounting {
+  end feature mountingAxle : Axle;
+  end feature mountedWheel : Wheel;
+}
+struct WheelAssembly {
+  composite feature axle[1] : Axle;
+  composite feature wheels[2] : Wheel;
+
+  connector mount[2] : Mounting {
+    end feature mountingAxle references axle;
+    end feature mountedWheel references wheels;
+  }
+}
+\end{lstlisting}
+
+\pn The domain of \texttt{mount} is \texttt{WheelAssembly}.  The codomain of \texttt{mount} is the association structure \texttt{Mounting}.
+The multiplicity of \texttt{mount} is 2, so its relation is a set of two pairs $\{\langle wa,m_1\rangle,~\langle wa,m_2\rangle\}$ where $wa$ is an instance of \texttt{WheelAssembly} and $m_1$ and $m_2$ are instances of \texttt{Mounting}.
+
+%so which has referenced features \texttt{axle} and \texttt{wheels}.  
+The multiplicity of binary association ends, and thus binary connector ends is always [1..1].  The intent of \texttt{mount[2]} is two connections of the same \texttt{axle} to different \texttt{wheels[2]}.
+However, there seems to be nothing forcing the wheels to be different!
+
+\pn Connectors can be thought of as ``instance-specific'' associations.  An instance of \texttt{WheelAssembly} has one axle, two wheels, and two mounts which must reference an axle and a wheel in the same instance of \texttt{WheelAssembly}. 
+
+\pn Instead of explicitly declaring connector ends in the body of the connector, they can be listed between parentheses. In this case, the end
+declarations are limited to be of the form \texttt{e references f} or \texttt{e ::> f}, where \texttt{e} is the name of an association end
+and \texttt{f} is the qualified name of a related feature.
+
+\ecaption{WheelAssembly}
+\begin{lstlisting}
+struct WheelAssembly {
+  composite feature axle[1] : Axle;
+  composite feature wheels[2] : Wheel;
+  connector mount[2] : Mounting (
+    mountingAxle ::> axle,
+    mountedWheel ::> wheels
+  );
+}
+\end{lstlisting}
+
+\pn The association end names can also be omitted, in which case the connector ends are matched in order to
+corresponding association ends.
+
+\ecaption{connector mount[2]}
+\begin{lstlisting}
+  connector mount[2] : Mounting (axle, wheels);
+\end{lstlisting}
+
+
+\subsection{Binary Connectors}
+
+\pn A connector typed by a binary association must itself be binary, with exactly two ends.  Similarly, a connector that specializes a binary connector will also be binary.  \comment{Can connectors specialize associations, or only be typed by them?}
+
+\ecaption{binary connector}
+\begin{lstlisting}
+assoc A :> L { end s:S; end t:T }
+classifier K {
+  feature f:F; feature g:G;
+  connector c :> A {
+    end s redefines A::s references f;
+    end t redefines A::t references g;
+  }
+}
+\end{lstlisting}
+
+\pn Consider a binary connector $c$ specializing association $A$ which must explicitly or implicitly subset \texttt{Links::bi\-naryLinks} having two ends.
+The association $A$ has source end $s$ of type $S$, and target end $t$ of type $T$ defined in \ref{eq:df-binassoc}.
+Connector $c$ is a feature of classifier $K$ also having feature $f$ of type $F$ and feature $g$ of type $G$.
+The first end (source) of $c$ has identifier $s$ which redefines $A$::$s$ and references feature $f$.  The second end (target) of $c$ has identifier $t$ which redefines $A$::$t$ and references feature $g$.  
+
+\pn By \ref{eq:df-typebody} classifier $K$ is a type having three features $f$, $g$, and $c$ which is represented by the (ZFC) class of triples having kind \textbf{classifier} as its first element, the wonce of ``K'' as its second element, and a triple of classes $\langle C_f,C_g,C_c\rangle$ as its third element.  Classes $C_f$ and $C_g$ as defined in \ref{eq:df-featuremember} for features $f$ and $g$.
+
+\pn Connector $c$ is represented as $C_c$, the class of triples having the first element \textbf{connector}, the second element the wonce of ``c", and the third element the triple $\langle D,E,F\rangle$.
+$D$ is the class for association $A$.  $E$ is the class having a single element $\langle\textbf{end},``s",\langle w,s \rangle\rangle$ for end feature $s$.
+ $F$ is the class having a single element $\langle\textbf{end},``t",\langle w,t \rangle\rangle$ for end feature $t$.
+
+\begin{definition}~\blTitle{df-binconnect}~   Define Binary Connector
+\begin{align}
+\texttt{assoc}~ A~\texttt{:>}~L~\{ \texttt{end}~ s ~\texttt{:}~ S\texttt{;} \texttt{end}~ t ~\texttt{:}~ T\texttt{;} \}~  \notag \\
+\texttt{classifier}~K~\{ %\notag \\
+\texttt{feature}~f~\texttt{:} F~\texttt{;} %\notag \\
+\texttt{feature}~g~\texttt{:} G~\texttt{;} \notag \\
+\texttt{connector}~ c~\texttt{:>}~A~\notag \\
+~~~~\{ \texttt{end}~ s ~\texttt{redefines}~A\texttt{::}s~\texttt{references}~f \texttt{;}\notag \\
+~~~~ \texttt{end}~ t ~\texttt{redefines}~A\texttt{::}t~\texttt{references}~g\texttt{;} \}~%\notag \\
+\}~\Rightarrow  \notag \\
+\vdash \mc{A} = \{~\langle \textbf{classifier},w_K,\langle \mc{C_f},\mc{C_g},\mc{C_c}\rangle\rangle~\vert \notag \\
+w_K=W(``K'')~ \wedge~\mc{C_f}=\{\cdots\}~\wedge~\mc{C_g}=\{\cdots\}~\wedge \notag \\
+\mc{C_c}=\{~\langle \textbf{connector},w_c,\langle \mc{D},\mc{E},\mc{F}\rangle\rangle ~\vert~
+w_c=W(``c")~ \wedge 
+\mc{D}=\{~a~\vert ~a \in \mc{A}~\}~\wedge~\notag \\
+~s\in \mc{S}\cap \mc{F}~\wedge~\mc{E}~=~\{~\langle\textbf{end},``s",\langle w_c,s \rangle\rangle~\}~\wedge \notag \\
+~t\in \mc{T}\cap \mc{G}~\wedge~\mc{F}~=~\{~\langle\textbf{end},``t",\langle w_c,t \rangle\rangle~\}~\}~\}~\label{eq:df-binconnect}\tag{df-binconnect}
+\end{align}
+\end{definition}
+
+
+\pn A special notation can be used for a binary connector, in which the source related feature is referenced after the
+keyword \texttt{from}, and the target related feature is referenced after the keyword \texttt{to}.
+
+\ecaption{binary connector from}
+\begin{lstlisting}
+struct WheelAssembly {
+  composite feature axle[1] : Axle;
+  composite feature wheels[2] : Wheel;
+  connector mount[2] : Mounting from axle to wheels;
+}
+\end{lstlisting}
+
+\subsection{Connector Cross Features}
+
+\pn Connector ends may have cross features, specified using cross subsetting, as for association ends.
+
+\ecaption{Connector Cross Features}
+\begin{lstlisting}
+struct WheelAssembly {
+  composite feature axle[1] : Axle {
+    feature mountedWheels[2] : Wheel;
+  }
+  composite feature wheels[2] : Wheel;
+  connector mount[2] : Mounting {
+    end mountingAxle references axle;
+    end mountedWheel references wheels crosses mountingAxle.mountedWheels;
+  }
+}
+\end{lstlisting}
+
+\pn The \texttt{mountedWheel} end of the connector \texttt{mount} crosses a feature chain starting with the label of the other end, \texttt{mountingAxle} which reference subsets \texttt{axle} which has a feature, \texttt{mountedWheels} which matches the rest of the feature chain.  This makes the \texttt{wheels} of the two \texttt{mount} connectors the same as the \texttt{axle}'s \texttt{mountedWheels}.
+
+\begin{definition}~\blTitle{df-binconnectx}~   Define Binary Connector Cross Feature \\
+analogous to \ref{eq:df-binassocx}
+\end{definition}
+
+\pn A connector end may also have owned cross features.
+
+\ecaption{connector end}
+\begin{lstlisting}
+struct WheelAssembly {
+  composite feature halfAxles[2] : Axle;
+  composite feature wheels[2] : Wheel;
+// Connects each one of the halfAxles to a different one of the wheels.
+  connector mount[2] : Mounting {
+    end [1] feature mountingAxle references halfAxles;
+    end [1] feature mountedWheel references wheels;
+  }
+}
+\end{lstlisting}
+
+\pn  Owned cross features are confusing.  Each of the ends has an implied owned member feature, featured by the type of the other end.  The implied crosses refers to the implied, owned member feature of the other end.  Introducing names \texttt{ma\_cross} and \texttt{mw\_cross} for the owned member features to represent the parsed abstract syntax gives:
+
+\ecaption{Owned cross features }
+\begin{lstlisting}
+connector mount[2] : Mounting subsets Links::binaryLinks {
+  end feature mountingAxle redefines Mounting::mountingAxle references halfAxles
+    crosses mountedWheel.ma_cross {
+      member feature ma_cross[1] : Axle featured by Wheel;
+    }
+  end feature mountedWheel redefines Mounting::mountedWheel references wheels
+    crosses mountingAxle.mw_cross {  
+      member feature mw_cross[1] : Wheel featured by Axle;
+    }
+}
+\end{lstlisting}
+
+\pn Owned cross features without labels determine how many connections with the same end can be made to different instances of the other end.
+In the following example, there will be 5 number of \texttt{mount} connections, at least one and at most two \texttt{mountedWheel} per \texttt{mountedAxle}, and at most one \texttt{mountedAxle} per \texttt{mountedWheel}.  Every axle is connected to one or two wheels.  Every wheel is connected to at most one axle, but may not be connected at all.
+
+\ecaption{Owned cross features without labels}
+\begin{lstlisting}
+  connector mount[5] : Mounting {
+    end [1..2] feature mountingAxle references halfAxles;
+    end [0..1] feature mountedWheel references wheels;
+  }
+\end{lstlisting}
+
+\subsection{Connector Structures}
+
+\pn A connector typed by an association structure is a connector structure.  A connector structure is thus an \texttt{Objects::Object} which is an \texttt{Occurrences::Occurrence}.  A connector structure has a \texttt{startShot}, an \texttt{endShot}, and may have \texttt{var} ends.
+
+\ecaption{connector structure}
+\begin{lstlisting}
+assoc struct LikesGirl {
+  end b:Boy;
+  end g:Girl;
+}
+assoc struct LikesBoy {
+  end g:Girl;
+  end b:Boy;
+}
+class School {
+  feature boys[*]:Boy;
+  feature girls[*]:Girl;
+  connector likesGirlMost:LikesGirl {
+    var end [0..1] feature b ::> boys;
+    var end [0..*] feature g ::> girls;
+  }
+  connector likesBoyMost:LikesBoy {
+    var end [0..1] feature g ::> girls;
+    var end [0..*] feature b ::> boys;
+  }
+  connector dates {
+    var end [1] feature b ::> boys;
+    var end [1] feature g ::> girls;
+  }  
+}
+\end{lstlisting}
+
+\pn In this example the class representing an instance of \texttt{School} can have different values at different instant of time.
+The feature \texttt{boys} will be a class of pairs (relation) all having the same school as domain, and different \texttt{Boy} for codomain.
+Similarly for the feature \texttt{girls}.  The cardinality of \texttt{boys} and \texttt{girls} is undetermined, but fixed.  The connector \texttt{likeGirlMost} is variable.  Each boy likes at most one girl, but how many boys like the same girl is unlimited.  Conversely for the girls.  How to express that boys and girls date if they like each other best?
+
+\subsection{N-ary Connectors}
+
+N-ary connectors are analogous to n-ary associations in section \ref{sec:naryassoc}
+
+\ksec{Binding Connectors (KerML 8.4.4.6.2)}
+
+\pn Binding connectors\index{binding connector} (=) declare entity equality, or rather identity.  They are the same thing--not equal things.
+Binding connectors are typed by the association \texttt{Links::SelfLink} which only links things in the
+modeled universe to themselves.
+
+\ecaption{Binding connector}
+\begin{lstlisting}
+binding f1 = f2;
+\end{lstlisting}
+is equivalent to:
+\begin{lstlisting}
+connector subsets Links::selfLinks {
+  end feature thisThing redefines Links::SelfLink::thisThing references f1;
+  end feature sameThing redefines Links::SelfLink::sameThing references f2;
+}
+\end{lstlisting}
+
+\pn A feature typed by data types can only be bound to another feature typed by data types, which must overlap for instances of each to be equal.
+
+\pn Similarly, a feature typed by classes can only be bound to another feature typed by classes, which must share the same occurrence. 
+
+
+\begin{restatable}{definition}{bind}~\blTitle{df-bind}~   Define binding connector.
+\begin{align}
+\texttt{classifier}~K~\{ %\notag \\
+\texttt{feature}~f~\texttt{:} F~\texttt{;} ~%\notag \\
+\texttt{feature}~g~\texttt{:} G~\texttt{;} ~%\notag \\
+\texttt{binding}~ f=g~\texttt{;}~%\notag \\
+\}~\Rightarrow  \notag \\
+\vdash \mc{A} = \{~\langle \textbf{class},w_K,\langle \mc{C_f},\mc{C_g},\mc{C_b}\rangle\rangle~\vert %\notag \\
+w_K=W(``K")~ \wedge~\mc{C_f}=\{\cdots\}~\wedge~\mc{C_g}=\{\cdots\}~\wedge \notag \\
+\mc{C_b}=\{~\langle \textbf{connector},w_b,\langle \mc{E},\mc{F}\rangle\rangle ~\vert~
+w_b=W(``binding")~ \wedge 
+%D=\{~a~\vert ~a \in A~\}~\wedge~\notag \\
+~s\in \mc{G}\cap \mc{F}~\wedge~\notag \\
+\mc{E}~=~\{~\langle\textbf{end},``thisThing",\langle w_b,s \rangle\rangle~\}~\wedge \notag \\
+~\wedge~\mc{F}~=~\{~\langle\textbf{end},``sameThing",\langle w_b,s \rangle\rangle~\}~\}~\}~\label{eq:df-bind}\tag{df-bind}
+\end{align}
+\end{restatable}
+

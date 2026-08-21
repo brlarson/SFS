@@ -1,0 +1,222 @@
+%TypeInferencing.tex
+
+%Type Inferencing Rules.
+
+The type system for KerML and thus SysML is known to be unsafe.  That means elements can be used inappropriately leading to avoidable design error.
+
+This section defines type inferencing rules for KerML Core Types and Features which are generalizable to elements derived from them.
+
+Object-oriented languages derive much of their potential for code reuse from inclusion polymorphism.  That means elements may be considered to have multiple types base on inheritance.  Elements of a specialized types are also members of their generalizations.
+
+Let $T$, $U$, $V$, $X$, and $W$ be types, with possible subscripts.
+
+Let $f$, $g$, and $h$ be feature labels.
+
+Let $a$ be an element of type.
+
+\section{Specialization Transitivity}
+If T specializes U and U specializes V then T specializes V.
+
+\begin{restatable}{definition}{TRANS}~\blTitle{TRANS}~  
+  Define specialization transitivity.  
+\begin{align}
+\inference
+{T~\texttt{:>}~U  ~\wedge~U~\texttt{:>}~V}
+%---------------------------------
+{T~\texttt{:>}~V}
+\label{eq:df-trans}\tag{df-trans}
+\end{align}
+\end{restatable}
+
+\section{Subsumption}
+If $a$ has type $T$ and $T$ specializes $V$, then $a$ also has type $V$.
+\begin{restatable}{definition}{SUBS}~\blTitle{SUBS}~  
+  Define subsumption.  
+\begin{align}
+\inference
+{T~\texttt{:>}~V ~\wedge~a \in T}
+%---------------------------------
+{a \in V}
+\label{eq:df-subs}\tag{df-subs}
+\end{align}
+\end{restatable}
+
+\section{Add Feature}
+If $T$ specializes $U$ by adding feature $f$, and $a$ has type $T$, then $a$ also has type $U$.
+\begin{restatable}{definition}{FEAT}~\blTitle{FEAT}~  
+  Add a feature to specialization.  
+\begin{align}
+\inference
+{T~\texttt{:>}~U\{f:V\} ~\wedge~a \in T}
+%---------------------------------
+{a \in U}
+\label{eq:df-feat}\tag{df-feat}
+\end{align}
+\end{restatable}
+
+\section{Co-variant Feature Redefinition}
+If $T$ specializes $U$ by adding feature $f$ typed by $V$, and $W$ specializes $T$ by redefining feature $f$ to be typed by $X$ which specializes $V$, and $a$ has type $W$ then $a$ also has type $T$.
+\begin{restatable}{definition}{REDEF}~\blTitle{REDEF}~   Co-variant feature redefinition.  
+\begin{align}
+\inference
+{T\texttt{:>}U\{f:V\}~\wedge~W\texttt{:>}T\{f:X~\texttt{:>>}~f\}~\wedge~X\texttt{:>}V ~\wedge~a \in W}
+%---------------------------------
+{a \in T}
+\label{eq:df-redef}\tag{df-redef}
+\end{align}
+\end{restatable}
+Let $T(f \downarrow g)$ be $T$ with feature label $f$ replaced by $g$.
+
+If $T$ specializes $U$ by adding feature $f$ typed by $V$, and $W$ specializes $T$ by redefining feature $f$ to be $g$ typed by $X$ which specializes $V$, and $a$ has type $W$ then $a$ also has type $T$ after replacing label $f$ by label $g$.
+\begin{restatable}{definition}{REPL}~\blTitle{REPL}~Feature redefinition with label replacement.   
+\begin{align}
+\inference
+{T\texttt{:>}U\{f:V\}~\wedge~W\texttt{:>}T\{g:X~\texttt{:>>}~f\}~\wedge~X\texttt{:>}V ~\wedge~a \in W}
+%---------------------------------
+{a \in T(f \downarrow g)}
+\label{eq:df-repl}\tag{df-repl}
+\end{align}
+\end{restatable}
+
+
+\section{Multiple Inheritance}
+If $T$ specializes both $U$ and $V$, and $a$ has type $T$, then $a$ also has type $U$ and type $V$.
+\begin{restatable}{definition}{MULTI}~\blTitle{MULTI}~Define multiple specialization of two types.   
+\begin{align}
+\inference
+{T\texttt{:>}U,V ~\wedge~a \in T}
+%---------------------------------
+{a \in U~\wedge~a \in V}
+\label{eq:df-multi}\tag{df-multi}
+\end{align}
+\end{restatable}
+
+Let $U_j~j\in 1 .. n$ be types.  If $T$ specializes multiple types, and $a$ has type $T$, then $a$ also
+has each of the types specializes by $T$.
+\begin{restatable}{definition}{MULTN}~\blTitle{MULTN}~Define multiple specialization of n types.   
+\begin{align}
+\inference
+{T\texttt{:>}U_1,\ldots,U_n ~\wedge~a \in T}
+%---------------------------------
+{a \in U_1~\wedge \cdots \wedge~ a \in U_n}
+\label{eq:df-multn}\tag{df-multn}
+\end{align}
+\end{restatable}
+
+\section{Multiple Inheritance with Features}
+If $T$ specializes both $U_1$ and $V_1$, \\
+$U_1$ specializes $U_2$ by adding feature $f$ typed by $U_3$, and\\
+$V_1$ specializes $V_2$ by adding feature $g$ typed by $V_3$, \\
+and $f$ is different than $g$, \\
+then $T$ specializes both $U_2$ and $V_2$, while adding features $f$ and $g$.
+\begin{restatable}{definition}{MULTF}~\blTitle{MULTF}~ Multiple specialization with distinct features.  
+\begin{align}
+\inference
+{T\texttt{:>}U_1 , V_1~\wedge~U_1\texttt{:>}U_2\{f:U_3\}~\wedge~V_1\texttt{:>}V_2\{g:V_3\}~\wedge~f \ne g}
+%---------------------------------
+{T\texttt{:>}U_2 , V_2\{f:U_3 ;~ g:V_3\}}
+\label{eq:df-multf}\tag{df-multf}
+\end{align}
+\end{restatable}
+
+If $T$ specializes both $U_1$ and $V_1$, \\
+$U_1$ specializes $U_2$ by adding feature $f$ typed by $U_3$, and\\
+$V_1$ specializes $V_2$ by adding feature $f$ typed by $V_3$, \\
+then $T$ specializes both $U_2$ and $V_2$, while adding feature $f$ which is typed by both $U_3$ and $V_3$.
+
+\begin{restatable}{definition}{MULTS}~\blTitle{MULTS}~  Multiple specialization with same-label features
+\begin{align}
+\inference
+{T\texttt{:>}U_1 , V_1~\wedge~U_1\texttt{:>}U_2\{f:U_3\}~\wedge~V_1\texttt{:>}V_2\{f:V_3\}}
+%---------------------------------
+{T\texttt{:>}U_2 , V_2\{f:U_3,V_3\}}
+\label{eq:df-mults}\tag{df-mults}
+\end{align}
+\end{restatable}
+
+\section{Multiple Inheritance with Feature Multiplicity}
+Let $m_u$ and $m_v$ be feature multiplicities which may be a single natural number or a range of natural numbers with 
+$m_u\cap m_v$ being those multiplicities in common to both.
+
+If $T$ specializes both $U_1$ and $V_1$, \\
+$U_1$ specializes $U_2$ by adding feature $f$ typed by $U_3$ with multiplicity $m_u$, and\\
+$V_1$ specializes $V_2$ by adding feature $f$ typed by $V_3$ with multiplicity $m_v$, \\
+then $T$ specializes both $U_2$ and $V_2$, while adding feature $f$ with multiplicity being the intersection of the respective multiplicities $m_u$ and $m_v$, which is typed by both $U_3$ and $V_3$.
+
+\begin{restatable}{definition}{MULTM}~\blTitle{MULTM}~
+Multiple specialization with same-label features having multiplicities.  
+\begin{align}
+\inference
+{T\texttt{:>}U_1 , V_1~\wedge~U_1\texttt{:>}U_2\{f[m_u]:U_3\}~\wedge~V_1\texttt{:>}V_2\{f[m_v]:V_3\}}
+%---------------------------------
+{T\texttt{:>}U_2 , V_2\{f[m_u\cap m_v]:U_3,V_3\}}
+\label{eq:df-multm}\tag{df-multm}
+\end{align}
+\end{restatable}
+
+Note: if the multiplicities in common between $m_u$ and $m_v$, $m_u\cap m_v$ is empty, the result must be a type error--not multiplicity [0].
+
+\section{Contravariant Expression Specialization}\label{sec:contra}
+
+Let $I \rightarrow R$ represent an expression with input $I$ returning result $R$.
+\begin{restatable}{definition}{CONTRA}~ \blTitle{CONTRA}~
+  Define contravariant specialization of expressions and functions.  
+\begin{align}
+\inference
+{S_1~\texttt{:>}~T_1  ~\wedge~T_2~\texttt{:>}~S_2}
+%---------------------------------
+{T_1 \rightarrow T_2~\texttt{:>}~S_1 \rightarrow S_2}
+\label{eq:df-contra}\tag{df-contra}
+\end{align}
+\end{restatable}
+$T_1 \rightarrow T_2$ can be used in place of $S_1 \rightarrow S_2$ because: \\
+$T_1$ is \emph{bigger} than $S_1$ (any input value in $S_1$ will also be in $T_1$), and \\
+$T_2$ is \emph{smaller} than $S_2$ (any output value in $T_2$ will also be in $S_2$).
+
+\begin{lstlisting}
+S1 :> T1;
+T2 :> S2;
+expr S {
+  in x : S1;
+  return y : S2; }
+expr T :> S {
+  in x : T1 :>> x;
+  return y : T2 :>> y; } 
+\end{lstlisting}
+
+We want to use $T$ in place of $S$.  Redefinition keeps labels the same.
+
+Because $T_1$ is bigger than $S_1$ when we invoke $T$ as if it was $S$ the input to $S$ will be okay for $T$.
+Conversely, $T$ is producing a result in $T_2$ which is bigger than $S_2$ so the output will be okay for $S$.
+Figure \ref{fig:contra} depicts these relationships.
+
+\begin{figure}[htbp]
+\begin{center}
+\begin{tikzpicture}[scale=1, line width=3pt]	%%make TiKZ picture
+	\filldraw[fill=blue!20!white, draw=blue] (4,4) arc (0:360:3 and 1.6); %circle (4);
+	\fill[fill=red!20!white, draw=red] (3,4) arc (0:360:2 and 1);
+	\fill[fill=red!20!white, draw=red] (10,2) arc (0:360:3 and 1.6);
+	\filldraw[fill=blue!20!white, draw=blue] (9,2) arc (0:360:2 and 1); 
+	\draw[color=black] (1,5.25) node {T1};
+	\draw[color=black] (1,4) node {S1};
+	\draw[color=black] (7,2) node {T2};
+	\draw[color=black] (7,3.25) node {S2};
+   \draw[red, line width=2mm, arrows= {->}] (1.5,3) .. controls (3,1.5)  .. (4,2);
+   \draw[blue, line width=2mm, arrows= {->}] (4,4) .. controls (5,5)  .. (6,2.8);
+   \draw[color=blue] (5,5) node {T1 $\rightarrow$ T2};
+   \draw[color=red] (3,1) node {S1 $\rightarrow$ S2};
+	\end{tikzpicture}
+\caption{Contravariant Specialization of Expression}
+\label{fig:contra}
+\end{center}
+\end{figure}
+
+When T is used instead of S, it receives input from S1 which is okay because it's within T1.  Its output in in T2 which is okay because using T instead of S is expecting something in S2 which is bigger than T2.
+
+
+%\begin{restatable}{definition}{}~\blTitle{}~  
+%\end{restatable}
+%
+%\begin{restatable}{definition}{}~\blTitle{}~  
+%\end{restatable}
+

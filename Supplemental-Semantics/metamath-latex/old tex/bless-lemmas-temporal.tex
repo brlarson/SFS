@@ -1,0 +1,82 @@
+% This LaTeX file was created by Metamath on 24-Dec-2023 8:33 PM.
+\begin{metadefinition}\blTitle{df-bl.time} {Define domain of time $\mathbf{T}$}
+from $t = 0$ to $\mathsf{\msc{now}}$
+\begin{align}
+\vdash \mathbf{T} = \{ \msc{t}~\vert~( \msc{t} \in \mathbb{R} \wedge 0 \le \msc{t}
+    \wedge \msc{t} \le \mathsf{\msc{now}} )
+    \}\label{eq:df-bl.time}\tag{df-bl.time}
+\end{align}
+\end{metadefinition}
+
+
+\begin{metadefinition}\blTitle{df-bl.before} {Temporal Precedence (before)}
+\begin{align}
+\vdash ( \msc{t_1} \prec \msc{t_2} \leftrightarrow \msc{t_1} < \msc{t_2}
+    )\label{eq:df-bl.before}\tag{df-bl.before}
+\end{align}
+\end{metadefinition}
+
+
+\begin{metadefinition}\blTitle{df-bl.beforeeq} {Temporal Precedence (before or
+coincident)}
+\begin{align}
+\vdash ( \msc{t_1} \preccurlyeq \msc{t_2} \leftrightarrow ( \msc{t_1} <
+    \msc{t_2} \vee \msc{t_1} = \msc{t_2} )
+    )\label{eq:df-bl.beforeeq}\tag{df-bl.beforeeq}
+\end{align}
+\end{metadefinition}
+
+
+\begin{metadefinition}\blTitle{df-bl.prop0} {Value of proposition at time
+$\msc{t}$}
+\begin{align}
+\vdash ( \mathfrak{M} , \msc{t} \models p \leftrightarrow \msc{t} \in ( V ` p )
+    )\label{eq:df-bl.prop0}\tag{df-bl.prop0}
+\end{align}
+\end{metadefinition}
+
+
+\begin{metadefinition}\blTitle{df-bl.not} {Logical Complement}
+\begin{align}
+\vdash ( \mathfrak{M} , \msc{t} \models \lnot \mw{\varphi} \leftrightarrow
+    \mathfrak{M} , \msc{t} \nmodels \mw{\varphi}
+    )\label{eq:df-bl.not}\tag{df-bl.not}
+\end{align}
+\end{metadefinition}
+
+
+\begin{metadefinition}\blTitle{df-bl.at} {@ specifies time of evaluation}
+\begin{align}
+\vdash ( \mathfrak{M} , \msc{t} \models ( \mw{\varphi} @ \msc{t_1} )
+    \rightarrow \mathfrak{M} , \msc{t_1} \models \mw{\varphi}
+    )\label{eq:df-bl.at}\tag{df-bl.at}
+\end{align}
+\end{metadefinition}
+
+
+\begin{metadefinition}\blTitle{df-bl.at2} {Second application of @ is
+inconsequential}
+\begin{align}
+\vdash ( \mathfrak{M} , \msc{t} \models ( ( \mw{\varphi} @ \msc{t_1} ) @
+    \msc{t_2} ) \rightarrow \mathfrak{M} , \msc{t_1} \models \mw{\varphi}
+    )\label{eq:df-bl.at2}\tag{df-bl.at2}
+\end{align}
+\end{metadefinition}
+
+
+\begin{metadefinition}\blTitle{df-bl.ateqp} {Equivlence of @ for predicates}
+\begin{align}
+\vdash ( ( ( \mw{\varphi} \leftrightarrow \mw{\psi} ) \wedge A = B )
+    \rightarrow ( ( \mw{\varphi} @ A ) \leftrightarrow ( \mw{\psi} @ B ) )
+    )\label{eq:df-bl.ateqp}\tag{df-bl.ateqp}
+\end{align}
+\end{metadefinition}
+
+
+\begin{metadefinition}\blTitle{df-bl.ateqv} {Equality of @ for values}
+\begin{align}
+\vdash ( ( C = D \wedge A = B ) \rightarrow ( C @ A ) = ( D @ B )
+    )\label{eq:df-bl.ateqv}\tag{df-bl.ateqv}
+\end{align}
+\end{metadefinition}
+

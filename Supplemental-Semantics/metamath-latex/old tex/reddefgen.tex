@@ -1,0 +1,403 @@
+% This LaTeX file was created by Metamath on 9-Oct-2021 1:49 PM.
+
+\begin{metadefinition}\blTitle{crdg} Extend class notation with the recursive
+definition generator, with
+     characteristic function $F$ and initial value $I$.
+\begin{align}
+{\rm \mm{class}~} {\rm rec} ( F , I )\label{eq:crdg}\tag{crdg}
+\end{align}
+\end{metadefinition}
+
+\begin{metadefinition}\blTitle{df-rdg} Define a recursive definition generator
+on ${\rm On}$ (the class of ordinal
+       numbers) with characteristic function $F$ and initial value $I$.
+       This combines functions $F$ in {\tt tfr1} and $G$ in {\tt tz7.44-1}
+into one
+       definition.  This rather amazing operation allows us to define, with
+       compact direct definitions, functions that are usually defined in
+       textbooks only with indirect self-referencing recursive definitions.  A
+       recursive definition requires advanced metalogic to justify - in
+       particular, eliminating a recursive definition is very difficult and
+       often not even shown in textbooks.  On the other hand, the elimination
+       of a direct definition is a matter of simple mechanical substitution.
+       The price paid is the daunting complexity of our ${\rm rec}$ operation
+       (especially when {\tt df-recs} that it is built on is also eliminated).
+But
+       once we get past this hurdle, definitions that would otherwise be
+       recursive become relatively simple, as in for example {\tt oav}, from
+which
+       we prove the recursive textbook definition as theorems {\tt oa0}, {\tt
+oasuc},
+       and {\tt oalim} (with the help of theorems {\tt rdg0}, {\tt rdgsuc},
+and
+       {\tt rdglim2a}).  We can also restrict the ${\rm rec}$ operation to
+define
+       otherwise recursive functions on the natural numbers ${\rm \omega}$;
+see
+       {\tt fr0g} and {\tt frsuc}.  Our ${\rm rec}$ operation apparently does
+not appear
+       in published literature, although closely related is Definition 25.2 of
+       [Quine] p. 177, which he uses to ``turn...a recursion into a genuine or
+       direct definition" (p. 174).  Note that the ${\rm if}$ operations (see
+       {\tt df-if}) select cases based on whether the domain of $g$ is zero, a
+       successor, or a limit ordinal.
+
+       An important use of this definition is in the recursive sequence
+       generator {\tt df-seq} on the natural numbers (as a subset of the
+complex
+       numbers), allowing us to define, with direct definitions, recursive
+       infinite sequences such as the factorial function {\tt df-fac} and
+integer
+       powers {\tt df-exp}.
+
+       -Note:  We introduce- ${\rm rec}$-with the philosophical goal of being-
+       -able to eliminate all definitions with direct mechanical substitution-
+       -and to verify easily the soundness of definitions.  Metamath itself-
+       -has no built-in technical limitation that prevents multiple-part-
+       -recursive definitions in the traditional textbook style-. 
+(Contributed
+       by NM, 9-Apr-1995.)  (Revised by Mario Carneiro, 9-May-2015.)
+\begin{align}
+\mm{\vdash} {\rm rec} ( F , I ) = \mathrm{recs} ( ( g \in {\rm V} \mapsto {\rm
+    if} ( g = \varnothing , I , {\rm if} ( {\rm Lim}~ {\rm dom}~ g , \bigcup {\rm
+    ran} g , ( F ` ( g ` \bigcup {\rm dom}~ g ) ) ) ) )
+    )\label{eq:df-rdg}\tag{df-rdg}
+\end{align}
+\end{metadefinition}
+
+\begin{lemma}\blTitle{rdgeq1} Equality theorem for the recursive
+definition generator.  (Contributed
+       by NM, 9-Apr-1995.)  (Revised by Mario Carneiro, 9-May-2015.)
+\begin{align}
+\mm{\vdash} ( F = G \rightarrow {\rm rec} ( F , \mc{A} ) = {\rm rec} ( G ,
+    \mc{A} ) )\label{eq:rdgeq1}\tag{rdgeq1}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\blTitle{rdgeq1} Equality theorem for the recursive
+definition generator.  (Contributed
+       by NM, 9-Apr-1995.)  (Revised by Mario Carneiro, 9-May-2015.)
+\begin{align}
+\mm{\vdash} ( F = G \rightarrow {\rm rec} ( F , \mc{A} ) = {\rm rec} ( G ,
+    \mc{A} ) )\label{eq:rdgeq1}\tag{rdgeq1}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\blTitle{rdgeq2} Equality theorem for the recursive
+definition generator.  (Contributed
+       by NM, 9-Apr-1995.)  (Revised by Mario Carneiro, 9-May-2015.)
+\begin{align}
+\mm{\vdash} ( \mc{A} = \mc{B} \rightarrow {\rm rec} ( F , \mc{A} ) = {\rm rec}
+    ( F , \mc{B} ) )\label{eq:rdgeq2}\tag{rdgeq2}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\blTitle{rdgeq12} Equality theorem for the recursive
+definition generator.  (Contributed by
+     Scott Fenton, 28-Apr-2012.)
+\begin{align}
+\mm{\vdash} ( ( F = G \wedge \mc{A} = \mc{B} ) \rightarrow {\rm rec} ( F ,
+    \mc{A} ) = {\rm rec} ( G , \mc{B} ) )\label{eq:rdgeq12}\tag{rdgeq12}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\blTitle{rdglem1} Lemma used with the recursive definition
+generator.  This is a trivial
+       lemma that just changes bound variables for later use.  (Contributed by
+       NM, 9-Apr-1995.)
+\begin{align}
+\mm{\vdash} \{ f ~\vert~ \exists \msc{x} \in {\rm On} ( f {\rm Fn} \msc{x}
+    \wedge \forall \msc{y} \in \msc{x} ( f ` \msc{y} ) = 
+    ( G ` ( f \restriction
+    \msc{y} ) ) ) \} = \\
+     \{ g ~\vert~ \exists \msc{z} \in {\rm On} ( g {\rm Fn}
+    \msc{z} \wedge \forall \msc{w} \in \msc{z} ( g ` \msc{w} ) = ( G ` ( g
+    \restriction \msc{w} ) ) ) \}\label{eq:rdglem1}\tag{rdglem1}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\blTitle{rdgfun} The recursive definition generator is a
+function.  (Contributed by Mario
+       Carneiro, 16-Nov-2014.)
+\begin{align}
+\mm{\vdash} {\rm Fun} {\rm rec} ( F , \mc{A} )\label{eq:rdgfun}\tag{rdgfun}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\blTitle{rdgdmlim} The domain of the recursive definition
+generator is a limit ordinal.
+       (Contributed by NM, 16-Nov-2014.)
+\begin{align}
+\mm{\vdash} {\rm Lim}~ {\rm dom}~ {\rm rec} ( F , \mc{A}
+    )\label{eq:rdgdmlim}\tag{rdgdmlim}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\blTitle{rdgfnon} The recursive definition generator is a
+function on ordinal numbers.
+       (Contributed by NM, 9-Apr-1995.)  (Revised by Mario Carneiro,
+       9-May-2015.)
+\begin{align}
+\mm{\vdash} {\rm rec} ( F , \mc{A} ) {\rm Fn} {\rm
+    On}\label{eq:rdgfnon}\tag{rdgfnon}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\blTitle{rdgvalg} Value of the recursive definition
+generator.  (Contributed by NM,
+       9-Apr-1995.)  (Revised by Mario Carneiro, 8-Sep-2013.)
+\begin{align}
+\mm{\vdash} ( \mc{B} \in {\rm dom}~ {\rm rec} ( F , \mc{A} ) \rightarrow ( {\rm
+    rec} ( F , \mc{A} ) ` \mc{B} ) = ( ( g \in {\rm V} \mapsto {\rm if} ( g =
+    \varnothing , \mc{A} , {\rm if} ( {\rm Lim}~ {\rm dom}~ g , \bigcup {\rm ran}~
+    g , \\
+     ( F ` ( g ` \bigcup {\rm dom}~ g ) ) ) ) ) ` ( {\rm rec} ( F , \mc{A} )
+    \restriction \mc{B} ) ) )\label{eq:rdgvalg}\tag{rdgvalg}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\blTitle{rdgval} Value of the recursive definition generator.
+(Contributed by NM,
+       9-Apr-1995.)  (Revised by Mario Carneiro, 8-Sep-2013.)
+\begin{align}
+\mm{\vdash} ( \mc{B} \in {\rm On} \rightarrow ( {\rm rec} ( F , \mc{A} ) `
+    \mc{B} ) = ( ( g \in {\rm V} \mapsto {\rm if} ( g = \varnothing , \mc{A} ,
+    {\rm if} ( {\rm Lim}~ {\rm dom}~ g , \bigcup {\rm ran}~ g , \\
+     ( F ` ( g `
+    \bigcup {\rm dom}~ g ) ) ) ) ) ` ( {\rm rec} ( F , \mc{A} ) \restriction
+    \mc{B} ) ) )\label{eq:rdgval}\tag{rdgval}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\blTitle{rdg0} The initial value of the recursive definition
+generator.  (Contributed
+         by NM, 23-Apr-1995.)  (Revised by Mario Carneiro, 14-Nov-2014.)
+\begin{align}
+\mm{\vdash} \mc{A} \in {\rm V}\quad\Rightarrow\quad \mm{\vdash} ( {\rm rec} ( F
+    , \mc{A} ) ` \varnothing ) = \mc{A}\label{eq:rdg0}\tag{rdg0}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\blTitle{rdgseg} The initial segments of the recursive
+definition generator are sets.
+       (Contributed by Mario Carneiro, 16-Nov-2014.)
+\begin{align}
+\mm{\vdash} ( \mc{B} \in {\rm dom}~ {\rm rec} ( F , \mc{A} ) \rightarrow ( {\rm
+    rec} ( F , \mc{A} ) \restriction \mc{B} ) \in {\rm V}
+    )\label{eq:rdgseg}\tag{rdgseg}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\blTitle{rdgsucg} The value of the recursive definition
+generator at a successor.
+       (Contributed by NM, 16-Nov-2014.)
+\begin{align}
+\mm{\vdash} ( \mc{B} \in {\rm dom}~ {\rm rec} ( F , \mc{A} ) \rightarrow ( {\rm
+    rec} ( F , \mc{A} ) ` {\rm suc} \mc{B} ) = ( F ` ( {\rm rec} ( F , \mc{A} )
+    ` \mc{B} ) ) )\label{eq:rdgsucg}\tag{rdgsucg}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\blTitle{rdgsuc} The value of the recursive definition
+generator at a successor.
+       (Contributed by NM, 23-Apr-1995.)  (Revised by Mario Carneiro,
+       14-Nov-2014.)
+\begin{align}
+\mm{\vdash} ( \mc{B} \in {\rm On} \rightarrow ( {\rm rec} ( F , \mc{A} ) ` {\rm
+    suc} \mc{B} ) = ( F ` ( {\rm rec} ( F , \mc{A} ) ` \mc{B} ) )
+    )\label{eq:rdgsuc}\tag{rdgsuc}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\blTitle{rdglimg} The value of the recursive definition
+generator at a limit ordinal.
+       (Contributed by NM, 16-Nov-2014.)
+\begin{align}
+\mm{\vdash} ( ( \mc{B} \in {\rm dom}~ {\rm rec} ( F , \mc{A} ) \wedge {\rm Lim}~
+    \mc{B} ) \rightarrow ( {\rm rec} ( F , \mc{A} ) ` \mc{B} ) = \bigcup ( {\rm
+    rec} ( F , \mc{A} ) `` \mc{B} ) )\label{eq:rdglimg}\tag{rdglimg}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\blTitle{rdglim} The value of the recursive definition
+generator at a limit ordinal.
+       (Contributed by NM, 23-Apr-1995.)  (Revised by Mario Carneiro,
+       14-Nov-2014.)
+\begin{align}
+\mm{\vdash} ( ( \mc{B} \in \mc{C} \wedge {\rm Lim}~ \mc{B} ) \rightarrow ( {\rm
+    rec} ( F , \mc{A} ) ` \mc{B} ) = \bigcup ( {\rm rec} ( F , \mc{A} ) ``
+    \mc{B} ) )\label{eq:rdglim}\tag{rdglim}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\blTitle{rdg0g} The initial value of the recursive definition
+generator.  (Contributed
+       by NM, 25-Apr-1995.)
+\begin{align}
+\mm{\vdash} ( \mc{A} \in \mc{C} \rightarrow ( {\rm rec} ( F , \mc{A} ) `
+    \varnothing ) = \mc{A} )\label{eq:rdg0g}\tag{rdg0g}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\blTitle{rdgsucmptf} The value of the recursive definition
+generator at a successor (special
+       case where the characteristic function uses the map operation).
+       (Contributed by NM, 22-Oct-2003.)  (Revised by Mario Carneiro,
+       15-Oct-2016.)
+\begin{align}
+\mm{\vdash} \underline{\Finv} \msc{x} \mc{A}\quad\&\quad \mm{\vdash}
+    \underline{\Finv} \msc{x} \mc{B}\quad\&\quad \mm{\vdash} \underline{\Finv}
+    \msc{x} \mc{D}\quad\&\quad \mm{\vdash} F = {\rm rec} ( ( \msc{x} \in {\rm
+    V} \mapsto \mc{C} ) , \mc{A} )\quad\&\quad \mm{\vdash} ( \msc{x} = ( F `
+    \mc{B} ) \rightarrow \mc{C} = \mc{D} )\quad\Rightarrow\quad \mm{\vdash} ( (
+    \mc{B} \in {\rm On} \wedge \mc{D} \in V ) \rightarrow ( F ` {\rm suc}
+    \mc{B} ) = \mc{D} )\label{eq:rdgsucmptf}\tag{rdgsucmptf}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\blTitle{rdgsucmptnf} The value of the recursive definition
+generator at a successor (special
+       case where the characteristic function is an ordered-pair class
+       abstraction and where the mapping class $\mc{D}$ is a proper class). 
+This
+       is a technical lemma that can be used together with {\tt rdgsucmptf} to
+help
+       eliminate redundant sethood antecedents.  (Contributed by NM,
+       22-Oct-2003.)  (Revised by Mario Carneiro, 15-Oct-2016.)
+\begin{align}
+\mm{\vdash} \underline{\Finv} \msc{x} \mc{A}\quad\&\quad \mm{\vdash}
+    \underline{\Finv} \msc{x} \mc{B}\quad\&\quad \mm{\vdash} \underline{\Finv}
+    \msc{x} \mc{D}\quad\&\quad \mm{\vdash} F = {\rm rec} ( ( \msc{x} \in {\rm
+    V} \mapsto \mc{C} ) , \mc{A} )\quad\&\quad \mm{\vdash} ( \msc{x} = ( F `
+    \mc{B} ) \rightarrow \mc{C} = \mc{D} ) \\
+    \quad\Rightarrow\quad \mm{\vdash} (
+    \lnot \mc{D} \in {\rm V} \rightarrow ( F ` {\rm suc} \mc{B} ) = \varnothing
+    )\label{eq:rdgsucmptnf}\tag{rdgsucmptnf}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\blTitle{rdgsucmpt2} This version of {\tt rdgsucmpt} avoids
+the not-free hypothesis of
+       {\tt rdgsucmptf} by using two substitutions instead of one. 
+(Contributed by
+       Mario Carneiro, 11-Sep-2015.)
+\begin{align}
+\mm{\vdash} F = {\rm rec} ( ( \msc{x} \in {\rm V} \mapsto \mc{C} ) , \mc{A}
+    )\quad\&\quad \mm{\vdash} ( \msc{y} = \msc{x} \rightarrow E = \mc{C}
+    )\quad\&\quad \mm{\vdash} ( \msc{y} = ( F ` \mc{B} ) \rightarrow E = \mc{D}
+    )\quad\Rightarrow\quad \mm{\vdash} ( ( \mc{B} \in {\rm On} \wedge \mc{D}
+    \in V ) \rightarrow ( F ` {\rm suc} \mc{B} ) = \mc{D}
+    )\label{eq:rdgsucmpt2}\tag{rdgsucmpt2}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\blTitle{rdgsucmpt} The value of the recursive definition
+generator at a successor (special
+       case where the characteristic function uses the map operation).
+       (Contributed by Mario Carneiro, 9-Sep-2013.)
+\begin{align}
+\mm{\vdash} F = {\rm rec} ( ( \msc{x} \in {\rm V} \mapsto \mc{C} ) , \mc{A}
+    )\quad\&\quad \mm{\vdash} ( \msc{x} = ( F ` \mc{B} ) \rightarrow \mc{C} =
+    \mc{D} )\quad\Rightarrow\quad \mm{\vdash} ( ( \mc{B} \in {\rm On} \wedge
+    \mc{D} \in V ) \rightarrow ( F ` {\rm suc} \mc{B} ) = \mc{D}
+    )\label{eq:rdgsucmpt}\tag{rdgsucmpt}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\blTitle{rdglim2} The value of the recursive definition
+generator at a limit ordinal, in
+       terms of the union of all smaller values.  (Contributed by NM,
+       23-Apr-1995.)
+\begin{align}
+\mm{\vdash} ( ( \mc{B} \in \mc{C} \wedge {\rm Lim}~ \mc{B} ) \rightarrow ( {\rm
+    rec} ( F , \mc{A} ) ` \mc{B} ) = \bigcup \{ \msc{y} ~\vert~ \exists \msc{x}
+    \in \mc{B} \msc{y} = ( {\rm rec} ( F , \mc{A} ) ` \msc{x} ) \}
+    )\label{eq:rdglim2}\tag{rdglim2}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\blTitle{rdglim2a} The value of the recursive definition
+generator at a limit ordinal, in
+       terms of indexed union of all smaller values.  (Contributed by NM,
+       28-Jun-1998.)
+\begin{align}
+\mm{\vdash} ( ( \mc{B} \in \mc{C} \wedge {\rm Lim}~ \mc{B} ) \rightarrow ( {\rm
+    rec} ( F , \mc{A} ) ` \mc{B} ) = \underline{\bigcup} \msc{x} \in \mc{B} (
+    {\rm rec} ( F , \mc{A} ) ` \msc{x} ) )\label{eq:rdglim2a}\tag{rdglim2a}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\blTitle{rdgprc0} The value of the recursive definition
+generator at $\varnothing$ when the base
+       value is a proper class.  (Contributed by Scott Fenton, 26-Mar-2014.)
+       (Revised by Mario Carneiro, 19-Apr-2014.)
+\begin{align}
+\mm{\vdash} ( \lnot I \in {\rm V} \rightarrow ( {\rm rec} ( F , I ) `
+    \varnothing ) = \varnothing )\label{eq:rdgprc0}\tag{rdgprc0}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\blTitle{rdgprc} The value of the recursive definition
+generator when $I$ is a proper
+       class.  (Contributed by Scott Fenton, 26-Mar-2014.)  (Revised by Mario
+       Carneiro, 19-Apr-2014.)
+\begin{align}
+\mm{\vdash} ( \lnot I \in {\rm V} \rightarrow {\rm rec} ( F , I ) = {\rm rec} (
+    F , \varnothing ) )\label{eq:rdgprc}\tag{rdgprc}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\blTitle{rdgsucuni} If an ordinal number has a predecessor,
+the value of the recursive
+     definition generator at that number in terms of its predecessor.
+     (Contributed by ML, 17-Oct-2020.)
+\begin{align}
+\mm{\vdash} ( ( \mc{B} \in {\rm On} \wedge \mc{B} \ne \varnothing \wedge \lnot
+    {\rm Lim}~~ \mc{B} ) \rightarrow ( {\rm rec} ( F , I ) ` \mc{B} ) = ( F ` (
+    {\rm rec} ( F , I ) ` \bigcup \mc{B} ) )
+    )\label{eq:rdgsucuni}\tag{rdgsucuni}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\blTitle{rdgeqoa} If a recursive function with an initial
+value $\mc{A}$ at step $N$ is
+       equal to itself with an initial value $\mc{B}$ at step $M$, then every
+       finite number of successor steps will also be equal.  (Contributed by
+       ML, 21-Oct-2020.)
+\begin{align}
+\mm{\vdash} ( ( N \in {\rm On} \wedge M \in {\rm On} \wedge X \in {\rm \omega}
+    ) \rightarrow ( ( {\rm rec} ( F , \mc{A} ) ` N ) = ( {\rm rec} ( F , \mc{B}
+    ) ` M ) \rightarrow ( {\rm rec} ( F , \mc{A} ) ` ( N +_o X ) ) = ( {\rm
+    rec} ( F , \mc{B} ) ` ( M +_o X ) ) ) )\label{eq:rdgeqoa}\tag{rdgeqoa}
+\end{align}
+\end{lemma}
+
+
+
+

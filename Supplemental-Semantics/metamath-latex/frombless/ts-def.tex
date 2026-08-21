@@ -1,0 +1,1283 @@
+% This LaTeX file was created by Metamath on 22-Jul-2024 3:29 PM.
+\begin{restatable}{metadefinition}{dfblts}~\blTitle{df-bl.ts}~ Definition of time-shift predicate.
+\begin{align}
+\vdash ( ( \mc{A} \in \mathbb{Z} \wedge ( \mc{D} \in \mathbb{R} \wedge \tau \in
+    \mathbf{T} \wedge ( \tau + ( \mc{D} \times \mc{A} ) ) \in \mathbf{T} ) )
+    \rightarrow ( \mathbf{I} \lsem ( \mw{\varphi} ~\string^~ \mc{A} ) , \tau
+    \rsem \leftrightarrow \mathbf{I} \lsem \mw{\varphi} , ( \tau + ( \mc{D}
+    \times \mc{A} ) ) \rsem ) )\label{eq:df-bl.ts}\tag{df-bl.ts}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{bltsi}~\blTitle{bl.tsi}~ Time-shift predicate, inference.
+\begin{align}
+\vdash \mc{A} \in \mathbb{Z}\quad\&\quad \vdash \mc{D} \in
+    \mathbb{R}\quad\&\quad \vdash \tau \in \mathbf{T}\quad\&\quad \vdash ( \tau
+    + ( \mc{D} \times \mc{A} ) ) \in \mathbf{T}\quad\Rightarrow \notag \\ %& & & \qquad
+      \quad \vdash (
+    \mathbf{I} \lsem ( \mw{\varphi} ~\string^~ \mc{A} ) , \tau \rsem
+    \leftrightarrow \mathbf{I} \lsem \mw{\varphi} , ( \tau + ( \mc{D} \times
+    \mc{A} ) ) \rsem )\label{eq:bl.tsi}\tag{bl.tsi}
+\end{align}
+\end{restatable}
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash \mc{A} \in \mathbb{Z}&\text{Hyp~tsi.1}\notag%bl.tsi.1
+  \\ 2 &&  & \vdash \mc{D} \in \mathbb{R}&\text{Hyp~tsi.2}\notag%bl.tsi.2
+  \\ 3 &&  & \vdash \tau \in \mathbf{T}&\text{Hyp~tsi.3}\notag%bl.tsi.3
+  \\ 4 &&  & \vdash ( \tau + ( \mc{D} \times \mc{A} ) ) \in
+      \mathbf{T}&\text{Hyp~tsi.4}\notag%bl.tsi.4
+  \\ 5 &&  & \vdash ( \mc{D} \in \mathbb{R} \wedge \tau \in \mathbf{T} \wedge (
+      \tau + ( \mc{D} \times \mc{A} ) ) \in \mathbf{T}
+      )&(\mbox{\ref{eq:3pm3.2i}},2,3,4)\notag
+  \\ 6 &&  & \vdash ( ( \mc{A} \in \mathbb{Z} \wedge ( \mc{D} \in \mathbb{R}
+      \wedge \tau \in \mathbf{T} \wedge ( \tau + ( \mc{D}
+      \times \mc{A} ) ) \in \mathbf{T} ) ) \rightarrow  \notag \\ & & & \qquad
+      (
+      \mathbf{I} \lsem ( \mw{\varphi} ~\string^~ \mc{A} ) ,
+      \tau \rsem \leftrightarrow \mathbf{I} \lsem
+      \mw{\varphi} , ( \tau + ( \mc{D} \times \mc{A} ) )
+      \rsem ) )&(\mbox{\ref{eq:df-bl.ts}})\notag
+  \\ 7 &&  & \vdash ( \mathbf{I} \lsem ( \mw{\varphi} ~\string^~ \mc{A} ) ,
+      \tau \rsem \leftrightarrow \mathbf{I} \lsem
+      \mw{\varphi} , ( \tau + ( \mc{D} \times \mc{A} ) )
+      \rsem )&(\mbox{\ref{eq:mp2an}},1,5,6)\notag
+\end{align}
+\end{proof}
+
+\begin{restatable}{metadefinition}{dfbltsc}~\blTitle{df-bl.tsc}~ Definition of time-shift value.
+\begin{align}
+\vdash ( ( \mc{B} \in \mathbb{Z} \wedge ( \mc{D} \in \mathbb{R} \wedge \tau \in
+    \mathbf{T} \wedge ( \tau + ( \mc{D} \times \mc{B} ) ) \in \mathbf{T} ) )
+    \rightarrow \mathbf{I} \lsem ( \mc{A} ~\string^~ \mc{B} ) , \tau \rsem =
+    \mathbf{I} \lsem \mc{A} , ( \tau + ( \mc{D} \times \mc{B} ) ) \rsem
+    )\label{eq:df-bl.tsc}\tag{df-bl.tsc}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{bltsci}~\blTitle{bl.tsci}~ Time-shift value, inference
+\begin{align}
+\vdash \mc{B} \in \mathbb{Z}\quad\&\quad \vdash \mc{D} \in
+    \mathbb{R}\quad\&\quad \vdash \tau \in \mathbf{T}\quad\&\quad \vdash ( \tau
+    + ( \mc{D} \times \mc{B} ) ) \in \mathbf{T}\quad\Rightarrow \notag \\ %& & & \qquad
+      \quad \vdash
+    \mathbf{I} \lsem ( \mc{A} ~\string^~ \mc{B} ) , \tau \rsem = \mathbf{I}
+    \lsem \mc{A} , ( \tau + ( \mc{D} \times \mc{B} ) )
+    \rsem\label{eq:bl.tsci}\tag{bl.tsci}
+\end{align}
+\end{restatable}
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash \mc{B} \in \mathbb{Z}&\text{Hyp~tsci.1}\notag%bl.tsci.1
+  \\ 2 &&  & \vdash \mc{D} \in \mathbb{R}&\text{Hyp~tsci.2}\notag%bl.tsci.2
+  \\ 3 &&  & \vdash \tau \in \mathbf{T}&\text{Hyp~tsci.3}\notag%bl.tsci.3
+  \\ 4 &&  & \vdash ( \tau + ( \mc{D} \times \mc{B} ) ) \in
+      \mathbf{T}&\text{Hyp~tsci.4}\notag%bl.tsci.4
+  \\ 5 &&  & \vdash ( \mc{D} \in \mathbb{R} \wedge \tau \in \mathbf{T} \wedge (
+      \tau + ( \mc{D} \times \mc{B} ) ) \in \mathbf{T}
+      )&(\mbox{\ref{eq:3pm3.2i}},2,3,4)\notag
+  \\ 6 &&  & \vdash ( ( \mc{B} \in \mathbb{Z} \wedge ( \mc{D} \in \mathbb{R}
+      \wedge \tau \in \mathbf{T} \wedge ( \tau + ( \mc{D}
+      \times \mc{B} ) ) \in \mathbf{T} ) ) \rightarrow \notag \\ & & & \qquad
+      \mathbf{I} \lsem ( \mc{A} ~\string^~ \mc{B} ) , \tau
+      \rsem = \mathbf{I} \lsem \mc{A} , ( \tau + ( \mc{D}
+      \times \mc{B} ) ) \rsem
+      )&(\mbox{\ref{eq:df-bl.tsc}})\notag
+  \\ 7 &&  & \vdash \mathbf{I} \lsem ( \mc{A} ~\string^~ \mc{B} ) , \tau \rsem
+      = \mathbf{I} \lsem \mc{A} , ( \tau + ( \mc{D} \times
+      \mc{B} ) ) \rsem&(\mbox{\ref{eq:mp2an}},1,5,6)\notag
+\end{align}
+\end{proof}
+
+\begin{restatable}{lemma}{bltsoi}~\blTitle{bl.tsoi}~ Time-shift offset (inference) for
+converting $~\string^~$ into @
+\begin{align}
+\vdash ( \mc{A} \in \mathbb{Z} \wedge \mc{A} \le 0 )\quad\&\quad \vdash (
+    \mc{D} \in \mathbb{R} \wedge 0 < \mc{D} )\quad\&\quad \vdash \tau \in
+    \mathbf{T}\quad\&\quad \vdash 0 \le ( \tau + ( \mc{D} \times \mc{A} )
+    )\quad\Rightarrow \notag \\ %& & & \qquad
+      \quad \vdash ( \tau + ( \mc{D} \times \mc{A} ) ) \in
+    \mathbf{T}\label{eq:bl.tsoi}\tag{bl.tsoi}
+\end{align}
+\end{restatable}
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash \tau \in \mathbf{T}&\text{Hyp~tsoi.3}\notag%bl.tsoi.3
+  \\ 2 &&  & \vdash ( \tau \in \mathbf{T} \rightarrow \tau \in \mathbb{R}
+      )&(\mbox{\ref{eq:bl.etir}})\notag
+  \\ 3 && @3:\  & \vdash \tau \in \mathbb{R}&(\mbox{\ref{eq:ax-mp}},1,2)\notag
+  \\ 4 &&  & \vdash ( \mc{D} \in \mathbb{R} \wedge 0 < \mc{D}
+      )&\text{Hyp~tsoi.2}\notag%bl.tsoi.2
+  \\ 5 && @5:\  & \vdash \mc{D} \in \mathbb{R}&(\mbox{\ref{eq:simpli}},4)\notag
+  \\ 6 &&  & \vdash ( \mc{A} \in \mathbb{Z} \wedge \mc{A} \le 0
+      )&\text{Hyp~tsoi.1}\notag%bl.tsoi.1
+  \\ 7 &&  & \vdash \mc{A} \in \mathbb{Z}&(\mbox{\ref{eq:simpli}},6)\notag
+  \\ 8 &&  & \vdash ( \mc{A} \in \mathbb{Z} \rightarrow \mc{A} \in \mathbb{R}
+      )&(\mbox{\ref{eq:zre}})\notag
+  \\ 9 &&  & \vdash \mc{A} \in \mathbb{R}&(\mbox{\ref{eq:ax-mp}},7,8)\notag
+  \\ 10 && @10:\  & \vdash ( \mc{D} \in \mathbb{R} \wedge \mc{A} \in \mathbb{R}
+      )&(\mbox{\ref{eq:pm3.2i}},5,9)\notag
+  \\ 11 &&  & \vdash ( ( \mc{D} \in \mathbb{R} \wedge \mc{A} \in \mathbb{R} )
+      \rightarrow ( \mc{D} \times \mc{A} ) \in \mathbb{R}
+      )&(\mbox{\ref{eq:remulcl}})\notag
+  \\ 12 && @12:\  & \vdash ( \mc{D} \times \mc{A} ) \in
+      \mathbb{R}&(\mbox{\ref{eq:ax-mp}},10,11)\notag
+  \\ 13 &&  & \vdash ( \tau \in \mathbb{R} \wedge ( \mc{D} \times \mc{A} ) \in
+      \mathbb{R} )&(\mbox{\ref{eq:pm3.2i}},3,12)\notag
+  \\ 14 &&  & \vdash ( ( \tau \in \mathbb{R} \wedge ( \mc{D} \times \mc{A} ) \in
+      \mathbb{R} ) \rightarrow ( \tau + ( \mc{D} \times
+      \mc{A} ) ) \in \mathbb{R}
+      )&(\mbox{\ref{eq:readdcl}})\notag
+  \\ 15 && @15:\  & \vdash ( \tau + ( \mc{D} \times \mc{A} ) ) \in
+      \mathbb{R}&(\mbox{\ref{eq:ax-mp}},13,14)\notag
+  \\ 16 &&  & \vdash ( \underaccent{\dot}{[} ( \tau + ( \mc{D} \times \mc{A} ) )
+      / \msc{x} \underaccent{\dot}{]} \msc{x} \in
+      \mathbb{R} \leftrightarrow ( \tau + ( \mc{D} \times
+      \mc{A} ) ) \in \mathbb{R}
+      )&(\mbox{\ref{eq:sbcel1v}})\notag
+  \\ 17 &&  & \vdash \underaccent{\dot}{[} ( \tau + ( \mc{D} \times \mc{A} ) ) /
+      \msc{x} \underaccent{\dot}{]} \msc{x} \in
+      \mathbb{R}&(\mbox{\ref{eq:mpbir}},15,16)\notag
+  \\ 18 &&  & \vdash 0 \le ( \tau + ( \mc{D} \times \mc{A} )
+      )&\text{Hyp~tsoi.4}\notag%bl.tsoi.4
+  \\ 19 &&  & \vdash ( \tau + ( \mc{D} \times \mc{A} ) ) \in
+      \mathbb{R}&(@15)\notag
+  \\ 20 &&  & \vdash ( ( \tau + ( \mc{D} \times \mc{A} ) ) \in \mathbb{R}
+      \rightarrow  \notag \\ & & & \qquad
+      ( \underaccent{\dot}{[} ( \tau + ( \mc{D}
+      \times \mc{A} ) ) / \msc{x} \underaccent{\dot}{]} 0
+      \le \msc{x} \leftrightarrow 0 \le \underline{[} (
+      \tau + ( \mc{D} \times \mc{A} ) ) / \msc{x}
+      \underline{]} \msc{x} )
+      )&(\mbox{\ref{eq:sbcbr2g}})\notag
+  \\ 21 &&  & \vdash ( \underaccent{\dot}{[} ( \tau + ( \mc{D} \times \mc{A} ) )
+      / \msc{x} \underaccent{\dot}{]} 0 \le \msc{x}
+      \leftrightarrow 0 \le \underline{[} ( \tau + ( \mc{D}
+      \times \mc{A} ) ) / \msc{x} \underline{]} \msc{x}
+      )&(\mbox{\ref{eq:ax-mp}},19,20)\notag
+  \\ 22 &&  & \vdash 0 = 0&(\mbox{\ref{eq:eqid}})\notag
+  \\ 23 &&  & \vdash ( \tau + ( \mc{D} \times \mc{A} ) ) \in
+      \mathbb{R}&(@15)\notag
+  \\ 24 &&  & \vdash ( ( \tau + ( \mc{D} \times \mc{A} ) ) \in \mathbb{R}
+      \rightarrow \underline{[} ( \tau + ( \mc{D} \times
+      \mc{A} ) ) / \msc{x} \underline{]} \msc{x} = ( \tau +
+      ( \mc{D} \times \mc{A} ) )
+      )&(\mbox{\ref{eq:csbvarg}})\notag
+  \\ 25 && @25:\  & \vdash \underline{[} ( \tau + ( \mc{D} \times \mc{A} ) ) /
+      \msc{x} \underline{]} \msc{x} = ( \tau + ( \mc{D}
+      \times \mc{A} ) )&(\mbox{\ref{eq:ax-mp}},23,24)\notag
+  \\ 26 &&  & \vdash ( 0 \le \underline{[} ( \tau + ( \mc{D} \times \mc{A} ) ) /
+      \msc{x} \underline{]} \msc{x} \leftrightarrow 0 \le (
+      \tau + ( \mc{D} \times \mc{A} ) )
+      )&(\mbox{\ref{eq:breq12i}},22,25)\notag
+  \\ 27 &&  & \vdash ( \underaccent{\dot}{[} ( \tau + ( \mc{D} \times \mc{A} ) )
+      / \msc{x} \underaccent{\dot}{]} 0 \le \msc{x}
+      \leftrightarrow 0 \le ( \tau + ( \mc{D} \times \mc{A}
+      ) ) )&(\mbox{\ref{eq:bitri}},21,26)\notag
+  \\ 28 &&  & \vdash \underaccent{\dot}{[} ( \tau + ( \mc{D} \times \mc{A} ) ) /
+      \msc{x} \underaccent{\dot}{]} 0 \le
+      \msc{x}&(\mbox{\ref{eq:mpbir}},18,27)\notag
+  \\ 29 &&  & \vdash ( \mc{D} \in \mathbb{R} \wedge 0 < \mc{D}
+      )&\text{Hyp~tsoi.2}\notag%bl.tsoi.2
+  \\ 30 &&  & \vdash 0 < \mc{D}&(\mbox{\ref{eq:simpri}},29)\notag
+  \\ 31 &&  & \vdash 0 \in \mathbb{R}&(\mbox{\ref{eq:0re}})\notag
+  \\ 32 &&  & \vdash \mc{D} \in \mathbb{R}&(@5)\notag
+  \\ 33 &&  & \vdash ( 0 \in \mathbb{R} \wedge \mc{D} \in \mathbb{R}
+      )&(\mbox{\ref{eq:pm3.2i}},31,32)\notag
+  \\ 34 &&  & \vdash ( ( 0 \in \mathbb{R} \wedge \mc{D} \in \mathbb{R} )
+      \rightarrow ( 0 < \mc{D} \rightarrow 0 \le \mc{D} )
+      )&(\mbox{\ref{eq:ltle}})\notag
+  \\ 35 &&  & \vdash ( 0 < \mc{D} \rightarrow 0 \le \mc{D}
+      )&(\mbox{\ref{eq:ax-mp}},33,34)\notag
+  \\ 36 &&  & \vdash 0 \le \mc{D}&(\mbox{\ref{eq:ax-mp}},30,35)\notag
+  \\ 37 &&  & \vdash ( \mc{A} \in \mathbb{Z} \wedge \mc{A} \le 0
+      )&\text{Hyp~tsoi.1}\notag%bl.tsoi.1
+  \\ 38 &&  & \vdash \mc{A} \le 0&(\mbox{\ref{eq:simpri}},37)\notag
+  \\ 39 &&  & \vdash ( 0 \le \mc{D} \wedge \mc{A} \le 0
+      )&(\mbox{\ref{eq:pm3.2i}},36,38)\notag
+  \\ 40 &&  & \vdash ( ( \mc{D} \le 0 \wedge 0 \le \mc{A} ) \vee ( 0 \le \mc{D}
+      \wedge \mc{A} \le 0 )
+      )&(\mbox{\ref{eq:olci}},39)\notag
+  \\ 41 &&  & \vdash ( \mc{D} \in \mathbb{R} \wedge \mc{A} \in \mathbb{R}
+      )&(@10)\notag
+  \\ 42 &&  & \vdash ( ( \mc{D} \in \mathbb{R} \wedge \mc{A} \in \mathbb{R} )
+      \rightarrow ( ( \mc{D} \times \mc{A} ) \le 0
+      \leftrightarrow  \notag \\ & & & \qquad
+      ( ( \mc{D} \le 0 \wedge 0 \le \mc{A}
+      ) \vee ( 0 \le \mc{D} \wedge \mc{A} \le 0 ) ) )
+      )&(\mbox{\ref{eq:mulle0b}})\notag
+  \\ 43 &&  & \vdash ( ( \mc{D} \times \mc{A} ) \le 0 \leftrightarrow ( ( \mc{D}
+      \le 0 \wedge 0 \le \mc{A} ) \vee ( 0 \le \mc{D}
+      \wedge \mc{A} \le 0 ) )
+      )&(\mbox{\ref{eq:ax-mp}},41,42)\notag
+  \\ 44 &&  & \vdash ( \mc{D} \times \mc{A} ) \le
+      0&(\mbox{\ref{eq:mpbir}},40,43)\notag
+  \\ 45 &&  & \vdash ( \mc{D} \times \mc{A} ) \in \mathbb{R}&(@12)\notag
+  \\ 46 &&  & \vdash 0 \in \mathbb{R}&(\mbox{\ref{eq:0re}})\notag
+  \\ 47 &&  & \vdash \tau \in \mathbb{R}&(@3)\notag
+  \\ 48 &&  & \vdash ( ( \mc{D} \times \mc{A} ) \le 0 \leftrightarrow ( \tau + (
+      \mc{D} \times \mc{A} ) ) \le ( \tau + 0 )
+      )&(\mbox{\ref{eq:leadd2i}},45,46,47)\notag
+  \\ 49 &&  & \vdash ( \tau + ( \mc{D} \times \mc{A} ) ) \le ( \tau + 0
+      )&(\mbox{\ref{eq:mpbi}},44,48)\notag
+  \\ 50 &&  & \vdash \tau \in \mathbb{R}&(@3)\notag
+  \\ 51 &&  & \vdash ( \tau \in \mathbb{R} \rightarrow ( \tau + 0 ) = \tau
+      )&(\mbox{\ref{eq:readdid1}})\notag
+  \\ 52 &&  & \vdash ( \tau + 0 ) = \tau&(\mbox{\ref{eq:ax-mp}},50,51)\notag
+  \\ 53 &&  & \vdash ( \tau + ( \mc{D} \times \mc{A} ) ) \le
+      \tau&(\mbox{\ref{eq:breqtri}},49,52)\notag
+  \\ 54 &&  & \vdash \tau \in \mathbf{T}&\text{Hyp~tsoi.3}\notag%bl.tsoi.3
+  \\ 55 &&  & \vdash ( \tau \in \mathbf{T} \rightarrow \tau \le
+      \mathsf{\mc{now}} )&(\mbox{\ref{eq:bl.etiamn}})\notag
+  \\ 56 &&  & \vdash \tau \le
+      \mathsf{\mc{now}}&(\mbox{\ref{eq:ax-mp}},54,55)\notag
+  \\ 57 &&  & \vdash ( ( \tau + ( \mc{D} \times \mc{A} ) ) \le \tau \wedge \tau
+      \le \mathsf{\mc{now}}
+      )&(\mbox{\ref{eq:pm3.2i}},53,56)\notag
+  \\ 58 &&  & \vdash ( \tau + ( \mc{D} \times \mc{A} ) ) \in
+      \mathbb{R}&(@15)\notag
+  \\ 59 &&  & \vdash \tau \in \mathbb{R}&(@3)\notag
+  \\ 60 &&  & \vdash ( \mathsf{\mc{now}} \in \mathbb{R} \wedge 0 \le
+      \mathsf{\mc{now}}
+      )&(\mbox{\ref{eq:df-bl.nowrr}})\notag
+  \\ 61 &&  & \vdash \mathsf{\mc{now}} \in
+      \mathbb{R}&(\mbox{\ref{eq:simpli}},60)\notag
+  \\ 62 &&  & \vdash ( ( ( \tau + ( \mc{D} \times \mc{A} ) ) \le \tau \wedge
+      \tau \le \mathsf{\mc{now}} ) \rightarrow ( \tau + (
+      \mc{D} \times \mc{A} ) ) \le \mathsf{\mc{now}}
+      )&(\mbox{\ref{eq:letri}},58,59,61)\notag
+  \\ 63 &&  & \vdash ( \tau + ( \mc{D} \times \mc{A} ) ) \le
+      \mathsf{\mc{now}}&(\mbox{\ref{eq:ax-mp}},57,62)\notag
+  \\ 64 &&  & \vdash \underline{[} ( \tau + ( \mc{D} \times \mc{A} ) ) / \msc{x}
+      \underline{]} \msc{x} = ( \tau + ( \mc{D} \times
+      \mc{A} ) )&(@25)\notag
+  \\ 65 &&  & \vdash \mathsf{\mc{now}} =
+      \mathsf{\mc{now}}&(\mbox{\ref{eq:eqid}})\notag
+  \\ 66 &&  & \vdash ( \underline{[} ( \tau + ( \mc{D} \times \mc{A} ) ) /
+      \msc{x} \underline{]} \msc{x} \le \mathsf{\mc{now}}
+      \leftrightarrow ( \tau + ( \mc{D} \times \mc{A} ) )
+      \le \mathsf{\mc{now}}
+      )&(\mbox{\ref{eq:breq12i}},64,65)\notag
+  \\ 67 &&  & \vdash \underline{[} ( \tau + ( \mc{D} \times \mc{A} ) ) / \msc{x}
+      \underline{]} \msc{x} \le
+      \mathsf{\mc{now}}&(\mbox{\ref{eq:mpbir}},63,66)\notag
+  \\ 68 &&  & \vdash ( \tau + ( \mc{D} \times \mc{A} ) ) \in
+      \mathbb{R}&(@15)\notag
+  \\ 69 &&  & \vdash ( ( \tau + ( \mc{D} \times \mc{A} ) ) \in \mathbb{R}
+      \rightarrow ( \underaccent{\dot}{[} ( \tau + ( \mc{D}
+      \times \mc{A} ) ) / \msc{x} \underaccent{\dot}{]}
+      \msc{x} \le \mathsf{\mc{now}} \leftrightarrow \notag \\ & & & \qquad
+      \underline{[} ( \tau + ( \mc{D} \times \mc{A} ) ) /
+      \msc{x} \underline{]} \msc{x} \le \mathsf{\mc{now}} )
+      )&(\mbox{\ref{eq:sbcbr1g}})\notag
+  \\ 70 &&  & \vdash ( \underaccent{\dot}{[} ( \tau + ( \mc{D} \times \mc{A} ) )
+      / \msc{x} \underaccent{\dot}{]} \msc{x} \le
+      \mathsf{\mc{now}} \leftrightarrow \underline{[} (
+      \tau + ( \mc{D} \times \mc{A} ) ) / \msc{x}
+      \underline{]} \msc{x} \le \mathsf{\mc{now}}
+      )&(\mbox{\ref{eq:ax-mp}},68,69)\notag
+  \\ 71 &&  & \vdash \underaccent{\dot}{[} ( \tau + ( \mc{D} \times \mc{A} ) ) /
+      \msc{x} \underaccent{\dot}{]} \msc{x} \le
+      \mathsf{\mc{now}}&(\mbox{\ref{eq:mpbir}},67,70)\notag
+  \\ 72 &&  & \vdash ( \underaccent{\dot}{[} ( \tau + ( \mc{D} \times \mc{A} ) )
+      / \msc{x} \underaccent{\dot}{]} \msc{x} \in
+      \mathbb{R} \wedge \underaccent{\dot}{[} ( \tau + (
+      \mc{D} \times \mc{A} ) ) / \msc{x}
+      \underaccent{\dot}{]} 0 \le \msc{x} \wedge \notag \\ & & & \qquad
+      \underaccent{\dot}{[} ( \tau + ( \mc{D} \times \mc{A}
+      ) ) / \msc{x} \underaccent{\dot}{]} \msc{x} \le
+      \mathsf{\mc{now}}
+      )&(\mbox{\ref{eq:3pm3.2i}},17,28,71)\notag
+  \\ 73 &&  & \vdash ( \underaccent{\dot}{[} ( \tau + ( \mc{D} \times \mc{A} ) )
+      / \msc{x} \underaccent{\dot}{]} ( \msc{x} \in
+      \mathbb{R} \wedge 0 \le \msc{x} \wedge \msc{x} \le
+      \mathsf{\mc{now}} ) \leftrightarrow  \notag \\ & & & \qquad
+      (
+      \underaccent{\dot}{[} ( \tau + ( \mc{D} \times \mc{A}
+      ) ) / \msc{x} \underaccent{\dot}{]} \msc{x} \in
+      \mathbb{R} \wedge \underaccent{\dot}{[} ( \tau + (
+      \mc{D} \times \mc{A} ) ) / \msc{x}
+      \underaccent{\dot}{]} 0 \le \msc{x} \wedge \notag \\ & & & \qquad
+      \underaccent{\dot}{[} ( \tau + ( \mc{D} \times \mc{A}
+      ) ) / \msc{x} \underaccent{\dot}{]} \msc{x} \le
+      \mathsf{\mc{now}} ) )&(\mbox{\ref{eq:sbc3an}})\notag
+  \\ 74 &&  & \vdash \underaccent{\dot}{[} ( \tau + ( \mc{D} \times \mc{A} ) ) /
+      \msc{x} \underaccent{\dot}{]} ( \msc{x} \in
+      \mathbb{R} \wedge 0 \le \msc{x} \wedge \msc{x} \le
+      \mathsf{\mc{now}}
+      )&(\mbox{\ref{eq:mpbir}},72,73)\notag
+  \\ 75 &&  & \vdash ( ( \tau + ( \mc{D} \times \mc{A} ) ) \in \{ \msc{x}~\vert~(
+      \msc{x} \in \mathbb{R} \wedge 0 \le \msc{x} \wedge
+      \msc{x} \le \mathsf{\mc{now}} ) \} \leftrightarrow \notag \\ & & & \qquad
+      \exists \msc{x} ( \msc{x} = ( \tau + ( \mc{D} \times
+      \mc{A} ) ) \wedge ( \msc{x} \in \mathbb{R} \wedge 0
+      \le \msc{x} \wedge \msc{x} \le \mathsf{\mc{now}} ) )
+      )&(\mbox{\ref{eq:clelab}})\notag
+  \\ 76 &&  & \vdash \mathbf{T} = \{ \msc{x}~\vert~( \msc{x} \in \mathbb{R} \wedge
+      0 \le \msc{x} \wedge \msc{x} \le \mathsf{\mc{now}} )
+      \}&(\mbox{\ref{eq:df-bl.time}})\notag
+  \\ 77 &&  & \vdash ( ( \tau + ( \mc{D} \times \mc{A} ) ) \in \mathbf{T}
+      \leftrightarrow \notag \\ & & & \qquad
+       ( \tau + ( \mc{D} \times \mc{A} ) )
+      \in \{ \msc{x}~\vert~( \msc{x} \in \mathbb{R} \wedge 0
+      \le \msc{x} \wedge \msc{x} \le \mathsf{\mc{now}} ) \}
+      )&(\mbox{\ref{eq:eleq2i}},76)\notag
+  \\ 78 &&  & \vdash ( \underaccent{\dot}{[} ( \tau + ( \mc{D} \times \mc{A} ) )
+      / \msc{x} \underaccent{\dot}{]} ( \msc{x} \in
+      \mathbb{R} \wedge 0 \le \msc{x} \wedge \msc{x} \le
+      \mathsf{\mc{now}} ) \leftrightarrow  \notag \\ & & & \qquad
+      \exists \msc{x} (
+      \msc{x} = ( \tau + ( \mc{D} \times \mc{A} ) ) \wedge (
+      \msc{x} \in \mathbb{R} \wedge 0 \le \msc{x} \wedge
+      \msc{x} \le \mathsf{\mc{now}} ) )
+      )&(\mbox{\ref{eq:sbc5}})\notag
+  \\ 79 &&  & \vdash ( ( \tau + ( \mc{D} \times \mc{A} ) ) \in \mathbf{T}
+      \leftrightarrow \underaccent{\dot}{[} ( \tau + (
+      \mc{D} \times \mc{A} ) ) / \msc{x}
+      \underaccent{\dot}{]} ( \msc{x} \in \mathbb{R} \wedge
+      0 \le \msc{x} \wedge \msc{x} \le \mathsf{\mc{now}} )
+      )&(\mbox{\ref{eq:3bitr4i}},75,77,78)\notag
+  \\ 80 &&  & \vdash ( \tau + ( \mc{D} \times \mc{A} ) ) \in
+      \mathbf{T}&(\mbox{\ref{eq:mpbir}},74,79)\notag
+\end{align}
+\end{proof}
+
+\begin{restatable}{lemma}{blts0}~\blTitle{bl.ts0}~ Time-shift Introduction: unspecified
+time-shift is 0
+\begin{align}
+\vdash \tau \in \mathbf{T}\quad\&\quad \vdash ( \mc{D} \in \mathbb{R} \wedge 0
+    < \mc{D} )\quad\Rightarrow\quad \vdash \mathbf{I} \lsem ( \mw{\varphi}
+    \leftrightarrow ( \mw{\varphi} ~\string^~ 0 ) ) , \tau
+    \rsem\label{eq:bl.ts0}\tag{bl.ts0}
+\end{align}
+\end{restatable}
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash ( \mw{\varphi} \leftrightarrow \mw{\varphi}
+      )&(\mbox{\ref{eq:biid}})\notag
+  \\ 2 &&  & \vdash \tau \in \mathbf{T}&\text{Hyp~ts0.1}\notag%bl.ts0.1
+  \\ 3 &&  & \vdash \tau \in \mathbf{T}&\text{Hyp~ts0.1}\notag%bl.ts0.1
+  \\ 4 &&  & \vdash \tau = \tau&(\mbox{\ref{eq:eqid}})\notag
+  \\ 5 &&  & \vdash ( \mc{D} \in \mathbb{R} \wedge 0 < \mc{D}
+      )&\text{Hyp~ts0.2}\notag%bl.ts0.2
+  \\ 6 && @6:\  & \vdash \mc{D} \in \mathbb{R}&(\mbox{\ref{eq:simpli}},5)\notag
+  \\ 7 &&  & \vdash ( \mc{D} \in \mathbb{R} \rightarrow ( \mc{D} \times 0 ) = 0
+      )&(\mbox{\ref{eq:remul01}})\notag
+  \\ 8 &&  & \vdash ( \mc{D} \times 0 ) = 0&(\mbox{\ref{eq:ax-mp}},6,7)\notag
+  \\ 9 &&  & \vdash ( \tau + ( \mc{D} \times 0 ) ) = ( \tau + 0
+      )&(\mbox{\ref{eq:oveq12i}},4,8)\notag
+  \\ 10 &&  & \vdash \mathbf{T} \subseteq
+      \mathbb{R}&(\mbox{\ref{eq:bl.rt}})\notag
+  \\ 11 &&  & \vdash \tau \in \mathbf{T}&\text{Hyp~ts0.1}\notag%bl.ts0.1
+  \\ 12 &&  & \vdash \tau \in \mathbb{R}&(\mbox{\ref{eq:sselii}},10,11)\notag
+  \\ 13 &&  & \vdash ( \tau \in \mathbb{R} \rightarrow ( \tau + 0 ) = \tau
+      )&(\mbox{\ref{eq:readdid1}})\notag
+  \\ 14 &&  & \vdash ( \tau + 0 ) = \tau&(\mbox{\ref{eq:ax-mp}},12,13)\notag
+  \\ 15 && @15:\  & \vdash ( \tau + ( \mc{D} \times 0 ) ) =
+      \tau&(\mbox{\ref{eq:eqtri}},9,14)\notag
+  \\ 16 &&  & \vdash ( ( \tau + ( \mc{D} \times 0 ) ) \in \mathbf{T}
+      \leftrightarrow \tau \in \mathbf{T}
+      )&(\mbox{\ref{eq:eleq1i}},15)\notag
+  \\ 17 && @17:\  & \vdash ( \tau + ( \mc{D} \times 0 ) ) \in
+      \mathbf{T}&(\mbox{\ref{eq:mpbir}},3,16)\notag
+  \\ 18 &&  & \vdash ( \tau + ( \mc{D} \times 0 ) ) = \tau&(@15)\notag
+  \\ 19 &&  & \vdash \tau = ( \tau + ( \mc{D} \times 0 )
+      )&(\mbox{\ref{eq:eqcomi}},18)\notag
+  \\ 20 &&  & \vdash ( \tau \in \mathbf{T} \wedge ( \tau + ( \mc{D} \times 0 ) )
+      \in \mathbf{T} \wedge \tau = ( \tau + ( \mc{D} \times
+      0 ) ) )&(\mbox{\ref{eq:3pm3.2i}},2,17,19)\notag
+  \\ 21 &&  & \vdash ( ( \tau \in \mathbf{T} \wedge ( \tau + ( \mc{D} \times 0 )
+      ) \in \mathbf{T} \wedge \tau = ( \tau + ( \mc{D}
+      \times 0 ) ) ) \rightarrow  \notag \\ & & & \qquad
+      ( ( \mw{\varphi}
+      \leftrightarrow \mw{\varphi} ) \leftrightarrow (
+      \mathbf{I} \lsem \mw{\varphi} , \tau \rsem
+      \leftrightarrow \mathbf{I} \lsem \mw{\varphi} , (
+      \tau + ( \mc{D} \times 0 ) ) \rsem ) )
+      )&(\mbox{\ref{eq:ax-bl.bi}})\notag
+  \\ 22 &&  & \vdash ( ( \mw{\varphi} \leftrightarrow \mw{\varphi} )
+      \leftrightarrow ( \mathbf{I} \lsem \mw{\varphi} ,
+      \tau \rsem \leftrightarrow \mathbf{I} \lsem
+      \mw{\varphi} , ( \tau + ( \mc{D} \times 0 ) ) \rsem )
+      )&(\mbox{\ref{eq:ax-mp}},20,21)\notag
+  \\ 23 &&  & \vdash ( \mathbf{I} \lsem \mw{\varphi} , \tau \rsem
+      \leftrightarrow \mathbf{I} \lsem \mw{\varphi} , (
+      \tau + ( \mc{D} \times 0 ) ) \rsem
+      )&(\mbox{\ref{eq:mpbi}},1,22)\notag
+  \\ 24 &&  & \vdash 0 \in \mathbb{Z}&(\mbox{\ref{eq:0z}})\notag
+  \\ 25 &&  & \vdash \mc{D} \in \mathbb{R}&(@6)\notag
+  \\ 26 &&  & \vdash \tau \in \mathbf{T}&\text{Hyp~ts0.1}\notag%bl.ts0.1
+  \\ 27 &&  & \vdash ( \tau + ( \mc{D} \times 0 ) ) \in \mathbf{T}&(@17)\notag
+  \\ 28 &&  & \vdash ( \mc{D} \in \mathbb{R} \wedge \tau \in \mathbf{T} \wedge
+      ( \tau + ( \mc{D} \times 0 ) ) \in \mathbf{T}
+      )&(\mbox{\ref{eq:3pm3.2i}},25,26,27)\notag
+  \\ 29 &&  & \vdash ( 0 \in \mathbb{Z} \wedge ( \mc{D} \in \mathbb{R} \wedge
+      \tau \in \mathbf{T} \wedge ( \tau + ( \mc{D} \times 0
+      ) ) \in \mathbf{T} )
+      )&(\mbox{\ref{eq:pm3.2i}},24,28)\notag
+  \\ 30 &&  & \vdash ( ( 0 \in \mathbb{Z} \wedge ( \mc{D} \in \mathbb{R} \wedge
+      \tau \in \mathbf{T} \wedge ( \tau + ( \mc{D} \times 0
+      ) ) \in \mathbf{T} ) ) \rightarrow  \notag \\ & & & \qquad
+      ( \mathbf{I} \lsem
+      ( \mw{\varphi} ~\string^~ 0 ) , \tau \rsem
+      \leftrightarrow \mathbf{I} \lsem \mw{\varphi} , (
+      \tau + ( \mc{D} \times 0 ) ) \rsem )
+      )&(\mbox{\ref{eq:df-bl.ts}})\notag
+  \\ 31 &&  & \vdash ( \mathbf{I} \lsem ( \mw{\varphi} ~\string^~ 0 ) , \tau
+      \rsem \leftrightarrow \mathbf{I} \lsem \mw{\varphi} ,
+      ( \tau + ( \mc{D} \times 0 ) ) \rsem
+      )&(\mbox{\ref{eq:ax-mp}},29,30)\notag
+  \\ 32 &&  & \vdash ( \mathbf{I} \lsem \mw{\varphi} , \tau \rsem
+      \leftrightarrow \mathbf{I} \lsem ( \mw{\varphi}
+      ~\string^~ 0 ) , \tau \rsem
+      )&(\mbox{\ref{eq:bitr4i}},23,31)\notag
+  \\ 33 &&  & \vdash \tau \in \mathbf{T}&\text{Hyp~ts0.1}\notag%bl.ts0.1
+  \\ 34 &&  & \vdash ( \mathbf{I} \lsem ( \mw{\varphi} \leftrightarrow (
+      \mw{\varphi} ~\string^~ 0 ) ) , \tau \rsem
+      \leftrightarrow ( \mathbf{I} \lsem \mw{\varphi} ,
+      \tau \rsem \leftrightarrow \mathbf{I} \lsem (
+      \mw{\varphi} ~\string^~ 0 ) , \tau \rsem )
+      )&(\mbox{\ref{eq:df-bl.bit}},33)\notag
+  \\ 35 &&  & \vdash \mathbf{I} \lsem ( \mw{\varphi} \leftrightarrow (
+      \mw{\varphi} ~\string^~ 0 ) ) , \tau
+      \rsem&(\mbox{\ref{eq:mpbir}},32,34)\notag
+\end{align}
+\end{proof}
+
+\begin{restatable}{lemma}{bltsc0}~\blTitle{bl.tsc0}~ Time-shift Introduction: unspecified
+time-shift is 0
+\begin{align}
+\vdash \tau \in \mathbf{T}\quad\&\quad \vdash ( \mc{D} \in \mathbb{R} \wedge 0
+    < \mc{D} )\quad\Rightarrow\quad \vdash \mathbf{I} \lsem \mc{A} = ( \mc{A}
+    ~\string^~ 0 ) , \tau \rsem\label{eq:bl.tsc0}\tag{bl.tsc0}
+\end{align}
+\end{restatable}
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash \mc{A} = \mc{A}&(\mbox{\ref{eq:eqid}})\notag
+  \\ 2 &&  & \vdash \tau \in \mathbf{T}&\text{Hyp~tsc0.1}\notag%bl.tsc0.1
+  \\ 3 &&  & \vdash \tau \in \mathbf{T}&\text{Hyp~tsc0.1}\notag%bl.tsc0.1
+  \\ 4 &&  & \vdash \tau = \tau&(\mbox{\ref{eq:eqid}})\notag
+  \\ 5 &&  & \vdash ( \mc{D} \in \mathbb{R} \wedge 0 < \mc{D}
+      )&\text{Hyp~tsc0.2}\notag%bl.tsc0.2
+  \\ 6 && @6:\  & \vdash \mc{D} \in \mathbb{R}&(\mbox{\ref{eq:simpli}},5)\notag
+  \\ 7 &&  & \vdash ( \mc{D} \in \mathbb{R} \rightarrow ( \mc{D} \times 0 ) = 0
+      )&(\mbox{\ref{eq:remul01}})\notag
+  \\ 8 &&  & \vdash ( \mc{D} \times 0 ) = 0&(\mbox{\ref{eq:ax-mp}},6,7)\notag
+  \\ 9 &&  & \vdash ( \tau + ( \mc{D} \times 0 ) ) = ( \tau + 0
+      )&(\mbox{\ref{eq:oveq12i}},4,8)\notag
+  \\ 10 &&  & \vdash \mathbf{T} \subseteq
+      \mathbb{R}&(\mbox{\ref{eq:bl.rt}})\notag
+  \\ 11 &&  & \vdash \tau \in \mathbf{T}&\text{Hyp~tsc0.1}\notag%bl.tsc0.1
+  \\ 12 &&  & \vdash \tau \in \mathbb{R}&(\mbox{\ref{eq:sselii}},10,11)\notag
+  \\ 13 &&  & \vdash ( \tau \in \mathbb{R} \rightarrow ( \tau + 0 ) = \tau
+      )&(\mbox{\ref{eq:readdid1}})\notag
+  \\ 14 &&  & \vdash ( \tau + 0 ) = \tau&(\mbox{\ref{eq:ax-mp}},12,13)\notag
+  \\ 15 && @15:\  & \vdash ( \tau + ( \mc{D} \times 0 ) ) =
+      \tau&(\mbox{\ref{eq:eqtri}},9,14)\notag
+  \\ 16 &&  & \vdash ( ( \tau + ( \mc{D} \times 0 ) ) \in \mathbf{T}
+      \leftrightarrow \tau \in \mathbf{T}
+      )&(\mbox{\ref{eq:eleq1i}},15)\notag
+  \\ 17 && @17:\  & \vdash ( \tau + ( \mc{D} \times 0 ) ) \in
+      \mathbf{T}&(\mbox{\ref{eq:mpbir}},3,16)\notag
+  \\ 18 &&  & \vdash ( \tau + ( \mc{D} \times 0 ) ) = \tau&(@15)\notag
+  \\ 19 &&  & \vdash \tau = ( \tau + ( \mc{D} \times 0 )
+      )&(\mbox{\ref{eq:eqcomi}},18)\notag
+  \\ 20 &&  & \vdash ( \tau \in \mathbf{T} \wedge ( \tau + ( \mc{D} \times 0 ) )
+      \in \mathbf{T} \wedge \tau = ( \tau + ( \mc{D} \times
+      0 ) ) )&(\mbox{\ref{eq:3pm3.2i}},2,17,19)\notag
+  \\ 21 &&  & \vdash ( ( \tau \in \mathbf{T} \wedge ( \tau + ( \mc{D} \times 0 )
+      ) \in \mathbf{T} \wedge \tau = ( \tau + ( \mc{D}
+      \times 0 ) ) ) \rightarrow  \notag \\ & & & \qquad
+      ( \mc{A} = \mc{A}
+      \leftrightarrow \mathbf{I} \lsem \mc{A} , \tau \rsem
+      = \mathbf{I} \lsem \mc{A} , ( \tau + ( \mc{D} \times 0
+      ) ) \rsem ) )&(\mbox{\ref{eq:ax-bl.eq}})\notag
+  \\ 22 &&  & \vdash ( \mc{A} = \mc{A} \leftrightarrow \mathbf{I} \lsem \mc{A}
+      , \tau \rsem = \mathbf{I} \lsem \mc{A} , ( \tau + (
+      \mc{D} \times 0 ) ) \rsem
+      )&(\mbox{\ref{eq:ax-mp}},20,21)\notag
+  \\ 23 &&  & \vdash \mathbf{I} \lsem \mc{A} , \tau \rsem = \mathbf{I} \lsem
+      \mc{A} , ( \tau + ( \mc{D} \times 0 ) )
+      \rsem&(\mbox{\ref{eq:mpbi}},1,22)\notag
+  \\ 24 &&  & \vdash 0 \in \mathbb{Z}&(\mbox{\ref{eq:0z}})\notag
+  \\ 25 &&  & \vdash \mc{D} \in \mathbb{R}&(@6)\notag
+  \\ 26 &&  & \vdash \tau \in \mathbf{T}&\text{Hyp~tsc0.1}\notag%bl.tsc0.1
+  \\ 27 &&  & \vdash ( \tau + ( \mc{D} \times 0 ) ) \in \mathbf{T}&(@17)\notag
+  \\ 28 &&  & \vdash ( \mc{D} \in \mathbb{R} \wedge \tau \in \mathbf{T} \wedge
+      ( \tau + ( \mc{D} \times 0 ) ) \in \mathbf{T}
+      )&(\mbox{\ref{eq:3pm3.2i}},25,26,27)\notag
+  \\ 29 &&  & \vdash ( 0 \in \mathbb{Z} \wedge ( \mc{D} \in \mathbb{R} \wedge
+      \tau \in \mathbf{T} \wedge ( \tau + ( \mc{D} \times 0
+      ) ) \in \mathbf{T} )
+      )&(\mbox{\ref{eq:pm3.2i}},24,28)\notag
+  \\ 30 &&  & \vdash ( ( 0 \in \mathbb{Z} \wedge ( \mc{D} \in \mathbb{R} \wedge
+      \tau \in \mathbf{T} \wedge ( \tau + ( \mc{D} \times 0
+      ) ) \in \mathbf{T} ) ) \rightarrow  \notag \\ & & & \qquad
+      \mathbf{I} \lsem (
+      \mc{A} ~\string^~ 0 ) , \tau \rsem = \mathbf{I} \lsem
+      \mc{A} , ( \tau + ( \mc{D} \times 0 ) ) \rsem
+      )&(\mbox{\ref{eq:df-bl.tsc}})\notag
+  \\ 31 &&  & \vdash \mathbf{I} \lsem ( \mc{A} ~\string^~ 0 ) , \tau \rsem =
+      \mathbf{I} \lsem \mc{A} , ( \tau + ( \mc{D} \times 0 )
+      ) \rsem&(\mbox{\ref{eq:ax-mp}},29,30)\notag
+  \\ 32 &&  & \vdash \mathbf{I} \lsem \mc{A} , \tau \rsem = \mathbf{I} \lsem (
+      \mc{A} ~\string^~ 0 ) , \tau
+      \rsem&(\mbox{\ref{eq:eqtr4i}},23,31)\notag
+  \\ 33 &&  & \vdash \tau \in \mathbf{T}&\text{Hyp~tsc0.1}\notag%bl.tsc0.1
+  \\ 34 &&  & \vdash ( \mathbf{I} \lsem \mc{A} = ( \mc{A} ~\string^~ 0 ) , \tau
+      \rsem \leftrightarrow \mathbf{I} \lsem \mc{A} , \tau
+      \rsem = \mathbf{I} \lsem ( \mc{A} ~\string^~ 0 ) ,
+      \tau \rsem )&(\mbox{\ref{eq:df-bl.eqt}},33)\notag
+  \\ 35 &&  & \vdash \mathbf{I} \lsem \mc{A} = ( \mc{A} ~\string^~ 0 ) , \tau
+      \rsem&(\mbox{\ref{eq:mpbir}},32,34)\notag
+\end{align}
+\end{proof}
+
+\begin{restatable}{lemma}{bltscomi}~\blTitle{bl.tscomi}~ Compose $~\string^~$  over predicate,
+inference.
+\begin{align}
+\vdash ( \mc{A} \in \mathbb{Z} \wedge \mc{B} \in \mathbb{Z} )\quad\&\quad
+    \vdash \mc{D} \in \mathbb{R}\quad\&\quad \vdash \tau \in
+    \mathbf{T}\quad\&\quad \vdash ( \tau + ( \mc{D} \times ( \mc{A} + \mc{B} ) )
+    ) \in \mathbf{T}\quad\& \notag \\ %& & & \qquad
+      \quad \vdash ( \tau + ( \mc{D} \times \mc{B} ) ) \in
+    \mathbf{T}\quad\Rightarrow \notag \\ %& & & \qquad
+      \quad \vdash \mathbf{I} \lsem ( ( ( \mw{\varphi}
+    ~\string^~ \mc{A} ) ~\string^~ \mc{B} ) \leftrightarrow ( \mw{\varphi}
+    ~\string^~ ( \mc{A} + \mc{B} ) ) ) , \tau
+    \rsem\label{eq:bl.tscomi}\tag{bl.tscomi}
+\end{align}
+\end{restatable}
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash ( \mc{A} \in \mathbb{Z} \wedge \mc{B} \in \mathbb{Z}
+      )&\text{Hyp~tscomi.1}\notag%bl.tscomi.1
+  \\ 2 && @2:\  & \vdash \mc{B} \in \mathbb{Z}&(\mbox{\ref{eq:simpri}},1)\notag
+  \\ 3 &&  & \vdash \mc{D} \in \mathbb{R}&\text{Hyp~tscomi.2}\notag%bl.tscomi.2
+  \\ 4 &&  & \vdash \tau \in \mathbf{T}&\text{Hyp~tscomi.3}\notag%bl.tscomi.3
+  \\ 5 &&  & \vdash ( \tau + ( \mc{D} \times \mc{B} ) ) \in
+      \mathbf{T}&\text{Hyp~tscomi.5}\notag%bl.tscomi.5
+  \\ 6 &&  & \vdash ( \mathbf{I} \lsem ( ( \mw{\varphi} ~\string^~ \mc{A} )
+      ~\string^~ \mc{B} ) , \tau \rsem \leftrightarrow
+      \mathbf{I} \lsem ( \mw{\varphi} ~\string^~ \mc{A} ) ,
+      ( \tau + ( \mc{D} \times \mc{B} ) ) \rsem
+      )&(\mbox{\ref{eq:bl.tsi}},2,3,4,5)\notag
+  \\ 7 &&  & \vdash ( \mc{A} \in \mathbb{Z} \wedge \mc{B} \in \mathbb{Z}
+      )&\text{Hyp~tscomi.1}\notag%bl.tscomi.1
+  \\ 8 && @8:\  & \vdash \mc{A} \in \mathbb{Z}&(\mbox{\ref{eq:simpli}},7)\notag
+  \\ 9 &&  & \vdash \mc{D} \in \mathbb{R}&\text{Hyp~tscomi.2}\notag%bl.tscomi.2
+  \\ 10 &&  & \vdash ( \tau + ( \mc{D} \times \mc{B} ) ) \in
+      \mathbf{T}&\text{Hyp~tscomi.5}\notag%bl.tscomi.5
+  \\ 11 &&  & \vdash \mc{D} \in
+      \mathbb{R}&\text{Hyp~tscomi.2}\notag%bl.tscomi.2
+  \\ 12 &&  & \vdash \mc{A} \in \mathbb{Z}&(@8)\notag
+  \\ 13 &&  & \vdash ( \mc{A} \in \mathbb{Z} \rightarrow \mc{A} \in \mathbb{R}
+      )&(\mbox{\ref{eq:zre}})\notag
+  \\ 14 &&  & \vdash \mc{A} \in \mathbb{R}&(\mbox{\ref{eq:ax-mp}},12,13)\notag
+  \\ 15 &&  & \vdash \mc{B} \in \mathbb{Z}&(@2)\notag
+  \\ 16 &&  & \vdash ( \mc{B} \in \mathbb{Z} \rightarrow \mc{B} \in \mathbb{R}
+      )&(\mbox{\ref{eq:zre}})\notag
+  \\ 17 &&  & \vdash \mc{B} \in \mathbb{R}&(\mbox{\ref{eq:ax-mp}},15,16)\notag
+  \\ 18 &&  & \vdash ( \mc{D} \times ( \mc{A} + \mc{B} ) ) = ( ( \mc{D} \times
+      \mc{A} ) + ( \mc{D} \times \mc{B} )
+      )&(\mbox{\ref{eq:bl.adddii}},11,14,17)\notag
+  \\ 19 &&  & \vdash ( ( \mc{D} \times \mc{A} ) + ( \mc{D} \times \mc{B} ) ) = (
+      ( \mc{D} \times \mc{B} ) + ( \mc{D} \times \mc{A} )
+      )&(\mbox{\ref{eq:addcomgi}})\notag
+  \\ 20 &&  & \vdash ( \mc{D} \times ( \mc{A} + \mc{B} ) ) = ( ( \mc{D} \times
+      \mc{B} ) + ( \mc{D} \times \mc{A} )
+      )&(\mbox{\ref{eq:eqtri}},18,19)\notag
+  \\ 21 &&  & \vdash ( \tau + ( \mc{D} \times ( \mc{A} + \mc{B} ) ) ) = ( \tau +
+      ( ( \mc{D} \times \mc{B} ) + ( \mc{D} \times \mc{A} ) )
+      )&(\mbox{\ref{eq:oveq2i}},20)\notag
+  \\ 22 &&  & \vdash \tau \in \mathbf{T}&\text{Hyp~tscomi.3}\notag%bl.tscomi.3
+  \\ 23 &&  & \vdash ( \tau \in \mathbf{T} \rightarrow \tau \in \mathbb{R}
+      )&(\mbox{\ref{eq:bl.etir}})\notag
+  \\ 24 &&  & \vdash ( \tau \in \mathbb{R} \rightarrow \tau \in \mathbb{C}
+      )&(\mbox{\ref{eq:recn}})\notag
+  \\ 25 &&  & \vdash \tau \in \mathbb{C}&(\mbox{\ref{eq:mp2b}},22,23,24)\notag
+  \\ 26 &&  & \vdash \mc{D} \in
+      \mathbb{R}&\text{Hyp~tscomi.2}\notag%bl.tscomi.2
+  \\ 27 &&  & \vdash ( \mc{D} \in \mathbb{R} \rightarrow \mc{D} \in \mathbb{C}
+      )&(\mbox{\ref{eq:recn}})\notag
+  \\ 28 && @28:\  & \vdash \mc{D} \in
+      \mathbb{C}&(\mbox{\ref{eq:ax-mp}},26,27)\notag
+  \\ 29 &&  & \vdash \mc{B} \in \mathbb{Z}&(@2)\notag
+  \\ 30 &&  & \vdash ( \mc{B} \in \mathbb{Z} \rightarrow \mc{B} \in \mathbb{C}
+      )&(\mbox{\ref{eq:zcn}})\notag
+  \\ 31 &&  & \vdash \mc{B} \in \mathbb{C}&(\mbox{\ref{eq:ax-mp}},29,30)\notag
+  \\ 32 &&  & \vdash ( \mc{D} \times \mc{B} ) \in
+      \mathbb{C}&(\mbox{\ref{eq:mulcli}},28,31)\notag
+  \\ 33 &&  & \vdash \mc{D} \in \mathbb{C}&(@28)\notag
+  \\ 34 &&  & \vdash \mc{A} \in \mathbb{Z}&(@8)\notag
+  \\ 35 &&  & \vdash ( \mc{A} \in \mathbb{Z} \rightarrow \mc{A} \in \mathbb{C}
+      )&(\mbox{\ref{eq:zcn}})\notag
+  \\ 36 &&  & \vdash \mc{A} \in \mathbb{C}&(\mbox{\ref{eq:ax-mp}},34,35)\notag
+  \\ 37 &&  & \vdash ( \mc{D} \times \mc{A} ) \in
+      \mathbb{C}&(\mbox{\ref{eq:mulcli}},33,36)\notag
+  \\ 38 &&  & \vdash ( ( \tau + ( \mc{D} \times \mc{B} ) ) + ( \mc{D} \times
+      \mc{A} ) ) = ( \tau + ( ( \mc{D} \times \mc{B} ) + (
+      \mc{D} \times \mc{A} ) )
+      )&(\mbox{\ref{eq:addassi}},25,32,37)\notag
+  \\ 39 &&  & \vdash ( \tau + ( \mc{D} \times ( \mc{A} + \mc{B} ) ) ) = ( ( \tau
+      + ( \mc{D} \times \mc{B} ) ) + ( \mc{D} \times \mc{A} )
+      )&(\mbox{\ref{eq:eqtr4i}},21,38)\notag
+  \\ 40 && @40:\  & \vdash ( ( \tau + ( \mc{D} \times \mc{B} ) ) + ( \mc{D}
+      \times \mc{A} ) ) = ( \tau + ( \mc{D} \times ( \mc{A} +
+      \mc{B} ) ) )&(\mbox{\ref{eq:eqcomi}},39)\notag
+  \\ 41 &&  & \vdash ( \tau + ( \mc{D} \times ( \mc{A} + \mc{B} ) ) ) \in
+      \mathbf{T}&\text{Hyp~tscomi.4}\notag%bl.tscomi.4
+  \\ 42 && @42:\  & \vdash ( ( \tau + ( \mc{D} \times \mc{B} ) ) + ( \mc{D}
+      \times \mc{A} ) ) \in
+      \mathbf{T}&(\mbox{\ref{eq:eqeltri}},40,41)\notag
+  \\ 43 &&  & \vdash ( \mathbf{I} \lsem ( \mw{\varphi} ~\string^~ \mc{A} ) , (
+      \tau + ( \mc{D} \times \mc{B} ) ) \rsem
+      \leftrightarrow \mathbf{I} \lsem \mw{\varphi} , ( (
+      \tau + ( \mc{D} \times \mc{B} ) ) + ( \mc{D} \times
+      \mc{A} ) ) \rsem
+      )&(\mbox{\ref{eq:bl.tsi}},8,9,10,42)\notag
+  \\ 44 &&  & \vdash ( \mw{\varphi} \leftrightarrow \mw{\varphi}
+      )&(\mbox{\ref{eq:biid}})\notag
+  \\ 45 &&  & \vdash ( ( \tau + ( \mc{D} \times \mc{B} ) ) + ( \mc{D} \times
+      \mc{A} ) ) \in \mathbf{T}&(@42)\notag
+  \\ 46 &&  & \vdash ( \tau + ( \mc{D} \times ( \mc{A} + \mc{B} ) ) ) \in
+      \mathbf{T}&\text{Hyp~tscomi.4}\notag%bl.tscomi.4
+  \\ 47 &&  & \vdash ( ( \tau + ( \mc{D} \times \mc{B} ) ) + ( \mc{D} \times
+      \mc{A} ) ) = ( \tau + ( \mc{D} \times ( \mc{A} +
+      \mc{B} ) ) )&(@40)\notag
+  \\ 48 &&  & \vdash ( ( ( \tau + ( \mc{D} \times \mc{B} ) ) + ( \mc{D} \times
+      \mc{A} ) ) \in \mathbf{T} \wedge ( \tau + ( \mc{D}
+      \times ( \mc{A} + \mc{B} ) ) ) \in \mathbf{T} \wedge  \notag \\ & & & \qquad
+      (
+      ( \tau + ( \mc{D} \times \mc{B} ) ) + ( \mc{D} \times
+      \mc{A} ) ) = ( \tau + ( \mc{D} \times ( \mc{A} +
+      \mc{B} ) ) )
+      )&(\mbox{\ref{eq:3pm3.2i}},45,46,47)\notag
+  \\ 49 &&  & \vdash ( ( ( ( \tau + ( \mc{D} \times \mc{B} ) ) + ( \mc{D} \times
+      \mc{A} ) ) \in \mathbf{T} \wedge ( \tau + ( \mc{D}
+      \times ( \mc{A} + \mc{B} ) ) ) \in \mathbf{T} \wedge  \notag \\ & & & \qquad
+      (
+      ( \tau + ( \mc{D} \times \mc{B} ) ) + ( \mc{D} \times
+      \mc{A} ) ) = ( \tau + ( \mc{D} \times ( \mc{A} +
+      \mc{B} ) ) ) ) \rightarrow \notag \\ & & & \qquad
+       ( ( \mw{\varphi}
+      \leftrightarrow \mw{\varphi} ) \leftrightarrow (
+      \mathbf{I} \lsem \mw{\varphi} , ( ( \tau + ( \mc{D}
+      \times \mc{B} ) ) + ( \mc{D} \times \mc{A} ) ) \rsem
+      \leftrightarrow  \notag \\ & & & \qquad
+      \mathbf{I} \lsem \mw{\varphi} , (
+      \tau + ( \mc{D} \times ( \mc{A} + \mc{B} ) ) ) \rsem )
+      ) )&(\mbox{\ref{eq:ax-bl.bi}})\notag
+  \\ 50 &&  & \vdash ( ( \mw{\varphi} \leftrightarrow \mw{\varphi} )
+      \leftrightarrow  \notag \\ & & & \qquad
+      ( \mathbf{I} \lsem \mw{\varphi} , ( (
+      \tau + ( \mc{D} \times \mc{B} ) ) + ( \mc{D} \times
+      \mc{A} ) ) \rsem \leftrightarrow \mathbf{I} \lsem
+      \mw{\varphi} , ( \tau + ( \mc{D} \times ( \mc{A} +
+      \mc{B} ) ) ) \rsem )
+      )&(\mbox{\ref{eq:ax-mp}},48,49)\notag
+  \\ 51 &&  & \vdash ( \mathbf{I} \lsem \mw{\varphi} , ( ( \tau + ( \mc{D}
+      \times \mc{B} ) ) + ( \mc{D} \times \mc{A} ) ) \rsem
+      \leftrightarrow \mathbf{I} \lsem \mw{\varphi} , (
+      \tau + ( \mc{D} \times ( \mc{A} + \mc{B} ) ) ) \rsem
+      )&(\mbox{\ref{eq:mpbi}},44,50)\notag
+  \\ 52 &&  & \vdash ( \mathbf{I} \lsem ( ( \mw{\varphi} ~\string^~ \mc{A} )
+      ~\string^~ \mc{B} ) , \tau \rsem \leftrightarrow
+      \mathbf{I} \lsem \mw{\varphi} , ( \tau + ( \mc{D}
+      \times ( \mc{A} + \mc{B} ) ) ) \rsem
+      )&(\mbox{\ref{eq:3bitri}},6,43,51)\notag
+  \\ 53 &&  & \vdash \mc{A} \in \mathbb{Z}&(@8)\notag
+  \\ 54 &&  & \vdash \mc{B} \in \mathbb{Z}&(@2)\notag
+  \\ 55 &&  & \vdash ( \mc{A} \in \mathbb{Z} \wedge \mc{B} \in \mathbb{Z}
+      )&(\mbox{\ref{eq:pm3.2i}},53,54)\notag
+  \\ 56 &&  & \vdash ( ( \mc{A} \in \mathbb{Z} \wedge \mc{B} \in \mathbb{Z} )
+      \rightarrow ( \mc{A} + \mc{B} ) \in \mathbb{Z}
+      )&(\mbox{\ref{eq:zaddcl}})\notag
+  \\ 57 &&  & \vdash ( \mc{A} + \mc{B} ) \in
+      \mathbb{Z}&(\mbox{\ref{eq:ax-mp}},55,56)\notag
+  \\ 58 &&  & \vdash \mc{D} \in
+      \mathbb{R}&\text{Hyp~tscomi.2}\notag%bl.tscomi.2
+  \\ 59 &&  & \vdash \tau \in \mathbf{T}&\text{Hyp~tscomi.3}\notag%bl.tscomi.3
+  \\ 60 &&  & \vdash ( \tau + ( \mc{D} \times ( \mc{A} + \mc{B} ) ) ) \in
+      \mathbf{T}&\text{Hyp~tscomi.4}\notag%bl.tscomi.4
+  \\ 61 &&  & \vdash ( \mathbf{I} \lsem ( \mw{\varphi} ~\string^~ ( \mc{A} +
+      \mc{B} ) ) , \tau \rsem \leftrightarrow \mathbf{I}
+      \lsem \mw{\varphi} , ( \tau + ( \mc{D} \times ( \mc{A}
+      + \mc{B} ) ) ) \rsem
+      )&(\mbox{\ref{eq:bl.tsi}},57,58,59,60)\notag
+  \\ 62 &&  & \vdash ( \mathbf{I} \lsem ( ( \mw{\varphi} ~\string^~ \mc{A} )
+      ~\string^~ \mc{B} ) , \tau \rsem \leftrightarrow
+      \mathbf{I} \lsem ( \mw{\varphi} ~\string^~ ( \mc{A} +
+      \mc{B} ) ) , \tau \rsem
+      )&(\mbox{\ref{eq:bitr4i}},52,61)\notag
+  \\ 63 &&  & \vdash \tau \in \mathbf{T}&\text{Hyp~tscomi.3}\notag%bl.tscomi.3
+  \\ 64 &&  & \vdash ( \mathbf{I} \lsem ( ( ( \mw{\varphi} ~\string^~ \mc{A} )
+      ~\string^~ \mc{B} ) \leftrightarrow ( \mw{\varphi}
+      ~\string^~ ( \mc{A} + \mc{B} ) ) ) , \tau \rsem
+      \leftrightarrow  \notag \\ & & & \qquad
+      ( \mathbf{I} \lsem ( ( \mw{\varphi}
+      ~\string^~ \mc{A} ) ~\string^~ \mc{B} ) , \tau \rsem
+      \leftrightarrow \mathbf{I} \lsem ( \mw{\varphi}
+      ~\string^~ ( \mc{A} + \mc{B} ) ) , \tau \rsem )
+      )&(\mbox{\ref{eq:df-bl.bit}},63)\notag
+  \\ 65 &&  & \vdash \mathbf{I} \lsem ( ( ( \mw{\varphi} ~\string^~ \mc{A} )
+      ~\string^~ \mc{B} ) \leftrightarrow ( \mw{\varphi}
+      ~\string^~ ( \mc{A} + \mc{B} ) ) ) , \tau
+      \rsem&(\mbox{\ref{eq:mpbir}},62,64)\notag
+\end{align}
+\end{proof}
+
+\begin{restatable}{lemma}{bltscomci}~\blTitle{bl.tscomci}~ Compose $~\string^~$  over value,
+inference.
+\begin{align}
+\vdash ( \mc{B} \in \mathbb{Z} \wedge \mc{C} \in \mathbb{Z} )\quad\&\quad
+    \vdash \mc{D} \in \mathbb{R}\quad\&\quad \vdash \tau \in
+    \mathbf{T}\quad\& \notag \\ %& & & \qquad
+      \quad \vdash ( \tau + ( \mc{D} \times ( \mc{B} + \mc{C} ) )
+    ) \in \mathbf{T}\quad\&\quad \vdash ( \tau + ( \mc{D} \times \mc{C} ) ) \in
+    \mathbf{T}\quad\Rightarrow \notag \\ %& & & \qquad
+      \quad \vdash \mathbf{I} \lsem ( ( \mc{A}
+    ~\string^~ \mc{B} ) ~\string^~ \mc{C} ) = ( \mc{A} ~\string^~ ( \mc{B} +
+    \mc{C} ) ) , \tau \rsem\label{eq:bl.tscomci}\tag{bl.tscomci}
+\end{align}
+\end{restatable}
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash ( \mc{B} \in \mathbb{Z} \wedge \mc{C} \in \mathbb{Z}
+      )&\text{Hyp~tscomci.1}\notag%bl.tscomci.1
+  \\ 2 && @2:\  & \vdash \mc{C} \in \mathbb{Z}&(\mbox{\ref{eq:simpri}},1)\notag
+  \\ 3 &&  & \vdash \mc{D} \in
+      \mathbb{R}&\text{Hyp~tscomci.2}\notag%bl.tscomci.2
+  \\ 4 &&  & \vdash \tau \in \mathbf{T}&\text{Hyp~tscomci.3}\notag%bl.tscomci.3
+  \\ 5 &&  & \vdash ( \tau + ( \mc{D} \times \mc{C} ) ) \in
+      \mathbf{T}&\text{Hyp~tscomci.5}\notag%bl.tscomci.5
+  \\ 6 &&  & \vdash \mathbf{I} \lsem ( ( \mc{A} ~\string^~ \mc{B} ) ~\string^~
+      \mc{C} ) , \tau \rsem = \mathbf{I} \lsem ( \mc{A}
+      ~\string^~ \mc{B} ) , ( \tau + ( \mc{D} \times \mc{C}
+      ) ) \rsem&(\mbox{\ref{eq:bl.tsci}},2,3,4,5)\notag
+  \\ 7 &&  & \vdash ( \mc{B} \in \mathbb{Z} \wedge \mc{C} \in \mathbb{Z}
+      )&\text{Hyp~tscomci.1}\notag%bl.tscomci.1
+  \\ 8 && @8:\  & \vdash \mc{B} \in \mathbb{Z}&(\mbox{\ref{eq:simpli}},7)\notag
+  \\ 9 &&  & \vdash \mc{D} \in
+      \mathbb{R}&\text{Hyp~tscomci.2}\notag%bl.tscomci.2
+  \\ 10 &&  & \vdash ( \tau + ( \mc{D} \times \mc{C} ) ) \in
+      \mathbf{T}&\text{Hyp~tscomci.5}\notag%bl.tscomci.5
+  \\ 11 &&  & \vdash \mc{D} \in
+      \mathbb{R}&\text{Hyp~tscomci.2}\notag%bl.tscomci.2
+  \\ 12 &&  & \vdash \mc{B} \in \mathbb{Z}&(@8)\notag
+  \\ 13 &&  & \vdash ( \mc{B} \in \mathbb{Z} \rightarrow \mc{B} \in \mathbb{R}
+      )&(\mbox{\ref{eq:zre}})\notag
+  \\ 14 &&  & \vdash \mc{B} \in \mathbb{R}&(\mbox{\ref{eq:ax-mp}},12,13)\notag
+  \\ 15 &&  & \vdash \mc{C} \in \mathbb{Z}&(@2)\notag
+  \\ 16 &&  & \vdash ( \mc{C} \in \mathbb{Z} \rightarrow \mc{C} \in \mathbb{R}
+      )&(\mbox{\ref{eq:zre}})\notag
+  \\ 17 &&  & \vdash \mc{C} \in \mathbb{R}&(\mbox{\ref{eq:ax-mp}},15,16)\notag
+  \\ 18 &&  & \vdash ( \mc{D} \times ( \mc{B} + \mc{C} ) ) = ( ( \mc{D} \times
+      \mc{B} ) + ( \mc{D} \times \mc{C} )
+      )&(\mbox{\ref{eq:bl.adddii}},11,14,17)\notag
+  \\ 19 &&  & \vdash ( ( \mc{D} \times \mc{B} ) + ( \mc{D} \times \mc{C} ) ) = (
+      ( \mc{D} \times \mc{C} ) + ( \mc{D} \times \mc{B} )
+      )&(\mbox{\ref{eq:addcomgi}})\notag
+  \\ 20 &&  & \vdash ( \mc{D} \times ( \mc{B} + \mc{C} ) ) = ( ( \mc{D} \times
+      \mc{C} ) + ( \mc{D} \times \mc{B} )
+      )&(\mbox{\ref{eq:eqtri}},18,19)\notag
+  \\ 21 &&  & \vdash ( \tau + ( \mc{D} \times ( \mc{B} + \mc{C} ) ) ) = ( \tau +
+      ( ( \mc{D} \times \mc{C} ) + ( \mc{D} \times \mc{B} ) )
+      )&(\mbox{\ref{eq:oveq2i}},20)\notag
+  \\ 22 &&  & \vdash \tau \in
+      \mathbf{T}&\text{Hyp~tscomci.3}\notag%bl.tscomci.3
+  \\ 23 &&  & \vdash ( \tau \in \mathbf{T} \rightarrow \tau \in \mathbb{R}
+      )&(\mbox{\ref{eq:bl.etir}})\notag
+  \\ 24 &&  & \vdash ( \tau \in \mathbb{R} \rightarrow \tau \in \mathbb{C}
+      )&(\mbox{\ref{eq:recn}})\notag
+  \\ 25 &&  & \vdash \tau \in \mathbb{C}&(\mbox{\ref{eq:mp2b}},22,23,24)\notag
+  \\ 26 &&  & \vdash \mc{D} \in
+      \mathbb{R}&\text{Hyp~tscomci.2}\notag%bl.tscomci.2
+  \\ 27 &&  & \vdash ( \mc{D} \in \mathbb{R} \rightarrow \mc{D} \in \mathbb{C}
+      )&(\mbox{\ref{eq:recn}})\notag
+  \\ 28 && @28:\  & \vdash \mc{D} \in
+      \mathbb{C}&(\mbox{\ref{eq:ax-mp}},26,27)\notag
+  \\ 29 &&  & \vdash \mc{C} \in \mathbb{Z}&(@2)\notag
+  \\ 30 &&  & \vdash ( \mc{C} \in \mathbb{Z} \rightarrow \mc{C} \in \mathbb{C}
+      )&(\mbox{\ref{eq:zcn}})\notag
+  \\ 31 &&  & \vdash \mc{C} \in \mathbb{C}&(\mbox{\ref{eq:ax-mp}},29,30)\notag
+  \\ 32 &&  & \vdash ( \mc{D} \times \mc{C} ) \in
+      \mathbb{C}&(\mbox{\ref{eq:mulcli}},28,31)\notag
+  \\ 33 &&  & \vdash \mc{D} \in \mathbb{C}&(@28)\notag
+  \\ 34 &&  & \vdash \mc{B} \in \mathbb{Z}&(@8)\notag
+  \\ 35 &&  & \vdash ( \mc{B} \in \mathbb{Z} \rightarrow \mc{B} \in \mathbb{C}
+      )&(\mbox{\ref{eq:zcn}})\notag
+  \\ 36 &&  & \vdash \mc{B} \in \mathbb{C}&(\mbox{\ref{eq:ax-mp}},34,35)\notag
+  \\ 37 &&  & \vdash ( \mc{D} \times \mc{B} ) \in
+      \mathbb{C}&(\mbox{\ref{eq:mulcli}},33,36)\notag
+  \\ 38 &&  & \vdash ( ( \tau + ( \mc{D} \times \mc{C} ) ) + ( \mc{D} \times
+      \mc{B} ) ) = ( \tau + ( ( \mc{D} \times \mc{C} ) + (
+      \mc{D} \times \mc{B} ) )
+      )&(\mbox{\ref{eq:addassi}},25,32,37)\notag
+  \\ 39 &&  & \vdash ( \tau + ( \mc{D} \times ( \mc{B} + \mc{C} ) ) ) = ( ( \tau
+      + ( \mc{D} \times \mc{C} ) ) + ( \mc{D} \times \mc{B} )
+      )&(\mbox{\ref{eq:eqtr4i}},21,38)\notag
+  \\ 40 && @40:\  & \vdash ( ( \tau + ( \mc{D} \times \mc{C} ) ) + ( \mc{D}
+      \times \mc{B} ) ) = ( \tau + ( \mc{D} \times ( \mc{B} +
+      \mc{C} ) ) )&(\mbox{\ref{eq:eqcomi}},39)\notag
+  \\ 41 &&  & \vdash ( \tau + ( \mc{D} \times ( \mc{B} + \mc{C} ) ) ) \in
+      \mathbf{T}&\text{Hyp~tscomci.4}\notag%bl.tscomci.4
+  \\ 42 && @42:\  & \vdash ( ( \tau + ( \mc{D} \times \mc{C} ) ) + ( \mc{D}
+      \times \mc{B} ) ) \in
+      \mathbf{T}&(\mbox{\ref{eq:eqeltri}},40,41)\notag
+  \\ 43 &&  & \vdash \mathbf{I} \lsem ( \mc{A} ~\string^~ \mc{B} ) , ( \tau + (
+      \mc{D} \times \mc{C} ) ) \rsem = \mathbf{I} \lsem
+      \mc{A} , ( ( \tau + ( \mc{D} \times \mc{C} ) ) + (
+      \mc{D} \times \mc{B} ) )
+      \rsem&(\mbox{\ref{eq:bl.tsci}},8,9,10,42)\notag
+  \\ 44 &&  & \vdash \mc{A} = \mc{A}&(\mbox{\ref{eq:eqid}})\notag
+  \\ 45 &&  & \vdash ( ( \tau + ( \mc{D} \times \mc{C} ) ) + ( \mc{D} \times
+      \mc{B} ) ) \in \mathbf{T}&(@42)\notag
+  \\ 46 &&  & \vdash ( \tau + ( \mc{D} \times ( \mc{B} + \mc{C} ) ) ) \in
+      \mathbf{T}&\text{Hyp~tscomci.4}\notag%bl.tscomci.4
+  \\ 47 &&  & \vdash ( ( \tau + ( \mc{D} \times \mc{C} ) ) + ( \mc{D} \times
+      \mc{B} ) ) = ( \tau + ( \mc{D} \times ( \mc{B} +
+      \mc{C} ) ) )&(@40)\notag
+  \\ 48 &&  & \vdash ( ( ( \tau + ( \mc{D} \times \mc{C} ) ) + ( \mc{D} \times
+      \mc{B} ) ) \in \mathbf{T} \wedge \notag \\ & & & \qquad
+       ( \tau + ( \mc{D}
+      \times ( \mc{B} + \mc{C} ) ) ) \in \mathbf{T} \wedge \notag \\ & & & \qquad
+       (
+      ( \tau + ( \mc{D} \times \mc{C} ) ) + ( \mc{D} \times
+      \mc{B} ) ) = ( \tau + ( \mc{D} \times ( \mc{B} +
+      \mc{C} ) ) )
+      )&(\mbox{\ref{eq:3pm3.2i}},45,46,47)\notag
+  \\ 49 &&  & \vdash ( ( ( ( \tau + ( \mc{D} \times \mc{C} ) ) + ( \mc{D} \times
+      \mc{B} ) ) \in \mathbf{T} \wedge ( \tau + ( \mc{D}
+      \times ( \mc{B} + \mc{C} ) ) ) \in \mathbf{T} \wedge  \notag \\ & & & \qquad
+      (
+      ( \tau + ( \mc{D} \times \mc{C} ) ) + ( \mc{D} \times
+      \mc{B} ) ) = ( \tau + ( \mc{D} \times ( \mc{B} +
+      \mc{C} ) ) ) ) \rightarrow ( \mc{A} = \mc{A}
+      \leftrightarrow \notag \\ & & & \qquad
+       \mathbf{I} \lsem \mc{A} , ( ( \tau +
+      ( \mc{D} \times \mc{C} ) ) + ( \mc{D} \times \mc{B} ) )
+      \rsem = \mathbf{I} \lsem \mc{A} , ( \tau + ( \mc{D}
+      \times ( \mc{B} + \mc{C} ) ) ) \rsem )
+      )&(\mbox{\ref{eq:ax-bl.eq}})\notag
+  \\ 50 &&  & \vdash ( \mc{A} = \mc{A} \leftrightarrow  \notag \\ & & & \qquad
+      \mathbf{I} \lsem \mc{A}
+      , ( ( \tau + ( \mc{D} \times \mc{C} ) ) + ( \mc{D}
+      \times \mc{B} ) ) \rsem = \mathbf{I} \lsem \mc{A} , (
+      \tau + ( \mc{D} \times ( \mc{B} + \mc{C} ) ) ) \rsem
+      )&(\mbox{\ref{eq:ax-mp}},48,49)\notag
+  \\ 51 &&  & \vdash \mathbf{I} \lsem \mc{A} , ( ( \tau + ( \mc{D} \times \mc{C}
+      ) ) + ( \mc{D} \times \mc{B} ) ) \rsem = \mathbf{I}
+      \lsem \mc{A} , ( \tau + ( \mc{D} \times ( \mc{B} +
+      \mc{C} ) ) ) \rsem&(\mbox{\ref{eq:mpbi}},44,50)\notag
+  \\ 52 &&  & \vdash \mathbf{I} \lsem ( ( \mc{A} ~\string^~ \mc{B} ) ~\string^~
+      \mc{C} ) , \tau \rsem = \mathbf{I} \lsem \mc{A} , (
+      \tau + ( \mc{D} \times ( \mc{B} + \mc{C} ) ) )
+      \rsem&(\mbox{\ref{eq:3eqtri}},6,43,51)\notag
+  \\ 53 &&  & \vdash \mc{B} \in \mathbb{Z}&(@8)\notag
+  \\ 54 &&  & \vdash \mc{C} \in \mathbb{Z}&(@2)\notag
+  \\ 55 &&  & \vdash ( \mc{B} \in \mathbb{Z} \wedge \mc{C} \in \mathbb{Z}
+      )&(\mbox{\ref{eq:pm3.2i}},53,54)\notag
+  \\ 56 &&  & \vdash ( ( \mc{B} \in \mathbb{Z} \wedge \mc{C} \in \mathbb{Z} )
+      \rightarrow ( \mc{B} + \mc{C} ) \in \mathbb{Z}
+      )&(\mbox{\ref{eq:zaddcl}})\notag
+  \\ 57 &&  & \vdash ( \mc{B} + \mc{C} ) \in
+      \mathbb{Z}&(\mbox{\ref{eq:ax-mp}},55,56)\notag
+  \\ 58 &&  & \vdash \mc{D} \in
+      \mathbb{R}&\text{Hyp~tscomci.2}\notag%bl.tscomci.2
+  \\ 59 &&  & \vdash \tau \in
+      \mathbf{T}&\text{Hyp~tscomci.3}\notag%bl.tscomci.3
+  \\ 60 &&  & \vdash ( \tau + ( \mc{D} \times ( \mc{B} + \mc{C} ) ) ) \in
+      \mathbf{T}&\text{Hyp~tscomci.4}\notag%bl.tscomci.4
+  \\ 61 &&  & \vdash \mathbf{I} \lsem ( \mc{A} ~\string^~ ( \mc{B} + \mc{C} ) )
+      , \tau \rsem = \mathbf{I} \lsem \mc{A} , ( \tau + (
+      \mc{D} \times ( \mc{B} + \mc{C} ) ) )
+      \rsem&(\mbox{\ref{eq:bl.tsci}},57,58,59,60)\notag
+  \\ 62 &&  & \vdash \mathbf{I} \lsem ( ( \mc{A} ~\string^~ \mc{B} ) ~\string^~
+      \mc{C} ) , \tau \rsem = \mathbf{I} \lsem ( \mc{A}
+      ~\string^~ ( \mc{B} + \mc{C} ) ) , \tau
+      \rsem&(\mbox{\ref{eq:eqtr4i}},52,61)\notag
+  \\ 63 &&  & \vdash \tau \in
+      \mathbf{T}&\text{Hyp~tscomci.3}\notag%bl.tscomci.3
+  \\ 64 &&  & \vdash ( \mathbf{I} \lsem ( ( \mc{A} ~\string^~ \mc{B} )
+      ~\string^~ \mc{C} ) = ( \mc{A} ~\string^~ ( \mc{B} +
+      \mc{C} ) ) , \tau \rsem \leftrightarrow  \notag \\ & & & \qquad
+      \mathbf{I}
+      \lsem ( ( \mc{A} ~\string^~ \mc{B} ) ~\string^~
+      \mc{C} ) , \tau \rsem = \mathbf{I} \lsem ( \mc{A}
+      ~\string^~ ( \mc{B} + \mc{C} ) ) , \tau \rsem
+      )&(\mbox{\ref{eq:df-bl.eqt}},63)\notag
+  \\ 65 &&  & \vdash \mathbf{I} \lsem ( ( \mc{A} ~\string^~ \mc{B} ) ~\string^~
+      \mc{C} ) = ( \mc{A} ~\string^~ ( \mc{B} + \mc{C} ) )
+      , \tau \rsem&(\mbox{\ref{eq:mpbir}},62,64)\notag
+\end{align}
+\end{proof}
+
+\begin{restatable}{lemma}{bltsbii}~\blTitle{bl.tsbii}~ Equivalence (biconditional) of
+$~\string^~$ for predicates, inference.
+\begin{align}
+\vdash ( \mc{A} \in \mathbb{Z} \wedge \mc{B} \in \mathbb{Z} )\quad\&\quad
+    \vdash ( \mc{D} \in \mathbb{R} \wedge 0 < \mc{D} )\quad\&\quad \vdash \tau
+    \in \mathbf{T}\quad\& \notag \\ %& & & \qquad
+      \quad \vdash ( \tau + ( \mc{D} \times \mc{A} ) ) \in
+    \mathbf{T}\quad\&\quad \vdash ( \tau + ( \mc{D} \times \mc{B} ) ) \in
+    \mathbf{T}\quad\&\quad \vdash ( \mw{\varphi} \leftrightarrow \mw{\psi}
+    )\quad\&\quad \vdash \mc{A} = \mc{B}\quad\Rightarrow \notag \\ %& & & \qquad
+      \quad \vdash \mathbf{I}
+    \lsem ( ( \mw{\varphi} ~\string^~ \mc{A} ) \leftrightarrow ( \mw{\psi}
+    ~\string^~ \mc{B} ) ) , \tau \rsem\label{eq:bl.tsbii}\tag{bl.tsbii}
+\end{align}
+\end{restatable}
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash ( \mw{\varphi} \leftrightarrow \mw{\psi}
+      )&\text{Hyp~tsbii.6}\notag%bl.tsbii.6
+  \\ 2 &&  & \vdash ( \tau + ( \mc{D} \times \mc{A} ) ) \in
+      \mathbf{T}&\text{Hyp~tsbii.4}\notag%bl.tsbii.4
+  \\ 3 &&  & \vdash ( \tau + ( \mc{D} \times \mc{B} ) ) \in
+      \mathbf{T}&\text{Hyp~tsbii.5}\notag%bl.tsbii.5
+  \\ 4 &&  & \vdash \mc{A} = \mc{B}&\text{Hyp~tsbii.7}\notag%bl.tsbii.7
+  \\ 5 &&  & \vdash ( \mc{A} \in \mathbb{Z} \wedge \mc{B} \in \mathbb{Z}
+      )&\text{Hyp~tsbii.1}\notag%bl.tsbii.1
+  \\ 6 && @6:\  & \vdash \mc{A} \in \mathbb{Z}&(\mbox{\ref{eq:simpli}},5)\notag
+  \\ 7 &&  & \vdash \mathbb{Z} \subseteq
+      \mathbb{C}&(\mbox{\ref{eq:zsscn}})\notag
+  \\ 8 &&  & \vdash ( \mc{A} \in \mathbb{Z} \rightarrow \mc{A} \in \mathbb{C}
+      )&(\mbox{\ref{eq:sseli}},7)\notag
+  \\ 9 && @9:\  & \vdash \mc{A} \in
+      \mathbb{C}&(\mbox{\ref{eq:ax-mp}},6,8)\notag
+  \\ 10 &&  & \vdash ( \mc{A} \in \mathbb{Z} \wedge \mc{B} \in \mathbb{Z}
+      )&\text{Hyp~tsbii.1}\notag%bl.tsbii.1
+  \\ 11 && @11:\  & \vdash \mc{B} \in
+      \mathbb{Z}&(\mbox{\ref{eq:simpri}},10)\notag
+  \\ 12 &&  & \vdash \mathbb{Z} \subseteq
+      \mathbb{C}&(\mbox{\ref{eq:zsscn}})\notag
+  \\ 13 &&  & \vdash ( \mc{B} \in \mathbb{Z} \rightarrow \mc{B} \in \mathbb{C}
+      )&(\mbox{\ref{eq:sseli}},12)\notag
+  \\ 14 && @14:\  & \vdash \mc{B} \in
+      \mathbb{C}&(\mbox{\ref{eq:ax-mp}},11,13)\notag
+  \\ 15 &&  & \vdash ( \mc{D} \in \mathbb{R} \wedge 0 < \mc{D}
+      )&\text{Hyp~tsbii.2}\notag%bl.tsbii.2
+  \\ 16 && @16:\  & \vdash \mc{D} \in
+      \mathbb{R}&(\mbox{\ref{eq:simpli}},15)\notag
+  \\ 17 &&  & \vdash \mathbb{R} \subseteq
+      \mathbb{C}&(\mbox{\ref{eq:ax-resscn}})\notag
+  \\ 18 &&  & \vdash ( \mc{D} \in \mathbb{R} \rightarrow \mc{D} \in \mathbb{C}
+      )&(\mbox{\ref{eq:sseli}},17)\notag
+  \\ 19 && @19:\  & \vdash \mc{D} \in
+      \mathbb{C}&(\mbox{\ref{eq:ax-mp}},16,18)\notag
+  \\ 20 &&  & \vdash ( \mc{D} \in \mathbb{R} \wedge 0 < \mc{D}
+      )&\text{Hyp~tsbii.2}\notag%bl.tsbii.2
+  \\ 21 &&  & \vdash 0 < \mc{D}&(\mbox{\ref{eq:simpri}},20)\notag
+  \\ 22 &&  & \vdash 0 \in \mathbb{R}&(\mbox{\ref{eq:0re}})\notag
+  \\ 23 &&  & \vdash \mc{D} \in \mathbb{R}&(@16)\notag
+  \\ 24 &&  & \vdash ( 0 < \mc{D} \rightarrow \mc{D} \ne 0
+      )&(\mbox{\ref{eq:ltnei}},22,23)\notag
+  \\ 25 &&  & \vdash \mc{D} \ne 0&(\mbox{\ref{eq:ax-mp}},21,24)\notag
+  \\ 26 &&  & \vdash ( \mc{D} \in \mathbb{C} \wedge \mc{D} \ne 0
+      )&(\mbox{\ref{eq:pm3.2i}},19,25)\notag
+  \\ 27 &&  & \vdash ( \mc{A} \in \mathbb{C} \wedge \mc{B} \in \mathbb{C}
+      \wedge ( \mc{D} \in \mathbb{C} \wedge \mc{D} \ne 0 )
+      )&(\mbox{\ref{eq:3pm3.2i}},9,14,26)\notag
+  \\ 28 &&  & \vdash ( ( \mc{A} \in \mathbb{C} \wedge \mc{B} \in \mathbb{C}
+      \wedge ( \mc{D} \in \mathbb{C} \wedge \mc{D} \ne 0 )
+      ) \rightarrow  \notag \\ & & & \qquad
+     ( ( \mc{A} \times \mc{D} ) = ( \mc{B}
+      \times \mc{D} ) \leftrightarrow \mc{A} = \mc{B} )
+      )&(\mbox{\ref{eq:mulcan2}})\notag
+  \\ 29 &&  & \vdash ( ( \mc{A} \times \mc{D} ) = ( \mc{B} \times \mc{D} )
+      \leftrightarrow \mc{A} = \mc{B}
+      )&(\mbox{\ref{eq:ax-mp}},27,28)\notag
+  \\ 30 &&  & \vdash ( \mc{A} \times \mc{D} ) = ( \mc{B} \times \mc{D}
+      )&(\mbox{\ref{eq:mpbir}},4,29)\notag
+  \\ 31 &&  & \vdash \mc{A} \in \mathbb{C}&(@9)\notag
+  \\ 32 &&  & \vdash \mc{D} \in \mathbb{C}&(@19)\notag
+  \\ 33 &&  & \vdash ( \mc{A} \times \mc{D} ) = ( \mc{D} \times \mc{A}
+      )&(\mbox{\ref{eq:mulcomi}},31,32)\notag
+  \\ 34 &&  & \vdash \mc{B} \in \mathbb{C}&(@14)\notag
+  \\ 35 &&  & \vdash \mc{D} \in \mathbb{C}&(@19)\notag
+  \\ 36 &&  & \vdash ( \mc{B} \times \mc{D} ) = ( \mc{D} \times \mc{B}
+      )&(\mbox{\ref{eq:mulcomi}},34,35)\notag
+  \\ 37 &&  & \vdash ( \mc{D} \times \mc{A} ) = ( \mc{D} \times \mc{B}
+      )&(\mbox{\ref{eq:3eqtr3i}},30,33,36)\notag
+  \\ 38 &&  & \vdash ( \tau + ( \mc{D} \times \mc{A} ) ) = ( \tau + ( \mc{D}
+      \times \mc{B} ) )&(\mbox{\ref{eq:oveq2i}},37)\notag
+  \\ 39 &&  & \vdash ( ( \tau + ( \mc{D} \times \mc{A} ) ) \in \mathbf{T} \wedge
+      ( \tau + ( \mc{D} \times \mc{B} ) ) \in \mathbf{T}
+      \wedge \notag \\ & & & \qquad
+      ( \tau + ( \mc{D} \times \mc{A} ) ) = ( \tau +
+      ( \mc{D} \times \mc{B} ) )
+      )&(\mbox{\ref{eq:3pm3.2i}},2,3,38)\notag
+  \\ 40 &&  & \vdash ( ( ( \tau + ( \mc{D} \times \mc{A} ) ) \in \mathbf{T}
+      \wedge ( \tau + ( \mc{D} \times \mc{B} ) ) \in
+      \mathbf{T} \wedge  \notag \\ & & & \qquad
+     ( \tau + ( \mc{D} \times \mc{A} ) )
+      = ( \tau + ( \mc{D} \times \mc{B} ) ) ) \rightarrow  \notag \\ & & & \qquad
+     (
+      ( \mw{\varphi} \leftrightarrow \mw{\psi} )
+      \leftrightarrow ( \mathbf{I} \lsem \mw{\varphi} , (
+      \tau + ( \mc{D} \times \mc{A} ) ) \rsem
+      \leftrightarrow \mathbf{I} \lsem \mw{\psi} , ( \tau +
+      ( \mc{D} \times \mc{B} ) ) \rsem ) )
+      )&(\mbox{\ref{eq:ax-bl.bi}})\notag
+  \\ 41 &&  & \vdash ( ( \mw{\varphi} \leftrightarrow \mw{\psi} )
+      \leftrightarrow ( \mathbf{I} \lsem \mw{\varphi} , (
+      \tau + ( \mc{D} \times \mc{A} ) ) \rsem
+      \leftrightarrow \mathbf{I} \lsem \mw{\psi} , ( \tau +
+      ( \mc{D} \times \mc{B} ) ) \rsem )
+      )&(\mbox{\ref{eq:ax-mp}},39,40)\notag
+  \\ 42 &&  & \vdash ( \mathbf{I} \lsem \mw{\varphi} , ( \tau + ( \mc{D} \times
+      \mc{A} ) ) \rsem \leftrightarrow \mathbf{I} \lsem
+      \mw{\psi} , ( \tau + ( \mc{D} \times \mc{B} ) ) \rsem
+      )&(\mbox{\ref{eq:mpbi}},1,41)\notag
+  \\ 43 &&  & \vdash \mc{A} \in \mathbb{Z}&(@6)\notag
+  \\ 44 &&  & \vdash \mc{D} \in \mathbb{R}&(@16)\notag
+  \\ 45 &&  & \vdash \tau \in \mathbf{T}&\text{Hyp~tsbii.3}\notag%bl.tsbii.3
+  \\ 46 &&  & \vdash ( \tau + ( \mc{D} \times \mc{A} ) ) \in
+      \mathbf{T}&\text{Hyp~tsbii.4}\notag%bl.tsbii.4
+  \\ 47 &&  & \vdash ( \mc{D} \in \mathbb{R} \wedge \tau \in \mathbf{T} \wedge
+      ( \tau + ( \mc{D} \times \mc{A} ) ) \in \mathbf{T}
+      )&(\mbox{\ref{eq:3pm3.2i}},44,45,46)\notag
+  \\ 48 &&  & \vdash ( \mc{A} \in \mathbb{Z} \wedge ( \mc{D} \in \mathbb{R}
+      \wedge \tau \in \mathbf{T} \wedge ( \tau + ( \mc{D}
+      \times \mc{A} ) ) \in \mathbf{T} )
+      )&(\mbox{\ref{eq:pm3.2i}},43,47)\notag
+  \\ 49 &&  & \vdash ( ( \mc{A} \in \mathbb{Z} \wedge ( \mc{D} \in \mathbb{R}
+      \wedge \tau \in \mathbf{T} \wedge ( \tau + ( \mc{D}
+      \times \mc{A} ) ) \in \mathbf{T} ) ) \rightarrow \notag \\ & & & \qquad
+      (
+      \mathbf{I} \lsem ( \mw{\varphi} ~\string^~ \mc{A} ) ,
+      \tau \rsem \leftrightarrow \mathbf{I} \lsem
+      \mw{\varphi} , ( \tau + ( \mc{D} \times \mc{A} ) )
+      \rsem ) )&(\mbox{\ref{eq:df-bl.ts}})\notag
+  \\ 50 &&  & \vdash ( \mathbf{I} \lsem ( \mw{\varphi} ~\string^~ \mc{A} ) ,
+      \tau \rsem \leftrightarrow \mathbf{I} \lsem
+      \mw{\varphi} , ( \tau + ( \mc{D} \times \mc{A} ) )
+      \rsem )&(\mbox{\ref{eq:ax-mp}},48,49)\notag
+  \\ 51 &&  & \vdash \mc{B} \in \mathbb{Z}&(@11)\notag
+  \\ 52 &&  & \vdash \mc{D} \in \mathbb{R}&(@16)\notag
+  \\ 53 &&  & \vdash \tau \in \mathbf{T}&\text{Hyp~tsbii.3}\notag%bl.tsbii.3
+  \\ 54 &&  & \vdash ( \tau + ( \mc{D} \times \mc{B} ) ) \in
+      \mathbf{T}&\text{Hyp~tsbii.5}\notag%bl.tsbii.5
+  \\ 55 &&  & \vdash ( \mc{D} \in \mathbb{R} \wedge \tau \in \mathbf{T} \wedge
+      ( \tau + ( \mc{D} \times \mc{B} ) ) \in \mathbf{T}
+      )&(\mbox{\ref{eq:3pm3.2i}},52,53,54)\notag
+  \\ 56 &&  & \vdash ( \mc{B} \in \mathbb{Z} \wedge ( \mc{D} \in \mathbb{R}
+      \wedge \tau \in \mathbf{T} \wedge ( \tau + ( \mc{D}
+      \times \mc{B} ) ) \in \mathbf{T} )
+      )&(\mbox{\ref{eq:pm3.2i}},51,55)\notag
+  \\ 57 &&  & \vdash ( ( \mc{B} \in \mathbb{Z} \wedge ( \mc{D} \in \mathbb{R}
+      \wedge \tau \in \mathbf{T} \wedge ( \tau + ( \mc{D}
+      \times \mc{B} ) ) \in \mathbf{T} ) ) \rightarrow  \notag \\ & & & \qquad
+     (
+      \mathbf{I} \lsem ( \mw{\psi} ~\string^~ \mc{B} ) ,
+      \tau \rsem \leftrightarrow \mathbf{I} \lsem \mw{\psi}
+      , ( \tau + ( \mc{D} \times \mc{B} ) ) \rsem )
+      )&(\mbox{\ref{eq:df-bl.ts}})\notag
+  \\ 58 &&  & \vdash ( \mathbf{I} \lsem ( \mw{\psi} ~\string^~ \mc{B} ) , \tau
+      \rsem \leftrightarrow \mathbf{I} \lsem \mw{\psi} , (
+      \tau + ( \mc{D} \times \mc{B} ) ) \rsem
+      )&(\mbox{\ref{eq:ax-mp}},56,57)\notag
+  \\ 59 &&  & \vdash ( \mathbf{I} \lsem ( \mw{\varphi} ~\string^~ \mc{A} ) ,
+      \tau \rsem \leftrightarrow \mathbf{I} \lsem (
+      \mw{\psi} ~\string^~ \mc{B} ) , \tau \rsem
+      )&(\mbox{\ref{eq:3bitr4i}},42,50,58)\notag
+  \\ 60 &&  & \vdash \tau \in \mathbf{T}&\text{Hyp~tsbii.3}\notag%bl.tsbii.3
+  \\ 61 &&  & \vdash ( \mathbf{I} \lsem ( ( \mw{\varphi} ~\string^~ \mc{A} )
+      \leftrightarrow ( \mw{\psi} ~\string^~ \mc{B} ) ) ,
+      \tau \rsem \leftrightarrow ( \mathbf{I} \lsem (
+      \mw{\varphi} ~\string^~ \mc{A} ) , \tau \rsem
+      \leftrightarrow \mathbf{I} \lsem ( \mw{\psi}
+      ~\string^~ \mc{B} ) , \tau \rsem )
+      )&(\mbox{\ref{eq:df-bl.bit}},60)\notag
+  \\ 62 &&  & \vdash \mathbf{I} \lsem ( ( \mw{\varphi} ~\string^~ \mc{A} )
+      \leftrightarrow ( \mw{\psi} ~\string^~ \mc{B} ) ) ,
+      \tau \rsem&(\mbox{\ref{eq:mpbir}},59,61)\notag
+\end{align}
+\end{proof}
+
+\begin{restatable}{lemma}{bltseqi}~\blTitle{bl.tseqi}~ Equality of $~\string^~$ for values,
+inference.
+\begin{align}
+\vdash ( \mc{A} \in \mathbb{Z} \wedge \mc{B} \in \mathbb{Z} )\quad\&\quad
+    \vdash ( \mc{D} \in \mathbb{R} \wedge 0 < \mc{D} )\quad\&\quad \vdash \tau
+    \in \mathbf{T}\quad\& \notag \\ %& & & \qquad
+     \quad \vdash ( \tau + ( \mc{D} \times \mc{A} ) ) \in
+    \mathbf{T}\quad\&\quad \vdash ( \tau + ( \mc{D} \times \mc{B} ) ) \in
+    \mathbf{T}\quad\& \notag \\ %& & & \qquad
+     \quad \vdash ( \mc{C} \in \mathbb{R} \wedge E \in
+    \mathbb{R} )\quad\&\quad \vdash ( \mc{C} = E \wedge \mc{A} = \mc{B}
+    )\quad\Rightarrow \notag \\ %& & & \qquad
+     \quad \vdash \mathbf{I} \lsem ( \mc{C} ~\string^~ \mc{A} )
+    = ( E ~\string^~ \mc{B} ) , \tau \rsem\label{eq:bl.tseqi}\tag{bl.tseqi}
+\end{align}
+\end{restatable}
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash ( \mc{C} = E \wedge \mc{A} = \mc{B}
+      )&\text{Hyp~tseqi.7}\notag%bl.tseqi.7
+  \\ 2 &&  & \vdash \mc{C} = E&(\mbox{\ref{eq:simpli}},1)\notag
+  \\ 3 &&  & \vdash ( \tau + ( \mc{D} \times \mc{A} ) ) \in
+      \mathbf{T}&\text{Hyp~tseqi.4}\notag%bl.tseqi.4
+  \\ 4 &&  & \vdash ( \tau + ( \mc{D} \times \mc{B} ) ) \in
+      \mathbf{T}&\text{Hyp~tseqi.5}\notag%bl.tseqi.5
+  \\ 5 &&  & \vdash ( \mc{C} = E \wedge \mc{A} = \mc{B}
+      )&\text{Hyp~tseqi.7}\notag%bl.tseqi.7
+  \\ 6 &&  & \vdash \mc{A} = \mc{B}&(\mbox{\ref{eq:simpri}},5)\notag
+  \\ 7 &&  & \vdash ( \mc{A} \in \mathbb{Z} \wedge \mc{B} \in \mathbb{Z}
+      )&\text{Hyp~tseqi.1}\notag%bl.tseqi.1
+  \\ 8 && @8:\  & \vdash \mc{A} \in \mathbb{Z}&(\mbox{\ref{eq:simpli}},7)\notag
+  \\ 9 &&  & \vdash \mathbb{Z} \subseteq
+      \mathbb{C}&(\mbox{\ref{eq:zsscn}})\notag
+  \\ 10 &&  & \vdash ( \mc{A} \in \mathbb{Z} \rightarrow \mc{A} \in \mathbb{C}
+      )&(\mbox{\ref{eq:sseli}},9)\notag
+  \\ 11 && @11:\  & \vdash \mc{A} \in
+      \mathbb{C}&(\mbox{\ref{eq:ax-mp}},8,10)\notag
+  \\ 12 &&  & \vdash ( \mc{A} \in \mathbb{Z} \wedge \mc{B} \in \mathbb{Z}
+      )&\text{Hyp~tseqi.1}\notag%bl.tseqi.1
+  \\ 13 && @13:\  & \vdash \mc{B} \in
+      \mathbb{Z}&(\mbox{\ref{eq:simpri}},12)\notag
+  \\ 14 &&  & \vdash \mathbb{Z} \subseteq
+      \mathbb{C}&(\mbox{\ref{eq:zsscn}})\notag
+  \\ 15 &&  & \vdash ( \mc{B} \in \mathbb{Z} \rightarrow \mc{B} \in \mathbb{C}
+      )&(\mbox{\ref{eq:sseli}},14)\notag
+  \\ 16 && @16:\  & \vdash \mc{B} \in
+      \mathbb{C}&(\mbox{\ref{eq:ax-mp}},13,15)\notag
+  \\ 17 &&  & \vdash ( \mc{D} \in \mathbb{R} \wedge 0 < \mc{D}
+      )&\text{Hyp~tseqi.2}\notag%bl.tseqi.2
+  \\ 18 && @18:\  & \vdash \mc{D} \in
+      \mathbb{R}&(\mbox{\ref{eq:simpli}},17)\notag
+  \\ 19 &&  & \vdash \mathbb{R} \subseteq
+      \mathbb{C}&(\mbox{\ref{eq:ax-resscn}})\notag
+  \\ 20 &&  & \vdash ( \mc{D} \in \mathbb{R} \rightarrow \mc{D} \in \mathbb{C}
+      )&(\mbox{\ref{eq:sseli}},19)\notag
+  \\ 21 && @21:\  & \vdash \mc{D} \in
+      \mathbb{C}&(\mbox{\ref{eq:ax-mp}},18,20)\notag
+  \\ 22 &&  & \vdash ( \mc{D} \in \mathbb{R} \wedge 0 < \mc{D}
+      )&\text{Hyp~tseqi.2}\notag%bl.tseqi.2
+  \\ 23 &&  & \vdash 0 < \mc{D}&(\mbox{\ref{eq:simpri}},22)\notag
+  \\ 24 &&  & \vdash 0 \in \mathbb{R}&(\mbox{\ref{eq:0re}})\notag
+  \\ 25 &&  & \vdash \mc{D} \in \mathbb{R}&(@18)\notag
+  \\ 26 &&  & \vdash ( 0 < \mc{D} \rightarrow \mc{D} \ne 0
+      )&(\mbox{\ref{eq:ltnei}},24,25)\notag
+  \\ 27 &&  & \vdash \mc{D} \ne 0&(\mbox{\ref{eq:ax-mp}},23,26)\notag
+  \\ 28 &&  & \vdash ( \mc{D} \in \mathbb{C} \wedge \mc{D} \ne 0
+      )&(\mbox{\ref{eq:pm3.2i}},21,27)\notag
+  \\ 29 &&  & \vdash ( \mc{A} \in \mathbb{C} \wedge \mc{B} \in \mathbb{C}
+      \wedge ( \mc{D} \in \mathbb{C} \wedge \mc{D} \ne 0 )
+      )&(\mbox{\ref{eq:3pm3.2i}},11,16,28)\notag
+  \\ 30 &&  & \vdash ( ( \mc{A} \in \mathbb{C} \wedge \mc{B} \in \mathbb{C}
+      \wedge ( \mc{D} \in \mathbb{C} \wedge \mc{D} \ne 0 )
+      ) \rightarrow  \notag \\ & & & \qquad
+     ( ( \mc{A} \times \mc{D} ) = ( \mc{B}
+      \times \mc{D} ) \leftrightarrow \mc{A} = \mc{B} )
+      )&(\mbox{\ref{eq:mulcan2}})\notag
+  \\ 31 &&  & \vdash ( ( \mc{A} \times \mc{D} ) = ( \mc{B} \times \mc{D} )
+      \leftrightarrow \mc{A} = \mc{B}
+      )&(\mbox{\ref{eq:ax-mp}},29,30)\notag
+  \\ 32 &&  & \vdash ( \mc{A} \times \mc{D} ) = ( \mc{B} \times \mc{D}
+      )&(\mbox{\ref{eq:mpbir}},6,31)\notag
+  \\ 33 &&  & \vdash \mc{A} \in \mathbb{C}&(@11)\notag
+  \\ 34 &&  & \vdash \mc{D} \in \mathbb{C}&(@21)\notag
+  \\ 35 &&  & \vdash ( \mc{A} \times \mc{D} ) = ( \mc{D} \times \mc{A}
+      )&(\mbox{\ref{eq:mulcomi}},33,34)\notag
+  \\ 36 &&  & \vdash \mc{B} \in \mathbb{C}&(@16)\notag
+  \\ 37 &&  & \vdash \mc{D} \in \mathbb{C}&(@21)\notag
+  \\ 38 &&  & \vdash ( \mc{B} \times \mc{D} ) = ( \mc{D} \times \mc{B}
+      )&(\mbox{\ref{eq:mulcomi}},36,37)\notag
+  \\ 39 &&  & \vdash ( \mc{D} \times \mc{A} ) = ( \mc{D} \times \mc{B}
+      )&(\mbox{\ref{eq:3eqtr3i}},32,35,38)\notag
+  \\ 40 &&  & \vdash ( \tau + ( \mc{D} \times \mc{A} ) ) = ( \tau + ( \mc{D}
+      \times \mc{B} ) )&(\mbox{\ref{eq:oveq2i}},39)\notag
+  \\ 41 &&  & \vdash ( ( \tau + ( \mc{D} \times \mc{A} ) ) \in \mathbf{T} \wedge
+      ( \tau + ( \mc{D} \times \mc{B} ) ) \in \mathbf{T}
+      \wedge  \notag \\ & & & \qquad
+     ( \tau + ( \mc{D} \times \mc{A} ) ) = ( \tau +
+      ( \mc{D} \times \mc{B} ) )
+      )&(\mbox{\ref{eq:3pm3.2i}},3,4,40)\notag
+  \\ 42 &&  & \vdash ( ( ( \tau + ( \mc{D} \times \mc{A} ) ) \in \mathbf{T}
+      \wedge ( \tau + ( \mc{D} \times \mc{B} ) ) \in
+      \mathbf{T} \wedge  \notag \\ & & & \qquad
+     ( \tau + ( \mc{D} \times \mc{A} ) )
+      = ( \tau + ( \mc{D} \times \mc{B} ) ) ) \rightarrow  \notag \\ & & & \qquad
+     (
+      \mc{C} = E \leftrightarrow \mathbf{I} \lsem \mc{C} ,
+      ( \tau + ( \mc{D} \times \mc{A} ) ) \rsem = \mathbf{I}
+      \lsem E , ( \tau + ( \mc{D} \times \mc{B} ) ) \rsem )
+      )&(\mbox{\ref{eq:ax-bl.eq}})\notag
+  \\ 43 &&  & \vdash ( \mc{C} = E \leftrightarrow \mathbf{I} \lsem \mc{C} , (
+      \tau + ( \mc{D} \times \mc{A} ) ) \rsem = \mathbf{I}
+      \lsem E , ( \tau + ( \mc{D} \times \mc{B} ) ) \rsem
+      )&(\mbox{\ref{eq:ax-mp}},41,42)\notag
+  \\ 44 &&  & \vdash \mathbf{I} \lsem \mc{C} , ( \tau + ( \mc{D} \times \mc{A} )
+      ) \rsem = \mathbf{I} \lsem E , ( \tau + ( \mc{D}
+      \times \mc{B} ) )
+      \rsem&(\mbox{\ref{eq:mpbi}},2,43)\notag
+  \\ 45 &&  & \vdash \mc{A} \in \mathbb{Z}&(@8)\notag
+  \\ 46 &&  & \vdash \mc{D} \in \mathbb{R}&(@18)\notag
+  \\ 47 &&  & \vdash \tau \in \mathbf{T}&\text{Hyp~tseqi.3}\notag%bl.tseqi.3
+  \\ 48 &&  & \vdash ( \tau + ( \mc{D} \times \mc{A} ) ) \in
+      \mathbf{T}&\text{Hyp~tseqi.4}\notag%bl.tseqi.4
+  \\ 49 &&  & \vdash ( \mc{D} \in \mathbb{R} \wedge \tau \in \mathbf{T} \wedge
+      ( \tau + ( \mc{D} \times \mc{A} ) ) \in \mathbf{T}
+      )&(\mbox{\ref{eq:3pm3.2i}},46,47,48)\notag
+  \\ 50 &&  & \vdash ( \mc{A} \in \mathbb{Z} \wedge ( \mc{D} \in \mathbb{R}
+      \wedge \tau \in \mathbf{T} \wedge ( \tau + ( \mc{D}
+      \times \mc{A} ) ) \in \mathbf{T} )
+      )&(\mbox{\ref{eq:pm3.2i}},45,49)\notag
+  \\ 51 &&  & \vdash ( ( \mc{A} \in \mathbb{Z} \wedge ( \mc{D} \in \mathbb{R}
+      \wedge \tau \in \mathbf{T} \wedge ( \tau + ( \mc{D}
+      \times \mc{A} ) ) \in \mathbf{T} ) ) \rightarrow \notag \\ & & & \qquad
+      \mathbf{I} \lsem ( \mc{C} ~\string^~ \mc{A} ) , \tau
+      \rsem = \mathbf{I} \lsem \mc{C} , ( \tau + ( \mc{D}
+      \times \mc{A} ) ) \rsem
+      )&(\mbox{\ref{eq:df-bl.tsc}})\notag
+  \\ 52 &&  & \vdash \mathbf{I} \lsem ( \mc{C} ~\string^~ \mc{A} ) , \tau \rsem
+      = \mathbf{I} \lsem \mc{C} , ( \tau + ( \mc{D} \times
+      \mc{A} ) ) \rsem&(\mbox{\ref{eq:ax-mp}},50,51)\notag
+  \\ 53 &&  & \vdash \mc{B} \in \mathbb{Z}&(@13)\notag
+  \\ 54 &&  & \vdash \mc{D} \in \mathbb{R}&(@18)\notag
+  \\ 55 &&  & \vdash \tau \in \mathbf{T}&\text{Hyp~tseqi.3}\notag%bl.tseqi.3
+  \\ 56 &&  & \vdash ( \tau + ( \mc{D} \times \mc{B} ) ) \in
+      \mathbf{T}&\text{Hyp~tseqi.5}\notag%bl.tseqi.5
+  \\ 57 &&  & \vdash ( \mc{D} \in \mathbb{R} \wedge \tau \in \mathbf{T} \wedge
+      ( \tau + ( \mc{D} \times \mc{B} ) ) \in \mathbf{T}
+      )&(\mbox{\ref{eq:3pm3.2i}},54,55,56)\notag
+  \\ 58 &&  & \vdash ( \mc{B} \in \mathbb{Z} \wedge ( \mc{D} \in \mathbb{R}
+      \wedge \tau \in \mathbf{T} \wedge ( \tau + ( \mc{D}
+      \times \mc{B} ) ) \in \mathbf{T} )
+      )&(\mbox{\ref{eq:pm3.2i}},53,57)\notag
+  \\ 59 &&  & \vdash ( ( \mc{B} \in \mathbb{Z} \wedge ( \mc{D} \in \mathbb{R}
+      \wedge \tau \in \mathbf{T} \wedge ( \tau + ( \mc{D}
+      \times \mc{B} ) ) \in \mathbf{T} ) ) \rightarrow \notag \\ & & & \qquad
+      \mathbf{I} \lsem ( E ~\string^~ \mc{B} ) , \tau \rsem
+      = \mathbf{I} \lsem E , ( \tau + ( \mc{D} \times \mc{B}
+      ) ) \rsem )&(\mbox{\ref{eq:df-bl.tsc}})\notag
+  \\ 60 &&  & \vdash \mathbf{I} \lsem ( E ~\string^~ \mc{B} ) , \tau \rsem =
+      \mathbf{I} \lsem E , ( \tau + ( \mc{D} \times \mc{B} )
+      ) \rsem&(\mbox{\ref{eq:ax-mp}},58,59)\notag
+  \\ 61 &&  & \vdash \mathbf{I} \lsem ( \mc{C} ~\string^~ \mc{A} ) , \tau \rsem
+      = \mathbf{I} \lsem ( E ~\string^~ \mc{B} ) , \tau
+      \rsem&(\mbox{\ref{eq:3eqtr4i}},44,52,60)\notag
+  \\ 62 &&  & \vdash \tau \in \mathbf{T}&\text{Hyp~tseqi.3}\notag%bl.tseqi.3
+  \\ 63 &&  & \vdash ( \mathbf{I} \lsem ( \mc{C} ~\string^~ \mc{A} ) = ( E
+      ~\string^~ \mc{B} ) , \tau \rsem \leftrightarrow
+      \mathbf{I} \lsem ( \mc{C} ~\string^~ \mc{A} ) , \tau
+      \rsem = \mathbf{I} \lsem ( E ~\string^~ \mc{B} ) ,
+      \tau \rsem )&(\mbox{\ref{eq:df-bl.eqt}},62)\notag
+  \\ 64 &&  & \vdash \mathbf{I} \lsem ( \mc{C} ~\string^~ \mc{A} ) = ( E
+      ~\string^~ \mc{B} ) , \tau
+      \rsem&(\mbox{\ref{eq:mpbir}},61,63)\notag
+\end{align}
+\end{proof}
+

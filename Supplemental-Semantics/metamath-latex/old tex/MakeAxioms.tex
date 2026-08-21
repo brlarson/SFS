@@ -1,0 +1,404 @@
+% This LaTeX file was created by Metamath on 4-Nov-2016 3:06 PM.
+\begin{lemma}\blTitle{bl.tc} True Consequent
+\begin{align}
+\vdash ( {\color{formulacolor}\varphi} \rightarrow \top )\label{bl.tc}
+\end{align}
+\end{lemma}
+
+\begin{proof}
+\begin{align}
+  1 && & \vdash ( {\color{formulacolor}\varphi} \rightarrow (
+      {\color{formulacolor}\varphi} \rightarrow
+      {\color{formulacolor}\varphi} )
+      )&(\mmref{ax-1})\notag
+  \\ 2 && & \vdash ( \top \leftrightarrow ( {\color{formulacolor}\varphi}
+      \rightarrow {\color{formulacolor}\varphi} )
+      )&(\mmref{df-true})\notag
+  \\ 3 && & \vdash ( {\color{formulacolor}\varphi} \rightarrow \top
+      )&1,2,(\mmref{sylibr})\notag
+\end{align}
+\end{proof}
+
+\begin{lemma}\blTitle{bl.idistr} Identity is True
+\begin{align}
+\vdash ( {\color{variablecolor}x} = {\color{variablecolor}x} \leftrightarrow
+    \top )\label{bl.idistr}
+\end{align}
+\end{lemma}
+
+\begin{proof}
+\begin{align}
+  1 && & \vdash {\color{variablecolor}x} =
+      {\color{variablecolor}x}&(\mmref{equid})\notag
+  \\ 2 && & \vdash ( {\color{variablecolor}x} = {\color{variablecolor}x}
+      \leftrightarrow \top )&1,(\mmref{bl.that})\notag
+\end{align}
+\end{proof}
+
+\begin{lemma}\blTitle{bl.orcwl} Or-Introduction Schema of wff
+\begin{align}
+\vdash ( {\color{formulacolor}\varphi} \rightarrow \bigvee(
+    {\rm\color{variablecolor}l_1} {\color{formulacolor}\varphi}
+    {\rm\color{variablecolor}l_2} ) )\label{bl.orcwl}
+\end{align}
+\end{lemma}
+
+\begin{proof}
+\begin{align}
+  1 && & \vdash ( {\color{formulacolor}\varphi} \rightarrow (
+      {\color{formulacolor}\varphi} \vee \bigvee(
+      {\rm\color{variablecolor}l_2}
+      {\rm\color{variablecolor}l_1} ) )
+      )&(\mmref{orc})\notag
+  \\ 2 && & \vdash ( \bigvee( {\rm\color{variablecolor}l_1}
+      {\color{formulacolor}\varphi}
+      {\rm\color{variablecolor}l_2} ) \leftrightarrow (
+      {\color{formulacolor}\varphi} \vee \bigvee(
+      {\rm\color{variablecolor}l_2}
+      {\rm\color{variablecolor}l_1} ) )
+      )&(\mmref{bl.orpmw})\notag
+  \\ 3 && & \vdash ( {\color{formulacolor}\varphi} \rightarrow \bigvee(
+      {\rm\color{variablecolor}l_1}
+      {\color{formulacolor}\varphi}
+      {\rm\color{variablecolor}l_2} )
+      )&1,2,(\mmref{sylibr})\notag
+\end{align}
+\end{proof}
+
+\begin{lemma}\blTitle{bl.ais} And-Introduction Schema of wff
+\begin{align}
+\vdash ( \bigwedge( {\rm\color{variablecolor}l_1} {\color{formulacolor}\varphi}
+    {\rm\color{variablecolor}l_2} ) \rightarrow {\color{formulacolor}\varphi}
+    )\label{bl.ais}
+\end{align}
+\end{lemma}
+
+\begin{proof}
+\begin{align}
+  1 && & \vdash ( \bigwedge( {\rm\color{variablecolor}l_1}
+      {\color{formulacolor}\varphi}
+      {\rm\color{variablecolor}l_2} ) \leftrightarrow (
+      {\color{formulacolor}\varphi} \wedge \bigwedge(
+      {\rm\color{variablecolor}l_2}
+      {\rm\color{variablecolor}l_1} ) )
+      )&(\mmref{bl.anpmw})\notag
+  \\ 2 && & \vdash ( ( {\color{formulacolor}\varphi} \wedge \bigwedge(
+      {\rm\color{variablecolor}l_2}
+      {\rm\color{variablecolor}l_1} ) ) \rightarrow
+      {\color{formulacolor}\varphi}
+      )&(\mmref{simpl})\notag
+  \\ 3 && & \vdash ( \bigwedge( {\rm\color{variablecolor}l_1}
+      {\color{formulacolor}\varphi}
+      {\rm\color{variablecolor}l_2} ) \rightarrow
+      {\color{formulacolor}\varphi}
+      )&1,2,(\mmref{sylbi})\notag
+\end{align}
+\end{proof}
+
+\begin{lemma}\blTitle{bl.aiswl} And-Introduction Schema of wff-List
+\begin{align}
+\vdash ( \bigwedge( {\rm\color{variablecolor}l_1} {\rm\color{variablecolor}l_2}
+    {\rm\color{variablecolor}l_3} ) \rightarrow \bigwedge(
+    {\rm\color{variablecolor}l_2} ) )\label{bl.aiswl}
+\end{align}
+\end{lemma}
+
+\begin{proof}
+\begin{align}
+  1 && & \vdash ( \bigwedge( {\rm\color{variablecolor}l_1} \bigwedge(
+      {\rm\color{variablecolor}l_2} )
+      {\rm\color{variablecolor}l_3} ) \leftrightarrow
+      \bigwedge( {\rm\color{variablecolor}l_1}
+      {\rm\color{variablecolor}l_2}
+      {\rm\color{variablecolor}l_3} )
+      )&(\mmref{bl.anabpm})\notag
+  \\ 2 && & \vdash ( \bigwedge( {\rm\color{variablecolor}l_1} \bigwedge(
+      {\rm\color{variablecolor}l_2} )
+      {\rm\color{variablecolor}l_3} ) \leftrightarrow (
+      \bigwedge( {\rm\color{variablecolor}l_2} ) \wedge
+      \bigwedge( {\rm\color{variablecolor}l_3}
+      {\rm\color{variablecolor}l_1} ) )
+      )&(\mmref{bl.anpmw})\notag
+  \\ 3 && & \vdash ( \bigwedge( {\rm\color{variablecolor}l_1}
+      {\rm\color{variablecolor}l_2}
+      {\rm\color{variablecolor}l_3} ) \leftrightarrow (
+      \bigwedge( {\rm\color{variablecolor}l_2} ) \wedge
+      \bigwedge( {\rm\color{variablecolor}l_3}
+      {\rm\color{variablecolor}l_1} ) )
+      )&1,2,(\mmref{bitr3i})\notag
+  \\ 4 && & \vdash ( ( \bigwedge( {\rm\color{variablecolor}l_2} ) \wedge
+      \bigwedge( {\rm\color{variablecolor}l_3}
+      {\rm\color{variablecolor}l_1} ) ) \rightarrow
+      \bigwedge( {\rm\color{variablecolor}l_2} )
+      )&(\mmref{simpl})\notag
+  \\ 5 && & \vdash ( \bigwedge( {\rm\color{variablecolor}l_1}
+      {\rm\color{variablecolor}l_2}
+      {\rm\color{variablecolor}l_3} ) \rightarrow
+      \bigwedge( {\rm\color{variablecolor}l_2} )
+      )&3,4,(\mmref{sylbi})\notag
+\end{align}
+\end{proof}
+
+\begin{lemma}\blTitle{bl.ctao} Common Term Between And-List and Or-List
+\begin{align}
+\vdash ( \bigwedge( {\rm\color{variablecolor}l_1} {\color{formulacolor}\varphi}
+    {\rm\color{variablecolor}l_2} ) \rightarrow \bigvee(
+    {\rm\color{variablecolor}l_3} {\color{formulacolor}\varphi}
+    {\rm\color{variablecolor}l_4} ) )\label{bl.ctao}
+\end{align}
+\end{lemma}
+
+\begin{proof}
+\begin{align}
+  1 && & \vdash ( ( {\color{formulacolor}\varphi} \wedge \bigwedge(
+      {\rm\color{variablecolor}l_2}
+      {\rm\color{variablecolor}l_1} ) ) \rightarrow (
+      {\color{formulacolor}\varphi} \vee \bigvee(
+      {\rm\color{variablecolor}l_4}
+      {\rm\color{variablecolor}l_3} ) )
+      )&(\mmref{bl.an2impor2})\notag
+  \\ 2 && & \vdash ( \bigwedge( {\rm\color{variablecolor}l_1}
+      {\color{formulacolor}\varphi}
+      {\rm\color{variablecolor}l_2} ) \leftrightarrow (
+      {\color{formulacolor}\varphi} \wedge \bigwedge(
+      {\rm\color{variablecolor}l_2}
+      {\rm\color{variablecolor}l_1} ) )
+      )&(\mmref{bl.anpmw})\notag
+  \\ 3 && & \vdash ( \bigvee( {\rm\color{variablecolor}l_3}
+      {\color{formulacolor}\varphi}
+      {\rm\color{variablecolor}l_4} ) \leftrightarrow (
+      {\color{formulacolor}\varphi} \vee \bigvee(
+      {\rm\color{variablecolor}l_4}
+      {\rm\color{variablecolor}l_3} ) )
+      )&(\mmref{bl.orpmw})\notag
+  \\ 4 && & \vdash ( \bigwedge( {\rm\color{variablecolor}l_1}
+      {\color{formulacolor}\varphi}
+      {\rm\color{variablecolor}l_2} ) \rightarrow \bigvee(
+      {\rm\color{variablecolor}l_3}
+      {\color{formulacolor}\varphi}
+      {\rm\color{variablecolor}l_4} )
+      )&1,2,3,(\mmref{3imtr4i})\notag
+\end{align}
+\end{proof}
+
+\begin{lemma}\blTitle{bl.animporan} Premise Has All Terms of Conjunction
+Within Disjunction
+\begin{align}
+\vdash ( \bigwedge( {\rm\color{variablecolor}l_1} {\rm\color{variablecolor}l_2}
+    {\rm\color{variablecolor}l_3} ) \rightarrow \bigvee(
+    {\rm\color{variablecolor}l_4} \bigwedge( {\rm\color{variablecolor}l_2} )
+    {\rm\color{variablecolor}l_5} ) )\label{bl.animporan}
+\end{align}
+\end{lemma}
+
+\begin{proof}
+\begin{align}
+  1 && & \vdash ( \bigwedge( {\rm\color{variablecolor}l_1} \bigwedge(
+      {\rm\color{variablecolor}l_2} )
+      {\rm\color{variablecolor}l_3} ) \leftrightarrow
+      \bigwedge( {\rm\color{variablecolor}l_1}
+      {\rm\color{variablecolor}l_2}
+      {\rm\color{variablecolor}l_3} )
+      )&(\mmref{bl.anabpm})\notag
+  \\ 2 && & \vdash ( \bigwedge( {\rm\color{variablecolor}l_1} \bigwedge(
+      {\rm\color{variablecolor}l_2} )
+      {\rm\color{variablecolor}l_3} ) \leftrightarrow (
+      \bigwedge( {\rm\color{variablecolor}l_2} ) \wedge
+      \bigwedge( {\rm\color{variablecolor}l_3}
+      {\rm\color{variablecolor}l_1} ) )
+      )&(\mmref{bl.anpmw})\notag
+  \\ 3 && & \vdash ( \bigwedge( {\rm\color{variablecolor}l_1}
+      {\rm\color{variablecolor}l_2}
+      {\rm\color{variablecolor}l_3} ) \leftrightarrow (
+      \bigwedge( {\rm\color{variablecolor}l_2} ) \wedge
+      \bigwedge( {\rm\color{variablecolor}l_3}
+      {\rm\color{variablecolor}l_1} ) )
+      )&1,2,(\mmref{bitr3i})\notag
+  \\ 4 && & \vdash ( ( \bigwedge( {\rm\color{variablecolor}l_2} ) \wedge
+      \bigwedge( {\rm\color{variablecolor}l_3}
+      {\rm\color{variablecolor}l_1} ) ) \rightarrow (
+      \bigwedge( {\rm\color{variablecolor}l_2} ) \vee
+      \bigvee( {\rm\color{variablecolor}l_5}
+      {\rm\color{variablecolor}l_4} ) )
+      )&(\mmref{bl.an2impor2})\notag
+  \\ 5 && & \vdash ( \bigwedge( {\rm\color{variablecolor}l_1}
+      {\rm\color{variablecolor}l_2}
+      {\rm\color{variablecolor}l_3} ) \rightarrow (
+      \bigwedge( {\rm\color{variablecolor}l_2} ) \vee
+      \bigvee( {\rm\color{variablecolor}l_5}
+      {\rm\color{variablecolor}l_4} ) )
+      )&3,4,(\mmref{sylbi})\notag
+  \\ 6 && & \vdash ( \bigvee( {\rm\color{variablecolor}l_4} \bigwedge(
+      {\rm\color{variablecolor}l_2} )
+      {\rm\color{variablecolor}l_5} ) \leftrightarrow (
+      \bigwedge( {\rm\color{variablecolor}l_2} ) \vee
+      \bigvee( {\rm\color{variablecolor}l_5}
+      {\rm\color{variablecolor}l_4} ) )
+      )&(\mmref{bl.orpmw})\notag
+  \\ 7 && & \vdash ( \bigwedge( {\rm\color{variablecolor}l_1}
+      {\rm\color{variablecolor}l_2}
+      {\rm\color{variablecolor}l_3} ) \rightarrow \bigvee(
+      {\rm\color{variablecolor}l_4} \bigwedge(
+      {\rm\color{variablecolor}l_2} )
+      {\rm\color{variablecolor}l_5} )
+      )&5,6,(\mmref{sylibr})\notag
+\end{align}
+\end{proof}
+
+\begin{lemma}\blTitle{bl.PandNotPisFalse} Law of Contradiction:  P and not P
+is false
+\begin{align}
+\vdash ( ( {\color{formulacolor}\varphi} \wedge \lnot
+    {\color{formulacolor}\varphi} ) \leftrightarrow \bot
+    )\label{bl.PandNotPisFalse}
+\end{align}
+\end{lemma}
+
+\begin{proof}
+\begin{align}
+  1 && & \vdash ( ( {\color{formulacolor}\varphi} \wedge \lnot
+      {\color{formulacolor}\varphi} ) \leftrightarrow \lnot
+      ( {\color{formulacolor}\varphi} \rightarrow
+      {\color{formulacolor}\varphi} )
+      )&(\mmref{annim})\notag
+  \\ 2 && & \vdash ( \bot \leftrightarrow \lnot \top
+      )&(\mmref{df-false})\notag
+  \\ 3 && & \vdash ( \top \leftrightarrow ( {\color{formulacolor}\varphi}
+      \rightarrow {\color{formulacolor}\varphi} )
+      )&(\mmref{df-true})\notag
+  \\ 4 && & \vdash ( \lnot \top \leftrightarrow \lnot (
+      {\color{formulacolor}\varphi} \rightarrow
+      {\color{formulacolor}\varphi} )
+      )&3,(\mmref{notbii})\notag
+  \\ 5 && & \vdash ( \bot \leftrightarrow \lnot ( {\color{formulacolor}\varphi}
+      \rightarrow {\color{formulacolor}\varphi} )
+      )&2,4,(\mmref{bitri})\notag
+  \\ 6 && & \vdash ( ( {\color{formulacolor}\varphi} \wedge \lnot
+      {\color{formulacolor}\varphi} ) \leftrightarrow \bot
+      )&1,5,(\mmref{bitr4i})\notag
+\end{align}
+\end{proof}
+
+\begin{lemma}\blTitle{bl.PandPisP} Law of And-Simplification:  P and P is P
+\begin{align}
+\vdash ( ( {\color{formulacolor}\varphi} \wedge {\color{formulacolor}\varphi} )
+    \leftrightarrow {\color{formulacolor}\varphi} )\label{bl.PandPisP}
+\end{align}
+\end{lemma}
+
+\begin{proof}
+\begin{align}
+  1 && & \vdash ( ( {\color{formulacolor}\varphi} \wedge
+      {\color{formulacolor}\varphi} ) \leftrightarrow
+      {\color{formulacolor}\varphi}
+      )&(\mmref{anidm})\notag
+\end{align}
+\end{proof}
+
+\begin{lemma}\blTitle{bl.PandTrueisP} Law of And-Simplification:  P and true
+is P
+\begin{align}
+\vdash ( ( {\color{formulacolor}\varphi} \wedge \top ) \leftrightarrow
+    {\color{formulacolor}\varphi} )\label{bl.PandTrueisP}
+\end{align}
+\end{lemma}
+
+\begin{proof}
+\begin{align}
+  1 && & \vdash ( ( {\color{formulacolor}\varphi} \wedge \top ) \leftrightarrow
+      {\color{formulacolor}\varphi}
+      )&(\mmref{bl.antrr})\notag
+\end{align}
+\end{proof}
+
+\begin{lemma}\blTitle{bl.PandFalseisFalse} Law of And-Simplification:  P and
+false is false
+\begin{align}
+\vdash ( ( {\color{formulacolor}\varphi} \wedge \bot ) \leftrightarrow \bot
+    )\label{bl.PandFalseisFalse}
+\end{align}
+\end{lemma}
+
+\begin{proof}
+\begin{align}
+  1 && & \vdash ( ( {\color{formulacolor}\varphi} \wedge \bot ) \leftrightarrow
+      \bot )&(\mmref{bl.anfar})\notag
+\end{align}
+\end{proof}
+
+\begin{lemma}\blTitle{bl.PandQorPisP} Law of And-Simplification:  P and (Q
+or P) is P
+\begin{align}
+\vdash ( ( {\color{formulacolor}\varphi} \wedge ( {\color{formulacolor}\psi}
+    \vee {\color{formulacolor}\varphi} ) ) \leftrightarrow
+    {\color{formulacolor}\varphi} )\label{bl.PandQorPisP}
+\end{align}
+\end{lemma}
+
+\begin{proof}
+\begin{align}
+  1 && & \vdash ( {\color{formulacolor}\varphi} \leftrightarrow (
+      {\color{formulacolor}\varphi} \wedge (
+      {\color{formulacolor}\varphi} \vee
+      {\color{formulacolor}\psi} ) )
+      )&(\mmref{pm4.45})\notag
+  \\ 2 && & \vdash ( ( {\color{formulacolor}\varphi} \vee
+      {\color{formulacolor}\psi} ) \leftrightarrow (
+      {\color{formulacolor}\psi} \vee
+      {\color{formulacolor}\varphi} )
+      )&(\mmref{orcom})\notag
+  \\ 3 && & \vdash ( ( {\color{formulacolor}\varphi} \wedge (
+      {\color{formulacolor}\varphi} \vee
+      {\color{formulacolor}\psi} ) ) \leftrightarrow (
+      {\color{formulacolor}\varphi} \wedge (
+      {\color{formulacolor}\psi} \vee
+      {\color{formulacolor}\varphi} ) )
+      )&2,(\mmref{anbi2i})\notag
+  \\ 4 && & \vdash ( {\color{formulacolor}\varphi} \leftrightarrow (
+      {\color{formulacolor}\varphi} \wedge (
+      {\color{formulacolor}\psi} \vee
+      {\color{formulacolor}\varphi} ) )
+      )&1,3,(\mmref{bitri})\notag
+  \\ 5 && & \vdash ( ( {\color{formulacolor}\varphi} \wedge (
+      {\color{formulacolor}\psi} \vee
+      {\color{formulacolor}\varphi} ) ) \leftrightarrow
+      {\color{formulacolor}\varphi}
+      )&4,(\mmref{bicomi})\notag
+\end{align}
+\end{proof}
+
+\begin{lemma}\otherTitle{df-1t} Definition of 1-tuple
+\begin{align}
+\vdash \langle {\color{classcolor}A} \rangle =
+    {\color{classcolor}A}\label{df-1t}
+\end{align}
+\end{lemma}
+
+\begin{lemma}\otherTitle{df-nt} Definition of N-tuple using comma-separated
+lists
+\begin{align}
+\vdash \langle {\rm\color{variablecolor}csl_1} , {\color{classcolor}A} \rangle
+    = \{ \{ \langle {\rm\color{variablecolor}csl_1} \rangle \} , \{ \langle
+    {\rm\color{variablecolor}csl_1} \rangle , {\color{classcolor}A} \}
+    \}\label{df-nt}
+\end{align}
+\end{lemma}
+
+\begin{lemma}\blTitle{bl.opeq2t} 2-tuple (lhs) is Ordered Pair (rhs)
+\begin{align}
+\vdash \langle {\color{classcolor}A} , {\color{classcolor}B} \rangle = \langle
+    {\color{classcolor}A} , {\color{classcolor}B} \rangle\label{bl.opeq2t}
+\end{align}
+\end{lemma}
+
+\begin{proof}
+\begin{align}
+  1 && & \vdash {\color{classcolor}A} =
+      {\color{classcolor}A}&(\mmref{eqid})\notag
+  \\ 2 && & \vdash \langle {\color{classcolor}A} , {\color{classcolor}B}
+      \rangle = \langle {\color{classcolor}A} ,
+      {\color{classcolor}B}
+      \rangle&1,(\mmref{opeq1i})\notag
+\end{align}
+\end{proof}
+

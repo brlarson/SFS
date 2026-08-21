@@ -1,0 +1,19 @@
+%Time_chaper.tex
+
+\pn In \ref{sec:fortime}, the significance of the passage of time was considered in the context of frames of reference \ref{sec:frames}.
+To reason about time compelled creation of these supplemental semantics.
+
+\pn The ontological semantics of KerML Core elements do not include time at all.  That's not what ontological semantics do.  These supplemental semantics augment the ontological semantics two ways.  One is to make the values of model elements more definite.  The other is to endow model elements with different values at different times.
+
+\pn Temporal logics are used to reason about time.  Temporal logics whose fundamental entities are moments (a.k.a. instants) represent intervals as durations between moments.  Temporal logics whose fundamental entities are intervals represent moments as intervals with zero duration.  In this sense, moments and intervals are duals of each other.
+
+\pn Analogously, a geometry may have either points or line segments as its fundamental entity.  Line segments with zero length are like points.
+Given two distinct points, a line segment can be defined as those points plus all the points between them.  For good reason, Euclid's Elements begins with points (otherwise undefined) and a betweenness predicate.  From just those, all of plane geometry be constructed, and from that solid and multidimensional geometry.  It doesn't work the other way.  Crucially, with points the open line segment (not including the endpoints) can be defined:  those points for which the betweenness predicate holds.
+
+\pn Similarly, temporal logics having moments as their fundamental entity can define the open interval between distinct moments.
+Thus an \texttt{Occurrences::Occurrence} will be defined by \texttt{startShot} and \texttt{endShot} being moments, and \texttt{middleTimeSlice} being the open interval between them.  
+Otherwise, if  \texttt{startShot} itself is an \texttt{Occurrence}, it will have its own \texttt{startShot} and \texttt{endShot}, which have their own \texttt{startShot} and \texttt{endShot}, etc.   Metaphysical turtles all the way down.
+
+\pn The details of \logicid Logic are presented in Appendix \ref{chapter:KL}, so that the reader won't be deluged with mathematical minutia right away.
+
+

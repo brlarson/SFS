@@ -1,0 +1,204 @@
+% This LaTeX file was created by Metamath on 27-Dec-2021 2:46 PM.
+
+\begin{metadefinition}\blTitle{df-bl.lan1} just one wff in the list
+\begin{align}
+\vdash ( \bigwedge( \varphi ) \leftrightarrow \varphi )\label{eq:df-bl.lan1}\tag{df-bl.lan1}
+\end{align}
+\end{metadefinition}
+
+
+\begin{metadefinition}\blTitle{df-bl.lan2wl} conjunction of two conjunction wff-list
+\begin{align}
+\vdash ( \bigwedge( \mw{l_1} \mw{l_2} ) \leftrightarrow ( \bigwedge( \mw{l_1} ) \wedge \bigwedge( \mw{l_2} ) ) )\label{eq:df-bl.lan2wl}\tag{df-bl.lan2wl}
+\end{align}
+\end{metadefinition}
+
+
+\begin{metadefinition}\blTitle{df-bl.lor1} just one wff in the list
+\begin{align}
+\vdash ( \bigvee( \varphi ) \leftrightarrow \varphi )\label{eq:df-bl.lor1}\tag{df-bl.lor1}
+\end{align}
+\end{metadefinition}
+
+
+\begin{metadefinition}\blTitle{df-bl.lor2wl} disjunction of two disjunction wff-lists
+\begin{align}
+\vdash ( \bigvee( \mw{l_1} \mw{l_2} ) \leftrightarrow ( \bigvee( \mw{l_1} ) \vee \bigvee( \mw{l_2} ) ) )\label{eq:df-bl.lor2wl}\tag{df-bl.lor2wl}
+\end{align}
+\end{metadefinition}
+
+
+\begin{metadefinition}\blTitle{df-bl.time} Define domain of time $\mathbf{T}$ from $t = 0$ to $\mathsf{\msc{now}}$
+\begin{align}
+\vdash \mathbf{T} = \{ \msc{t} ~\vert~ ( \msc{t} \in \mathbb{R} \wedge 0 \le \msc{t} \wedge \msc{t} \le \mathsf{\msc{now}} ) \}\label{eq:df-bl.time}\tag{df-bl.time}
+\end{align}
+\end{metadefinition}
+
+
+\begin{metadefinition}\blTitle{df-bl.before} Temporal Precedence (before)
+\begin{align}
+\vdash ( \msc{t_1} \prec \msc{t_2} \leftrightarrow \msc{t_1} < \msc{t_2} )\label{eq:df-bl.before}\tag{df-bl.before}
+\end{align}
+\end{metadefinition}
+
+
+\begin{metadefinition}\blTitle{df-bl.beforeeq} Temporal Precedence (before or coincident)
+\begin{align}
+\vdash ( \msc{t_1} \preccurlyeq \msc{t_2} \leftrightarrow ( \msc{t_1} < \msc{t_2} \vee \msc{t_1} = \msc{t_2} ) )\label{eq:df-bl.beforeeq}\tag{df-bl.beforeeq}
+\end{align}
+\end{metadefinition}
+
+
+\begin{metadefinition}\blTitle{df-bl.prop0} Value of proposition at time $\msc{t}$
+\begin{align}
+\vdash ( \mathfrak{M} , \msc{t} \models p \leftrightarrow \msc{t} \in ( V ` p ) )\label{eq:df-bl.prop0}\tag{df-bl.prop0}
+\end{align}
+\end{metadefinition}
+
+
+\begin{metadefinition}\blTitle{df-bl.not} Logical Complement
+\begin{align}
+\vdash ( \mathfrak{M} , \msc{t} \models \lnot \varphi \leftrightarrow \mathfrak{M} , \msc{t} \nmodels \varphi )\label{eq:df-bl.not}\tag{df-bl.not}
+\end{align}
+\end{metadefinition}
+
+
+\begin{metadefinition}\blTitle{df-bl.at} @ specifies time of evaluation
+\begin{align}
+\vdash ( \mathfrak{M} , \msc{t} \models ( \varphi @ \msc{t_1} ) \rightarrow \mathfrak{M} , \msc{t_1} \models \varphi )\label{eq:df-bl.at}\tag{df-bl.at}
+\end{align}
+\end{metadefinition}
+
+
+\begin{metadefinition}\blTitle{df-bl.at2} Second application of @ is inconsequential
+\begin{align}
+\vdash ( \mathfrak{M} , \msc{t} \models ( ( \varphi @ \msc{t_1} ) @ \msc{t_2} ) \rightarrow \mathfrak{M} , \msc{t_1} \models \varphi )\label{eq:df-bl.at2}\tag{df-bl.at2}
+\end{align}
+\end{metadefinition}
+
+
+\begin{metadefinition}\blTitle{df-bl.dd} Define closed time interval
+\begin{align}
+\vdash ( \msc{t} \in [ \msc{t_1} .. \msc{t_2} ] \leftrightarrow ( \msc{t_1} \preccurlyeq \msc{t} \wedge \msc{t} \preccurlyeq \msc{t_2} ) )\label{eq:df-bl.dd}\tag{df-bl.dd}
+\end{align}
+\end{metadefinition}
+
+
+\begin{metadefinition}\blTitle{df-bl.cd} Define open-left time interval
+\begin{align}
+\vdash ( \msc{t} \in [ \msc{t_1} ,. \msc{t_2} ] \leftrightarrow ( \msc{t_1} \prec \msc{t} \wedge \msc{t} \preccurlyeq \msc{t_2} ) )\label{eq:df-bl.cd}\tag{df-bl.cd}
+\end{align}
+\end{metadefinition}
+
+
+\begin{metadefinition}\blTitle{df-bl.dc} Define open-right time interval
+\begin{align}
+\vdash ( \msc{t} \in [ \msc{t_1} ., \msc{t_2} ] \leftrightarrow ( \msc{t_1} \preccurlyeq \msc{t} \wedge \msc{t} \prec \msc{t_2} ) )\label{eq:df-bl.dc}\tag{df-bl.dc}
+\end{align}
+\end{metadefinition}
+
+
+\begin{metadefinition}\blTitle{df-bl.cc} Define open time interval
+\begin{align}
+\vdash ( \msc{t} \in [ \msc{t_1} ,, \msc{t_2} ] \leftrightarrow ( \msc{t_1} \prec \msc{t} \wedge \msc{t} \prec \msc{t_2} ) )\label{eq:df-bl.cc}\tag{df-bl.cc}
+\end{align}
+\end{metadefinition}
+
+
+\begin{metadefinition}\blTitle{df-bl.atad2} Distribute @ over addition, two terms
+\begin{align}
+\vdash ( ( \msc{t} \in \mathbf{T} \wedge B \in \mathbb{C} \wedge C \in \mathbb{C} ) \rightarrow ( ( B + C ) @ \msc{t} ) = ( ( B @ \msc{t} ) + ( C @ \msc{t} ) ) )\label{eq:df-bl.atad2}\tag{df-bl.atad2}
+\end{align}
+\end{metadefinition}
+
+
+\begin{metadefinition}\blTitle{df-bl.atmul2} Distribute @ over multiplication, two terms
+\begin{align}
+\vdash ( ( \msc{t} \in \mathbf{T} \wedge B \in \mathbb{C} \wedge C \in \mathbb{C} ) \rightarrow ( ( B \cdot C ) @ \msc{t} ) = ( ( B @ \msc{t} ) \cdot ( C @ \msc{t} ) )
+    )\label{eq:df-bl.atmul2}\tag{df-bl.atmul2}
+\end{align}
+\end{metadefinition}
+
+
+\begin{metadefinition}\blTitle{df-bl.atsub} Distribute @ over subtraction
+\begin{align}
+\vdash ( ( \msc{t} \in \mathbf{T} \wedge B \in \mathbb{C} \wedge C \in \mathbb{C} ) \rightarrow ( ( B - C ) @ \msc{t} ) = ( ( B @ \msc{t} ) - ( C @ \msc{t} ) ) )\label{eq:df-bl.atsub}\tag{df-bl.atsub}
+\end{align}
+\end{metadefinition}
+
+
+\begin{metadefinition}\blTitle{df-bl.atdiv} Distribute @ over division
+\begin{align}
+\vdash ( ( \msc{t} \in \mathbf{T} \wedge B \in \mathbb{C} \wedge C \in \mathbb{C} ) \rightarrow ( ( B / C ) @ \msc{t} ) = ( ( B @ \msc{t} ) / ( C @ \msc{t} ) ) )\label{eq:df-bl.atdiv}\tag{df-bl.atdiv}
+\end{align}
+\end{metadefinition}
+
+
+\begin{metadefinition}\blTitle{df-bl.id} Create Identifier Class; first character must be a letter,
+others may be letter or digit; underscore not allowed
+
+\begin{align}
+\vdash \mathrm{ID} = ( \mathrm{Word } \mathrm{Letter} \mathrm{ ++ } \mathrm{Word } ( \mathrm{Letter} \cup \mathrm{Digit} ) )\label{eq:df-bl.id}\tag{df-bl.id}
+\end{align}
+\end{metadefinition}
+
+
+\begin{metadefinition}\blTitle{df-bl.enum} Create Class Enum which contains all identifiers;
+Every enumeration will be a subset of Enum: $x \subsetneq \mathrm{Enum}$
+
+\begin{align}
+\vdash \mathrm{Enum} = \{ x ~\vert~ x \in \mathrm{ID} \}\label{eq:df-bl.enum}\tag{df-bl.enum}
+\end{align}
+\end{metadefinition}
+
+
+\begin{metadefinition}\blTitle{df-bl.qt} A quantity is a pair of a number with a unit.  A quantity type is a set of
+pairs, where the unit is fixed, and the number may be restricted in range or granularity.
+$x$ is a quantity type iff $x$ is a pair of a real number and a unit identifier.
+
+\begin{align}
+\vdash ( x \in \mathrm{QT} \leftrightarrow \exists u \in \mathrm{ID} x \in \{ \langle y , u \rangle ~\vert~ y \in \mathbb{C} \} )\label{eq:df-bl.qt}\tag{df-bl.qt}
+\end{align}
+\end{metadefinition}
+
+
+\begin{metadefinition}\blTitle{df-bl.array} An array type, is a function from whole numbers to a single type.
+\begin{align}
+\vdash ( F \mathrm{Array} \langle M , N \rangle \leftrightarrow ( ( M \in \mathbb{N} \wedge N \in \mathbb{N} \wedge M \le N ) \wedge ( {\rm Fun} ( F \setminus \{ \varnothing \} ) \wedge {\rm dom} F
+    \subseteq ( M \ldots N ) ) \wedge {\rm ran} F \subseteq \mathsf{TYPE} ) )\label{eq:df-bl.array}\tag{df-bl.array}
+\end{align}
+\end{metadefinition}
+
+
+\begin{metadefinition}\blTitle{df-bl.record} Record type is a function from identifiers to types.
+\begin{align}
+\vdash ( x \in \mathrm{Record} \leftrightarrow x : \mathrm{ID} \longrightarrow \mathsf{TYPE} )\label{eq:df-bl.record}\tag{df-bl.record}
+\end{align}
+\end{metadefinition}
+
+
+\begin{metadefinition}\blTitle{df-bl.variant} Variant type uses a discriminant to determine which record field holds its type.
+\begin{align}
+\vdash ( x \in \mathrm{Variant} \leftrightarrow x \in \{ \langle y , z \rangle ~\vert~ ( z \in \mathrm{Record} \wedge y \in {\rm dom} z ) \} )\label{eq:df-bl.variant}\tag{df-bl.variant}
+\end{align}
+\end{metadefinition}
+
+
+\begin{metadefinition}\blTitle{df-bl.bool} Boolean type is true or false
+\begin{align}
+\vdash ( x \in \mathrm{Bool} \leftrightarrow x \in \{ \mathsf{true} , \mathsf{false} \} )\label{eq:df-bl.bool}\tag{df-bl.bool}
+\end{align}
+\end{metadefinition}
+
+
+\begin{metadefinition}\blTitle{df-bl.type} Define constructed type: \\~{\tt quantity:} $x \in \mathrm{QT}$ or $x \subsetneq \ldots$ for whole numbers, \\~{\tt array:} $\mathbb{N} \longrightarrow
+\mathsf{TYPE}$ \\~{\tt string:} $\mathrm{Word } \mathrm{QWERTY}$ \\~{\tt record:} $\mathrm{ID} \longrightarrow \mathsf{TYPE}$, \\~{\tt variant:} $\langle \mathrm{ID} , \mathrm{ID} \longrightarrow
+\mathsf{TYPE} \rangle \mbox{\rm {\tt \char`\\}{\tt \char`\\}{\tt \char`\~}{\tt \char`\~}{\tt \char`\~}} \,\mbox{\rm enumeration{\tt :}}$ x C- \{ y / y e. ID \} $, \mbox{\rm {\tt \char`\\}{\tt
+\char`\\}{\tt \char`\~}{\tt \char`\~}{\tt \char`\~}} \,\mbox{\rm boolean{\tt :}}$ \{ true , false \} $$
+\begin{align}
+\vdash ( x \in \mathsf{TYPE} \leftrightarrow \bigvee( x \in \mathrm{QT} x \subsetneq \ldots ( x \in F \wedge F \mathrm{Array} \langle M , N \rangle ) x \in \mathrm{Word } \mathrm{QWERTY} x \in
+    \mathrm{Record} x \in \mathrm{Variant} x \subseteq \mathrm{Enum} x \in \mathrm{Bool} ) )\label{eq:df-bl.type}\tag{df-bl.type}
+\end{align}
+\end{metadefinition}
+
+

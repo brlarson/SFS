@@ -1,0 +1,1253 @@
+%Mathematics_chapter.tex
+%all the math used by \lang~ from first principles
+
+% !TEX root=../\lang~_Language_Reference_Manual.tex
+
+\pn To prove correctness, a programming language must be mathematically defined.  Therefore, the foundational mathematics must be derived from First Principles of logic and set theory.  For this Metamath is used, whenever possible.
+%\footnote{Much of the following was adapted from U.S. Pat. No. 5,867,649 DANCE/Multitude Concurrent Computation}
+
+\pn Metamath \cite{METAMATH} is a language, tool, and project to derive \emph{all}\footnote{For collections `too big' to be sets, such as those in category theory, different axioms need to be used.} mathematics from the axioms of logic and set theory.  Symbols for particular mathematical concepts may be defined in terms of these axioms, but may be substituted for their logic and set theory equivalents.
+
+\pn  Metamath is used to prove mathematics about mathematics; that's the reason for `meta'.  The theorems proved using Metamath are really sets of theorems called \bemph{schema}.  Although there are different axioms systems that use the Metamath language, the primary one, used for \lang~, is \texttt{set.mm}, which contains over 23,000 theorems with proofs. 
+
+\pn The Metamath tool is a proof verifier (a.k.a. checker).  Proofs are constructed `by hand' although there are proof assistants such as mmj2 and Metamath-lamp which can help.  
+The Metamath verifier is extremely simple, and has been re-implemented more than a dozen times using different programming languages.  Its Python implementation required 350 lines of code.  Because Metamath verifiers are so simple, and have been independently re-implemented, they can be trusted to verify proofs given a set of axioms.
+
+\pn Whether the declared set of axioms of (classical) logic and (ZFC) set theory in the \texttt{set.mm} database are consistent (free from contradiction) is another matter.  
+``If mathematics is consistent we will never know it, but must rely on faith.  If mathematics is inconsistent, the best we can hope for is that some clever mathematician will discover the inconsistency." \cite{METAMATH} In that case, the axioms would need to be adjusted, as was case for Russel's Paradox.
+Starting with just a few axioms, and one inference rule, which have been extensively scrutinized, with proofs from those axioms checked with a trustworthy verifier, provides the highest possible assurance that theorems are valid.
+
+%\pn The Metamath project is a community effort to continually expand the domain of math proved using the Metamath language and verifier.  Of the 100 theorems listed by \emph{Formalizing 100 Theorems} \cite{formalizing100}, 74 have been proved using Metamath as of 2020-04-05.  This number of proofs is more than Coq (70), Mizar (69), ProofPower (43), Lean (29), PVS (22), nqthm/ACL2 (18), and NuPRL/MetaPRL (8); it is short of only Isabelle (83) and HOL Light (86). This is very good, especially considering that there had been no significant effort until 2014 to prove theorems from this list of 100 using Metamath. 
+
+\pn In all Metamath proofs, reasoning is done directly in the proof itself rather than by algorithms embedded in the verification program. As a result, the proofs are completely transparent with nothing hidden from the user, and every step can be followed through a hyperlink to its corresponding proof or definition. Therefore, the Metamath Proof Explorer (a.k.a. \texttt{set.mm}) database is the largest database of formally-verified mathematics that records every step of a proof by directly referring to only an axiom or previous proof.  Many competing languages and databases only record tactics that are intended to rediscover the proof, instead of recording the specific proven steps actually used in the proof. 
+
+\section{Metamath}\label{sec:metamath}
+
+\pn Metamath is used define meaning of \lang~(and thus \langs) models, and to prove \emph{soundness} of the logic that used to prove program correctness.   Axioms are sound if they are true in and of themselves.  Inference rules are sound if they derive true facts from true facts. 
+% Soundness is considered in Part \ref{part:soundnessproof}. 
+
+\pn If a sequence of theorems are either axioms or givens (which define the context or subject of the proof) or derived by inference rules applied to prior theorems in the sequence, then by induction, all theorems in the sequence are true.  When the ultimate theorem states ``every execution of my system conforms to its specification" the conclusion that my model is correct will be formally proved.  The sequence of theorems is the correctness \emph{proof}.  
+
+\pn The proof is \bemph{deductive} because each theorem is either known to be true (an axiom or given) or deduced by an inference rule.  A record of tactics is not proof.  It is evidence.  A model checker's failure to find a counter example to a claimed formula is not proof.  It is evidence.  A model checker's successful satisfaction of the complement of a claimed formula is not proof.  It is evidence.
+
+\pn \textbf{Only deductive proofs are \textit{proof}.}  Deductive proofs in Metamath prove soundness of \lang~ theorems and axioms.  Deductive proofs prove model correctness.
+
+\pn Some caveats:
+\begin{itemize}
+\item The axioms of logic and set theory may not be consistent.
+\item The definitions of semantics of language constructs may be incorrect or incomplete.
+\end{itemize}
+
+%\pn For example, \lang~ defines a set of verification conditions for threads (active programs that initiate and respond to events).  These definitions may be incorrect or incomplete.  If so, then the axioms and inference rules used by \lang~ logic may be sound, but the conclusion that every execution of the thread will conform to its specification will be wrong.
+%
+%\pn This is unavoidable.  The best that can be done is to clearly explicate the definitions, explain why the definitions were chosen, and adjust them when/if an inconsistency is discovered by a clever mathematician or engineer.
+
+\section{Metamath Symbols}\label{sec:metamathsymbols}
+
+\pn Metamath symbols (Table \ref{tab:sym}) follow customary usage.  \texttt{set.mm} is a text file in which math symbols are represented by tokens--sequences of characters separated by spaces.  The Metamath tool has an option to typeset theorems and proofs to \LaTeX.  
+Symbols introduced especially for \lang~ (Table \ref{tab:blesssym}) are explained when their use is defined.  Variable symbols (Table \ref{tab:var}) have what are effectively types.
+
+\pn Most of the steps in a Metamath proof assure the syntax is correct (a.k.a. well-formed).  As part of this, variable symbols can be used in ways such that the syntax enforces types.  The syntax steps in a proof say things like, if $\mw{\varphi}$ is a wff (well-formed formula), and $\mw{\psi}$ is a wff, then $(\mw{\varphi}\rightarrow\mw{\psi} )$ is a wff.
+Most proofs which are pretty-printed in \LaTeX~omit steps that merely assure syntactical correctness.
+
+
+\begin{table}[htp]
+\caption{Metamath Variables}
+\begin{center}
+\begin{tabular}{|c l|}
+\hline
+%{\mm{wff}} & well-formed formula declaration \\
+{\color{wffcolor}$\varphi~\psi~\chi~\theta~\tau~\eta~\zeta$} & label representing a wff \\
+%{\mm{setvar}} & set variable declaration \\
+{\color{variablecolor}$x~y~z~w~v~u~t~t_1~t_2~t_3$} & label representing a set variable \\
+%{\mm{class}} & class variable declaration \\
+{\color{classcolor}$A~B~C~D$} & label representing a class variable \\
+%{\mm{wl}} & well-formed formula list declaration \\
+{\color{wffcolor}$l_1~l_2~l_3$} & label representing a well-formed formula list \\
+%{\mm{csl}} & comma separated class list declaration \\
+{\color{classcolor}$csl_1~csl_2$} & label representing a comma separated list \\
+%{\mm{act}} & action declaration \\
+{\color{actioncolor}$S~S_1~S_2~S_3~S_n$} & label representing an action \\
+%{\mm{assrt}} & assertion declaration \\
+{\color{assertioncolor}$P~P_1~P_2~P_3~P_n~Q~Q_1~Q_2~Q_3~Q_n$} & label representing an assertion \\
+%{\mm{aa}} & asserted action declaration \\
+{\color{formulacolor}$AA_1~AA_2~AA_3~AA_n$} & label representing an asserted action \\
+\hline
+\end{tabular}
+\end{center}
+\label{tab:var}
+\end{table}%
+
+\begin{table}[htp]
+\caption{Metamath Symbols}
+\begin{center}
+\begin{tabular}{|c l|}
+\hline
+$\vdash$ & a proof exists for \\
+$\models~\nmodels$ & models not-models\\
+$\Rightarrow$ & given l.h.s, r.h.s can be proved\\
+$\top$ & true \\
+$\bot$ & false \\
+$\rightarrow$ & implies  \\
+$\leftrightarrow$ & equivalence (if-and-only-if) \\
+$(~~)$ & precedence \\
+$\vee~\wedge~\lnot$ &  or and not \\
+$=~<~\le~\ne $  & equal less-than at-most unequal\\
+$+~\minus~\times~/$ & add subtract multiply divide \\
+$\forall~\exists$ & forall exists\\
+$\in~\notin$ & element-of not-element-of\\
+\hline
+\end{tabular}
+\end{center}
+\label{tab:sym}
+\end{table}%
+
+\begin{table}[htp]
+\caption{\logicid~ Symbols}
+\begin{center}
+\begin{tabular}{|c l|}
+\hline
+$\prec$ & temporal ordering (before) \\
+$\preccurlyeq$ & before or coincident \\
+$\mathbf{T}$ & domain of time \\
+$\mathfrak{M}$ & model \\
+$\bigwedge[~]$ & multi-term conjunction \\
+$\bigvee[~]$ & multi-term disjunction \\
+$\oplus\hspace{-1pt}[~]$ & multiterm addition \\
+$\otimes\hspace{-1pt}[~]$ & multiterm multiplication \\
+$[\msc{x} / \msc{y} ] \mw{\varphi} $ & replace all set variable $\msc{x}$ with $\msc{y}$ in wff $\mw{\varphi}$ \\
+$\overline{[} {\color{formulacolor}\psi} / {\color{formulacolor}\chi} \overline{]} {\color{formulacolor}\varphi} $ & replace all wff $\mw{\psi}$ with wff $\mw{\chi}$ in wff $\mw{\varphi}$ \\
+$\llx~\xgg$ & assertion delimiters \\
+$;~\&$ & sequential and concurrent composition \\
+$wp$ & weakest-precondition \\
+\hline
+\end{tabular}
+\end{center}
+\label{tab:blesssym}
+\end{table}%
+
+%\begin{description}
+%\item[$$] 
+%\end{description}
+
+%\input{../metamath-latex/MakeSymbols}
+
+\section{Sets}\label{sec:sets}
+
+\pn A \bemph{set} is a collection of elements.  Finite sets may be specified by enumerating their elements between curly braces.  For example, \(\{\top, \bot\}\) denotes the set consisting of the Boolean constants $\top$ (\bemph{true}) and $\bot$ (\bemph{false}).  When enumerating elements of a set\footnote{informally; \ldots is not used in proofs}, ``\ldots" is used to denote repetition.  For example, \(\{1, 
+\ldots, n\}\) denotes the set of natural numbers from 1 to $n$ where the upper bound, $n$, is a natural number that is not further specified.
+
+\pn For membership, $a\in A$\index{ in@$\in$ element of set} denotes that $a$ is an element of the set $\mc{A}$, and 
+$b\notin A$\index{ notin@$\notin$ not element of set} to denote that $b$ is not an element of the set $\mc{A}$.  
+
+\pn More generally, a collection may specified as a \bemph{class} by referring to some property of their elements.
+\(\{\msc{x}~\vert~ \mw{\varphi}\}\)
+denotes the class of elements $x$ that satisfy the property $P$, which may or not be a set.\footnote{However, in all Metamath proof of \lang~ theorems, classes will be sets.}  The bar, $~\vert~$
+\index{ bar@$~\vert~$ such that}, can be read as ``such that".
+For example,
+\(\{\msc{x}~\vert~\msc{x}~\in~\mathbb{Z}~\wedge~\msc{x}\div 2~\notin~\mathbb{Z}\}\)
+denotes the infinite set of all odd integers.
+
+%\begin{definition}\otherTitle{df-clab} Define class abstraction notation
+%\begin{align}
+%\mm{\vdash} ( \msc{x} \in \{ \msc{y} ~\vert~ \mw{\varphi} \} \leftrightarrow [
+%    \msc{x} / \msc{y} ] \mw{\varphi} )\label{eq:df-clab}\tag{df-clab}
+%\end{align}
+%\end{definition}
+
+\pn \textbf{Classes vs Sets}~~A \bemph{class} is a collection, defined by a class abstraction, which may not be a set, but almost always is.  
+
+
+\pn In a set or class, one does not distinguish repetitions of elements.  Thus \(\{T,F\}\) and \(\{T,T,F\}\) are the same set.
+Often it is convenient to refer to a given set when defining a new set.
+\(\{\msc{x}\in \mc{A}~\vert~ \mw{\varphi}\}\) is an abbreviation for \(\{\msc{x}~\vert~ \msc{x}\in \mc{A}~\wedge~\mw{\varphi}\}\).  Similarly, the order of elements is irrelevant.  
+
+
+\begin{restatable}{metadefinition}{dfclab}~\otherTitle{df-clab}~ Define class abstractions, that is,
+classes of the form $\{ \msc{y}~\vert~\mw{\varphi} \}$,
+     which is read ``the class of sets $\msc{y}$ such that $\mw{\varphi} (
+\msc{y} )$".  ~
+\begin{align}
+\vdash ( \msc{x} \in \{ \msc{y}~\vert~\mw{\varphi} \} \leftrightarrow [ \msc{x} /
+    \msc{y} ] \mw{\varphi} )\label{eq:df-clab}\tag{df-clab}
+\end{align}
+\end{restatable}
+
+\pn A class which is not a set is called \bemph{proper class}.
+The universal class, ${\rm V}$ is the only non-empty proper class of interest.  
+An empty class $\emptyclass$ is also a proper class and is not the empty set $\emptyset$.
+Otherwise class is synonymous with set.
+
+\dfv*
+
+%\begin{restatable}{metadefinition}{dfv}~\otherTitle{df-v}~ Define the universal class.   The letter ``V" was used earlier by Peano in 1889 for the
+%     universe of sets, where the letter V is derived from the word ``Verum".
+%     Peano's notation V was adopted by Whitehead and Russell in Principia
+%     Mathematica for the class of all sets in 1910.  
+%\begin{align}
+%\vdash \,\mathrm{V} = \{ \msc{x}~\vert~\msc{x} = \msc{x}
+%    \}\label{eq:df-v}\tag{df-v}
+%\end{align}
+%\end{restatable}
+
+%\begin{metadefinition}\otherTitle{df-v} {Define the universal class.} 
+%\begin{align}
+%\vdash {\rm V} = \{ \msc{x} ~\vert~ \msc{x} = \msc{x}
+%    \}\label{eq:df-v}\tag{df-v}
+%\end{align}
+%\end{metadefinition}
+
+\pn Some sets have customary symbols: 
+\begin{description}
+\item[$\emptyset$]\index{ emptyset@$\emptyset$ empty set} denotes the empty 
+set;
+%\footnote{Some claim that $\emptyset$ is not unique.  The set of sports cars I own, and the set of supermodels I've dated are both empty, but are different sets.  Others deny the existence of $\emptyset$ claiming that a set that is empty is nothing at all.} 
+\item[$\mathbb{N}$]\index{ natural@$\mathbb{N}$ natural} denotes the set of all natural numbers, excluding 0; 
+\item[$\mathbb{N}_0$]\index{ natural@$\mathbb{N}_0$ natural} denotes the set of all natural numbers, including 0; 
+\item[$\mathbb{Z}$]\index{ integer@$\mathbb{Z}$ integer} denotes the set of all integers; 
+%\item[$\mathbb{Q}$]\index{ rational@$\mathbb{Q}$ rational} denotes the set of rational numbers; 
+\item[$\mathbb{R}$]\index{ real@$\mathbb{R}$ real} denotes the set of real numbers;
+\item[$\mathbb{C}$]\index{ complex@$\mathbb{C}$ complex} denotes the set of complex numbers.
+\item[$\mathbb{B}$]\index{ boolean@$\mathbb{B}$ boolean} denotes the set \(\{\top, \bot\}\).\footnote{$\top \equiv true$; $\bot \equiv false$}
+\end{description}
+%Fixed-point\index{fixed-point} numbers are rational numbers with fixed divisor.
+
+\begin{restatable}{metadefinition}{dfnn}~\otherTitle{df-nn}~ Define the set of positive integers.  
+\begin{align}
+\vdash \mathbb{N} = ( \,\mathrm{rec} ( ( \msc{x} \in \,\mathrm{V} \mapsto (
+    \msc{x} + 1 ) ) , 1 ) `` \,\mathrm{\omega} )\label{eq:df-nn}\tag{df-nn}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{metadefinition}{dfno}~\otherTitle{df-n0}~ Define the set of nonnegative integers. 
+\begin{align}
+\vdash \mathbb{N}_0 = ( \mathbb{N} \cup \{ 0 \} )\label{eq:df-n0}\tag{df-n0}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{metadefinition}{dfz}~\otherTitle{df-z}~ Define the set of integers, which are the
+positive and negative integers together with zero.  
+\begin{align}
+\vdash \mathbb{Z} = \{ \msc{n} \in \mathbb{R}~\vert~( \msc{n} = 0 \vee \msc{n} \in
+    \mathbb{N} \vee \textrm{-} \msc{n} \in \mathbb{N} )
+    \}\label{eq:df-z}\tag{df-z}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{metadefinition}{dfq}~\otherTitle{df-z}~ Define the rational numbers
+\begin{align}
+\vdash \mathbb{Q} = 
+    \label{eq:df-q}\tag{df-q}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{metadefinition}{dfr}~\otherTitle{df-r}~ Define the set of real numbers. 
+\begin{align}
+\vdash \mathbb{R} = ( \mathcal{R} \times \{ 0_\mathcal{R} \}
+    )\label{eq:df-r}\tag{df-r}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{metadefinition}{dfc}~\otherTitle{df-c}~ Define the set of complex numbers.  \begin{align}
+\vdash \mathbb{C} = ( \mathcal{R} \times \mathcal{R} )\label{eq:df-c}\tag{df-c}
+\end{align}
+\end{restatable}
+
+
+\pn Two classes $\mc{A}$ and $\mc{B}$ are equal, $\mc{B}=\mc{A}$, if-and-only-if they have the same elements. \\
+$\mc{A} = \mc{B}$\index{ class equality@$=$ class equality} denotes the \bemph{class equality} of $\mc{A}$ and $\mc{B}$.
+%\footnote{This is a Theorem rather than a Definition because it is proved from a less-intuitive definition.}
+\begin{restatable}{lemma}{dfcleq}~\otherTitle{dfcleq}~ The defining characterization of class
+equality.  ~
+\begin{align}
+\vdash ( \mc{A} = \mc{B} \leftrightarrow \forall \msc{x} ( \msc{x} \in \mc{A}
+    \leftrightarrow \msc{x} \in \mc{B} ) )\label{eq:dfcleq}\tag{dfcleq}
+\end{align}
+\end{restatable}
+
+\pn $\mc{A}\cap \mc{B}$\index{ intersection@$\cap$ intersection} denotes the \bemph{intersection} of $\mc{A}$ and $\mc{B}$; 
+\begin{restatable}{metadefinition}{dfin}~\otherTitle{df-in}~ Define the intersection of two classes. 
+\begin{align}
+\vdash ( \mc{A} \cap \mc{B} ) = \{ \msc{x}~\vert~( \msc{x} \in \mc{A} \wedge
+    \msc{x} \in \mc{B} ) \}\label{eq:df-in}\tag{df-in}
+\end{align}
+\end{restatable}
+
+\pn $\mc{A}\cup \mc{B}$\index{ union@$\cup$ union} denotes the \bemph{union} of $\mc{A}$ and $\mc{B}$;
+\begin{restatable}{metadefinition}{dfun}~\otherTitle{df-un}~ Define the union of two classes. 
+\begin{align}
+\vdash ( \mc{A} \cup \mc{B} ) = \{ \msc{x}~\vert~( \msc{x} \in \mc{A} \vee \msc{x}
+    \in \mc{B} ) \}\label{eq:df-un}\tag{df-un}
+\end{align}
+\end{restatable}
+
+\pn $\mc{A} \setminus \mc{B}$ denotes the \bemph{difference} of $\mc{A}$ and $\mc{B}$. 
+\begin{restatable}{metadefinition}{dfdif}~\otherTitle{df-dif}~ Define class difference, also called
+relative complement. 
+\begin{align}
+\vdash ( \mc{A} \setminus \mc{B} ) = \{ \msc{x}~\vert~( \msc{x} \in \mc{A} \wedge
+    \lnot \msc{x} \in \mc{B} ) \}\label{eq:df-dif}\tag{df-dif}
+\end{align}
+\end{restatable}
+
+\pn $\mc{A}\subseteq \mc{B}$\index{ subset@$\subseteq$ subset} denotes that $\mc{A}$ is a \bemph{subclass} of $\mc{B}$.
+%\(A \subseteq B \equiv \forall a(~a \in A \rightarrow~a \in B)\) \\
+\begin{restatable}{metadefinition}{dfss}~\otherTitle{df-ss} {Define the subclass relationship.} 
+\begin{align}
+\mm{\vdash} ( \mc{A} \subseteq \mc{B} \leftrightarrow ( \mc{A} \cap \mc{B} ) =
+    \mc{A} )\label{eq:df-ss}\tag{df-ss}
+\end{align}
+\end{restatable}
+
+\pn $\mc{A}\subset \mc{B}$\index{ proper subclass@$\subset$ proper subclass} denotes that $\mc{A}$ is a \bemph{proper subclass} of $\mc{B}$;
+%\begin{restatable}{metadefinition}{dfss}~\otherTitle{df-ss}~ Define the subclass (``subset") relationship. 
+%\begin{align}
+%\vdash ( \mc{A} \subseteq \mc{B} \leftrightarrow ( \mc{A} \cap \mc{B} ) =
+%    \mc{A} )\label{eq:df-ss}\tag{df-ss}
+%\end{align}
+%\end{restatable}
+
+
+\pn Classes $\mc{A}$ and $\mc{B}$ are \bemph{disjoint} if they have no element in common, $\mc{A}\cap \mc{B}=\emptyset$.
+Disjoint generalizes to a collection of classes.
+\begin{restatable}{metadefinition}{dfdisj}~\otherTitle{df-disj}~ A collection of classes $\mc{B} (
+\msc{x} )$ is disjoint when for each element
+       $\msc{y}$, it is in $\mc{B} ( \msc{x} )$ for at most one $\msc{x}$. 
+\begin{align}
+\vdash ( \operatorname{\underline{Disj}} \msc{x} \in \mc{A} \mc{B}
+    \leftrightarrow \forall \msc{y} \exists^\ast \msc{x} \in \mc{A} \msc{y} \in
+    \mc{B} )\label{eq:df-disj}\tag{df-disj}
+\end{align}
+\end{restatable}
+
+\pn The definitions of intersection and union can be generalized to more than two sets.  
+\begin{restatable}{metadefinition}{dfiun}~\otherTitle{df-iun}~ Define indexed union. 
+\begin{align}
+\vdash \underline{\bigcup} \msc{x} \in \mc{A} \mc{B} = \{ \msc{y}~\vert~\exists
+    \msc{x} \in \mc{A} \msc{y} \in \mc{B} \}\label{eq:df-iun}\tag{df-iun}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{metadefinition}{dfiin}~\otherTitle{df-iin}~ Define indexed intersection.  
+\begin{align}
+\vdash \underline{\bigcap} \msc{x} \in \mc{A} \mc{B} = \{ \msc{y}~\vert~\forall
+    \msc{x} \in \mc{A} \msc{y} \in \mc{B} \}\label{eq:df-iin}\tag{df-iin}
+\end{align}
+\end{restatable}
+
+%Let $A_k$ be a set for every element $k$ of some other set $J$: 
+%\(\bigcap_{k\in J} \equiv \{a~\vert~ \forall k(k\in J \wedge a\in A_k)\}\) \\
+%\(\bigcup_{k\in J} \equiv \{a~\vert~ \exists k(k\in J \wedge a\in A_k)\}\)
+
+\pn For a finite class $\mc{A}$, $\Vert \mc{A}\Vert$\index{ cardinality@$\Vert A\Vert$ cardinality} denotes the \bemph{cardinality}, or number of elements in $\mc{A}$.  
+
+\pn For a non-empty, finite class $\mc{B}\subset\mathbb{Z}$, $\bmin(\mc{B})$ denotes the \bemph{minimum} of all integers in $\mc{B}$.
+
+\pn $\mathbb{D}$ is the set of all possible constructed values, including quantities, strings, records, and arrays. 
+%, formally defined in Chapter \ref{chapter:type}, Type.
+
+\section{Tuples}\label{sec:tuples}
+
+\pn For sets, the repetition of elements and their order is irrelevant.  When ordering matters, ordered pairs and tuples are used.  For elements $a$ and $b$, not necessarily distinct, $\langle a,b\rangle $ is an \bemph{ordered pair} or simply pair.  Then $a$ and $b$ are called \bemph{components} of $\langle a,b\rangle$.  A class being a member of ${\rm V}$ means that class is a set.  An ordered pair is represented as a set with two elements, one element being the singleton $\{ \mc{A} \}$, and the other being a set having both singletons $\{ \mc{A} \}$ and $\{ \mc{B} \}$ as elements.
+\begin{restatable}{metadefinition}{dfop}~\otherTitle{df-op}~ Definition of an ordered pair.
+\begin{align}
+\vdash \langle \mc{A} , \mc{B} \rangle = \{ \msc{x}~\vert~( \mc{A} \in \,\mathrm{V}
+    \wedge \mc{B} \in \,\mathrm{V} \wedge \msc{x} \in \{ \{ \mc{A} \} , \{
+    \mc{A} , \mc{B} \} \} ) \}\label{eq:df-op}\tag{df-op}
+\end{align}
+\end{restatable}
+
+\pn Two pairs $\langle a,b\rangle$ and $\langle b,c\rangle$ are equal,
+$\langle a,b\rangle=\langle c,d\rangle$ if $a=c$ and $b=d$.
+\begin{restatable}{lemma}{opeqonetwo}~\otherTitle{opeq12}~ Equality theorem for ordered pairs. 
+\begin{align}
+\vdash ( ( \mc{A} = \mc{C} \wedge \mc{B} = \mc{D} ) \rightarrow \langle \mc{A}
+    , \mc{B} \rangle = \langle \mc{C} , \mc{D} \rangle
+    )\label{eq:opeq12}\tag{opeq12}
+\end{align}
+\end{restatable}
+
+\pn Ordered triples\index{ordered triple} are $\langle \mc{A} , \mc{B} , \mc{C} \rangle $.
+\begin{restatable}{metadefinition}{dfot}~\otherTitle{df-ot}~ Define ordered triple of classes. 
+\begin{align}
+\vdash \langle \mc{A} , \mc{B} , \mc{C} \rangle = \langle \langle \mc{A} ,
+    \mc{B} \rangle , \mc{C} \rangle\label{eq:df-ot}\tag{df-ot}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{oteqonetwothreed}~\otherTitle{oteq123d}~ Equality deduction for ordered triples. 
+\begin{align}
+\vdash ( \mw{\varphi} \rightarrow \mc{A} = \mc{B} )\quad\&\quad \vdash (
+    \mw{\varphi} \rightarrow \mc{C} = \mc{D} )\quad\&\quad \vdash (
+    \mw{\varphi} \rightarrow E = F )\quad\Rightarrow \notag \\
+    \quad \vdash ( \mw{\varphi}
+    \rightarrow \langle \mc{A} , \mc{C} , E \rangle = \langle \mc{B} , \mc{D} ,
+    F \rangle )\label{eq:oteq123d}\tag{oteq123d}
+\end{align}
+\end{restatable}
+
+\pn More generally, let $n$ be any natural number, $n\in\mathbb{N}$.  Then if $a_1,\ldots,a_n$ are any $n$ elements, then $\langle a_1,\ldots,a_n\rangle$ is an \bemph{n-tuple}.   The element $a_k$ where $k\in\{1,\ldots,n\}$ is called the k-th element of $\langle a_1,\ldots,a_n\rangle$.
+An n-tuple $\langle a_1,\ldots,a_n\rangle$ is equal to an m-tuple 
+$\langle b_1,\ldots,b_m\rangle$, $\langle a_1,\ldots,a_n\rangle=\langle b_1,\ldots,b_m\rangle$, if-and-only-if $m=n$ and $a_k=b_k$ for all $k\in\{1,\ldots,n\}$.  
+Note that 2-tuples are ordered pairs; 3-tuples are ordered triples.  Additionally, a 0-tuple is written as $\langle \rangle$, and a 1-tuple as $\langle a\rangle$ for any element $a$.  
+
+\pn General n-tuples are not defined in \texttt{set.mm}.  Definitions and theorems for N-Tuples can be found in \ref{subsec:classlist}.
+
+\pn The \bemph{Cartesian product}, $A~\times~ B$\index{ product@$\times$ product} of sets $\mc{A}$ and $\mc{B}$ consists of all pairs, $\langle a,b\rangle$ with $a\in A$ and $b\in B$.  
+\begin{restatable}{metadefinition}{dfxp}~\otherTitle{df-xp}~ Define the Cartesian product of two
+classes.    ~
+\begin{align}
+\vdash ( \mc{A}~\times~\mc{B} ) = \{ \langle \msc{x} , \msc{y} \rangle~\vert~(
+    \msc{x} \in \mc{A} \wedge \msc{y} \in \mc{B} )
+    \}\label{eq:df-xp}\tag{df-xp}
+\end{align}
+\end{restatable}
+
+
+\pn The n-fold Cartesian product, $A_1\times\ldots\times A_n$ of sets $A_1,\ldots,A_n$ consists of all n-tuples, 
+$\langle a_1,\ldots,a_n\rangle$ with $a_k\in A_k$ for $k\in\{1,\ldots,n\}$.  If all $A_k$ are the same set $\mc{A}$, then the n-fold Cartesian product, $A\times\ldots\times A$ is also written $A^n$.  
+N-fold Cartesian products are not defined in \texttt{set.mm}.
+
+\section{Relations}\label{sec:relationsmath}
+
+A \bemph{relation} is a set of ordered pairs.
+
+\begin{restatable}{metadefinition}{dfrel}~\otherTitle{df-rel}~ Define the relation predicate. 
+\begin{align}
+\vdash ( \,\mathrm{Rel}~ \mc{A} \leftrightarrow \mc{A} \subseteq ( \,\mathrm{V}
+    \times \,\mathrm{V} ) )\label{eq:df-rel}\tag{df-rel}
+\end{align}
+\end{restatable}
+
+\pn A  \bemph{binary relation} $\mc{R}$ between sets $\mc{C}$ and $\mc{D}$ is a subset of their Cartesian product, $\mc{C}\times \mc{D}$, that is, 
+$\mc{R}\subseteq \mc{C}\times \mc{D}$.   For example,
+\(\{\langle a,1\rangle,\langle b,2\rangle,\langle c,2\rangle\}\)
+is a binary relation between $\{a,b,c\}$ and $\{1,2\}$.  $\mc{A}$ has relation $\mc{R}$ to $\mc{B}$, $\mc{ARB}$, if the ordered pair,
+$\mc{\langle A,B\rangle}$ is an element of $\mc{R}$.
+
+\begin{restatable}{metadefinition}{dfbr}~\otherTitle{df-br}~ Define a general binary relation.  Note
+that the syntax is simply three
+     class symbols in a row.  
+\begin{align}
+\vdash ( \mc{A} \mc{R} \mc{B} \leftrightarrow \langle \mc{A} , \mc{B} \rangle
+    \in \mc{R} )\label{eq:df-br}\tag{df-br}
+\end{align}
+\end{restatable}
+
+
+\pn The \bemph{converse} of a relation reverses the order of its pairs.
+\begin{restatable}{metadefinition}{dfcnv}~\otherTitle{df-cnv}~ Define the converse of a class. 
+The converse of a binary relation swaps its arguments.
+\begin{align}
+\vdash {}^{\smallsmile} \mc{A} = \{ \langle \msc{x} , \msc{y} \rangle~\vert~\msc{y}
+    \mc{A} \msc{x} \}\label{eq:df-cnv}\tag{df-cnv}
+\end{align}
+\end{restatable}
+
+
+\pn The \bemph{domain} of a relation the the set of the first elements of its ordered pairs.
+\begin{restatable}{metadefinition}{dfdm}~\otherTitle{df-dm}~ Define the domain of a class.  
+\begin{align}
+\vdash \,\mathrm{dom}~ \mc{A} = \{ \msc{x}~\vert~\exists \msc{y} \msc{x} \mc{A}
+    \msc{y} \}\label{eq:df-dm}\tag{df-dm}
+\end{align}
+\end{restatable}
+
+\pn The \bemph{range} of a relation the the set of the second elements of its ordered pairs.
+\begin{restatable}{metadefinition}{dfrn}~\otherTitle{df-rn}~ Define the range of a class.  F
+\begin{align}
+\vdash \,\mathrm{ran}~ \mc{A} = \,\mathrm{dom}~ {}^{\smallsmile}
+    \mc{A}\label{eq:df-rn}\tag{df-rn}
+\end{align}
+\end{restatable}
+
+
+\pn More generally, for any natural number $n$, and n-ary relation $\mc{R}$ between sets $A_1,\ldots,A_n$ is a subset of the n-fold Cartesian product $A_1\times\ldots\times A_n$, that is, 
+$R\subseteq A_1\times\ldots\times A_n$.  Note that 1-ary relations are called unary relations, 2-ary relations are called binary relations, and 3-ary relations are called ternary relations.
+
+
+\pn The \bemph{relational composition}, $A\circ B$
+\index{ composition@$\circ$ relational composition}, of relations $\mc{A}$ and $\mc{B}$ creates a new relation by combining them:
+\dfco
+%\begin{restatable}{metadefinition}{dfco}~\otherTitle{df-co}~ Define the composition of two classes.
+%\begin{align}
+%\vdash ( \mc{A} \circ \mc{B} ) = \{ \langle \msc{x} , \msc{y} \rangle~\vert~\exists
+%    \msc{z} ( \msc{x} \mc{B} \msc{z} \wedge \msc{z} \mc{A} \msc{y} )
+%    \}\label{eq:df-co}\tag{df-co}
+%\end{align}
+%\end{restatable}
+
+\pn The \bemph{identity relation}, ${\rm I}$, is the set of ordered pairs having the same elements.
+\begin{restatable}{metadefinition}{dfid}~\otherTitle{df-id}~ Define the identity relation.  ~
+\begin{align}
+\vdash \,\mathrm{I} = \{ \langle \msc{x} , \msc{y} \rangle~\vert~\msc{x} = \msc{y}
+    \}\label{eq:df-id}\tag{df-id}
+\end{align}
+\end{restatable}
+
+\pn The \bemph{restriction} of a class (which is a relation), $( \mc{A} \restriction \mc{B} )$, eliminates all ordered pairs from $\mathrm{dom}~\mc{A}$ whose first element is not an element of $\mc{B}$.
+\begin{restatable}{metadefinition}{dfres}~\otherTitle{df-res}~ Define the restriction of a class. 
+\begin{align}
+\vdash ( \mc{A} \restriction \mc{B} ) = ( \mc{A} \cap ( \mc{B} \times
+    \,\mathrm{V} ) )\label{eq:df-res}\tag{df-res}
+\end{align}
+\end{restatable}
+
+\pn Consider a binary relation $\mc{R}$ on a class $\mc{A}$.  
+$\mc{R}$ is called \bemph{reflexive} if $\langle \msc{x},\msc{x}\rangle\in \mc{R}$ for every $\msc{x}\in \mc{A}$.
+The identity relation, ${\rm I}$, restricted to class $\mc{A}$, $( {\rm I} \restriction \mc{A} )$, is the set of ordered pairs which have the same element of $\mc{A}$, 
+$\{ \langle a,a \rangle \vert a \in \mc{A} \}$.
+\begin{lemma}\otherTitle{isref} {Two ways to state a relation is reflexive.} 
+\begin{align}
+\mm{\vdash} ( ( {\rm I} \restriction \mc{A} ) \subseteq \mc{R} \leftrightarrow
+    \forall \msc{x} \in \mc{A}~\msc{x} \mc{R} \msc{x} )\label{eq:isref}\tag{isref}
+\end{align}
+\end{lemma}
+
+$\mc{R}$ is called \bemph{irreflexive} if $\langle a,a\rangle\notin \mc{R}$ for every $a\in A$. 
+\begin{restatable}{lemma}{intirr}~\otherTitle{intirr}~ Two ways of saying a relation is
+irreflexive.  
+\begin{align}
+\vdash ( ( \mc{R} \cap \,\mathrm{I} ) = \varnothing~ \leftrightarrow \forall
+    \msc{x} \lnot \msc{x} \mc{R} \msc{x} )\label{eq:intirr}\tag{intirr}
+\end{align}
+\end{restatable}
+
+ $\mc{R}$ is called \bemph{symmetric} if for all $a,b\in \mc{A}$, whenever $\langle a,b\rangle\in \mc{R}$ the also $\langle b,a\rangle\in \mc{R}$.
+\begin{restatable}{lemma}{cnvsym}~\otherTitle{cnvsym}~ Two ways of saying a relation is symmetric. 
+\begin{align}
+\vdash ( {}^{\smallsmile} \mc{R} \subseteq \mc{R} \leftrightarrow \forall
+    \msc{x} \forall \msc{y} ( \msc{x} \mc{R} \msc{y} \rightarrow \msc{y} \mc{R}
+    \msc{x} ) )\label{eq:cnvsym}\tag{cnvsym}
+\end{align}
+\end{restatable}
+
+ $\mc{R}$ is called \bemph{antisymmetric} if for all $a,b\in  \mc{A}$, whenever 
+$\langle a,b\rangle\in \mc{R}$ and $\langle b,a\rangle\in \mc{R}$ then $b=a$.  
+\begin{restatable}{lemma}{intasym}~\otherTitle{intasym}~ Two ways of saying a relation is
+antisymmetric.  
+\begin{align}
+\vdash ( ( \mc{R} \cap {}^{\smallsmile} \mc{R} ) \subseteq \,\mathrm{I}
+    \leftrightarrow \forall \msc{x} \forall \msc{y} ( ( \msc{x} \mc{R} \msc{y}
+    \wedge \msc{y} \mc{R} \msc{x} ) \rightarrow \msc{x} = \msc{y} )
+    )\label{eq:intasym}\tag{intasym}
+\end{align}
+\end{restatable}
+
+$\mc{R}$ is called \bemph{transitive} if for all $a,b,c\in  \mc{A}$ whenever $\langle a,b\rangle\in \mc{R}$ and $\langle b,c\rangle\in \mc{R}$ then also $\langle a,c\rangle\in \mc{R}$.
+\begin{restatable}{lemma}{cotr}~\otherTitle{cotr}~ Two ways of saying a relation is transitive. 
+\begin{align}
+\vdash ( ( \mc{R} \circ \mc{R} ) \subseteq \mc{R} \leftrightarrow \forall
+    \msc{x} \forall \msc{y} \forall \msc{z} ( ( \msc{x} \mc{R} \msc{y} \wedge
+    \msc{y} \mc{R} \msc{z} ) \rightarrow \msc{x} \mc{R} \msc{z} )
+    )\label{eq:cotr}\tag{cotr}
+\end{align}
+\end{restatable}
+
+\pn Closure\index{closure} applies relational composition to a relation until fixed point is achieved.
+ The transitive, irreflexive closure, $\mc{R}^{+}$\index{ closure2@$R^{+}$ transitive irreflexive closure}, 
+ of a binary relation $\mc{R}$ over a set $ \mc{A}$, is the smallest, transitive and irreflexive binary relation that contains $\mc{R}$ as a subset.
+  
+\(\mc{R}^{+} \equiv~\mc{R} \subseteq \mc{R}^{+}~\band~\forall a,b,c\in  \mc{A} ~\vert~  
+ \begin{array}{c}
+ \langle a,b\rangle\in \mc{R}^{+}\wedge\langle b,c\rangle\in \mc{R}^{+} \rightarrow \langle a,c\rangle\in \mc{R}^{+}\\
+ \langle a,a\rangle\notin \mc{R}^{+}
+ \end{array}
+ \)
+
+\begin{restatable}{metadefinition}{dftc}~\otherTitle{df-tc}~ The transitive closure function. 
+\begin{align}
+\vdash \,\mathrm{TC} = ( \msc{x} \in \,\mathrm{V} \mapsto \bigcap \{ \msc{y}~\vert~
+    ( \msc{x} \subseteq \msc{y} \wedge \,\mathrm{Tr}~\msc{y} ) \}
+    )\label{eq:df-tc}\tag{df-tc}
+\end{align}
+\end{restatable}
+
+ \pn The transitive, reflexive \bemph{closure}, $\mc{R}^{\star}$\index{ closure@$R^{\star}$ transitive reflexive closure}, of a binary relation $\mc{R}$ over a set $ \mc{A}$, is the smallest, transitive and reflexive, binary relation on $ \mc{A}$ that contains $\mc{R}$ as a subset. 
+ 
+\(\mc{R}^\star \equiv~\mc{R} \subseteq \mc{R}^\star~\band~\forall a,b,c\in  \mc{A} ~\vert~  
+ \begin{array}{c}
+ \langle a,b\rangle\in \mc{R}^\star\wedge\langle b,c\rangle\in \mc{R}^\star \rightarrow \langle a,c\rangle\in \mc{R}^\star\\
+ \langle a,a\rangle\in \mc{R}^\star
+ \end{array}
+ \)
+
+\begin{restatable}{lemma}{tctwo}~\otherTitle{tc2}~ A variant of the definition of the transitive
+closure function, using
+       instead the smallest transitive set containing $\mc{A}$ as a member,
+gives
+       almost the same set, except that $\mc{A}$ itself must be added because
+it
+       is not usually a member of $( \,\mathrm{TC} ` \mc{A} )$ (and it is
+never a member if
+       $\mc{A}$ is well-founded).  ~
+\begin{align}
+\vdash \mc{A} \in \,\mathrm{V}\quad\Rightarrow\quad \vdash ( ( \,\mathrm{TC} `
+    \mc{A} ) \cup \{ \mc{A} \} ) = \bigcap \{ \msc{x}~\vert~( \mc{A} \in \msc{x}
+    \wedge \,\mathrm{Tr}~\msc{x} ) \}\label{eq:tc2}\tag{tc2}
+\end{align}
+\end{restatable}
+
+
+\pn For any natural number $n$, the n-fold relational composition, $\mc{R}^{n}$, of a relation $\mc{R}$ on a set $ \mc{A}$ is defined inductively:
+
+\(\mc{R}^{0} \equiv \{\langle a,a\rangle~\vert~ a\in  \mc{A}\}\)
+
+\(\mc{R}^{n} \equiv \mc{R}^{n-1}\circ \mc{R}\)
+for $n>0$.  
+
+\(\mc{R}^\star \equiv \bigcup_{n\in \mathbb{N}_0} \mc{R}^{n}\)
+
+\(\mc{R}^{+} \equiv \mc{R}^\star \setminus \mc{R}^{0}\)
+
+\pn Membership of pairs in a binary relation is usually written in infix notation; instead of $\langle a,b\rangle\in \mc{R}$, use $a\mc{R}b$.
+Any binary relation $\mc{R}\subseteq  \mc{A}\times  \mc{B}$ may have an inverse $\mc{R}^{\minus 1} \subseteq  \mc{B}\times  \mc{A}$ such that 
+$b \mc{R}^{\minus 1}a$ if-and-only-if $a \mc{R} b$.
+
+\section{Functions}\label{sec:functions}
+
+\pn Let $\mc{A}$ and $\mc{B}$ be sets.  A \bemph{function} or mapping from $\mc{A}$ to $\mc{B}$ is a binary relation $\mc{F}$
+between $\mc{A}$ and $\mc{B}$ with the following special property:  for each element $a\in \mc{A}$ there is exactly one element $b\in \mc{B}$ such that $\mc{F}(a)=b$.  
+Metamath uses s prefix notation for function application writing $(\mc{F}`a)$ for $\mc{F}(a)$.
+ To indicate that $\mc{F}$ is a 
+function from $\mc{A}$ to $\mc{B}$ write \(\mc{F}:\mc{A}\longrightarrow \mc{B}\).    
+The set $\mc{A}$ is called the \bemph{domain} of $f$ and the set $\mc{B}$ is called the \bemph{range} or \bemph{codomain} of $f$.
+
+\begin{restatable}{metadefinition}{dffun}~\otherTitle{df-fun}~ Define predicate that determines if some
+class $\mc{A}$ is a function.
+\begin{align}
+\vdash ( \,\mathrm{Fun}~ \mc{A} \leftrightarrow ( \,\mathrm{Rel}~ \mc{A} \wedge (
+    \mc{A} \circ {}^{\smallsmile} \mc{A} ) \subseteq \,\mathrm{I} )
+    )\label{eq:df-fun}\tag{df-fun}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{metadefinition}{dffn}~\otherTitle{df-fn}~ Define a function with domain.  
+\begin{align}
+\vdash ( \mc{A} \,\mathrm{Fn}~ \mc{B} \leftrightarrow ( \,\mathrm{Fun}~ \mc{A}
+    \wedge \,\mathrm{dom}~ \mc{A} = \mc{B} ) )\label{eq:df-fn}\tag{df-fn}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{metadefinition}{dff}~\otherTitle{df-f}~ Define a function (mapping) with domain and
+codomain.    ~
+\begin{align}
+\vdash ( F : \mc{A} \longrightarrow \mc{B} \leftrightarrow ( F \,\mathrm{Fn}~
+    \mc{A} \wedge \,\mathrm{ran}~ F \subseteq \mc{B} )
+    )\label{eq:df-f}\tag{df-f}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{metadefinition}{dffv}~\otherTitle{df-fv}~ Define the value of a function, $( F `
+\mc{A} )$, also known as function
+       application.  
+\begin{align}
+\vdash ( F ` \mc{A} ) = ( \text{\riota} \msc{x} \mc{A} F \msc{x}
+    )\label{eq:df-fv}\tag{df-fv}
+\end{align}
+\end{restatable}
+
+\pn Consider a function \(\mc{F}:\mc{A}\longrightarrow \mc{B}\) and some set $\mc{X}\subseteq \mc{A}$.  The \bemph{restriction} of $\mc{F}$ to $\mc{X}$ 
+is denoted by $(\mc{F}\restriction \mc{X})$ and defined as the intersection of $\mc{F}$ (which is a subset of $\mc{A}\times \mc{B}$) with $\mc{X}\times\mc{B}$:
+\((\mc{F}\restriction \mc{X}) \equiv f\cap(\mc{X}\times \mc{B})\).  
+
+\begin{restatable}{lemma}{funssres}~\otherTitle{funssres}~ The restriction of a function to the
+domain of a subclass equals the
+       subclass.  ~
+\begin{align}
+\vdash ( ( \,\mathrm{Fun}~ F \wedge G \subseteq F ) \rightarrow ( F \restriction
+    \,\mathrm{dom}~ G ) = G )\label{eq:funssres}\tag{funssres}
+\end{align}
+\end{restatable}
+
+A function \(F:\mc{A}\longrightarrow \mc{B}\) is called \bemph{one-to-one} or \bemph{injective} if $F(a_1)\ne F(a_2)$ for any two distinct elements $a_1,a_2\in \mc{A}$.  
+
+\begin{restatable}{metadefinition}{dff1}~\otherTitle{df-f1}~ Define a one-to-one function. 
+\begin{align}
+\vdash ( F : \mc{A} \overset{\mathrm{1to1}}{\longrightarrow} \mc{B}
+    \leftrightarrow ( F : \mc{A} \longrightarrow \mc{B} \wedge \,\mathrm{Fun}~
+    {}^{\smallsmile} F ) )\label{eq:df-f1}\tag{df-f1}
+\end{align}
+\end{restatable}
+
+A function is called \bemph{onto} or 
+\bemph{subjective} if for every element $b\in \mc{B}$ there exists an element $a\in \mc{A}$ with $F(a)=b$.  
+
+\begin{restatable}{metadefinition}{dffo}~\otherTitle{df-fo}~ Define an onto function.  
+\begin{align}
+\vdash ( F : \mc{A} \underset{\mathrm{onto}}{\longrightarrow} \mc{B}
+    \leftrightarrow ( F \,\mathrm{Fn}~ \mc{A} \wedge \,\mathrm{ran}~ F = \mc{B} )
+    )\label{eq:df-fo}\tag{df-fo}
+\end{align}
+\end{restatable}
+
+A function is called \bemph{bijective} if it is both injective and subjective.
+
+\begin{restatable}{metadefinition}{dff1o}~\otherTitle{df-f1o}~ Define a one-to-one onto function.    A one-to-one onto function is also called a ``bijection".      ~
+\begin{align}
+\vdash ( F : \mc{A}
+    \overset{\mathrm{1to1}}{\underset{\mathrm{onto}}{\longrightarrow}} \mc{B}
+    \leftrightarrow ( F : \mc{A} \overset{\mathrm{1to1}}{\longrightarrow} \mc{B}
+    \wedge F : \mc{A} \underset{\mathrm{onto}}{\longrightarrow} \mc{B} )
+    )\label{eq:df-f1o}\tag{df-f1o}
+\end{align}
+\end{restatable}
+
+\pn Consider an n-ary function whose domain is a Cartesian product, $\mc{F}:\mc{A_1} \times\ldots\times \mc{A_n}~\longrightarrow~\mc{B}$.  It is customary to drop tuple brackets when applying $\mc{F}$ to a tuple\index{tuple} 
+\(\langle a_1,\ldots,a_n\rangle\in~\mc{A_1} \times\ldots\times \mc{A_n}\) 
+writing $\mc{F}(2,3)$ instead of $\mc{F}(\langle 2,3\rangle)$.
+
+\pn Consider a binary function whose domain and co-domain coincide, $\mc{F}:\mc{A}\longrightarrow \mc{A}$.  An element
+$a\in \mc{A}$ is called a \bemph{fixed point} of $\mc{F}$ if $\mc{F}(a)=a$.
+
+\begin{restatable}{lemma}{fninfp}~\otherTitle{fninfp}~ Express the class of fixed points of a
+function.  ~
+\begin{align}
+\vdash ( F \,\mathrm{Fn}~ \mc{A} \rightarrow \,\mathrm{dom}~ ( F \cap
+    \,\mathrm{I} ) = \{ \msc{x} \in \mc{A}~\vert~( F ` \msc{x} ) = \msc{x} \}
+    )\label{eq:fninfp}\tag{fninfp}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{fnelfp}~\otherTitle{fnelfp}~ Property of a fixed point of a function. 
+\begin{align}
+\vdash ( ( F \,\mathrm{Fn}~ \mc{A} \wedge X \in \mc{A} ) \rightarrow ( X \in
+    \,\mathrm{dom}~ ( F \cap \,\mathrm{I} ) \leftrightarrow ( F ` X ) = X )
+    )\label{eq:fnelfp}\tag{fnelfp}
+\end{align}
+\end{restatable}
+
+\pn Boolean logic can also be considered to be functions on $\mathbb{B}$.
+\begin{description}
+\item[\bemph{conjunction}] of $a$ and $b$ is $a\wedge b$\index{ conjunction@$\wedge$ conjunction}; 
+\item[\bemph{disjunction}] is $a\vee b$ \index{ disjunction@$\vee$ disjunction}; 
+\item[\bemph{implication}] is $a\rightarrow b$\index{ implication@$\rightarrow$ implication}; 
+\item[\bemph{if-and-only-if}] is $a\leftrightarrow b$ \index{ iff@$\leftrightarrow$ if-and-only-if}; 
+\item[\bemph{exclusive disjunction}] is $a\oplus b$\index{ exclusive@$\oplus$ exclusive disjunction};
+\item[\bemph{complement}] is $\neg a$\index{ complement@$\neg$ complement}.
+\end{description}
+
+\begin{table}[htp]
+\caption{Boolean Function Truth Table}
+\begin{center}
+\begin{tabular}{|c|c||c|c|c|c|c|c|}
+\hline
+$a$ & $b$ & $a\wedge b$ & $a\vee b$ & $a\rightarrow b$ & $a\leftrightarrow b$ & $a\oplus b$ & $\neg a$ \\  \hline 
+$\bot$ & $\bot$ & $\bot$ & $\bot$ & $\top$ & $\top$ & $\bot$ &  $\top$  \\ \hline 
+$\top$ & $\bot$ & $\bot$ & $\top$ & $\bot$ & $\bot$ & $\top$ & $\bot$   \\ \hline 
+$\bot$ & $\top$ & $\bot$ & $\top$ & $\top$ & $\bot$ & $\top$ &  $\top$  \\ \hline 
+$\top$ & $\top$ & $\top$ & $\top$ & $\top$ & $\top$ & $\bot$ &  $\bot$  \\ \hline 
+\end{tabular}
+\end{center}
+\label{default}
+\end{table}%
+
+\section{Sequences}\label{sec:sequences}
+
+\pn Sequences are ordered sets. In the following, let $\mc{A}$ be a set.  A \bemph{sequence} of elements of $\mc{A}$ of length $n>0$ is a function
+\(f:\{1,\ldots,n\} \rightarrow A\).  
+A sequence is denoted by listing its values in order
+\(a_1,\ldots,a_n\)
+where $a_1=f(1),~\ldots~, a_n=f(n)$.  Then the k-th element of the sequence $a_1,\ldots,a_n$ is $a_k$ when 
+$k\in\{1,\ldots,n\}$.  A finite sequence is a sequence of any length $n\ge0$.
+A sequence of length 0 is called the \bemph{empty sequence} and denoted $\epsilon$.
+A countably-infinite sequence of elements from A is a function $\xi:\mathbb{N}_0~\rightarrow~A$.
+To exhibit the general form of a countably-infinite sequence $\xi$ is written
+\(\xi:a_0~a_1~a_2~\ldots\)
+when $a_k=\xi(k)$ for all $k\in\mathbb{N}_0$.  Then $k$ is called the \bemph{index} of element $a_k$.
+
+
+\pn Consider now a set of relations, $R=\{R_1,R_2,\ldots,R_{n-1}\}$, on a set $\mc{A}$.  For any finite sequence of elements of $\mc{A}$, 
+$a_1~\ldots~a_n$, such that each element is related to the next by a relation in $\mc{R}$,
+\(a_1 R_1 a_2,~a_2 R_2 a_3,~\ldots,~a_{n-1} R_{n-1} a_n\)
+can be written as a finite chain,
+\(a_1 R_1 a_2 R_2 a_3 \ldots R_{n-1} a_n\)
+For example, using the relations $=$ and $<$ over $\mathbb{Z}$, a finite chain may be written
+\(a_0<a_1=a_2<a_3<a_4\).  
+Similarly for infinite sequences and infinite chains.
+
+\pn A \bemph{permutation} of a sequence has the same elements in different order.  In the following, let $f$ and $g$ be sequences of distinct\footnote{may not need restriction on repeated elements; that the sets are the same, repeated elements and all, may be enough; but then they have equal bags, not sets and that way madness lies} elements
+\(f:\{1,\ldots,n\} \rightarrow A\) and \(g:\{1,\ldots,m\} \rightarrow A\).  
+The sequences are permutations of each other, $f \leftrightarrows g$,\index{ permutation@$\leftrightarrows$ permutation} when they are the same length and have the same elements
+\(f\leftrightarrows g~\equiv~n=m\land \{f(1),f(2),\ldots,f(n)\}=\{g(1),g(2),\ldots,g(m)\}\)
+
+%\pn Metamath provides \bemph{extensible structures} (Struct) which are sets of pairs where one element is a natural number, and the other is an element of a class (set).  Struct can thus be used for sequences and sets.  See Section \ref{sec:exstruct}.
+
+
+\section{Strings}\label{sec:strings}
+
+\pn A set of symbols is often called an \bemph{alphabet}.  A \bemph{string} over an alphabet $\mc{A}$
+is a finite sequence of symbols from $\mc{A}$.  For example, $1+2$ is a string over the alphabet
+$\{1,2,+\}$.  Syntactic objects like AADL annex subclauses are strings.
+\begin{metadefinition}\otherTitle{df-word} {Define the class of -words over a set-.} 
+A word (or sometimes also
+       called a -string-) is a finite sequence of symbols from a set
+(alphabet)
+       $\mc{S}$.  
+\begin{align}
+\vdash \mathrm{Word } \mc{S} = \{ \msc{w} ~\vert~ \exists \msc{l} \in
+    \mathbb{N}_0 \msc{w} : ( 0 .. \msc{l} ) \longrightarrow \mc{S}
+    \}\label{eq:df-word}\tag{df-word}
+\end{align}
+\end{metadefinition}
+
+\pn The \bemph{concatenation} of two strings $s_1$ and $s_2$ yields the string $s_{1}s_{2}$ 
+formed by first writing $s_1$ and then $s_2$.  
+A string $t$ is called a \bemph{substring} of a string $s$ if there exist strings $s_1$ and $s_2$
+such that $s=s_{1}t s_{2}$.  Because $s_1$ and $s_2$ may be empty, every string is a substring of itself.
+\begin{metadefinition}\otherTitle{df-concat} {Define the concatenation operator}
+which combines two words.  
+\begin{align}
+\vdash \mathrm{ ++ } = ( \msc{s} \in {\rm V} , \msc{t} \in {\rm V} \mapsto (
+    \msc{x} \in ( 0 .. ( ( \# ` \msc{s} ) + ( \# ` \msc{t} ) ) ) \mapsto\notag
+    \\~~~~~~~~~~ {\rm
+    if} ( \msc{x} \in ( 0 .. ( \# ` \msc{s} ) ) , ( \msc{s} ` \msc{x} ) , (
+    \msc{t} ` ( \msc{x} - ( \# ` \msc{s} ) ) ) ) )
+    )\label{eq:df-concat}\tag{df-concat}
+\end{align}
+\end{metadefinition}
+
+\pn A \bemph{substring} is a string that is contained in another sterin.
+\begin{metadefinition}\otherTitle{df-substr} {Define an operation which extracts
+portions of words.} 
+\begin{align}
+\vdash \mathrm{ substr } = ( \msc{s} \in {\rm V} , \msc{b} \in ( \mathbb{Z}
+    \times \mathbb{Z} ) \mapsto {\rm if} ( ( ( 1^{\rm st} ` \msc{b} ) .. (
+    2^{\rm nd} ` \msc{b} ) ) \subseteq {\rm dom} \msc{s} , \notag
+    \\ ~~~~( \msc{x} \in ( 0
+    .. ( ( 2^{\rm nd} ` \msc{b} ) - ( 1^{\rm st} ` \msc{b} ) ) ) \mapsto (
+    \msc{s} ` ( \msc{x} + ( 1^{\rm st} ` \msc{b} ) ) ) ) , \varnothing )
+    )\label{eq:df-substr}\tag{df-substr}
+\end{align}
+\end{metadefinition}
+
+
+
+\section{Partial Orders}\label{sec:partialorders}
+
+\pn A \bemph{partial order} is a pair $(A, \sqsubset)$\index{ partial@$\sqsubset$} consisting of a set $\mc{A}$ and a irreflexive, antisymmetric, and transitive relation $\sqsubset$ on $\mc{A}$, called Po in Metamath. 
+The reflexive partial order is denoted $\sqsubseteq$\index{ partialeq@$\sqsubseteq$} .  
+
+\begin{lemma}\otherTitle{ispod} {Sufficient conditions for a partial order.} 
+\begin{align}
+  \begin{array}{l}
+    \mm{\vdash} ( ( \mw{\varphi} \wedge \msc{x} \in \mc{A} ) \rightarrow \lnot
+    \msc{x} R \msc{x} )\quad\&\quad \notag
+   \\ \mm{\vdash} ( ( \mw{\varphi} \wedge (
+    \msc{x} \in \mc{A} \wedge \msc{y} \in \mc{A} \wedge \msc{z} \in \mc{A} ) )
+    \rightarrow ( ( \msc{x} R \msc{y} \wedge \msc{y} R \msc{z} ) \rightarrow
+    \msc{x} R \msc{z} ) ) \notag
+    \end{array}
+    \Rightarrow\quad \mm{\vdash} ( \mw{\varphi}
+    \rightarrow R~ {\rm Po} ~\mc{A} )\label{eq:ispod}\tag{ispod}
+\end{align}
+\end{lemma}
+\begin{lemma}\otherTitle{poirr} {A partial order relation is irreflexive.} 
+\begin{align}
+\mm{\vdash} ( ( R~ {\rm Po}~ \mc{A} \wedge \mc{B} \in \mc{A} ) \rightarrow \lnot
+    \mc{B} R \mc{B} )\label{eq:poirr}\tag{poirr}
+\end{align}
+\end{lemma}
+\begin{lemma}\otherTitle{potr} {A partial order relation is a transitive relation.} 
+\begin{align}
+\mm{\vdash} ( ( R~{\rm Po}~\mc{A} \wedge ( \mc{B} \in \mc{A} \wedge \mc{C} \in
+    \mc{A} \wedge \mc{D} \in \mc{A} ) ) \rightarrow ( ( \mc{B} R \mc{C} \wedge
+    \mc{C} R \mc{D} ) \rightarrow \mc{B} R \mc{D} ) )\label{eq:potr}\tag{potr}
+\end{align}
+\end{lemma}
+
+
+If $x\sqsubset y$ for some $x,y\in A$, then $x$ is called \bemph{less than} $y$, or $y$ is \bemph{greater than} $x$.  
+Consider an element $a\in A$ and a subset $X\subseteq A$.  When $a\in X$ and $a \sqsubset x$ for all $x\in X\setminus\{a\}$, the $a$ is called the \bemph{least element} of $X$.  
+When $x \sqsubset b$ for all $x\in X\setminus\{b\}$, then $b$ is called an \bemph{upper bound} of 
+$X$.  Upper bounds of $X$ need not be elements of $X$.
+Let $U$ be the set of all upper bounds of $X$.  Then $a$ is called the \bemph{least upper bound} of $X$ if 
+$a$ is the least element of $U$.
+
+\pn A partial order $(A, \sqsubset)$ is called \bemph{complete} if $\mc{A}$ contains a least element, and 
+for every ascending chain
+\(a_0 \sqsubset a_1 \sqsubset a_2 \cdots\)
+of elements from A, the set
+\(\{a_0,a_1,a_2,\ldots\}\)
+has a least upper bound.
+
+\section{Graphs}\label{sec:graphs}
+
+\pn A \bemph{graph} is a pair $\langle V,E\rangle$ where $V$ is a finite set of vertices
+\(\{v_1,v_2,\ldots,v_n\}\)
+and $E$ is a finite set of edges where each edge is a pair of vertices in $V$,
+\(\{\langle v_m,v_l\rangle,\ldots,\langle v_j,v_k\rangle\}\).  
+All graphs considered here are \bemph{directed} in the the order of vertices within the pair
+describing the edge is significant.  
+The set of edges forms a relation on the set of vertices
+\(E\subseteq V\times V\).  
+The transitive, irreflexive closure of $E$, called $E^{+}$ is especially important.
+
+\section{Lattices}\label{sec:lattices}
+
+\pn A graph $\langle V,E\rangle$ is a \bemph{lattice} if the transitive, irreflexive closure of $E$, $E^{+}$,
+is an irreflexive partial order $\sqsubset$\index{ partial@$\sqsubset$}, it has a least element $\ell\in V$, and an upper
+bound $u\in V$.  Executions of \lang~ actions create lattices. 
+
+\pn Depictions of lattices place the least element (a.k.a. ``start") at the top, and the greatest element (a.k.a. ``end") at the bottom.
+Directed edges use no arrowheads; instead, the edges are presumed to flow from the higher vertex to the lower vertex.
+
+\setlength{\unitlength}{0.6pt}
+\renewcommand{\nodetextscalefactor}{1} %scales text with unitlength	
+
+%\begin{figure}
+\begin{wrapfigure}{l}{0pt}
+\input{../Diagram/lattice1}	%generic lattice
+\caption{Generic Lattice}
+\label{fig:genlattice}
+\end{wrapfigure}
+%\end{figure}
+
+\pn Because lattices will be used to define intervals of time, when an unspecified-further lattice needs a name it is often called \interval{i}.  Interval 
+\(\interval{i}=\langle V_{\interval{i}},E_{\interval{i}}\rangle\)
+%\index{ i@\interval{i}} 
+has a least element at the top called \($start$(\interval{i})\in V_{\interval{i}}\), and an upper bound at the bottom called \($end$(\interval{i})\in V_{\interval{i}}\).  Like trees and conventional current, representations are reflected; least is top (because it's first) and upper most is bottom (because it's last).  To define a notion of ``before" is why all that stuff about irreflexive partial orders, least elements and upper bounds was needed.  
+
+
+\pn Every edge and vertex in the lattice is reachable from the least element; every edge and vertex in the lattice can reach the upper bound.\footnote{$\forall$ means ``for all"}\index{ forall@$\forall$ for all}  
+\(\forall v\in V_{\interval{i}}-\ell~\vert~\ell\sqsubset v
+\ \wedge\ \forall v\in V_{\interval{i}}- u~\vert~ v\sqsubset u\)
+
+\pn If there is a path between 
+$v_1$ and $v_2$, then $v_{1}\sqsubset v_{2}$, which means $v_1$ occurs \bemph{before} $v_2$.
+If there is no path between $v_1$ and $v_2$, 
+\(v_{1}\nsqsubset v_{2} \wedge v_{2}\nsqsubset v_{1} \rightarrow v_{1}\parallel v_{2}\)
+\index{ concurrent@$\parallel$ concurrent}
+then  $v_1$ and $v_2$ may occur in either order, or concurrently.
+
+\pagebreak 
+\setlength{\unitlength}{0.75pt}
+\renewcommand{\nodetextscalefactor}{0.75} %scales text with unitlength	
+
+%\begin{figure}
+\begin{wrapfigure}{l}{0pt}
+\input{../Diagram/lattice2}	%(V1,E1) and (V2,E2)
+\caption{Two Lattices} % $(V_{1},E_{1})$ and $(V_{2},E_{2})$}
+\label{fig:twolattices}
+%\end{figure}
+\end{wrapfigure}
+
+\pn Lattices may combined into new lattices\index{lattice} in three ways:  sequential, concurrent, and insertion.
+Consider two lattices $\intervalsub{i}{1}=\langle V_{1},E_{1}\rangle$ and $\intervalsub{i}{2}=\langle V_{2},E_{2}\rangle$ 
+that have no vertices in common, $V_{1}\cap V_{2} = \emptyset$, 
+least elements $\ell_{1}\in V_{1}$ and $\ell_{2}\in V_{2}$, 
+and upper bounds $u_{1}\in V_{1}$ and $u_{2}\in V_{2}$.
+
+\pn Their \bemph{sequential lattice combination},
+$\intervalsub{i}{1}\curvearrowright\intervalsub{i}{2}$,\index{ seq@$\curvearrowright $ sequential combination} 
+may be performed as follows:  
+substitute $u_1$ for $\ell_2$ in $V_2$ and $E_2$, 
+then form the union of the vertices and edges, $\intervalsub{i}{sc}=\langle V_{1}\cup V_{2},E_{1}\cup E_{2}\rangle$.
+
+\pn Their \bemph{concurrent lattice combination},
+$\intervalsub{i}{1}\downdownarrows\intervalsub{i}{2}$,\index{ con@$\downdownarrows $ concurrent combination} may be performed as follows: 
+substitute $u_1$ for $u_2$, and $\ell_1$ for $\ell_2$ in $V_2$ and $E_2$, 
+then form the union of the vertices and edges, $\intervalsub{i}{cc}=\langle V_{1}\cup V_{2},E_{1}\cup E_{2}\rangle$.
+
+\pn Their \bemph{insertion combination}, $\intervalsub{i}{1}[e=\intervalsub{i}{2}]$,
+ may be performed as follows:  
+choose an edge $e\in E_1$, $e=\langle v_{j},v_{k}\rangle$,
+remove it from from $E_1$,
+substitute $v_j$ for $\ell_2$, and $v_k$ for $u_2$ in $V_2$ and $E_2$,
+then form the union of the vertices and edges, $\intervalsub{i}{ic}=\langle V_{1}\cup V_{2},E_{1}\cup E_{2}\rangle$.
+
+
+\begin{figure}
+%\begin{wrapfigure}{r}{0pt}
+\input{../Diagram/lattice_combinations}	%(V1,E1) and (V2,E2)
+\caption{Lattice Combinations} % $(V_{1},E_{1})$ and $(V_{2},E_{2})$}
+\label{fig:latticecombinations}
+\end{figure}
+%\end{wrapfigure}
+
+%MEANING
+\section{Meaning by Model}\label{sec:meaning}
+
+\pn The \bemph{meaning} of \lang~ language constructs is defined by constructing a \bemph{model} giving an \emph{interpretation} 
+within a \emph{context} for a \emph{subject}: \\
+\(\llbracket\mathfrak{M}_{context}~\models~$subject$\rrbracket\) \\
+where\index{ meaning@$\mathfrak{M}$ meaning}  %\index{ meaningx@$\vert[ \vert]$} 
+\begin{description}
+%\begin{indent}
+	\item[context] if given, is usually a state or set of states
+	\item[subject] is some construct in \lang~
+%	\item[interpretation] is the defining formula for that subject, in that context
+%\end{indent}
+\end{description}
+
+%TIME
+\section{Time}\label{sec:timemodel}
+
+\pn Chapter \ref{chapter:BL} presents a formal model for the temporal logic used to specify and prove \lang~ programs.  A simplified synopsis is presented here.
+
+\pn It is important to distinguish \bemph{model time} from \bemph{real time}.  
+Model time is a mathematical abstraction useful for defining what a system is supposed to do.
+Real time is where the actual systems will operate.
+Model time is the same everywhere in the system, and is non-negative and real, 
+$t\in\mathbb{R}\wedge~0\leq t~\wedge~t\leq \bnow$.
+Real time is different everywhere; synchronous temporal domains are limited in volume by the speed of light.
+Great care must be used for information that flows across temporal domain boundaries.
+Defining such temporal domains in AADL using precise, model time is means to make them nicely work together in real time when integrated into an operational system.
+
+\pn Periods discretize time exactly in \lang~ by choosing a countably-infinite subset of $\mathbb{R}$,
+\[P_{d}=\{p_{j}~\vert~\forall j\in\mathbb{N}_{0} p_{j}=d_{j}~\}\]
+where $d$ is the period's duration, and $dj$ is multiplication of $d$ by $j$.
+
+\pn Defining the system's \bemph{hyperperiod} is naturally the product of all of the different 
+durations:\footnote{In cases where every system-level clock is a multiple of the same reference clock, then least-common multiple of different durations can suffice.}
+\[h\equiv\prod_{d\in D} d\]
+where $D$ is the set of all different durations in the system.\footnote{$\prod$ means ``product of", usually defined over all of the numbers in a given set}\index{ productof@$\prod$ product of}  
+
+\pn The present instant is called \bemph{now}.
+
+\pn Many entities in \lang~ have sensible time of occurrence, %$\mathfrak{T}$, 
+$T$, such as events.
+\[T\llbracket $e$\rrbracket~\equiv~t~ ~\vert~~t\in\mathbb{R}\wedge t\ge0 \wedge ~$e occurs at$~t\]
+
+\pn   Durations are continuous sets of non-negative real numbers.  Commas denote open ranges that do not include the upper and/or lower bound: ``.."=closed, includes both endpoints;
+``,,"=open both, neither endpoint included;
+``,."=open left, lower bound not included;
+``.,"=open right, upper bound not included.
+\index{ xdd@\lstinline+..+ closed interval}
+\index{ xcd@\lstinline+,.+ open left}
+\index{ xdc@\lstinline+.,+ open right}
+\index{ xcc@\lstinline+,,+ open interval}
+
+\(
+\begin{array}{l}
+\lbrack l~..~u\rbrack~\equiv~ \{~m~~\vert~~m\in\mathbb{R}\wedge m\ge l\wedge m\le u~\} \\
+\lbrack l~,,~u\rbrack~\equiv~ \{~m~~\vert~~m\in\mathbb{R}\wedge m>l\wedge m<u~\} \\
+\lbrack l~,.~u\rbrack~\equiv~ \{~m~~\vert~~m\in\mathbb{R}\wedge m<l\wedge m\le u~\} \\
+\lbrack l~.,~u\rbrack~\equiv~ \{~m~~\vert~~m\in\mathbb{R}\wedge m\ge l\wedge m<u~\}
+\end{array}
+\)
+
+\pn Frequently, time will be used to define the context of meaning.  Subscripted time as context notation
+\(\mdx{X}{t}~\equiv~\cdots \)
+is used to define the meaning for whatever $X$ is, at a given time $t$.  This notation is used in 
+D\ref{sec:timedpredicate} and D\ref{sec:timedexpression} to define temporal meaning for Assertions.
+%\footnote{Assertions would otherwise be simply first-order predicates.}
+
+
+%\section{Values}\label{sec:values}
+%
+%\pn A \bemph{value} is a mathematical object.  A \bemph{type} is a set of values (see Chapter \ref{chapter:type} ).  
+%Values used in \lang~ are the same as the AADL Data Modeling Annex and AADL property values (which have records, but not arrays).
+%
+%
+%\pn Usually, values are singular:  numbers in $\mathbb{N}_0$, $\mathbb{Z}$, $\mathbb{Q}$, $\mathbb{R}$, or $\mathbb{C}$; boolean in $\mathbb{B}$; a character (enclosed in apostrophes); a string (enclosed in quotation marks); or an enumeration literal (sequence of alphanumeric characters starting with a letter).  
+%
+%\pn More complex values are constructed from sets of pairs.  Records are sets of pairs in which the first element is a record field identifier, and the second is the value of that field.  Arrays are sets of pairs in which the first element is an integer index, and the second is the value of that index.  Record and array values are functions in which the first element of the pair is unique.  Array values generally constrain the second element of pairs to the same type.  Of course, array element and record field values can be themselves be arrays or records, making arbitrarily complex values.
+%
+%\pn The bottom sign, $\bot$, represents the absence of a value at a given time.  The absence of value is also called \bemph{null}.
+%
+%\pn The \bemph{clock operator} $\hat{}$ determines when something has value.  At time $t$,
+%
+%\(\mathfrak{M}_{t}\llbracket\hat{p}\rrbracket\equiv~
+% \begin{array}{l}
+%false$ when $\mathfrak{M}_{t}\llbracket$p$\rrbracket=\bot \\
+%true $ otherwise$
+% \end{array}
+%\)
+
+
+%STATES
+%\section{States}\label{sec:states}
+%
+%\pn \lang~ uses two kinds of states:
+%\begin{description}
+%\item[lattice states] variable-value bindings during actions
+%\item[machine states] source and destination of transitions
+%\end{description}
+%
+%\subsection{Lattice States}\label{subsec:latticestates}
+%
+%\pn A \bemph{lattice state} is a set of pairs of variable names with values, with perhaps a time of the moment of occurrence.  
+%
+%%\indent
+%\[L=(\{s_{1},s_{2},\ldots,s_{m}\},t_S)~~s_{k}=\langle $n$_{k},$v$_{k}\rangle~~t_S \in \mathbb{R}\wedge t_S\ge0\]% \\
+%%or
+%%\[S=(\{($n$_{1},$v$_{1}),($n$_{2},$v$_{2}),\ldots,($n$_{m},$v$_{m})\},t_S)\]
+%
+%Two states are equal if-and-only-if they have 
+%the same variables and those variables have the same values, but not necessarily the same time of occurrence. 
+% For states $V$ and $U$,
+%\[ V=(\{v_{1},v_{2},\ldots,v_{m}\},t_V)~$and$~U=(\{u_{1},u_{2},\ldots,u_{m}\},t_U)  \]
+%\[V=U\equiv \{v_{1},v_{2},\ldots,v_{m}\}=\{u_{1},u_{2},\ldots,u_{m}\}\]
+%
+%Execution lattices satisfying temporal logic formulas have states as vertices (nodes).
+%put formula for equality of states here?
+
+
+%\subsection{Behavior States}\label{subsec:behaviorstates}
+%
+%\pn A \bemph{behavior state} is declared in the \lstinline{states} section of thread behaviors (D\ref{sec:behaviorstates}), and may be used as sources or destinations of transitions.
+%
+%\[Q=(s,L)\]
+%
+%Where $s$ is a behavior state label, and $L$ is a lattice state defining values of variables and time of occurrence. 
+
+%\section{Arithmetic}\label{sec:Arithmetic}
+%
+%\pn Axiomatic definitions of arithmetic have been of interest to mathematicians for centuries.  For \lang~, Peano arithmetic will be assumed for natural numbers, $\mathbb{N}_0$, extended appropriately for $\mathbb{Z}$, $\mathbb{Q}$, $\mathbb{R}$, and $\mathbb{C}$.
+%
+%\section{Logic}\label{sec:logic}
+%
+%\pn A \bemph{logic} is formal mathematical system for reasoning about a domain of interest.  A logic consists of rules defined in terms of
+%\begin{description}
+%\item[symbols] a set of graphical characters
+%\item[formulas] a set of sequences of symbols
+%\item[axioms] a set of distinguished formulas known to be true 
+%\item[rules] a set of inferences to prove additional formulas from axioms, given formulas, and previously proved formulas
+%\end{description}
+%Not all sequences of symbols are formulas.  
+%Formulas are \bemph{well-formed} sequences of symbols.  Formulas must be grammatically-correct to have meaning. A logic usually defines which sequences of symbols are formulas with a grammar.
+%
+%To \bemph{satisfy} a formula means choosing values for its symbols such that the formula is true.  A formula for which no choice of values for symbols is true is \bemph{unsatisfiable}.  A formula always true regardless of chosen values for symbols is \bemph{tautology}.
+%
+%The following formulas are assumed as axiomatic (eg. tautologies), with $b$, $c$, and $d$ representing boolean-valued predcates, $r$ being a bounded range, and $j$ being an element in that range:\footnote{as in U.S. Pat. No. 5,867,649, col. 40, lines 40-70}
+%
+%\begin{law}[\bemph{Complement}]\label{lawofcomplement} 
+%\(b \equiv \lnot(\lnot b) \)
+%\end{law}
+%\index{ complement@$\neg$ complement}
+%\begin{law}[\bemph{Excluded Middle}]\label{lawofexcludedmiddle} 
+%\(b \lor \lnot b\)
+%\end{law}
+%\begin{law}[\bemph{Contradiction}]  \label{lawofcontradiction}
+%\(\lnot(b \land \lnot b)\)
+%\end{law}
+%\begin{law}[\bemph{Implication}]\label{lawofimplication}  
+%\(a\rightarrow b \equiv \lnot a \lor b \)
+%\end{law}
+%\index{ implication@$\rightarrow$ implication}
+%\begin{law}[\bemph{Equality}]  
+%\(a=b \equiv a\rightarrow b \lor b\rightarrow a\)\label{lawofequality}
+%\end{law}
+%\begin{law}[\bemph{Disjunction}]\label{lawofdisjunction1} 
+%  \(c\lor c \equiv c\) 
+%\end{law}
+%\begin{law}[\bemph{Disjunction}]\label{lawofdisjunction2} 
+%  \(c\lor true \equiv true\) 
+%\end{law}
+%\begin{law}[\bemph{Disjunction}]\label{lawofdisjunction3} 
+%  \(c\lor false \equiv c\) 
+%\end{law}
+%\begin{law}[\bemph{Disjunction}]\label{lawofdisjunction4} 
+%  \(c\lor (c\land b) \equiv c\) 
+%\end{law}
+%\begin{law}[\bemph{Disjunction}]\label{lawofdisjunction5} 
+%  \(b\lor c \equiv c\lor b \)  
+%\end{law}
+%\begin{law}[\bemph{Disjunction}]\label{lawofdisjunction6} 
+%  \(b \rightarrow (b\lor c)  \)
+%\end{law}
+%\index{ disjunction@$\vee$ disjunction}
+%\begin{law}[\bemph{Conjunction}]\label{lawofconjunction1}  
+%  \(b\land b \equiv b\) 
+%\end{law}
+%\begin{law}[\bemph{Conjunction}]\label{lawofconjunction2}  
+%  \(b\land true \equiv b\) 
+%\end{law}
+%\begin{law}[\bemph{Conjunction}]\label{lawofconjunction3}  
+%  \(b\land false \equiv false\) 
+%\end{law}
+%\begin{law}[\bemph{Conjunction}]\label{lawofconjunction4}  
+%  \(b\land (c\lor b) \equiv b\) 
+%\end{law}
+%\begin{law}[\bemph{Conjunction}]\label{lawofconjunction5}  
+%  \(b\land c \equiv c\land b \)  
+%\end{law}
+%\begin{law}[\bemph{Conjunction}]\label{lawofconjunction6}  
+%  \((b\land c) \rightarrow b  \)
+%\end{law}
+%\index{ conjunction@$\wedge$ conjunction}
+%\begin{law}[\bemph{Distribution}]\label{lawofdistribution1}  
+%\(b \lor (c\land d) \equiv (b\lor c)\land(b\lor d)\) 
+%\end{law}
+%\begin{law}[\bemph{Distribution}]\label{lawofdistribution2}  
+%\(b \land (c \lor d) \equiv (b \land c) \lor(b \land d)\)
+%\end{law}
+%\begin{law}[\bemph{Universal Quantification}]\label{lawofuniversalquantification}  
+%  \(\forall j \in r~\vert~(b \land c)~\equiv~(\forall j \in r~\vert~b)\land(\forall j \in r ~\vert~ c)  \)
+%\end{law}
+%\index{ forall@$\forall$ for all}
+%\begin{law}[\bemph{Existential Quantification}]\label{lawofexistentialquantification}  
+%  \(\exists j \in r~\vert~(b \lor c)~\equiv~(\exists j \in r~\vert~b) \lor(\exists j \in r ~\vert~ c)  \)
+%\end{law}
+%\index{ bar@$~\vert~$ such that}
+%\index{ exists@$\exists$ exists}
+
+%\section{Computation $\equiv$ Satisfaction}\label{sec:satisfaction}
+%
+%\pn \lang~ defines computation as satisfaction of interval temporal logic formulas by lattices of states.
+%
+%\(\mdi{w}=\top\)~\ssc{construct an interval \interval{i} such that the formula $w$ is true}\index{ true@$\top$ true}
+%
+%\pn Each \lang~ program may be satisfied by a huge number of different lattices, all of which arrive at the same 
+%result.\footnote{Every satisfying lattice will have equal states for their least elements (start) and upper bounds (end).}  The set of satisfying lattices is so large, it is effectively countably infinite.  However, it suffices to consider the canonical member of the set of satisfying lattices--the shortest and bushiest lattice.  Maximizing opportunities for concurrent execution is paramount for supercomputing, but embedded systems with multi-core systems-on-chip may benefit from rich opportunities for concurrent execution.
+%
+%\pn For just the Action annex sublanguage, the states\index{state} defined in \ref{sec:states} suffice and need no more reference in time than its position in the lattice.  For satisfying lattices of states for the \lang~ annex sublanguage need time-stamps.  Therefore, the set of variable-value pairs comprising a state is augmented with a real-valued time-stamp.
+%\[L=(\{s_{1},s_{2},\ldots,s_{m}\}, t_{s})~~s_{k}=\langle $n$_{k},$v$_{k}\rangle\]
+%%S=(\{($n$_{1},$v$_{1}),($n$_{2},$v$_{2}),\ldots,($n$_{m},$v$_{m})\}, t_{s}\]
+%where $t_{s}$ the time lattice state $L$ is created.  Lattice state $L$ says nothing about the values of variables at any time other than $t_{s}$.
+%Other lattice states could have occurred infinitesimally earlier or later.  Usually, only the time-stamps of least elements and upper bounds of lattices matter, and will be ignored when they don't.
+
+%\section{Proofs}\label{sec:proofs}
+%
+%\pn A mathematical \bemph{proof} is a sequence of formulas, each of which is an axiom of the logic\footnote{see D\ref{sec:logic}} used, a given assumption, or a theorem derived by an inference rule from axioms, assumptions, or other theorems earlier in the sequence.  The last formula is usually the desired truth to be established such as the program meets its specification and therefore is correct.
+%
+%\pn Proofs for \lang~ are sequences of triples\footnote{often called ``Hoare" triples for Tony Hoare who originatied them.} of the form:  \lstinline+<<P>>+~\lstinline+S <<Q>>+, where \lstinline+<<P>>+ and \lstinline+<<Q>>+ are Assertions, and \lstinline+S+ is behavior actions.%\footnote{\texttt{behavior\_actions} is the root production of the middle term of every triple}.  
+%\lstinline+<<P>>+ is the \bemph{precondition} which must be true before performing the behavior actions \lstinline+S+.  \lstinline+<<Q>>+ is the \bemph{postcondition} which must be true after performing the behavior actions \lstinline+S+.  
+%
+%\pn When there is no action, the triple becomes \lstinline+<<P>>+~\lstinline+-> <<Q>>+.  Does \lstinline+P+ imply \lstinline+Q+?  Equivalently, \(\inference{$\lstinline+<<P>>+$}
+%%__________________________?
+%              {$\lstinline+<<Q>>+$}\)? asks whether Q can be derived from P.
+%
+%\pn Each triple in the proof must have a \bemph{reason}:  an axiom (or given), or an inference rule applied to triples earlier in the sequence.  The last triple in the sequence is a mathematical statement that a program meets its specification.
+%
+%%\pn When life was easy, back in the days when computing was the process of transforming data from the state you got it to the state you want it, \lstinline+<<P>> S <<Q>>+ was first-order predicates bracketing sequential, imperative, and occasionally non-deterministic programs.  Back then, subprogram proofs had a single proof obligation.  
+%
+%\pn AADL subprogram components that define behavior with the Action language need a single proof obligation.  AADL thread components on the other hand, have \emph{dozens} of proof obligations, and the Assertions are first-order predicates augmented expressions of time to which the predicates apply.
+%
+%\section{Induction}\label{sec:Induction}
+%
+%\pn Proofs often rely on \bemph{induction}.  Usually induction involves proving some property $P$, 
+%that has a natural number parameter, say $n$.
+%To prove that P holds for all $n\in\mathbb{N}_0$, it suffices to proceed by induction on $n$,
+%organizing the proof as follows:
+%\begin{itemize}
+%\item induction basis:  prove that $P$ holds for $n=0$.
+%\item induction step:  prove that P holds for $n+1$ from the induction hypothesis that $P$ holds for $n$.
+%\end{itemize}
+%The induction principle for natural numbers is based on the fact that natural numbers can be constructed beginning with the number $0$ and repeatedly adding $1$.  
+%
+%\pn Proofs of loops use induction over a loop invariant.  Essentially, \lang~ behavior is induction over time.  
+%%For the VVI example (D\ref{chapter:vvi}), this induction is over cardiac cycles, which may vary in length, for the duration of operation (6+ years).  
+%Induction is very powerful, used often, is tricky, and deserves scrutiny.
+
+%holding transition condition $c$, constructing a state lattice $\interval{i}$ (D\ref{sec:satisfaction}) satisfying an action $w$ (possibly composite), and entering a destination machine state $(d,v')$, such that the lattice's start state is the source machine state and input 
+% $start(i)=v \cup i$, and its end state is the destination machine state and output $end(i)=v' \cup o$, and the transition's constraint $C_A$ is satisfied:
+% \begin{description}
+%\item[$T$] $=(s,v,i,g,d,v',o,f)$
+%\item[$s$] = source state
+%\item[$v$] = values of variables in source machine state
+%\item[$i$] = values of inputs
+%\item[$g$] = guard clock formula
+%\item[$d$] = destination state
+%\item[$v'$] = values of variables in destination machine state
+%\item[$o$] = values of outputs
+%\item[$f$] = finish clock formula
+%\item[$\mdi{w}$] =interval $i$ satisfies action $w$
+%\item[$start(\interval{i})$] $=v \cup i$
+%\item[$end(\interval{i})$] $=v' \cup o$ 
+%\item[$\mdi{w}$] $\vDash C_A$
+%\item[$\mdi{w}$] $\vDash (f~$\textbf{and}$~g)$
+%\end{description}
+
+

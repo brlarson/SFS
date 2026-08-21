@@ -1,0 +1,241 @@
+% This LaTeX file was created by Metamath on 24-Dec-2023 8:33 PM.
+\begin{lemma}\blTitle{bl.arla} {Assumed Range Law, all}: (all a:t which Q
+are P) iff (all a:t are (Q implies P))
+\begin{align}
+\vdash ( \forall x \in \{ x \vert \mw{\psi} \} \mw{\varphi} \leftrightarrow \forall
+    x ( \mw{\psi} \rightarrow \mw{\varphi} ) )\label{eq:bl.arla}\tag{bl.arla}
+\end{align}
+\end{lemma}
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash ( \forall x \in \{ x \vert \mw{\psi} \} \mw{\varphi}
+     \leftrightarrow \forall x ( x \in \{ x \vert \mw{\psi} \}
+     \rightarrow \mw{\varphi} )
+     )&(\mbox{\ref{eq:df-ral}})\notag
+  \\ 2 &&  & \vdash ( x \in \{ x \vert \mw{\psi} \} \leftrightarrow \mw{\psi}
+     )&(\mbox{\ref{eq:abid}})\notag
+  \\ 3 &&  & \vdash ( ( x \in \{ x \vert \mw{\psi} \} \rightarrow \mw{\varphi} )
+     \leftrightarrow ( \mw{\psi} \rightarrow \mw{\varphi}
+     ) )&(\mbox{\ref{eq:imbi1i}},2)\notag
+  \\ 4 &&  & \vdash ( \forall x ( x \in \{ x \vert \mw{\psi} \} \rightarrow
+     \mw{\varphi} ) \leftrightarrow \forall x ( \mw{\psi}
+     \rightarrow \mw{\varphi} )
+     )&(\mbox{\ref{eq:albii}},3)\notag
+  \\ 5 &&  & \vdash ( \forall x \in \{ x \vert \mw{\psi} \} \mw{\varphi}
+     \leftrightarrow \forall x ( \mw{\psi} \rightarrow
+     \mw{\varphi} ) )&(\mbox{\ref{eq:bitri}},1,4)\notag
+\end{align}
+\end{proof}
+
+\begin{lemma}\blTitle{bl.arle} {Assumed Range Law, exists}: (exists a:t
+which Q that P) iff (exists a:t that (Q and P)) 
+\begin{align}
+\vdash ( \exists x \in \{ x \vert \mw{\psi} \} \mw{\varphi} \leftrightarrow \exists
+    x ( \mw{\psi} \wedge \mw{\varphi} ) )\label{eq:bl.arle}\tag{bl.arle}
+\end{align}
+\end{lemma}
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash ( \exists x \in \{ x \vert \mw{\psi} \} \mw{\varphi}
+     \leftrightarrow \exists x ( x \in \{ x \vert \mw{\psi} \}
+     \wedge \mw{\varphi} )
+     )&(\mbox{\ref{eq:df-rex}})\notag
+  \\ 2 &&  & \vdash ( x \in \{ x \vert \mw{\psi} \} \leftrightarrow \mw{\psi}
+     )&(\mbox{\ref{eq:abid}})\notag
+  \\ 3 &&  & \vdash ( ( x \in \{ x \vert \mw{\psi} \} \wedge \mw{\varphi} )
+     \leftrightarrow ( \mw{\psi} \wedge \mw{\varphi} )
+     )&(\mbox{\ref{eq:anbi1i}},2)\notag
+  \\ 4 &&  & \vdash ( \exists x ( x \in \{ x \vert \mw{\psi} \} \wedge \mw{\varphi}
+     ) \leftrightarrow \exists x ( \mw{\psi} \wedge
+     \mw{\varphi} ) )&(\mbox{\ref{eq:exbii}},3)\notag
+  \\ 5 &&  & \vdash ( \exists x \in \{ x \vert \mw{\psi} \} \mw{\varphi}
+     \leftrightarrow \exists x ( \mw{\psi} \wedge
+     \mw{\varphi} ) )&(\mbox{\ref{eq:bitri}},1,4)\notag
+\end{align}
+\end{proof}
+
+
+\begin{lemma}\blTitle{bl.tbla} {True Body Law, all}: all a:t in R are true
+is tautology
+\begin{align}
+\vdash \forall x \in \mc{A} \top\label{eq:bl.tbla}\tag{bl.tbla}
+\end{align}
+\end{lemma}
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash \forall x \top&(\mbox{\ref{eq:allt}})\notag
+  \\ 2 &&  & \vdash ( \forall x \top \rightarrow \forall x \in \mc{A} \top
+    )&(\mbox{\ref{eq:alral}})\notag
+  \\ 3 &&  & \vdash \forall x \in \mc{A} \top&(\mbox{\ref{eq:ax-mp}},1,2)\notag
+\end{align}
+\end{proof}
+
+\begin{lemma}\blTitle{bl.tble} {True Body Law: exists} a:t in R that true is
+tautology for R non-empty
+\begin{align}
+\vdash ( \exists x \in \mc{A} \top \leftrightarrow \exists x \,x \in \mc{A} 
+    )\label{eq:bl.tble}\tag{bl.tble}
+\end{align}
+\end{lemma}
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash ( \exists x \in \mc{A} \top \leftrightarrow \exists x ( x \in \mc{A}
+    \wedge \top ) )&(\mbox{\ref{eq:df-rex}})\notag
+  \\ 2 &&  & \vdash ( ( \top \wedge x \in \mc{A} ) \leftrightarrow x \in \mc{A} 
+    )&(\mbox{\ref{eq:truan}})\notag
+  \\ 3 &&  & \vdash ( ( \top \wedge x \in \mc{A} ) \leftrightarrow ( x \in \mc{A} \wedge
+    \top ) )&(\mbox{\ref{eq:ancom}})\notag
+  \\ 4 &&  & \vdash ( x \in \mc{A} \leftrightarrow ( x \in \mc{A} \wedge \top )
+    )&(\mbox{\ref{eq:bitr3i}},2,3)\notag
+  \\ 5 &&  & \vdash ( \exists x \,x \in \mc{A} \leftrightarrow \exists x ( x \in \mc{A}
+    \wedge \top ) )&(\mbox{\ref{eq:exbii}},4)\notag
+  \\ 6 &&  & \vdash ( \exists x \in \mc{A} \top \leftrightarrow \exists x \,x \in \mc{A}
+    )&(\mbox{\ref{eq:bitr4i}},1,5)\notag
+\end{align}
+\end{proof}
+
+\begin{lemma}\blTitle{bl.empra} {Empty Range is Empty Set}
+\begin{align}
+\vdash \mc{A} \in \mathbb{R}\quad\Rightarrow\quad \vdash ( ( \mc{A} (,] \mc{A} ) = \varnothing
+    \wedge ( \mc{A} [,) \mc{A} ) = \varnothing \wedge ( \mc{A} (,) \mc{A} ) = \varnothing
+    )\label{eq:bl.empra}\tag{bl.empra}
+\end{align}
+\end{lemma}
+
+\begin{proof}
+\begin{align}
+  1 &&  & &(\mbox{\ref{eq:?}})\notag
+\end{align}
+\end{proof}
+
+
+\begin{lemma}\blTitle{bl.solrla} {Solitary Open Left Range Law, exists} a:t
+in j,.j that P is false
+\begin{align}
+\vdash \lnot \exists x \in \mc{A} (,] A
+    \mw{\varphi}\label{eq:bl.solrla}\tag{bl.solrla}
+\end{align}
+\end{lemma}
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash \lnot \exists x \in \varnothing
+     \mw{\varphi}&(\mbox{\ref{eq:rex0}})\notag
+  \\ 2 &&  & \vdash ( \exists x \in ( \mc{A} (,] \mc{A} ) \mw{\varphi} \leftrightarrow
+     \exists x ( x \in ( \mc{A} (,] \mc{A} ) \wedge \mw{\varphi} )
+     )&(\mbox{\ref{eq:df-rex}})\notag
+  \\ 3 &&  & \vdash \mc{A} \in \mathbb{R}&\text{Hyp~solrla.1}\notag%bl.solrla.1
+  \\ 4 &&  & \vdash ( ( \mc{A} (,] \mc{A} ) = \varnothing \wedge ( \mc{A} [,) \mc{A} ) =
+     \varnothing \wedge ( \mc{A} (,) \mc{A} ) = \varnothing
+     )&(\mbox{\ref{eq:bl.empra}},3)\notag
+  \\ 5 &&  & \vdash ( \mc{A} (,] \mc{A} ) = \varnothing&(\mbox{\ref{eq:simp1i}},4)\notag
+  \\ 6 &&  & \vdash ( x \in ( \mc{A} (,] \mc{A} ) \leftrightarrow x \in \varnothing
+     )&(\mbox{\ref{eq:eleq2i}},5)\notag
+  \\ 7 &&  & \vdash ( ( x \in ( \mc{A} (,] \mc{A} ) \wedge \mw{\varphi} ) \leftrightarrow
+     ( x \in \varnothing \wedge \mw{\varphi} )
+     )&(\mbox{\ref{eq:anbi1i}},6)\notag
+  \\ 8 &&  & \vdash ( \exists x ( x \in ( \mc{A} (,] \mc{A} ) \wedge \mw{\varphi} )
+     \leftrightarrow \exists x ( x \in \varnothing \wedge
+     \mw{\varphi} ) )&(\mbox{\ref{eq:exbii}},7)\notag
+  \\ 9 &&  & \vdash ( \exists x \in ( \mc{A} (,] \mc{A} ) \mw{\varphi} \leftrightarrow
+     \exists x ( x \in \varnothing \wedge \mw{\varphi} )
+     )&(\mbox{\ref{eq:bitri}},2,8)\notag
+  \\ 10 &&  & \vdash ( \exists x \in \varnothing \mw{\varphi} \leftrightarrow
+     \exists x ( x \in \varnothing \wedge \mw{\varphi} )
+     )&(\mbox{\ref{eq:df-rex}})\notag
+  \\ 11 &&  & \vdash ( \exists x \in ( \mc{A} (,] \mc{A} ) \mw{\varphi} \leftrightarrow
+     \exists x \in \varnothing \mw{\varphi}
+     )&(\mbox{\ref{eq:bitr4i}},9,10)\notag
+  \\ 12 &&  & \vdash \lnot \exists x \in ( \mc{A} (,] \mc{A} )
+     \mw{\varphi}&(\mbox{\ref{eq:mtbir}},1,11)\notag
+\end{align}
+\end{proof}
+
+\begin{lemma}\blTitle{bl.sorrla} {Solitary Open Right Range Law: exists a:t
+in j.,j that P is false}
+\begin{align}
+\vdash \lnot \exists x \in \mc{A} [,) A
+    \mw{\varphi}\label{eq:bl.sorrla}\tag{bl.sorrla}
+\end{align}
+\end{lemma}
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash \lnot \exists x \in \varnothing
+     \mw{\varphi}&(\mbox{\ref{eq:rex0}})\notag
+  \\ 2 &&  & \vdash ( \exists x \in ( \mc{A} [,) \mc{A} ) \mw{\varphi} \leftrightarrow
+     \exists x ( x \in ( \mc{A} [,) \mc{A} ) \wedge \mw{\varphi} )
+     )&(\mbox{\ref{eq:df-rex}})\notag
+  \\ 3 &&  & \vdash \mc{A} \in \mathbb{R}&\text{Hyp~sorrla.1}\notag%bl.sorrla.1
+  \\ 4 &&  & \vdash ( ( \mc{A} (,] \mc{A} ) = \varnothing \wedge ( \mc{A} [,) \mc{A} ) =
+     \varnothing \wedge ( \mc{A} (,) \mc{A} ) = \varnothing
+     )&(\mbox{\ref{eq:bl.empra}},3)\notag
+  \\ 5 &&  & \vdash ( \mc{A} [,) \mc{A} ) = \varnothing&(\mbox{\ref{eq:simp2i}},4)\notag
+  \\ 6 &&  & \vdash ( x \in ( \mc{A} [,) \mc{A} ) \leftrightarrow x \in \varnothing
+     )&(\mbox{\ref{eq:eleq2i}},5)\notag
+  \\ 7 &&  & \vdash ( ( x \in ( \mc{A} [,) \mc{A} ) \wedge \mw{\varphi} ) \leftrightarrow
+     ( x \in \varnothing \wedge \mw{\varphi} )
+     )&(\mbox{\ref{eq:anbi1i}},6)\notag
+  \\ 8 &&  & \vdash ( \exists x ( x \in ( \mc{A} [,) \mc{A} ) \wedge \mw{\varphi} )
+     \leftrightarrow \exists x ( x \in \varnothing \wedge
+     \mw{\varphi} ) )&(\mbox{\ref{eq:exbii}},7)\notag
+  \\ 9 &&  & \vdash ( \exists x \in ( \mc{A} [,) \mc{A} ) \mw{\varphi} \leftrightarrow
+     \exists x ( x \in \varnothing \wedge \mw{\varphi} )
+     )&(\mbox{\ref{eq:bitri}},2,8)\notag
+  \\ 10 &&  & \vdash ( \exists x \in \varnothing \mw{\varphi} \leftrightarrow
+     \exists x ( x \in \varnothing \wedge \mw{\varphi} )
+     )&(\mbox{\ref{eq:df-rex}})\notag
+  \\ 11 &&  & \vdash ( \exists x \in ( \mc{A} [,) \mc{A} ) \mw{\varphi} \leftrightarrow
+     \exists x \in \varnothing \mw{\varphi}
+     )&(\mbox{\ref{eq:bitr4i}},9,10)\notag
+  \\ 12 &&  & \vdash \lnot \exists x \in ( \mc{A} [,) \mc{A} )
+     \mw{\varphi}&(\mbox{\ref{eq:mtbir}},1,11)\notag
+\end{align}
+\end{proof}
+
+\begin{lemma}\blTitle{bl.sorla} {Solitary Open Range Law: exists a:t in
+j,,j that P is false}
+\begin{align}
+\vdash \lnot \exists x \in \mc{A} (,) A
+    \mw{\varphi}\label{eq:bl.sorla}\tag{bl.sorla}
+\end{align}
+\end{lemma}
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash \lnot \exists x \in \varnothing
+     \mw{\varphi}&(\mbox{\ref{eq:rex0}})\notag
+  \\ 2 &&  & \vdash ( \exists x \in ( \mc{A} [,) \mc{A} ) \mw{\varphi} \leftrightarrow
+     \exists x ( x \in ( \mc{A} [,) \mc{A} ) \wedge \mw{\varphi} )
+     )&(\mbox{\ref{eq:df-rex}})\notag
+  \\ 3 &&  & \vdash \mc{A} \in \mathbb{R}&\text{Hyp~sorrla.1}\notag%bl.sorrla.1
+  \\ 4 &&  & \vdash ( ( \mc{A} (,] \mc{A} ) = \varnothing \wedge ( \mc{A} [,) \mc{A} ) =
+     \varnothing \wedge ( \mc{A} (,) \mc{A} ) = \varnothing
+     )&(\mbox{\ref{eq:bl.empra}},3)\notag
+  \\ 5 &&  & \vdash ( \mc{A} [,) \mc{A} ) = \varnothing&(\mbox{\ref{eq:simp2i}},4)\notag
+  \\ 6 &&  & \vdash ( x \in ( \mc{A} [,) \mc{A} ) \leftrightarrow x \in \varnothing
+     )&(\mbox{\ref{eq:eleq2i}},5)\notag
+  \\ 7 &&  & \vdash ( ( x \in ( \mc{A} [,) \mc{A} ) \wedge \mw{\varphi} ) \leftrightarrow
+     ( x \in \varnothing \wedge \mw{\varphi} )
+     )&(\mbox{\ref{eq:anbi1i}},6)\notag
+  \\ 8 &&  & \vdash ( \exists x ( x \in ( \mc{A} [,) \mc{A} ) \wedge \mw{\varphi} )
+     \leftrightarrow \exists x ( x \in \varnothing \wedge
+     \mw{\varphi} ) )&(\mbox{\ref{eq:exbii}},7)\notag
+  \\ 9 &&  & \vdash ( \exists x \in ( \mc{A} [,) \mc{A} ) \mw{\varphi} \leftrightarrow
+     \exists x ( x \in \varnothing \wedge \mw{\varphi} )
+     )&(\mbox{\ref{eq:bitri}},2,8)\notag
+  \\ 10 &&  & \vdash ( \exists x \in \varnothing \mw{\varphi} \leftrightarrow
+     \exists x ( x \in \varnothing \wedge \mw{\varphi} )
+     )&(\mbox{\ref{eq:df-rex}})\notag
+  \\ 11 &&  & \vdash ( \exists x \in ( \mc{A} [,) \mc{A} ) \mw{\varphi} \leftrightarrow
+     \exists x \in \varnothing \mw{\varphi}
+     )&(\mbox{\ref{eq:bitr4i}},9,10)\notag
+  \\ 12 &&  & \vdash \lnot \exists x \in ( \mc{A} [,) \mc{A} )
+     \mw{\varphi}&(\mbox{\ref{eq:mtbir}},1,11)\notag
+\end{align}
+\end{proof}
+

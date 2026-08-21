@@ -1,0 +1,62 @@
+% This LaTeX file was created by Metamath on 6-Mar-2024 11:48 AM.
+\begin{restatable}{metadefinition}{dfstruct}~\otherTitle{df-struct}~ Define a structure with components in
+$M \ldots N$.    ~
+\begin{align}
+\vdash \,\mathrm{Struct} = \{ \langle \msc{f} , \msc{x} \rangle~\vert~( \msc{x} \in
+    ( \le \cap ( \mathbb{N} \times \mathbb{N} ) ) \wedge \,\mathrm{Fun}~ (
+    \msc{f} \setminus \{ \varnothing~ \} ) \wedge \,\mathrm{dom}~ \msc{f}
+    \subseteq ( \ldots ` \msc{x} ) ) \}\label{eq:df-struct}\tag{df-struct}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{metadefinition}{dfndx}~\otherTitle{df-ndx}~ Define the structure component index
+extractor. ~
+\begin{align}
+\vdash \,\mathrm{ndx} = ( \,\mathrm{I} \restriction \mathbb{N}
+    )\label{eq:df-ndx}\tag{df-ndx}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{metadefinition}{dfslot}~\otherTitle{df-slot}~ Define the slot extractor for extensible
+structures.  The class
+       $\,\mathrm{Slot}~ \mc{A}$ is a function whose argument can be any set,
+although it is
+       meaningful only if that set is a member of an extensible structure
+.  ~
+\begin{align}
+\vdash \,\mathrm{Slot}~ \mc{A} = ( \msc{x} \in \,\mathrm{V} \mapsto ( \msc{x} `
+    \mc{A} ) )\label{eq:df-slot}\tag{df-slot}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{metadefinition}{dfbase}~\otherTitle{df-base}~ Define the base set (also called
+underlying set, ground set, carrier set,
+     or carrier) extractor for extensible structures.  ~  ~
+\begin{align}
+\vdash \,\mathrm{Base} = \,\mathrm{Slot}~ 1\label{eq:df-base}\tag{df-base}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{metadefinition}{dfsets}~\otherTitle{df-sets}~ Set a component of an extensible
+structure.  This function is useful for
+       taking an existing structure and ``overriding" one of its components.
+        ~
+\begin{align}
+\vdash \,\mathrm{sSet} = ( \msc{s} \in \,\mathrm{V} , \msc{e} \in \,\mathrm{V}
+    \mapsto ( ( \msc{s} \restriction ( \,\mathrm{V} \setminus \,\mathrm{dom}~ \{
+    \msc{e} \} ) ) \cup \{ \msc{e} \} ) )\label{eq:df-sets}\tag{df-sets}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{isstruct}~\otherTitle{isstruct}~ The property of being a structure with
+components in $M \ldots N$.
+     ~
+\begin{align}
+\vdash ( F \,\mathrm{Struct} \langle M , N \rangle \leftrightarrow \notag \\
+( ( M \in
+    \mathbb{N} \wedge N \in \mathbb{N} \wedge M \le N ) \wedge \,\mathrm{Fun}~ (
+    F \setminus \{ \varnothing~ \} ) \wedge \,\mathrm{dom}~ F \subseteq ( M
+    \ldots N ) ) )\label{eq:isstruct}\tag{isstruct}
+\end{align}
+\end{restatable}
+

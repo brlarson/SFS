@@ -1,0 +1,230 @@
+% This LaTeX file was created by Metamath on 24-Dec-2023 8:33 PM.
+\begin{lemma}\blTitle{bl.ancomphfirst} {Make any wff first in conjunction
+wff-list}
+\begin{align}
+\vdash ( \bigwedge( \mwl{l_1} \mw{\varphi} \mwl{l_2} ) \leftrightarrow
+    \bigwedge( \mw{\varphi} \mwl{l_2} \mwl{l_1} )
+    )\label{eq:bl.ancomphfirst}\tag{bl.ancomphfirst}
+\end{align}
+\end{lemma}
+
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash ( \bigwedge( \mwl{l_1} \mw{\varphi} \mwl{l_2} )
+     \leftrightarrow \bigwedge( \mw{\varphi} \mwl{l_2}
+     \mwl{l_1} ) )&(\mbox{\ref{eq:bl.ancomwlwl}})\notag
+\end{align}
+\end{proof}
+
+\begin{lemma}\blTitle{bl.ancomphlast} {Make any wff last in conjunction
+wff-list}
+\begin{align}
+\vdash ( \bigwedge( \mwl{l_1} \mw{\varphi} \mwl{l_2} ) \leftrightarrow
+    \bigwedge( \mwl{l_2} \mwl{l_1} \mw{\varphi} )
+    )\label{eq:bl.ancomphlast}\tag{bl.ancomphlast}
+\end{align}
+\end{lemma}
+
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash ( \bigwedge( \mwl{l_1} \mw{\varphi} \mwl{l_2} )
+     \leftrightarrow \bigwedge( \mwl{l_2} \mwl{l_1}
+     \mw{\varphi} ) )&(\mbox{\ref{eq:bl.ancomwlwl}})\notag
+\end{align}
+\end{proof}
+
+\begin{lemma}\blTitle{bl.anpmw} {Pull middle wff from conjunction wff-list}
+\begin{align}
+\vdash ( \bigwedge( \mwl{l_1} \mw{\varphi} \mwl{l_2} ) \leftrightarrow (
+    \mw{\varphi} \wedge \bigwedge( \mwl{l_2} \mwl{l_1} ) )
+    )\label{eq:bl.anpmw}\tag{bl.anpmw}
+\end{align}
+\end{lemma}
+
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash ( \bigwedge( \mwl{l_1} \mw{\varphi} \mwl{l_2} )
+     \leftrightarrow \bigwedge( \mw{\varphi} \mwl{l_2}
+     \mwl{l_1} ) )&(\mbox{\ref{eq:bl.ancomphfirst}})\notag
+  \\ 2 &&  & \vdash ( \bigwedge( \mw{\varphi} \mwl{l_2} \mwl{l_1} )
+     \leftrightarrow ( \mw{\varphi} \wedge \bigwedge(
+     \mwl{l_2} \mwl{l_1} ) )
+     )&(\mbox{\ref{eq:bl.anpfw}})\notag
+  \\ 3 &&  & \vdash ( \bigwedge( \mwl{l_1} \mw{\varphi} \mwl{l_2} )
+     \leftrightarrow ( \mw{\varphi} \wedge \bigwedge(
+     \mwl{l_2} \mwl{l_1} ) )
+     )&(\mbox{\ref{eq:bitri}},1,2)\notag
+\end{align}
+\end{proof}
+
+\begin{lemma}\blTitle{bl.anabpm} {Absorb parentheses, middle term}
+\begin{align}
+\vdash ( \bigwedge( \mwl{l_1} \bigwedge( \mwl{l_2} ) \mwl{l_3} )
+    \leftrightarrow \bigwedge( \mwl{l_1} \mwl{l_2} \mwl{l_3} )
+    )\label{eq:bl.anabpm}\tag{bl.anabpm}
+\end{align}
+\end{lemma}
+
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash ( \bigwedge( \mwl{l_1} \bigwedge( \mwl{l_2} ) \mwl{l_3} )
+     \leftrightarrow \bigwedge( \bigwedge( \mwl{l_2} )
+     \mwl{l_3} \mwl{l_1} )
+     )&(\mbox{\ref{eq:bl.ancomwlwl}})\notag
+  \\ 2 &&  & \vdash ( \bigwedge( \bigwedge( \mwl{l_2} ) \mwl{l_3} \mwl{l_1} )
+     \leftrightarrow \bigwedge( \mwl{l_2} \mwl{l_3}
+     \mwl{l_1} ) )&(\mbox{\ref{eq:bl.anabpf}})\notag
+  \\ 3 &&  & \vdash ( \bigwedge( \mwl{l_2} \mwl{l_3} \mwl{l_1} )
+     \leftrightarrow \bigwedge( \mwl{l_1} \mwl{l_2}
+     \mwl{l_3} ) )&(\mbox{\ref{eq:bl.ancomwlwl}})\notag
+  \\ 4 &&  & \vdash ( \bigwedge( \mwl{l_1} \bigwedge( \mwl{l_2} ) \mwl{l_3} )
+     \leftrightarrow \bigwedge( \mwl{l_1} \mwl{l_2}
+     \mwl{l_3} ) )&(\mbox{\ref{eq:3bitri}},1,2,3)\notag
+\end{align}
+\end{proof}
+
+\begin{lemma}\blTitle{bl.orcomphfirst} {Make any wff first in disjunction
+wff-list}
+\begin{align}
+\vdash ( \bigvee( \mwl{l_1} \mw{\varphi} \mwl{l_2} ) \leftrightarrow \bigvee(
+    \mw{\varphi} \mwl{l_2} \mwl{l_1} )
+    )\label{eq:bl.orcomphfirst}\tag{bl.orcomphfirst}
+\end{align}
+\end{lemma}
+
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash ( \bigvee( \mwl{l_1} \mw{\varphi} \mwl{l_2} ) \leftrightarrow
+     \bigvee( \mw{\varphi} \mwl{l_2} \mwl{l_1} )
+     )&(\mbox{\ref{eq:bl.orcomwlwl}})\notag
+\end{align}
+\end{proof}
+
+\begin{lemma}\blTitle{bl.orcomphlast} {Make any wff last in disjunction
+wff-list}
+\begin{align}
+\vdash ( \bigvee( \mwl{l_1} \mw{\varphi} \mwl{l_2} ) \leftrightarrow \bigvee(
+    \mwl{l_2} \mwl{l_1} \mw{\varphi} )
+    )\label{eq:bl.orcomphlast}\tag{bl.orcomphlast}
+\end{align}
+\end{lemma}
+
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash ( \bigvee( \mwl{l_1} \mw{\varphi} \mwl{l_2} ) \leftrightarrow
+     \bigvee( \mwl{l_2} \mwl{l_1} \mw{\varphi} )
+     )&(\mbox{\ref{eq:bl.orcomwlwl}})\notag
+\end{align}
+\end{proof}
+
+\begin{lemma}\blTitle{bl.orpmw} {Pull middle wff from disjunction wff-list}
+\begin{align}
+\vdash ( \bigvee( \mwl{l_1} \mw{\varphi} \mwl{l_2} ) \leftrightarrow (
+    \mw{\varphi} \vee \bigvee( \mwl{l_2} \mwl{l_1} ) )
+    )\label{eq:bl.orpmw}\tag{bl.orpmw}
+\end{align}
+\end{lemma}
+
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash ( \bigvee( \mwl{l_1} \mw{\varphi} \mwl{l_2} ) \leftrightarrow
+     \bigvee( \mw{\varphi} \mwl{l_2} \mwl{l_1} )
+     )&(\mbox{\ref{eq:bl.orcomphfirst}})\notag
+  \\ 2 &&  & \vdash ( \bigvee( \mw{\varphi} \mwl{l_2} \mwl{l_1} )
+     \leftrightarrow ( \mw{\varphi} \vee \bigvee(
+     \mwl{l_2} \mwl{l_1} ) )
+     )&(\mbox{\ref{eq:bl.orpfw}})\notag
+  \\ 3 &&  & \vdash ( \bigvee( \mwl{l_1} \mw{\varphi} \mwl{l_2} )
+     \leftrightarrow ( \mw{\varphi} \vee \bigvee(
+     \mwl{l_2} \mwl{l_1} ) )
+     )&(\mbox{\ref{eq:bitri}},1,2)\notag
+\end{align}
+\end{proof}
+
+\begin{lemma}\blTitle{bl.orabpm} {Absorb parentheses, middle term in
+disjunction wff-list}
+\begin{align}
+\vdash ( \bigvee( \mwl{l_1} \bigvee( \mwl{l_2} ) \mwl{l_3} ) \leftrightarrow
+    \bigvee( \mwl{l_1} \mwl{l_2} \mwl{l_3} )
+    )\label{eq:bl.orabpm}\tag{bl.orabpm}
+\end{align}
+\end{lemma}
+
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash ( \bigvee( \mwl{l_1} \bigvee( \mwl{l_2} ) \mwl{l_3} )
+     \leftrightarrow \bigvee( \bigvee( \mwl{l_2} )
+     \mwl{l_3} \mwl{l_1} )
+     )&(\mbox{\ref{eq:bl.orcomwlwl}})\notag
+  \\ 2 &&  & \vdash ( \bigvee( \bigvee( \mwl{l_2} ) \mwl{l_3} \mwl{l_1} )
+     \leftrightarrow \bigvee( \mwl{l_2} \mwl{l_3}
+     \mwl{l_1} ) )&(\mbox{\ref{eq:bl.orabpf}})\notag
+  \\ 3 &&  & \vdash ( \bigvee( \mwl{l_2} \mwl{l_3} \mwl{l_1} ) \leftrightarrow
+     \bigvee( \mwl{l_1} \mwl{l_2} \mwl{l_3} )
+     )&(\mbox{\ref{eq:bl.orcomwlwl}})\notag
+  \\ 4 &&  & \vdash ( \bigvee( \mwl{l_1} \bigvee( \mwl{l_2} ) \mwl{l_3} )
+     \leftrightarrow \bigvee( \mwl{l_1} \mwl{l_2}
+     \mwl{l_3} ) )&(\mbox{\ref{eq:3bitri}},1,2,3)\notag
+\end{align}
+\end{proof}
+
+\begin{lemma}\blTitle{bl.ais} {And-Introduction Schema of wff}
+\begin{align}
+\vdash ( \bigwedge( \mwl{l_1} \mw{\varphi} \mwl{l_2} ) \rightarrow \mw{\varphi}
+    )\label{eq:bl.ais}\tag{bl.ais}
+\end{align}
+\end{lemma}
+
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash ( \bigwedge( \mwl{l_1} \mw{\varphi} \mwl{l_2} )
+     \leftrightarrow ( \mw{\varphi} \wedge \bigwedge(
+     \mwl{l_2} \mwl{l_1} ) )
+     )&(\mbox{\ref{eq:bl.anpmw}})\notag
+  \\ 2 &&  & \vdash ( ( \mw{\varphi} \wedge \bigwedge( \mwl{l_2} \mwl{l_1} ) )
+     \rightarrow \mw{\varphi}
+     )&(\mbox{\ref{eq:simpl}})\notag
+  \\ 3 &&  & \vdash ( \bigwedge( \mwl{l_1} \mw{\varphi} \mwl{l_2} ) \rightarrow
+     \mw{\varphi} )&(\mbox{\ref{eq:sylbi}},1,2)\notag
+\end{align}
+\end{proof}
+
+\begin{lemma}\blTitle{bl.aiswl} {And-Introduction Schema of wff-list}
+\begin{align}
+\vdash ( \bigwedge( \mwl{l_1} \mwl{l_2} \mwl{l_3} ) \rightarrow \bigwedge(
+    \mwl{l_2} ) )\label{eq:bl.aiswl}\tag{bl.aiswl}
+\end{align}
+\end{lemma}
+
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash ( \bigwedge( \mwl{l_1} \bigwedge( \mwl{l_2} ) \mwl{l_3} )
+     \leftrightarrow \bigwedge( \mwl{l_1} \mwl{l_2}
+     \mwl{l_3} ) )&(\mbox{\ref{eq:bl.anabpm}})\notag
+  \\ 2 &&  & \vdash ( \bigwedge( \mwl{l_1} \bigwedge( \mwl{l_2} ) \mwl{l_3} )
+     \leftrightarrow ( \bigwedge( \mwl{l_2} ) \wedge
+     \bigwedge( \mwl{l_3} \mwl{l_1} ) )
+     )&(\mbox{\ref{eq:bl.anpmw}})\notag
+  \\ 3 &&  & \vdash ( \bigwedge( \mwl{l_1} \mwl{l_2} \mwl{l_3} )
+     \leftrightarrow ( \bigwedge( \mwl{l_2} ) \wedge
+     \bigwedge( \mwl{l_3} \mwl{l_1} ) )
+     )&(\mbox{\ref{eq:bitr3i}},1,2)\notag
+  \\ 4 &&  & \vdash ( ( \bigwedge( \mwl{l_2} ) \wedge \bigwedge( \mwl{l_3}
+     \mwl{l_1} ) ) \rightarrow \bigwedge( \mwl{l_2} )
+     )&(\mbox{\ref{eq:simpl}})\notag
+  \\ 5 &&  & \vdash ( \bigwedge( \mwl{l_1} \mwl{l_2} \mwl{l_3} ) \rightarrow
+     \bigwedge( \mwl{l_2} )
+     )&(\mbox{\ref{eq:sylbi}},3,4)\notag
+\end{align}
+\end{proof}
+

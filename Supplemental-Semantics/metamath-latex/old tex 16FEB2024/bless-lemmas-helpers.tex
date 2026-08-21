@@ -1,0 +1,480 @@
+% This LaTeX file was created by Metamath on 18-Feb-2024 9:42 PM.
+\begin{restatable}{lemma}{blntwoimpor2}~\blTitle{bl.an2impor2}~ P and Q implies P or R.
+\begin{align}
+\vdash ( ( \mw{\varphi} \wedge \mw{\psi} ) \rightarrow ( \mw{\varphi} \vee
+    \mw{\chi} ) )\label{eq:bl.an2impor2}\tag{bl.an2impor2}
+\end{align}
+\end{restatable}
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash ( ( \mw{\varphi} \wedge \mw{\psi} ) \rightarrow \mw{\varphi}
+     ~)&(\mbox{\ref{eq:simpl}})\notag
+  \\ 2 &&  & \vdash ( \mw{\varphi} \rightarrow ( \mw{\varphi} \vee \mw{\chi} )
+     ~)&(\mbox{\ref{eq:orc}})\notag
+  \\ 3 &&  & \vdash ( ( \mw{\varphi} \wedge \mw{\psi} ) \rightarrow (
+     ~\mw{\varphi} \vee \mw{\chi} )
+     ~)&(\mbox{\ref{eq:syl}},1,2)\notag
+\end{align}
+\end{proof}
+
+\begin{restatable}{lemma}{blPandQorPisP}~\blTitle{bl.PandQorPisP}~ Law of And-Simplification: P and (Q
+or P) is P.
+\begin{align}
+\vdash ( ( \mw{\varphi} \wedge ( \mw{\psi} \vee \mw{\varphi} ) )
+    \leftrightarrow \mw{\varphi} )\label{eq:bl.PandQorPisP}\tag{bl.PandQorPisP}
+\end{align}
+\end{restatable}
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash ( \mw{\varphi} \leftrightarrow ( \mw{\varphi} \wedge (
+     ~\mw{\varphi} \vee \mw{\psi} ) )
+     ~)&(\mbox{\ref{eq:pm4.45}})\notag
+  \\ 2 &&  & \vdash ( ( \mw{\varphi} \leftrightarrow ( \mw{\varphi} \wedge (
+     ~\mw{\varphi} \vee \mw{\psi} ) ) ) \leftrightarrow ( (
+     ~\mw{\varphi} \wedge ( \mw{\varphi} \vee \mw{\psi} ) )
+     ~\leftrightarrow \mw{\varphi} )
+     ~)&(\mbox{\ref{eq:bicom}})\notag
+  \\ 3 &&  & \vdash ( ( \mw{\varphi} \vee \mw{\psi} ) \leftrightarrow (
+     ~\mw{\psi} \vee \mw{\varphi} )
+     ~)&(\mbox{\ref{eq:orcom}})\notag
+  \\ 4 &&  & \vdash ( ( \mw{\varphi} \wedge ( \mw{\varphi} \vee \mw{\psi} ) )
+     ~\leftrightarrow ( \mw{\varphi} \wedge ( \mw{\psi}
+     ~\vee \mw{\varphi} ) )
+     ~)&(\mbox{\ref{eq:anbi2i}},3)\notag
+  \\ 5 &&  & \vdash ( ( ( \mw{\varphi} \wedge ( \mw{\varphi} \vee \mw{\psi} ) )
+     ~\leftrightarrow \mw{\varphi} ) \leftrightarrow ( (
+     ~\mw{\varphi} \wedge ( \mw{\psi} \vee \mw{\varphi} ) )
+     ~\leftrightarrow \mw{\varphi} )
+     ~)&(\mbox{\ref{eq:bibi1i}},4)\notag
+  \\ 6 &&  & \vdash ( ( \mw{\varphi} \leftrightarrow ( \mw{\varphi} \wedge (
+     ~\mw{\varphi} \vee \mw{\psi} ) ) ) \leftrightarrow ( (
+     ~\mw{\varphi} \wedge ( \mw{\psi} \vee \mw{\varphi} ) )
+     ~\leftrightarrow \mw{\varphi} )
+     ~)&(\mbox{\ref{eq:bitri}},2,5)\notag
+  \\ 7 &&  & \vdash ( ( \mw{\varphi} \wedge ( \mw{\psi} \vee \mw{\varphi} ) )
+     ~\leftrightarrow \mw{\varphi}
+     ~)&(\mbox{\ref{eq:mpbi}},1,6)\notag
+\end{align}
+\end{proof}
+
+\begin{restatable}{lemma}{blPandPorQisP}~\blTitle{bl.PandPorQisP}~ Law of And-Simplification: P and (P
+or Q) is P.
+\begin{align}
+\vdash ( ( \mw{\varphi} \wedge ( \mw{\varphi} \vee \mw{\psi} ) )
+    \leftrightarrow \mw{\varphi} )\label{eq:bl.PandPorQisP}\tag{bl.PandPorQisP}
+\end{align}
+\end{restatable}
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash ( ( \mw{\varphi} \wedge ( \mw{\psi} \vee \mw{\varphi} ) )
+     ~\leftrightarrow \mw{\varphi}
+     ~)&(\mbox{\ref{eq:bl.PandQorPisP}})\notag
+  \\ 2 &&  & \vdash ( ( \mw{\psi} \vee \mw{\varphi} ) \leftrightarrow (
+     ~\mw{\varphi} \vee \mw{\psi} )
+     ~)&(\mbox{\ref{eq:orcom}})\notag
+  \\ 3 &&  & \vdash ( ( \mw{\varphi} \wedge ( \mw{\psi} \vee \mw{\varphi} ) )
+     ~\leftrightarrow ( \mw{\varphi} \wedge ( \mw{\varphi}
+     ~\vee \mw{\psi} ) ) )&(\mbox{\ref{eq:anbi2i}},2)\notag
+  \\ 4 &&  & \vdash ( ( ( \mw{\varphi} \wedge ( \mw{\psi} \vee \mw{\varphi} ) )
+     ~\leftrightarrow \mw{\varphi} ) \leftrightarrow ( (
+     ~\mw{\varphi} \wedge ( \mw{\varphi} \vee \mw{\psi} ) )
+     ~\leftrightarrow \mw{\varphi} )
+     ~)&(\mbox{\ref{eq:bibi1i}},3)\notag
+  \\ 5 &&  & \vdash ( ( \mw{\varphi} \wedge ( \mw{\varphi} \vee \mw{\psi} ) )
+     ~\leftrightarrow \mw{\varphi}
+     ~)&(\mbox{\ref{eq:mpbi}},1,4)\notag
+\end{align}
+\end{proof}
+
+\begin{restatable}{lemma}{blPisPandQorP}~\blTitle{bl.PisPandQorP}~ Law of And-Simplification: P is P
+and (Q or P).
+\begin{align}
+\vdash ( \mw{\varphi} \leftrightarrow ( \mw{\varphi} \wedge ( \mw{\psi} \vee
+    \mw{\varphi} ) ) )\label{eq:bl.PisPandQorP}\tag{bl.PisPandQorP}
+\end{align}
+\end{restatable}
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash ( \mw{\varphi} \leftrightarrow ( \mw{\varphi} \wedge (
+     ~\mw{\varphi} \vee \mw{\psi} ) )
+     ~)&(\mbox{\ref{eq:pm4.45}})\notag
+  \\ 2 &&  & \vdash ( ( \mw{\varphi} \vee \mw{\psi} ) \leftrightarrow (
+     ~\mw{\psi} \vee \mw{\varphi} )
+     ~)&(\mbox{\ref{eq:orcom}})\notag
+  \\ 3 &&  & \vdash ( ( \mw{\varphi} \wedge ( \mw{\varphi} \vee \mw{\psi} ) )
+     ~\leftrightarrow ( \mw{\varphi} \wedge ( \mw{\psi}
+     ~\vee \mw{\varphi} ) )
+     ~)&(\mbox{\ref{eq:anbi2i}},2)\notag
+  \\ 4 &&  & \vdash ( ( \mw{\varphi} \leftrightarrow ( \mw{\varphi} \wedge (
+     ~\mw{\varphi} \vee \mw{\psi} ) ) ) \leftrightarrow (
+     ~\mw{\varphi} \leftrightarrow ( \mw{\varphi} \wedge (
+     ~\mw{\psi} \vee \mw{\varphi} ) ) )
+     ~)&(\mbox{\ref{eq:bibi2i}},3)\notag
+  \\ 5 &&  & \vdash ( \mw{\varphi} \leftrightarrow ( \mw{\varphi} \wedge (
+     ~\mw{\psi} \vee \mw{\varphi} ) )
+     ~)&(\mbox{\ref{eq:mpbi}},1,4)\notag
+\end{align}
+\end{proof}
+
+\begin{restatable}{lemma}{blPorQandPisP}~\blTitle{bl.PorQandPisP}~ Law of Or-Simplification: P or (Q
+and P) is P.
+\begin{align}
+\vdash ( ( \mw{\varphi} \vee ( \mw{\psi} \wedge \mw{\varphi} ) )
+    \leftrightarrow \mw{\varphi} )\label{eq:bl.PorQandPisP}\tag{bl.PorQandPisP}
+\end{align}
+\end{restatable}
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash ( \mw{\varphi} \leftrightarrow ( \mw{\varphi} \vee (
+     ~\mw{\varphi} \wedge \mw{\psi} ) )
+     ~)&(\mbox{\ref{eq:pm4.44}})\notag
+  \\ 2 &&  & \vdash ( ( \mw{\varphi} \leftrightarrow ( \mw{\varphi} \vee (
+     ~\mw{\varphi} \wedge \mw{\psi} ) ) ) \leftrightarrow (
+     ~( \mw{\varphi} \vee ( \mw{\varphi} \wedge \mw{\psi} )
+     ~) \leftrightarrow \mw{\varphi} )
+     ~)&(\mbox{\ref{eq:bicom}})\notag
+  \\ 3 &&  & \vdash ( ( \mw{\varphi} \wedge \mw{\psi} ) \leftrightarrow (
+     ~\mw{\psi} \wedge \mw{\varphi} )
+     ~)&(\mbox{\ref{eq:ancom}})\notag
+  \\ 4 &&  & \vdash ( ( \mw{\varphi} \vee ( \mw{\varphi} \wedge \mw{\psi} ) )
+     ~\leftrightarrow ( \mw{\varphi} \vee ( \mw{\psi}
+     ~\wedge \mw{\varphi} ) )
+     ~)&(\mbox{\ref{eq:orbi2i}},3)\notag
+  \\ 5 &&  & \vdash ( ( ( \mw{\varphi} \vee ( \mw{\varphi} \wedge \mw{\psi} ) )
+     ~\leftrightarrow \mw{\varphi} ) \leftrightarrow ( (
+     ~\mw{\varphi} \vee ( \mw{\psi} \wedge \mw{\varphi} ) )
+     ~\leftrightarrow \mw{\varphi} )
+     ~)&(\mbox{\ref{eq:bibi1i}},4)\notag
+  \\ 6 &&  & \vdash ( ( \mw{\varphi} \leftrightarrow ( \mw{\varphi} \vee (
+     ~\mw{\varphi} \wedge \mw{\psi} ) ) ) \leftrightarrow (
+     ~( \mw{\varphi} \vee ( \mw{\psi} \wedge \mw{\varphi} )
+     ~) \leftrightarrow \mw{\varphi} )
+     ~)&(\mbox{\ref{eq:bitri}},2,5)\notag
+  \\ 7 &&  & \vdash ( ( \mw{\varphi} \vee ( \mw{\psi} \wedge \mw{\varphi} ) )
+     ~\leftrightarrow \mw{\varphi}
+     ~)&(\mbox{\ref{eq:mpbi}},1,6)\notag
+\end{align}
+\end{proof}
+
+\begin{restatable}{lemma}{blPorPandQisP}~\blTitle{bl.PorPandQisP}~ Law of Or-Simplification: P or (P
+and Q) is P.
+\begin{align}
+\vdash ( ( \mw{\varphi} \vee ( \mw{\varphi} \wedge \mw{\psi} ) )
+    \leftrightarrow \mw{\varphi} )\label{eq:bl.PorPandQisP}\tag{bl.PorPandQisP}
+\end{align}
+\end{restatable}
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash ( ( \mw{\varphi} \vee ( \mw{\psi} \wedge \mw{\varphi} ) )
+     ~\leftrightarrow \mw{\varphi}
+     ~)&(\mbox{\ref{eq:bl.PorQandPisP}})\notag
+  \\ 2 &&  & \vdash ( ( \mw{\psi} \wedge \mw{\varphi} ) \leftrightarrow (
+     ~\mw{\varphi} \wedge \mw{\psi} )
+     ~)&(\mbox{\ref{eq:ancom}})\notag
+  \\ 3 &&  & \vdash ( ( \mw{\varphi} \vee ( \mw{\psi} \wedge \mw{\varphi} ) )
+     ~\leftrightarrow ( \mw{\varphi} \vee ( \mw{\varphi}
+     ~\wedge \mw{\psi} ) )
+     ~)&(\mbox{\ref{eq:orbi2i}},2)\notag
+  \\ 4 &&  & \vdash ( ( ( \mw{\varphi} \vee ( \mw{\psi} \wedge \mw{\varphi} ) )
+     ~\leftrightarrow \mw{\varphi} ) \leftrightarrow ( (
+     ~\mw{\varphi} \vee ( \mw{\varphi} \wedge \mw{\psi} ) )
+     ~\leftrightarrow \mw{\varphi} )
+     ~)&(\mbox{\ref{eq:bibi1i}},3)\notag
+  \\ 5 &&  & \vdash ( ( \mw{\varphi} \vee ( \mw{\varphi} \wedge \mw{\psi} ) )
+     ~\leftrightarrow \mw{\varphi}
+     ~)&(\mbox{\ref{eq:mpbi}},1,4)\notag
+\end{align}
+\end{proof}
+
+\begin{restatable}{lemma}{blPisPorQandP}~\blTitle{bl.PisPorQandP}~ Law of Or-Simplification: P is P or
+(Q and P).
+\begin{align}
+\vdash ( \mw{\varphi} \leftrightarrow ( \mw{\varphi} \vee ( \mw{\psi} \wedge
+    \mw{\varphi} ) ) )\label{eq:bl.PisPorQandP}\tag{bl.PisPorQandP}
+\end{align}
+\end{restatable}
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash ( \mw{\varphi} \leftrightarrow ( \mw{\varphi} \vee (
+     ~\mw{\varphi} \wedge \mw{\psi} ) )
+     ~)&(\mbox{\ref{eq:pm4.44}})\notag
+  \\ 2 &&  & \vdash ( ( \mw{\varphi} \wedge \mw{\psi} ) \leftrightarrow (
+     ~\mw{\psi} \wedge \mw{\varphi} )
+     ~)&(\mbox{\ref{eq:ancom}})\notag
+  \\ 3 &&  & \vdash ( ( \mw{\varphi} \vee ( \mw{\varphi} \wedge \mw{\psi} ) )
+     ~\leftrightarrow ( \mw{\varphi} \vee ( \mw{\psi}
+     ~\wedge \mw{\varphi} ) )
+     ~)&(\mbox{\ref{eq:orbi2i}},2)\notag
+  \\ 4 &&  & \vdash ( ( \mw{\varphi} \leftrightarrow ( \mw{\varphi} \vee (
+     ~\mw{\varphi} \wedge \mw{\psi} ) ) ) \leftrightarrow (
+     ~\mw{\varphi} \leftrightarrow ( \mw{\varphi} \vee (
+     ~\mw{\psi} \wedge \mw{\varphi} ) ) )
+     ~)&(\mbox{\ref{eq:bibi2i}},3)\notag
+  \\ 5 &&  & \vdash ( \mw{\varphi} \leftrightarrow ( \mw{\varphi} \vee (
+     ~\mw{\psi} \wedge \mw{\varphi} ) )
+     ~)&(\mbox{\ref{eq:mpbi}},1,4)\notag
+\end{align}
+\end{proof}
+
+\begin{restatable}{lemma}{blcd}~\blTitle{bl.cd}~ Constructive Dilemma.
+\begin{align}
+\vdash ( \mw{\varphi} \rightarrow \mw{\psi} )\quad\&\quad \vdash ( \mw{\chi}
+    \rightarrow \mw{\theta} )\quad\&\quad \vdash ( \mw{\varphi} \vee \mw{\chi}
+    )\quad\Rightarrow \notag \\ 
+	\quad \vdash ( \mw{\psi} \vee \mw{\theta}
+    )\label{eq:bl.cd}\tag{bl.cd}
+\end{align}
+\end{restatable}
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash ( \mw{\varphi} \vee \mw{\chi} )&\text{Hyp~cd.3}\notag%bl.cd.3
+  \\ 2 &&  & \vdash ( \mw{\varphi} \rightarrow \mw{\psi}
+     ~)&\text{Hyp~cd.1}\notag%bl.cd.1
+  \\ 3 &&  & \vdash ( \mw{\chi} \rightarrow \mw{\theta}
+     ~)&\text{Hyp~cd.2}\notag%bl.cd.2
+  \\ 4 &&  & \vdash ( ( \mw{\varphi} \vee \mw{\chi} ) \rightarrow ( \mw{\psi}
+     ~\vee \mw{\theta} )
+     ~)&(\mbox{\ref{eq:orim12i}},2,3)\notag
+  \\ 5 &&  & \vdash ( \mw{\psi} \vee \mw{\theta}
+     ~)&(\mbox{\ref{eq:ax-mp}},1,4)\notag
+\end{align}
+\end{proof}
+
+\begin{restatable}{lemma}{blralssi}~\blTitle{bl.ralssi}~ Restriction of universal quantification
+to a subset.
+\begin{align}
+\vdash \mc{A} \subseteq \mc{B}\quad\Rightarrow \notag \\ 
+	\quad \vdash ( \forall \msc{x}
+    \in \mc{A} \mw{\varphi} \leftrightarrow \forall \msc{x} \in \mc{A} (
+    \msc{x} \in \mc{B} \wedge \mw{\varphi} )
+    )\label{eq:bl.ralssi}\tag{bl.ralssi}
+\end{align}
+\end{restatable}
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash ( \forall \msc{x} \in \mc{A} ( \msc{x} \in \mc{B} \wedge
+     ~\mw{\varphi} ) \leftrightarrow ( \forall \msc{x} \in
+     ~\mc{A} \msc{x} \in \mc{B} \wedge \forall \msc{x} \in
+     ~\mc{A} \mw{\varphi} )
+     ~)&(\mbox{\ref{eq:r19.26}})\notag
+  \\ 2 &&  & \vdash \mc{A} \subseteq
+     ~\mc{B}&\text{Hyp~ralssi.1}\notag%bl.ralssi.1
+  \\ 3 &&  & \vdash ( \mc{A} \subseteq \mc{B} \leftrightarrow \forall \msc{x}
+     ~\in \mc{A} \msc{x} \in \mc{B}
+     ~)&(\mbox{\ref{eq:dfss3}})\notag
+  \\ 4 &&  & \vdash \forall \msc{x} \in \mc{A} \msc{x} \in
+     ~\mc{B}&(\mbox{\ref{eq:mpbi}},2,3)\notag
+  \\ 5 &&  & \vdash ( \forall \msc{x} \in \mc{A} \msc{x} \in \mc{B}
+     ~\leftrightarrow \top
+     ~)&(\mbox{\ref{eq:bitru}},4)\notag
+  \\ 6 &&  & \vdash ( ( \forall \msc{x} \in \mc{A} \msc{x} \in \mc{B} \wedge
+     ~\forall \msc{x} \in \mc{A} \mw{\varphi} )
+     ~\leftrightarrow ( \top \wedge \forall \msc{x} \in
+     ~\mc{A} \mw{\varphi} )
+     ~)&(\mbox{\ref{eq:anbi1i}},5)\notag
+  \\ 7 &&  & \vdash ( \forall \msc{x} \in \mc{A} \mw{\varphi} \leftrightarrow (
+     ~\top \wedge \forall \msc{x} \in \mc{A} \mw{\varphi} )
+     ~)&(\mbox{\ref{eq:truconj}})\notag
+  \\ 8 &&  & \vdash ( ( \forall \msc{x} \in \mc{A} \msc{x} \in \mc{B} \wedge
+     ~\forall \msc{x} \in \mc{A} \mw{\varphi} )
+     ~\leftrightarrow \forall \msc{x} \in \mc{A}
+     ~\mw{\varphi} )&(\mbox{\ref{eq:bitr4i}},6,7)\notag
+  \\ 9 &&  & \vdash ( \forall \msc{x} \in \mc{A} \mw{\varphi} \leftrightarrow
+     ~\forall \msc{x} \in \mc{A} ( \msc{x} \in \mc{B}
+     ~\wedge \mw{\varphi} )
+     ~)&(\mbox{\ref{eq:bitr2i}},1,8)\notag
+\end{align}
+\end{proof}
+
+\begin{restatable}{lemma}{bladdass4i}~\blTitle{bl.addass4i}~ Associative Law for Addition, four
+terms.
+\begin{align}
+\vdash \mc{A} \in \mathbb{R}\quad\&\quad \vdash \mc{B} \in
+    \mathbb{R}\quad\&\quad \vdash \mc{C} \in \mathbb{R}\quad\&\quad \vdash
+    \mc{D} \in \mathbb{R}\quad\Rightarrow \notag \\ 
+	\quad \vdash ( ( ( \mc{A} + \mc{B} ) +
+    \mc{C} ) + \mc{D} ) = ( ( \mc{A} + \mc{B} ) + ( \mc{C} + \mc{D} )
+    )\label{eq:bl.addass4i}\tag{bl.addass4i}
+\end{align}
+\end{restatable}
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash \mc{A} \in
+     ~\mathbb{R}&\text{Hyp~addass4i.1}\notag%bl.addass4i.1
+  \\ 2 &&  & \vdash \mc{A} \in \mathbb{C}&(\mbox{\ref{eq:recni}},1)\notag
+  \\ 3 &&  & \vdash \mc{B} \in
+     ~\mathbb{R}&\text{Hyp~addass4i.2}\notag%bl.addass4i.2
+  \\ 4 &&  & \vdash \mc{B} \in \mathbb{C}&(\mbox{\ref{eq:recni}},3)\notag
+  \\ 5 &&  & \vdash ( \mc{A} + \mc{B} ) \in
+     ~\mathbb{C}&(\mbox{\ref{eq:addcli}},2,4)\notag
+  \\ 6 &&  & \vdash \mc{C} \in
+     ~\mathbb{R}&\text{Hyp~addass4i.3}\notag%bl.addass4i.3
+  \\ 7 &&  & \vdash \mc{C} \in \mathbb{C}&(\mbox{\ref{eq:recni}},6)\notag
+  \\ 8 &&  & \vdash \mc{D} \in
+     ~\mathbb{R}&\text{Hyp~addass4i.4}\notag%bl.addass4i.4
+  \\ 9 &&  & \vdash \mc{D} \in \mathbb{C}&(\mbox{\ref{eq:recni}},8)\notag
+  \\ 10 &&  & \vdash ( ( ( \mc{A} + \mc{B} ) + \mc{C} ) + \mc{D} ) = ( ( \mc{A}
+     ~+ \mc{B} ) + ( \mc{C} + \mc{D} )
+     ~)&(\mbox{\ref{eq:addassi}},5,7,9)\notag
+\end{align}
+\end{proof}
+
+\begin{restatable}{lemma}{blanfal}~\blTitle{bl.anfal}~ Conjunction with False on the Left.
+\begin{align}
+\vdash ( ( \bot \wedge \mw{\varphi} ) \leftrightarrow \bot
+    )\label{eq:bl.anfal}\tag{bl.anfal}
+\end{align}
+\end{restatable}
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash \lnot \bot&(\mbox{\ref{eq:fal}})\notag
+  \\ 2 &&  & \vdash \lnot ( \bot \wedge \mw{\varphi}
+     ~)&(\mbox{\ref{eq:intnanr}},1)\notag
+  \\ 3 &&  & \vdash ( ( \bot \wedge \mw{\varphi} ) \leftrightarrow \bot
+     ~)&(\mbox{\ref{eq:bifal}},2)\notag
+\end{align}
+\end{proof}
+
+\begin{restatable}{lemma}{blanfar}~\blTitle{bl.anfar}~ Conjunction with False on the Right.
+\begin{align}
+\vdash ( ( \mw{\varphi} \wedge \bot ) \leftrightarrow \bot
+    )\label{eq:bl.anfar}\tag{bl.anfar}
+\end{align}
+\end{restatable}
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash \lnot \bot&(\mbox{\ref{eq:fal}})\notag
+  \\ 2 &&  & \vdash \lnot ( \mw{\varphi} \wedge \bot
+     ~)&(\mbox{\ref{eq:intnan}},1)\notag
+  \\ 3 &&  & \vdash ( ( \mw{\varphi} \wedge \bot ) \leftrightarrow \bot
+     ~)&(\mbox{\ref{eq:bifal}},2)\notag
+\end{align}
+\end{proof}
+
+\begin{restatable}{lemma}{blortrl}~\blTitle{bl.ortrl}~ Disjunction with True on the Left.
+\begin{align}
+\vdash ( ( \top \vee \mw{\varphi} ) \leftrightarrow \top
+    )\label{eq:bl.ortrl}\tag{bl.ortrl}
+\end{align}
+\end{restatable}
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash \top&(\mbox{\ref{eq:tru}})\notag
+  \\ 2 &&  & \vdash ( \top \vee \mw{\varphi} )&(\mbox{\ref{eq:orci}},1)\notag
+  \\ 3 &&  & \vdash ( ( \top \vee \mw{\varphi} ) \leftrightarrow \top
+     ~)&(\mbox{\ref{eq:bitru}},2)\notag
+\end{align}
+\end{proof}
+
+\begin{restatable}{lemma}{blortrr}~\blTitle{bl.ortrr}~ Disjunction with True on the Right.
+\begin{align}
+\vdash ( ( \mw{\varphi} \vee \top ) \leftrightarrow \top
+    )\label{eq:bl.ortrr}\tag{bl.ortrr}
+\end{align}
+\end{restatable}
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash \top&(\mbox{\ref{eq:tru}})\notag
+  \\ 2 &&  & \vdash ( \mw{\varphi} \vee \top )&(\mbox{\ref{eq:olci}},1)\notag
+  \\ 3 &&  & \vdash ( ( \mw{\varphi} \vee \top ) \leftrightarrow \top
+     ~)&(\mbox{\ref{eq:bitru}},2)\notag
+\end{align}
+\end{proof}
+
+\begin{restatable}{lemma}{blseq}~\blTitle{bl.seq}~ Superfluity of Equivalence.
+\begin{align}
+\vdash ( ( \mw{\varphi} \leftrightarrow \top ) \rightarrow \mw{\varphi}
+    )\label{eq:bl.seq}\tag{bl.seq}
+\end{align}
+\end{restatable}
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash ( ( \mw{\varphi} \leftrightarrow \top ) \rightarrow ( \top
+     ~\rightarrow \mw{\varphi} )
+     ~)&(\mbox{\ref{eq:biimpr}})\notag
+  \\ 2 &&  & \vdash ( \mw{\varphi} \leftrightarrow ( \top \rightarrow
+     ~\mw{\varphi} ) )&(\mbox{\ref{eq:trut}})\notag
+  \\ 3 &&  & \vdash ( ( \top \rightarrow \mw{\varphi} ) \rightarrow
+     ~\mw{\varphi} )&(\mbox{\ref{eq:biimpri}},2)\notag
+  \\ 4 &&  & \vdash ( ( \mw{\varphi} \leftrightarrow \top ) \rightarrow
+     ~\mw{\varphi} )&(\mbox{\ref{eq:syl}},1,3)\notag
+\end{align}
+\end{proof}
+
+\begin{restatable}{lemma}{bladddii}~\blTitle{bl.adddii}~ Distributive law for $\mathbb{R}$.
+\begin{align}
+\vdash \mc{A} \in \mathbb{R}\quad\&\quad \vdash \mc{B} \in
+    \mathbb{R}\quad\&\quad \vdash \mc{C} \in \mathbb{R}\quad\Rightarrow \notag \\ 
+	\quad
+    \vdash ( \mc{A} \cdot ( \mc{B} + \mc{C} ) ) = ( ( \mc{A} \cdot \mc{B} ) + (
+    \mc{A} \cdot \mc{C} ) )\label{eq:bl.adddii}\tag{bl.adddii}
+\end{align}
+\end{restatable}
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash \mc{A} \in \mathbb{R}&\text{Hyp~adddii.1}\notag%bl.adddii.1
+  \\ 2 &&  & \vdash ( \mc{A} \in \mathbb{R} \rightarrow \mc{A} \in \mathbb{C}
+     ~)&(\mbox{\ref{eq:recn}})\notag
+  \\ 3 &&  & \vdash \mc{A} \in \mathbb{C}&(\mbox{\ref{eq:ax-mp}},1,2)\notag
+  \\ 4 &&  & \vdash \mc{B} \in \mathbb{R}&\text{Hyp~adddii.2}\notag%bl.adddii.2
+  \\ 5 &&  & \vdash ( \mc{B} \in \mathbb{R} \rightarrow \mc{B} \in \mathbb{C}
+     ~)&(\mbox{\ref{eq:recn}})\notag
+  \\ 6 &&  & \vdash \mc{B} \in \mathbb{C}&(\mbox{\ref{eq:ax-mp}},4,5)\notag
+  \\ 7 &&  & \vdash \mc{C} \in \mathbb{R}&\text{Hyp~adddii.3}\notag%bl.adddii.3
+  \\ 8 &&  & \vdash ( \mc{C} \in \mathbb{R} \rightarrow \mc{C} \in \mathbb{C}
+     ~)&(\mbox{\ref{eq:recn}})\notag
+  \\ 9 &&  & \vdash \mc{C} \in \mathbb{C}&(\mbox{\ref{eq:ax-mp}},7,8)\notag
+  \\ 10 &&  & \vdash ( \mc{A} \cdot ( \mc{B} + \mc{C} ) ) = ( ( \mc{A} \cdot
+     ~\mc{B} ) + ( \mc{A} \cdot \mc{C} )
+     ~)&(\mbox{\ref{eq:adddii}},3,6,9)\notag
+\end{align}
+\end{proof}
+
+\begin{restatable}{lemma}{bladddizi}~\blTitle{bl.adddizi}~ Distributive law for $\mathbb{Z}$.
+\begin{align}
+\vdash \mc{A} \in \mathbb{Z}\quad\&\quad \vdash \mc{B} \in
+    \mathbb{Z}\quad\&\quad \vdash \mc{C} \in \mathbb{Z}\quad\Rightarrow \notag \\ 
+	\quad
+    \vdash ( \mc{A} \cdot ( \mc{B} + \mc{C} ) ) = ( ( \mc{A} \cdot \mc{B} ) + (
+    \mc{A} \cdot \mc{C} ) )\label{eq:bl.adddizi}\tag{bl.adddizi}
+\end{align}
+\end{restatable}
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash \mc{A} \in \mathbb{Z}&\text{Hyp~adddizi.1}\notag%bl.adddizi.1
+  \\ 2 &&  & \vdash ( \mc{A} \in \mathbb{Z} \rightarrow \mc{A} \in \mathbb{C}
+     ~)&(\mbox{\ref{eq:zcn}})\notag
+  \\ 3 &&  & \vdash \mc{A} \in \mathbb{C}&(\mbox{\ref{eq:ax-mp}},1,2)\notag
+  \\ 4 &&  & \vdash \mc{B} \in
+     ~\mathbb{Z}&\text{Hyp~adddizi.2}\notag%bl.adddizi.2
+  \\ 5 &&  & \vdash ( \mc{B} \in \mathbb{Z} \rightarrow \mc{B} \in \mathbb{C}
+     ~)&(\mbox{\ref{eq:zcn}})\notag
+  \\ 6 &&  & \vdash \mc{B} \in \mathbb{C}&(\mbox{\ref{eq:ax-mp}},4,5)\notag
+  \\ 7 &&  & \vdash \mc{C} \in
+     ~\mathbb{Z}&\text{Hyp~adddizi.3}\notag%bl.adddizi.3
+  \\ 8 &&  & \vdash ( \mc{C} \in \mathbb{Z} \rightarrow \mc{C} \in \mathbb{C}
+     ~)&(\mbox{\ref{eq:zcn}})\notag
+  \\ 9 &&  & \vdash \mc{C} \in \mathbb{C}&(\mbox{\ref{eq:ax-mp}},7,8)\notag
+  \\ 10 &&  & \vdash ( \mc{A} \cdot ( \mc{B} + \mc{C} ) ) = ( ( \mc{A} \cdot
+     ~\mc{B} ) + ( \mc{A} \cdot \mc{C} )
+     ~)&(\mbox{\ref{eq:adddii}},3,6,9)\notag
+\end{align}
+\end{proof}
+

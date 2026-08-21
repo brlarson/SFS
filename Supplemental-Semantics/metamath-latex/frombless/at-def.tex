@@ -1,0 +1,174 @@
+% This LaTeX file was created by Metamath on 22-Jul-2024 3:29 PM.
+\begin{restatable}{metadefinition}{dfblat}~\blTitle{df-bl.at}~ Definition of @ for predicates.
+   @ determines in which world to evaluate.
+\begin{align}
+\vdash \tau \in \mathbf{T}\quad\Rightarrow\quad \vdash ( \mathbf{I} \lsem (
+    \mw{\varphi} @ \tau ) \rsem \leftrightarrow \mathbf{I} \lsem \mw{\varphi} ,
+    \tau \rsem )\label{eq:df-bl.at}\tag{df-bl.at}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{metadefinition}{dfblatc}~\blTitle{df-bl.atc}~ Definition of @ for values.
+   @ determines in which world to evaluate.
+\begin{align}
+\vdash \tau \in \mathbf{T}\quad\Rightarrow\quad \vdash \mathbf{I} \lsem (
+    \mc{A} @ \tau ) \rsem = \mathbf{I} \lsem \mc{A} , \tau
+    \rsem\label{eq:df-bl.atc}\tag{df-bl.atc}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{metadefinition}{dfblat2}~\blTitle{df-bl.at2}~ Definition of Double @ for predicates.
+   Second application of @ is inconsequential, predicate.
+\begin{align}
+\vdash \tau_1 \in \mathbf{T}\quad\&\quad \vdash \tau_2 \in
+    \mathbf{T}\quad\Rightarrow\quad \vdash ( \mathbf{I} \lsem ( ( \mw{\varphi}
+    @ \tau_1 ) @ \tau_2 ) \rsem \leftrightarrow \mathbf{I} \lsem \mw{\varphi} ,
+    \tau_1 \rsem )\label{eq:df-bl.at2}\tag{df-bl.at2}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{metadefinition}{dfblat2c}~\blTitle{df-bl.at2c}~ Definition of Double @ for values.
+   Second application of @ is inconsequential, value.
+\begin{align}
+\vdash \tau_1 \in \mathbf{T}\quad\&\quad \vdash \tau_2 \in
+    \mathbf{T}\quad\Rightarrow\quad \vdash \mathbf{I} \lsem ( ( \mc{A} @ \tau_1
+    ) @ \tau_2 ) \rsem = \mathbf{I} \lsem \mc{A} , \tau_1
+    \rsem\label{eq:df-bl.at2c}\tag{df-bl.at2c}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{blatintro}~\blTitle{bl.atintro}~ @ Introduction for predicates.
+   If a predicate is always true it's true at any time.
+\begin{align}
+\vdash \tau \in \mathbf{T}\quad\Rightarrow\quad \vdash ( \mathbf{I} \lsem
+    \mw{\varphi} \rsem \rightarrow \mathbf{I} \lsem ( \mw{\varphi} @ \tau )
+    \rsem )\label{eq:bl.atintro}\tag{bl.atintro}
+\end{align}
+\end{restatable}
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash \tau \in \mathbf{T}&\text{Hyp~atintro.1}\notag%bl.atintro.1
+  \\ 2 &&  & \vdash ( \mathbf{I} \lsem \mw{\varphi} \rsem \rightarrow
+      \mathbf{I} \lsem \mw{\varphi} , \tau \rsem
+      )&(\mbox{\ref{eq:ax-bl.models}},1)\notag
+  \\ 3 &&  & \vdash \tau \in \mathbf{T}&\text{Hyp~atintro.1}\notag%bl.atintro.1
+  \\ 4 &&  & \vdash ( \mathbf{I} \lsem ( \mw{\varphi} @ \tau ) \rsem
+      \leftrightarrow \mathbf{I} \lsem \mw{\varphi} , \tau
+      \rsem )&(\mbox{\ref{eq:df-bl.at}},3)\notag
+  \\ 5 &&  & \vdash ( \mathbf{I} \lsem \mw{\varphi} \rsem \rightarrow
+      \mathbf{I} \lsem ( \mw{\varphi} @ \tau ) \rsem
+      )&(\mbox{\ref{eq:sylibr}},2,4)\notag
+\end{align}
+\end{proof}
+
+\begin{restatable}{metadefinition}{dfblatbi}~\blTitle{df-bl.atbi}~ Definition of @ Equivalence
+(biconditional) for predicates.
+\begin{align}
+\vdash \tau_1 \in \mathbf{T}\quad\&\quad \vdash \tau_2 \in
+    \mathbf{T}\quad\Rightarrow\quad \vdash ( ( \tau_1 = \tau_2 \wedge (
+    \mw{\varphi} \leftrightarrow \mw{\psi} ) ) \rightarrow ( \mathbf{I} \lsem (
+    \mw{\varphi} @ \tau_1 ) \rsem \leftrightarrow \mathbf{I} \lsem ( \mw{\psi}
+    @ \tau_2 ) \rsem ) )\label{eq:df-bl.atbi}\tag{df-bl.atbi}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{blatbii}~\blTitle{bl.atbii}~ @ Equivalence (biconditional) for
+predicates, inference.
+\begin{align}
+\vdash \tau_1 \in \mathbf{T}\quad\&\quad \vdash \tau_2 \in
+    \mathbf{T}\quad\&\quad \vdash ( \mw{\varphi} \leftrightarrow \mw{\psi}
+    )\quad\&\quad \vdash \tau_1 = \tau_2\quad\Rightarrow\quad \vdash (
+    \mathbf{I} \lsem ( \mw{\varphi} @ \tau_1 ) \rsem \leftrightarrow \mathbf{I}
+    \lsem ( \mw{\psi} @ \tau_2 ) \rsem )\label{eq:bl.atbii}\tag{bl.atbii}
+\end{align}
+\end{restatable}
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash \tau_1 = \tau_2&\text{Hyp~atbii.4}\notag%bl.atbii.4
+  \\ 2 &&  & \vdash ( \mw{\varphi} \leftrightarrow \mw{\psi}
+      )&\text{Hyp~atbii.3}\notag%bl.atbii.3
+  \\ 3 &&  & \vdash \tau_1 \in \mathbf{T}&\text{Hyp~atbii.1}\notag%bl.atbii.1
+  \\ 4 &&  & \vdash \tau_2 \in \mathbf{T}&\text{Hyp~atbii.2}\notag%bl.atbii.2
+  \\ 5 &&  & \vdash ( ( \tau_1 = \tau_2 \wedge ( \mw{\varphi} \leftrightarrow
+      \mw{\psi} ) ) \rightarrow ( \mathbf{I} \lsem (
+      \mw{\varphi} @ \tau_1 ) \rsem \leftrightarrow
+      \mathbf{I} \lsem ( \mw{\psi} @ \tau_2 ) \rsem )
+      )&(\mbox{\ref{eq:df-bl.atbi}},3,4)\notag
+  \\ 6 &&  & \vdash ( \mathbf{I} \lsem ( \mw{\varphi} @ \tau_1 ) \rsem
+      \leftrightarrow \mathbf{I} \lsem ( \mw{\psi} @ \tau_2
+      ) \rsem )&(\mbox{\ref{eq:mp2an}},1,2,5)\notag
+\end{align}
+\end{proof}
+
+\begin{restatable}{metadefinition}{dfblateqc}~\blTitle{df-bl.ateqc}~ Definition of @ Equality for values.
+\begin{align}
+\vdash \tau_1 \in \mathbf{T}\quad\&\quad \vdash \tau_2 \in
+    \mathbf{T}\quad\Rightarrow\quad \vdash ( ( \tau_1 = \tau_2 \wedge \mc{A} =
+    \mc{B} ) \rightarrow \mathbf{I} \lsem ( \mc{A} @ \tau_1 ) \rsem =
+    \mathbf{I} \lsem ( \mc{B} @ \tau_2 ) \rsem
+    )\label{eq:df-bl.ateqc}\tag{df-bl.ateqc}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{blateqci}~\blTitle{bl.ateqci}~ Equality of @ for values, inference.
+\begin{align}
+\vdash \tau_1 \in \mathbf{T}\quad\&\quad \vdash \tau_2 \in
+    \mathbf{T}\quad\&\quad \vdash \mc{A} = \mc{B}\quad\&\quad \vdash \tau_1 =
+    \tau_2\quad\Rightarrow\quad \vdash \mathbf{I} \lsem ( \mc{A} @ \tau_1 )
+    \rsem = \mathbf{I} \lsem ( \mc{B} @ \tau_2 )
+    \rsem\label{eq:bl.ateqci}\tag{bl.ateqci}
+\end{align}
+\end{restatable}
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash \tau_1 = \tau_2&\text{Hyp~ateqci.4}\notag%bl.ateqci.4
+  \\ 2 &&  & \vdash \mc{A} = \mc{B}&\text{Hyp~ateqci.3}\notag%bl.ateqci.3
+  \\ 3 &&  & \vdash \tau_1 \in \mathbf{T}&\text{Hyp~ateqci.1}\notag%bl.ateqci.1
+  \\ 4 &&  & \vdash \tau_2 \in \mathbf{T}&\text{Hyp~ateqci.2}\notag%bl.ateqci.2
+  \\ 5 &&  & \vdash ( ( \tau_1 = \tau_2 \wedge \mc{A} = \mc{B} ) \rightarrow
+      \mathbf{I} \lsem ( \mc{A} @ \tau_1 ) \rsem =
+      \mathbf{I} \lsem ( \mc{B} @ \tau_2 ) \rsem
+      )&(\mbox{\ref{eq:df-bl.ateqc}},3,4)\notag
+  \\ 6 &&  & \vdash \mathbf{I} \lsem ( \mc{A} @ \tau_1 ) \rsem = \mathbf{I}
+      \lsem ( \mc{B} @ \tau_2 )
+      \rsem&(\mbox{\ref{eq:mp2an}},1,2,5)\notag
+\end{align}
+\end{proof}
+
+\begin{restatable}{lemma}{blatintroc}~\blTitle{bl.atintroc}~ @ Introduction: if a value is constant
+its value is the same at any time.
+\begin{align}
+\vdash \tau \in \mathbf{T}\quad\Rightarrow\quad \vdash ( \mathbf{I} \lsem
+    \mc{A} \rsem = \mc{B} \rightarrow \mathbf{I} \lsem ( \mc{A} @ \tau ) \rsem
+    = \mc{B} )\label{eq:bl.atintroc}\tag{bl.atintroc}
+\end{align}
+\end{restatable}
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash \tau \in \mathbf{T}&\text{Hyp~atintroc.1}\notag%bl.atintroc.1
+  \\ 2 &&  & \vdash \mathbf{I} \lsem ( \mc{A} @ \tau ) \rsem = \mathbf{I} \lsem
+      \mc{A} , \tau
+      \rsem&(\mbox{\ref{eq:df-bl.atc}},1)\notag
+  \\ 3 &&  & \vdash \tau \in
+      \mathbf{T}&\text{Hyp~atintroc.1}\notag%bl.atintroc.1
+  \\ 4 &&  & \vdash ( \mathbf{I} \lsem \mc{A} \rsem = \mc{B} \rightarrow
+      \mathbf{I} \lsem \mc{A} , \tau \rsem = \mc{B}
+      )&(\mbox{\ref{eq:ax-bl.modelsc}},3)\notag
+  \\ 5 &&  & \vdash ( \mathbf{I} \lsem \mc{A} \rsem = \mc{B} \rightarrow
+      \mathbf{I} \lsem ( \mc{A} @ \tau ) \rsem = \mc{B}
+      )&(\mbox{\ref{eq:syl5eq}},2,4)\notag
+\end{align}
+\end{proof}
+
+\begin{restatable}{metadefinition}{dfblatrt}~\blTitle{df-bl.atrt}~ Applying @ retains type.
+\begin{align}
+\vdash \tau \in \mathbf{T}\quad\Rightarrow\quad \vdash ( \mc{A} \in \mc{B}
+    \rightarrow \mathbf{I} \lsem ( \mc{A} @ \tau ) \rsem \in \mc{B}
+    )\label{eq:df-bl.atrt}\tag{df-bl.atrt}
+\end{align}
+\end{restatable}
+

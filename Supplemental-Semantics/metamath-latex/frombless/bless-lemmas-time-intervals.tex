@@ -1,0 +1,512 @@
+% This LaTeX file was created by Metamath on 22-Jul-2024 3:28 PM.
+% edited 7/17/2026
+\blalldd
+%\begin{restatable}{lemma}{blalldd}~\blTitle{bl.alldd}~ Universal quantification over closed time
+%interval [t1 .. t2].
+%\begin{align}
+%\vdash ( \tau_1 \in \mathbf{T} \wedge \tau_2 \in \mathbf{T}
+%  )\quad\Rightarrow\quad \vdash ( \forall \msc{x} \in \mathbf{T} ( \msc{x}
+%  \in ( \tau_1 [,] \tau_2 ) \wedge \mw{\varphi} ) \leftrightarrow \forall
+%  \msc{x} \in \mathbf{T} ( \tau_1 \le \msc{x} \wedge \msc{x} \le \tau_2
+%  \wedge \mw{\varphi} ) )\label{eq:bl.alldd}\tag{bl.alldd}
+%\end{align}
+%\end{restatable}
+
+\begin{proof}\label{proof:bl.alldd}
+\begin{align}
+  1 &&  & \vdash ( \tau_1 \in \mathbf{T} \wedge \tau_2 \in \mathbf{T}
+      )&\text{Hyp~alldd.1}\notag%bl.alldd.1
+  \\ 2 &&  & \vdash ( ( \tau_1 \in \mathbf{T} \wedge \tau_2 \in \mathbf{T} )
+      \rightarrow \tau_1 \in \mathbf{T}
+      )&(\mbox{\ref{eq:simpl}})\notag
+  \\ 3 &&  & \vdash \tau_1 \in \mathbf{T}&(\mbox{\ref{eq:ax-mp}},1,2)\notag
+  \\ 4 &&  & \vdash \mathbf{T} \subseteq
+      \mathbb{R}^{\ast}&(\mbox{\ref{eq:bl.ert}})\notag
+  \\ 5 &&  & \vdash ( \tau_1 \in \mathbf{T} \rightarrow \tau_1 \in
+      \mathbb{R}^{\ast} )&(\mbox{\ref{eq:sseli}},4)\notag
+  \\ 6 &&  & \vdash \tau_1 \in \mathbb{R}^{\ast}&(\mbox{\ref{eq:ax-mp}},3,5)\notag
+  \\ 7 &&  & \vdash ( \tau_1 \in \mathbf{T} \wedge \tau_2 \in \mathbf{T}
+      )&\text{Hyp~alldd.1}\notag%bl.alldd.1
+  \\ 8 &&  & \vdash ( ( \tau_1 \in \mathbf{T} \wedge \tau_2 \in \mathbf{T} )
+      \rightarrow \tau_2 \in \mathbf{T}
+      )&(\mbox{\ref{eq:simpr}})\notag
+  \\ 9 &&  & \vdash \tau_2 \in \mathbf{T}&(\mbox{\ref{eq:ax-mp}},7,8)\notag
+  \\ 10 &&  & \vdash \mathbf{T} \subseteq
+      \mathbb{R}^{\ast}&(\mbox{\ref{eq:bl.ert}})\notag
+  \\ 11 &&  & \vdash ( \tau_2 \in \mathbf{T} \rightarrow \tau_2 \in
+      \mathbb{R}^{\ast} )&(\mbox{\ref{eq:sseli}},10)\notag
+  \\ 12 &&  & \vdash \tau_2 \in
+      \mathbb{R}^{\ast}&(\mbox{\ref{eq:ax-mp}},9,11)\notag
+  \\ 13 &&  & \vdash ( \tau_1 \in \mathbb{R}^{\ast} \wedge \tau_2 \in
+      \mathbb{R}^{\ast} )&(\mbox{\ref{eq:pm3.2i}},6,12)\notag
+  \\ 14 &&  & \vdash ( ( \tau_1 \in \mathbb{R}^{\ast} \wedge \tau_2 \in
+      \mathbb{R}^{\ast} ) \rightarrow ( \msc{x} \in ( \tau_1
+      [,] \tau_2 ) \leftrightarrow ( \msc{x} \in
+      \mathbb{R}^{\ast} \wedge \tau_1 \le \msc{x} \wedge
+      \msc{x} \le \tau_2 ) )
+      )&(\mbox{\ref{eq:elicc1}})\notag
+  \\ 15 &&  & \vdash ( \msc{x} \in ( \tau_1 [,] \tau_2 ) \leftrightarrow (
+      \msc{x} \in \mathbb{R}^{\ast} \wedge \tau_1 \le \msc{x}
+      \wedge \msc{x} \le \tau_2 )
+      )&(\mbox{\ref{eq:ax-mp}},13,14)\notag
+  \\ 16 &&  & \vdash ( ( \msc{x} \in \mathbb{R}^{\ast} \wedge \tau_1 \le \msc{x}
+      \wedge \msc{x} \le \tau_2 ) \leftrightarrow ( \msc{x}
+      \in \mathbb{R}^{\ast} \wedge ( \tau_1 \le \msc{x} \wedge
+      \msc{x} \le \tau_2 ) )
+      )&(\mbox{\ref{eq:3anass}})\notag
+  \\ 17 &&  & \vdash ( \msc{x} \in ( \tau_1 [,] \tau_2 ) \leftrightarrow (
+      \msc{x} \in \mathbb{R}^{\ast} \wedge ( \tau_1 \le
+      \msc{x} \wedge \msc{x} \le \tau_2 ) )
+      )&(\mbox{\ref{eq:bitri}},15,16)\notag
+  \\ 18 &&  & \vdash ( ( \msc{x} \in ( \tau_1 [,] \tau_2 ) \wedge \mw{\varphi}
+      ) \leftrightarrow ( ( \msc{x} \in \mathbb{R}^{\ast}
+      \wedge ( \tau_1 \le \msc{x} \wedge \msc{x} \le \tau_2
+      ) ) \wedge \mw{\varphi} )
+      )&(\mbox{\ref{eq:anbi1i}},17)\notag
+  \\ 19 &&  & \vdash ( ( ( \msc{x} \in \mathbb{R}^{\ast} \wedge ( \tau_1 \le
+      \msc{x} \wedge \msc{x} \le \tau_2 ) ) \wedge
+      \mw{\varphi} ) \leftrightarrow ( \msc{x} \in
+      \mathbb{R}^{\ast} \wedge ( ( \tau_1 \le \msc{x} \wedge
+      \msc{x} \le \tau_2 ) \wedge \mw{\varphi} ) )
+      )&(\mbox{\ref{eq:anass}})\notag
+  \\ 20 &&  & \vdash ( ( \msc{x} \in ( \tau_1 [,] \tau_2 ) \wedge \mw{\varphi}
+      ) \leftrightarrow ( \msc{x} \in \mathbb{R}^{\ast} \wedge
+      ( ( \tau_1 \le \msc{x} \wedge \msc{x} \le \tau_2 )
+      \wedge \mw{\varphi} ) )
+      )&(\mbox{\ref{eq:bitri}},18,19)\notag
+  \\ 21 &&  & \vdash ( ( \tau_1 \le \msc{x} \wedge \msc{x} \le \tau_2 \wedge
+      \mw{\varphi} ) \leftrightarrow ( ( \tau_1 \le \msc{x}
+      \wedge \msc{x} \le \tau_2 ) \wedge \mw{\varphi} )
+      )&(\mbox{\ref{eq:df-3an}})\notag
+  \\ 22 &&  & \vdash ( ( \msc{x} \in \mathbb{R}^{\ast} \wedge ( \tau_1 \le \msc{x}
+      \wedge \msc{x} \le \tau_2 \wedge \mw{\varphi} ) )
+      \leftrightarrow ( \msc{x} \in \mathbb{R}^{\ast} \wedge (
+      ( \tau_1 \le \msc{x} \wedge \msc{x} \le \tau_2 )
+      \wedge \mw{\varphi} ) )
+      )&(\mbox{\ref{eq:anbi2i}},21)\notag
+  \\ 23 &&  & \vdash ( ( \msc{x} \in ( \tau_1 [,] \tau_2 ) \wedge \mw{\varphi}
+      ) \leftrightarrow ( \msc{x} \in \mathbb{R}^{\ast} \wedge
+      ( \tau_1 \le \msc{x} \wedge \msc{x} \le \tau_2 \wedge
+      \mw{\varphi} ) )
+      )&(\mbox{\ref{eq:bitr4i}},20,22)\notag
+  \\ 24 &&  & \vdash ( \forall \msc{x} \in \mathbf{T} ( \msc{x} \in ( \tau_1
+      [,] \tau_2 ) \wedge \mw{\varphi} ) \leftrightarrow
+      \forall \msc{x} \in \mathbf{T} ( \msc{x} \in
+      \mathbb{R}^{\ast} \wedge ( \tau_1 \le \msc{x} \wedge
+      \msc{x} \le \tau_2 \wedge \mw{\varphi} ) )
+      )&(\mbox{\ref{eq:ralbii}},23)\notag
+  \\ 25 &&  & \vdash \mathbf{T} \subseteq
+      \mathbb{R}^{\ast}&(\mbox{\ref{eq:bl.ert}})\notag
+  \\ 26 &&  & \vdash ( \forall \msc{x} \in \mathbf{T} ( \tau_1 \le \msc{x}
+      \wedge \msc{x} \le \tau_2 \wedge \mw{\varphi} )
+      \leftrightarrow \forall \msc{x} \in \mathbf{T} (
+      \msc{x} \in \mathbb{R}^{\ast} \wedge ( \tau_1 \le
+      \msc{x} \wedge \msc{x} \le \tau_2 \wedge \mw{\varphi}
+      ) ) )&(\mbox{\ref{eq:bl.ralssi}},25)\notag
+  \\ 27 &&  & \vdash ( \forall \msc{x} \in \mathbf{T} ( \msc{x} \in ( \tau_1
+      [,] \tau_2 ) \wedge \mw{\varphi} ) \leftrightarrow
+      \forall \msc{x} \in \mathbf{T} ( \tau_1 \le \msc{x}
+      \wedge \msc{x} \le \tau_2 \wedge \mw{\varphi} )
+      )&(\mbox{\ref{eq:bitr4i}},24,26)\notag
+\end{align}
+\end{proof}
+
+\blallcd
+%\begin{restatable}{lemma}{blallcd}~\blTitle{bl.allcd}~ Universal quantification over open-left
+%time interval [t1 ,. t2].
+%\begin{align}
+%\vdash ( \tau_1 \in \mathbf{T} \wedge \tau_2 \in \mathbf{T}
+%    )\quad\Rightarrow\quad \vdash ( \forall \msc{x} \in \mathbf{T} ( \msc{x}
+%    \in ( \tau_1 (,] \tau_2 ) \wedge \mw{\varphi} ) \leftrightarrow \forall
+%    \msc{x} \in \mathbf{T} ( \tau_1 < \msc{x} \wedge \msc{x} \le \tau_2 \wedge
+%    \mw{\varphi} ) )\label{eq:bl.allcd}\tag{bl.allcd}
+%\end{align}
+%\end{restatable}
+
+\begin{proof}\label{proof:bl.allcd}
+\begin{align}
+  1 &&  & \vdash ( \tau_1 \in \mathbf{T} \wedge \tau_2 \in \mathbf{T}
+      )&\text{Hyp~allcd.1}\notag%bl.allcd.1
+  \\ 2 &&  & \vdash ( ( \tau_1 \in \mathbf{T} \wedge \tau_2 \in \mathbf{T} )
+      \rightarrow \tau_1 \in \mathbf{T}
+      )&(\mbox{\ref{eq:simpl}})\notag
+  \\ 3 &&  & \vdash \tau_1 \in \mathbf{T}&(\mbox{\ref{eq:ax-mp}},1,2)\notag
+  \\ 4 &&  & \vdash \mathbf{T} \subseteq
+      \mathbb{R}^{\ast}&(\mbox{\ref{eq:bl.ert}})\notag
+  \\ 5 &&  & \vdash ( \tau_1 \in \mathbf{T} \rightarrow \tau_1 \in
+      \mathbb{R}^{\ast} )&(\mbox{\ref{eq:sseli}},4)\notag
+  \\ 6 &&  & \vdash \tau_1 \in \mathbb{R}^{\ast}&(\mbox{\ref{eq:ax-mp}},3,5)\notag
+  \\ 7 &&  & \vdash ( \tau_1 \in \mathbf{T} \wedge \tau_2 \in \mathbf{T}
+      )&\text{Hyp~allcd.1}\notag%bl.allcd.1
+  \\ 8 &&  & \vdash ( ( \tau_1 \in \mathbf{T} \wedge \tau_2 \in \mathbf{T} )
+      \rightarrow \tau_2 \in \mathbf{T}
+      )&(\mbox{\ref{eq:simpr}})\notag
+  \\ 9 &&  & \vdash \tau_2 \in \mathbf{T}&(\mbox{\ref{eq:ax-mp}},7,8)\notag
+  \\ 10 &&  & \vdash \mathbf{T} \subseteq
+      \mathbb{R}^{\ast}&(\mbox{\ref{eq:bl.ert}})\notag
+  \\ 11 &&  & \vdash ( \tau_2 \in \mathbf{T} \rightarrow \tau_2 \in
+      \mathbb{R}^{\ast} )&(\mbox{\ref{eq:sseli}},10)\notag
+  \\ 12 &&  & \vdash \tau_2 \in
+      \mathbb{R}^{\ast}&(\mbox{\ref{eq:ax-mp}},9,11)\notag
+  \\ 13 &&  & \vdash ( \tau_1 \in \mathbb{R}^{\ast} \wedge \tau_2 \in
+      \mathbb{R}^{\ast} )&(\mbox{\ref{eq:pm3.2i}},6,12)\notag
+  \\ 14 &&  & \vdash ( ( \tau_1 \in \mathbb{R}^{\ast} \wedge \tau_2 \in
+      \mathbb{R}^{\ast} ) \rightarrow ( \msc{x} \in ( \tau_1
+      (,] \tau_2 ) \leftrightarrow ( \msc{x} \in
+      \mathbb{R}^{\ast} \wedge \tau_1 < \msc{x} \wedge \msc{x}
+      \le \tau_2 ) ) )&(\mbox{\ref{eq:elioc1}})\notag
+  \\ 15 &&  & \vdash ( \msc{x} \in ( \tau_1 (,] \tau_2 ) \leftrightarrow (
+      \msc{x} \in \mathbb{R}^{\ast} \wedge \tau_1 < \msc{x}
+      \wedge \msc{x} \le \tau_2 )
+      )&(\mbox{\ref{eq:ax-mp}},13,14)\notag
+  \\ 16 &&  & \vdash ( ( \msc{x} \in \mathbb{R}^{\ast} \wedge \tau_1 < \msc{x}
+      \wedge \msc{x} \le \tau_2 ) \leftrightarrow ( \msc{x}
+      \in \mathbb{R}^{\ast} \wedge ( \tau_1 < \msc{x} \wedge
+      \msc{x} \le \tau_2 ) )
+      )&(\mbox{\ref{eq:3anass}})\notag
+  \\ 17 &&  & \vdash ( \msc{x} \in ( \tau_1 (,] \tau_2 ) \leftrightarrow (
+      \msc{x} \in \mathbb{R}^{\ast} \wedge ( \tau_1 < \msc{x}
+      \wedge \msc{x} \le \tau_2 ) )
+      )&(\mbox{\ref{eq:bitri}},15,16)\notag
+  \\ 18 &&  & \vdash ( ( \msc{x} \in ( \tau_1 (,] \tau_2 ) \wedge \mw{\varphi}
+      ) \leftrightarrow ( ( \msc{x} \in \mathbb{R}^{\ast}
+      \wedge ( \tau_1 < \msc{x} \wedge \msc{x} \le \tau_2 )
+      ) \wedge \mw{\varphi} )
+      )&(\mbox{\ref{eq:anbi1i}},17)\notag
+  \\ 19 &&  & \vdash ( ( ( \msc{x} \in \mathbb{R}^{\ast} \wedge ( \tau_1 < \msc{x}
+      \wedge \msc{x} \le \tau_2 ) ) \wedge \mw{\varphi} )
+      \leftrightarrow ( \msc{x} \in \mathbb{R}^{\ast} \wedge (
+      ( \tau_1 < \msc{x} \wedge \msc{x} \le \tau_2 ) \wedge
+      \mw{\varphi} ) ) )&(\mbox{\ref{eq:anass}})\notag
+  \\ 20 &&  & \vdash ( ( \msc{x} \in ( \tau_1 (,] \tau_2 ) \wedge \mw{\varphi}
+      ) \leftrightarrow ( \msc{x} \in \mathbb{R}^{\ast} \wedge
+      ( ( \tau_1 < \msc{x} \wedge \msc{x} \le \tau_2 )
+      \wedge \mw{\varphi} ) )
+      )&(\mbox{\ref{eq:bitri}},18,19)\notag
+  \\ 21 &&  & \vdash ( ( \tau_1 < \msc{x} \wedge \msc{x} \le \tau_2 \wedge
+      \mw{\varphi} ) \leftrightarrow ( ( \tau_1 < \msc{x}
+      \wedge \msc{x} \le \tau_2 ) \wedge \mw{\varphi} )
+      )&(\mbox{\ref{eq:df-3an}})\notag
+  \\ 22 &&  & \vdash ( ( \msc{x} \in \mathbb{R}^{\ast} \wedge ( \tau_1 < \msc{x}
+      \wedge \msc{x} \le \tau_2 \wedge \mw{\varphi} ) )
+      \leftrightarrow ( \msc{x} \in \mathbb{R}^{\ast} \wedge (
+      ( \tau_1 < \msc{x} \wedge \msc{x} \le \tau_2 ) \wedge
+      \mw{\varphi} ) ) )&(\mbox{\ref{eq:anbi2i}},21)\notag
+  \\ 23 &&  & \vdash ( ( \msc{x} \in ( \tau_1 (,] \tau_2 ) \wedge \mw{\varphi}
+      ) \leftrightarrow ( \msc{x} \in \mathbb{R}^{\ast} \wedge
+      ( \tau_1 < \msc{x} \wedge \msc{x} \le \tau_2 \wedge
+      \mw{\varphi} ) )
+      )&(\mbox{\ref{eq:bitr4i}},20,22)\notag
+  \\ 24 &&  & \vdash ( \forall \msc{x} \in \mathbf{T} ( \msc{x} \in ( \tau_1
+      (,] \tau_2 ) \wedge \mw{\varphi} ) \leftrightarrow
+      \forall \msc{x} \in \mathbf{T} ( \msc{x} \in
+      \mathbb{R}^{\ast} \wedge ( \tau_1 < \msc{x} \wedge
+      \msc{x} \le \tau_2 \wedge \mw{\varphi} ) )
+      )&(\mbox{\ref{eq:ralbii}},23)\notag
+  \\ 25 &&  & \vdash \mathbf{T} \subseteq
+      \mathbb{R}^{\ast}&(\mbox{\ref{eq:bl.ert}})\notag
+  \\ 26 &&  & \vdash ( \forall \msc{x} \in \mathbf{T} ( \tau_1 < \msc{x} \wedge
+      \msc{x} \le \tau_2 \wedge \mw{\varphi} )
+      \leftrightarrow \forall \msc{x} \in \mathbf{T} (
+      \msc{x} \in \mathbb{R}^{\ast} \wedge ( \tau_1 < \msc{x}
+      \wedge \msc{x} \le \tau_2 \wedge \mw{\varphi} ) )
+      )&(\mbox{\ref{eq:bl.ralssi}},25)\notag
+  \\ 27 &&  & \vdash ( \forall \msc{x} \in \mathbf{T} ( \msc{x} \in ( \tau_1
+      (,] \tau_2 ) \wedge \mw{\varphi} ) \leftrightarrow
+      \forall \msc{x} \in \mathbf{T} ( \tau_1 < \msc{x}
+      \wedge \msc{x} \le \tau_2 \wedge \mw{\varphi} )
+      )&(\mbox{\ref{eq:bitr4i}},24,26)\notag
+\end{align}
+\end{proof}
+
+\blalldc
+%\begin{restatable}{lemma}{blalldc}~\blTitle{bl.alldc}~ Universal quantification over open-right
+%time interval [t1 ., t2].
+%\begin{align}
+%\vdash ( \tau_1 \in \mathbf{T} \wedge \tau_2 \in \mathbf{T}
+%    )\quad\Rightarrow\quad \vdash ( \forall \msc{x} \in \mathbf{T} ( \msc{x}
+%    \in ( \tau_1 [,) \tau_2 ) \wedge \mw{\varphi} ) \leftrightarrow \forall
+%    \msc{x} \in \mathbf{T} ( \tau_1 \le \msc{x} \wedge \msc{x} < \tau_2 \wedge
+%    \mw{\varphi} ) )\label{eq:bl.alldc}\tag{bl.alldc}
+%\end{align}
+%\end{restatable}
+
+\begin{proof}\label{proof:bl.alldc}
+\begin{align}
+  1 &&  & \vdash ( \tau_1 \in \mathbf{T} \wedge \tau_2 \in \mathbf{T}
+      )&\text{Hyp~alldc.1}\notag%bl.alldc.1
+  \\ 2 &&  & \vdash ( ( \tau_1 \in \mathbf{T} \wedge \tau_2 \in \mathbf{T} )
+      \rightarrow \tau_1 \in \mathbf{T}
+      )&(\mbox{\ref{eq:simpl}})\notag
+  \\ 3 &&  & \vdash \tau_1 \in \mathbf{T}&(\mbox{\ref{eq:ax-mp}},1,2)\notag
+  \\ 4 &&  & \vdash \mathbf{T} \subseteq
+      \mathbb{R}^{\ast}&(\mbox{\ref{eq:bl.ert}})\notag
+  \\ 5 &&  & \vdash ( \tau_1 \in \mathbf{T} \rightarrow \tau_1 \in
+      \mathbb{R}^{\ast} )&(\mbox{\ref{eq:sseli}},4)\notag
+  \\ 6 &&  & \vdash \tau_1 \in \mathbb{R}^{\ast}&(\mbox{\ref{eq:ax-mp}},3,5)\notag
+  \\ 7 &&  & \vdash ( \tau_1 \in \mathbf{T} \wedge \tau_2 \in \mathbf{T}
+      )&\text{Hyp~alldc.1}\notag%bl.alldc.1
+  \\ 8 &&  & \vdash ( ( \tau_1 \in \mathbf{T} \wedge \tau_2 \in \mathbf{T} )
+      \rightarrow \tau_2 \in \mathbf{T}
+      )&(\mbox{\ref{eq:simpr}})\notag
+  \\ 9 &&  & \vdash \tau_2 \in \mathbf{T}&(\mbox{\ref{eq:ax-mp}},7,8)\notag
+  \\ 10 &&  & \vdash \mathbf{T} \subseteq
+      \mathbb{R}^{\ast}&(\mbox{\ref{eq:bl.ert}})\notag
+  \\ 11 &&  & \vdash ( \tau_2 \in \mathbf{T} \rightarrow \tau_2 \in
+      \mathbb{R}^{\ast} )&(\mbox{\ref{eq:sseli}},10)\notag
+  \\ 12 &&  & \vdash \tau_2 \in
+      \mathbb{R}^{\ast}&(\mbox{\ref{eq:ax-mp}},9,11)\notag
+  \\ 13 &&  & \vdash ( \tau_1 \in \mathbb{R}^{\ast} \wedge \tau_2 \in
+      \mathbb{R}^{\ast} )&(\mbox{\ref{eq:pm3.2i}},6,12)\notag
+  \\ 14 &&  & \vdash ( ( \tau_1 \in \mathbb{R}^{\ast} \wedge \tau_2 \in
+      \mathbb{R}^{\ast} ) \rightarrow ( \msc{x} \in ( \tau_1
+      [,) \tau_2 ) \leftrightarrow ( \msc{x} \in
+      \mathbb{R}^{\ast} \wedge \tau_1 \le \msc{x} \wedge
+      \msc{x} < \tau_2 ) ) )&(\mbox{\ref{eq:elico1}})\notag
+  \\ 15 &&  & \vdash ( \msc{x} \in ( \tau_1 [,) \tau_2 ) \leftrightarrow (
+      \msc{x} \in \mathbb{R}^{\ast} \wedge \tau_1 \le \msc{x}
+      \wedge \msc{x} < \tau_2 )
+      )&(\mbox{\ref{eq:ax-mp}},13,14)\notag
+  \\ 16 &&  & \vdash ( ( \msc{x} \in \mathbb{R}^{\ast} \wedge \tau_1 \le \msc{x}
+      \wedge \msc{x} < \tau_2 ) \leftrightarrow ( \msc{x}
+      \in \mathbb{R}^{\ast} \wedge ( \tau_1 \le \msc{x} \wedge
+      \msc{x} < \tau_2 ) ) )&(\mbox{\ref{eq:3anass}})\notag
+  \\ 17 &&  & \vdash ( \msc{x} \in ( \tau_1 [,) \tau_2 ) \leftrightarrow (
+      \msc{x} \in \mathbb{R}^{\ast} \wedge ( \tau_1 \le
+      \msc{x} \wedge \msc{x} < \tau_2 ) )
+      )&(\mbox{\ref{eq:bitri}},15,16)\notag
+  \\ 18 &&  & \vdash ( ( \msc{x} \in ( \tau_1 [,) \tau_2 ) \wedge \mw{\varphi}
+      ) \leftrightarrow ( ( \msc{x} \in \mathbb{R}^{\ast}
+      \wedge ( \tau_1 \le \msc{x} \wedge \msc{x} < \tau_2 )
+      ) \wedge \mw{\varphi} )
+      )&(\mbox{\ref{eq:anbi1i}},17)\notag
+  \\ 19 &&  & \vdash ( ( ( \msc{x} \in \mathbb{R}^{\ast} \wedge ( \tau_1 \le
+      \msc{x} \wedge \msc{x} < \tau_2 ) ) \wedge
+      \mw{\varphi} ) \leftrightarrow ( \msc{x} \in
+      \mathbb{R}^{\ast} \wedge ( ( \tau_1 \le \msc{x} \wedge
+      \msc{x} < \tau_2 ) \wedge \mw{\varphi} ) )
+      )&(\mbox{\ref{eq:anass}})\notag
+  \\ 20 &&  & \vdash ( ( \msc{x} \in ( \tau_1 [,) \tau_2 ) \wedge \mw{\varphi}
+      ) \leftrightarrow ( \msc{x} \in \mathbb{R}^{\ast} \wedge
+      ( ( \tau_1 \le \msc{x} \wedge \msc{x} < \tau_2 )
+      \wedge \mw{\varphi} ) )
+      )&(\mbox{\ref{eq:bitri}},18,19)\notag
+  \\ 21 &&  & \vdash ( ( \tau_1 \le \msc{x} \wedge \msc{x} < \tau_2 \wedge
+      \mw{\varphi} ) \leftrightarrow ( ( \tau_1 \le \msc{x}
+      \wedge \msc{x} < \tau_2 ) \wedge \mw{\varphi} )
+      )&(\mbox{\ref{eq:df-3an}})\notag
+  \\ 22 &&  & \vdash ( ( \msc{x} \in \mathbb{R}^{\ast} \wedge ( \tau_1 \le \msc{x}
+      \wedge \msc{x} < \tau_2 \wedge \mw{\varphi} ) )
+      \leftrightarrow ( \msc{x} \in \mathbb{R}^{\ast} \wedge (
+      ( \tau_1 \le \msc{x} \wedge \msc{x} < \tau_2 ) \wedge
+      \mw{\varphi} ) ) )&(\mbox{\ref{eq:anbi2i}},21)\notag
+  \\ 23 &&  & \vdash ( ( \msc{x} \in ( \tau_1 [,) \tau_2 ) \wedge \mw{\varphi}
+      ) \leftrightarrow ( \msc{x} \in \mathbb{R}^{\ast} \wedge
+      ( \tau_1 \le \msc{x} \wedge \msc{x} < \tau_2 \wedge
+      \mw{\varphi} ) )
+      )&(\mbox{\ref{eq:bitr4i}},20,22)\notag
+  \\ 24 &&  & \vdash ( \forall \msc{x} \in \mathbf{T} ( \msc{x} \in ( \tau_1
+      [,) \tau_2 ) \wedge \mw{\varphi} ) \leftrightarrow
+      \forall \msc{x} \in \mathbf{T} ( \msc{x} \in
+      \mathbb{R}^{\ast} \wedge ( \tau_1 \le \msc{x} \wedge
+      \msc{x} < \tau_2 \wedge \mw{\varphi} ) )
+      )&(\mbox{\ref{eq:ralbii}},23)\notag
+  \\ 25 &&  & \vdash \mathbf{T} \subseteq
+      \mathbb{R}^{\ast}&(\mbox{\ref{eq:bl.ert}})\notag
+  \\ 26 &&  & \vdash ( \forall \msc{x} \in \mathbf{T} ( \tau_1 \le \msc{x}
+      \wedge \msc{x} < \tau_2 \wedge \mw{\varphi} )
+      \leftrightarrow \forall \msc{x} \in \mathbf{T} (
+      \msc{x} \in \mathbb{R}^{\ast} \wedge ( \tau_1 \le
+      \msc{x} \wedge \msc{x} < \tau_2 \wedge \mw{\varphi} )
+      ) )&(\mbox{\ref{eq:bl.ralssi}},25)\notag
+  \\ 27 &&  & \vdash ( \forall \msc{x} \in \mathbf{T} ( \msc{x} \in ( \tau_1
+      [,) \tau_2 ) \wedge \mw{\varphi} ) \leftrightarrow
+      \forall \msc{x} \in \mathbf{T} ( \tau_1 \le \msc{x}
+      \wedge \msc{x} < \tau_2 \wedge \mw{\varphi} )
+      )&(\mbox{\ref{eq:bitr4i}},24,26)\notag
+\end{align}
+\end{proof}
+
+\blallcc
+%\begin{restatable}{lemma}{blallcc}~\blTitle{bl.allcc}~ Universal quantification over open time
+%interval [t1 ,, t2].
+%\begin{align}
+%\vdash ( \tau_1 \in \mathbf{T} \wedge \tau_2 \in \mathbf{T}
+%    )\quad\Rightarrow\quad \vdash ( \forall \msc{x} \in \mathbf{T} ( \msc{x}
+%    \in ( \tau_1 (,) \tau_2 ) \wedge \mw{\varphi} ) \leftrightarrow \forall
+%    \msc{x} \in \mathbf{T} ( \tau_1 < \msc{x} \wedge \msc{x} < \tau_2 \wedge
+%    \mw{\varphi} ) )\label{eq:bl.allcc}\tag{bl.allcc}
+%\end{align}
+%\end{restatable}
+
+\begin{proof}\label{proof:bl.allcc}
+\begin{align}
+  1 &&  & \vdash ( \tau_1 \in \mathbf{T} \wedge \tau_2 \in \mathbf{T}
+      )&\text{Hyp~allcc.1}\notag%bl.allcc.1
+  \\ 2 &&  & \vdash ( ( \tau_1 \in \mathbf{T} \wedge \tau_2 \in \mathbf{T} )
+      \rightarrow \tau_1 \in \mathbf{T}
+      )&(\mbox{\ref{eq:simpl}})\notag
+  \\ 3 &&  & \vdash \tau_1 \in \mathbf{T}&(\mbox{\ref{eq:ax-mp}},1,2)\notag
+  \\ 4 &&  & \vdash \mathbf{T} \subseteq
+      \mathbb{R}^{\ast}&(\mbox{\ref{eq:bl.ert}})\notag
+  \\ 5 &&  & \vdash ( \tau_1 \in \mathbf{T} \rightarrow \tau_1 \in
+      \mathbb{R}^{\ast} )&(\mbox{\ref{eq:sseli}},4)\notag
+  \\ 6 &&  & \vdash \tau_1 \in \mathbb{R}^{\ast}&(\mbox{\ref{eq:ax-mp}},3,5)\notag
+  \\ 7 &&  & \vdash ( \tau_1 \in \mathbf{T} \wedge \tau_2 \in \mathbf{T}
+      )&\text{Hyp~allcc.1}\notag%bl.allcc.1
+  \\ 8 &&  & \vdash ( ( \tau_1 \in \mathbf{T} \wedge \tau_2 \in \mathbf{T} )
+      \rightarrow \tau_2 \in \mathbf{T}
+      )&(\mbox{\ref{eq:simpr}})\notag
+  \\ 9 &&  & \vdash \tau_2 \in \mathbf{T}&(\mbox{\ref{eq:ax-mp}},7,8)\notag
+  \\ 10 &&  & \vdash \mathbf{T} \subseteq
+      \mathbb{R}^{\ast}&(\mbox{\ref{eq:bl.ert}})\notag
+  \\ 11 &&  & \vdash ( \tau_2 \in \mathbf{T} \rightarrow \tau_2 \in
+      \mathbb{R}^{\ast} )&(\mbox{\ref{eq:sseli}},10)\notag
+  \\ 12 &&  & \vdash \tau_2 \in
+      \mathbb{R}^{\ast}&(\mbox{\ref{eq:ax-mp}},9,11)\notag
+  \\ 13 &&  & \vdash ( \tau_1 \in \mathbb{R}^{\ast} \wedge \tau_2 \in
+      \mathbb{R}^{\ast} )&(\mbox{\ref{eq:pm3.2i}},6,12)\notag
+  \\ 14 &&  & \vdash ( ( \tau_1 \in \mathbb{R}^{\ast} \wedge \tau_2 \in
+      \mathbb{R}^{\ast} ) \rightarrow ( \msc{x} \in ( \tau_1
+      (,) \tau_2 ) \leftrightarrow ( \msc{x} \in
+      \mathbb{R}^{\ast} \wedge \tau_1 < \msc{x} \wedge \msc{x}
+      < \tau_2 ) ) )&(\mbox{\ref{eq:elioo1}})\notag
+  \\ 15 &&  & \vdash ( \msc{x} \in ( \tau_1 (,) \tau_2 ) \leftrightarrow (
+      \msc{x} \in \mathbb{R}^{\ast} \wedge \tau_1 < \msc{x}
+      \wedge \msc{x} < \tau_2 )
+      )&(\mbox{\ref{eq:ax-mp}},13,14)\notag
+  \\ 16 &&  & \vdash ( ( \msc{x} \in \mathbb{R}^{\ast} \wedge \tau_1 < \msc{x}
+      \wedge \msc{x} < \tau_2 ) \leftrightarrow ( \msc{x}
+      \in \mathbb{R}^{\ast} \wedge ( \tau_1 < \msc{x} \wedge
+      \msc{x} < \tau_2 ) ) )&(\mbox{\ref{eq:3anass}})\notag
+  \\ 17 &&  & \vdash ( \msc{x} \in ( \tau_1 (,) \tau_2 ) \leftrightarrow (
+      \msc{x} \in \mathbb{R}^{\ast} \wedge ( \tau_1 < \msc{x}
+      \wedge \msc{x} < \tau_2 ) )
+      )&(\mbox{\ref{eq:bitri}},15,16)\notag
+  \\ 18 &&  & \vdash ( ( \msc{x} \in ( \tau_1 (,) \tau_2 ) \wedge \mw{\varphi}
+      ) \leftrightarrow ( ( \msc{x} \in \mathbb{R}^{\ast}
+      \wedge ( \tau_1 < \msc{x} \wedge \msc{x} < \tau_2 ) )
+      \wedge \mw{\varphi} )
+      )&(\mbox{\ref{eq:anbi1i}},17)\notag
+  \\ 19 &&  & \vdash ( ( ( \msc{x} \in \mathbb{R}^{\ast} \wedge ( \tau_1 < \msc{x}
+      \wedge \msc{x} < \tau_2 ) ) \wedge \mw{\varphi} )
+      \leftrightarrow ( \msc{x} \in \mathbb{R}^{\ast} \wedge (
+      ( \tau_1 < \msc{x} \wedge \msc{x} < \tau_2 ) \wedge
+      \mw{\varphi} ) ) )&(\mbox{\ref{eq:anass}})\notag
+  \\ 20 &&  & \vdash ( ( \msc{x} \in ( \tau_1 (,) \tau_2 ) \wedge \mw{\varphi}
+      ) \leftrightarrow ( \msc{x} \in \mathbb{R}^{\ast} \wedge
+      ( ( \tau_1 < \msc{x} \wedge \msc{x} < \tau_2 ) \wedge
+      \mw{\varphi} ) )
+      )&(\mbox{\ref{eq:bitri}},18,19)\notag
+  \\ 21 &&  & \vdash ( ( \tau_1 < \msc{x} \wedge \msc{x} < \tau_2 \wedge
+      \mw{\varphi} ) \leftrightarrow ( ( \tau_1 < \msc{x}
+      \wedge \msc{x} < \tau_2 ) \wedge \mw{\varphi} )
+      )&(\mbox{\ref{eq:df-3an}})\notag
+  \\ 22 &&  & \vdash ( ( \msc{x} \in \mathbb{R}^{\ast} \wedge ( \tau_1 < \msc{x}
+      \wedge \msc{x} < \tau_2 \wedge \mw{\varphi} ) )
+      \leftrightarrow ( \msc{x} \in \mathbb{R}^{\ast} \wedge (
+      ( \tau_1 < \msc{x} \wedge \msc{x} < \tau_2 ) \wedge
+      \mw{\varphi} ) ) )&(\mbox{\ref{eq:anbi2i}},21)\notag
+  \\ 23 &&  & \vdash ( ( \msc{x} \in ( \tau_1 (,) \tau_2 ) \wedge \mw{\varphi}
+      ) \leftrightarrow ( \msc{x} \in \mathbb{R}^{\ast} \wedge
+      ( \tau_1 < \msc{x} \wedge \msc{x} < \tau_2 \wedge
+      \mw{\varphi} ) )
+      )&(\mbox{\ref{eq:bitr4i}},20,22)\notag
+  \\ 24 &&  & \vdash ( \forall \msc{x} \in \mathbf{T} ( \msc{x} \in ( \tau_1
+      (,) \tau_2 ) \wedge \mw{\varphi} ) \leftrightarrow
+      \forall \msc{x} \in \mathbf{T} ( \msc{x} \in
+      \mathbb{R}^{\ast} \wedge ( \tau_1 < \msc{x} \wedge
+      \msc{x} < \tau_2 \wedge \mw{\varphi} ) )
+      )&(\mbox{\ref{eq:ralbii}},23)\notag
+  \\ 25 &&  & \vdash \mathbf{T} \subseteq
+      \mathbb{R}^{\ast}&(\mbox{\ref{eq:bl.ert}})\notag
+  \\ 26 &&  & \vdash ( \forall \msc{x} \in \mathbf{T} ( \tau_1 < \msc{x} \wedge
+      \msc{x} < \tau_2 \wedge \mw{\varphi} )
+      \leftrightarrow \forall \msc{x} \in \mathbf{T} (
+      \msc{x} \in \mathbb{R}^{\ast} \wedge ( \tau_1 < \msc{x}
+      \wedge \msc{x} < \tau_2 \wedge \mw{\varphi} ) )
+      )&(\mbox{\ref{eq:bl.ralssi}},25)\notag
+  \\ 27 &&  & \vdash ( \forall \msc{x} \in \mathbf{T} ( \msc{x} \in ( \tau_1
+      (,) \tau_2 ) \wedge \mw{\varphi} ) \leftrightarrow
+      \forall \msc{x} \in \mathbf{T} ( \tau_1 < \msc{x}
+      \wedge \msc{x} < \tau_2 \wedge \mw{\varphi} )
+      )&(\mbox{\ref{eq:bitr4i}},24,26)\notag
+\end{align}
+\end{proof}
+
+\blexdd
+%\begin{restatable}{lemma}{blexdd}~\blTitle{bl.exdd}~ Existential quantification over closed
+%interval [t1 .. t2].
+%\begin{align}
+%\vdash ( \exists \msc{x} ( \msc{x} \in ( \tau_1 [,] \tau_2 ) \wedge
+%    \mw{\varphi} ) \leftrightarrow \lnot \forall \msc{x} \lnot ( \msc{x} \in (
+%    \tau_1 [,] \tau_2 ) \wedge \mw{\varphi} ) )\label{eq:bl.exdd}\tag{bl.exdd}
+%\end{align}
+%\end{restatable}
+
+\begin{proof}\label{proof:bl.exdd}
+\begin{align}
+  1 &&  & \vdash ( \exists \msc{x} ( \msc{x} \in ( \tau_1 [,] \tau_2 ) \wedge
+      \mw{\varphi} ) \leftrightarrow \lnot \forall \msc{x}
+      \lnot ( \msc{x} \in ( \tau_1 [,] \tau_2 ) \wedge
+      \mw{\varphi} ) )&(\mbox{\ref{eq:df-ex}})\notag
+\end{align}
+\end{proof}
+
+\blexcc
+%\begin{restatable}{lemma}{blexcc}~\blTitle{bl.excc}~ Existential quantification over open
+%interval [t1 ,, t2].
+%\begin{align}
+%\vdash ( \exists \msc{x} ( \msc{x} \in ( \tau_1 (,) \tau_2 ) \wedge
+%    \mw{\varphi} ) \leftrightarrow \lnot \forall \msc{x} \lnot ( \msc{x} \in (
+%    \tau_1 (,) \tau_2 ) \wedge \mw{\varphi} ) )\label{eq:bl.excc}\tag{bl.excc}
+%\end{align}
+%\end{restatable}
+
+\begin{proof}\label{proof:bl.excc}
+\begin{align}
+  1 &&  & \vdash ( \exists \msc{x} ( \msc{x} \in ( \tau_1 (,) \tau_2 ) \wedge
+      \mw{\varphi} ) \leftrightarrow \lnot \forall \msc{x}
+      \lnot ( \msc{x} \in ( \tau_1 (,) \tau_2 ) \wedge
+      \mw{\varphi} ) )&(\mbox{\ref{eq:df-ex}})\notag
+\end{align}
+\end{proof}
+
+\blexcd
+%\begin{restatable}{lemma}{blexcd}~\blTitle{bl.excd}~ Existential quantification over open-left
+%interval [t1 ,. t2].
+%\begin{align}
+%\vdash ( \exists \msc{x} ( \msc{x} \in ( \tau_1 (,] \tau_2 ) \wedge
+%    \mw{\varphi} ) \leftrightarrow \lnot \forall \msc{x} \lnot ( \msc{x} \in (
+%    \tau_1 (,] \tau_2 ) \wedge \mw{\varphi} ) )\label{eq:bl.excd}\tag{bl.excd}
+%\end{align}
+%\end{restatable}
+
+\begin{proof}\label{proof:bl.excd}
+\begin{align}
+  1 &&  & \vdash ( \exists \msc{x} ( \msc{x} \in ( \tau_1 (,] \tau_2 ) \wedge
+      \mw{\varphi} ) \leftrightarrow \lnot \forall \msc{x}
+      \lnot ( \msc{x} \in ( \tau_1 (,] \tau_2 ) \wedge
+      \mw{\varphi} ) )&(\mbox{\ref{eq:df-ex}})\notag
+\end{align}
+\end{proof}
+
+\blexdc
+%\begin{restatable}{lemma}{blexdc}~\blTitle{bl.exdc}~ Existential quantification over open-right
+%interval [t1 ., t2].
+%\begin{align}
+%\vdash ( \exists \msc{x} ( \msc{x} \in ( \tau_1 [,) \tau_2 ) \wedge
+%    \mw{\varphi} ) \leftrightarrow \lnot \forall \msc{x} \lnot ( \msc{x} \in (
+%    \tau_1 [,) \tau_2 ) \wedge \mw{\varphi} ) )\label{eq:bl.exdc}\tag{bl.exdc}
+%\end{align}
+%\end{restatable}
+
+\begin{proof}\label{proof:bl.exdc}
+\begin{align}
+  1 &&  & \vdash ( \exists \msc{x} ( \msc{x} \in ( \tau_1 [,) \tau_2 ) \wedge
+      \mw{\varphi} ) \leftrightarrow \lnot \forall \msc{x}
+      \lnot ( \msc{x} \in ( \tau_1 [,) \tau_2 ) \wedge
+      \mw{\varphi} ) )&(\mbox{\ref{eq:df-ex}})\notag
+\end{align}
+\end{proof}
+

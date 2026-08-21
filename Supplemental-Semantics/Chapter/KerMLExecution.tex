@@ -1,0 +1,255 @@
+%KerMLExecution.tex
+
+\section{Overview}
+
+\comment{The method of using \texttt{\#atom} to define instances as KerML text was at first confusing, and then unsatisfying.  The  \texttt{\#atom} really doesn't say anything.
+An ``instance'' is not created--just repeat (mostly) of the text of the model which is supposed to be executed.}
+
+\section{Modeling Instances}
+\paragraph{Classifier Specialization}
+
+The first example shows classifier specialization and multiplicity.
+
+\begin{lstlisting}
+classifier Vehicle;
+classifier Bicycle specializes Vehicle;
+classifier MyBike [1] specializes Bicycle;
+classifier YourBike [1] specializes Bicycle disjoint from MyBike;
+classifier OurBikes [2] unions MyBike, YourBike;
+\end{lstlisting}
+
+By \ref{eq:df-classifier}:
+\begin{gather}
+ (\texttt{classifier Vehicle;} \equiv \texttt{Vehicle}\in V_C~)
+\end{gather}
+ 
+By \ref{eq:df-rep} \texttt{Vehicle} is represented as a triple:
+\begin{gather}
+\langle~\textbf{classifier},\texttt{"Vehicle"},\{x~\vert ~(~ x \in \texttt{Vehicle} \wedge \texttt{Vehicle}\in V_C~)~\}~\rangle
+\label{eq:vehicle}
+\end{gather}
+ 
+By \ref{eq:df-classifier} and \ref{eq:df-specializes} :
+ \begin{gather}
+ (\texttt{classifier Bicycle specializes Vehicle;} \equiv \notag \\
+  (~\texttt{Bicycle}\in V_C~\wedge~ \texttt{Bicycle}\subseteq\texttt{Vehicle}~)~)
+\end{gather}
+ 
+By \ref{eq:df-rep} \texttt{Bicycle} is represented as a triple:
+\begin{gather}
+\langle~\textbf{classifier},\texttt{"Bicycle"},\{x~\vert ~(~ x \in \texttt{Bicycle} ~\wedge~ \texttt{Bicycle}\in V_C~\wedge~ \texttt{Bicycle}\subseteq\texttt{Vehicle}~)~\}~\rangle
+\label{eq:bicycle}
+\end{gather}
+
+By \ref{eq:df-classifier}, \ref{eq:df-specializes}, and \ref{eq:df-typemultiplicity} :
+\begin{gather}
+(\texttt{classifier MyBike [1] specializes Bicycle;} \equiv \notag \\
+(~\texttt{MyBike}\in V_C~\wedge~ \texttt{MyBike}\subseteq\texttt{Bicycle}~\wedge \#\texttt{MyBike}=1~)~)
+\end{gather}
+ 
+By \ref{eq:df-rep} \texttt{MyBike} is represented as a triple:
+\begin{gather}
+\langle~\textbf{classifier},\texttt{"MyBike"},\{x~\vert ~(~ x \in \texttt{MyBike}~ \wedge \notag \\
+ ~~~\texttt{MyBike}\in V_C~\wedge~ \texttt{MyBike}\subseteq\texttt{Bicycle}~\wedge \#\texttt{MyBike}=1~)~\}~\rangle
+\label{eq:mybike}
+\end{gather}
+
+By \ref{eq:df-classifier}, \ref{eq:df-specializes}, \ref{eq:df-typemultiplicity}, and \ref{eq:df-disjoint} :
+\begin{gather}
+(\texttt{classifier YourBike [1] specializes Bicycle disjoint from MyBike;} \equiv \notag \\
+(~\texttt{YourBike}\in V_C~\wedge~ \texttt{YourBike}\subseteq\texttt{Bicycle}~\wedge \#\texttt{YourBike}=1~\wedge~\texttt{YourBike}\cap\texttt{MyBike}=\emptyset)~)
+\end{gather}
+ 
+By \ref{eq:df-rep} \texttt{YourBike} is represented as a triple:
+\begin{gather}
+\langle~\textbf{classifier},\texttt{"YourBike"},\{x~\vert ~(~ x \in \texttt{YourBike}~\wedge~\texttt{YourBike}\in V_C~ \wedge \notag \\
+ ~~~ \texttt{YourBike}\subseteq\texttt{Bicycle}~\wedge \#\texttt{YourBike}=1~\wedge~\texttt{YourBike}\cap\texttt{MyBike}=\emptyset~)~\}~\rangle
+\label{eq:yourbike}
+\end{gather}
+
+By \ref{eq:df-unions}:
+\begin{gather}
+(\texttt{classifier OurBikes unions MyBike, YourBike;} \equiv \notag \\
+(~\texttt{OurBikes}\in V_C~\wedge~ \texttt{OurBikes}=\texttt{MyBike}\cup\texttt{YourBike}~\wedge~\#\texttt{OurBikes}=2~)~)
+\end{gather}
+By \ref{eq:df-rep} \texttt{OurBikes} is represented as a triple:
+\begin{gather}
+\langle~\textbf{classifier},\texttt{"OurBikes"},\{x~\vert ~(~ x \in \texttt{OurBikes}~\wedge~\texttt{OurBikes}\in V_C~ \wedge \notag \\
+ ~~~  \texttt{OurBikes}=\texttt{MyBike}\cup\texttt{YourBike}~\wedge~\#\texttt{OurBikes}=2~)~\}~\rangle
+\label{eq:ourbikes}
+\end{gather}
+
+So, the design, $D$ a set of triples \ref{eq:vehicle}, \ref{eq:bicycle}, \ref{eq:mybike}, \ref{eq:yourbike}, \ref{eq:ourbikes}, stored in index M.
+
+This is a fine example how ZFC-classes get defined for KerML elements, but it's not really execution.  By \ref{eq:df-model} execution means constructing $\mathfrak{M}$ by selecting one element, $E$, to be instantiated.  Constructing $\mathfrak{M}$ requires creating the interpretation $\mathbf{I}\lsem d,\tau\rsem$.  This gets more challenging when the system interacts with its environment at its system boundary, $P(\tau)$.
+In this example, nothing changes over time, so the interpretation is the same for all $\tau\in\textbf{T}$.  
+
+\section{Instantiation Procedure}
+
+\subsection{Overview}
+
+Creating a model $\mathfrak{M}$ means creating an interpretation, $\mathbf{I}\lsem E,\tau\rsem$, for the selected element of the design $E\in D$, for all $\tau\in\mathbf{T}$.
+Fortunately, we can model a discrete, finite, set of instants where something changes, and assume that the interpretation stays the same until the next instant where something changes.
+
+Suppose there are $k$ instants between $0$ and $\mathsf{\mc{now}}$ at which something changes.  Let the set of change instants be $X_\tau$:
+
+\begin{restatable}{definition}{dfchange}~\blTitle{df-change}~ Define set of time instants at which something changes.
+\begin{gather}
+(~X_\tau~=~\{~0,\tau_1,\tau_2,\ldots,\tau_k,\mathsf{\mc{now}}~\}~\wedge~X_\tau~\subset~\mathbf{T}~\wedge \notag \\
+~\forall \tau \in \mathbf{T}~\vert~((\exists d \in D~\vert~\texttt{changed}(d,\tau)~=~\tau)~\leftrightarrow~\tau \in X_\tau )~\wedge \notag \\
+~\forall i,j\in(1[,]k)~\vert~(~i<j~\rightarrow \tau_i\prec\tau_j~)~\wedge %\notag \\
+0\prec\tau_1~\wedge~\tau_k\prec\mathsf{\mc{now}}~) \label{eq:df-change}\tag{df-change}
+\end{gather}
+\end{restatable}
+
+When making $\mathbf{I}\lsem E,\tau\rsem$ the number of instants needed may not be known.  Furthermore, in may be necessary to introduce instants between others.
+Therefore, instants will be named $\tau_a,\tau_b,\ldots$.  If an instant is needed between $\tau_a$ and $\tau_b$, call it $\tau_{a.a}$, and so on.
+
+Between instants where something changes, it stays the same.  Let $X_\tau$ be the set of time instants at which something changes.
+\begin{restatable}{definition}{dfnochange}~\blTitle{df-nochange}~ Interpretation stay the same between changes.
+\begin{gather}
+X_\tau~=~\{~0,\tau_1,\tau_2,\ldots,\tau_k,\mathsf{\mc{now}}~\}~\wedge \notag \\
+\forall d\in D~\vert~(~\forall \tau\in (0(,) \tau_1)~\vert~\mathbf{I}\lsem d,\tau\rsem=\mathbf{I}\lsem d,0 \rsem ~\wedge \notag \\
+~~~\forall \tau\in (\tau_k(,) \mathsf{\mc{now}})~\vert~\mathbf{I}\lsem d,\tau\rsem=\mathbf{I}\lsem d,\tau_k \rsem ~\wedge \notag \\
+~~~\forall i\in(1[,]k\minus 1)~\vert~\forall \tau\in (\tau_i(,) \tau_{i+1})~\vert~\mathbf{I}\lsem d,\tau\rsem=\mathbf{I}\lsem d,\tau_i \rsem )\label{eq:df-nochange}\tag{df-nochange}
+\end{gather}
+\end{restatable}
+
+Therefore, if $\mathbf{I}\lsem d,\tau\rsem$ is defined for all $d\in D$ and all $\tau\in X_\tau$, by \ref{eq:df-nochange} it is defined for all $\tau\in\mathbf{T}$.
+
+\comment{Do I really need to state this as a theorem and prove it?}
+
+\subsection{Without features or time}
+
+Considering the example above, choose \texttt{OurBikes} as $E$.  
+Interpretation finds a ZFC-element of the ZFC-class for $E$.
+
+\textbf{1.~~Create an instantiated tuple for $E$ at time $\tau=0$.}
+
+Create a new triple with a unique identifier (UI):
+\begin{gather}
+\langle~\textbf{classifier},\texttt{"OurBikes\textbackslash\#a"}, \{x~\vert ~(~ x \in \texttt{OurBikes}~\wedge~\texttt{OurBikes}\in V_C~ \wedge \notag \\
+ ~~~  \texttt{OurBikes}=\texttt{MyBike}\cup\texttt{YourBike}~\wedge~\#\texttt{OurBikes}=2~)~\}~\rangle
+\end{gather}
+
+\textbf{2.~~Recursively create instantiated triples for ZFC-classes used in the rule to define the class.}
+
+Create instantiated triples for \texttt{MyBike} and (later) \texttt{YourBike}.
+\begin{gather}
+\langle~\textbf{classifier},\texttt{"MyBike\textbackslash\#b"},\{x~\vert ~(~ x \in \texttt{MyBike}~ \wedge \notag \\
+ ~~~\texttt{MyBike}\in V_C~\wedge~ \texttt{MyBike}\subseteq\texttt{Bicycle}~\wedge \#\texttt{MyBike}=1~)~\}~\rangle
+\end{gather}
+
+\texttt{MyBike} uses \texttt{Bicycle} in its ZFC-class definition, so create an instantiated triple for \texttt{Bicycle}.
+\begin{gather}
+\langle~\textbf{classifier},\texttt{"Bicycle\textbackslash\#c"},\{x~\vert ~(~ x \in \texttt{Bicycle} ~\wedge~ \texttt{Bicycle}\in V_C~\wedge~ \texttt{Bicycle}\subseteq\texttt{Vehicle}~)~\}~\rangle
+\end{gather}
+
+\texttt{Bicycle} uses \texttt{Vehicle} in its ZFC-class definition, so create an instantiated triple for \texttt{Vehicle}.
+\begin{gather}
+\langle~\textbf{classifier},\texttt{"Vehicle\textbackslash\#d"},\{x~\vert ~(~ x \in \texttt{Vehicle} \wedge \texttt{Vehicle}\in V_C~)~\}~\rangle
+\end{gather}
+
+\texttt{Vehicle} uses no other ZFC-classes so is atomic.
+
+Atomic triples are \bemph{complete}.  The UI of instantiated triples of atomic ZFC-classes represents a ZFC-element of that class.
+
+\textbf{3.  Propagate the UI of a complete triple, back to the triple that referenced them, replacing the class name with the UI.}
+\begin{gather}
+\langle~\textbf{classifier},\texttt{"Bicycle\textbackslash\#c"},\{x~\vert ~(~ x \in \texttt{Bicycle} ~\wedge~ \notag \\
+~~~ \texttt{Bicycle}\in V_C~\wedge~ \texttt{Bicycle}\subseteq\texttt{"Vehicle\textbackslash\#d"}~)~\}~\rangle
+\end{gather}
+
+\textbf{4.~~When all classes have been replaced by UIs, find an element of the class.}
+\begin{gather}
+\langle~\textbf{classifier},\texttt{"Bicycle\textbackslash\#c"},\texttt{"Vehicle\textbackslash\#d"}~\rangle
+\end{gather}
+
+Propagating \texttt{"Bicycle\textbackslash\#c"} to \texttt{"MyBike\textbackslash\#b"}:
+\begin{gather}
+\langle~\textbf{classifier},\texttt{"MyBike\textbackslash\#b"},\{x~\vert ~(~ x \in \texttt{MyBike}~ \wedge \notag \\
+ ~~~\texttt{MyBike}\in V_C~\wedge~ \texttt{MyBike}\subseteq\texttt{"Bicycle\textbackslash\#c"}~\wedge \#\texttt{MyBike}=1~)~\}~\rangle
+\end{gather}
+
+and solving:
+\begin{gather}
+\langle~\textbf{classifier},\texttt{"MyBike\textbackslash\#b"},\texttt{"Bicycle\textbackslash\#c"}~\rangle
+\end{gather}
+
+Propagating \texttt{"MyBike\textbackslash\#b"} to \texttt{"OurBikes\textbackslash\#a"}:
+\begin{gather}
+\langle~\textbf{classifier},\texttt{"OurBikes\textbackslash\#a"}, \{x~\vert ~(~ x \in \texttt{OurBikes}~\wedge~\texttt{OurBikes}\in V_C~ \wedge \notag \\
+ ~~~  \texttt{OurBikes}=\texttt{"MyBike\textbackslash\#b"}\cup\texttt{YourBike}~\wedge~\#\texttt{OurBikes}=2~)~\}~
+\end{gather}
+
+Then instantiate a triple for \texttt{YourBike}, which makes new triples for \texttt{Bicycle} and \texttt{Vehicle}, and solves them similarly to \texttt{MyBike}.
+
+\begin{gather}
+\langle~\textbf{classifier},\texttt{"YourBike\textbackslash\#e"},\texttt{"Bicycle\textbackslash\#f"}~\rangle \notag \\
+\langle~\textbf{classifier},\texttt{"Bicycle\textbackslash\#f"},\texttt{"Vehicle\textbackslash\#g"}~\rangle \notag \\
+\langle~\textbf{classifier},\texttt{"Vehicle\textbackslash\#g"},V_C~\rangle \notag \\
+\end{gather}
+
+Propagating \texttt{"YourBike\textbackslash\#e"} to \texttt{"OurBikes\textbackslash\#a"}:
+\begin{gather}
+\langle~\textbf{classifier},\texttt{"OurBikes\textbackslash\#a"}, \{x~\vert ~(~ x \in \texttt{OurBikes}~\wedge~\texttt{OurBikes}\in V_C~ \wedge \notag \\
+ ~~~  \texttt{OurBikes}=\texttt{"MyBike\textbackslash\#b"}\cup\texttt{"YourBike\textbackslash\#e"}~\wedge~\#\texttt{OurBikes}=2~)~\}~\rangle
+\end{gather}
+
+Finally, \texttt{"OurBikes\textbackslash\#a"} has two ZFC-elements, but only one is needed.  (If this was a feature instead of a classifier, the result would be a pair (tuple) holding as many items as needed.)
+\begin{gather}
+\langle~\textbf{classifier},\texttt{"OurBikes\textbackslash\#a"}, \texttt{"YourBike\textbackslash\#e"}~\rangle
+\end{gather}
+
+So the tuples instated for $\mathbf{I}\lsem E,\tau\rsem$ are:
+\begin{gather}
+\langle~\textbf{classifier},\texttt{"OurBikes\textbackslash\#a"}, \texttt{"YourBike\textbackslash\#e"}~\rangle \notag \\
+\langle~\textbf{classifier},\texttt{"MyBike\textbackslash\#b"},\texttt{"Bicycle\textbackslash\#c"}~\rangle \notag \\
+\langle~\textbf{classifier},\texttt{"Bicycle\textbackslash\#c"},\texttt{"Vehicle\textbackslash\#d"}~\rangle \notag \\
+\langle~\textbf{classifier},\texttt{"Vehicle\textbackslash\#d"},V_C~\rangle \notag \\
+\langle~\textbf{classifier},\texttt{"YourBike\textbackslash\#e"},\texttt{"Bicycle\textbackslash\#f"}~\rangle \notag \\
+\langle~\textbf{classifier},\texttt{"Bicycle\textbackslash\#f"},\texttt{"Vehicle\textbackslash\#g"}~\rangle \notag \\
+\langle~\textbf{classifier},\texttt{"Vehicle\textbackslash\#g"},V_C~\rangle \notag \\
+\end{gather}
+
+The ZFC-element for $E$ in class \texttt{"OurBikes"} is \texttt{"OurBikes\textbackslash\#a"}, which by transitivity is also \texttt{"Bicycle\textbackslash\#f"} and \texttt{"Vehicle\textbackslash\#g"}.
+
+Writing all this steps out is verbose, and won't be done again--just the important steps.
+In practice it won't be done either, but this is how to find an element of the class represented by $d\in D$ to make $\mathbf{I}\lsem d,\tau\rsem$, to get 
+$\mathbf{I}\lsem E,\tau\rsem$ for selected element $E\in D$.
+
+\subsection{With features without time}
+
+Take the example below to illustrate the procedure, a (non-association) classifier without connectors (features typed by associations).
+\begin{lstlisting}
+classifier Bicycle {
+  feature rollsOn [2] : Wheel; 
+  feature holdsWheel [*] : BikeFork;
+}
+classifier Wheel; 
+classifier BikeFork;
+\end{lstlisting}
+
+The instantiation procedure starts with:
+\textbf{1.~~Create a (design) tuple for each classifier or type}
+
+\texttt{Wheel} and \texttt{BikeFork} have default membership in $V_C$:
+\begin{gather}
+\langle~\textbf{classifier},\texttt{"Wheel"},\{x~\vert ~(~ x \in \texttt{Wheel} \wedge \texttt{Wheel}\in V_C~)~\}~\rangle \notag \\
+\langle~\textbf{classifier},\texttt{"BikeFork"},\{x~\vert ~(~ x \in \texttt{BikeFork} \wedge \texttt{Wheel}\in V_C~)~\}~\rangle
+\label{eq:wheel}
+\end{gather}
+
+\texttt{Bicycle} has two features, but the multiplicity of \texttt{holdsWheel} is undefined, \texttt{[*]}.  Presumably, some specialization of \texttt{Bicycle} would set the multiplicity of 
+\texttt{holdsWheel}, or be determined by a consistency rule.  To make a model, when multiplicity is (still) a range, or undefined, the lowest allowed multiplicity will be arbitrarily selected.  Multiplicity of \texttt{[0]} is selected for \texttt{holdsWheel}, so is not instantiated as a feature of \texttt{Bicycle}.
+
+By \ref{eq:df-typemultiplicity}, \texttt{classifier Bicycle \{ feature rollsOn [2] : Wheel; \}} 
+
+\begin{gather}
+\{~\langle \mathbf{classifier},w,C\rangle~\vert~w=W(\texttt{"Bicycle"})~\wedge~\{y_1,y_2\}\in\texttt{"Wheel"}~\wedge \notag \\
+~~~C~=~\{\langle \texttt{"rollsOn"},R\rangle~\vert~R=\{~\langle w,y_1\rangle
+\end{gather}
+
+Then the Instantiation Procedure is very similar to that used for \texttt{OurBikes}.
+
+

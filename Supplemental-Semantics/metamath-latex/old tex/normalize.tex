@@ -1,0 +1,139 @@
+% This LaTeX file was created by Metamath on 18\minusFeb\minus2022 5:06 AM.
+
+\begin{lemma}\otherTitle{pncan2} Cancellation law for subtraction. 
+% (Contributed by NM, 17\minusApr\minus2005.)
+\begin{align}
+\vdash ( ( \mc{A} \in \mathbb{C} \wedge \mc{B} \in \mathbb{C} ) \rightarrow ( (
+    \mc{A} + \mc{B} ) \minus \mc{A} ) = \mc{B} )\label{eq:pncan2}\tag{pncan2}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{pncan} Cancellation law for subtraction. 
+% (Contributed by NM, 10\minusMay\minus2004.)
+     % (Revised by Mario Carneiro, 27\minusMay\minus2016.)
+\begin{align}
+\vdash ( ( \mc{A} \in \mathbb{C} \wedge \mc{B} \in \mathbb{C} ) \rightarrow ( (
+    \mc{A} + \mc{B} ) \minus \mc{B} ) = \mc{A} )\label{eq:pncan}\tag{pncan}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{pncan3i} Subtraction and addition of equals. 
+% (Contributed by NM,  26\minusNov\minus1994.)
+\begin{align}
+\vdash \mc{A} \in \mathbb{C}\quad\&\quad \vdash \mc{B} \in
+    \mathbb{C}\quad\Rightarrow\quad \vdash ( \mc{A} + ( \mc{B} \minus \mc{A} ) ) =
+    \mc{B}\label{eq:pncan3i}\tag{pncan3i}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{npcan} Cancellation law for subtraction. 
+% (Contributed by NM, 10\minusMay\minus2004.)
+     % (Revised by Mario Carneiro, 27\minusMay\minus2016.)
+\begin{align}
+\vdash ( ( \mc{A} \in \mathbb{C} \wedge \mc{B} \in \mathbb{C} ) \rightarrow ( (
+    \mc{A} \minus \mc{B} ) + \mc{B} ) = \mc{A} )\label{eq:npcan}\tag{npcan}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{subadd4} Rearrangement of 4 terms in a mixed
+addition and subtraction.
+     % (Contributed by NM, 24\minusAug\minus2006.)
+\begin{align}
+\vdash ( ( ( \mc{A} \in \mathbb{C} \wedge \mc{B} \in \mathbb{C} ) \wedge (
+    \mc{C} \in \mathbb{C} \wedge \mc{D} \in \mathbb{C} ) ) \rightarrow ( (
+    \mc{A} \minus \mc{B} ) \minus ( \mc{C} \minus \mc{D} ) ) = ( ( \mc{A} + \mc{D} ) \minus (
+    \mc{B} + \mc{C} ) ) )\label{eq:subadd4}\tag{subadd4}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{subsub4} Law for double subtraction. 
+ % (Contributedby NM, 19\minusAug\minus2005.)  
+ % (Revised  by Mario Carneiro, 27\minusMay\minus2016.)
+\begin{align}
+\vdash ( ( \mc{A} \in \mathbb{C} \wedge \mc{B} \in \mathbb{C} \wedge \mc{C} \in
+    \mathbb{C} ) \rightarrow ( ( \mc{A} \minus \mc{B} ) \minus \mc{C} ) = ( \mc{A} \minus (
+    \mc{B} + \mc{C} ) ) )\label{eq:subsub4}\tag{subsub4}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{subsub3} Law for double subtraction.  
+% (Contributed by NM, 27\minusJul\minus2005.)
+\begin{align}
+\vdash ( ( \mc{A} \in \mathbb{C} \wedge \mc{B} \in \mathbb{C} \wedge \mc{C} \in
+    \mathbb{C} ) \rightarrow ( \mc{A} \minus ( \mc{B} \minus \mc{C} ) ) = ( ( \mc{A} +
+    \mc{C} ) \minus \mc{B} ) )\label{eq:subsub3}\tag{subsub3}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{negsub} Relationship between subtraction and
+negative.  Theorem I.3 of [Apostol]  p. 18.  
+     % (Contributed by NM, 21\minusJan\minus1997.)  (Proof shortened by Mario Carneiro, 27\minusMay\minus2016.)
+\begin{align}
+\vdash ( ( \mc{A} \in \mathbb{C} \wedge \mc{B} \in \mathbb{C} ) \rightarrow (
+    \mc{A} + \minus\mc{B} ) = ( \mc{A} \minus \mc{B} )
+    )\label{eq:negsub}\tag{negsub}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{lenlti} 'Less than or equal to' in terms of 'less
+than'.  
+% (Contributed by NM, 24\minusMay\minus1999.)
+\begin{align}
+\vdash \mc{A} \in \mathbb{R}\quad\&\quad \vdash \mc{B} \in
+    \mathbb{R}\quad\Rightarrow\quad \vdash ( \mc{A} \le \mc{B} \leftrightarrow
+    \lnot \mc{B} < \mc{A} )\label{eq:lenlti}\tag{lenlti}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{addid1} $0$ is an additive identity.  This used to
+be one of our complex
+       number axioms, until it was found to be dependent on the others.  
+       %Based on ideas by Eric Schmidt. 
+        % (Contributed by Scott Fenton, 3\minusJan\minus2013.)
+       %(Proof shortened by Mario Carneiro, 27\minusMay\minus2016.)
+\begin{align}
+\vdash ( \mc{A} \in \mathbb{C} \rightarrow ( \mc{A} + 0 ) = \mc{A}
+    )\label{eq:addid1}\tag{addid1}
+\end{align}
+\end{lemma}
+
+
+\begin{lemma}\otherTitle{subid1} Identity law for subtraction.  
+% (Contributeby NM, 9\minusMay\minus2004.)  % (Revised by Mario Carneiro, 27\minusMay\minus2016.)
+\begin{align}
+\vdash ( \mc{A} \in \mathbb{C} \rightarrow ( \mc{A} \minus 0 ) = \mc{A}
+    )\label{eq:subid1}\tag{subid1}
+\end{align}
+\end{lemma}
+
+
+\begin{metadefinition}\otherTitle{df-neg} Define the negative of a number (unary
+minus).  
+%We use different symbols  for unary minus ($\unaryminus$) and subtraction ($\minus$) to prevent syntax   ambiguity.  %See {\tt cneg} for a discussion of this.  
+     % (Contributed by NM,10\minusFeb\minus1995.)
+\begin{align}
+\vdash \minus\mc{A} = ( 0 \minus \mc{A} )\label{eq:df-neg}\tag{df-neg}
+\end{align}
+\end{metadefinition}
+
+
+\begin{lemma}\otherTitle{negsubdi2} Distribution of negative over
+subtraction.  
+% (Contributed by NM, 4\minusOct\minus1999.)
+\begin{align}
+\vdash ( ( \mc{A} \in \mathbb{C} \wedge \mc{B} \in \mathbb{C} ) \rightarrow
+    \minus ( \mc{A} \minus \mc{B} ) = ( \mc{B} \minus \mc{A} )
+    )\label{eq:negsubdi2}\tag{negsubdi2}
+\end{align}
+\end{lemma}
+
+

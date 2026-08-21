@@ -1,0 +1,439 @@
+% This LaTeX file was created by Metamath on 22-Jul-2024 3:28 PM.
+\begin{restatable}{axiom}{axblmodels}~\blTitle{ax-bl.models}~ Define interpretation of predicate for
+any $\tau \in \mathbf{T}$
+\begin{align}
+\vdash \tau \in \mathbf{T}\quad\Rightarrow\quad \vdash ( \mathbf{I} \lsem
+    \mw{\varphi} \rsem \rightarrow \mathbf{I} \lsem \mw{\varphi} , \tau \rsem
+    )\label{eq:ax-bl.models}\tag{ax-bl.models}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{axiom}{axblmodelsc}~\blTitle{ax-bl.modelsc}~ Define interpretation of values over
+any $\tau \in \mathbf{T}$
+\begin{align}
+\vdash \tau \in \mathbf{T}\quad\Rightarrow\quad \vdash ( \mathbf{I} \lsem
+    \mc{A} \rsem = \mc{B} \rightarrow \mathbf{I} \lsem \mc{A} , \tau \rsem =
+    \mc{B} )\label{eq:ax-bl.modelsc}\tag{ax-bl.modelsc}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{axiom}{axblbi}~\blTitle{ax-bl.bi}~ Axiom of temporal equivalence.
+\begin{align}
+\vdash ( ( \tau_1 \in \mathbf{T} \wedge \tau_2 \in \mathbf{T} \wedge \tau_1 =
+    \tau_2 ) \rightarrow ( ( \mw{\varphi} \leftrightarrow \mw{\psi} )
+    \leftrightarrow ( \mathbf{I} \lsem \mw{\varphi} , \tau_1 \rsem
+    \leftrightarrow \mathbf{I} \lsem \mw{\psi} , \tau_2 \rsem ) )
+    )\label{eq:ax-bl.bi}\tag{ax-bl.bi}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{axiom}{axbleq}~\blTitle{ax-bl.eq}~ Axiom of temporal equality.
+\begin{align}
+\vdash ( ( \tau_1 \in \mathbf{T} \wedge \tau_2 \in \mathbf{T} \wedge \tau_1 =
+    \tau_2 ) \rightarrow ( \mc{A} = \mc{B} \leftrightarrow \mathbf{I} \lsem
+    \mc{A} , \tau_1 \rsem = \mathbf{I} \lsem \mc{B} , \tau_2 \rsem )
+    )\label{eq:ax-bl.eq}\tag{ax-bl.eq}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{blmonobit}~\blTitle{bl.monobit}~ Same-instant specialization of ax-bl.bi:
+$\mathbf{I}\lsem\mw{\varphi},\tau\rsem$ respects logical equivalence, at a single fixed $\tau$ (no
+second instant to unify away).  Reused wherever a bl.ator3*-style proof
+needs to bridge a w3o-shaped 3-way disjunction and its df-3or-equivalent
+nested 2-way form under the timed bracket.
+\begin{align}
+\vdash \tau \in \mathbf{T}\quad\Rightarrow\quad \vdash ( ( \mw{\varphi}
+    \leftrightarrow \mw{\psi} ) \rightarrow ( \mathbf{I} \lsem \mw{\varphi} ,
+    \tau \rsem \leftrightarrow \mathbf{I} \lsem \mw{\psi} , \tau \rsem )
+    )\label{eq:bl.monobit}\tag{bl.monobit}
+\end{align}
+\end{restatable}
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash \tau \in
+      \mathbf{T}&\text{Hyp~monobit.1}\notag
+  \\ 2 &&  & \vdash \tau \in
+      \mathbf{T}&\text{Hyp~monobit.1}\notag
+  \\ 3 &&  & \vdash \tau = \tau&(\mbox{\ref{eq:eqid}})\notag
+  \\ 4 &&  & \vdash ( \tau \in \mathbf{T} \wedge \tau \in \mathbf{T}
+      \wedge \tau = \tau )&(\mbox{\ref{eq:3pm3.2i}},1,2,3)\notag
+  \\ 5 &&  & \vdash ( ( \tau \in \mathbf{T} \wedge \tau \in \mathbf{T}
+      \wedge \tau = \tau ) \rightarrow ( ( \mw{\varphi} \leftrightarrow
+      \mw{\psi} ) \leftrightarrow ( \mathbf{I} \lsem \mw{\varphi} ,
+      \tau \rsem \leftrightarrow \mathbf{I} \lsem \mw{\psi} , \tau
+      \rsem ) ) )&(\mbox{\ref{eq:ax-bl.bi}})\notag
+  \\ 6 &&  & \vdash ( ( \mw{\varphi} \leftrightarrow \mw{\psi} )
+      \leftrightarrow ( \mathbf{I} \lsem \mw{\varphi} , \tau \rsem
+      \leftrightarrow \mathbf{I} \lsem \mw{\psi} , \tau \rsem )
+      )&(\mbox{\ref{eq:ax-mp}},4,5)\notag
+  \\ 7 &&  & \vdash ( ( \mw{\varphi} \leftrightarrow \mw{\psi} )
+      \rightarrow ( \mathbf{I} \lsem \mw{\varphi} , \tau \rsem
+      \leftrightarrow \mathbf{I} \lsem \mw{\psi} , \tau \rsem )
+      )&(\mbox{\ref{eq:biimpi}},6)\notag
+\end{align}
+\end{proof}
+
+\begin{restatable}{metadefinition}{dfblbit}~\blTitle{df-bl.bit}~ Interpretation of biconditional at
+time $\tau$.
+\begin{align}
+\vdash \tau \in \mathbf{T}\quad\Rightarrow\quad \vdash ( \mathbf{I} \lsem (
+    \mw{\varphi} \leftrightarrow \mw{\psi} ) , \tau \rsem \leftrightarrow (
+    \mathbf{I} \lsem \mw{\varphi} , \tau \rsem \leftrightarrow \mathbf{I} \lsem
+    \mw{\psi} , \tau \rsem ) )\label{eq:df-bl.bit}\tag{df-bl.bit}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{metadefinition}{dfblant}~\blTitle{df-bl.ant}~ Interpretation of conjunction at time
+$\tau$.
+\begin{align}
+\vdash \tau \in \mathbf{T}\quad\Rightarrow\quad \vdash ( \mathbf{I} \lsem (
+    \mw{\varphi} \wedge \mw{\psi} ) , \tau \rsem \leftrightarrow ( \mathbf{I}
+    \lsem \mw{\varphi} , \tau \rsem \wedge \mathbf{I} \lsem \mw{\psi} , \tau
+    \rsem ) )\label{eq:df-bl.ant}\tag{df-bl.ant}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{blan3t}~\blTitle{bl.an3t}~ Interpretation of triple conjunction at
+time $\tau$.
+\begin{align}
+\vdash \tau \in \mathbf{T}\quad\Rightarrow\quad \vdash ( \mathbf{I} \lsem (
+    \mw{\varphi} \wedge \mw{\psi} \wedge \mw{\chi} ) , \tau \rsem
+    \leftrightarrow ( \mathbf{I} \lsem \mw{\varphi} , \tau \rsem \wedge
+    \mathbf{I} \lsem \mw{\psi} , \tau \rsem \wedge \mathbf{I} \lsem \mw{\chi} ,
+    \tau \rsem ) )\label{eq:bl.an3t}\tag{bl.an3t}
+\end{align}
+\end{restatable}
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash \tau \in \mathbf{T}&\text{Hyp~an3t.1}\notag%df-bl.an3t.1
+  \\ 2 &&  & \vdash ( \mathbf{I} \lsem ( \mw{\varphi} \wedge \mw{\psi} ) , \tau
+      \rsem \leftrightarrow ( \mathbf{I} \lsem \mw{\varphi}
+      , \tau \rsem \wedge \mathbf{I} \lsem \mw{\psi} , \tau
+      \rsem ) )&(\mbox{\ref{eq:df-bl.ant}},1)\notag
+  \\ 3 &&  & \vdash ( ( \mathbf{I} \lsem ( \mw{\varphi} \wedge \mw{\psi} ) ,
+      \tau \rsem \wedge \mathbf{I} \lsem \mw{\chi} , \tau
+      \rsem ) \leftrightarrow ( ( \mathbf{I} \lsem
+      \mw{\varphi} , \tau \rsem \wedge \mathbf{I} \lsem
+      \mw{\psi} , \tau \rsem ) \wedge \mathbf{I} \lsem
+      \mw{\chi} , \tau \rsem )
+      )&(\mbox{\ref{eq:anbi1i}},2)\notag
+  \\ 4 &&  & \vdash ( ( \mw{\varphi} \wedge \mw{\psi} \wedge \mw{\chi} )
+      \leftrightarrow ( ( \mw{\varphi} \wedge \mw{\psi} )
+      \wedge \mw{\chi} ) )&(\mbox{\ref{eq:df-3an}})\notag
+  \\ 5 &&  & \vdash \tau \in \mathbf{T}&\text{Hyp~an3t.1}\notag%df-bl.an3t.1
+  \\ 6 &&  & \vdash \tau \in \mathbf{T}&\text{Hyp~an3t.1}\notag%df-bl.an3t.1
+  \\ 7 &&  & \vdash \tau = \tau&(\mbox{\ref{eq:eqid}})\notag
+  \\ 8 &&  & \vdash ( \tau \in \mathbf{T} \wedge \tau \in \mathbf{T} \wedge
+      \tau = \tau )&(\mbox{\ref{eq:3pm3.2i}},5,6,7)\notag
+  \\ 9 &&  & \vdash ( ( \tau \in \mathbf{T} \wedge \tau \in \mathbf{T} \wedge
+      \tau = \tau ) \rightarrow  \notag \\ & & & \qquad
+      ( ( ( \mw{\varphi} \wedge
+      \mw{\psi} \wedge \mw{\chi} ) \leftrightarrow ( (
+      \mw{\varphi} \wedge \mw{\psi} ) \wedge \mw{\chi} ) )
+      \leftrightarrow  \notag \\ & & & \qquad
+      ( \mathbf{I} \lsem ( \mw{\varphi}
+      \wedge \mw{\psi} \wedge \mw{\chi} ) , \tau \rsem
+      \leftrightarrow \mathbf{I} \lsem ( ( \mw{\varphi}
+      \wedge \mw{\psi} ) \wedge \mw{\chi} ) , \tau \rsem )
+      ) )&(\mbox{\ref{eq:ax-bl.bi}})\notag
+  \\ 10 &&  & \vdash ( ( ( \mw{\varphi} \wedge \mw{\psi} \wedge \mw{\chi} )
+      \leftrightarrow ( ( \mw{\varphi} \wedge \mw{\psi} )
+      \wedge \mw{\chi} ) ) \leftrightarrow  \notag \\ & & & \qquad
+      ( \mathbf{I}
+      \lsem ( \mw{\varphi} \wedge \mw{\psi} \wedge
+      \mw{\chi} ) , \tau \rsem \leftrightarrow \mathbf{I}
+      \lsem ( ( \mw{\varphi} \wedge \mw{\psi} ) \wedge
+      \mw{\chi} ) , \tau \rsem )
+      )&(\mbox{\ref{eq:ax-mp}},8,9)\notag
+  \\ 11 &&  & \vdash ( \mathbf{I} \lsem ( \mw{\varphi} \wedge \mw{\psi} \wedge
+      \mw{\chi} ) , \tau \rsem \leftrightarrow \mathbf{I}
+      \lsem ( ( \mw{\varphi} \wedge \mw{\psi} ) \wedge
+      \mw{\chi} ) , \tau \rsem
+      )&(\mbox{\ref{eq:mpbi}},4,10)\notag
+  \\ 12 &&  & \vdash \tau \in \mathbf{T}&\text{Hyp~an3t.1}\notag%df-bl.an3t.1
+  \\ 13 &&  & \vdash ( \mathbf{I} \lsem ( ( \mw{\varphi} \wedge \mw{\psi} )
+      \wedge \mw{\chi} ) , \tau \rsem \leftrightarrow (
+      \mathbf{I} \lsem ( \mw{\varphi} \wedge \mw{\psi} ) ,
+      \tau \rsem \wedge \mathbf{I} \lsem \mw{\chi} , \tau
+      \rsem ) )&(\mbox{\ref{eq:df-bl.ant}},12)\notag
+  \\ 14 &&  & \vdash ( \mathbf{I} \lsem ( \mw{\varphi} \wedge \mw{\psi} \wedge
+      \mw{\chi} ) , \tau \rsem \leftrightarrow ( \mathbf{I}
+      \lsem ( \mw{\varphi} \wedge \mw{\psi} ) , \tau \rsem
+      \wedge \mathbf{I} \lsem \mw{\chi} , \tau \rsem )
+      )&(\mbox{\ref{eq:bitri}},11,13)\notag
+  \\ 15 &&  & \vdash ( ( \mathbf{I} \lsem \mw{\varphi} , \tau \rsem \wedge
+      \mathbf{I} \lsem \mw{\psi} , \tau \rsem \wedge
+      \mathbf{I} \lsem \mw{\chi} , \tau \rsem )
+      \leftrightarrow ( ( \mathbf{I} \lsem \mw{\varphi} ,
+      \tau \rsem \wedge \mathbf{I} \lsem \mw{\psi} , \tau
+      \rsem ) \wedge \mathbf{I} \lsem \mw{\chi} , \tau
+      \rsem ) )&(\mbox{\ref{eq:df-3an}})\notag
+  \\ 16 &&  & \vdash ( \mathbf{I} \lsem ( \mw{\varphi} \wedge \mw{\psi} \wedge
+      \mw{\chi} ) , \tau \rsem \leftrightarrow ( \mathbf{I}
+      \lsem \mw{\varphi} , \tau \rsem \wedge \mathbf{I}
+      \lsem \mw{\psi} , \tau \rsem \wedge \mathbf{I} \lsem
+      \mw{\chi} , \tau \rsem )
+      )&(\mbox{\ref{eq:3bitr4i}},3,14,15)\notag
+\end{align}
+\end{proof}
+
+\begin{restatable}{metadefinition}{dfblort}~\blTitle{df-bl.ort}~ Interpretation of disjunction at time
+$\tau$.
+\begin{align}
+\vdash \tau \in \mathbf{T}\quad\Rightarrow\quad \vdash ( \mathbf{I} \lsem (
+    \mw{\varphi} \vee \mw{\psi} ) , \tau \rsem \leftrightarrow ( \mathbf{I}
+    \lsem \mw{\varphi} , \tau \rsem \vee \mathbf{I} \lsem \mw{\psi} , \tau
+    \rsem ) )\label{eq:df-bl.ort}\tag{df-bl.ort}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{blor3t}~\blTitle{bl.or3t}~ Interpretation of triple disjunction at
+time $\tau$.
+\begin{align}
+\vdash \tau \in \mathbf{T}\quad\Rightarrow\quad \vdash ( \mathbf{I} \lsem (
+    \mw{\varphi} \vee \mw{\psi} \vee \mw{\chi} ) , \tau \rsem \leftrightarrow (
+    \mathbf{I} \lsem \mw{\varphi} , \tau \rsem \vee \mathbf{I} \lsem \mw{\psi}
+    , \tau \rsem \vee \mathbf{I} \lsem \mw{\chi} , \tau \rsem )
+    )\label{eq:bl.or3t}\tag{bl.or3t}
+\end{align}
+\end{restatable}
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash \tau \in \mathbf{T}&\text{Hyp~or3t.1}\notag%df-bl.or3t.1
+  \\ 2 &&  & \vdash ( \mathbf{I} \lsem ( \mw{\varphi} \vee \mw{\psi} ) , \tau
+      \rsem \leftrightarrow ( \mathbf{I} \lsem \mw{\varphi}
+      , \tau \rsem \vee \mathbf{I} \lsem \mw{\psi} , \tau
+      \rsem ) )&(\mbox{\ref{eq:df-bl.ort}},1)\notag
+  \\ 3 &&  & \vdash ( ( \mathbf{I} \lsem ( \mw{\varphi} \vee \mw{\psi} ) , \tau
+      \rsem \vee \mathbf{I} \lsem \mw{\chi} , \tau \rsem )
+      \leftrightarrow ( ( \mathbf{I} \lsem \mw{\varphi} ,
+      \tau \rsem \vee \mathbf{I} \lsem \mw{\psi} , \tau
+      \rsem ) \vee \mathbf{I} \lsem \mw{\chi} , \tau \rsem
+      ) )&(\mbox{\ref{eq:orbi1i}},2)\notag
+  \\ 4 &&  & \vdash ( ( \mw{\varphi} \vee \mw{\psi} \vee \mw{\chi} )
+      \leftrightarrow ( ( \mw{\varphi} \vee \mw{\psi} )
+      \vee \mw{\chi} ) )&(\mbox{\ref{eq:df-3or}})\notag
+  \\ 5 &&  & \vdash \tau \in \mathbf{T}&\text{Hyp~or3t.1}\notag%df-bl.or3t.1
+  \\ 6 &&  & \vdash \tau \in \mathbf{T}&\text{Hyp~or3t.1}\notag%df-bl.or3t.1
+  \\ 7 &&  & \vdash \tau = \tau&(\mbox{\ref{eq:eqid}})\notag
+  \\ 8 &&  & \vdash ( \tau \in \mathbf{T} \wedge \tau \in \mathbf{T} \wedge
+      \tau = \tau )&(\mbox{\ref{eq:3pm3.2i}},5,6,7)\notag
+  \\ 9 &&  & \vdash ( ( \tau \in \mathbf{T} \wedge \tau \in \mathbf{T} \wedge
+      \tau = \tau ) \rightarrow  \notag \\ & & & \qquad
+      ( ( ( \mw{\varphi} \vee
+      \mw{\psi} \vee \mw{\chi} ) \leftrightarrow ( (
+      \mw{\varphi} \vee \mw{\psi} ) \vee \mw{\chi} ) )
+      \leftrightarrow  \notag \\ & & & \qquad
+      ( \mathbf{I} \lsem ( \mw{\varphi}
+      \vee \mw{\psi} \vee \mw{\chi} ) , \tau \rsem
+      \leftrightarrow \mathbf{I} \lsem ( ( \mw{\varphi}
+      \vee \mw{\psi} ) \vee \mw{\chi} ) , \tau \rsem ) )
+      )&(\mbox{\ref{eq:ax-bl.bi}})\notag
+  \\ 10 &&  & \vdash ( ( ( \mw{\varphi} \vee \mw{\psi} \vee \mw{\chi} )
+      \leftrightarrow ( ( \mw{\varphi} \vee \mw{\psi} )
+      \vee \mw{\chi} ) ) \leftrightarrow  \notag \\ & & & \qquad
+      ( \mathbf{I} \lsem
+      ( \mw{\varphi} \vee \mw{\psi} \vee \mw{\chi} ) , \tau
+      \rsem \leftrightarrow \mathbf{I} \lsem ( (
+      \mw{\varphi} \vee \mw{\psi} ) \vee \mw{\chi} ) , \tau
+      \rsem ) )&(\mbox{\ref{eq:ax-mp}},8,9)\notag
+  \\ 11 &&  & \vdash ( \mathbf{I} \lsem ( \mw{\varphi} \vee \mw{\psi} \vee
+      \mw{\chi} ) , \tau \rsem \leftrightarrow \mathbf{I}
+      \lsem ( ( \mw{\varphi} \vee \mw{\psi} ) \vee
+      \mw{\chi} ) , \tau \rsem
+      )&(\mbox{\ref{eq:mpbi}},4,10)\notag
+  \\ 12 &&  & \vdash \tau \in \mathbf{T}&\text{Hyp~or3t.1}\notag%df-bl.or3t.1
+  \\ 13 &&  & \vdash ( \mathbf{I} \lsem ( ( \mw{\varphi} \vee \mw{\psi} ) \vee
+      \mw{\chi} ) , \tau \rsem \leftrightarrow ( \mathbf{I}
+      \lsem ( \mw{\varphi} \vee \mw{\psi} ) , \tau \rsem
+      \vee \mathbf{I} \lsem \mw{\chi} , \tau \rsem )
+      )&(\mbox{\ref{eq:df-bl.ort}},12)\notag
+  \\ 14 &&  & \vdash ( \mathbf{I} \lsem ( \mw{\varphi} \vee \mw{\psi} \vee
+      \mw{\chi} ) , \tau \rsem \leftrightarrow ( \mathbf{I}
+      \lsem ( \mw{\varphi} \vee \mw{\psi} ) , \tau \rsem
+      \vee \mathbf{I} \lsem \mw{\chi} , \tau \rsem )
+      )&(\mbox{\ref{eq:bitri}},11,13)\notag
+  \\ 15 &&  & \vdash ( ( \mathbf{I} \lsem \mw{\varphi} , \tau \rsem \vee
+      \mathbf{I} \lsem \mw{\psi} , \tau \rsem \vee
+      \mathbf{I} \lsem \mw{\chi} , \tau \rsem )
+      \leftrightarrow ( ( \mathbf{I} \lsem \mw{\varphi} ,
+      \tau \rsem \vee \mathbf{I} \lsem \mw{\psi} , \tau
+      \rsem ) \vee \mathbf{I} \lsem \mw{\chi} , \tau \rsem
+      ) )&(\mbox{\ref{eq:df-3or}})\notag
+  \\ 16 &&  & \vdash ( \mathbf{I} \lsem ( \mw{\varphi} \vee \mw{\psi} \vee
+      \mw{\chi} ) , \tau \rsem \leftrightarrow ( \mathbf{I}
+      \lsem \mw{\varphi} , \tau \rsem \vee \mathbf{I} \lsem
+      \mw{\psi} , \tau \rsem \vee \mathbf{I} \lsem
+      \mw{\chi} , \tau \rsem )
+      )&(\mbox{\ref{eq:3bitr4i}},3,14,15)\notag
+\end{align}
+\end{proof}
+
+\begin{restatable}{metadefinition}{dfblimt}~\blTitle{df-bl.imt}~ Interpretation of implication at time
+$\tau$.
+\begin{align}
+\vdash \tau \in \mathbf{T}\quad\Rightarrow\quad \vdash ( \mathbf{I} \lsem (
+    \mw{\varphi} \rightarrow \mw{\psi} ) , \tau \rsem \leftrightarrow (
+    \mathbf{I} \lsem \mw{\varphi} , \tau \rsem \rightarrow \mathbf{I} \lsem
+    \mw{\psi} , \tau \rsem ) )\label{eq:df-bl.imt}\tag{df-bl.imt}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{metadefinition}{dfblnott}~\blTitle{df-bl.nott}~ Interpretation of complement at time
+$\tau$.
+\begin{align}
+\vdash \tau \in \mathbf{T}\quad\Rightarrow\quad \vdash ( \mathbf{I} \lsem \lnot
+    \mw{\varphi} , \tau \rsem \leftrightarrow \lnot \mathbf{I} \lsem
+    \mw{\varphi} , \tau \rsem )\label{eq:df-bl.nott}\tag{df-bl.nott}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{blbitrit}~\blTitle{bl.bitrit}~ Interpretation of transitive
+biconditional ({\tt bitri)} at time $\tau$.
+\begin{align}
+\vdash \tau \in \mathbf{T}\quad\&\quad \vdash \mathbf{I} \lsem ( \mw{\varphi}
+    \leftrightarrow \mw{\psi} ) , \tau \rsem\quad\&\quad \vdash \mathbf{I}
+    \lsem ( \mw{\psi} \leftrightarrow \mw{\chi} ) , \tau
+    \rsem\quad\Rightarrow\quad \vdash \mathbf{I} \lsem ( \mw{\varphi}
+    \leftrightarrow \mw{\chi} ) , \tau \rsem\label{eq:bl.bitrit}\tag{bl.bitrit}
+\end{align}
+\end{restatable}
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash \mathbf{I} \lsem ( \mw{\varphi} \leftrightarrow \mw{\psi} ) ,
+      \tau \rsem&\text{Hyp~bitrit.2}\notag%bl.bitrit.2
+  \\ 2 &&  & \vdash \tau \in \mathbf{T}&\text{Hyp~bitrit.1}\notag%bl.bitrit.1
+  \\ 3 &&  & \vdash ( \mathbf{I} \lsem ( \mw{\varphi} \leftrightarrow \mw{\psi}
+      ) , \tau \rsem \leftrightarrow ( \mathbf{I} \lsem
+      \mw{\varphi} , \tau \rsem \leftrightarrow \mathbf{I}
+      \lsem \mw{\psi} , \tau \rsem )
+      )&(\mbox{\ref{eq:df-bl.bit}},2)\notag
+  \\ 4 &&  & \vdash ( \mathbf{I} \lsem \mw{\varphi} , \tau \rsem
+      \leftrightarrow \mathbf{I} \lsem \mw{\psi} , \tau
+      \rsem )&(\mbox{\ref{eq:mpbi}},1,3)\notag
+  \\ 5 &&  & \vdash \mathbf{I} \lsem ( \mw{\psi} \leftrightarrow \mw{\chi} ) ,
+      \tau \rsem&\text{Hyp~bitrit.3}\notag%bl.bitrit.3
+  \\ 6 &&  & \vdash \tau \in \mathbf{T}&\text{Hyp~bitrit.1}\notag%bl.bitrit.1
+  \\ 7 &&  & \vdash ( \mathbf{I} \lsem ( \mw{\psi} \leftrightarrow \mw{\chi} )
+      , \tau \rsem \leftrightarrow ( \mathbf{I} \lsem
+      \mw{\psi} , \tau \rsem \leftrightarrow \mathbf{I}
+      \lsem \mw{\chi} , \tau \rsem )
+      )&(\mbox{\ref{eq:df-bl.bit}},6)\notag
+  \\ 8 &&  & \vdash ( \mathbf{I} \lsem \mw{\psi} , \tau \rsem \leftrightarrow
+      \mathbf{I} \lsem \mw{\chi} , \tau \rsem
+      )&(\mbox{\ref{eq:mpbi}},5,7)\notag
+  \\ 9 &&  & \vdash ( \mathbf{I} \lsem \mw{\varphi} , \tau \rsem
+      \leftrightarrow \mathbf{I} \lsem \mw{\chi} , \tau
+      \rsem )&(\mbox{\ref{eq:bitri}},4,8)\notag
+  \\ 10 &&  & \vdash \tau \in \mathbf{T}&\text{Hyp~bitrit.1}\notag%bl.bitrit.1
+  \\ 11 &&  & \vdash ( \mathbf{I} \lsem ( \mw{\varphi} \leftrightarrow
+      \mw{\chi} ) , \tau \rsem \leftrightarrow ( \mathbf{I}
+      \lsem \mw{\varphi} , \tau \rsem \leftrightarrow
+      \mathbf{I} \lsem \mw{\chi} , \tau \rsem )
+      )&(\mbox{\ref{eq:df-bl.bit}},10)\notag
+  \\ 12 &&  & \vdash \mathbf{I} \lsem ( \mw{\varphi} \leftrightarrow \mw{\chi}
+      ) , \tau \rsem&(\mbox{\ref{eq:mpbir}},9,11)\notag
+\end{align}
+\end{proof}
+
+\begin{restatable}{metadefinition}{dfbladdt}~\blTitle{df-bl.addt}~ Interpretation of addition at time
+$\tau$.
+\begin{align}
+\vdash \tau \in \mathbf{T}\quad\Rightarrow\quad \vdash \mathbf{I} \lsem (
+    \mc{A} + \mc{B} ) , \tau \rsem = ( \mathbf{I} \lsem \mc{A} , \tau \rsem +
+    \mathbf{I} \lsem \mc{B} , \tau \rsem )\label{eq:df-bl.addt}\tag{df-bl.addt}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{metadefinition}{dfblsubt}~\blTitle{df-bl.subt}~ Interpretation of subtraction at time
+$\tau$.
+\begin{align}
+\vdash \tau \in \mathbf{T}\quad\Rightarrow\quad \vdash \mathbf{I} \lsem (
+    \mc{A} \minus \mc{B} ) , \tau \rsem = ( \mathbf{I} \lsem \mc{A} , \tau
+    \rsem \minus \mathbf{I} \lsem \mc{B} , \tau \rsem
+    )\label{eq:df-bl.subt}\tag{df-bl.subt}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{metadefinition}{dfblmult}~\blTitle{df-bl.mult}~ Interpretation of multiplication at
+time $\tau$.
+\begin{align}
+\vdash \tau \in \mathbf{T}\quad\Rightarrow\quad \vdash \mathbf{I} \lsem (
+    \mc{A} \times \mc{B} ) , \tau \rsem = ( \mathbf{I} \lsem \mc{A} , \tau \rsem
+    \times \mathbf{I} \lsem \mc{B} , \tau \rsem
+    )\label{eq:df-bl.mult}\tag{df-bl.mult}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{metadefinition}{dfbldivt}~\blTitle{df-bl.divt}~ Interpretation of division at time
+$\tau$.
+\begin{align}
+\vdash \tau \in \mathbf{T}\quad\Rightarrow\quad \vdash \mathbf{I} \lsem (
+    \mc{A} / \mc{B} ) , \tau \rsem = ( \mathbf{I} \lsem \mc{A} , \tau \rsem /
+    \mathbf{I} \lsem \mc{B} , \tau \rsem )\label{eq:df-bl.divt}\tag{df-bl.divt}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{metadefinition}{dfblumt}~\blTitle{df-bl.umt}~ Interpretation of negation at time
+$\tau$.
+\begin{align}
+\vdash \tau \in \mathbf{T}\quad\Rightarrow\quad \vdash \mathbf{I} \lsem
+    \textrm{-} \mc{A} , \tau \rsem = \textrm{-} \mathbf{I} \lsem \mc{A} , \tau
+    \rsem\label{eq:df-bl.umt}\tag{df-bl.umt}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{metadefinition}{dfbleqt}~\blTitle{df-bl.eqt}~ Interpretation of equality at time
+$\tau$.
+\begin{align}
+\vdash \tau \in \mathbf{T}\quad\Rightarrow\quad \vdash ( \mathbf{I} \lsem
+    \mc{A} = \mc{B} , \tau \rsem \leftrightarrow \mathbf{I} \lsem \mc{A} , \tau
+    \rsem = \mathbf{I} \lsem \mc{B} , \tau \rsem
+    )\label{eq:df-bl.eqt}\tag{df-bl.eqt}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{metadefinition}{dfblltt}~\blTitle{df-bl.ltt}~ Interpretation of less-than at time
+$\tau$.
+\begin{align}
+\vdash \tau \in \mathbf{T}\quad\Rightarrow\quad \vdash ( \mathbf{I} \lsem
+    \mc{A} < \mc{B} , \tau \rsem \leftrightarrow \mathbf{I} \lsem \mc{A} , \tau
+    \rsem < \mathbf{I} \lsem \mc{B} , \tau \rsem
+    )\label{eq:df-bl.ltt}\tag{df-bl.ltt}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{metadefinition}{dfblamt}~\blTitle{df-bl.amt}~ Interpretation of at-most at time
+$\tau$.
+\begin{align}
+\vdash \tau \in \mathbf{T}\quad\Rightarrow\quad \vdash ( \mathbf{I} \lsem
+    \mc{A} \le \mc{B} , \tau \rsem \leftrightarrow \mathbf{I} \lsem \mc{A} ,
+    \tau \rsem \le \mathbf{I} \lsem \mc{B} , \tau \rsem
+    )\label{eq:df-bl.amt}\tag{df-bl.amt}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{metadefinition}{dfblralt}~\blTitle{df-bl.ralt}~ Define restricted universal
+quantification in interpretation at time $\tau$.
+\begin{align}
+\vdash \tau \in \mathbf{T}\quad\Rightarrow\quad \vdash ( \mathbf{I} \lsem
+    \forall \msc{x} \in \mc{A}~\mw{\varphi} , \tau \rsem \leftrightarrow
+    \forall \msc{x} ( \msc{x} \in \mc{A} \rightarrow \mathbf{I} \lsem
+    \mw{\varphi} , \tau \rsem ) )\label{eq:df-bl.ralt}\tag{df-bl.ralt}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{metadefinition}{dfblrext}~\blTitle{df-bl.rext}~ Define restricted existential
+quantification in interpretation at time $\tau$.
+\begin{align}
+\vdash \tau \in \mathbf{T}\quad\Rightarrow\quad \vdash ( \mathbf{I} \lsem
+    \exists \msc{x} \in \mc{A}~\mw{\varphi} , \tau \rsem \leftrightarrow
+    \exists \msc{x} ( \msc{x} \in \mc{A} \wedge \mathbf{I} \lsem \mw{\varphi} ,
+    \tau \rsem ) )\label{eq:df-bl.rext}\tag{df-bl.rext}
+\end{align}
+\end{restatable}
+

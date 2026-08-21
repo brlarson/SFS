@@ -1,0 +1,51 @@
+%ClassifierSemantics.tex
+
+
+%\chapter{Classifiers}
+
+\comment{Note:  This Classifiers Semantics subclause is presented after Features, although it retains the paragraph numbering.}
+
+\ksec{Classifiers Semantics (KerML 8.4.3.3)}
+
+\pn \texttt{Classifiers} are \texttt{Types} that classify things in the modeled system, as distinct from features, which model the relations between them.  
+\texttt{Classifiers} have no temporal semantics.\footnote{Temporal semantics have been moved from Classifier to Class at the behest of 
+\bemph{Vince Moln\'ar}.}
+Let $V_C$ be the set of all \texttt{Classifiers} in the design $D$:  $V_C \subset D$, then for all elements in the design, an element being defined a \texttt{Classifier} implies the element is a member of $V_C$.
+
+\begin{restatable}{definition}{dfclassifier}~\blTitle{df-classifier}~  Define \texttt{classifier}.  
+\begin{align}
+\vdash \forall c \in D~(\texttt{classifier}~c~ \rightarrow ~c \in V_C)~\label{eq:df-classifier}\tag{df-classifier}
+\end{align}
+\end{restatable}
+
+\pn \texttt{Classifiers} are also \texttt{Types}. 
+
+\begin{restatable}{definition}{dfclassifier2} ~\blTitle{df-classifier2}~  \texttt{Classifiers} are also \texttt{Types}.
+\begin{align}
+\vdash V_C~\subset~V_T~\label{eq:df-classifier2}\tag{df-classifier2}
+\end{align}
+\end{restatable}
+
+\pn A \texttt{Classifier} is just the same as a \texttt{Type}, but it also is a member of $V_C$.
+
+
+%\ksec{Value Semantics}
+%
+%\pn A \texttt{Value}\index{value}, $v$, is an Element\index{Element} of a \texttt{Type}, $T$.  A \texttt{Type}\index{type} is a set of \texttt{Values}.  The value of a Value is a ZFC set.
+%
+%\begin{restatable}{definition} ~\blTitle{df-value}~  \texttt{Values} are elements of a \texttt{Type}.
+%\begin{align}
+%T~\in~V_T~\wedge~v~\in~T  \label{eq:df-value}\tag{df-value}
+%\end{align}
+%\end{restatable}
+%
+%\pn A \texttt{Value} may be expressed as a literal, a \texttt{Function}\index{function}, an \texttt{Expression}\index{expression}, or a \texttt{Predicate}\index{predicate}.
+%
+%\pn A \texttt{DataValue}, $dv$, is pure information so is not a \texttt{Classifier} or a \texttt{Feature} (things modeled in the system).  Let $DV$ be the set of all \texttt{DataValues}.
+%
+%\begin{restatable}{definition} ~\blTitle{df-datavalue}~  \texttt{DataValues} are elements of a \texttt{Type} but not a \texttt{Classifier} or a \texttt{Feature}.
+%\begin{align}
+%DV~\subset~(V_T~\backslash~(V_C~\cup~V_F~)~)~\wedge~dv~\in~DV  \label{eq:df-datavalue}\tag{df-datavalue}
+%\end{align}
+%\end{restatable}
+%

@@ -1,0 +1,27 @@
+%ValueSemantics.tex
+
+\ksec{Feature Values Semantics (KerML 8.4.4.11)}\label{sec:value}
+
+\comment{Semantics for FeatureValue again bring up the contradiction of Expression being a Step, and calculating a value.}
+
+\texttt{FeatureValue} either binds a value to a feature permanently (=), or assigns an initial value (:=).  Type checking must ensure the type of the expression is the type of the feature.
+
+\begin{restatable}{definition}{blbfv}~\blTitle{df-bl.bfv}~ Define Bound Feature Value
+\begin{align}
+\texttt{classifier C \{ feature f:F=e; \} }~\Rightarrow \notag \\
+\vdash \forall \tau \in \texttt{life}(C)~\vert~  \textbf{I}\langle \texttt{f},\tau\rangle~=~e 
+\label{eq:df-bl.bfv}\tag{df-bl.bfv}
+\end{align}
+\end{restatable}
+
+Setting an initial feature value only makes sense for variable features:  \texttt{in}, \texttt{out}, \texttt{inout}, and \texttt{var}, 
+
+\begin{restatable}{definition}{blifv}~\blTitle{df-bl.ifv}~ Define Initial Feature Value
+\begin{align}
+\texttt{classifier C \{ var feature f:F := e; \} }~\Rightarrow \notag \\
+\vdash (~\tau = \texttt{birth}(C)~\wedge~  \textbf{I}\langle \texttt{f},\tau\rangle~=~e ~)
+\label{eq:df-bl.ifv}\tag{df-bl.ifv}
+\end{align}
+\end{restatable}
+
+

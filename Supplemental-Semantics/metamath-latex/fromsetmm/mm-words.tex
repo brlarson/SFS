@@ -1,0 +1,41 @@
+% This LaTeX file was created by Metamath on 6-Mar-2024 11:48 AM.
+\begin{restatable}{metadefinition}{dfconcat}~\otherTitle{df-concat}~ Define the concatenation operator
+which combines two words. 
+       ~
+\begin{align}
+\vdash \mathbin{\operatorname{++}} = ( \msc{s} \in \,\mathrm{V} , \msc{t} \in
+    \,\mathrm{V} \mapsto ( \msc{x} \in ( 0 \mathbin{..\hat{\;}} ( ( \sharp `
+    \msc{s} ) + ( \sharp ` \msc{t} ) ) ) \notag \\
+     \mapsto \,\mathrm{if} ( \msc{x} \in (
+    0 \mathbin{..\hat{\;}} ( \sharp ` \msc{s} ) ) , ( \msc{s} ` \msc{x} ) , (
+    \msc{t} ` ( \msc{x} \minus ( \sharp ` \msc{s} ) ) ) ) )
+    )\label{eq:df-concat}\tag{df-concat}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{metadefinition}{dfword}~\otherTitle{df-word}~ Define the class of -words over a set-. 
+A word (sometimes also called a
+       -string-) is a finite sequence of symbols from a set (alphabet)
+$\mc{S}$.  ~
+\begin{align}
+\vdash \,\mathrm{Word} \mc{S} = \{ \msc{w}~\vert~\exists \msc{l} \in \mathbb{N}_0
+    \msc{w} : ( 0 \mathbin{..\hat{\;}} \msc{l} ) \longrightarrow \mc{S}
+    \}\label{eq:df-word}\tag{df-word}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{metadefinition}{dfsubstr}~\otherTitle{df-substr}~ Define an operation which extracts
+portions (called -subwords- or
+       -substrings-) of words.   ~
+\begin{align}
+\vdash \,\mathrm{substr} = ( \msc{s} \in \,\mathrm{V} , \msc{b} \in (
+    \mathbb{Z} \times \mathbb{Z} ) \mapsto \,\mathrm{if} ( ( ( 1^\mathrm{st} `
+    \msc{b} ) \mathbin{..\hat{\;}} ( 2^\mathrm{nd} ` \msc{b} ) ) \notag \\
+     \subseteq
+    \,\mathrm{dom}~ \msc{s} , ( \msc{x} \in ( 0 \mathbin{..\hat{\;}} ( (
+    2^\mathrm{nd} ` \msc{b} ) \minus ( 1^\mathrm{st} ` \msc{b} ) ) ) \mapsto (
+    \msc{s} ` ( \msc{x} + ( 1^\mathrm{st} ` \msc{b} ) ) ) ) , \varnothing~ )
+    )\label{eq:df-substr}\tag{df-substr}
+\end{align}
+\end{restatable}
+

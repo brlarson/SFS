@@ -1,0 +1,920 @@
+%CoreSemanticsChapter.tex
+
+%replacement text for KerML Core Semantics
+
+%\section{8.4.3 Core Semantics}\addcontentsline{toc}{section}{8.4.3 Core Semantics}
+
+%\section{Core Semantics Overview (KerML 8.4.3.1)}\label{8.4.3.1}
+%
+%\section{Core Semantic Constraints (KerML 8.4.3.1.1)}
+%
+%\comment{As is, for now\ldots}
+
+
+\section{Core Semantics Mathematical Preliminaries (KerML 8.4.3.1.2)}\label{8.4.3.1.2}
+
+\pn %The mathematical specification of KerML Core layer element semantics uses a model-theoretic approach. 
+Core layer mathematical semantics are expressed in first order logic and set theory.
+
+Appendix \ref{chapter:simplemath} presents an informal summary of the mathematics used to define KerML semantics.  Appendix \ref{chapter:math} presents the mathematical foundation for KerML core-layer semantics derived from the axioms of logic and set theory with utmost rigor.  Appendix \ref{chapter:KL} provides details of the modal in which the timing semantics for KerML kernel-layer are defined.  Appendix \ref{chapter:mm} lists some of the theorems and definitions from Metamath used in proofs of theorems.
+
+%Core layer elements have no relation to time.  Consequently, their model-theoretic ontology (what is) is expressed directly in logic and set theory.
+%
+%Kernel layer elements' ontology uses modal logic (also expressed in logic and set theory) to provide different values for elements at different times.
+
+%\pn For now, time will be ignored, and type, class, and feature defined as ZFC-classes.  
+%In subclause (8.4.3.6)\ref{sec:classesattime} evaluating rules defining ZFC-classes at different times will be considered.
+
+\subsection{ZFC Sets, Classes, and Well-Formed Formulas} 
+
+\pn A \bemph{set} is a collection of values denoted by a list of elements in curly brackets:  $\{ v_1 v_2 v_3 \}$, sometimes separated by commas.
+
+\pn A \bemph{class} (\ref{eq:df-clab}) is a collection of values denoted by a rule: $\{ \mm{x}~\vert~\mw{\varphi} \}$, which means all elements $\mm{x}$ for which rule $\mw{\varphi}$ is true.
+A class will usually, but not necessarily, also be a set.
+\begin{table}[h]
+\caption{Set and Class Symbols}
+\begin{center}
+\begin{tabular}{|l|c|c|}
+\hline
+set construction & $\{~\dots~\}$ & set \\ \hline
+class abstraction & $\{~\mm{x}~\vert~\mw{\varphi}\}$ & class \\ \hline
+tuple & $\langle~\ldots~\rangle$ & tuple, sequence \\ \hline
+membership & $\in$ & element (of) \\ \hline
+subset(class) & $\subseteq$ & subset (of) \\ \hline
+proper subset(class) & $\subset$ & subset (of) \\ \hline
+empty set & $\emptyset$ & empty set \\ \hline
+union & $\cup$ & union \\ \hline
+intersection & $\cap$ & intersection \\ \hline
+set(class) difference & $\backslash$ & difference \\ \hline
+cardinality & $\mathrm{card}$ & multiplicity \\ \hline
+\end{tabular}
+\end{center}
+\label{table:setsymbols}
+\end{table}%
+
+%\paragraph{Well-Formed Formulas}
+\pn A \bemph{well-formed formula} (WFF)\index{WFF} is a boolean-valued expression conforming to a definite grammar.  
+Many of the steps of proofs in Metamath prove that the theorem being proved is a WFF.  
+There are proof assistants which will generate those steps automatically, or complain if what you're trying to prove isn't a WFF.
+An arbitrary WFF is represented by a lower-case greek letter: $\mw{\varphi}~\mw{\psi}~\mw{\chi}~\mw{\theta}$
+
+\pn If $\mw{\varphi}$ and $\mw{\psi}$ are WFFs, then $(\mw{\varphi}\rightarrow\mw{\psi})$ is a WFF.
+\begin{table}[htp]
+\caption{Logical Operators}
+\begin{center}
+\begin{tabular}{|l|c|c|}
+\hline
+%\textbf{Operation} & \textbf{Symbol} & \textbf{Text} \\ \hline
+proved%\footnote{has proof; is axiom or definition; is a theorem}
+ & $\vdash$ & turnstyle \\ \hline
+implication & $\rightarrow$ & implies \\ \hline
+biconditional & $\leftrightarrow$ & iff \\ \hline
+conjunction & $\wedge$ & and \\ \hline
+disjunction & $\vee$ & or \\ \hline
+complement & $\lnot$ & not \\ \hline
+top & $\top$ & true \\ \hline
+bottom & $\bot$ & false \\ \hline
+\end{tabular}
+\end{center}
+\label{table:logicaloperators}
+\end{table}%
+
+
+\subsection{Universe:  $\mathrm{V}$}
+
+\pn The collection of all sets $\mathrm{V}$ is a class which is not a set (\ref{eq:df-v}). 
+To avoid Russel's Paradox, ZFC prohibits sets having themselves as elements.  Therefore $\mathrm{V}$ which contains all sets as members, cannot include itself, so $\mathrm{V}$ cannot be a set.
+
+
+\begin{restatable}{definition}{dfv}~\otherTitle{df-v}~ Define the universal class.   The letter ``V" was used earlier by Peano in 1889 for the
+     universe of sets, where the letter V is derived from the word ``Verum".
+     Peano's notation V was adopted by Whitehead and Russell in Principia
+     Mathematica for the class of all sets in 1910.  
+\begin{align}
+\vdash \,\mathrm{V} = \{ \msc{x}~\vert~\msc{x} = \msc{x}
+    \}\label{eq:df-v}\tag{df-v}
+\end{align}
+\end{restatable}
+
+\subsection{Representation of Elements as Triples:}
+
+\pn In the following, KerML elements will be \bemph{defined} ontologically (what is) as ZFC-classes, but they will be \bemph{represented} as a triple.
+
+\pn Let $k$ be the kind of element (type, class, feature, datatype, class, structure, annotation, etc), $id$ be a unique identifier for the element, and $C$ be the class which defines the element:
+
+\begin{restatable}{definition}{dfrep}~\blTitle{df-rep}~ Define KerML element representation.
+\begin{align}
+\langle~k,~id,~C~\rangle\label{eq:df-rep}\tag{df-rep}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{leandefinition}{ElementRep}~\leanTitle{ElementRep}~ Define KerML element representation in Lean.
+
+\texttt{\textcolor{leancolor}{structure} \textcolor{leanyellow}{ElementRep} \textcolor{leancolor}{where}}
+
+\texttt{~~k  : ElementKind}
+
+\texttt{~~id : String}
+
+\texttt{~~C  : Set KElement}
+\label{ElementRep}
+\end{restatable}
+
+\pn The kind $k$ of \ref{eq:df-rep} ranges over the fourteen KerML element kinds:
+
+\begin{restatable}{definition}{dfkind}~\blTitle{df-kind}~ Define element kind.
+\begin{align}
+\vdash \mathrm{kind} = \{&~\mathrm{Element},~\mathrm{Relationship},~\mathrm{Dependency},~\mathrm{Feature},~\mathrm{Classifier},\notag\\
+&~\mathrm{DataType},~\mathrm{Class},~\mathrm{Structure},~\mathrm{Association},~\mathrm{Connector},\notag\\
+&~\mathrm{Behavior},~\mathrm{Function},~\mathrm{Expression},~\mathrm{Interaction}~\}\label{eq:df-kind}\tag{df-kind}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{leandefinition}{ElementKind}~\leanTitle{ElementKind}~ Define element kind in Lean.
+
+\texttt{\textcolor{leancolor}{inductive} \textcolor{leanyellow}{ElementKind}}
+
+\texttt{~~| Element | Relationship | Dependency | Feature | Classifier | DataType}
+
+\texttt{~~| Class | Structure | Association | Connector | Behavior | Function}
+
+\texttt{~~| Expression | Interaction}
+
+\texttt{~~\textcolor{leancolor}{deriving} DecidableEq, Repr}
+\label{ElementKind}
+\end{restatable}
+
+\subsection{Class Identifier (CI):}
+
+\pn Triples for classes defined by \ref{eq:df-rep} have names ($id$), either a simple identifier or a qualified name which is a sequence of identifiers separated by \texttt{::}.
+Regardless of whether a single identifier, or a qualified name, the whole string is considered its ``class identifier''.
+The set of ZFC-class identifiers is $CI$.
+
+\subsection{Unique Identifier (UI):} 
+
+\pn Unique identifiers\footnote{not a UUID} will use a \bemph{wonce} which is like a \bemph{nonce} (number once), but instead is a word once:
+
+~~~`a' through `z', then `aa' through `az', then `ba' through `bz', and so on.
+
+\pn An instance element's unique identifier is the concatenation of its fully-qualified name made into a string (if any), ``\textbackslash\#", and a wonce.
+
+\pn Thus even things without names will have a unique identifier:  `P::Q::\textbackslash\#abd' could be a UI for an unnamed element in namespace Q which is in namespace P.
+
+\pn Because ``\textbackslash\#" is not among the Escape Sequences in Table 4 of KerML 8.2.2.3, there should be no conflict between unrestricted names and UI.
+
+\pn The set of all (allocated) unique identifiers is $UI$.
+
+\pn Let $\mathrm{mkUid}(ci)$ be a function that computes a unique identifier $ui \in UI$ from $ci \in CI$ by appending a wonce.
+
+\pn Where $ci \in CI$ is a string (possibly empty), $tb$ is ``\textbackslash\#", $wonce$ is a wonce, and \textbf{++} is (Metamath's own, already-formalized) string concatenation:
+
+\begin{restatable}{definition}{dfwonce}~\blTitle{df-wonce}~ Define creation of a Unique Identifier from a Class Identifier by appending a wonce.
+\begin{align}
+\vdash ( \,\mathrm{mkUid} ` \mc{A} ) = ( ( \mc{A} \mathbin{\operatorname{++}} \,\mathrm{tb} ) \mathbin{\operatorname{++}} \,\mathrm{wonce} )\label{eq:df-wonce}\tag{df-wonce}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{leandefinition}{mkUid}~\leanTitle{mkUid}~ Define creation of a Unique Identifier from a Class Identifier by appending a wonce, in Lean.
+
+\texttt{\textcolor{leancolor}{abbrev} \textcolor{leanyellow}{CI} := String}
+
+\texttt{\textcolor{leancolor}{abbrev} \textcolor{leanyellow}{UI} := String}
+
+\texttt{\textcolor{leancolor}{def} \textcolor{leanyellow}{tb} : String := "\textbackslash\textbackslash\#"}
+
+\texttt{\textcolor{leancolor}{axiom} \textcolor{leanyellow}{wonce} : String}
+
+\texttt{\textcolor{leancolor}{noncomputable def} \textcolor{leanyellow}{mkUid} (ci : CI) : UI := ci ++ tb ++ wonce}
+\label{mkUid}
+\end{restatable}
+
+%\subsection{Design}
+%
+%\pn Everything in a \bemph{design} $D$ is either a  type $V_T$, a  classifier $V_C$ or a feature $V_F$.
+%
+%\begin{definition}~\blTitle{df-design}~ Define design $D$.  
+%\begin{align}
+%D~=~V_T~\cup~V_C~\cup~V_F~ \notag 
+%%V_T'~=~((V_T\backslash V_C)\backslash V_F)~\wedge~ \notag \\
+%%V_C'~=~(V_C\backslash V_F) ~\wedge~\notag \\
+%%D~=~V_T'~\cup~V_C'~\cup~V_F~\wedge \notag \\
+%%V_T'\cap V_C'=\emptyset~\wedge~V_T'\cap V_F=\emptyset~\wedge~V_F\cap V_C'=\emptyset~
+%\label{eq:df-design}\tag{df-design}
+%\end{align}
+%\end{definition}
+
+%\chapter{Types}
+
+\subsection{Types, Classifiers, and Features}
+
+\pn KerML 8.4.3.1.2 defines a \bemph{vocabulary} as a triple, $V=\langle V_T, V_C, V_F\rangle$, where
+\begin{description}
+\item[$V_T$ ] is a set of types\index{ VT@$V_T$ types} 
+\item[$V_C \subseteq V_T$ ] is a set of classifier, and\index{ VC@$V_C$ classifiers}
+\item[$V_F \subseteq V_T$ ] is a set of features.\index{ VF@$V_F$ features}
+\end{description}
+
+%\pn By KerML 8.4.3.1.2, $V_T = V_C \cup V_F$, so every type must be either a classifier, or a feature.
+%This doesn't seem right.  
+
+\pn Here we assume there exist types in $V_T$ which are neither classifiers $V_C$ nor features $V_F$:
+$V_C \cup V_F \subset V_T$.\footnote{KerML \S8.4.3.2 allows a \texttt{Type} that is not a \texttt{Classifier} or a \texttt{Feature}---e.g.\ an element declared with the bare \texttt{type} keyword rather than \texttt{classifier} or \texttt{feature}.  (\texttt{DataType} is \emph{not} such an example: it specializes \texttt{Classifier}, so it is already in $V_C$.)}
+
+\pn Furthermore, we assume that classifiers and features are disjoint, $V_C \cap V_F = \emptyset$.
+
+\subsection{Design}
+
+\pn A KerML \bemph{design}, $D$,\index{ D@$D$ design} 
+is the set of all elements in the database or workspace.  This includes all KerML libraries, standard or not.
+ Design elements may be stored according to KerML 10.  In the following, concrete syntax will be used with the understanding of its correspondence to abstract syntax.
+
+
+\section{Type}
+
+\pn A \texttt{Type} is a set of values.  Therefore it is a member of the universe of sets:  $\mathrm{V}$.
+The set of things classified by a type is the \bemph{extent} of the type, each
+member of which is an \bemph{instance} of the type.
+
+\pn ``\texttt{type}~$A$" represents program text where $A$ is an identifier (a String) of the
+type, not the set the type itself is.  $A$ ranges over $ID$, the class of identifiers (see
+\ref{eq:df-rep}).  Rather than an unstructured stand-in for ``this identifier was declared with
+the \texttt{type} keyword," the concrete KerML text ``\texttt{type}~$A$" is formalized directly as
+membership of a $\mathrm{Design}$-triple: $Design$ is the design (the set of all elements in the
+database or workspace, \S2.1.2), and $\langle \mathsf{TYPE}, A, C \rangle \in Design$ says some
+design element's triple representation (\ref{eq:df-rep}) has kind $\mathsf{TYPE}$ and identifier
+$A$.  $\mathsf{TYPE}$ is deliberately \emph{not} one of \texttt{df-kind}'s fourteen enumerated
+kinds (\ref{eq:df-kind}): \S2.1.1 already treats $V_C \cup V_F$ as a proper subset of $V_T$, so
+$\mathsf{TYPE}$ marks a design element outside that enumeration, not a fifteenth member of it.
+Given that premise, $C$ --- the type's extent, i.e.\ what $A$ denotes --- is a genuine set.
+
+\begin{restatable}{definition}{dftype}~\blTitle{df-type}~ Define \texttt{type}.
+\begin{align}
+\vdash \mc{A} \in \,\mathrm{ID}\quad\&\quad \vdash \langle \mathsf{TYPE} , \mc{A} , \mc{C} \rangle
+    \in \,\mathrm{Design}\quad\Rightarrow\quad \vdash \mc{C} \in
+    \,\mathrm{V}\label{eq:df-type}\tag{df-type}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{leandefinition}{Design}~\leanTitle{Design}~ Define \texttt{type} in Lean.
+\texttt{DesignKind} is a fresh sum type, not \texttt{ElementKind}: a \texttt{Design} triple's
+kind slot must hold either one of \texttt{ElementKind}'s fourteen tags or \texttt{type}, and
+\texttt{type} is deliberately excluded from \texttt{ElementKind} itself.  Unlike \texttt{df-type},
+no separate ``is a genuine set" assertion is needed here: \texttt{Set KElement} already
+guarantees \texttt{C} is a real value for every triple in \texttt{Design}, so the declarations
+below are the complete translation.
+
+\texttt{\textcolor{leancolor}{inductive} \textcolor{leanyellow}{DesignKind}}
+
+\texttt{~~| ofElementKind (k : ElementKind) | type}
+
+\texttt{\textcolor{leancolor}{axiom} \textcolor{leanyellow}{Design} : Set (DesignKind $\times$ ID $\times$ Set KElement)}
+\label{Design}
+\end{restatable}
+
+\pn Let $V_T$ be the set of all \texttt{Types} in the design (\S2.1.1's vocabulary triple $V =
+\langle V_T, V_C, V_F \rangle$) --- a primitive $df\text{-}types$ \emph{constrains} rather than
+fully defines, matching its own implication (not equation) form below. For every identifier $x$,
+if $x$ is declared with the bare \texttt{type} keyword --- the same $Design$-triple-membership
+reading \ref{eq:df-type} gives that text --- then $x \in V_T$.
+
+\begin{restatable}{definition}{dftypes}~\blTitle{df-types}~ Define \texttt{Types}.
+\begin{align}
+\vdash ( \msc{x} \in \,\mathrm{ID} \rightarrow ( \exists \msc{y} \langle \mathsf{TYPE} , \msc{x} ,
+    \msc{y} \rangle \in \,\mathrm{Design} \rightarrow \msc{x} \in \,\mathrm{VT}
+    ) )\label{eq:df-types}\tag{df-types}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{leandefinition}{VT}~\leanTitle{VT}~ Define \texttt{Types} in Lean. Unlike
+\texttt{df-type} above, this genuinely needs to stay an axiom here too: \texttt{VT} is
+independently primitive on both sides, so there's no automatic Lean-typing shortcut this time.
+
+\texttt{\textcolor{leancolor}{axiom} \textcolor{leanyellow}{VT} : Set ID}
+
+\texttt{\textcolor{leancolor}{axiom} \textcolor{leanyellow}{df\_types} : $\forall$ x : ID, ($\exists$ y, (DesignKind.type, x, y) $\in$ Design) $\to$ x $\in$ VT}
+\label{VT}
+\end{restatable}
+
+\subsection{Type Operators}
+
+\pn A type may be defined using type operators on already defined types.  Specialization, \texttt{:>} or \texttt{specializes}, is most commonly used for subsetting, but union, intersection, difference, and disjoint are provided.  Conjugation reverses direction of features, so will be considered in \ref{sec:direction}.
+
+\pn A specialization of a \texttt{Type} is its subset (subclass).  For all types $t_s$ and $t_g$ in $V_T$, $t_s$ specializing $t_g$ implies that $t_s$ is a subset (subclass) of $t_g$.
+
+\begin{restatable}{definition}{dfspecializes}~\blTitle{df-specializes}~ Define \texttt{specializes}.  
+\begin{align}
+\vdash \forall t_g , t_s \in V_T ~(\texttt{type}~t_s~\texttt{specializes}~t_g ~\rightarrow~ t_s \subseteq t_g)\label{eq:df-specializes}\tag{df-specializes}
+\end{align}
+\end{restatable}
+
+\pn The subclass relationship is defined in \ref{eq:df-ss}.
+
+\pn When a type specializes multiple supertypes, (\ref{eq:df-specializes}) applies to \emph{each} generalization independently, so $t_s$ must be a subset of \emph{every} one of them---hence a subset of their \emph{intersection}.
+
+\begin{restatable}{definition}{dfmultspec}~\blTitle{df-multspec}~ Define multiple \texttt{specializes}.
+\begin{align}
+\vdash \forall t_g ,~ \ldots,~ t_j, t_s \in V_T ~(\texttt{type}~t_s~\texttt{specializes}~t_g,~ \ldots, ~t_j ~\rightarrow~ t_s \subseteq t_g \cap \ldots \cap t_j)\label{eq:df-multspec}\tag{df-multspec}
+\end{align}
+\end{restatable}
+
+\pn The intersection relationship is defined in \ref{eq:df-in}.
+
+
+\pn The \texttt{unions} of \texttt{Types} is the set of elements in at least one of them.  Although just a pair of \texttt{Types} is used in the definition,
+\texttt{unions} generalizes to any number of \texttt{Types}.  Unlike ordinary multiple specialization (\ref{eq:df-multspec}), which only bounds $t_s$ within the \emph{intersection} of its generalizations, \texttt{unions} asserts that $t_a$ \emph{equals} the union of its unioning types (KerML \S8.4.3.2, rule~3)---so \texttt{unions} is \emph{not} superfluous.
+
+\begin{restatable}{definition}{dfunions}~\blTitle{df-unions}~ Define \texttt{unions}.  
+\begin{align}
+\vdash \forall t_a , t_b, t_c \in V_T~(\texttt{type}~t_a~\texttt{specializes}~t_b~\texttt{unions}~t_c~ \rightarrow~ t_a~=~t_b \cup t_c)\label{eq:df-unions}\tag{df-unions}
+\end{align}
+\end{restatable}
+
+%\begin{definition} Define union of two classes.  
+%\begin{align}
+%(\mc{A}~\cup~\mc{B})~=~\{~x~\vert ~(x \in \mc{A}~\vee~x \in\mc{B})~\} \label{eq:df-un}\tag{df-un}
+%\end{align}
+%\end{definition}
+
+\pn The \texttt{intersects} of \texttt{Types} is the set of elements in all of them.  
+%Although just a pair of \texttt{Types} is used in the definition,
+%\texttt{intersects} generalizes to any number of \texttt{Types}.
+
+\begin{restatable}{definition}{dfintersects}~\blTitle{df-intersects}~  Define \texttt{intersects}.  
+\begin{align}
+\vdash \forall t_a , t_b, t_c \in V_T~(\texttt{type}~t_a~\texttt{specializes}~t_b~\texttt{intersects}~t_c~ \rightarrow ~t_a~=~t_b \cap t_c)\label{eq:df-intersects}\tag{df-intersects}
+\end{align}
+\end{restatable}
+
+%The intersection relationship is defined in \ref{eq:df-in}.
+%\begin{definition} Define intersection of two classes.  
+%\begin{align}
+%(\mc{A}~\cap~\mc{B})~=~\{~x~\vert ~(x \in \mc{A}~\wedge~x \in\mc{B})~\} \label{eq:df-in}\tag{df-in}
+%\end{align}
+%\end{definition}
+\pn The intersection relationship is defined in \ref{eq:df-in}.
+
+\pn The \texttt{differences} of \texttt{Types} is class difference.
+
+\begin{restatable}{definition}{dfdifferences}~\blTitle{df-differences}~ Define \texttt{differences}.  
+\begin{align}
+\vdash \forall t_a , t_b, t_c \in V_T~(\texttt{type}~t_a~\texttt{specializes}~t_b~\texttt{differences}~t_c~ \rightarrow ~t_a~=~(t_b~\backslash~ t_c))~\label{eq:df-differences}\tag{df-differences}
+\end{align}
+\end{restatable}
+
+\pn The class difference relationship is defined in \ref{eq:df-dif}.
+
+
+\pn \texttt{Types} are \texttt{disjoint} when their intersection is the empty set (KerML \S8.4.3.2, rule~2): $t_a$ must still be a subset of $t_b$ per \texttt{specializes}, but need only have empty intersection with $t_c$---not equal a class difference.
+
+\begin{restatable}{definition}{dfdisjoint}~\blTitle{df-disjoint}~  Define \texttt{disjoint}.
+\begin{align}
+\vdash \forall t_a , t_b, t_c  \in V_T~(\texttt{type}~t_a~\texttt{specializes}~t_b~\texttt{disjoint}~\texttt{from}~t_c ~\rightarrow~  ~t_a \subseteq t_b~\wedge~t_a \cap t_c = \emptyset)\label{eq:df-disjoint}\tag{df-disjoint}
+\end{align}
+\end{restatable}
+
+\subsection{Type Operator Composition}
+
+\pn \texttt{Type} abstract syntax (KerML \S8.3.3.1.1) defines \texttt{Specialization}, \texttt{Disjoining}, \texttt{Unioning}, \texttt{Intersec\-ting}, and \texttt{Differencing} as \texttt{Relationship}.
+\texttt{Type} concrete syntax (KerML \S8.2.4.1.1) requires at least one \texttt{SpecializationPart} followed by any number of \texttt{TypeRelationshipPart}, which are disjoining, differencing, 
+intersecting, and unioning.
+\texttt{Type} abstract syntax does not appear to have any ordering among its type relationships.  
+
+\pn Are these the same?
+
+\begin{lstlisting}
+type A specializes B unions C intersects D differences E disjoint from F
+\end{lstlisting}
+\[ A \subseteq (((( B \cup C) \cap D)\backslash E)\backslash F) \]
+
+\begin{lstlisting}
+type A specializes B intersects D differences E unions C disjoint from F
+\end{lstlisting}
+\[ A \subseteq (((( B \cap D)\backslash E)\cup C)\backslash F) \]
+
+\begin{lstlisting}
+type A specializes B differences E disjoint from F unions C intersects D
+\end{lstlisting}
+\[ A \subseteq (((( B\backslash E)\backslash F)  \cup C) \cap D)\]
+
+\pn Certainly not.  Therefore the abstract syntax must preserve ordering of type operators in the concrete syntax.\footnote{ISSUE}
+
+\subsection{Type Multiplicity}
+
+\pn When declaring a type as a specialization of another type, the number of elements in the new type can be restricted to a \bemph{multiplicity}, a.k.a. cardinality.  
+
+\pn $\mathrm{card} ` \mc{A}$ is application of the cardinality operator to a class in Metamath which will be abbreviated as  $\#\mc{A}$, or $\#\{x~\vert~some rule~\}$ when using class abstraction, or $\#\{a, b, c\}$ when a set is defined by listing its elements.
+
+\begin{restatable}{definition}{dfcardinality}~\blTitle{df-cardinality}~ Define class cardinality (\#).  
+\begin{align}
+\vdash \#\mc{A}~\equiv \mathrm{card} ` \mc{A}~\label{eq:df-cardinality}\tag{df-cardinality}
+\end{align}
+\end{restatable}
+
+\pn Multiplicity for types is defined by placing the value in square brackets, [ ].
+
+\begin{restatable}{definition}{dftypemultiplicity}~\blTitle{df-typemultiplicity}~ Define type multiplicity
+\begin{align}
+\texttt{type B[n] specializes A;} \Rightarrow \notag \\
+\vdash (~\mc{B}~\subseteq \mc{A}~\wedge~n\le\#\mc{A}~\wedge~\#\mc{B}=n~)
+\label{eq:df-typemultiplicity}\tag{df-typemultiplicity}
+\end{align}
+\end{restatable}
+
+\pn Nothing in a system is infinite.  Therefore [*] is undefined multiplicity--not infinite multiplicity.
+
+\pn Undefined multiplicity must be specialized into something defined, or is in error.
+
+\pn \texttt{type B[*] specializes A;} means $\mc{B}~\subseteq \mc{A}$.
+
+\pn Multiplicity range constrains cardinality to that range.
+
+\begin{restatable}{definition}{dftypemultiplicityrange}~\blTitle{df-typemultiplicityrange}~ Define type multiplicity range
+\begin{align}
+\texttt{type B[m..n] specializes A;} \Rightarrow \notag \\
+\vdash (~\mc{B}~\subseteq \mc{A}~\wedge~n\le\#\mc{A}~~\wedge~m\le\#\mc{B}~\wedge~\#\mc{B}\le n~)
+\label{eq:df-typemultiplicityrange}\tag{df-typemultiplicityrange}
+\end{align}
+\end{restatable}
+
+
+\section{Features Semantics (KerML 8.4.3.4)}
+
+\pn A \texttt{Feature}\index{feature} is a relation--a set of pairs.  The set of first elements of the pairs of a \texttt{Feature} is the \bemph{domain} of the relation and \bemph{featuring type} of the \texttt{Feature}.  The set of second elements of the pairs of a \texttt{Feature} is the \bemph{co-domain} of the relation and \bemph{featured type}.
+
+\pn Let $V_F$ be the set of all \texttt{Features} in the design $D$:  $V_F \subset D$, then for all elements in the design, an element being defined a \texttt{feature} implies the element is a member of $V_F$.
+
+\begin{restatable}{definition}{dffeature}~\blTitle{df-feature}~  Define \texttt{feature}.  
+\begin{align}
+\forall f \in D~(\texttt{feature}~f~ \rightarrow ~f \in V_F)~\label{eq:df-feature}\tag{df-feature}
+\end{align}
+\end{restatable}
+
+Note:  $V_F$ only contains stand-alone  \texttt{Features}.  Most  \texttt{Features} are declared within the \texttt{TypeBody} of a type declaration.
+
+\subsection{Featured By}  
+
+\pn A \texttt{Feature} can be declared as a stand-alone entity.
+
+\pn Where Y and Z are names of \texttt{Types}:
+\ecaption{Featured By}
+\begin{lstlisting}
+feature x typed by Y featured by Z;
+\end{lstlisting}
+says $x$ is a class of pairs where the first element is from $\mc{Z}$ and the second element is from $\mc{Y}$.
+
+\ref{eq:df-featuredby} defines a relation with domain $\mc{Z}$ and co-domain $\mc{Y}$ without constraining its cardinality.
+
+
+\begin{restatable}{definition}{dffeaturedby}~\blTitle{df-featuredby}~   Define \texttt{featured by}
+\begin{align}
+\texttt{feature}~x~\texttt{typed by}~ Y ~\texttt{featured by}~ Z~\texttt{;}~\Rightarrow  \notag \\
+\vdash ~x=\{~\langle \textbf{feature},``x",\mc{C}\rangle~\vert~\mc{C}~=~\{~\langle z,y\rangle~\vert~y \in \mc{Y} \wedge z \in \mc{Z}~\}~\}~\label{eq:df-featuredby}\tag{df-featuredby}
+\end{align}
+\end{restatable}
+
+Note:  $\mc{Z}$ doesn't ``know'' about \texttt{Feature} $x$; something else needed a relation with domain $\mc{Z}$ and co-domain $\mc{Y}$.
+
+
+\subsection{Domain-less Feature}  
+
+\pn A \texttt{Feature} can be defined without a domain, which defaults to the Universe $\mathrm{V}$.
+
+\begin{restatable}{definition}{dfdomainless}~\blTitle{df-domainless}~   Define domain-less \texttt{Feature}
+\begin{align}
+\texttt{feature}~x~\texttt{typed by}~ Y ~\texttt{;}~\Rightarrow  \notag \\
+\vdash~x=\{~\langle \textbf{feature},``x",\mc{C}\rangle~\vert~\mc{C}~=~\{~\langle z,y\rangle~\vert~y \in \mc{Y} \wedge z \in \mc{\mathrm{V}}~\}~\}~\label{eq:df-domainless}\tag{df-domainless}
+\end{align}
+\end{restatable}
+
+\ref{eq:df-domainless} defines a relation with domain $\mc{\mathrm{V}}$, the universe, and co-domain $\mc{Y}$ 
+
+%\comment{Philosophical Rant:  Domain-less features are endemic in .kerml libraries.  Then, most feature declarations \texttt{subsets} some domain-less feature.
+%Thus, understanding a feature declaration, requires looking in two places--at least.  The penchant for using inheritance means multiple levels of indirection.
+%Indiscriminate inheritance may be entirely understandable to those with a UML mindset, but is frightful for users.  I'm certain that popularity of Rust comes from 
+%prohibition of inheritance more than memory safety.  If KerML had a language construct for \texttt{self}, there would less need for feature chaining or \texttt{this} and \texttt{that}.  
+%Cyclic definitions could also be \bemph{prohibited}. }
+%\begin{lstlisting}
+%	abstract classifier Anything {
+%		doc
+%		/*
+%	     * Anything is the top level generalized type in the language. 
+%	     */
+%		
+%		feature self: Anything[1] subsets things chains things.that {
+%			doc
+%			/*
+%			 * The source of a SelfLink of this thing to itself. self is thus a feature that
+%			 * relates everything to itself. It is also the value of the nested "that" feature
+%			 * of all other things featured by this thing.
+%			 */
+%		}
+%	}
+%\end{lstlisting}
+%\begin{lstlisting}
+%	abstract feature things: Anything [1..*] nonunique {
+%		doc
+%		/*
+%		 * things is the top-level feature in the language.
+%		 */
+%
+%		feature that : Anything[1] {
+%			doc
+%			/*
+%			 * For each value of things, the "featuring instance" of that value. 
+%			 * This is enforced by declaring Anything::self to be the chaining of things.that, 
+%			 * restricting it the single value of self.
+%			 */			
+%		}
+%	}
+%\end{lstlisting}
+%\comment{THERE IS ABSOLUTELY NOTHING WHICH SAYS \texttt{that} REFERS TO THE DOMAIN OF \texttt{things} OTHER THAN DOC ANNOTATIONS!
+%If \texttt{Anything} is the top-level generalized type, why is it declared as \texttt{classifier}?
+%Rant off.}
+
+
+\section{Types with Features (KerML 8.4.3.5)}
+
+\pn Type specialization was defined by (\ref{eq:df-specializes}) to be subset.  However, having feature members of types makes types concrete.  
+If types are sets of values in $\mathrm{V}$, what is the set defined by the following?
+
+\begin{lstlisting}
+type Z specializes W { feature x typed by Y; }
+\end{lstlisting}
+
+\pn For this, \texttt{Z} will be defined by a \bemph{rule}.  A collection defined by a rule is a \bemph{class} (in ZFC set theory [\ref{sec:sets}]).
+To do so, there must be some way to refer to the identifier of the feature in the rule defining a class.  To do so, by convention we will use the type identifier as the variable used to define the class, and refer to a feature of the type by a period between the type identifier and feature identifier.
+
+
+\subsection{Feature Member:}  
+\pn Usually \texttt{Features} are defined as a \texttt{FeatureMember} in \texttt{TypeBody} (KerML 8.2.4.1).
+
+\ecaption{Type with Feature Member}
+\begin{lstlisting}
+type Person specializes Anything { feature familyname typed by String; }
+\end{lstlisting}
+says type \emph{Person} has a feature named \emph{familyname} which is a relation having domain \emph{Person} and co-domain \emph{String}.
+
+\pn First of all, given default multiplicity of one, the relation of feature \emph{familyname} will have only a single pair, $\{~\langle p,s\rangle~\}$ where $p \in Person$ and $s \in String$.
+Expressing the class of all possible Person(s) requires using (\ref{eq:df-rep}).
+
+\pn The type \emph{Person} will be the class of all triples:
+
+\[ 
+\mc{Person}=\{~\langle$\textbf{type}$,w,\langle \mc{C},\mc{F}\rangle\rangle~\vert~
+\begin{array}{c}
+w=W($``Person''$)~\wedge~  \mc{C}= \{~c~\vert ~c\in \mc{Anything}\}~\wedge~b \in \mc{String}~\\
+\wedge~ \mc{F}~=~\{ ~\langle$\textbf{feature}$,$``familyname''$,\langle w,b\rangle\rangle~\}
+\end{array}
+ ~\} 
+\]
+
+\pn So, $Person$ is a class of triples, the first element is \textbf{type}, the second element is wonce of the string ``Person'', and the third element is a pair of classes $\langle C,F\rangle$.  $C$ is the class of all $c$ such that $c$ is $Anything$.
+$F$ is a set containing a single triple for the \texttt{familyname} feature having domain $w$ and co-domain $b$ which holds the family name string.
+%\pn Importantly, the domain of the relation $w$ is the same value as the containing triple.  This makes the relation apply to that particular person.  Here, $w$ performs the function of \texttt{self} applied to a type, and \texttt{that} applied to a feature.
+
+\begin{restatable}{definition}{dffeaturemember}~\blTitle{df-featuremember}~   Define \texttt{Feature Member}
+\begin{align}
+\texttt{type}~ Z~\texttt{specializes}~T~\{ \texttt{feature}~ x ~\texttt{typed by}~ Y~\texttt{;} \}~\Rightarrow  \notag \\
+\mc{Z}=\{~\langle \textbf{type},w,\langle \mc{C},\mc{F}\rangle\rangle ~\vert~
+w=W(``Z")~ \wedge 
+\mc{C}=\{~c~\vert ~c \in \mc{T}~\}~\wedge~\notag \\
+~b\in \mc{Y}~\wedge~\mc{F}~=~\{~\langle\textbf{feature},``x",\langle w,b \rangle\rangle~\}~\}~\label{eq:df-featuremember}\tag{df-featuremember}
+\end{align}
+\end{restatable}
+
+\pn This says that \texttt{type Z} is the class of all tuples where the first element is \textbf{type} (indicating it is a type), the second element is the wonce of the string ``Z'', and the third element is itself a pair of class $\langle \mc{C},\mc{F}\rangle$ where $\mc{C}$ has type $\mc{T}$ and $\mc{F}$ is a set having a single element for feature $x$ which holds a pair 
+the first element is $w$ and the second element is a $\mc{Y}$.
+%The $\langle C,F\rangle$ creates \emph{two} classes for $x$: one for $x$ itself, the other for feature $x.w$.
+
+%\pn \texttt{Feature} $x$ does not have the same meaning as in (\ref{eq:df-featuredby}).  The differences are that $x$ is a feature of $Z$,  and $x$ is a relation containing a single pair.  
+%\comment{(\ref{eq:df-featuremember}) imposes multiplicity/cardinality of one.}
+
+\subsection{Feature with Feature}
+
+\pn Because features are types, they can have their own features.
+
+\begin{restatable}{definition}{dffeatureoffeature}~\blTitle{df-featureoffeature}~   Define \texttt{featured by}
+\begin{align}
+\texttt{feature}~x~\texttt{typed by}~ Y ~\{~\texttt{feature}~w~\texttt{typed by}~ Z~\}~\Rightarrow  \notag \\
+\mc{x}=\{~\langle \textbf{feature},``x",\langle \mc{C},\mc{F}\rangle\rangle~\vert~\mc{C}~=~\{~\langle v,y\rangle~\vert~y \in \mc{Y} \wedge v \in \mc{\mathrm{V}}~\} \notag \\
+~\wedge~\mc{F}~=~\{~\langle\textbf{feature},``w",\langle c,z\rangle\rangle~\vert~c~\in~\mc{C}~\wedge~z~\in~\mc{Z}~\}~\}~\label{eq:df-featureoffeature}\tag{df-featureoffeature}
+\end{align}
+\end{restatable}
+
+\pn Feature $\mc{x}$ is domain-less so get default domain of the universe, $\mc{\mathrm{V}}$.  Feature $x$ is still a relation (set of pairs), but has its own member feature $w$, which is also a relation, but its domain is a pair $\langle v,y\rangle$ from $x$ and co-domain $z$.
+The $\langle \mc{C},\mc{F}\rangle$ creates \emph{two} classes for $x$: one for $x$ itself, the other for feature $x.w$.
+%See (\ref{eq:df-featuremember}) for a simpler type having a feature.
+
+\subsection{Fixed Feature Multiplicity}  
+
+\pn A Feature Member can have multiplicity, in square brackets, \texttt{[ ]}, either following the identifier of the feature, or after the featured type, but not both.
+When multiplicity is a natural number, that indicates the cardinality (number of pairs) of the relation.
+
+\ecaption{Fixed Feature Multiplicity}
+\begin{lstlisting}
+type Person { feature parent[2] typed by Person; }
+\end{lstlisting}
+says each \bemph{Person} \texttt{Type} must have a relation named \bemph{parent} having exactly two pairs, with the first element being the featuring \bemph{Person}, and the second element being \bemph{different} featured \bemph{Persons}.  
+
+\begin{gather}
+\mc{Person} = \{~\langle \textbf{type},w,\mc{C}\rangle~\vert~w=W(``Person")~\wedge \{y_1,y_2 \} \in \mc{Person} \notag \\
+~\wedge~ \mc{C}=\{~\langle~\textbf{feature}, ``parent",\mc{R} \rangle~\vert ~\mc{R}=\{~\langle w,y_1\rangle,~\langle w,y_2\rangle~\}~\}~\} \notag
+\end{gather}
+
+\pn Default for multiplicity is \texttt{unique}.  (Sets and classes have no repeated elements.  For \texttt{nonunique} something other than sets or classes must be used.)
+
+\begin{restatable}{definition}{dffixedfeaturemultiplicity}~\blTitle{df-fixedfeaturemultiplicity}~   Define \texttt{Fixed Multiplicity}
+\begin{align}
+\texttt{type}~ Z ~\texttt{\{ feature}~ x[k] ~\texttt{typed by}~ Y~\texttt{; \}}~\Rightarrow  \notag \\
+\mc{Z}=\{~\langle \textbf{type},w,\mc{C}\rangle~\vert~w=W(``Z")~\wedge \{y_1,\ldots,y_k \} \in \mc{Y} \notag \\
+~\wedge~ \mc{C}=\{~\langle~\textbf{feature}, ``x",\mc{R} \rangle~\vert ~\mc{R}=\{~\langle w,y_1\rangle,\ldots,\langle w,y_k\rangle~\}~\}~\}~\label{eq:df-fixedfeaturemultiplicity}\tag{df-fixedfeaturemultiplicity}
+\end{align}
+\end{restatable}
+
+\pn The $y_1,\ldots,y_k$ are \texttt{unique} because $\mc{R}$ is a set and cannot contain duplicate pairs.
+
+\subsection{Unbound Feature Multiplicity}  
+
+\pn Multiplicity of a Feature Member may be unknown, or may be differ between instances, indicated by a star in square brackets, \texttt{[*]}.  Such unknown or undefined multiplicity is \bemph{unbound} not \bemph{infinite}.
+
+\ecaption{Unbound Feature Multiplicity} 
+\begin{lstlisting}
+type Person { feature children[*] typed by Person; }
+\end{lstlisting}
+says each Person \texttt{Type} must have a relation named ``children'' having any (natural) number of pairs, with the first element being the featuring Person, and the second element being \bemph{different} featured Persons.  
+
+\begin{restatable}{definition}{dfundefinedfeaturemultiplicity}~\blTitle{df-undefinedfeaturemultiplicity}~ \\ ~~ Define \texttt{Undefined Feature Multiplicity}
+\begin{align}
+\texttt{type}~ Z ~\texttt{\{ feature}~ x[\star] ~\texttt{typed by}~ Y~\texttt{; \}}~\Rightarrow  \notag \\
+\mc{Z}=\{~\langle \textbf{type},w,\mc{C}\rangle~\vert~w=W(``Z")~\wedge~k \in \mathbb{N}_0~\wedge \{ y_1,\ldots,y_k \} \subseteq \mc{Y} \notag \\
+~\wedge~ \mc{C}=\{~\langle~\textbf{feature}, ``x",\mc{R} \rangle~\vert ~\mc{R}=\{~\langle w,y_1\rangle,\ldots,\langle w,y_k\rangle~\}~\}~\}~\label{eq:df-undefinedfeaturemultiplicity}\tag{df-undefinedfeaturemultiplicity}
+\end{align}
+\end{restatable}
+
+The cardinality of $x$ may be zero or greater.
+%\comment{Defining * as `infinity' is erroneous.  No constructed system has infinite anything.}
+
+\subsection{Feature Multiplicity Range}  
+
+\pn Multiplicity may also be defined as a range.  The upper bound of multiplicity range may be undefined.
+
+\ecaption{Feature Multiplicity Range}
+\begin{lstlisting}
+type Person { feature bff[2..6] typed by Person; }
+\end{lstlisting}
+says each Person \texttt{Type} must have a relation named ``bff'' having from two to six (inclusive) pairs, with the first element being the featuring Person, and the second element being \bemph{different} featured Persons.  
+
+\begin{restatable}{definition}{dffeaturemultiplicityrange}~\blTitle{df-featuremultiplicityrange}~   Define \texttt{Feature Multiplicity Range}
+\begin{align}
+\texttt{type}~ Z ~\texttt{\{ feature}~ x[l..u] ~\texttt{typed by}~ Y~\texttt{; \}}~\Rightarrow  \notag \\
+\mc{Z}=\{~\langle \textbf{type},w,\mc{C}\rangle~\vert~w=W(``Z")~\wedge~\{ y_l,\ldots,y_u\} \subseteq \mc{Y} \notag \\
+~\wedge~ \mc{C}=\{~\langle~\textbf{feature}, ``x",\mc{R} \rangle~\vert ~\mc{R}=\{~\langle w,y_l\rangle,\ldots,\langle w,y_u\rangle~\}~\}~\}\label{eq:df-featuremultiplicityrange}\tag{df-featuremultiplicityrange}
+\end{align}
+\end{restatable}
+
+\pn The upper bound of multiplicity range may also be undefined.
+
+\begin{restatable}{definition}{dffeaturemultiplicityrangestar}~\blTitle{df-featuremultiplicityrangestar}~ \\~~  Define \texttt{Feature Multiplicity Range Star}
+\begin{align}
+\texttt{type}~ Z ~\texttt{\{ feature}~ x[l..\star] ~\texttt{typed by}~ Y~\texttt{; \}}~\Rightarrow  \notag \\
+\mc{Z}=\{~\langle \textbf{type},w,\mc{C}\rangle~\vert~w=W(``Z")~\wedge~k \in \mathbb{N}_0~\wedge \{ y_l,\ldots,y_k \} \subseteq \mc{Y} \notag \\
+~\wedge~ \mc{C}=\{~\langle~\textbf{feature}, ``x",\mc{R} \rangle~\vert ~\mc{R}=\{~\langle w,y_l\rangle,\ldots,\langle w,y_k\rangle~\}~\}~\}~~\label{eq:df-featuremultiplicityrangestar}\tag{df-featuremultiplicityrangestar}
+\end{align}
+\end{restatable}
+
+\subsection{Type Membership Feature}
+\comment{Feature Member and Membership Feature are easily confused.  I'm not sure how to represent \texttt{owned} or not in ZFC.}
+
+\pn If a feature declaration in the body of type is preceded by the keyword \texttt{member}, then the feature is owned by the containing type via a membership relationship, not a feature membership. In this case, the feature is not an owned feature of the containing type, and it does not automatically have the containing type as a featuring type, though it may have featuring types declared in its \texttt{featured by} list 
+(see KerML \S7.3.4.1 on declaring the owned typings of a feature).
+
+\ecaption{Member Feature}
+\begin{lstlisting}
+type A; type C;
+type B {
+  // Feature f has B as its featuring type, and C as its featured type. 
+  feature f typed by C;
+  // Feature g has A as its featuring type, not B.
+  member feature g typed by C featured by A; }
+\end{lstlisting}
+
+\begin{restatable}{definition}{dfmembershipfeature}~\blTitle{df-membershipfeature}~   Define Membership.
+\begin{align}
+\texttt{type}~ B~\{ \texttt{member feature}~ g ~\texttt{typed by}~ C~\texttt{featured by}~A~\texttt{; \}}~\Rightarrow  \notag \\
+\mc{B}=\{~\langle \textbf{type},w,\mc{M}\rangle~\vert~w=W(``B")~\wedge c \in \mc{C}~\wedge a \in \mc{A} \notag \\
+~\wedge~ \mc{M}=\{~\langle~\textbf{member}, ``g",\mc{R} \rangle~\vert ~\mc{R}=\{~\langle a,c\rangle~\}~\}~\}
+\label{eq:df-membershipfeature}\tag{df-membershipfeature}
+\end{align}
+\end{restatable}
+
+\subsection{Multiple Type Body Elements}
+
+\pn A \texttt{TypeBody} may have multiple elements of various kinds.  Each element is semantically represented by a triple, the first element telling what kind of element it is, the second element containing a string with its identifier, and the third element it ZFC-class definition.
+However, rather than the type's (single) ZFC-class definition, it has a tuple with an entry for each type body element.
+
+\pn In the definition, \texttt{feature} elements are used, without loss of generality (substituting the appropriate triple).
+
+\ecaption{Type with Multiple Features}
+\begin{lstlisting}
+type Z {
+  feature x1 typed by Y1;
+  feature x2 typed by Y2;
+  . . .
+  feature xj typed by Yj;
+}
+\end{lstlisting}
+
+\begin{restatable}{definition}{dftypebody}~\blTitle{df-typebody}~   Define multiple \texttt{TypeBody} elements.
+\begin{align}
+\texttt{type}~ Z~\{~ \texttt{feature}~ x_1 ~\texttt{typed by}~ Y_1~\texttt{;}~\ldots~
+  \texttt{feature}~ x_j ~\texttt{typed by}~ Y_j~\texttt{;}\}~\Rightarrow  \notag \\
+\mc{Z}=\{~\langle \textbf{type},w,\langle \mc{C_1},\ldots,\mc{C_j}\rangle~\rangle~\vert~w=W(``Z")~\wedge y_1 \in \mc{Y_1} \wedge\ldots\wedge y_j \in \mc{Y_j} \notag \\
+~\wedge~ \mc{C_1}=\{~\langle~\textbf{feature}, ``x_1",\mc{R_1} \rangle~\vert ~\mc{R_1}=\{~\langle w,y_1\rangle~\}~\} \notag \\
+~~~\wedge~\ldots~\wedge %\notag \\
+~~\mc{C_j}=\{~\langle~\textbf{feature}, ``x_j",\mc{R_j} \rangle~\vert ~\mc{R_j}=\{~\langle w,y_j\rangle~\}~\} ~\}
+\label{eq:df-typebody}\tag{df-typebody}
+\end{align}
+\end{restatable}
+
+\begin{description}
+\item[Unique: ] Sets and classes disallow repeated elements, so unique is appropriate default for features.
+\item[Non-unique: ] A feature may be \texttt{nonunique} then for any \bemph{domain} instance, the same \bemph{co-domain} instance may appear more than once as a value of the feature.
+Non-unique beaks the definition of features as relations, and is nonsensical except in terms of a stream of values over time, such as sensor measurements, which will be defined temporally. 
+\item[Ordered: ] A feature is ordered if its \bemph{co-domain} is ordered.
+\end{description}
+
+\begin{restatable}{definition}{dfordered}~\blTitle{df-ordered}~  Define \texttt{Ordered}
+\begin{align}
+\texttt{type}~ Z ~\texttt{\{ feature}~ x[\star] ~\texttt{ordered typed by}~ Y~\texttt{; \}}~\Rightarrow  \notag \\
+\forall \langle z,y_1\rangle, \langle z,y_2\rangle~\in~Z.x~\vert~(y_1<y_2)~\rightarrow ( \langle z,y_1\rangle< \langle z,y_2\rangle)~\label{eq:df-ordered}\tag{df-ordered}
+\end{align}
+\end{restatable}
+
+Of course, if the co-domain, $Y$ is not ordered, the feature $x$ cannot be ordered.  The relation $<$ is a total ordering on $Y$ iff:
+\begin{itemize}
+\item $\forall y_1, y_2 \in Y~\vert~y_1\ne y_2~\rightarrow y_1<y_2~\vee~y_2<y_1$
+\item $\forall y_1, y_2, y_3 \in Y~\vert~y_1<y_2~\wedge~y_2<y_3~\rightarrow~y_1<y_3$
+\end{itemize}
+
+\subsection{Feature Direction and Conjugation}\label{sec:direction}
+
+\pn Feature \bemph{direction} \texttt{in}, \texttt{out}, and \texttt{inout} determines what is allowed to change values of a feature's co-domain.  This applies to instances of a type having a directed feature.  Conjugation of a type, \texttt{\midtilde}, reverses direction of its features.
+Semantics of directed features requires different values at different times is defined in terms of modal logic in section \ref{sec:variables}.
+
+\subsection{Type Specialization with Features} 
+
+\pn  The class definition of a type $Z$ having feature $x$ requires elements of $Z$ to have a relation $Z.x$, but may have other things as well.
+(\ref{eq:df-specializes}) defines specialization as subclassing.  Consider some other type $Y$, having a feature $x$ defined the same way as $Z$, but also having a feature $u$ (defined its own way) will be a subclass of $Z$:  $Y~\subset~Z$.
+
+\pn Let type $Z$ have a feature $x$ typed by $A$, and type $Y$ which specializes $Z$ have a feature $u$ typed by $B$:
+
+\ecaption{Type Specialization with Features}
+\begin{lstlisting}
+type Z { feature x  typed by A ; }
+type Y specializes Z { feature u typed by B ; }
+\end{lstlisting}
+
+then the class definition of $Y$ will be:
+\begin{restatable}{definition}{dfspecializationwithfeatures}~\blTitle{df-specializationwithfeatures}~  \\ ~~ Define \texttt{Type Specialization with Features}
+\begin{align}
+\texttt{type}~ Z ~\texttt{\{ feature}~ x~\texttt{typed by}~A~\texttt{; \}} \notag \\ %\notag \\
+\texttt{type}~ Y ~\texttt{specializes}~Z~\texttt{\{ feature}~ u~\texttt{typed by}~B~\texttt{; \}} ~\Rightarrow  \notag \\
+\mc{Y}=\{~\langle \textbf{type},w,\langle \mc{C_z},\mc{C_u},\mc{C_x}\rangle~\rangle~\vert~w=W(``Y")~\notag \\
+\wedge ~a \in \mc{A} ~\wedge~ b \in \mc{B}
+~\wedge~\mc{C_z}=\{~z\in \mc{Z}~\} \notag \\
+~\wedge~ \mc{C_u}=\{~\langle~\textbf{feature}, ``u",\mc{R_u} \rangle~\vert ~\mc{R_u}=\{~\langle w,b\rangle~\}~\} \notag \\
+~~~\wedge~\mc{C_x}=\{~\langle~\textbf{feature}, ``x",\mc{R_x} \rangle~\vert ~\mc{R_x}=\{~\langle w,a\rangle~\}~\} ~\}
+\label{eq:df-specializationwithfeatures}\tag{df-specializationwithfeatures}
+\end{align}
+\end{restatable}
+
+\pn Therefore $\mc{Y}~\subset~\mc{Z}$ because the rule defining class $\mc{Y}$, implies the rule defining class $\mc{Z}$.
+The rule defining the ZFC-class for $\mc{Z}$ will have the terms for $w$, $a$, and $\mc{C_x}$, which is implied by the rule for $Y$ in (\ref{eq:df-specializationwithfeatures}) by (\ref{eq:simpl}).  \comment{Full exposition and proof left to the reader.}
+
+\pn Specialization is generalized for any number of features, and specialization of specialization the same way.
+
+\subsection{Feature Inverting}  
+
+\pn Feature inverting exchanges domain with co-domain of the relation of a specific feature.
+Feature inverting does \emph{not} invert the relation itself.
+
+\pn Where Y and Z are names of \texttt{Types}:
+\ecaption{Feature Inverting} 
+\begin{lstlisting}
+feature x typed by Y featured by Z;
+inverse w of x;
+\end{lstlisting}
+says $\mc{x}$ is a class of pairs where the first element is from $\mc{Z}$ and the second element is from $\mc{Y}$, and $\mc{w}$ is a class of pairs where the first element is from $\mc{Y}$ and the second element is from $\mc{Z}$.
+
+
+\begin{restatable}{definition}{df-featureinverting}~\blTitle{df-featureinverting}~   Define \texttt{Feature Inverting}
+\begin{align}
+\texttt{feature}~x~\texttt{typed by}~ Y ~\texttt{featured by}~ Z~\texttt{;}~\notag \\ 
+\texttt{inverse}~ w ~\texttt{of} ~x~\texttt{;}~\Rightarrow  \notag \\
+~\mc{x} \subseteq~\{~\langle z,y\rangle~\vert~y \in \mc{Y} \wedge z \in \mc{Z}~\}~\wedge~w \subseteq~\{~\langle y,z\rangle~\vert~y \in \mc{Y} \wedge z \in \mc{Z}~\}
+\label{eq:df-featureinverting}\tag{df-featureinverting}
+\end{align}
+\end{restatable}
+
+\subsection{Owned Feature Inverting}  
+
+\pn Inverting an owned feature is trickier than general feature inverting.  Consider an example from KerML \S7.3.4.7:
+\ecaption{Owned Feature Inverting} 
+\begin{lstlisting}
+type Person {
+  feature children typed by Person[*];
+  feature parents typed by Person[*] inverse of children;
+  }
+\end{lstlisting}
+\pn The intent would seem to be that if Gail was a child of Paul, then Paul must be the parent of Gail.  However, \ref{eq:df-featureinverting}
+says that parents merely exchanges domain and co-domain, both of which are Person.  It does not invert the relation.  Perhaps instead we want:
+\begin{lstlisting}
+type Person; 
+feature children typed by Person featured by Person;
+parents inverse of children;
+\end{lstlisting}
+
+
+
+
+
+%\pn Given the definition of feature multiplicity ~(\ref{eq:df-undefinedfeaturemultiplicity}), \texttt{parents} cannot be the inverse of \texttt{children}!  
+%\comment{This is so obvious, does it really need to be explained?}  
+%
+%\pn Only owned features with multiplicity of one can be inverted:
+%\begin{lstlisting}
+%type Person {
+%  feature child typed by Person;
+%  feature parent typed by Person inverse of child;
+%  }
+%\end{lstlisting}
+%\pn Now \texttt{parent} is sensibly the inverse of \texttt{child} by swapping domain and co-domain of ~\ref{eq:df-featureinverting}.
+
+\subsection{Feature of Feature}  
+
+\pn Although it is confusing, features themselves may have features.  Features are types after all.  Nested features have qualified names reflecting their nesting.
+Consider:
+\ecaption{Feature of Feature} 
+\begin{lstlisting}
+type A { 
+  feature b1: B {
+    feature c1: C; 
+  }
+}
+\end{lstlisting}
+%type C {
+%  feature b2: B {
+%    feature a2: A inverse of A::b1::c1;
+%  } 
+%}
+
+\pn The domain of a nested \texttt{Feature} is its owning \texttt{Feature}.
+
+\pn By \ref{eq:df-featuremember}, feature \texttt{b1} is a set of pairs, $\{~\langle a,b\rangle~\}$ such that $a \in A$ and $b \in B$.
+Also by \ref{eq:df-featuremember} feature \texttt{c1} is a set of pairs $\{~\langle \langle a,b \rangle, c\rangle~\}$ such that $\langle a,b\rangle\in b_1$ and $c\in C$.
+The domain of \texttt{c1} is a set of pairs--not $A$ as one might expect.
+
+\comment{Make formal definition?}
+
+%\comment{This is stated nowhere.  The abstract syntax for \texttt{Feature} extends \texttt{Type}, so the domain of \texttt{b1} should be \texttt{B}--not \texttt{A}.
+%I will not bother to formally define this, because the statement above is clear enough.}
+
+%Feature \texttt{a2} is defined using the qualified name of feature \texttt{c1}.  However, feature \texttt{c1} is a relation consisting of a single pair with domain \texttt{B} and co-domain \texttt{C}, and feature \texttt{a2} is a relation consisting of a single pair with domain \texttt{B} and co-domain \texttt{A}.  So \texttt{a2} \bemph{cannot} be the inverse of \texttt{c1}!
+
+\subsection{Feature Chaining} 
+
+\pn  Features can be chained by separating their identifiers with periods.  Feature chaining is composition of their relations.
+
+\begin{restatable}{definition}{dffeaturechaining}~\blTitle{df-featurechaining}~   Define \texttt{Feature Chaining}\footnote{The ordering of the relation composition operator $\circ$ is the reverse of what you might intuit.}
+\begin{align}
+\texttt{feature}~a~\texttt{chains}~ b.c ~\texttt{;}~\Rightarrow  \notag \\
+\vdash a~=~(c~\circ~b)
+\label{eq:df-featurechaining}\tag{df-featurechaining}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{definition}{dfco}~\blTitle{df-co}~   Define composition of two relations.\footnote{The ordering of the relation composition operator $\circ$ is the reverse of what you might intuit.}
+\begin{align}
+\vdash (\mc{A}~\circ~\mc{B})~\equiv~\{~\langle x,y\rangle~\vert~\exists z ( x \mc{B} z~\wedge~z \mc{A} y )~\}
+\label{eq:df-co}\tag{df-co}
+\end{align}
+\end{restatable}
+
+\pn When chaining \texttt{b.c} the co-domain of \texttt{b} must be a subset of the domain of \texttt{c} or the chain will be empty.
+
+\pn There is no limit to feature chaining.  Therefore (\ref{eq:df-featurechaining}) may need to be applied successively.
+
+%\pn \paragraph{Composite and Portion:} Features may be declared \texttt{composite} or \texttt{portion} to indicate its existence ceases when its owner ceases to exist.  Therefore they should not be used with Types (which are immutable over time), but Classifiers which have temporal semantics.
+%Because these are temporal, definition will be deferred until \ref{par:cnp}.
+%
+%\pn \paragraph{Derived:}  Features defined as \texttt{derived} have their values determined by Relationships with other Entities.
+%
+%\pn \paragraph{Readonly:}  Features defined as \texttt{readonly} are constant, which is default.  
+%\comment{Should \texttt{readonly} be eliminated?}
+%
+%\pn \paragraph{In, Out, Inout, and Var:}  These prefixes identify features whose values (elements of the co-domain of the relation) may change over time.  Therefore they should not be used with Types (which are immutable over time), but Classifiers which have temporal semantics.
+%Because these are temporal, definition will be deferred until \ref{par:variables}.
+
+
+
+

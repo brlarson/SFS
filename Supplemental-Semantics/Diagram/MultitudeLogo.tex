@@ -1,0 +1,43 @@
+%MultitudeLogo.tex
+%draw Multitude Corporation's logo
+
+%\newcounter{combinedwidth}	%x coordinate of source node
+%\newcounter{wpd}	%width per division;  combinedwidth divisions
+
+
+\newcommand{\multitudelogo}[1] 	% {scale}
+	%{square side length=4*g+3*s+2*c=23}{gold width=3}{switch width=1}{cpu/mem width=5}
+	{
+%	\setcounter{combinedwidth}{(4*#2)+(3*#3)+(2*#4)}	%add-up how many divisions
+%	\setcounter{wpd}{#1/\value{combinedwidth}}	%set width per division
+	
+	\begin{tikzpicture}[scale=#1]	%%make TiKZ picture
+	%draw three vertical black bars
+	\filldraw[black] (8,0) rectangle +(1,23) %1 cpu and 1 gold to LL corner
+						 (12,0) rectangle +(1,23) %1 cpu, 2 gold, 1 switch to LL corner
+						 (16,0) rectangle +(1,23); %1 cpu, 3 gold, 2 switch to LL corner
+	%draw eight processors on the left
+	\filldraw[black] (0,0) rectangle +(5,2) %bottom left cpu
+			(0,3) rectangle +(5,2)
+			(0,6) rectangle +(5,2)
+			(0,9) rectangle +(5,2)
+			(0,12) rectangle +(5,2)
+			(0,15) rectangle +(5,2)
+			(0,18) rectangle +(5,2)
+			(0,21) rectangle +(5,2); %top left cpu
+	%draw eight memory banks on the right
+	\filldraw[black] (20,0) rectangle +(5,2) %bottom right mem
+			(20,3) rectangle +(5,2)
+			(20,6) rectangle +(5,2)
+			(20,9) rectangle +(5,2)
+			(20,12) rectangle +(5,2)
+			(20,15) rectangle +(5,2)
+			(20,18) rectangle +(5,2)
+			(20,21) rectangle +(5,2); %top right mem
+	%draw four vertical gold bars
+	\shade[left color=yellow,right color=orange] (5,0) rectangle +(3,23)	;	%1 cpu to LL corner
+	\shade[left color=yellow,right color= orange] (9,0) rectangle +(3,23);	%1 cpu, 1 gold, 1 swtich
+	\shade[left color=yellow,right color= orange] (13,0) rectangle +(3,23);	%1 cpu, 2 gold, 2 swtich
+	\shade[left color=yellow,right color= orange] (17,0) rectangle +(3,23);	%1 cpu, 3 gold, 3 swtich
+	\end{tikzpicture}
+	} %end of \multitudelogo

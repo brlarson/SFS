@@ -1,0 +1,33 @@
+%SuccessionSemantics.tex
+
+\ksec{Successions (KerML 8.4.4.6.3)}
+
+\pn Successions\index{succession} are binary connectors requiring their source and target features to identify occurrences that are ordered
+in time.  Successions are typed by the association \texttt{Occurrences::HappensBefore} with the source feature being the earlier occurrence and the target feature being the later occurrence.
+\comment{Why not HappensJustBefore?}
+
+\ecaption{succession}
+\begin{lstlisting}
+succession first f1 then f2;
+\end{lstlisting}
+is equivalent to:
+\ecaption{succession equivalent}
+\begin{lstlisting}
+connector subsets Occurrences::happensBeforeLinks {
+  end feature earlierOccurrence references f1
+    redefines Occurrences::HappensBefore::earlierOccurrence;
+  end feature laterOccurrence references f2
+    redefines Occurrences::HappensBefore::laterOccurrence;
+}
+\end{lstlisting}
+
+
+\pn The semantics of \texttt{succession} can be easily be defined using the \texttt{precedes} Allen's intervals operator (section \ref{sec:allen}).
+
+
+\begin{restatable}{definition}{succession}~\blTitle{df-succession}~   Define Succession
+\begin{align}
+\texttt{succession}~\texttt{first}~f_1~\texttt{then}~f_2\texttt{;}~\Rightarrow~ % \notag \\
+\vdash \texttt{precedes}(f_1,f_2)~\label{eq:df-succession}\tag{df-succession}
+\end{align}
+\end{restatable}

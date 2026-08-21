@@ -1,0 +1,3099 @@
+% This LaTeX file was created by Metamath on 22-Jul-2024 3:29 PM.
+\begin{restatable}{lemma}{bltsan2i}~\blTitle{bl.tsan2i}~ Distribute $~\string^~$ over conjunction,
+two terms,inference
+\begin{align}
+\vdash \mc{A} \in \mathbb{Z}\quad\&\quad \vdash \mc{D} \in
+    \mathbb{R}\quad\&\quad \vdash \tau \in \mathbf{T}\quad\&\quad \vdash ( \tau
+    + ( \mc{D} \times \mc{A} ) ) \in \mathbf{T}\quad\Rightarrow \notag \\ %& & & \qquad
+     \quad \vdash
+    \mathbf{I} \lsem ( ( ( \mw{\varphi} \wedge \mw{\psi} ) ~\string^~ \mc{A} )
+    \leftrightarrow ( ( \mw{\varphi} ~\string^~ \mc{A} ) \wedge ( \mw{\psi}
+    ~\string^~ \mc{A} ) ) ) , \tau \rsem\label{eq:bl.tsan2i}\tag{bl.tsan2i}
+\end{align}
+\end{restatable}
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash ( \tau + ( \mc{D} \times \mc{A} ) ) \in
+      \mathbf{T}&\text{Hyp~tsan2i.4}\notag%bl.tsan2i.4
+  \\ 2 &&  & \vdash ( \mathbf{I} \lsem ( \mw{\varphi} \wedge \mw{\psi} ) , (
+      \tau + ( \mc{D} \times \mc{A} ) ) \rsem
+      \leftrightarrow ( \mathbf{I} \lsem \mw{\varphi} , (
+      \tau + ( \mc{D} \times \mc{A} ) ) \rsem \wedge
+      \mathbf{I} \lsem \mw{\psi} , ( \tau + ( \mc{D} \times
+      \mc{A} ) ) \rsem )
+      )&(\mbox{\ref{eq:df-bl.ant}},1)\notag
+  \\ 3 &&  & \vdash \mc{A} \in \mathbb{Z}&\text{Hyp~tsan2i.1}\notag%bl.tsan2i.1
+  \\ 4 &&  & \vdash \mc{D} \in \mathbb{R}&\text{Hyp~tsan2i.2}\notag%bl.tsan2i.2
+  \\ 5 &&  & \vdash \tau \in \mathbf{T}&\text{Hyp~tsan2i.3}\notag%bl.tsan2i.3
+  \\ 6 &&  & \vdash ( \tau + ( \mc{D} \times \mc{A} ) ) \in
+      \mathbf{T}&\text{Hyp~tsan2i.4}\notag%bl.tsan2i.4
+  \\ 7 &&  & \vdash ( \mathbf{I} \lsem ( ( \mw{\varphi} \wedge \mw{\psi} )
+      ~\string^~ \mc{A} ) , \tau \rsem \leftrightarrow
+      \mathbf{I} \lsem ( \mw{\varphi} \wedge \mw{\psi} ) ,
+      ( \tau + ( \mc{D} \times \mc{A} ) ) \rsem
+      )&(\mbox{\ref{eq:bl.tsi}},3,4,5,6)\notag
+  \\ 8 &&  & \vdash \mc{A} \in \mathbb{Z}&\text{Hyp~tsan2i.1}\notag%bl.tsan2i.1
+  \\ 9 &&  & \vdash \mc{D} \in \mathbb{R}&\text{Hyp~tsan2i.2}\notag%bl.tsan2i.2
+  \\ 10 &&  & \vdash \tau \in \mathbf{T}&\text{Hyp~tsan2i.3}\notag%bl.tsan2i.3
+  \\ 11 &&  & \vdash ( \tau + ( \mc{D} \times \mc{A} ) ) \in
+      \mathbf{T}&\text{Hyp~tsan2i.4}\notag%bl.tsan2i.4
+  \\ 12 &&  & \vdash ( \mathbf{I} \lsem ( \mw{\varphi} ~\string^~ \mc{A} ) ,
+      \tau \rsem \leftrightarrow \mathbf{I} \lsem
+      \mw{\varphi} , ( \tau + ( \mc{D} \times \mc{A} ) )
+      \rsem )&(\mbox{\ref{eq:bl.tsi}},8,9,10,11)\notag
+  \\ 13 &&  & \vdash \mc{A} \in
+      \mathbb{Z}&\text{Hyp~tsan2i.1}\notag%bl.tsan2i.1
+  \\ 14 &&  & \vdash \mc{D} \in
+      \mathbb{R}&\text{Hyp~tsan2i.2}\notag%bl.tsan2i.2
+  \\ 15 &&  & \vdash \tau \in \mathbf{T}&\text{Hyp~tsan2i.3}\notag%bl.tsan2i.3
+  \\ 16 &&  & \vdash ( \tau + ( \mc{D} \times \mc{A} ) ) \in
+      \mathbf{T}&\text{Hyp~tsan2i.4}\notag%bl.tsan2i.4
+  \\ 17 &&  & \vdash ( \mathbf{I} \lsem ( \mw{\psi} ~\string^~ \mc{A} ) , \tau
+      \rsem \leftrightarrow \mathbf{I} \lsem \mw{\psi} , (
+      \tau + ( \mc{D} \times \mc{A} ) ) \rsem
+      )&(\mbox{\ref{eq:bl.tsi}},13,14,15,16)\notag
+  \\ 18 &&  & \vdash ( ( \mathbf{I} \lsem ( \mw{\varphi} ~\string^~ \mc{A} ) ,
+      \tau \rsem \wedge \mathbf{I} \lsem ( \mw{\psi}
+      ~\string^~ \mc{A} ) , \tau \rsem ) \leftrightarrow \notag \\ & & & \qquad
+      (
+      \mathbf{I} \lsem \mw{\varphi} , ( \tau + ( \mc{D}
+      \times \mc{A} ) ) \rsem \wedge \mathbf{I} \lsem
+      \mw{\psi} , ( \tau + ( \mc{D} \times \mc{A} ) ) \rsem
+      ) )&(\mbox{\ref{eq:anbi12i}},12,17)\notag
+  \\ 19 &&  & \vdash ( \mathbf{I} \lsem ( ( \mw{\varphi} \wedge \mw{\psi} )
+      ~\string^~ \mc{A} ) , \tau \rsem \leftrightarrow (
+      \mathbf{I} \lsem ( \mw{\varphi} ~\string^~ \mc{A} ) ,
+      \tau \rsem \wedge \mathbf{I} \lsem ( \mw{\psi}
+      ~\string^~ \mc{A} ) , \tau \rsem )
+      )&(\mbox{\ref{eq:3bitr4i}},2,7,18)\notag
+  \\ 20 &&  & \vdash \tau \in \mathbf{T}&\text{Hyp~tsan2i.3}\notag%bl.tsan2i.3
+  \\ 21 &&  & \vdash ( \mathbf{I} \lsem ( ( \mw{\varphi} ~\string^~ \mc{A} )
+      \wedge ( \mw{\psi} ~\string^~ \mc{A} ) ) , \tau \rsem
+      \leftrightarrow ( \mathbf{I} \lsem ( \mw{\varphi}
+      ~\string^~ \mc{A} ) , \tau \rsem \wedge \mathbf{I}
+      \lsem ( \mw{\psi} ~\string^~ \mc{A} ) , \tau \rsem )
+      )&(\mbox{\ref{eq:df-bl.ant}},20)\notag
+  \\ 22 &&  & \vdash ( \mathbf{I} \lsem ( ( \mw{\varphi} \wedge \mw{\psi} )
+      ~\string^~ \mc{A} ) , \tau \rsem \leftrightarrow
+      \mathbf{I} \lsem ( ( \mw{\varphi} ~\string^~ \mc{A} )
+      \wedge ( \mw{\psi} ~\string^~ \mc{A} ) ) , \tau \rsem
+      )&(\mbox{\ref{eq:bitr4i}},19,21)\notag
+  \\ 23 &&  & \vdash \tau \in \mathbf{T}&\text{Hyp~tsan2i.3}\notag%bl.tsan2i.3
+  \\ 24 &&  & \vdash ( \mathbf{I} \lsem ( ( ( \mw{\varphi} \wedge \mw{\psi} )
+      ~\string^~ \mc{A} ) \leftrightarrow ( ( \mw{\varphi}
+      ~\string^~ \mc{A} ) \wedge ( \mw{\psi} ~\string^~
+      \mc{A} ) ) ) , \tau \rsem \leftrightarrow  \notag \\ & & & \qquad
+     (
+      \mathbf{I} \lsem ( ( \mw{\varphi} \wedge \mw{\psi} )
+      ~\string^~ \mc{A} ) , \tau \rsem \leftrightarrow
+      \mathbf{I} \lsem ( ( \mw{\varphi} ~\string^~ \mc{A} )
+      \wedge ( \mw{\psi} ~\string^~ \mc{A} ) ) , \tau \rsem
+      ) )&(\mbox{\ref{eq:df-bl.bit}},23)\notag
+  \\ 25 &&  & \vdash \mathbf{I} \lsem ( ( ( \mw{\varphi} \wedge \mw{\psi} )
+      ~\string^~ \mc{A} ) \leftrightarrow ( ( \mw{\varphi}
+      ~\string^~ \mc{A} ) \wedge ( \mw{\psi} ~\string^~
+      \mc{A} ) ) ) , \tau
+      \rsem&(\mbox{\ref{eq:mpbir}},22,24)\notag
+\end{align}
+\end{proof}
+
+\begin{restatable}{lemma}{bltsan3i}~\blTitle{bl.tsan3i}~ Distribute $~\string^~$ over conjunction,
+three terms, inference
+\begin{align}
+\vdash \mc{A} \in \mathbb{Z}\quad\&\quad \vdash ( \mc{D} \in \mathbb{R} \wedge
+    0 < \mc{D} )\quad\&\quad \vdash \tau \in \mathbf{T}\quad\&\quad \vdash (
+    \tau + ( \mc{D} \times \mc{A} ) ) \in \mathbf{T}\quad\Rightarrow \notag \\ %& & & \qquad
+     \quad \vdash
+    \mathbf{I} \lsem ( ( ( \mw{\varphi} \wedge \mw{\psi} \wedge \mw{\chi} )
+    ~\string^~ \mc{A} ) \leftrightarrow ( ( \mw{\varphi} ~\string^~ \mc{A} )
+    \wedge ( \mw{\psi} ~\string^~ \mc{A} ) \wedge ( \mw{\chi} ~\string^~ \mc{A}
+    ) ) ) , \tau \rsem\label{eq:bl.tsan3i}\tag{bl.tsan3i}
+\end{align}
+\end{restatable}
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash \mc{A} \in \mathbb{Z}&\text{Hyp~tsan3i.1}\notag%bl.tsan3i.1
+  \\ 2 &&  & \vdash ( \mc{D} \in \mathbb{R} \wedge 0 < \mc{D}
+      )&\text{Hyp~tsan3i.2}\notag%bl.tsan3i.2
+  \\ 3 && @3:\  & \vdash \mc{D} \in \mathbb{R}&(\mbox{\ref{eq:simpli}},2)\notag
+  \\ 4 &&  & \vdash \tau \in \mathbf{T}&\text{Hyp~tsan3i.3}\notag%bl.tsan3i.3
+  \\ 5 &&  & \vdash ( \tau + ( \mc{D} \times \mc{A} ) ) \in
+      \mathbf{T}&\text{Hyp~tsan3i.4}\notag%bl.tsan3i.4
+  \\ 6 &&  & \vdash ( \mathbf{I} \lsem ( ( \mw{\varphi} \wedge \mw{\psi} \wedge
+      \mw{\chi} ) ~\string^~ \mc{A} ) , \tau \rsem
+      \leftrightarrow \mathbf{I} \lsem ( \mw{\varphi}
+      \wedge \mw{\psi} \wedge \mw{\chi} ) , ( \tau + (
+      \mc{D} \times \mc{A} ) ) \rsem
+      )&(\mbox{\ref{eq:bl.tsi}},1,3,4,5)\notag
+  \\ 7 &&  & \vdash ( ( \mw{\varphi} \wedge \mw{\psi} \wedge \mw{\chi} )
+      \leftrightarrow ( ( \mw{\varphi} \wedge \mw{\psi} )
+      \wedge \mw{\chi} ) )&(\mbox{\ref{eq:df-3an}})\notag
+  \\ 8 &&  & \vdash ( \tau + ( \mc{D} \times \mc{A} ) ) \in
+      \mathbf{T}&\text{Hyp~tsan3i.4}\notag%bl.tsan3i.4
+  \\ 9 &&  & \vdash ( \tau + ( \mc{D} \times \mc{A} ) ) \in
+      \mathbf{T}&\text{Hyp~tsan3i.4}\notag%bl.tsan3i.4
+  \\ 10 &&  & \vdash ( \tau + ( \mc{D} \times \mc{A} ) ) = ( \tau + ( \mc{D}
+      \times \mc{A} ) )&(\mbox{\ref{eq:eqid}})\notag
+  \\ 11 &&  & \vdash ( ( \tau + ( \mc{D} \times \mc{A} ) ) \in \mathbf{T} \wedge
+      ( \tau + ( \mc{D} \times \mc{A} ) ) \in \mathbf{T}
+      \wedge  \notag \\ & & & \qquad
+     ( \tau + ( \mc{D} \times \mc{A} ) ) = ( \tau +
+      ( \mc{D} \times \mc{A} ) )
+      )&(\mbox{\ref{eq:3pm3.2i}},8,9,10)\notag
+  \\ 12 &&  & \vdash ( ( ( \tau + ( \mc{D} \times \mc{A} ) ) \in \mathbf{T}
+      \wedge ( \tau + ( \mc{D} \times \mc{A} ) ) \in
+      \mathbf{T} \wedge  \notag \\ & & & \qquad
+     ( \tau + ( \mc{D} \times \mc{A} ) )
+      = ( \tau + ( \mc{D} \times \mc{A} ) ) ) \rightarrow  \notag \\ & & & \qquad
+     (
+      ( ( \mw{\varphi} \wedge \mw{\psi} \wedge \mw{\chi} )
+      \leftrightarrow ( ( \mw{\varphi} \wedge \mw{\psi} )
+      \wedge \mw{\chi} ) ) \leftrightarrow  \notag \\ & & & \qquad
+     ( \mathbf{I}
+      \lsem ( \mw{\varphi} \wedge \mw{\psi} \wedge
+      \mw{\chi} ) , ( \tau + ( \mc{D} \times \mc{A} ) )
+      \rsem \leftrightarrow  \notag \\ & & & \qquad
+     \mathbf{I} \lsem ( (
+      \mw{\varphi} \wedge \mw{\psi} ) \wedge \mw{\chi} ) ,
+      ( \tau + ( \mc{D} \times \mc{A} ) ) \rsem ) )
+      )&(\mbox{\ref{eq:ax-bl.bi}})\notag
+  \\ 13 &&  & \vdash ( ( ( \mw{\varphi} \wedge \mw{\psi} \wedge \mw{\chi} )
+      \leftrightarrow ( ( \mw{\varphi} \wedge \mw{\psi} )
+      \wedge \mw{\chi} ) ) \leftrightarrow  \notag \\ & & & \qquad
+     ( \mathbf{I}
+      \lsem ( \mw{\varphi} \wedge \mw{\psi} \wedge
+      \mw{\chi} ) , ( \tau + ( \mc{D} \times \mc{A} ) )
+      \rsem \leftrightarrow \notag \\ & & & \qquad
+      \mathbf{I} \lsem ( (
+      \mw{\varphi} \wedge \mw{\psi} ) \wedge \mw{\chi} ) ,
+      ( \tau + ( \mc{D} \times \mc{A} ) ) \rsem )
+      )&(\mbox{\ref{eq:ax-mp}},11,12)\notag
+  \\ 14 &&  & \vdash ( \mathbf{I} \lsem ( \mw{\varphi} \wedge \mw{\psi} \wedge
+      \mw{\chi} ) , ( \tau + ( \mc{D} \times \mc{A} ) )
+      \rsem \leftrightarrow \mathbf{I} \lsem ( (
+      \mw{\varphi} \wedge \mw{\psi} ) \wedge \mw{\chi} ) ,
+      ( \tau + ( \mc{D} \times \mc{A} ) ) \rsem
+      )&(\mbox{\ref{eq:mpbi}},7,13)\notag
+  \\ 15 &&  & \vdash ( \mathbf{I} \lsem ( ( \mw{\varphi} \wedge \mw{\psi}
+      \wedge \mw{\chi} ) ~\string^~ \mc{A} ) , \tau \rsem
+      \leftrightarrow \mathbf{I} \lsem ( ( \mw{\varphi}
+      \wedge \mw{\psi} ) \wedge \mw{\chi} ) , ( \tau + (
+      \mc{D} \times \mc{A} ) ) \rsem
+      )&(\mbox{\ref{eq:bitri}},6,14)\notag
+  \\ 16 &&  & \vdash ( \tau + ( \mc{D} \times \mc{A} ) ) \in
+      \mathbf{T}&\text{Hyp~tsan3i.4}\notag%bl.tsan3i.4
+  \\ 17 &&  & \vdash ( \mathbf{I} \lsem ( ( \mw{\varphi} \wedge \mw{\psi} )
+      \wedge \mw{\chi} ) , ( \tau + ( \mc{D} \times \mc{A} )
+      ) \rsem \leftrightarrow \notag \\ & & & \qquad
+      ( \mathbf{I} \lsem (
+      \mw{\varphi} \wedge \mw{\psi} ) , ( \tau + ( \mc{D}
+      \times \mc{A} ) ) \rsem \wedge \mathbf{I} \lsem
+      \mw{\chi} , ( \tau + ( \mc{D} \times \mc{A} ) ) \rsem
+      ) )&(\mbox{\ref{eq:df-bl.ant}},16)\notag
+  \\ 18 &&  & \vdash ( \mathbf{I} \lsem ( ( \mw{\varphi} \wedge \mw{\psi}
+      \wedge \mw{\chi} ) ~\string^~ \mc{A} ) , \tau \rsem
+      \leftrightarrow  \notag \\ & & & \qquad
+     ( \mathbf{I} \lsem ( \mw{\varphi}
+      \wedge \mw{\psi} ) , ( \tau + ( \mc{D} \times \mc{A} )
+      ) \rsem \wedge \mathbf{I} \lsem \mw{\chi} , ( \tau +
+      ( \mc{D} \times \mc{A} ) ) \rsem )
+      )&(\mbox{\ref{eq:bitri}},15,17)\notag
+  \\ 19 &&  & \vdash ( \tau + ( \mc{D} \times \mc{A} ) ) \in
+      \mathbf{T}&\text{Hyp~tsan3i.4}\notag%bl.tsan3i.4
+  \\ 20 &&  & \vdash ( \mathbf{I} \lsem ( \mw{\varphi} \wedge \mw{\psi} ) , (
+      \tau + ( \mc{D} \times \mc{A} ) ) \rsem
+      \leftrightarrow  \notag \\ & & & \qquad
+     ( \mathbf{I} \lsem \mw{\varphi} , (
+      \tau + ( \mc{D} \times \mc{A} ) ) \rsem \wedge
+      \mathbf{I} \lsem \mw{\psi} , ( \tau + ( \mc{D} \times
+      \mc{A} ) ) \rsem )
+      )&(\mbox{\ref{eq:df-bl.ant}},19)\notag
+  \\ 21 &&  & \vdash ( ( \mathbf{I} \lsem ( \mw{\varphi} \wedge \mw{\psi} ) , (
+      \tau + ( \mc{D} \times \mc{A} ) ) \rsem \wedge
+      \mathbf{I} \lsem \mw{\chi} , ( \tau + ( \mc{D} \times
+      \mc{A} ) ) \rsem ) \leftrightarrow \notag \\ & & & \qquad
+      ( ( \mathbf{I}
+      \lsem \mw{\varphi} , ( \tau + ( \mc{D} \times \mc{A} )
+      ) \rsem \wedge \mathbf{I} \lsem \mw{\psi} , ( \tau +
+      ( \mc{D} \times \mc{A} ) ) \rsem ) \wedge \mathbf{I}
+      \lsem \mw{\chi} , ( \tau + ( \mc{D} \times \mc{A} ) )
+      \rsem ) )&(\mbox{\ref{eq:anbi1i}},20)\notag
+  \\ 22 &&  & \vdash ( \mathbf{I} \lsem ( ( \mw{\varphi} \wedge \mw{\psi}
+      \wedge \mw{\chi} ) ~\string^~ \mc{A} ) , \tau \rsem
+      \leftrightarrow  \notag \\ & & & \qquad
+     ( ( \mathbf{I} \lsem \mw{\varphi} , (
+      \tau + ( \mc{D} \times \mc{A} ) ) \rsem \wedge
+      \mathbf{I} \lsem \mw{\psi} , ( \tau + ( \mc{D} \times
+      \mc{A} ) ) \rsem ) \wedge \mathbf{I} \lsem \mw{\chi}
+      , ( \tau + ( \mc{D} \times \mc{A} ) ) \rsem )
+      )&(\mbox{\ref{eq:bitri}},18,21)\notag
+  \\ 23 &&  & \vdash ( ( \mathbf{I} \lsem \mw{\varphi} , ( \tau + ( \mc{D}
+      \times \mc{A} ) ) \rsem \wedge \mathbf{I} \lsem
+      \mw{\psi} , ( \tau + ( \mc{D} \times \mc{A} ) ) \rsem
+      \wedge \mathbf{I} \lsem \mw{\chi} , ( \tau + ( \mc{D}
+      \times \mc{A} ) ) \rsem ) \leftrightarrow  \notag \\ & & & \qquad
+     ( (
+      \mathbf{I} \lsem \mw{\varphi} , ( \tau + ( \mc{D}
+      \times \mc{A} ) ) \rsem \wedge \mathbf{I} \lsem
+      \mw{\psi} , ( \tau + ( \mc{D} \times \mc{A} ) ) \rsem
+      ) \wedge \mathbf{I} \lsem \mw{\chi} , ( \tau + (
+      \mc{D} \times \mc{A} ) ) \rsem )
+      )&(\mbox{\ref{eq:df-3an}})\notag
+  \\ 24 &&  & \vdash ( \mathbf{I} \lsem ( ( \mw{\varphi} \wedge \mw{\psi}
+      \wedge \mw{\chi} ) ~\string^~ \mc{A} ) , \tau \rsem
+      \leftrightarrow  \notag \\ & & & \qquad
+     ( \mathbf{I} \lsem \mw{\varphi} , (
+      \tau + ( \mc{D} \times \mc{A} ) ) \rsem \wedge
+      \mathbf{I} \lsem \mw{\psi} , ( \tau + ( \mc{D} \times
+      \mc{A} ) ) \rsem \wedge \mathbf{I} \lsem \mw{\chi} ,
+      ( \tau + ( \mc{D} \times \mc{A} ) ) \rsem )
+      )&(\mbox{\ref{eq:bitr4i}},22,23)\notag
+  \\ 25 &&  & \vdash \mc{A} \in
+      \mathbb{Z}&\text{Hyp~tsan3i.1}\notag%bl.tsan3i.1
+  \\ 26 &&  & \vdash \mc{D} \in \mathbb{R}&(@3)\notag
+  \\ 27 &&  & \vdash \tau \in \mathbf{T}&\text{Hyp~tsan3i.3}\notag%bl.tsan3i.3
+  \\ 28 &&  & \vdash ( \tau + ( \mc{D} \times \mc{A} ) ) \in
+      \mathbf{T}&\text{Hyp~tsan3i.4}\notag%bl.tsan3i.4
+  \\ 29 &&  & \vdash ( \mathbf{I} \lsem ( \mw{\varphi} ~\string^~ \mc{A} ) ,
+      \tau \rsem \leftrightarrow \mathbf{I} \lsem
+      \mw{\varphi} , ( \tau + ( \mc{D} \times \mc{A} ) )
+      \rsem )&(\mbox{\ref{eq:bl.tsi}},25,26,27,28)\notag
+  \\ 30 &&  & \vdash \mc{A} \in
+      \mathbb{Z}&\text{Hyp~tsan3i.1}\notag%bl.tsan3i.1
+  \\ 31 &&  & \vdash \mc{D} \in \mathbb{R}&(@3)\notag
+  \\ 32 &&  & \vdash \tau \in \mathbf{T}&\text{Hyp~tsan3i.3}\notag%bl.tsan3i.3
+  \\ 33 &&  & \vdash ( \tau + ( \mc{D} \times \mc{A} ) ) \in
+      \mathbf{T}&\text{Hyp~tsan3i.4}\notag%bl.tsan3i.4
+  \\ 34 &&  & \vdash ( \mathbf{I} \lsem ( \mw{\psi} ~\string^~ \mc{A} ) , \tau
+      \rsem \leftrightarrow \mathbf{I} \lsem \mw{\psi} , (
+      \tau + ( \mc{D} \times \mc{A} ) ) \rsem
+      )&(\mbox{\ref{eq:bl.tsi}},30,31,32,33)\notag
+  \\ 35 &&  & \vdash \mc{A} \in
+      \mathbb{Z}&\text{Hyp~tsan3i.1}\notag%bl.tsan3i.1
+  \\ 36 &&  & \vdash \mc{D} \in \mathbb{R}&(@3)\notag
+  \\ 37 &&  & \vdash \tau \in \mathbf{T}&\text{Hyp~tsan3i.3}\notag%bl.tsan3i.3
+  \\ 38 &&  & \vdash ( \tau + ( \mc{D} \times \mc{A} ) ) \in
+      \mathbf{T}&\text{Hyp~tsan3i.4}\notag%bl.tsan3i.4
+  \\ 39 &&  & \vdash ( \mathbf{I} \lsem ( \mw{\chi} ~\string^~ \mc{A} ) , \tau
+      \rsem \leftrightarrow \mathbf{I} \lsem \mw{\chi} , (
+      \tau + ( \mc{D} \times \mc{A} ) ) \rsem
+      )&(\mbox{\ref{eq:bl.tsi}},35,36,37,38)\notag
+  \\ 40 &&  & \vdash ( ( \mathbf{I} \lsem ( \mw{\varphi} ~\string^~ \mc{A} ) ,
+      \tau \rsem \wedge \mathbf{I} \lsem ( \mw{\psi}
+      ~\string^~ \mc{A} ) , \tau \rsem \wedge \mathbf{I}
+      \lsem ( \mw{\chi} ~\string^~ \mc{A} ) , \tau \rsem )
+      \leftrightarrow  \notag \\ & & & \qquad
+     ( \mathbf{I} \lsem \mw{\varphi} , (
+      \tau + ( \mc{D} \times \mc{A} ) ) \rsem \wedge
+      \mathbf{I} \lsem \mw{\psi} , ( \tau + ( \mc{D} \times
+      \mc{A} ) ) \rsem \wedge \notag \\ & & & \qquad
+      \mathbf{I} \lsem \mw{\chi} ,
+      ( \tau + ( \mc{D} \times \mc{A} ) ) \rsem )
+      )&(\mbox{\ref{eq:3anbi123i}},29,34,39)\notag
+  \\ 41 &&  & \vdash ( \mathbf{I} \lsem ( ( \mw{\varphi} \wedge \mw{\psi}
+      \wedge \mw{\chi} ) ~\string^~ \mc{A} ) , \tau \rsem
+      \leftrightarrow  \notag \\ & & & \qquad
+     ( \mathbf{I} \lsem ( \mw{\varphi}
+      ~\string^~ \mc{A} ) , \tau \rsem \wedge \mathbf{I}
+      \lsem ( \mw{\psi} ~\string^~ \mc{A} ) , \tau \rsem
+      \wedge \mathbf{I} \lsem ( \mw{\chi} ~\string^~ \mc{A}
+      ) , \tau \rsem )
+      )&(\mbox{\ref{eq:bitr4i}},24,40)\notag
+  \\ 42 &&  & \vdash \tau \in \mathbf{T}&\text{Hyp~tsan3i.3}\notag%bl.tsan3i.3
+  \\ 43 &&  & \vdash ( \mathbf{I} \lsem ( ( \mw{\varphi} ~\string^~ \mc{A} )
+      \wedge ( \mw{\psi} ~\string^~ \mc{A} ) \wedge (
+      \mw{\chi} ~\string^~ \mc{A} ) ) , \tau \rsem
+      \leftrightarrow  \notag \\ & & & \qquad
+     ( \mathbf{I} \lsem ( \mw{\varphi}
+      ~\string^~ \mc{A} ) , \tau \rsem \wedge \mathbf{I}
+      \lsem ( \mw{\psi} ~\string^~ \mc{A} ) , \tau \rsem
+      \wedge \mathbf{I} \lsem ( \mw{\chi} ~\string^~ \mc{A}
+      ) , \tau \rsem ) )&(\mbox{\ref{eq:bl.an3t}},42)\notag
+  \\ 44 &&  & \vdash ( \mathbf{I} \lsem ( ( \mw{\varphi} \wedge \mw{\psi}
+      \wedge \mw{\chi} ) ~\string^~ \mc{A} ) , \tau \rsem
+      \leftrightarrow \mathbf{I} \lsem ( ( \mw{\varphi}
+      ~\string^~ \mc{A} ) \wedge ( \mw{\psi} ~\string^~
+      \mc{A} ) \wedge ( \mw{\chi} ~\string^~ \mc{A} ) ) ,
+      \tau \rsem )&(\mbox{\ref{eq:bitr4i}},41,43)\notag
+  \\ 45 &&  & \vdash \tau \in \mathbf{T}&\text{Hyp~tsan3i.3}\notag%bl.tsan3i.3
+  \\ 46 &&  & \vdash ( \mathbf{I} \lsem ( ( ( \mw{\varphi} \wedge \mw{\psi}
+      \wedge \mw{\chi} ) ~\string^~ \mc{A} )
+      \leftrightarrow ( ( \mw{\varphi} ~\string^~ \mc{A} )
+      \wedge ( \mw{\psi} ~\string^~ \mc{A} ) \wedge (
+      \mw{\chi} ~\string^~ \mc{A} ) ) ) , \tau \rsem
+      \leftrightarrow  \notag \\ & & & \qquad
+     ( \mathbf{I} \lsem ( ( \mw{\varphi}
+      \wedge \mw{\psi} \wedge \mw{\chi} ) ~\string^~ \mc{A}
+      ) , \tau \rsem \leftrightarrow \mathbf{I} \lsem ( (
+      \mw{\varphi} ~\string^~ \mc{A} ) \wedge ( \mw{\psi}
+      ~\string^~ \mc{A} ) \wedge ( \mw{\chi} ~\string^~
+      \mc{A} ) ) , \tau \rsem )
+      )&(\mbox{\ref{eq:df-bl.bit}},45)\notag
+  \\ 47 &&  & \vdash \mathbf{I} \lsem ( ( ( \mw{\varphi} \wedge \mw{\psi}
+      \wedge \mw{\chi} ) ~\string^~ \mc{A} )
+      \leftrightarrow ( ( \mw{\varphi} ~\string^~ \mc{A} )
+      \wedge ( \mw{\psi} ~\string^~ \mc{A} ) \wedge (
+      \mw{\chi} ~\string^~ \mc{A} ) ) ) , \tau
+      \rsem&(\mbox{\ref{eq:mpbir}},44,46)\notag
+\end{align}
+\end{proof}
+
+\begin{restatable}{lemma}{bltsan3ri}~\blTitle{bl.tsan3ri}~ Distribute $~\string^~$ over
+conjunction, three terms (right), inference.
+\begin{align}
+\vdash \mc{A} \in \mathbb{Z}\quad\&\quad \vdash \mc{D} \in
+    \mathbb{R}\quad\&\quad \vdash \tau \in \mathbf{T}\quad\&\quad \vdash ( \tau
+    + ( \mc{D} \times \mc{A} ) ) \in \mathbf{T}\quad\Rightarrow \notag \\ %& & & \qquad
+     \quad \vdash
+    \mathbf{I} \lsem ( ( ( \mw{\varphi} \wedge ( \mw{\psi} \wedge \mw{\chi} ) )
+    ~\string^~ \mc{A} ) \leftrightarrow ( ( \mw{\varphi} ~\string^~ \mc{A} )
+    \wedge ( ( \mw{\psi} ~\string^~ \mc{A} ) \wedge ( \mw{\chi} ~\string^~
+    \mc{A} ) ) ) ) , \tau \rsem\label{eq:bl.tsan3ri}\tag{bl.tsan3ri}
+\end{align}
+\end{restatable}
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash \mc{A} \in \mathbb{Z}&\text{Hyp~tsan3ri.1}\notag%bl.tsan3ri.1
+  \\ 2 &&  & \vdash \mc{D} \in
+      \mathbb{R}&\text{Hyp~tsan3ri.2}\notag%bl.tsan3ri.2
+  \\ 3 &&  & \vdash \tau \in \mathbf{T}&\text{Hyp~tsan3ri.3}\notag%bl.tsan3ri.3
+  \\ 4 &&  & \vdash ( \tau + ( \mc{D} \times \mc{A} ) ) \in
+      \mathbf{T}&\text{Hyp~tsan3ri.4}\notag%bl.tsan3ri.4
+  \\ 5 &&  & \vdash ( \mathbf{I} \lsem ( ( \mw{\varphi} \wedge ( \mw{\psi}
+      \wedge \mw{\chi} ) ) ~\string^~ \mc{A} ) , \tau \rsem
+      \leftrightarrow \mathbf{I} \lsem ( \mw{\varphi}
+      \wedge ( \mw{\psi} \wedge \mw{\chi} ) ) , ( \tau + (
+      \mc{D} \times \mc{A} ) ) \rsem
+      )&(\mbox{\ref{eq:bl.tsi}},1,2,3,4)\notag
+  \\ 6 &&  & \vdash ( \tau + ( \mc{D} \times \mc{A} ) ) \in
+      \mathbf{T}&\text{Hyp~tsan3ri.4}\notag%bl.tsan3ri.4
+  \\ 7 &&  & \vdash ( \mathbf{I} \lsem ( \mw{\varphi} \wedge ( \mw{\psi} \wedge
+      \mw{\chi} ) ) , ( \tau + ( \mc{D} \times \mc{A} ) )
+      \rsem \leftrightarrow  \notag \\ & & & \qquad
+     ( \mathbf{I} \lsem \mw{\varphi}
+      , ( \tau + ( \mc{D} \times \mc{A} ) ) \rsem \wedge
+      \mathbf{I} \lsem ( \mw{\psi} \wedge \mw{\chi} ) , (
+      \tau + ( \mc{D} \times \mc{A} ) ) \rsem )
+      )&(\mbox{\ref{eq:df-bl.ant}},6)\notag
+  \\ 8 &&  & \vdash ( \tau + ( \mc{D} \times \mc{A} ) ) \in
+      \mathbf{T}&\text{Hyp~tsan3ri.4}\notag%bl.tsan3ri.4
+  \\ 9 &&  & \vdash ( \mathbf{I} \lsem ( \mw{\psi} \wedge \mw{\chi} ) , ( \tau
+      + ( \mc{D} \times \mc{A} ) ) \rsem \leftrightarrow \notag \\ & & & \qquad
+      (
+      \mathbf{I} \lsem \mw{\psi} , ( \tau + ( \mc{D} \times
+      \mc{A} ) ) \rsem \wedge \mathbf{I} \lsem \mw{\chi} ,
+      ( \tau + ( \mc{D} \times \mc{A} ) ) \rsem )
+      )&(\mbox{\ref{eq:df-bl.ant}},8)\notag
+  \\ 10 &&  & \vdash ( ( \mathbf{I} \lsem \mw{\varphi} , ( \tau + ( \mc{D}
+      \times \mc{A} ) ) \rsem \wedge \mathbf{I} \lsem (
+      \mw{\psi} \wedge \mw{\chi} ) , ( \tau + ( \mc{D}
+      \times \mc{A} ) ) \rsem ) \leftrightarrow \notag \\ & & & \qquad
+      ( \mathbf{I}
+      \lsem \mw{\varphi} , ( \tau + ( \mc{D} \times \mc{A} )
+      ) \rsem \wedge ( \mathbf{I} \lsem \mw{\psi} , ( \tau
+      + ( \mc{D} \times \mc{A} ) ) \rsem \wedge \mathbf{I}
+      \lsem \mw{\chi} , ( \tau + ( \mc{D} \times \mc{A} ) )
+      \rsem ) ) )&(\mbox{\ref{eq:anbi2i}},9)\notag
+  \\ 11 &&  & \vdash ( \mathbf{I} \lsem ( ( \mw{\varphi} \wedge ( \mw{\psi}
+      \wedge \mw{\chi} ) ) ~\string^~ \mc{A} ) , \tau \rsem
+      \leftrightarrow  \notag \\ & & & \qquad
+     ( \mathbf{I} \lsem \mw{\varphi} , (
+      \tau + ( \mc{D} \times \mc{A} ) ) \rsem \wedge (
+      \mathbf{I} \lsem \mw{\psi} , ( \tau + ( \mc{D} \times
+      \mc{A} ) ) \rsem \wedge \mathbf{I} \lsem \mw{\chi} ,
+      ( \tau + ( \mc{D} \times \mc{A} ) ) \rsem ) )
+      )&(\mbox{\ref{eq:3bitri}},5,7,10)\notag
+  \\ 12 &&  & \vdash \mc{A} \in
+      \mathbb{Z}&\text{Hyp~tsan3ri.1}\notag%bl.tsan3ri.1
+  \\ 13 &&  & \vdash \mc{D} \in
+      \mathbb{R}&\text{Hyp~tsan3ri.2}\notag%bl.tsan3ri.2
+  \\ 14 &&  & \vdash \tau \in
+      \mathbf{T}&\text{Hyp~tsan3ri.3}\notag%bl.tsan3ri.3
+  \\ 15 &&  & \vdash ( \tau + ( \mc{D} \times \mc{A} ) ) \in
+      \mathbf{T}&\text{Hyp~tsan3ri.4}\notag%bl.tsan3ri.4
+  \\ 16 &&  & \vdash ( \mathbf{I} \lsem ( \mw{\varphi} ~\string^~ \mc{A} ) ,
+      \tau \rsem \leftrightarrow \mathbf{I} \lsem
+      \mw{\varphi} , ( \tau + ( \mc{D} \times \mc{A} ) )
+      \rsem )&(\mbox{\ref{eq:bl.tsi}},12,13,14,15)\notag
+  \\ 17 &&  & \vdash \mc{A} \in
+      \mathbb{Z}&\text{Hyp~tsan3ri.1}\notag%bl.tsan3ri.1
+  \\ 18 &&  & \vdash \mc{D} \in
+      \mathbb{R}&\text{Hyp~tsan3ri.2}\notag%bl.tsan3ri.2
+  \\ 19 &&  & \vdash \tau \in
+      \mathbf{T}&\text{Hyp~tsan3ri.3}\notag%bl.tsan3ri.3
+  \\ 20 &&  & \vdash ( \tau + ( \mc{D} \times \mc{A} ) ) \in
+      \mathbf{T}&\text{Hyp~tsan3ri.4}\notag%bl.tsan3ri.4
+  \\ 21 &&  & \vdash ( \mathbf{I} \lsem ( \mw{\psi} ~\string^~ \mc{A} ) , \tau
+      \rsem \leftrightarrow \mathbf{I} \lsem \mw{\psi} , (
+      \tau + ( \mc{D} \times \mc{A} ) ) \rsem
+      )&(\mbox{\ref{eq:bl.tsi}},17,18,19,20)\notag
+  \\ 22 &&  & \vdash \mc{A} \in
+      \mathbb{Z}&\text{Hyp~tsan3ri.1}\notag%bl.tsan3ri.1
+  \\ 23 &&  & \vdash \mc{D} \in
+      \mathbb{R}&\text{Hyp~tsan3ri.2}\notag%bl.tsan3ri.2
+  \\ 24 &&  & \vdash \tau \in
+      \mathbf{T}&\text{Hyp~tsan3ri.3}\notag%bl.tsan3ri.3
+  \\ 25 &&  & \vdash ( \tau + ( \mc{D} \times \mc{A} ) ) \in
+      \mathbf{T}&\text{Hyp~tsan3ri.4}\notag%bl.tsan3ri.4
+  \\ 26 &&  & \vdash ( \mathbf{I} \lsem ( \mw{\chi} ~\string^~ \mc{A} ) , \tau
+      \rsem \leftrightarrow \mathbf{I} \lsem \mw{\chi} , (
+      \tau + ( \mc{D} \times \mc{A} ) ) \rsem
+      )&(\mbox{\ref{eq:bl.tsi}},22,23,24,25)\notag
+  \\ 27 &&  & \vdash ( ( \mathbf{I} \lsem ( \mw{\psi} ~\string^~ \mc{A} ) ,
+      \tau \rsem \wedge \mathbf{I} \lsem ( \mw{\chi}
+      ~\string^~ \mc{A} ) , \tau \rsem ) \leftrightarrow  \notag \\ & & & \qquad
+     (
+      \mathbf{I} \lsem \mw{\psi} , ( \tau + ( \mc{D} \times
+      \mc{A} ) ) \rsem \wedge \mathbf{I} \lsem \mw{\chi} ,
+      ( \tau + ( \mc{D} \times \mc{A} ) ) \rsem )
+      )&(\mbox{\ref{eq:anbi12i}},21,26)\notag
+  \\ 28 &&  & \vdash ( ( \mathbf{I} \lsem ( \mw{\varphi} ~\string^~ \mc{A} ) ,
+      \tau \rsem \wedge ( \mathbf{I} \lsem ( \mw{\psi}
+      ~\string^~ \mc{A} ) , \tau \rsem \wedge \mathbf{I}
+      \lsem ( \mw{\chi} ~\string^~ \mc{A} ) , \tau \rsem )
+      ) \leftrightarrow  \notag \\ & & & \qquad
+     ( \mathbf{I} \lsem \mw{\varphi} , (
+      \tau + ( \mc{D} \times \mc{A} ) ) \rsem \wedge (
+      \mathbf{I} \lsem \mw{\psi} , ( \tau + ( \mc{D} \times
+      \mc{A} ) ) \rsem \wedge \mathbf{I} \lsem \mw{\chi} ,
+      ( \tau + ( \mc{D} \times \mc{A} ) ) \rsem ) )
+      )&(\mbox{\ref{eq:anbi12i}},16,27)\notag
+  \\ 29 &&  & \vdash ( \mathbf{I} \lsem ( ( \mw{\varphi} \wedge ( \mw{\psi}
+      \wedge \mw{\chi} ) ) ~\string^~ \mc{A} ) , \tau \rsem
+      \leftrightarrow  \notag \\ & & & \qquad
+     ( \mathbf{I} \lsem ( \mw{\varphi}
+      ~\string^~ \mc{A} ) , \tau \rsem \wedge ( \mathbf{I}
+      \lsem ( \mw{\psi} ~\string^~ \mc{A} ) , \tau \rsem
+      \wedge \mathbf{I} \lsem ( \mw{\chi} ~\string^~ \mc{A}
+      ) , \tau \rsem ) )
+      )&(\mbox{\ref{eq:bitr4i}},11,28)\notag
+  \\ 30 &&  & \vdash \tau \in
+      \mathbf{T}&\text{Hyp~tsan3ri.3}\notag%bl.tsan3ri.3
+  \\ 31 &&  & \vdash ( \mathbf{I} \lsem ( ( \mw{\psi} ~\string^~ \mc{A} )
+      \wedge ( \mw{\chi} ~\string^~ \mc{A} ) ) , \tau \rsem
+      \leftrightarrow ( \mathbf{I} \lsem ( \mw{\psi}
+      ~\string^~ \mc{A} ) , \tau \rsem \wedge \mathbf{I}
+      \lsem ( \mw{\chi} ~\string^~ \mc{A} ) , \tau \rsem )
+      )&(\mbox{\ref{eq:df-bl.ant}},30)\notag
+  \\ 32 &&  & \vdash ( ( \mathbf{I} \lsem ( \mw{\varphi} ~\string^~ \mc{A} ) ,
+      \tau \rsem \wedge \mathbf{I} \lsem ( ( \mw{\psi}
+      ~\string^~ \mc{A} ) \wedge ( \mw{\chi} ~\string^~
+      \mc{A} ) ) , \tau \rsem ) \leftrightarrow \notag \\ & & & \qquad
+      (
+      \mathbf{I} \lsem ( \mw{\varphi} ~\string^~ \mc{A} ) ,
+      \tau \rsem \wedge ( \mathbf{I} \lsem ( \mw{\psi}
+      ~\string^~ \mc{A} ) , \tau \rsem \wedge \mathbf{I}
+      \lsem ( \mw{\chi} ~\string^~ \mc{A} ) , \tau \rsem )
+      ) )&(\mbox{\ref{eq:anbi2i}},31)\notag
+  \\ 33 &&  & \vdash ( \mathbf{I} \lsem ( ( \mw{\varphi} \wedge ( \mw{\psi}
+      \wedge \mw{\chi} ) ) ~\string^~ \mc{A} ) , \tau \rsem
+      \leftrightarrow ( \mathbf{I} \lsem ( \mw{\varphi}
+      ~\string^~ \mc{A} ) , \tau \rsem \wedge \mathbf{I}
+      \lsem ( ( \mw{\psi} ~\string^~ \mc{A} ) \wedge (
+      \mw{\chi} ~\string^~ \mc{A} ) ) , \tau \rsem )
+      )&(\mbox{\ref{eq:bitr4i}},29,32)\notag
+  \\ 34 &&  & \vdash \tau \in
+      \mathbf{T}&\text{Hyp~tsan3ri.3}\notag%bl.tsan3ri.3
+  \\ 35 &&  & \vdash ( \mathbf{I} \lsem ( ( \mw{\varphi} ~\string^~ \mc{A} )
+      \wedge ( ( \mw{\psi} ~\string^~ \mc{A} ) \wedge (
+      \mw{\chi} ~\string^~ \mc{A} ) ) ) , \tau \rsem
+      \leftrightarrow  \notag \\ & & & \qquad
+     ( \mathbf{I} \lsem ( \mw{\varphi}
+      ~\string^~ \mc{A} ) , \tau \rsem \wedge \mathbf{I}
+      \lsem ( ( \mw{\psi} ~\string^~ \mc{A} ) \wedge (
+      \mw{\chi} ~\string^~ \mc{A} ) ) , \tau \rsem )
+      )&(\mbox{\ref{eq:df-bl.ant}},34)\notag
+  \\ 36 &&  & \vdash ( \mathbf{I} \lsem ( ( \mw{\varphi} \wedge ( \mw{\psi}
+      \wedge \mw{\chi} ) ) ~\string^~ \mc{A} ) , \tau \rsem
+      \leftrightarrow \mathbf{I} \lsem ( ( \mw{\varphi}
+      ~\string^~ \mc{A} ) \wedge ( ( \mw{\psi} ~\string^~
+      \mc{A} ) \wedge ( \mw{\chi} ~\string^~ \mc{A} ) ) ) ,
+      \tau \rsem )&(\mbox{\ref{eq:bitr4i}},33,35)\notag
+  \\ 37 &&  & \vdash \tau \in
+      \mathbf{T}&\text{Hyp~tsan3ri.3}\notag%bl.tsan3ri.3
+  \\ 38 &&  & \vdash ( \mathbf{I} \lsem ( ( ( \mw{\varphi} \wedge ( \mw{\psi}
+      \wedge \mw{\chi} ) ) ~\string^~ \mc{A} )
+      \leftrightarrow ( ( \mw{\varphi} ~\string^~ \mc{A} )
+      \wedge ( ( \mw{\psi} ~\string^~ \mc{A} ) \wedge (
+      \mw{\chi} ~\string^~ \mc{A} ) ) ) ) , \tau \rsem
+      \leftrightarrow  \notag \\ & & & \qquad
+     ( \mathbf{I} \lsem ( ( \mw{\varphi}
+      \wedge ( \mw{\psi} \wedge \mw{\chi} ) ) ~\string^~
+      \mc{A} ) , \tau \rsem \leftrightarrow \mathbf{I}
+      \lsem ( ( \mw{\varphi} ~\string^~ \mc{A} ) \wedge ( (
+      \mw{\psi} ~\string^~ \mc{A} ) \wedge ( \mw{\chi}
+      ~\string^~ \mc{A} ) ) ) , \tau \rsem )
+      )&(\mbox{\ref{eq:df-bl.bit}},37)\notag
+  \\ 39 &&  & \vdash \mathbf{I} \lsem ( ( ( \mw{\varphi} \wedge ( \mw{\psi}
+      \wedge \mw{\chi} ) ) ~\string^~ \mc{A} )
+      \leftrightarrow ( ( \mw{\varphi} ~\string^~ \mc{A} )
+      \wedge ( ( \mw{\psi} ~\string^~ \mc{A} ) \wedge (
+      \mw{\chi} ~\string^~ \mc{A} ) ) ) ) , \tau
+      \rsem&(\mbox{\ref{eq:mpbir}},36,38)\notag
+\end{align}
+\end{proof}
+
+\begin{restatable}{lemma}{bltsan3li}~\blTitle{bl.tsan3li}~ Distribute $~\string^~$ over
+conjunction, three terms (left), inference.
+\begin{align}
+\vdash \mc{A} \in \mathbb{Z}\quad\&\quad \vdash \mc{D} \in
+    \mathbb{R}\quad\&\quad \vdash \tau \in \mathbf{T}\quad\&\quad \vdash ( \tau
+    + ( \mc{D} \times \mc{A} ) ) \in \mathbf{T}\quad\Rightarrow \notag \\ %& & & \qquad
+     \quad \vdash
+    \mathbf{I} \lsem ( ( ( ( \mw{\varphi} \wedge \mw{\psi} ) \wedge \mw{\chi} )
+    ~\string^~ \mc{A} ) \leftrightarrow ( ( ( \mw{\varphi} ~\string^~ \mc{A} )
+    \wedge ( \mw{\psi} ~\string^~ \mc{A} ) ) \wedge ( \mw{\chi} ~\string^~
+    \mc{A} ) ) ) , \tau \rsem\label{eq:bl.tsan3li}\tag{bl.tsan3li}
+\end{align}
+\end{restatable}
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash \tau \in \mathbf{T}&\text{Hyp~tsan3li.3}\notag%bl.tsan3li.3
+  \\ 2 &&  & \vdash ( \mathbf{I} \lsem ( ( \mw{\varphi} ~\string^~ \mc{A} )
+      \wedge ( \mw{\psi} ~\string^~ \mc{A} ) ) , \tau \rsem
+      \leftrightarrow ( \mathbf{I} \lsem ( \mw{\varphi}
+      ~\string^~ \mc{A} ) , \tau \rsem \wedge \mathbf{I}
+      \lsem ( \mw{\psi} ~\string^~ \mc{A} ) , \tau \rsem )
+      )&(\mbox{\ref{eq:df-bl.ant}},1)\notag
+  \\ 3 &&  & \vdash ( ( \mathbf{I} \lsem ( ( \mw{\varphi} ~\string^~ \mc{A} )
+      \wedge ( \mw{\psi} ~\string^~ \mc{A} ) ) , \tau \rsem
+      \wedge \mathbf{I} \lsem ( \mw{\chi} ~\string^~ \mc{A}
+      ) , \tau \rsem ) \leftrightarrow  \notag \\ & & & \qquad
+     ( ( \mathbf{I} \lsem
+      ( \mw{\varphi} ~\string^~ \mc{A} ) , \tau \rsem
+      \wedge \mathbf{I} \lsem ( \mw{\psi} ~\string^~ \mc{A}
+      ) , \tau \rsem ) \wedge \mathbf{I} \lsem ( \mw{\chi}
+      ~\string^~ \mc{A} ) , \tau \rsem )
+      )&(\mbox{\ref{eq:anbi1i}},2)\notag
+  \\ 4 &&  & \vdash \tau \in \mathbf{T}&\text{Hyp~tsan3li.3}\notag%bl.tsan3li.3
+  \\ 5 &&  & \vdash ( \mathbf{I} \lsem ( ( ( \mw{\varphi} ~\string^~ \mc{A} )
+      \wedge ( \mw{\psi} ~\string^~ \mc{A} ) ) \wedge (
+      \mw{\chi} ~\string^~ \mc{A} ) ) , \tau \rsem
+      \leftrightarrow  \notag \\ & & & \qquad
+     ( \mathbf{I} \lsem ( ( \mw{\varphi}
+      ~\string^~ \mc{A} ) \wedge ( \mw{\psi} ~\string^~
+      \mc{A} ) ) , \tau \rsem \wedge \mathbf{I} \lsem (
+      \mw{\chi} ~\string^~ \mc{A} ) , \tau \rsem )
+      )&(\mbox{\ref{eq:df-bl.ant}},4)\notag
+  \\ 6 &&  & \vdash \mc{A} \in
+      \mathbb{Z}&\text{Hyp~tsan3li.1}\notag%bl.tsan3li.1
+  \\ 7 &&  & \vdash \mc{D} \in
+      \mathbb{R}&\text{Hyp~tsan3li.2}\notag%bl.tsan3li.2
+  \\ 8 &&  & \vdash \tau \in \mathbf{T}&\text{Hyp~tsan3li.3}\notag%bl.tsan3li.3
+  \\ 9 &&  & \vdash ( \tau + ( \mc{D} \times \mc{A} ) ) \in
+      \mathbf{T}&\text{Hyp~tsan3li.4}\notag%bl.tsan3li.4
+  \\ 10 &&  & \vdash ( \mathbf{I} \lsem ( ( ( \mw{\varphi} \wedge \mw{\psi} )
+      \wedge \mw{\chi} ) ~\string^~ \mc{A} ) , \tau \rsem
+      \leftrightarrow \mathbf{I} \lsem ( ( \mw{\varphi}
+      \wedge \mw{\psi} ) \wedge \mw{\chi} ) , ( \tau + (
+      \mc{D} \times \mc{A} ) ) \rsem
+      )&(\mbox{\ref{eq:bl.tsi}},6,7,8,9)\notag
+  \\ 11 &&  & \vdash ( \tau + ( \mc{D} \times \mc{A} ) ) \in
+      \mathbf{T}&\text{Hyp~tsan3li.4}\notag%bl.tsan3li.4
+  \\ 12 &&  & \vdash ( \mathbf{I} \lsem ( ( \mw{\varphi} \wedge \mw{\psi} )
+      \wedge \mw{\chi} ) , ( \tau + ( \mc{D} \times \mc{A} )
+      ) \rsem \leftrightarrow  \notag \\ & & & \qquad
+     ( \mathbf{I} \lsem (
+      \mw{\varphi} \wedge \mw{\psi} ) , ( \tau + ( \mc{D}
+      \times \mc{A} ) ) \rsem \wedge \mathbf{I} \lsem
+      \mw{\chi} , ( \tau + ( \mc{D} \times \mc{A} ) ) \rsem
+      ) )&(\mbox{\ref{eq:df-bl.ant}},11)\notag
+  \\ 13 &&  & \vdash ( \tau + ( \mc{D} \times \mc{A} ) ) \in
+      \mathbf{T}&\text{Hyp~tsan3li.4}\notag%bl.tsan3li.4
+  \\ 14 &&  & \vdash ( \mathbf{I} \lsem ( \mw{\varphi} \wedge \mw{\psi} ) , (
+      \tau + ( \mc{D} \times \mc{A} ) ) \rsem
+      \leftrightarrow  \notag \\ & & & \qquad
+     ( \mathbf{I} \lsem \mw{\varphi} , (
+      \tau + ( \mc{D} \times \mc{A} ) ) \rsem \wedge
+      \mathbf{I} \lsem \mw{\psi} , ( \tau + ( \mc{D} \times
+      \mc{A} ) ) \rsem )
+      )&(\mbox{\ref{eq:df-bl.ant}},13)\notag
+  \\ 15 &&  & \vdash ( ( \mathbf{I} \lsem ( \mw{\varphi} \wedge \mw{\psi} ) , (
+      \tau + ( \mc{D} \times \mc{A} ) ) \rsem \wedge
+      \mathbf{I} \lsem \mw{\chi} , ( \tau + ( \mc{D} \times
+      \mc{A} ) ) \rsem ) \leftrightarrow  \notag \\ & & & \qquad
+     ( ( \mathbf{I}
+      \lsem \mw{\varphi} , ( \tau + ( \mc{D} \times \mc{A} )
+      ) \rsem \wedge \mathbf{I} \lsem \mw{\psi} , ( \tau +
+      ( \mc{D} \times \mc{A} ) ) \rsem ) \wedge \mathbf{I}
+      \lsem \mw{\chi} , ( \tau + ( \mc{D} \times \mc{A} ) )
+      \rsem ) )&(\mbox{\ref{eq:anbi1i}},14)\notag
+  \\ 16 &&  & \vdash ( \mathbf{I} \lsem ( ( ( \mw{\varphi} \wedge \mw{\psi} )
+      \wedge \mw{\chi} ) ~\string^~ \mc{A} ) , \tau \rsem
+      \leftrightarrow  \notag \\ & & & \qquad
+     ( ( \mathbf{I} \lsem \mw{\varphi} , (
+      \tau + ( \mc{D} \times \mc{A} ) ) \rsem \wedge
+      \mathbf{I} \lsem \mw{\psi} , ( \tau + ( \mc{D} \times
+      \mc{A} ) ) \rsem ) \wedge \mathbf{I} \lsem \mw{\chi}
+      , ( \tau + ( \mc{D} \times \mc{A} ) ) \rsem )
+      )&(\mbox{\ref{eq:3bitri}},10,12,15)\notag
+  \\ 17 &&  & \vdash \mc{A} \in
+      \mathbb{Z}&\text{Hyp~tsan3li.1}\notag%bl.tsan3li.1
+  \\ 18 &&  & \vdash \mc{D} \in
+      \mathbb{R}&\text{Hyp~tsan3li.2}\notag%bl.tsan3li.2
+  \\ 19 &&  & \vdash \tau \in
+      \mathbf{T}&\text{Hyp~tsan3li.3}\notag%bl.tsan3li.3
+  \\ 20 &&  & \vdash ( \tau + ( \mc{D} \times \mc{A} ) ) \in
+      \mathbf{T}&\text{Hyp~tsan3li.4}\notag%bl.tsan3li.4
+  \\ 21 &&  & \vdash ( \mathbf{I} \lsem ( \mw{\varphi} ~\string^~ \mc{A} ) ,
+      \tau \rsem \leftrightarrow \mathbf{I} \lsem
+      \mw{\varphi} , ( \tau + ( \mc{D} \times \mc{A} ) )
+      \rsem )&(\mbox{\ref{eq:bl.tsi}},17,18,19,20)\notag
+  \\ 22 &&  & \vdash \mc{A} \in
+      \mathbb{Z}&\text{Hyp~tsan3li.1}\notag%bl.tsan3li.1
+  \\ 23 &&  & \vdash \mc{D} \in
+      \mathbb{R}&\text{Hyp~tsan3li.2}\notag%bl.tsan3li.2
+  \\ 24 &&  & \vdash \tau \in
+      \mathbf{T}&\text{Hyp~tsan3li.3}\notag%bl.tsan3li.3
+  \\ 25 &&  & \vdash ( \tau + ( \mc{D} \times \mc{A} ) ) \in
+      \mathbf{T}&\text{Hyp~tsan3li.4}\notag%bl.tsan3li.4
+  \\ 26 &&  & \vdash ( \mathbf{I} \lsem ( \mw{\psi} ~\string^~ \mc{A} ) , \tau
+      \rsem \leftrightarrow \mathbf{I} \lsem \mw{\psi} , (
+      \tau + ( \mc{D} \times \mc{A} ) ) \rsem
+      )&(\mbox{\ref{eq:bl.tsi}},22,23,24,25)\notag
+  \\ 27 &&  & \vdash ( ( \mathbf{I} \lsem ( \mw{\varphi} ~\string^~ \mc{A} ) ,
+      \tau \rsem \wedge \mathbf{I} \lsem ( \mw{\psi}
+      ~\string^~ \mc{A} ) , \tau \rsem ) \leftrightarrow  \notag \\ & & & \qquad
+     (
+      \mathbf{I} \lsem \mw{\varphi} , ( \tau + ( \mc{D}
+      \times \mc{A} ) ) \rsem \wedge \mathbf{I} \lsem
+      \mw{\psi} , ( \tau + ( \mc{D} \times \mc{A} ) ) \rsem
+      ) )&(\mbox{\ref{eq:anbi12i}},21,26)\notag
+  \\ 28 &&  & \vdash \mc{A} \in
+      \mathbb{Z}&\text{Hyp~tsan3li.1}\notag%bl.tsan3li.1
+  \\ 29 &&  & \vdash \mc{D} \in
+      \mathbb{R}&\text{Hyp~tsan3li.2}\notag%bl.tsan3li.2
+  \\ 30 &&  & \vdash \tau \in
+      \mathbf{T}&\text{Hyp~tsan3li.3}\notag%bl.tsan3li.3
+  \\ 31 &&  & \vdash ( \tau + ( \mc{D} \times \mc{A} ) ) \in
+      \mathbf{T}&\text{Hyp~tsan3li.4}\notag%bl.tsan3li.4
+  \\ 32 &&  & \vdash ( \mathbf{I} \lsem ( \mw{\chi} ~\string^~ \mc{A} ) , \tau
+      \rsem \leftrightarrow \mathbf{I} \lsem \mw{\chi} , (
+      \tau + ( \mc{D} \times \mc{A} ) ) \rsem
+      )&(\mbox{\ref{eq:bl.tsi}},28,29,30,31)\notag
+  \\ 33 &&  & \vdash ( ( ( \mathbf{I} \lsem ( \mw{\varphi} ~\string^~ \mc{A} )
+      , \tau \rsem \wedge \mathbf{I} \lsem ( \mw{\psi}
+      ~\string^~ \mc{A} ) , \tau \rsem ) \wedge \mathbf{I}
+      \lsem ( \mw{\chi} ~\string^~ \mc{A} ) , \tau \rsem )
+      \leftrightarrow  \notag \\ & & & \qquad
+     ( ( \mathbf{I} \lsem \mw{\varphi} , (
+      \tau + ( \mc{D} \times \mc{A} ) ) \rsem \wedge
+      \mathbf{I} \lsem \mw{\psi} , ( \tau + ( \mc{D} \times
+      \mc{A} ) ) \rsem ) \wedge \mathbf{I} \lsem \mw{\chi}
+      , ( \tau + ( \mc{D} \times \mc{A} ) ) \rsem )
+      )&(\mbox{\ref{eq:anbi12i}},27,32)\notag
+  \\ 34 &&  & \vdash ( \mathbf{I} \lsem ( ( ( \mw{\varphi} \wedge \mw{\psi} )
+      \wedge \mw{\chi} ) ~\string^~ \mc{A} ) , \tau \rsem
+      \leftrightarrow  \notag \\ & & & \qquad
+     ( ( \mathbf{I} \lsem ( \mw{\varphi}
+      ~\string^~ \mc{A} ) , \tau \rsem \wedge \mathbf{I}
+      \lsem ( \mw{\psi} ~\string^~ \mc{A} ) , \tau \rsem )
+      \wedge \mathbf{I} \lsem ( \mw{\chi} ~\string^~ \mc{A}
+      ) , \tau \rsem )
+      )&(\mbox{\ref{eq:bitr4i}},16,33)\notag
+  \\ 35 &&  & \vdash ( \mathbf{I} \lsem ( ( ( \mw{\varphi} \wedge \mw{\psi} )
+      \wedge \mw{\chi} ) ~\string^~ \mc{A} ) , \tau \rsem
+      \leftrightarrow \mathbf{I} \lsem ( ( ( \mw{\varphi}
+      ~\string^~ \mc{A} ) \wedge ( \mw{\psi} ~\string^~
+      \mc{A} ) ) \wedge ( \mw{\chi} ~\string^~ \mc{A} ) ) ,
+      \tau \rsem )&(\mbox{\ref{eq:3bitr4ri}},3,5,34)\notag
+  \\ 36 &&  & \vdash \tau \in
+      \mathbf{T}&\text{Hyp~tsan3li.3}\notag%bl.tsan3li.3
+  \\ 37 &&  & \vdash ( \mathbf{I} \lsem ( ( ( ( \mw{\varphi} \wedge \mw{\psi} )
+      \wedge \mw{\chi} ) ~\string^~ \mc{A} )
+      \leftrightarrow ( ( ( \mw{\varphi} ~\string^~ \mc{A}
+      ) \wedge ( \mw{\psi} ~\string^~ \mc{A} ) ) \wedge (
+      \mw{\chi} ~\string^~ \mc{A} ) ) ) , \tau \rsem
+      \leftrightarrow \notag \\ & & & \qquad
+      ( \mathbf{I} \lsem ( ( ( \mw{\varphi}
+      \wedge \mw{\psi} ) \wedge \mw{\chi} ) ~\string^~
+      \mc{A} ) , \tau \rsem \leftrightarrow \mathbf{I}
+      \lsem ( ( ( \mw{\varphi} ~\string^~ \mc{A} ) \wedge (
+      \mw{\psi} ~\string^~ \mc{A} ) ) \wedge ( \mw{\chi}
+      ~\string^~ \mc{A} ) ) , \tau \rsem )
+      )&(\mbox{\ref{eq:df-bl.bit}},36)\notag
+  \\ 38 &&  & \vdash \mathbf{I} \lsem ( ( ( ( \mw{\varphi} \wedge \mw{\psi} )
+      \wedge \mw{\chi} ) ~\string^~ \mc{A} )
+      \leftrightarrow ( ( ( \mw{\varphi} ~\string^~ \mc{A}
+      ) \wedge ( \mw{\psi} ~\string^~ \mc{A} ) ) \wedge (
+      \mw{\chi} ~\string^~ \mc{A} ) ) ) , \tau
+      \rsem&(\mbox{\ref{eq:mpbir}},35,37)\notag
+\end{align}
+\end{proof}
+
+\begin{restatable}{lemma}{bltsani}~\blTitle{bl.tsani}~ Distribute $~\string^~$ over conjunction,
+wff-list , inference.
+\begin{align}
+\vdash \mc{A} \in \mathbb{Z}\quad\&\quad \vdash ( \mc{D} \in \mathbb{R} \wedge
+    0 < \mc{D} )\quad\&\quad \vdash \tau \in \mathbf{T}\quad\&\quad \vdash (
+    \tau + ( \mc{D} \times \mc{A} ) ) \in \mathbf{T}\quad\Rightarrow \notag \\ %& & & \qquad
+     \quad \vdash
+    \mathbf{I} \lsem ( ( \bigwedge[ \mwl{l_1} \mwl{l_2} ] ~\string^~ \mc{A} )
+    \leftrightarrow ( ( \bigwedge[ \mwl{l_1} ] ~\string^~ \mc{A} ) \wedge (
+    \bigwedge[ \mwl{l_2} ] ~\string^~ \mc{A} ) ) ) , \tau
+    \rsem\label{eq:bl.tsani}\tag{bl.tsani}
+\end{align}
+\end{restatable}
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash \tau \in \mathbf{T}&\text{Hyp~tsani.3}\notag%bl.tsani.3
+  \\ 2 &&  & \vdash \mc{A} \in \mathbb{Z}&\text{Hyp~tsani.1}\notag%bl.tsani.1
+  \\ 3 &&  & \vdash ( \mc{A} \in \mathbb{Z} \leftrightarrow ( \mc{A} \in
+      \mathbb{Z} \wedge \mc{A} \in \mathbb{Z} )
+      )&(\mbox{\ref{eq:pm4.24}})\notag
+  \\ 4 &&  & \vdash ( \mc{A} \in \mathbb{Z} \wedge \mc{A} \in \mathbb{Z}
+      )&(\mbox{\ref{eq:mpbi}},2,3)\notag
+  \\ 5 &&  & \vdash ( \mc{D} \in \mathbb{R} \wedge 0 < \mc{D}
+      )&\text{Hyp~tsani.2}\notag%bl.tsani.2
+  \\ 6 &&  & \vdash \tau \in \mathbf{T}&\text{Hyp~tsani.3}\notag%bl.tsani.3
+  \\ 7 &&  & \vdash ( \tau + ( \mc{D} \times \mc{A} ) ) \in
+      \mathbf{T}&\text{Hyp~tsani.4}\notag%bl.tsani.4
+  \\ 8 &&  & \vdash ( \tau + ( \mc{D} \times \mc{A} ) ) \in
+      \mathbf{T}&\text{Hyp~tsani.4}\notag%bl.tsani.4
+  \\ 9 &&  & \vdash ( \bigwedge[ \mwl{l_1} \mwl{l_2} ] \leftrightarrow (
+      \bigwedge[ \mwl{l_1} ] \wedge \bigwedge[ \mwl{l_2} ]
+      ) )&(\mbox{\ref{eq:df-bl.lan2wl}})\notag
+  \\ 10 &&  & \vdash \mc{A} = \mc{A}&(\mbox{\ref{eq:eqid}})\notag
+  \\ 11 &&  & \vdash \mathbf{I} \lsem ( ( \bigwedge[ \mwl{l_1} \mwl{l_2} ]
+      ~\string^~ \mc{A} ) \leftrightarrow ( ( \bigwedge[
+      \mwl{l_1} ] \wedge \bigwedge[ \mwl{l_2} ] )
+      ~\string^~ \mc{A} ) ) , \tau
+      \rsem&(\mbox{\ref{eq:bl.tsbii}},4,5,6,7,8,9,10)\notag
+  \\ 12 &&  & \vdash \mc{A} \in \mathbb{Z}&\text{Hyp~tsani.1}\notag%bl.tsani.1
+  \\ 13 &&  & \vdash ( \mc{D} \in \mathbb{R} \wedge 0 < \mc{D}
+      )&\text{Hyp~tsani.2}\notag%bl.tsani.2
+  \\ 14 &&  & \vdash \mc{D} \in \mathbb{R}&(\mbox{\ref{eq:simpli}},13)\notag
+  \\ 15 &&  & \vdash \tau \in \mathbf{T}&\text{Hyp~tsani.3}\notag%bl.tsani.3
+  \\ 16 &&  & \vdash ( \tau + ( \mc{D} \times \mc{A} ) ) \in
+      \mathbf{T}&\text{Hyp~tsani.4}\notag%bl.tsani.4
+  \\ 17 &&  & \vdash \mathbf{I} \lsem ( ( ( \bigwedge[ \mwl{l_1} ] \wedge
+      \bigwedge[ \mwl{l_2} ] ) ~\string^~ \mc{A} )
+      \leftrightarrow ( ( \bigwedge[ \mwl{l_1} ] ~\string^~
+      \mc{A} ) \wedge ( \bigwedge[ \mwl{l_2} ] ~\string^~
+      \mc{A} ) ) ) , \tau
+      \rsem&(\mbox{\ref{eq:bl.tsan2i}},12,14,15,16)\notag
+  \\ 18 &&  & \vdash \mathbf{I} \lsem ( ( \bigwedge[ \mwl{l_1} \mwl{l_2} ]
+      ~\string^~ \mc{A} ) \leftrightarrow ( ( \bigwedge[
+      \mwl{l_1} ] ~\string^~ \mc{A} ) \wedge ( \bigwedge[
+      \mwl{l_2} ] ~\string^~ \mc{A} ) ) ) , \tau
+      \rsem&(\mbox{\ref{eq:bl.bitrit}},1,11,17)\notag
+\end{align}
+\end{proof}
+
+\begin{restatable}{lemma}{bltsor2i}~\blTitle{bl.tsor2i}~ Distribute $~\string^~$ over disjunction,
+two terms,inference
+\begin{align}
+\vdash \mc{A} \in \mathbb{Z}\quad\&\quad \vdash \mc{D} \in
+    \mathbb{R}\quad\&\quad \vdash \tau \in \mathbf{T}\quad\&\quad \vdash ( \tau
+    + ( \mc{D} \times \mc{A} ) ) \in \mathbf{T}\quad\Rightarrow \notag \\ %& & & \qquad
+     \quad \vdash
+    \mathbf{I} \lsem ( ( ( \mw{\varphi} \vee \mw{\psi} ) ~\string^~ \mc{A} )
+    \leftrightarrow ( ( \mw{\varphi} ~\string^~ \mc{A} ) \vee ( \mw{\psi}
+    ~\string^~ \mc{A} ) ) ) , \tau \rsem\label{eq:bl.tsor2i}\tag{bl.tsor2i}
+\end{align}
+\end{restatable}
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash ( \tau + ( \mc{D} \times \mc{A} ) ) \in
+      \mathbf{T}&\text{Hyp~tsor2i.4}\notag%bl.tsor2i.4
+  \\ 2 &&  & \vdash ( \mathbf{I} \lsem ( \mw{\varphi} \vee \mw{\psi} ) , ( \tau
+      + ( \mc{D} \times \mc{A} ) ) \rsem \leftrightarrow (
+      \mathbf{I} \lsem \mw{\varphi} , ( \tau + ( \mc{D}
+      \times \mc{A} ) ) \rsem \vee \mathbf{I} \lsem
+      \mw{\psi} , ( \tau + ( \mc{D} \times \mc{A} ) ) \rsem
+      ) )&(\mbox{\ref{eq:df-bl.ort}},1)\notag
+  \\ 3 &&  & \vdash \mc{A} \in \mathbb{Z}&\text{Hyp~tsor2i.1}\notag%bl.tsor2i.1
+  \\ 4 &&  & \vdash \mc{D} \in \mathbb{R}&\text{Hyp~tsor2i.2}\notag%bl.tsor2i.2
+  \\ 5 &&  & \vdash \tau \in \mathbf{T}&\text{Hyp~tsor2i.3}\notag%bl.tsor2i.3
+  \\ 6 &&  & \vdash ( \tau + ( \mc{D} \times \mc{A} ) ) \in
+      \mathbf{T}&\text{Hyp~tsor2i.4}\notag%bl.tsor2i.4
+  \\ 7 &&  & \vdash ( \mathbf{I} \lsem ( ( \mw{\varphi} \vee \mw{\psi} )
+      ~\string^~ \mc{A} ) , \tau \rsem \leftrightarrow
+      \mathbf{I} \lsem ( \mw{\varphi} \vee \mw{\psi} ) , (
+      \tau + ( \mc{D} \times \mc{A} ) ) \rsem
+      )&(\mbox{\ref{eq:bl.tsi}},3,4,5,6)\notag
+  \\ 8 &&  & \vdash \mc{A} \in \mathbb{Z}&\text{Hyp~tsor2i.1}\notag%bl.tsor2i.1
+  \\ 9 &&  & \vdash \mc{D} \in \mathbb{R}&\text{Hyp~tsor2i.2}\notag%bl.tsor2i.2
+  \\ 10 &&  & \vdash \tau \in \mathbf{T}&\text{Hyp~tsor2i.3}\notag%bl.tsor2i.3
+  \\ 11 &&  & \vdash ( \tau + ( \mc{D} \times \mc{A} ) ) \in
+      \mathbf{T}&\text{Hyp~tsor2i.4}\notag%bl.tsor2i.4
+  \\ 12 &&  & \vdash ( \mathbf{I} \lsem ( \mw{\varphi} ~\string^~ \mc{A} ) ,
+      \tau \rsem \leftrightarrow \mathbf{I} \lsem
+      \mw{\varphi} , ( \tau + ( \mc{D} \times \mc{A} ) )
+      \rsem )&(\mbox{\ref{eq:bl.tsi}},8,9,10,11)\notag
+  \\ 13 &&  & \vdash \mc{A} \in
+      \mathbb{Z}&\text{Hyp~tsor2i.1}\notag%bl.tsor2i.1
+  \\ 14 &&  & \vdash \mc{D} \in
+      \mathbb{R}&\text{Hyp~tsor2i.2}\notag%bl.tsor2i.2
+  \\ 15 &&  & \vdash \tau \in \mathbf{T}&\text{Hyp~tsor2i.3}\notag%bl.tsor2i.3
+  \\ 16 &&  & \vdash ( \tau + ( \mc{D} \times \mc{A} ) ) \in
+      \mathbf{T}&\text{Hyp~tsor2i.4}\notag%bl.tsor2i.4
+  \\ 17 &&  & \vdash ( \mathbf{I} \lsem ( \mw{\psi} ~\string^~ \mc{A} ) , \tau
+      \rsem \leftrightarrow \mathbf{I} \lsem \mw{\psi} , (
+      \tau + ( \mc{D} \times \mc{A} ) ) \rsem
+      )&(\mbox{\ref{eq:bl.tsi}},13,14,15,16)\notag
+  \\ 18 &&  & \vdash ( ( \mathbf{I} \lsem ( \mw{\varphi} ~\string^~ \mc{A} ) ,
+      \tau \rsem \vee \mathbf{I} \lsem ( \mw{\psi}
+      ~\string^~ \mc{A} ) , \tau \rsem ) \leftrightarrow  \notag \\ & & & \qquad
+     (
+      \mathbf{I} \lsem \mw{\varphi} , ( \tau + ( \mc{D}
+      \times \mc{A} ) ) \rsem \vee \mathbf{I} \lsem
+      \mw{\psi} , ( \tau + ( \mc{D} \times \mc{A} ) ) \rsem
+      ) )&(\mbox{\ref{eq:orbi12i}},12,17)\notag
+  \\ 19 &&  & \vdash ( \mathbf{I} \lsem ( ( \mw{\varphi} \vee \mw{\psi} )
+      ~\string^~ \mc{A} ) , \tau \rsem \leftrightarrow (
+      \mathbf{I} \lsem ( \mw{\varphi} ~\string^~ \mc{A} ) ,
+      \tau \rsem \vee \mathbf{I} \lsem ( \mw{\psi}
+      ~\string^~ \mc{A} ) , \tau \rsem )
+      )&(\mbox{\ref{eq:3bitr4i}},2,7,18)\notag
+  \\ 20 &&  & \vdash \tau \in \mathbf{T}&\text{Hyp~tsor2i.3}\notag%bl.tsor2i.3
+  \\ 21 &&  & \vdash ( \mathbf{I} \lsem ( ( \mw{\varphi} ~\string^~ \mc{A} )
+      \vee ( \mw{\psi} ~\string^~ \mc{A} ) ) , \tau \rsem
+      \leftrightarrow ( \mathbf{I} \lsem ( \mw{\varphi}
+      ~\string^~ \mc{A} ) , \tau \rsem \vee \mathbf{I}
+      \lsem ( \mw{\psi} ~\string^~ \mc{A} ) , \tau \rsem )
+      )&(\mbox{\ref{eq:df-bl.ort}},20)\notag
+  \\ 22 &&  & \vdash ( \mathbf{I} \lsem ( ( \mw{\varphi} \vee \mw{\psi} )
+      ~\string^~ \mc{A} ) , \tau \rsem \leftrightarrow
+      \mathbf{I} \lsem ( ( \mw{\varphi} ~\string^~ \mc{A} )
+      \vee ( \mw{\psi} ~\string^~ \mc{A} ) ) , \tau \rsem
+      )&(\mbox{\ref{eq:bitr4i}},19,21)\notag
+  \\ 23 &&  & \vdash \tau \in \mathbf{T}&\text{Hyp~tsor2i.3}\notag%bl.tsor2i.3
+  \\ 24 &&  & \vdash ( \mathbf{I} \lsem ( ( ( \mw{\varphi} \vee \mw{\psi} )
+      ~\string^~ \mc{A} ) \leftrightarrow ( ( \mw{\varphi}
+      ~\string^~ \mc{A} ) \vee ( \mw{\psi} ~\string^~
+      \mc{A} ) ) ) , \tau \rsem \leftrightarrow \notag \\ & & & \qquad
+      (
+      \mathbf{I} \lsem ( ( \mw{\varphi} \vee \mw{\psi} )
+      ~\string^~ \mc{A} ) , \tau \rsem \leftrightarrow
+      \mathbf{I} \lsem ( ( \mw{\varphi} ~\string^~ \mc{A} )
+      \vee ( \mw{\psi} ~\string^~ \mc{A} ) ) , \tau \rsem )
+      )&(\mbox{\ref{eq:df-bl.bit}},23)\notag
+  \\ 25 &&  & \vdash \mathbf{I} \lsem ( ( ( \mw{\varphi} \vee \mw{\psi} )
+      ~\string^~ \mc{A} ) \leftrightarrow ( ( \mw{\varphi}
+      ~\string^~ \mc{A} ) \vee ( \mw{\psi} ~\string^~
+      \mc{A} ) ) ) , \tau
+      \rsem&(\mbox{\ref{eq:mpbir}},22,24)\notag
+\end{align}
+\end{proof}
+
+\begin{restatable}{lemma}{bltsor3i}~\blTitle{bl.tsor3i}~ Distribute $~\string^~$ over disjunction,
+three terms, inference
+\begin{align}
+\vdash \mc{A} \in \mathbb{Z}\quad\&\quad \vdash \mc{D} \in
+    \mathbb{R}\quad\&\quad \vdash \tau \in \mathbf{T}\quad\&\quad \vdash ( \tau
+    + ( \mc{D} \times \mc{A} ) ) \in \mathbf{T}\quad\Rightarrow \notag \\% & & & \qquad
+     \quad \vdash
+    \mathbf{I} \lsem ( ( ( \mw{\varphi} \vee \mw{\psi} \vee \mw{\chi} )
+    ~\string^~ \mc{A} ) \leftrightarrow ( ( \mw{\varphi} ~\string^~ \mc{A} )
+    \vee ( \mw{\psi} ~\string^~ \mc{A} ) \vee ( \mw{\chi} ~\string^~ \mc{A} ) )
+    ) , \tau \rsem\label{eq:bl.tsor3i}\tag{bl.tsor3i}
+\end{align}
+\end{restatable}
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash \mc{A} \in \mathbb{Z}&\text{Hyp~tsor3i.1}\notag%bl.tsor3i.1
+  \\ 2 &&  & \vdash \mc{D} \in \mathbb{R}&\text{Hyp~tsor3i.2}\notag%bl.tsor3i.2
+  \\ 3 &&  & \vdash \tau \in \mathbf{T}&\text{Hyp~tsor3i.3}\notag%bl.tsor3i.3
+  \\ 4 &&  & \vdash ( \tau + ( \mc{D} \times \mc{A} ) ) \in
+      \mathbf{T}&\text{Hyp~tsor3i.4}\notag%bl.tsor3i.4
+  \\ 5 &&  & \vdash ( \mathbf{I} \lsem ( ( \mw{\varphi} \vee \mw{\psi} \vee
+      \mw{\chi} ) ~\string^~ \mc{A} ) , \tau \rsem
+      \leftrightarrow \mathbf{I} \lsem ( \mw{\varphi} \vee
+      \mw{\psi} \vee \mw{\chi} ) , ( \tau + ( \mc{D} \times
+      \mc{A} ) ) \rsem
+      )&(\mbox{\ref{eq:bl.tsi}},1,2,3,4)\notag
+  \\ 6 &&  & \vdash ( ( \mw{\varphi} \vee \mw{\psi} \vee \mw{\chi} )
+      \leftrightarrow ( ( \mw{\varphi} \vee \mw{\psi} )
+      \vee \mw{\chi} ) )&(\mbox{\ref{eq:df-3or}})\notag
+  \\ 7 &&  & \vdash ( \tau + ( \mc{D} \times \mc{A} ) ) \in
+      \mathbf{T}&\text{Hyp~tsor3i.4}\notag%bl.tsor3i.4
+  \\ 8 &&  & \vdash ( \tau + ( \mc{D} \times \mc{A} ) ) \in
+      \mathbf{T}&\text{Hyp~tsor3i.4}\notag%bl.tsor3i.4
+  \\ 9 &&  & \vdash ( \tau + ( \mc{D} \times \mc{A} ) ) = ( \tau + ( \mc{D}
+      \times \mc{A} ) )&(\mbox{\ref{eq:eqid}})\notag
+  \\ 10 &&  & \vdash ( ( \tau + ( \mc{D} \times \mc{A} ) ) \in \mathbf{T} \wedge
+      ( \tau + ( \mc{D} \times \mc{A} ) ) \in \mathbf{T}
+      \wedge ( \tau + ( \mc{D} \times \mc{A} ) ) = ( \tau +
+      ( \mc{D} \times \mc{A} ) )
+      )&(\mbox{\ref{eq:3pm3.2i}},7,8,9)\notag
+  \\ 11 &&  & \vdash ( ( ( \tau + ( \mc{D} \times \mc{A} ) ) \in \mathbf{T}
+      \wedge ( \tau + ( \mc{D} \times \mc{A} ) ) \in
+      \mathbf{T} \wedge ( \tau + ( \mc{D} \times \mc{A} ) )
+      = ( \tau + ( \mc{D} \times \mc{A} ) ) ) \rightarrow  \notag \\ & & & \qquad
+     (
+      ( ( \mw{\varphi} \vee \mw{\psi} \vee \mw{\chi} )
+      \leftrightarrow ( ( \mw{\varphi} \vee \mw{\psi} )
+      \vee \mw{\chi} ) ) \leftrightarrow ( \mathbf{I} \lsem
+      ( \mw{\varphi} \vee \mw{\psi} \vee \mw{\chi} ) , (
+      \tau + ( \mc{D} \times \mc{A} ) ) \rsem
+      \leftrightarrow  \notag \\ & & & \qquad
+     \mathbf{I} \lsem ( ( \mw{\varphi}
+      \vee \mw{\psi} ) \vee \mw{\chi} ) , ( \tau + ( \mc{D}
+      \times \mc{A} ) ) \rsem ) )
+      )&(\mbox{\ref{eq:ax-bl.bi}})\notag
+  \\ 12 &&  & \vdash ( ( ( \mw{\varphi} \vee \mw{\psi} \vee \mw{\chi} )
+      \leftrightarrow ( ( \mw{\varphi} \vee \mw{\psi} )
+      \vee \mw{\chi} ) ) \leftrightarrow  \notag \\ & & & \qquad
+     ( \mathbf{I} \lsem
+      ( \mw{\varphi} \vee \mw{\psi} \vee \mw{\chi} ) , (
+      \tau + ( \mc{D} \times \mc{A} ) ) \rsem
+      \leftrightarrow \mathbf{I} \lsem ( ( \mw{\varphi}
+      \vee \mw{\psi} ) \vee \mw{\chi} ) , ( \tau + ( \mc{D}
+      \times \mc{A} ) ) \rsem )
+      )&(\mbox{\ref{eq:ax-mp}},10,11)\notag
+  \\ 13 &&  & \vdash ( \mathbf{I} \lsem ( \mw{\varphi} \vee \mw{\psi} \vee
+      \mw{\chi} ) , ( \tau + ( \mc{D} \times \mc{A} ) )
+      \rsem \leftrightarrow \mathbf{I} \lsem ( (
+      \mw{\varphi} \vee \mw{\psi} ) \vee \mw{\chi} ) , (
+      \tau + ( \mc{D} \times \mc{A} ) ) \rsem
+      )&(\mbox{\ref{eq:mpbi}},6,12)\notag
+  \\ 14 &&  & \vdash ( \mathbf{I} \lsem ( ( \mw{\varphi} \vee \mw{\psi} \vee
+      \mw{\chi} ) ~\string^~ \mc{A} ) , \tau \rsem
+      \leftrightarrow \mathbf{I} \lsem ( ( \mw{\varphi}
+      \vee \mw{\psi} ) \vee \mw{\chi} ) , ( \tau + ( \mc{D}
+      \times \mc{A} ) ) \rsem
+      )&(\mbox{\ref{eq:bitri}},5,13)\notag
+  \\ 15 &&  & \vdash ( \tau + ( \mc{D} \times \mc{A} ) ) \in
+      \mathbf{T}&\text{Hyp~tsor3i.4}\notag%bl.tsor3i.4
+  \\ 16 &&  & \vdash ( \mathbf{I} \lsem ( ( \mw{\varphi} \vee \mw{\psi} ) \vee
+      \mw{\chi} ) , ( \tau + ( \mc{D} \times \mc{A} ) )
+      \rsem \leftrightarrow  \notag \\ & & & \qquad
+     ( \mathbf{I} \lsem (
+      \mw{\varphi} \vee \mw{\psi} ) , ( \tau + ( \mc{D}
+      \times \mc{A} ) ) \rsem \vee \mathbf{I} \lsem
+      \mw{\chi} , ( \tau + ( \mc{D} \times \mc{A} ) ) \rsem
+      ) )&(\mbox{\ref{eq:df-bl.ort}},15)\notag
+  \\ 17 &&  & \vdash ( \mathbf{I} \lsem ( ( \mw{\varphi} \vee \mw{\psi} \vee
+      \mw{\chi} ) ~\string^~ \mc{A} ) , \tau \rsem
+      \leftrightarrow  \notag \\ & & & \qquad
+     ( \mathbf{I} \lsem ( \mw{\varphi}
+      \vee \mw{\psi} ) , ( \tau + ( \mc{D} \times \mc{A} ) )
+      \rsem \vee \mathbf{I} \lsem \mw{\chi} , ( \tau + (
+      \mc{D} \times \mc{A} ) ) \rsem )
+      )&(\mbox{\ref{eq:bitri}},14,16)\notag
+  \\ 18 &&  & \vdash ( \tau + ( \mc{D} \times \mc{A} ) ) \in
+      \mathbf{T}&\text{Hyp~tsor3i.4}\notag%bl.tsor3i.4
+  \\ 19 &&  & \vdash ( \mathbf{I} \lsem ( \mw{\varphi} \vee \mw{\psi} ) , (
+      \tau + ( \mc{D} \times \mc{A} ) ) \rsem
+      \leftrightarrow ( \mathbf{I} \lsem \mw{\varphi} , (
+      \tau + ( \mc{D} \times \mc{A} ) ) \rsem \vee
+      \mathbf{I} \lsem \mw{\psi} , ( \tau + ( \mc{D} \times
+      \mc{A} ) ) \rsem )
+      )&(\mbox{\ref{eq:df-bl.ort}},18)\notag
+  \\ 20 &&  & \vdash ( ( \mathbf{I} \lsem ( \mw{\varphi} \vee \mw{\psi} ) , (
+      \tau + ( \mc{D} \times \mc{A} ) ) \rsem \vee
+      \mathbf{I} \lsem \mw{\chi} , ( \tau + ( \mc{D} \times
+      \mc{A} ) ) \rsem ) \leftrightarrow  \notag \\ & & & \qquad
+     ( ( \mathbf{I}
+      \lsem \mw{\varphi} , ( \tau + ( \mc{D} \times \mc{A} )
+      ) \rsem \vee \mathbf{I} \lsem \mw{\psi} , ( \tau + (
+      \mc{D} \times \mc{A} ) ) \rsem ) \vee \mathbf{I} \lsem
+      \mw{\chi} , ( \tau + ( \mc{D} \times \mc{A} ) ) \rsem
+      ) )&(\mbox{\ref{eq:orbi1i}},19)\notag
+  \\ 21 &&  & \vdash ( \mathbf{I} \lsem ( ( \mw{\varphi} \vee \mw{\psi} \vee
+      \mw{\chi} ) ~\string^~ \mc{A} ) , \tau \rsem
+      \leftrightarrow  \notag \\ & & & \qquad
+     ( ( \mathbf{I} \lsem \mw{\varphi} , (
+      \tau + ( \mc{D} \times \mc{A} ) ) \rsem \vee
+      \mathbf{I} \lsem \mw{\psi} , ( \tau + ( \mc{D} \times
+      \mc{A} ) ) \rsem ) \vee \mathbf{I} \lsem \mw{\chi} ,
+      ( \tau + ( \mc{D} \times \mc{A} ) ) \rsem )
+      )&(\mbox{\ref{eq:bitri}},17,20)\notag
+  \\ 22 &&  & \vdash ( ( \mathbf{I} \lsem \mw{\varphi} , ( \tau + ( \mc{D}
+      \times \mc{A} ) ) \rsem \vee \mathbf{I} \lsem
+      \mw{\psi} , ( \tau + ( \mc{D} \times \mc{A} ) ) \rsem
+      \vee \mathbf{I} \lsem \mw{\chi} , ( \tau + ( \mc{D}
+      \times \mc{A} ) ) \rsem ) \leftrightarrow  \notag \\ & & & \qquad
+     ( (
+      \mathbf{I} \lsem \mw{\varphi} , ( \tau + ( \mc{D}
+      \times \mc{A} ) ) \rsem \vee \mathbf{I} \lsem
+      \mw{\psi} , ( \tau + ( \mc{D} \times \mc{A} ) ) \rsem
+      ) \vee \mathbf{I} \lsem \mw{\chi} , ( \tau + ( \mc{D}
+      \times \mc{A} ) ) \rsem )
+      )&(\mbox{\ref{eq:df-3or}})\notag
+  \\ 23 &&  & \vdash ( \mathbf{I} \lsem ( ( \mw{\varphi} \vee \mw{\psi} \vee
+      \mw{\chi} ) ~\string^~ \mc{A} ) , \tau \rsem
+      \leftrightarrow  \notag \\ & & & \qquad
+     ( \mathbf{I} \lsem \mw{\varphi} , (
+      \tau + ( \mc{D} \times \mc{A} ) ) \rsem \vee
+      \mathbf{I} \lsem \mw{\psi} , ( \tau + ( \mc{D} \times
+      \mc{A} ) ) \rsem \vee \mathbf{I} \lsem \mw{\chi} , (
+      \tau + ( \mc{D} \times \mc{A} ) ) \rsem )
+      )&(\mbox{\ref{eq:bitr4i}},21,22)\notag
+  \\ 24 &&  & \vdash \mc{A} \in
+      \mathbb{Z}&\text{Hyp~tsor3i.1}\notag%bl.tsor3i.1
+  \\ 25 &&  & \vdash \mc{D} \in
+      \mathbb{R}&\text{Hyp~tsor3i.2}\notag%bl.tsor3i.2
+  \\ 26 &&  & \vdash \tau \in \mathbf{T}&\text{Hyp~tsor3i.3}\notag%bl.tsor3i.3
+  \\ 27 &&  & \vdash ( \tau + ( \mc{D} \times \mc{A} ) ) \in
+      \mathbf{T}&\text{Hyp~tsor3i.4}\notag%bl.tsor3i.4
+  \\ 28 &&  & \vdash ( \mathbf{I} \lsem ( \mw{\varphi} ~\string^~ \mc{A} ) ,
+      \tau \rsem \leftrightarrow \mathbf{I} \lsem
+      \mw{\varphi} , ( \tau + ( \mc{D} \times \mc{A} ) )
+      \rsem )&(\mbox{\ref{eq:bl.tsi}},24,25,26,27)\notag
+  \\ 29 &&  & \vdash \mc{A} \in
+      \mathbb{Z}&\text{Hyp~tsor3i.1}\notag%bl.tsor3i.1
+  \\ 30 &&  & \vdash \mc{D} \in
+      \mathbb{R}&\text{Hyp~tsor3i.2}\notag%bl.tsor3i.2
+  \\ 31 &&  & \vdash \tau \in \mathbf{T}&\text{Hyp~tsor3i.3}\notag%bl.tsor3i.3
+  \\ 32 &&  & \vdash ( \tau + ( \mc{D} \times \mc{A} ) ) \in
+      \mathbf{T}&\text{Hyp~tsor3i.4}\notag%bl.tsor3i.4
+  \\ 33 &&  & \vdash ( \mathbf{I} \lsem ( \mw{\psi} ~\string^~ \mc{A} ) , \tau
+      \rsem \leftrightarrow \mathbf{I} \lsem \mw{\psi} , (
+      \tau + ( \mc{D} \times \mc{A} ) ) \rsem
+      )&(\mbox{\ref{eq:bl.tsi}},29,30,31,32)\notag
+  \\ 34 &&  & \vdash \mc{A} \in
+      \mathbb{Z}&\text{Hyp~tsor3i.1}\notag%bl.tsor3i.1
+  \\ 35 &&  & \vdash \mc{D} \in
+      \mathbb{R}&\text{Hyp~tsor3i.2}\notag%bl.tsor3i.2
+  \\ 36 &&  & \vdash \tau \in \mathbf{T}&\text{Hyp~tsor3i.3}\notag%bl.tsor3i.3
+  \\ 37 &&  & \vdash ( \tau + ( \mc{D} \times \mc{A} ) ) \in
+      \mathbf{T}&\text{Hyp~tsor3i.4}\notag%bl.tsor3i.4
+  \\ 38 &&  & \vdash ( \mathbf{I} \lsem ( \mw{\chi} ~\string^~ \mc{A} ) , \tau
+      \rsem \leftrightarrow \mathbf{I} \lsem \mw{\chi} , (
+      \tau + ( \mc{D} \times \mc{A} ) ) \rsem
+      )&(\mbox{\ref{eq:bl.tsi}},34,35,36,37)\notag
+  \\ 39 &&  & \vdash ( ( \mathbf{I} \lsem ( \mw{\varphi} ~\string^~ \mc{A} ) ,
+      \tau \rsem \vee \mathbf{I} \lsem ( \mw{\psi}
+      ~\string^~ \mc{A} ) , \tau \rsem \vee \mathbf{I}
+      \lsem ( \mw{\chi} ~\string^~ \mc{A} ) , \tau \rsem )
+      \leftrightarrow  \notag \\ & & & \qquad
+     ( \mathbf{I} \lsem \mw{\varphi} , (
+      \tau + ( \mc{D} \times \mc{A} ) ) \rsem \vee
+      \mathbf{I} \lsem \mw{\psi} , ( \tau + ( \mc{D} \times
+      \mc{A} ) ) \rsem \vee \mathbf{I} \lsem \mw{\chi} , (
+      \tau + ( \mc{D} \times \mc{A} ) ) \rsem )
+      )&(\mbox{\ref{eq:3orbi123i}},28,33,38)\notag
+  \\ 40 &&  & \vdash ( \mathbf{I} \lsem ( ( \mw{\varphi} \vee \mw{\psi} \vee
+      \mw{\chi} ) ~\string^~ \mc{A} ) , \tau \rsem
+      \leftrightarrow ( \mathbf{I} \lsem ( \mw{\varphi}
+      ~\string^~ \mc{A} ) , \tau \rsem \vee \mathbf{I}
+      \lsem ( \mw{\psi} ~\string^~ \mc{A} ) , \tau \rsem
+      \vee \mathbf{I} \lsem ( \mw{\chi} ~\string^~ \mc{A} )
+      , \tau \rsem ) )&(\mbox{\ref{eq:bitr4i}},23,39)\notag
+  \\ 41 &&  & \vdash \tau \in \mathbf{T}&\text{Hyp~tsor3i.3}\notag%bl.tsor3i.3
+  \\ 42 &&  & \vdash ( \mathbf{I} \lsem ( ( \mw{\varphi} ~\string^~ \mc{A} )
+      \vee ( \mw{\psi} ~\string^~ \mc{A} ) \vee ( \mw{\chi}
+      ~\string^~ \mc{A} ) ) , \tau \rsem \leftrightarrow  \notag \\ & & & \qquad
+     (
+      \mathbf{I} \lsem ( \mw{\varphi} ~\string^~ \mc{A} ) ,
+      \tau \rsem \vee \mathbf{I} \lsem ( \mw{\psi}
+      ~\string^~ \mc{A} ) , \tau \rsem \vee \mathbf{I}
+      \lsem ( \mw{\chi} ~\string^~ \mc{A} ) , \tau \rsem )
+      )&(\mbox{\ref{eq:bl.or3t}},41)\notag
+  \\ 43 &&  & \vdash ( \mathbf{I} \lsem ( ( \mw{\varphi} \vee \mw{\psi} \vee
+      \mw{\chi} ) ~\string^~ \mc{A} ) , \tau \rsem
+      \leftrightarrow \mathbf{I} \lsem ( ( \mw{\varphi}
+      ~\string^~ \mc{A} ) \vee ( \mw{\psi} ~\string^~
+      \mc{A} ) \vee ( \mw{\chi} ~\string^~ \mc{A} ) ) ,
+      \tau \rsem )&(\mbox{\ref{eq:bitr4i}},40,42)\notag
+  \\ 44 &&  & \vdash \tau \in \mathbf{T}&\text{Hyp~tsor3i.3}\notag%bl.tsor3i.3
+  \\ 45 &&  & \vdash ( \mathbf{I} \lsem ( ( ( \mw{\varphi} \vee \mw{\psi} \vee
+      \mw{\chi} ) ~\string^~ \mc{A} ) \leftrightarrow ( (
+      \mw{\varphi} ~\string^~ \mc{A} ) \vee ( \mw{\psi}
+      ~\string^~ \mc{A} ) \vee ( \mw{\chi} ~\string^~
+      \mc{A} ) ) ) , \tau \rsem \leftrightarrow \notag \\ & & & \qquad
+      (
+      \mathbf{I} \lsem ( ( \mw{\varphi} \vee \mw{\psi} \vee
+      \mw{\chi} ) ~\string^~ \mc{A} ) , \tau \rsem
+      \leftrightarrow \mathbf{I} \lsem ( ( \mw{\varphi}
+      ~\string^~ \mc{A} ) \vee ( \mw{\psi} ~\string^~
+      \mc{A} ) \vee ( \mw{\chi} ~\string^~ \mc{A} ) ) ,
+      \tau \rsem ) )&(\mbox{\ref{eq:df-bl.bit}},44)\notag
+  \\ 46 &&  & \vdash \mathbf{I} \lsem ( ( ( \mw{\varphi} \vee \mw{\psi} \vee
+      \mw{\chi} ) ~\string^~ \mc{A} ) \leftrightarrow ( (
+      \mw{\varphi} ~\string^~ \mc{A} ) \vee ( \mw{\psi}
+      ~\string^~ \mc{A} ) \vee ( \mw{\chi} ~\string^~
+      \mc{A} ) ) ) , \tau
+      \rsem&(\mbox{\ref{eq:mpbir}},43,45)\notag
+\end{align}
+\end{proof}
+
+\begin{restatable}{lemma}{bltsor3ri}~\blTitle{bl.tsor3ri}~ Distribute $~\string^~$ over
+disjunction, three terms (right), inference.
+\begin{align}
+\vdash \mc{A} \in \mathbb{Z}\quad\&\quad \vdash \mc{D} \in
+    \mathbb{R}\quad\&\quad \vdash \tau \in \mathbf{T}\quad\&\quad \vdash ( \tau
+    + ( \mc{D} \times \mc{A} ) ) \in \mathbf{T}\quad\Rightarrow \notag \\ %& & & \qquad
+     \quad \vdash
+    \mathbf{I} \lsem ( ( ( \mw{\varphi} \vee ( \mw{\psi} \vee \mw{\chi} ) )
+    ~\string^~ \mc{A} ) \leftrightarrow ( ( \mw{\varphi} ~\string^~ \mc{A} )
+    \vee ( ( \mw{\psi} ~\string^~ \mc{A} ) \vee ( \mw{\chi} ~\string^~ \mc{A} )
+    ) ) ) , \tau \rsem\label{eq:bl.tsor3ri}\tag{bl.tsor3ri}
+\end{align}
+\end{restatable}
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash \tau \in \mathbf{T}&\text{Hyp~tsor3ri.3}\notag%bl.tsor3ri.3
+  \\ 2 &&  & \vdash ( \mathbf{I} \lsem ( ( \mw{\psi} ~\string^~ \mc{A} ) \vee (
+      \mw{\chi} ~\string^~ \mc{A} ) ) , \tau \rsem
+      \leftrightarrow ( \mathbf{I} \lsem ( \mw{\psi}
+      ~\string^~ \mc{A} ) , \tau \rsem \vee \mathbf{I}
+      \lsem ( \mw{\chi} ~\string^~ \mc{A} ) , \tau \rsem )
+      )&(\mbox{\ref{eq:df-bl.ort}},1)\notag
+  \\ 3 &&  & \vdash ( ( \mathbf{I} \lsem ( \mw{\varphi} ~\string^~ \mc{A} ) ,
+      \tau \rsem \vee \mathbf{I} \lsem ( ( \mw{\psi}
+      ~\string^~ \mc{A} ) \vee ( \mw{\chi} ~\string^~
+      \mc{A} ) ) , \tau \rsem ) \leftrightarrow  \notag \\ & & & \qquad
+     (
+      \mathbf{I} \lsem ( \mw{\varphi} ~\string^~ \mc{A} ) ,
+      \tau \rsem \vee ( \mathbf{I} \lsem ( \mw{\psi}
+      ~\string^~ \mc{A} ) , \tau \rsem \vee \mathbf{I}
+      \lsem ( \mw{\chi} ~\string^~ \mc{A} ) , \tau \rsem )
+      ) )&(\mbox{\ref{eq:orbi2i}},2)\notag
+  \\ 4 &&  & \vdash \tau \in \mathbf{T}&\text{Hyp~tsor3ri.3}\notag%bl.tsor3ri.3
+  \\ 5 &&  & \vdash ( \mathbf{I} \lsem ( ( \mw{\varphi} ~\string^~ \mc{A} )
+      \vee ( ( \mw{\psi} ~\string^~ \mc{A} ) \vee (
+      \mw{\chi} ~\string^~ \mc{A} ) ) ) , \tau \rsem
+      \leftrightarrow  \notag \\ & & & \qquad
+     ( \mathbf{I} \lsem ( \mw{\varphi}
+      ~\string^~ \mc{A} ) , \tau \rsem \vee \mathbf{I}
+      \lsem ( ( \mw{\psi} ~\string^~ \mc{A} ) \vee (
+      \mw{\chi} ~\string^~ \mc{A} ) ) , \tau \rsem )
+      )&(\mbox{\ref{eq:df-bl.ort}},4)\notag
+  \\ 6 &&  & \vdash \mc{A} \in
+      \mathbb{Z}&\text{Hyp~tsor3ri.1}\notag%bl.tsor3ri.1
+  \\ 7 &&  & \vdash \mc{D} \in
+      \mathbb{R}&\text{Hyp~tsor3ri.2}\notag%bl.tsor3ri.2
+  \\ 8 &&  & \vdash \tau \in \mathbf{T}&\text{Hyp~tsor3ri.3}\notag%bl.tsor3ri.3
+  \\ 9 &&  & \vdash ( \tau + ( \mc{D} \times \mc{A} ) ) \in
+      \mathbf{T}&\text{Hyp~tsor3ri.4}\notag%bl.tsor3ri.4
+  \\ 10 &&  & \vdash ( \mathbf{I} \lsem ( ( \mw{\varphi} \vee ( \mw{\psi} \vee
+      \mw{\chi} ) ) ~\string^~ \mc{A} ) , \tau \rsem
+      \leftrightarrow \mathbf{I} \lsem ( \mw{\varphi} \vee
+      ( \mw{\psi} \vee \mw{\chi} ) ) , ( \tau + ( \mc{D}
+      \times \mc{A} ) ) \rsem
+      )&(\mbox{\ref{eq:bl.tsi}},6,7,8,9)\notag
+  \\ 11 &&  & \vdash ( \tau + ( \mc{D} \times \mc{A} ) ) \in
+      \mathbf{T}&\text{Hyp~tsor3ri.4}\notag%bl.tsor3ri.4
+  \\ 12 &&  & \vdash ( \mathbf{I} \lsem ( \mw{\varphi} \vee ( \mw{\psi} \vee
+      \mw{\chi} ) ) , ( \tau + ( \mc{D} \times \mc{A} ) )
+      \rsem \leftrightarrow  \notag \\ & & & \qquad
+     ( \mathbf{I} \lsem \mw{\varphi}
+      , ( \tau + ( \mc{D} \times \mc{A} ) ) \rsem \vee
+      \mathbf{I} \lsem ( \mw{\psi} \vee \mw{\chi} ) , (
+      \tau + ( \mc{D} \times \mc{A} ) ) \rsem )
+      )&(\mbox{\ref{eq:df-bl.ort}},11)\notag
+  \\ 13 &&  & \vdash ( \tau + ( \mc{D} \times \mc{A} ) ) \in
+      \mathbf{T}&\text{Hyp~tsor3ri.4}\notag%bl.tsor3ri.4
+  \\ 14 &&  & \vdash ( \mathbf{I} \lsem ( \mw{\psi} \vee \mw{\chi} ) , ( \tau +
+      ( \mc{D} \times \mc{A} ) ) \rsem \leftrightarrow  \notag \\ & & & \qquad
+     (
+      \mathbf{I} \lsem \mw{\psi} , ( \tau + ( \mc{D} \times
+      \mc{A} ) ) \rsem \vee \mathbf{I} \lsem \mw{\chi} , (
+      \tau + ( \mc{D} \times \mc{A} ) ) \rsem )
+      )&(\mbox{\ref{eq:df-bl.ort}},13)\notag
+  \\ 15 &&  & \vdash ( ( \mathbf{I} \lsem \mw{\varphi} , ( \tau + ( \mc{D}
+      \times \mc{A} ) ) \rsem \vee \mathbf{I} \lsem (
+      \mw{\psi} \vee \mw{\chi} ) , ( \tau + ( \mc{D} \times
+      \mc{A} ) ) \rsem ) \leftrightarrow  \notag \\ & & & \qquad
+     ( \mathbf{I} \lsem
+      \mw{\varphi} , ( \tau + ( \mc{D} \times \mc{A} ) )
+      \rsem \vee ( \mathbf{I} \lsem \mw{\psi} , ( \tau + (
+      \mc{D} \times \mc{A} ) ) \rsem \vee \mathbf{I} \lsem
+      \mw{\chi} , ( \tau + ( \mc{D} \times \mc{A} ) ) \rsem
+      ) ) )&(\mbox{\ref{eq:orbi2i}},14)\notag
+  \\ 16 &&  & \vdash ( \mathbf{I} \lsem ( ( \mw{\varphi} \vee ( \mw{\psi} \vee
+      \mw{\chi} ) ) ~\string^~ \mc{A} ) , \tau \rsem
+      \leftrightarrow  \notag \\ & & & \qquad
+     ( \mathbf{I} \lsem \mw{\varphi} , (
+      \tau + ( \mc{D} \times \mc{A} ) ) \rsem \vee (
+      \mathbf{I} \lsem \mw{\psi} , ( \tau + ( \mc{D} \times
+      \mc{A} ) ) \rsem \vee \mathbf{I} \lsem \mw{\chi} , (
+      \tau + ( \mc{D} \times \mc{A} ) ) \rsem ) )
+      )&(\mbox{\ref{eq:3bitri}},10,12,15)\notag
+  \\ 17 &&  & \vdash \mc{A} \in
+      \mathbb{Z}&\text{Hyp~tsor3ri.1}\notag%bl.tsor3ri.1
+  \\ 18 &&  & \vdash \mc{D} \in
+      \mathbb{R}&\text{Hyp~tsor3ri.2}\notag%bl.tsor3ri.2
+  \\ 19 &&  & \vdash \tau \in
+      \mathbf{T}&\text{Hyp~tsor3ri.3}\notag%bl.tsor3ri.3
+  \\ 20 &&  & \vdash ( \tau + ( \mc{D} \times \mc{A} ) ) \in
+      \mathbf{T}&\text{Hyp~tsor3ri.4}\notag%bl.tsor3ri.4
+  \\ 21 &&  & \vdash ( \mathbf{I} \lsem ( \mw{\varphi} ~\string^~ \mc{A} ) ,
+      \tau \rsem \leftrightarrow \mathbf{I} \lsem
+      \mw{\varphi} , ( \tau + ( \mc{D} \times \mc{A} ) )
+      \rsem )&(\mbox{\ref{eq:bl.tsi}},17,18,19,20)\notag
+  \\ 22 &&  & \vdash \mc{A} \in
+      \mathbb{Z}&\text{Hyp~tsor3ri.1}\notag%bl.tsor3ri.1
+  \\ 23 &&  & \vdash \mc{D} \in
+      \mathbb{R}&\text{Hyp~tsor3ri.2}\notag%bl.tsor3ri.2
+  \\ 24 &&  & \vdash \tau \in
+      \mathbf{T}&\text{Hyp~tsor3ri.3}\notag%bl.tsor3ri.3
+  \\ 25 &&  & \vdash ( \tau + ( \mc{D} \times \mc{A} ) ) \in
+      \mathbf{T}&\text{Hyp~tsor3ri.4}\notag%bl.tsor3ri.4
+  \\ 26 &&  & \vdash ( \mathbf{I} \lsem ( \mw{\psi} ~\string^~ \mc{A} ) , \tau
+      \rsem \leftrightarrow \mathbf{I} \lsem \mw{\psi} , (
+      \tau + ( \mc{D} \times \mc{A} ) ) \rsem
+      )&(\mbox{\ref{eq:bl.tsi}},22,23,24,25)\notag
+  \\ 27 &&  & \vdash \mc{A} \in
+      \mathbb{Z}&\text{Hyp~tsor3ri.1}\notag%bl.tsor3ri.1
+  \\ 28 &&  & \vdash \mc{D} \in
+      \mathbb{R}&\text{Hyp~tsor3ri.2}\notag%bl.tsor3ri.2
+  \\ 29 &&  & \vdash \tau \in
+      \mathbf{T}&\text{Hyp~tsor3ri.3}\notag%bl.tsor3ri.3
+  \\ 30 &&  & \vdash ( \tau + ( \mc{D} \times \mc{A} ) ) \in
+      \mathbf{T}&\text{Hyp~tsor3ri.4}\notag%bl.tsor3ri.4
+  \\ 31 &&  & \vdash ( \mathbf{I} \lsem ( \mw{\chi} ~\string^~ \mc{A} ) , \tau
+      \rsem \leftrightarrow \mathbf{I} \lsem \mw{\chi} , (
+      \tau + ( \mc{D} \times \mc{A} ) ) \rsem
+      )&(\mbox{\ref{eq:bl.tsi}},27,28,29,30)\notag
+  \\ 32 &&  & \vdash ( ( \mathbf{I} \lsem ( \mw{\psi} ~\string^~ \mc{A} ) ,
+      \tau \rsem \vee \mathbf{I} \lsem ( \mw{\chi}
+      ~\string^~ \mc{A} ) , \tau \rsem ) \leftrightarrow  \notag \\ & & & \qquad
+     (
+      \mathbf{I} \lsem \mw{\psi} , ( \tau + ( \mc{D} \times
+      \mc{A} ) ) \rsem \vee \mathbf{I} \lsem \mw{\chi} , (
+      \tau + ( \mc{D} \times \mc{A} ) ) \rsem )
+      )&(\mbox{\ref{eq:orbi12i}},26,31)\notag
+  \\ 33 &&  & \vdash ( ( \mathbf{I} \lsem ( \mw{\varphi} ~\string^~ \mc{A} ) ,
+      \tau \rsem \vee ( \mathbf{I} \lsem ( \mw{\psi}
+      ~\string^~ \mc{A} ) , \tau \rsem \vee \mathbf{I}
+      \lsem ( \mw{\chi} ~\string^~ \mc{A} ) , \tau \rsem )
+      ) \leftrightarrow  \notag \\ & & & \qquad
+     ( \mathbf{I} \lsem \mw{\varphi} , (
+      \tau + ( \mc{D} \times \mc{A} ) ) \rsem \vee (
+      \mathbf{I} \lsem \mw{\psi} , ( \tau + ( \mc{D} \times
+      \mc{A} ) ) \rsem \vee \mathbf{I} \lsem \mw{\chi} , (
+      \tau + ( \mc{D} \times \mc{A} ) ) \rsem ) )
+      )&(\mbox{\ref{eq:orbi12i}},21,32)\notag
+  \\ 34 &&  & \vdash ( \mathbf{I} \lsem ( ( \mw{\varphi} \vee ( \mw{\psi} \vee
+      \mw{\chi} ) ) ~\string^~ \mc{A} ) , \tau \rsem
+      \leftrightarrow  \notag \\ & & & \qquad
+     ( \mathbf{I} \lsem ( \mw{\varphi}
+      ~\string^~ \mc{A} ) , \tau \rsem \vee ( \mathbf{I}
+      \lsem ( \mw{\psi} ~\string^~ \mc{A} ) , \tau \rsem
+      \vee \mathbf{I} \lsem ( \mw{\chi} ~\string^~ \mc{A} )
+      , \tau \rsem ) )
+      )&(\mbox{\ref{eq:bitr4i}},16,33)\notag
+  \\ 35 &&  & \vdash ( \mathbf{I} \lsem ( ( \mw{\varphi} \vee ( \mw{\psi} \vee
+      \mw{\chi} ) ) ~\string^~ \mc{A} ) , \tau \rsem
+      \leftrightarrow  \notag \\ & & & \qquad
+     \mathbf{I} \lsem ( ( \mw{\varphi}
+      ~\string^~ \mc{A} ) \vee ( ( \mw{\psi} ~\string^~
+      \mc{A} ) \vee ( \mw{\chi} ~\string^~ \mc{A} ) ) ) ,
+      \tau \rsem )&(\mbox{\ref{eq:3bitr4ri}},3,5,34)\notag
+  \\ 36 &&  & \vdash \tau \in
+      \mathbf{T}&\text{Hyp~tsor3ri.3}\notag%bl.tsor3ri.3
+  \\ 37 &&  & \vdash ( \mathbf{I} \lsem ( ( ( \mw{\varphi} \vee ( \mw{\psi}
+      \vee \mw{\chi} ) ) ~\string^~ \mc{A} )
+      \leftrightarrow ( ( \mw{\varphi} ~\string^~ \mc{A} )
+      \vee ( ( \mw{\psi} ~\string^~ \mc{A} ) \vee (
+      \mw{\chi} ~\string^~ \mc{A} ) ) ) ) , \tau \rsem
+      \leftrightarrow  \notag \\ & & & \qquad
+     ( \mathbf{I} \lsem ( ( \mw{\varphi}
+      \vee ( \mw{\psi} \vee \mw{\chi} ) ) ~\string^~ \mc{A}
+      ) , \tau \rsem \leftrightarrow \mathbf{I} \lsem ( (
+      \mw{\varphi} ~\string^~ \mc{A} ) \vee ( ( \mw{\psi}
+      ~\string^~ \mc{A} ) \vee ( \mw{\chi} ~\string^~
+      \mc{A} ) ) ) , \tau \rsem )
+      )&(\mbox{\ref{eq:df-bl.bit}},36)\notag
+  \\ 38 &&  & \vdash \mathbf{I} \lsem ( ( ( \mw{\varphi} \vee ( \mw{\psi} \vee
+      \mw{\chi} ) ) ~\string^~ \mc{A} ) \leftrightarrow ( (
+      \mw{\varphi} ~\string^~ \mc{A} ) \vee ( ( \mw{\psi}
+      ~\string^~ \mc{A} ) \vee ( \mw{\chi} ~\string^~
+      \mc{A} ) ) ) ) , \tau
+      \rsem&(\mbox{\ref{eq:mpbir}},35,37)\notag
+\end{align}
+\end{proof}
+
+\begin{restatable}{lemma}{bltsor3li}~\blTitle{bl.tsor3li}~ Distribute $~\string^~$ over
+disjunction, three terms (left), inference.
+\begin{align}
+\vdash \mc{A} \in \mathbb{Z}\quad\&\quad \vdash \mc{D} \in
+    \mathbb{R}\quad\&\quad \vdash \tau \in \mathbf{T}\quad\&\quad \vdash ( \tau
+    + ( \mc{D} \times \mc{A} ) ) \in \mathbf{T}\quad\Rightarrow \notag \\ %& & & \qquad
+     \quad \vdash
+    \mathbf{I} \lsem ( ( ( ( \mw{\varphi} \vee \mw{\psi} ) \vee \mw{\chi} )
+    ~\string^~ \mc{A} ) \leftrightarrow ( ( ( \mw{\varphi} ~\string^~ \mc{A} )
+    \vee ( \mw{\psi} ~\string^~ \mc{A} ) ) \vee ( \mw{\chi} ~\string^~ \mc{A} )
+    ) ) , \tau \rsem\label{eq:bl.tsor3li}\tag{bl.tsor3li}
+\end{align}
+\end{restatable}
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash \tau \in \mathbf{T}&\text{Hyp~tsor3li.3}\notag%bl.tsor3li.3
+  \\ 2 &&  & \vdash ( \mathbf{I} \lsem ( ( \mw{\varphi} ~\string^~ \mc{A} )
+      \vee ( \mw{\psi} ~\string^~ \mc{A} ) ) , \tau \rsem
+      \leftrightarrow  \notag \\ & & & \qquad
+     ( \mathbf{I} \lsem ( \mw{\varphi}
+      ~\string^~ \mc{A} ) , \tau \rsem \vee \mathbf{I}
+      \lsem ( \mw{\psi} ~\string^~ \mc{A} ) , \tau \rsem )
+      )&(\mbox{\ref{eq:df-bl.ort}},1)\notag
+  \\ 3 &&  & \vdash ( ( \mathbf{I} \lsem ( ( \mw{\varphi} ~\string^~ \mc{A} )
+      \vee ( \mw{\psi} ~\string^~ \mc{A} ) ) , \tau \rsem
+      \vee \mathbf{I} \lsem ( \mw{\chi} ~\string^~ \mc{A} )
+      , \tau \rsem ) \leftrightarrow  \notag \\ & & & \qquad
+     ( ( \mathbf{I} \lsem (
+      \mw{\varphi} ~\string^~ \mc{A} ) , \tau \rsem \vee
+      \mathbf{I} \lsem ( \mw{\psi} ~\string^~ \mc{A} ) ,
+      \tau \rsem ) \vee \mathbf{I} \lsem ( \mw{\chi}
+      ~\string^~ \mc{A} ) , \tau \rsem )
+      )&(\mbox{\ref{eq:orbi1i}},2)\notag
+  \\ 4 &&  & \vdash \tau \in \mathbf{T}&\text{Hyp~tsor3li.3}\notag%bl.tsor3li.3
+  \\ 5 &&  & \vdash ( \mathbf{I} \lsem ( ( ( \mw{\varphi} ~\string^~ \mc{A} )
+      \vee ( \mw{\psi} ~\string^~ \mc{A} ) ) \vee (
+      \mw{\chi} ~\string^~ \mc{A} ) ) , \tau \rsem
+      \leftrightarrow  \notag \\ & & & \qquad
+     ( \mathbf{I} \lsem ( ( \mw{\varphi}
+      ~\string^~ \mc{A} ) \vee ( \mw{\psi} ~\string^~
+      \mc{A} ) ) , \tau \rsem \vee \mathbf{I} \lsem (
+      \mw{\chi} ~\string^~ \mc{A} ) , \tau \rsem )
+      )&(\mbox{\ref{eq:df-bl.ort}},4)\notag
+  \\ 6 &&  & \vdash \mc{A} \in
+      \mathbb{Z}&\text{Hyp~tsor3li.1}\notag%bl.tsor3li.1
+  \\ 7 &&  & \vdash \mc{D} \in
+      \mathbb{R}&\text{Hyp~tsor3li.2}\notag%bl.tsor3li.2
+  \\ 8 &&  & \vdash \tau \in \mathbf{T}&\text{Hyp~tsor3li.3}\notag%bl.tsor3li.3
+  \\ 9 &&  & \vdash ( \tau + ( \mc{D} \times \mc{A} ) ) \in
+      \mathbf{T}&\text{Hyp~tsor3li.4}\notag%bl.tsor3li.4
+  \\ 10 &&  & \vdash ( \mathbf{I} \lsem ( ( ( \mw{\varphi} \vee \mw{\psi} )
+      \vee \mw{\chi} ) ~\string^~ \mc{A} ) , \tau \rsem
+      \leftrightarrow \mathbf{I} \lsem ( ( \mw{\varphi}
+      \vee \mw{\psi} ) \vee \mw{\chi} ) , ( \tau + ( \mc{D}
+      \times \mc{A} ) ) \rsem
+      )&(\mbox{\ref{eq:bl.tsi}},6,7,8,9)\notag
+  \\ 11 &&  & \vdash ( \tau + ( \mc{D} \times \mc{A} ) ) \in
+      \mathbf{T}&\text{Hyp~tsor3li.4}\notag%bl.tsor3li.4
+  \\ 12 &&  & \vdash ( \mathbf{I} \lsem ( ( \mw{\varphi} \vee \mw{\psi} ) \vee
+      \mw{\chi} ) , ( \tau + ( \mc{D} \times \mc{A} ) )
+      \rsem \leftrightarrow  \notag \\ & & & \qquad
+     ( \mathbf{I} \lsem (
+      \mw{\varphi} \vee \mw{\psi} ) , ( \tau + ( \mc{D}
+      \times \mc{A} ) ) \rsem \vee \mathbf{I} \lsem
+      \mw{\chi} , ( \tau + ( \mc{D} \times \mc{A} ) ) \rsem
+      ) )&(\mbox{\ref{eq:df-bl.ort}},11)\notag
+  \\ 13 &&  & \vdash ( \tau + ( \mc{D} \times \mc{A} ) ) \in
+      \mathbf{T}&\text{Hyp~tsor3li.4}\notag%bl.tsor3li.4
+  \\ 14 &&  & \vdash ( \mathbf{I} \lsem ( \mw{\varphi} \vee \mw{\psi} ) , (
+      \tau + ( \mc{D} \times \mc{A} ) ) \rsem
+      \leftrightarrow ( \mathbf{I} \lsem \mw{\varphi} , (
+      \tau + ( \mc{D} \times \mc{A} ) ) \rsem \vee
+      \mathbf{I} \lsem \mw{\psi} , ( \tau + ( \mc{D} \times
+      \mc{A} ) ) \rsem )
+      )&(\mbox{\ref{eq:df-bl.ort}},13)\notag
+  \\ 15 &&  & \vdash ( ( \mathbf{I} \lsem ( \mw{\varphi} \vee \mw{\psi} ) , (
+      \tau + ( \mc{D} \times \mc{A} ) ) \rsem \vee
+      \mathbf{I} \lsem \mw{\chi} , ( \tau + ( \mc{D} \times
+      \mc{A} ) ) \rsem ) \leftrightarrow  \notag \\ & & & \qquad
+     ( ( \mathbf{I}
+      \lsem \mw{\varphi} , ( \tau + ( \mc{D} \times \mc{A} )
+      ) \rsem \vee \mathbf{I} \lsem \mw{\psi} , ( \tau + (
+      \mc{D} \times \mc{A} ) ) \rsem ) \vee \mathbf{I} \lsem
+      \mw{\chi} , ( \tau + ( \mc{D} \times \mc{A} ) ) \rsem
+      ) )&(\mbox{\ref{eq:orbi1i}},14)\notag
+  \\ 16 &&  & \vdash ( \mathbf{I} \lsem ( ( ( \mw{\varphi} \vee \mw{\psi} )
+      \vee \mw{\chi} ) ~\string^~ \mc{A} ) , \tau \rsem
+      \leftrightarrow  \notag \\ & & & \qquad
+     ( ( \mathbf{I} \lsem \mw{\varphi} , (
+      \tau + ( \mc{D} \times \mc{A} ) ) \rsem \vee
+      \mathbf{I} \lsem \mw{\psi} , ( \tau + ( \mc{D} \times
+      \mc{A} ) ) \rsem ) \vee \mathbf{I} \lsem \mw{\chi} ,
+      ( \tau + ( \mc{D} \times \mc{A} ) ) \rsem )
+      )&(\mbox{\ref{eq:3bitri}},10,12,15)\notag
+  \\ 17 &&  & \vdash \mc{A} \in
+      \mathbb{Z}&\text{Hyp~tsor3li.1}\notag%bl.tsor3li.1
+  \\ 18 &&  & \vdash \mc{D} \in
+      \mathbb{R}&\text{Hyp~tsor3li.2}\notag%bl.tsor3li.2
+  \\ 19 &&  & \vdash \tau \in
+      \mathbf{T}&\text{Hyp~tsor3li.3}\notag%bl.tsor3li.3
+  \\ 20 &&  & \vdash ( \tau + ( \mc{D} \times \mc{A} ) ) \in
+      \mathbf{T}&\text{Hyp~tsor3li.4}\notag%bl.tsor3li.4
+  \\ 21 &&  & \vdash ( \mathbf{I} \lsem ( \mw{\varphi} ~\string^~ \mc{A} ) ,
+      \tau \rsem \leftrightarrow \mathbf{I} \lsem
+      \mw{\varphi} , ( \tau + ( \mc{D} \times \mc{A} ) )
+      \rsem )&(\mbox{\ref{eq:bl.tsi}},17,18,19,20)\notag
+  \\ 22 &&  & \vdash \mc{A} \in
+      \mathbb{Z}&\text{Hyp~tsor3li.1}\notag%bl.tsor3li.1
+  \\ 23 &&  & \vdash \mc{D} \in
+      \mathbb{R}&\text{Hyp~tsor3li.2}\notag%bl.tsor3li.2
+  \\ 24 &&  & \vdash \tau \in
+      \mathbf{T}&\text{Hyp~tsor3li.3}\notag%bl.tsor3li.3
+  \\ 25 &&  & \vdash ( \tau + ( \mc{D} \times \mc{A} ) ) \in
+      \mathbf{T}&\text{Hyp~tsor3li.4}\notag%bl.tsor3li.4
+  \\ 26 &&  & \vdash ( \mathbf{I} \lsem ( \mw{\psi} ~\string^~ \mc{A} ) , \tau
+      \rsem \leftrightarrow \mathbf{I} \lsem \mw{\psi} , (
+      \tau + ( \mc{D} \times \mc{A} ) ) \rsem
+      )&(\mbox{\ref{eq:bl.tsi}},22,23,24,25)\notag
+  \\ 27 &&  & \vdash ( ( \mathbf{I} \lsem ( \mw{\varphi} ~\string^~ \mc{A} ) ,
+      \tau \rsem \vee \mathbf{I} \lsem ( \mw{\psi}
+      ~\string^~ \mc{A} ) , \tau \rsem ) \leftrightarrow  \notag \\ & & & \qquad
+     (
+      \mathbf{I} \lsem \mw{\varphi} , ( \tau + ( \mc{D}
+      \times \mc{A} ) ) \rsem \vee \mathbf{I} \lsem
+      \mw{\psi} , ( \tau + ( \mc{D} \times \mc{A} ) ) \rsem
+      ) )&(\mbox{\ref{eq:orbi12i}},21,26)\notag
+  \\ 28 &&  & \vdash \mc{A} \in
+      \mathbb{Z}&\text{Hyp~tsor3li.1}\notag%bl.tsor3li.1
+  \\ 29 &&  & \vdash \mc{D} \in
+      \mathbb{R}&\text{Hyp~tsor3li.2}\notag%bl.tsor3li.2
+  \\ 30 &&  & \vdash \tau \in
+      \mathbf{T}&\text{Hyp~tsor3li.3}\notag%bl.tsor3li.3
+  \\ 31 &&  & \vdash ( \tau + ( \mc{D} \times \mc{A} ) ) \in
+      \mathbf{T}&\text{Hyp~tsor3li.4}\notag%bl.tsor3li.4
+  \\ 32 &&  & \vdash ( \mathbf{I} \lsem ( \mw{\chi} ~\string^~ \mc{A} ) , \tau
+      \rsem \leftrightarrow \mathbf{I} \lsem \mw{\chi} , (
+      \tau + ( \mc{D} \times \mc{A} ) ) \rsem
+      )&(\mbox{\ref{eq:bl.tsi}},28,29,30,31)\notag
+  \\ 33 &&  & \vdash ( ( ( \mathbf{I} \lsem ( \mw{\varphi} ~\string^~ \mc{A} )
+      , \tau \rsem \vee \mathbf{I} \lsem ( \mw{\psi}
+      ~\string^~ \mc{A} ) , \tau \rsem ) \vee \mathbf{I}
+      \lsem ( \mw{\chi} ~\string^~ \mc{A} ) , \tau \rsem )
+      \leftrightarrow  \notag \\ & & & \qquad
+     ( ( \mathbf{I} \lsem \mw{\varphi} , (
+      \tau + ( \mc{D} \times \mc{A} ) ) \rsem \vee
+      \mathbf{I} \lsem \mw{\psi} , ( \tau + ( \mc{D} \times
+      \mc{A} ) ) \rsem ) \vee \mathbf{I} \lsem \mw{\chi} ,
+      ( \tau + ( \mc{D} \times \mc{A} ) ) \rsem )
+      )&(\mbox{\ref{eq:orbi12i}},27,32)\notag
+  \\ 34 &&  & \vdash ( \mathbf{I} \lsem ( ( ( \mw{\varphi} \vee \mw{\psi} )
+      \vee \mw{\chi} ) ~\string^~ \mc{A} ) , \tau \rsem
+      \leftrightarrow  \notag \\ & & & \qquad
+     ( ( \mathbf{I} \lsem ( \mw{\varphi}
+      ~\string^~ \mc{A} ) , \tau \rsem \vee \mathbf{I}
+      \lsem ( \mw{\psi} ~\string^~ \mc{A} ) , \tau \rsem )
+      \vee \mathbf{I} \lsem ( \mw{\chi} ~\string^~ \mc{A} )
+      , \tau \rsem ) )&(\mbox{\ref{eq:bitr4i}},16,33)\notag
+  \\ 35 &&  & \vdash ( \mathbf{I} \lsem ( ( ( \mw{\varphi} \vee \mw{\psi} )
+      \vee \mw{\chi} ) ~\string^~ \mc{A} ) , \tau \rsem
+      \leftrightarrow \mathbf{I} \lsem ( ( ( \mw{\varphi}
+      ~\string^~ \mc{A} ) \vee ( \mw{\psi} ~\string^~
+      \mc{A} ) ) \vee ( \mw{\chi} ~\string^~ \mc{A} ) ) ,
+      \tau \rsem )&(\mbox{\ref{eq:3bitr4ri}},3,5,34)\notag
+  \\ 36 &&  & \vdash \tau \in
+      \mathbf{T}&\text{Hyp~tsor3li.3}\notag%bl.tsor3li.3
+  \\ 37 &&  & \vdash ( \mathbf{I} \lsem ( ( ( ( \mw{\varphi} \vee \mw{\psi} )
+      \vee \mw{\chi} ) ~\string^~ \mc{A} ) \leftrightarrow
+      ( ( ( \mw{\varphi} ~\string^~ \mc{A} ) \vee (
+      \mw{\psi} ~\string^~ \mc{A} ) ) \vee ( \mw{\chi}
+      ~\string^~ \mc{A} ) ) ) , \tau \rsem \leftrightarrow \notag \\ & & & \qquad
+      ( \mathbf{I} \lsem ( ( ( \mw{\varphi} \vee \mw{\psi}
+      ) \vee \mw{\chi} ) ~\string^~ \mc{A} ) , \tau \rsem
+      \leftrightarrow \mathbf{I} \lsem ( ( ( \mw{\varphi}
+      ~\string^~ \mc{A} ) \vee ( \mw{\psi} ~\string^~
+      \mc{A} ) ) \vee ( \mw{\chi} ~\string^~ \mc{A} ) ) ,
+      \tau \rsem ) )&(\mbox{\ref{eq:df-bl.bit}},36)\notag
+  \\ 38 &&  & \vdash \mathbf{I} \lsem ( ( ( ( \mw{\varphi} \vee \mw{\psi} )
+      \vee \mw{\chi} ) ~\string^~ \mc{A} ) \leftrightarrow
+      ( ( ( \mw{\varphi} ~\string^~ \mc{A} ) \vee (
+      \mw{\psi} ~\string^~ \mc{A} ) ) \vee ( \mw{\chi}
+      ~\string^~ \mc{A} ) ) ) , \tau
+      \rsem&(\mbox{\ref{eq:mpbir}},35,37)\notag
+\end{align}
+\end{proof}
+
+\begin{restatable}{lemma}{bltsori}~\blTitle{bl.tsori}~ Distribute $~\string^~$ over disjunction,
+wff-list, inference.
+\begin{align}
+\vdash \mc{A} \in \mathbb{Z}\quad\&\quad \vdash ( \mc{D} \in \mathbb{R} \wedge
+    0 < \mc{D} )\quad\&\quad \vdash \tau \in \mathbf{T}\quad\&\quad \vdash (
+    \tau + ( \mc{D} \times \mc{A} ) ) \in \mathbf{T}\quad\Rightarrow \notag \\ %& & & \qquad
+     \quad \vdash
+    \mathbf{I} \lsem ( ( \bigvee[ \mwl{l_1} \mwl{l_2} ] ~\string^~ \mc{A} )
+    \leftrightarrow ( ( \bigvee[ \mwl{l_1} ] ~\string^~ \mc{A} ) \vee (
+    \bigvee[ \mwl{l_2} ] ~\string^~ \mc{A} ) ) ) , \tau
+    \rsem\label{eq:bl.tsori}\tag{bl.tsori}
+\end{align}
+\end{restatable}
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash \tau \in \mathbf{T}&\text{Hyp~tsori.3}\notag%bl.tsori.3
+  \\ 2 &&  & \vdash \mc{A} \in \mathbb{Z}&\text{Hyp~tsori.1}\notag%bl.tsori.1
+  \\ 3 &&  & \vdash ( \mc{A} \in \mathbb{Z} \leftrightarrow ( \mc{A} \in
+      \mathbb{Z} \wedge \mc{A} \in \mathbb{Z} )
+      )&(\mbox{\ref{eq:pm4.24}})\notag
+  \\ 4 &&  & \vdash ( \mc{A} \in \mathbb{Z} \wedge \mc{A} \in \mathbb{Z}
+      )&(\mbox{\ref{eq:mpbi}},2,3)\notag
+  \\ 5 &&  & \vdash ( \mc{D} \in \mathbb{R} \wedge 0 < \mc{D}
+      )&\text{Hyp~tsori.2}\notag%bl.tsori.2
+  \\ 6 &&  & \vdash \tau \in \mathbf{T}&\text{Hyp~tsori.3}\notag%bl.tsori.3
+  \\ 7 &&  & \vdash ( \tau + ( \mc{D} \times \mc{A} ) ) \in
+      \mathbf{T}&\text{Hyp~tsori.4}\notag%bl.tsori.4
+  \\ 8 &&  & \vdash ( \tau + ( \mc{D} \times \mc{A} ) ) \in
+      \mathbf{T}&\text{Hyp~tsori.4}\notag%bl.tsori.4
+  \\ 9 &&  & \vdash ( \bigvee[ \mwl{l_1} \mwl{l_2} ] \leftrightarrow ( \bigvee[
+      \mwl{l_1} ] \vee \bigvee[ \mwl{l_2} ] )
+      )&(\mbox{\ref{eq:df-bl.lor2wl}})\notag
+  \\ 10 &&  & \vdash \mc{A} = \mc{A}&(\mbox{\ref{eq:eqid}})\notag
+  \\ 11 &&  & \vdash \mathbf{I} \lsem ( ( \bigvee[ \mwl{l_1} \mwl{l_2} ]
+      ~\string^~ \mc{A} ) \leftrightarrow ( ( \bigvee[
+      \mwl{l_1} ] \vee \bigvee[ \mwl{l_2} ] ) ~\string^~
+      \mc{A} ) ) , \tau
+      \rsem&(\mbox{\ref{eq:bl.tsbii}},4,5,6,7,8,9,10)\notag
+  \\ 12 &&  & \vdash \mc{A} \in \mathbb{Z}&\text{Hyp~tsori.1}\notag%bl.tsori.1
+  \\ 13 &&  & \vdash ( \mc{D} \in \mathbb{R} \wedge 0 < \mc{D}
+      )&\text{Hyp~tsori.2}\notag%bl.tsori.2
+  \\ 14 &&  & \vdash \mc{D} \in \mathbb{R}&(\mbox{\ref{eq:simpli}},13)\notag
+  \\ 15 &&  & \vdash \tau \in \mathbf{T}&\text{Hyp~tsori.3}\notag%bl.tsori.3
+  \\ 16 &&  & \vdash ( \tau + ( \mc{D} \times \mc{A} ) ) \in
+      \mathbf{T}&\text{Hyp~tsori.4}\notag%bl.tsori.4
+  \\ 17 &&  & \vdash \mathbf{I} \lsem ( ( ( \bigvee[ \mwl{l_1} ] \vee \bigvee[
+      \mwl{l_2} ] ) ~\string^~ \mc{A} ) \leftrightarrow ( (
+      \bigvee[ \mwl{l_1} ] ~\string^~ \mc{A} ) \vee (
+      \bigvee[ \mwl{l_2} ] ~\string^~ \mc{A} ) ) ) , \tau
+      \rsem&(\mbox{\ref{eq:bl.tsor2i}},12,14,15,16)\notag
+  \\ 18 &&  & \vdash \mathbf{I} \lsem ( ( \bigvee[ \mwl{l_1} \mwl{l_2} ]
+      ~\string^~ \mc{A} ) \leftrightarrow ( ( \bigvee[
+      \mwl{l_1} ] ~\string^~ \mc{A} ) \vee ( \bigvee[
+      \mwl{l_2} ] ~\string^~ \mc{A} ) ) ) , \tau
+      \rsem&(\mbox{\ref{eq:bl.bitrit}},1,11,17)\notag
+\end{align}
+\end{proof}
+
+\begin{restatable}{lemma}{bltsad2i}~\blTitle{bl.tsad2i}~ Distribute $~\string^~$ over addition,
+two terms, inference.
+\begin{align}
+\vdash \mc{A} \in \mathbb{Z}\quad\&\quad \vdash \mc{D} \in
+    \mathbb{R}\quad\&\quad \vdash \tau \in \mathbf{T}\quad\&\quad \vdash ( \tau
+    + ( \mc{D} \times \mc{A} ) ) \in \mathbf{T}\quad\Rightarrow \notag \\ %& & & \qquad
+     \quad \vdash
+    \mathbf{I} \lsem ( ( \mc{C} + \mc{B} ) ~\string^~ \mc{A} ) = ( ( \mc{C}
+    ~\string^~ \mc{A} ) + ( \mc{B} ~\string^~ \mc{A} ) ) , \tau
+    \rsem\label{eq:bl.tsad2i}\tag{bl.tsad2i}
+\end{align}
+\end{restatable}
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash ( \tau + ( \mc{D} \times \mc{A} ) ) \in
+      \mathbf{T}&\text{Hyp~tsad2i.4}\notag%bl.tsad2i.4
+  \\ 2 &&  & \vdash \mathbf{I} \lsem ( \mc{C} + \mc{B} ) , ( \tau + ( \mc{D}
+      \times \mc{A} ) ) \rsem =  \notag \\ & & & \qquad
+     ( \mathbf{I} \lsem \mc{C} ,
+      ( \tau + ( \mc{D} \times \mc{A} ) ) \rsem + \mathbf{I}
+      \lsem \mc{B} , ( \tau + ( \mc{D} \times \mc{A} ) )
+      \rsem )&(\mbox{\ref{eq:df-bl.addt}},1)\notag
+  \\ 3 &&  & \vdash \mc{A} \in \mathbb{Z}&\text{Hyp~tsad2i.1}\notag%bl.tsad2i.1
+  \\ 4 &&  & \vdash \mc{D} \in \mathbb{R}&\text{Hyp~tsad2i.2}\notag%bl.tsad2i.2
+  \\ 5 &&  & \vdash \tau \in \mathbf{T}&\text{Hyp~tsad2i.3}\notag%bl.tsad2i.3
+  \\ 6 &&  & \vdash ( \tau + ( \mc{D} \times \mc{A} ) ) \in
+      \mathbf{T}&\text{Hyp~tsad2i.4}\notag%bl.tsad2i.4
+  \\ 7 &&  & \vdash \mathbf{I} \lsem ( ( \mc{C} + \mc{B} ) ~\string^~ \mc{A} )
+      , \tau \rsem = \mathbf{I} \lsem ( \mc{C} + \mc{B} ) ,
+      ( \tau + ( \mc{D} \times \mc{A} ) )
+      \rsem&(\mbox{\ref{eq:bl.tsci}},3,4,5,6)\notag
+  \\ 8 &&  & \vdash \mc{A} \in \mathbb{Z}&\text{Hyp~tsad2i.1}\notag%bl.tsad2i.1
+  \\ 9 &&  & \vdash \mc{D} \in \mathbb{R}&\text{Hyp~tsad2i.2}\notag%bl.tsad2i.2
+  \\ 10 &&  & \vdash \tau \in \mathbf{T}&\text{Hyp~tsad2i.3}\notag%bl.tsad2i.3
+  \\ 11 &&  & \vdash ( \tau + ( \mc{D} \times \mc{A} ) ) \in
+      \mathbf{T}&\text{Hyp~tsad2i.4}\notag%bl.tsad2i.4
+  \\ 12 &&  & \vdash \mathbf{I} \lsem ( \mc{C} ~\string^~ \mc{A} ) , \tau \rsem
+      = \mathbf{I} \lsem \mc{C} , ( \tau + ( \mc{D} \times
+      \mc{A} ) )
+      \rsem&(\mbox{\ref{eq:bl.tsci}},8,9,10,11)\notag
+  \\ 13 &&  & \vdash \mc{A} \in
+      \mathbb{Z}&\text{Hyp~tsad2i.1}\notag%bl.tsad2i.1
+  \\ 14 &&  & \vdash \mc{D} \in
+      \mathbb{R}&\text{Hyp~tsad2i.2}\notag%bl.tsad2i.2
+  \\ 15 &&  & \vdash \tau \in \mathbf{T}&\text{Hyp~tsad2i.3}\notag%bl.tsad2i.3
+  \\ 16 &&  & \vdash ( \tau + ( \mc{D} \times \mc{A} ) ) \in
+      \mathbf{T}&\text{Hyp~tsad2i.4}\notag%bl.tsad2i.4
+  \\ 17 &&  & \vdash \mathbf{I} \lsem ( \mc{B} ~\string^~ \mc{A} ) , \tau \rsem
+      = \mathbf{I} \lsem \mc{B} , ( \tau + ( \mc{D} \times
+      \mc{A} ) )
+      \rsem&(\mbox{\ref{eq:bl.tsci}},13,14,15,16)\notag
+  \\ 18 &&  & \vdash ( \mathbf{I} \lsem ( \mc{C} ~\string^~ \mc{A} ) , \tau
+      \rsem + \mathbf{I} \lsem ( \mc{B} ~\string^~ \mc{A} )
+      , \tau \rsem ) =  \notag \\ & & & \qquad
+     ( \mathbf{I} \lsem \mc{C} , ( \tau +
+      ( \mc{D} \times \mc{A} ) ) \rsem + \mathbf{I} \lsem
+      \mc{B} , ( \tau + ( \mc{D} \times \mc{A} ) ) \rsem
+      )&(\mbox{\ref{eq:oveq12i}},12,17)\notag
+  \\ 19 &&  & \vdash \mathbf{I} \lsem ( ( \mc{C} + \mc{B} ) ~\string^~ \mc{A} )
+      , \tau \rsem = ( \mathbf{I} \lsem ( \mc{C} ~\string^~
+      \mc{A} ) , \tau \rsem + \mathbf{I} \lsem ( \mc{B}
+      ~\string^~ \mc{A} ) , \tau \rsem
+      )&(\mbox{\ref{eq:3eqtr4i}},2,7,18)\notag
+  \\ 20 &&  & \vdash \tau \in \mathbf{T}&\text{Hyp~tsad2i.3}\notag%bl.tsad2i.3
+  \\ 21 &&  & \vdash \mathbf{I} \lsem ( ( \mc{C} ~\string^~ \mc{A} ) + ( \mc{B}
+      ~\string^~ \mc{A} ) ) , \tau \rsem = ( \mathbf{I}
+      \lsem ( \mc{C} ~\string^~ \mc{A} ) , \tau \rsem +
+      \mathbf{I} \lsem ( \mc{B} ~\string^~ \mc{A} ) , \tau
+      \rsem )&(\mbox{\ref{eq:df-bl.addt}},20)\notag
+  \\ 22 &&  & \vdash \mathbf{I} \lsem ( ( \mc{C} + \mc{B} ) ~\string^~ \mc{A} )
+      , \tau \rsem = \mathbf{I} \lsem ( ( \mc{C} ~\string^~
+      \mc{A} ) + ( \mc{B} ~\string^~ \mc{A} ) ) , \tau
+      \rsem&(\mbox{\ref{eq:eqtr4i}},19,21)\notag
+  \\ 23 &&  & \vdash \tau \in \mathbf{T}&\text{Hyp~tsad2i.3}\notag%bl.tsad2i.3
+  \\ 24 &&  & \vdash ( \mathbf{I} \lsem ( ( \mc{C} + \mc{B} ) ~\string^~ \mc{A}
+      ) = ( ( \mc{C} ~\string^~ \mc{A} ) + ( \mc{B}
+      ~\string^~ \mc{A} ) ) , \tau \rsem \leftrightarrow \notag \\ & & & \qquad
+      \mathbf{I} \lsem ( ( \mc{C} + \mc{B} ) ~\string^~
+      \mc{A} ) , \tau \rsem = \mathbf{I} \lsem ( ( \mc{C}
+      ~\string^~ \mc{A} ) + ( \mc{B} ~\string^~ \mc{A} ) )
+      , \tau \rsem )&(\mbox{\ref{eq:df-bl.eqt}},23)\notag
+  \\ 25 &&  & \vdash \mathbf{I} \lsem ( ( \mc{C} + \mc{B} ) ~\string^~ \mc{A} )
+      = ( ( \mc{C} ~\string^~ \mc{A} ) + ( \mc{B}
+      ~\string^~ \mc{A} ) ) , \tau
+      \rsem&(\mbox{\ref{eq:mpbir}},22,24)\notag
+\end{align}
+\end{proof}
+
+\begin{restatable}{lemma}{bltsad3ri}~\blTitle{bl.tsad3ri}~ Distribute $~\string^~$ over addition,
+three terms (right), inference.
+\begin{align}
+\vdash \mc{A} \in \mathbb{Z}\quad\&\quad \vdash \mc{D} \in
+    \mathbb{R}\quad\&\quad \vdash \tau \in \mathbf{T}\quad\&\quad \vdash ( \tau
+    + ( \mc{D} \times \mc{A} ) ) \in \mathbf{T}\quad\Rightarrow \notag \\ %& & & \qquad
+     \quad \vdash
+    \mathbf{I} \lsem ( ( \mc{C} + ( E + \mc{B} ) ) ~\string^~ \mc{A} ) = ( (
+    \mc{C} ~\string^~ \mc{A} ) + ( ( E ~\string^~ \mc{A} ) + ( \mc{B}
+    ~\string^~ \mc{A} ) ) ) , \tau \rsem\label{eq:bl.tsad3ri}\tag{bl.tsad3ri}
+\end{align}
+\end{restatable}
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash \mc{A} \in \mathbb{Z}&\text{Hyp~tsad3ri.1}\notag%bl.tsad3ri.1
+  \\ 2 &&  & \vdash \mc{D} \in
+      \mathbb{R}&\text{Hyp~tsad3ri.2}\notag%bl.tsad3ri.2
+  \\ 3 &&  & \vdash \tau \in \mathbf{T}&\text{Hyp~tsad3ri.3}\notag%bl.tsad3ri.3
+  \\ 4 &&  & \vdash ( \tau + ( \mc{D} \times \mc{A} ) ) \in
+      \mathbf{T}&\text{Hyp~tsad3ri.4}\notag%bl.tsad3ri.4
+  \\ 5 &&  & \vdash \mathbf{I} \lsem ( ( \mc{C} + ( E + \mc{B} ) ) ~\string^~
+      \mc{A} ) , \tau \rsem = \mathbf{I} \lsem ( \mc{C} + (
+      E + \mc{B} ) ) , ( \tau + ( \mc{D} \times \mc{A} ) )
+      \rsem&(\mbox{\ref{eq:bl.tsci}},1,2,3,4)\notag
+  \\ 6 &&  & \vdash ( \tau + ( \mc{D} \times \mc{A} ) ) \in
+      \mathbf{T}&\text{Hyp~tsad3ri.4}\notag%bl.tsad3ri.4
+  \\ 7 &&  & \vdash \mathbf{I} \lsem ( \mc{C} + ( E + \mc{B} ) ) , ( \tau + (
+      \mc{D} \times \mc{A} ) ) \rsem =  \notag \\ & & & \qquad
+     ( \mathbf{I} \lsem
+      \mc{C} , ( \tau + ( \mc{D} \times \mc{A} ) ) \rsem +
+      \mathbf{I} \lsem ( E + \mc{B} ) , ( \tau + ( \mc{D}
+      \times \mc{A} ) ) \rsem
+      )&(\mbox{\ref{eq:df-bl.addt}},6)\notag
+  \\ 8 &&  & \vdash ( \tau + ( \mc{D} \times \mc{A} ) ) \in
+      \mathbf{T}&\text{Hyp~tsad3ri.4}\notag%bl.tsad3ri.4
+  \\ 9 &&  & \vdash \mathbf{I} \lsem ( E + \mc{B} ) , ( \tau + ( \mc{D} \times
+      \mc{A} ) ) \rsem = ( \mathbf{I} \lsem E , ( \tau + (
+      \mc{D} \times \mc{A} ) ) \rsem + \mathbf{I} \lsem
+      \mc{B} , ( \tau + ( \mc{D} \times \mc{A} ) ) \rsem
+      )&(\mbox{\ref{eq:df-bl.addt}},8)\notag
+  \\ 10 &&  & \vdash ( \mathbf{I} \lsem \mc{C} , ( \tau + ( \mc{D} \times \mc{A}
+      ) ) \rsem + \mathbf{I} \lsem ( E + \mc{B} ) , ( \tau
+      + ( \mc{D} \times \mc{A} ) ) \rsem ) =  \notag \\ & & & \qquad
+     ( \mathbf{I}
+      \lsem \mc{C} , ( \tau + ( \mc{D} \times \mc{A} ) )
+      \rsem + ( \mathbf{I} \lsem E , ( \tau + ( \mc{D}
+      \times \mc{A} ) ) \rsem + \mathbf{I} \lsem \mc{B} , (
+      \tau + ( \mc{D} \times \mc{A} ) ) \rsem )
+      )&(\mbox{\ref{eq:oveq2i}},9)\notag
+  \\ 11 &&  & \vdash \mathbf{I} \lsem ( ( \mc{C} + ( E + \mc{B} ) ) ~\string^~
+      \mc{A} ) , \tau \rsem =  \notag \\ & & & \qquad
+     ( \mathbf{I} \lsem \mc{C} , (
+      \tau + ( \mc{D} \times \mc{A} ) ) \rsem + ( \mathbf{I}
+      \lsem E , ( \tau + ( \mc{D} \times \mc{A} ) ) \rsem +
+      \mathbf{I} \lsem \mc{B} , ( \tau + ( \mc{D} \times
+      \mc{A} ) ) \rsem )
+      )&(\mbox{\ref{eq:3eqtri}},5,7,10)\notag
+  \\ 12 &&  & \vdash \mc{A} \in
+      \mathbb{Z}&\text{Hyp~tsad3ri.1}\notag%bl.tsad3ri.1
+  \\ 13 &&  & \vdash \mc{D} \in
+      \mathbb{R}&\text{Hyp~tsad3ri.2}\notag%bl.tsad3ri.2
+  \\ 14 &&  & \vdash \tau \in
+      \mathbf{T}&\text{Hyp~tsad3ri.3}\notag%bl.tsad3ri.3
+  \\ 15 &&  & \vdash ( \tau + ( \mc{D} \times \mc{A} ) ) \in
+      \mathbf{T}&\text{Hyp~tsad3ri.4}\notag%bl.tsad3ri.4
+  \\ 16 &&  & \vdash \mathbf{I} \lsem ( \mc{C} ~\string^~ \mc{A} ) , \tau \rsem
+      = \mathbf{I} \lsem \mc{C} , ( \tau + ( \mc{D} \times
+      \mc{A} ) )
+      \rsem&(\mbox{\ref{eq:bl.tsci}},12,13,14,15)\notag
+  \\ 17 &&  & \vdash \mc{A} \in
+      \mathbb{Z}&\text{Hyp~tsad3ri.1}\notag%bl.tsad3ri.1
+  \\ 18 &&  & \vdash \mc{D} \in
+      \mathbb{R}&\text{Hyp~tsad3ri.2}\notag%bl.tsad3ri.2
+  \\ 19 &&  & \vdash \tau \in
+      \mathbf{T}&\text{Hyp~tsad3ri.3}\notag%bl.tsad3ri.3
+  \\ 20 &&  & \vdash ( \tau + ( \mc{D} \times \mc{A} ) ) \in
+      \mathbf{T}&\text{Hyp~tsad3ri.4}\notag%bl.tsad3ri.4
+  \\ 21 &&  & \vdash \mathbf{I} \lsem ( E ~\string^~ \mc{A} ) , \tau \rsem =
+      \mathbf{I} \lsem E , ( \tau + ( \mc{D} \times \mc{A} )
+      ) \rsem&(\mbox{\ref{eq:bl.tsci}},17,18,19,20)\notag
+  \\ 22 &&  & \vdash \mc{A} \in
+      \mathbb{Z}&\text{Hyp~tsad3ri.1}\notag%bl.tsad3ri.1
+  \\ 23 &&  & \vdash \mc{D} \in
+      \mathbb{R}&\text{Hyp~tsad3ri.2}\notag%bl.tsad3ri.2
+  \\ 24 &&  & \vdash \tau \in
+      \mathbf{T}&\text{Hyp~tsad3ri.3}\notag%bl.tsad3ri.3
+  \\ 25 &&  & \vdash ( \tau + ( \mc{D} \times \mc{A} ) ) \in
+      \mathbf{T}&\text{Hyp~tsad3ri.4}\notag%bl.tsad3ri.4
+  \\ 26 &&  & \vdash \mathbf{I} \lsem ( \mc{B} ~\string^~ \mc{A} ) , \tau \rsem
+      = \mathbf{I} \lsem \mc{B} , ( \tau + ( \mc{D} \times
+      \mc{A} ) )
+      \rsem&(\mbox{\ref{eq:bl.tsci}},22,23,24,25)\notag
+  \\ 27 &&  & \vdash ( \mathbf{I} \lsem ( E ~\string^~ \mc{A} ) , \tau \rsem +
+      \mathbf{I} \lsem ( \mc{B} ~\string^~ \mc{A} ) , \tau
+      \rsem ) =  \notag \\ & & & \qquad
+     ( \mathbf{I} \lsem E , ( \tau + ( \mc{D}
+      \times \mc{A} ) ) \rsem + \mathbf{I} \lsem \mc{B} , (
+      \tau + ( \mc{D} \times \mc{A} ) ) \rsem
+      )&(\mbox{\ref{eq:oveq12i}},21,26)\notag
+  \\ 28 &&  & \vdash ( \mathbf{I} \lsem ( \mc{C} ~\string^~ \mc{A} ) , \tau
+      \rsem + ( \mathbf{I} \lsem ( E ~\string^~ \mc{A} ) ,
+      \tau \rsem + \mathbf{I} \lsem ( \mc{B} ~\string^~
+      \mc{A} ) , \tau \rsem ) ) =  \notag \\ & & & \qquad
+     ( \mathbf{I} \lsem \mc{C}
+      , ( \tau + ( \mc{D} \times \mc{A} ) ) \rsem + (
+      \mathbf{I} \lsem E , ( \tau + ( \mc{D} \times \mc{A} )
+      ) \rsem + \mathbf{I} \lsem \mc{B} , ( \tau + ( \mc{D}
+      \times \mc{A} ) ) \rsem )
+      )&(\mbox{\ref{eq:oveq12i}},16,27)\notag
+  \\ 29 &&  & \vdash \mathbf{I} \lsem ( ( \mc{C} + ( E + \mc{B} ) ) ~\string^~
+      \mc{A} ) , \tau \rsem =  \notag \\ & & & \qquad
+     ( \mathbf{I} \lsem ( \mc{C}
+      ~\string^~ \mc{A} ) , \tau \rsem + ( \mathbf{I} \lsem
+      ( E ~\string^~ \mc{A} ) , \tau \rsem + \mathbf{I}
+      \lsem ( \mc{B} ~\string^~ \mc{A} ) , \tau \rsem )
+      )&(\mbox{\ref{eq:eqtr4i}},11,28)\notag
+  \\ 30 &&  & \vdash \tau \in
+      \mathbf{T}&\text{Hyp~tsad3ri.3}\notag%bl.tsad3ri.3
+  \\ 31 &&  & \vdash \mathbf{I} \lsem ( ( E ~\string^~ \mc{A} ) + ( \mc{B}
+      ~\string^~ \mc{A} ) ) , \tau \rsem = ( \mathbf{I}
+      \lsem ( E ~\string^~ \mc{A} ) , \tau \rsem +
+      \mathbf{I} \lsem ( \mc{B} ~\string^~ \mc{A} ) , \tau
+      \rsem )&(\mbox{\ref{eq:df-bl.addt}},30)\notag
+  \\ 32 &&  & \vdash ( \mathbf{I} \lsem ( \mc{C} ~\string^~ \mc{A} ) , \tau
+      \rsem + \mathbf{I} \lsem ( ( E ~\string^~ \mc{A} ) +
+      ( \mc{B} ~\string^~ \mc{A} ) ) , \tau \rsem ) =  \notag \\ & & & \qquad
+     (
+      \mathbf{I} \lsem ( \mc{C} ~\string^~ \mc{A} ) , \tau
+      \rsem + ( \mathbf{I} \lsem ( E ~\string^~ \mc{A} ) ,
+      \tau \rsem + \mathbf{I} \lsem ( \mc{B} ~\string^~
+      \mc{A} ) , \tau \rsem )
+      )&(\mbox{\ref{eq:oveq2i}},31)\notag
+  \\ 33 &&  & \vdash \mathbf{I} \lsem ( ( \mc{C} + ( E + \mc{B} ) ) ~\string^~
+      \mc{A} ) , \tau \rsem = ( \mathbf{I} \lsem ( \mc{C}
+      ~\string^~ \mc{A} ) , \tau \rsem + \mathbf{I} \lsem (
+      ( E ~\string^~ \mc{A} ) + ( \mc{B} ~\string^~ \mc{A}
+      ) ) , \tau \rsem
+      )&(\mbox{\ref{eq:eqtr4i}},29,32)\notag
+  \\ 34 &&  & \vdash \tau \in
+      \mathbf{T}&\text{Hyp~tsad3ri.3}\notag%bl.tsad3ri.3
+  \\ 35 &&  & \vdash \mathbf{I} \lsem ( ( \mc{C} ~\string^~ \mc{A} ) + ( ( E
+      ~\string^~ \mc{A} ) + ( \mc{B} ~\string^~ \mc{A} ) )
+      ) , \tau \rsem =  \notag \\ & & & \qquad
+     ( \mathbf{I} \lsem ( \mc{C}
+      ~\string^~ \mc{A} ) , \tau \rsem + \mathbf{I} \lsem (
+      ( E ~\string^~ \mc{A} ) + ( \mc{B} ~\string^~ \mc{A}
+      ) ) , \tau \rsem
+      )&(\mbox{\ref{eq:df-bl.addt}},34)\notag
+  \\ 36 &&  & \vdash \mathbf{I} \lsem ( ( \mc{C} + ( E + \mc{B} ) ) ~\string^~
+      \mc{A} ) , \tau \rsem = \mathbf{I} \lsem ( ( \mc{C}
+      ~\string^~ \mc{A} ) + ( ( E ~\string^~ \mc{A} ) + (
+      \mc{B} ~\string^~ \mc{A} ) ) ) , \tau
+      \rsem&(\mbox{\ref{eq:eqtr4i}},33,35)\notag
+  \\ 37 &&  & \vdash \tau \in
+      \mathbf{T}&\text{Hyp~tsad3ri.3}\notag%bl.tsad3ri.3
+  \\ 38 &&  & \vdash ( \mathbf{I} \lsem ( ( \mc{C} + ( E + \mc{B} ) )
+      ~\string^~ \mc{A} ) = ( ( \mc{C} ~\string^~ \mc{A} )
+      + ( ( E ~\string^~ \mc{A} ) + ( \mc{B} ~\string^~
+      \mc{A} ) ) ) , \tau \rsem \leftrightarrow  \notag \\ & & & \qquad
+     \mathbf{I}
+      \lsem ( ( \mc{C} + ( E + \mc{B} ) ) ~\string^~ \mc{A}
+      ) , \tau \rsem = \mathbf{I} \lsem ( ( \mc{C}
+      ~\string^~ \mc{A} ) + ( ( E ~\string^~ \mc{A} ) + (
+      \mc{B} ~\string^~ \mc{A} ) ) ) , \tau \rsem
+      )&(\mbox{\ref{eq:df-bl.eqt}},37)\notag
+  \\ 39 &&  & \vdash \mathbf{I} \lsem ( ( \mc{C} + ( E + \mc{B} ) ) ~\string^~
+      \mc{A} ) = ( ( \mc{C} ~\string^~ \mc{A} ) + ( ( E
+      ~\string^~ \mc{A} ) + ( \mc{B} ~\string^~ \mc{A} ) )
+      ) , \tau \rsem&(\mbox{\ref{eq:mpbir}},36,38)\notag
+\end{align}
+\end{proof}
+
+\begin{restatable}{lemma}{bltsad3li}~\blTitle{bl.tsad3li}~ Distribute $~\string^~$ over addition,
+three terms (left), inference.
+\begin{align}
+\vdash \mc{A} \in \mathbb{Z}\quad\&\quad \vdash \mc{D} \in
+    \mathbb{R}\quad\&\quad \vdash \tau \in \mathbf{T}\quad\&\quad \vdash ( \tau
+    + ( \mc{D} \times \mc{A} ) ) \in \mathbf{T}\quad\Rightarrow \notag \\ %& & & \qquad
+     \quad \vdash
+    \mathbf{I} \lsem ( ( ( \mc{C} + E ) + \mc{B} ) ~\string^~ \mc{A} ) = ( ( (
+    \mc{C} ~\string^~ \mc{A} ) + ( E ~\string^~ \mc{A} ) ) + ( \mc{B}
+    ~\string^~ \mc{A} ) ) , \tau \rsem\label{eq:bl.tsad3li}\tag{bl.tsad3li}
+\end{align}
+\end{restatable}
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash \mc{A} \in \mathbb{Z}&\text{Hyp~tsad3li.1}\notag%bl.tsad3li.1
+  \\ 2 &&  & \vdash \mc{D} \in
+      \mathbb{R}&\text{Hyp~tsad3li.2}\notag%bl.tsad3li.2
+  \\ 3 &&  & \vdash \tau \in \mathbf{T}&\text{Hyp~tsad3li.3}\notag%bl.tsad3li.3
+  \\ 4 &&  & \vdash ( \tau + ( \mc{D} \times \mc{A} ) ) \in
+      \mathbf{T}&\text{Hyp~tsad3li.4}\notag%bl.tsad3li.4
+  \\ 5 &&  & \vdash \mathbf{I} \lsem ( ( ( \mc{C} + E ) + \mc{B} ) ~\string^~
+      \mc{A} ) , \tau \rsem = \mathbf{I} \lsem ( ( \mc{C} +
+      E ) + \mc{B} ) , ( \tau + ( \mc{D} \times \mc{A} ) )
+      \rsem&(\mbox{\ref{eq:bl.tsci}},1,2,3,4)\notag
+  \\ 6 &&  & \vdash ( \tau + ( \mc{D} \times \mc{A} ) ) \in
+      \mathbf{T}&\text{Hyp~tsad3li.4}\notag%bl.tsad3li.4
+  \\ 7 &&  & \vdash \mathbf{I} \lsem ( ( \mc{C} + E ) + \mc{B} ) , ( \tau + (
+      \mc{D} \times \mc{A} ) ) \rsem =  \notag \\ & & & \qquad
+     ( \mathbf{I} \lsem (
+      \mc{C} + E ) , ( \tau + ( \mc{D} \times \mc{A} ) )
+      \rsem + \mathbf{I} \lsem \mc{B} , ( \tau + ( \mc{D}
+      \times \mc{A} ) ) \rsem
+      )&(\mbox{\ref{eq:df-bl.addt}},6)\notag
+  \\ 8 &&  & \vdash ( \tau + ( \mc{D} \times \mc{A} ) ) \in
+      \mathbf{T}&\text{Hyp~tsad3li.4}\notag%bl.tsad3li.4
+  \\ 9 &&  & \vdash \mathbf{I} \lsem ( \mc{C} + E ) , ( \tau + ( \mc{D} \times
+      \mc{A} ) ) \rsem = ( \mathbf{I} \lsem \mc{C} , ( \tau
+      + ( \mc{D} \times \mc{A} ) ) \rsem + \mathbf{I} \lsem
+      E , ( \tau + ( \mc{D} \times \mc{A} ) ) \rsem
+      )&(\mbox{\ref{eq:df-bl.addt}},8)\notag
+  \\ 10 &&  & \vdash ( \mathbf{I} \lsem ( \mc{C} + E ) , ( \tau + ( \mc{D}
+      \times \mc{A} ) ) \rsem + \mathbf{I} \lsem \mc{B} , (
+      \tau + ( \mc{D} \times \mc{A} ) ) \rsem ) =  \notag \\ & & & \qquad
+     ( (
+      \mathbf{I} \lsem \mc{C} , ( \tau + ( \mc{D} \times
+      \mc{A} ) ) \rsem + \mathbf{I} \lsem E , ( \tau + (
+      \mc{D} \times \mc{A} ) ) \rsem ) + \mathbf{I} \lsem
+      \mc{B} , ( \tau + ( \mc{D} \times \mc{A} ) ) \rsem
+      )&(\mbox{\ref{eq:oveq1i}},9)\notag
+  \\ 11 &&  & \vdash \mathbf{I} \lsem ( ( ( \mc{C} + E ) + \mc{B} ) ~\string^~
+      \mc{A} ) , \tau \rsem =  \notag \\ & & & \qquad
+     ( ( \mathbf{I} \lsem \mc{C} ,
+      ( \tau + ( \mc{D} \times \mc{A} ) ) \rsem + \mathbf{I}
+      \lsem E , ( \tau + ( \mc{D} \times \mc{A} ) ) \rsem )
+      + \mathbf{I} \lsem \mc{B} , ( \tau + ( \mc{D} \times
+      \mc{A} ) ) \rsem
+      )&(\mbox{\ref{eq:3eqtri}},5,7,10)\notag
+  \\ 12 &&  & \vdash \mc{A} \in
+      \mathbb{Z}&\text{Hyp~tsad3li.1}\notag%bl.tsad3li.1
+  \\ 13 &&  & \vdash \mc{D} \in
+      \mathbb{R}&\text{Hyp~tsad3li.2}\notag%bl.tsad3li.2
+  \\ 14 &&  & \vdash \tau \in
+      \mathbf{T}&\text{Hyp~tsad3li.3}\notag%bl.tsad3li.3
+  \\ 15 &&  & \vdash ( \tau + ( \mc{D} \times \mc{A} ) ) \in
+      \mathbf{T}&\text{Hyp~tsad3li.4}\notag%bl.tsad3li.4
+  \\ 16 &&  & \vdash \mathbf{I} \lsem ( \mc{C} ~\string^~ \mc{A} ) , \tau \rsem
+      = \mathbf{I} \lsem \mc{C} , ( \tau + ( \mc{D} \times
+      \mc{A} ) )
+      \rsem&(\mbox{\ref{eq:bl.tsci}},12,13,14,15)\notag
+  \\ 17 &&  & \vdash \mc{A} \in
+      \mathbb{Z}&\text{Hyp~tsad3li.1}\notag%bl.tsad3li.1
+  \\ 18 &&  & \vdash \mc{D} \in
+      \mathbb{R}&\text{Hyp~tsad3li.2}\notag%bl.tsad3li.2
+  \\ 19 &&  & \vdash \tau \in
+      \mathbf{T}&\text{Hyp~tsad3li.3}\notag%bl.tsad3li.3
+  \\ 20 &&  & \vdash ( \tau + ( \mc{D} \times \mc{A} ) ) \in
+      \mathbf{T}&\text{Hyp~tsad3li.4}\notag%bl.tsad3li.4
+  \\ 21 &&  & \vdash \mathbf{I} \lsem ( E ~\string^~ \mc{A} ) , \tau \rsem =
+      \mathbf{I} \lsem E , ( \tau + ( \mc{D} \times \mc{A} )
+      ) \rsem&(\mbox{\ref{eq:bl.tsci}},17,18,19,20)\notag
+  \\ 22 &&  & \vdash ( \mathbf{I} \lsem ( \mc{C} ~\string^~ \mc{A} ) , \tau
+      \rsem + \mathbf{I} \lsem ( E ~\string^~ \mc{A} ) ,
+      \tau \rsem ) =  \notag \\ & & & \qquad
+     ( \mathbf{I} \lsem \mc{C} , ( \tau + (
+      \mc{D} \times \mc{A} ) ) \rsem + \mathbf{I} \lsem E ,
+      ( \tau + ( \mc{D} \times \mc{A} ) ) \rsem
+      )&(\mbox{\ref{eq:oveq12i}},16,21)\notag
+  \\ 23 &&  & \vdash \mc{A} \in
+      \mathbb{Z}&\text{Hyp~tsad3li.1}\notag%bl.tsad3li.1
+  \\ 24 &&  & \vdash \mc{D} \in
+      \mathbb{R}&\text{Hyp~tsad3li.2}\notag%bl.tsad3li.2
+  \\ 25 &&  & \vdash \tau \in
+      \mathbf{T}&\text{Hyp~tsad3li.3}\notag%bl.tsad3li.3
+  \\ 26 &&  & \vdash ( \tau + ( \mc{D} \times \mc{A} ) ) \in
+      \mathbf{T}&\text{Hyp~tsad3li.4}\notag%bl.tsad3li.4
+  \\ 27 &&  & \vdash \mathbf{I} \lsem ( \mc{B} ~\string^~ \mc{A} ) , \tau \rsem
+      = \mathbf{I} \lsem \mc{B} , ( \tau + ( \mc{D} \times
+      \mc{A} ) )
+      \rsem&(\mbox{\ref{eq:bl.tsci}},23,24,25,26)\notag
+  \\ 28 &&  & \vdash ( ( \mathbf{I} \lsem ( \mc{C} ~\string^~ \mc{A} ) , \tau
+      \rsem + \mathbf{I} \lsem ( E ~\string^~ \mc{A} ) ,
+      \tau \rsem ) + \mathbf{I} \lsem ( \mc{B} ~\string^~
+      \mc{A} ) , \tau \rsem ) =  \notag \\ & & & \qquad
+     ( ( \mathbf{I} \lsem \mc{C}
+      , ( \tau + ( \mc{D} \times \mc{A} ) ) \rsem +
+      \mathbf{I} \lsem E , ( \tau + ( \mc{D} \times \mc{A} )
+      ) \rsem ) + \mathbf{I} \lsem \mc{B} , ( \tau + (
+      \mc{D} \times \mc{A} ) ) \rsem
+      )&(\mbox{\ref{eq:oveq12i}},22,27)\notag
+  \\ 29 &&  & \vdash \mathbf{I} \lsem ( ( ( \mc{C} + E ) + \mc{B} ) ~\string^~
+      \mc{A} ) , \tau \rsem =  \notag \\ & & & \qquad
+     ( ( \mathbf{I} \lsem ( \mc{C}
+      ~\string^~ \mc{A} ) , \tau \rsem + \mathbf{I} \lsem (
+      E ~\string^~ \mc{A} ) , \tau \rsem ) + \mathbf{I}
+      \lsem ( \mc{B} ~\string^~ \mc{A} ) , \tau \rsem
+      )&(\mbox{\ref{eq:eqtr4i}},11,28)\notag
+  \\ 30 &&  & \vdash \tau \in
+      \mathbf{T}&\text{Hyp~tsad3li.3}\notag%bl.tsad3li.3
+  \\ 31 &&  & \vdash \mathbf{I} \lsem ( ( \mc{C} ~\string^~ \mc{A} ) + ( E
+      ~\string^~ \mc{A} ) ) , \tau \rsem = ( \mathbf{I}
+      \lsem ( \mc{C} ~\string^~ \mc{A} ) , \tau \rsem +
+      \mathbf{I} \lsem ( E ~\string^~ \mc{A} ) , \tau \rsem
+      )&(\mbox{\ref{eq:df-bl.addt}},30)\notag
+  \\ 32 &&  & \vdash ( \mathbf{I} \lsem ( ( \mc{C} ~\string^~ \mc{A} ) + ( E
+      ~\string^~ \mc{A} ) ) , \tau \rsem + \mathbf{I} \lsem
+      ( \mc{B} ~\string^~ \mc{A} ) , \tau \rsem ) =  \notag \\ & & & \qquad
+     ( (
+      \mathbf{I} \lsem ( \mc{C} ~\string^~ \mc{A} ) , \tau
+      \rsem + \mathbf{I} \lsem ( E ~\string^~ \mc{A} ) ,
+      \tau \rsem ) + \mathbf{I} \lsem ( \mc{B} ~\string^~
+      \mc{A} ) , \tau \rsem
+      )&(\mbox{\ref{eq:oveq1i}},31)\notag
+  \\ 33 &&  & \vdash \mathbf{I} \lsem ( ( ( \mc{C} + E ) + \mc{B} ) ~\string^~
+      \mc{A} ) , \tau \rsem = ( \mathbf{I} \lsem ( ( \mc{C}
+      ~\string^~ \mc{A} ) + ( E ~\string^~ \mc{A} ) ) ,
+      \tau \rsem + \mathbf{I} \lsem ( \mc{B} ~\string^~
+      \mc{A} ) , \tau \rsem
+      )&(\mbox{\ref{eq:eqtr4i}},29,32)\notag
+  \\ 34 &&  & \vdash \tau \in
+      \mathbf{T}&\text{Hyp~tsad3li.3}\notag%bl.tsad3li.3
+  \\ 35 &&  & \vdash \mathbf{I} \lsem ( ( ( \mc{C} ~\string^~ \mc{A} ) + ( E
+      ~\string^~ \mc{A} ) ) + ( \mc{B} ~\string^~ \mc{A} )
+      ) , \tau \rsem =  \notag \\ & & & \qquad
+     ( \mathbf{I} \lsem ( ( \mc{C}
+      ~\string^~ \mc{A} ) + ( E ~\string^~ \mc{A} ) ) ,
+      \tau \rsem + \mathbf{I} \lsem ( \mc{B} ~\string^~
+      \mc{A} ) , \tau \rsem
+      )&(\mbox{\ref{eq:df-bl.addt}},34)\notag
+  \\ 36 &&  & \vdash \mathbf{I} \lsem ( ( ( \mc{C} + E ) + \mc{B} ) ~\string^~
+      \mc{A} ) , \tau \rsem = \mathbf{I} \lsem ( ( ( \mc{C}
+      ~\string^~ \mc{A} ) + ( E ~\string^~ \mc{A} ) ) + (
+      \mc{B} ~\string^~ \mc{A} ) ) , \tau
+      \rsem&(\mbox{\ref{eq:eqtr4i}},33,35)\notag
+  \\ 37 &&  & \vdash \tau \in
+      \mathbf{T}&\text{Hyp~tsad3li.3}\notag%bl.tsad3li.3
+  \\ 38 &&  & \vdash ( \mathbf{I} \lsem ( ( ( \mc{C} + E ) + \mc{B} )
+      ~\string^~ \mc{A} ) = ( ( ( \mc{C} ~\string^~ \mc{A}
+      ) + ( E ~\string^~ \mc{A} ) ) + ( \mc{B} ~\string^~
+      \mc{A} ) ) , \tau \rsem \leftrightarrow  \notag \\ & & & \qquad
+     \mathbf{I}
+      \lsem ( ( ( \mc{C} + E ) + \mc{B} ) ~\string^~ \mc{A}
+      ) , \tau \rsem = \mathbf{I} \lsem ( ( ( \mc{C}
+      ~\string^~ \mc{A} ) + ( E ~\string^~ \mc{A} ) ) + (
+      \mc{B} ~\string^~ \mc{A} ) ) , \tau \rsem
+      )&(\mbox{\ref{eq:df-bl.eqt}},37)\notag
+  \\ 39 &&  & \vdash \mathbf{I} \lsem ( ( ( \mc{C} + E ) + \mc{B} ) ~\string^~
+      \mc{A} ) = ( ( ( \mc{C} ~\string^~ \mc{A} ) + ( E
+      ~\string^~ \mc{A} ) ) + ( \mc{B} ~\string^~ \mc{A} )
+      ) , \tau \rsem&(\mbox{\ref{eq:mpbir}},36,38)\notag
+\end{align}
+\end{proof}
+
+\begin{restatable}{lemma}{bltsadi}~\blTitle{bl.tsadi}~ Distribute $~\string^~$ over addition,
+class-list, inference.
+\begin{align}
+\vdash \mc{A} \in \mathbb{Z}\quad\&\quad \vdash \mc{D} \in
+    \mathbb{R}\quad\&\quad \vdash \tau \in \mathbf{T}\quad\&\quad \vdash ( \tau
+    + ( \mc{D} \times \mc{A} ) ) \in \mathbf{T}\quad\Rightarrow \notag \\ %& & & \qquad
+     \quad \vdash
+    \mathbf{I} \lsem ( ( {\oplus\hspace{-1pt}[} \msc{csl_1} ] +
+    {\oplus\hspace{-1pt}[} \msc{csl_2} ] ) ~\string^~ \mc{A} ) = ( (
+    {\oplus\hspace{-1pt}[} \msc{csl_1} ] ~\string^~ \mc{A} ) + (
+    {\oplus\hspace{-1pt}[} \msc{csl_2} ] ~\string^~ \mc{A} ) ) , \tau
+    \rsem\label{eq:bl.tsadi}\tag{bl.tsadi}
+\end{align}
+\end{restatable}
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash \mc{A} \in \mathbb{Z}&\text{Hyp~tsadi.1}\notag%bl.tsadi.1
+  \\ 2 &&  & \vdash \mc{D} \in \mathbb{R}&\text{Hyp~tsadi.2}\notag%bl.tsadi.2
+  \\ 3 &&  & \vdash \tau \in \mathbf{T}&\text{Hyp~tsadi.3}\notag%bl.tsadi.3
+  \\ 4 &&  & \vdash ( \tau + ( \mc{D} \times \mc{A} ) ) \in
+      \mathbf{T}&\text{Hyp~tsadi.4}\notag%bl.tsadi.4
+  \\ 5 &&  & \vdash \mathbf{I} \lsem ( ( {\oplus\hspace{-1pt}[} \msc{csl_1} ] +
+      {\oplus\hspace{-1pt}[} \msc{csl_2} ] ) ~\string^~
+      \mc{A} ) = ( ( {\oplus\hspace{-1pt}[} \msc{csl_1} ]
+      ~\string^~ \mc{A} ) + ( {\oplus\hspace{-1pt}[}
+      \msc{csl_2} ] ~\string^~ \mc{A} ) ) , \tau
+      \rsem&(\mbox{\ref{eq:bl.tsad2i}},1,2,3,4)\notag
+\end{align}
+\end{proof}
+
+\begin{restatable}{lemma}{bltssubi}~\blTitle{bl.tssubi}~ Distribute $~\string^~$ over subtraction,
+inference.
+\begin{align}
+\vdash \mc{A} \in \mathbb{Z}\quad\&\quad \vdash \mc{D} \in
+    \mathbb{R}\quad\&\quad \vdash \tau \in \mathbf{T}\quad\&\quad \vdash ( \tau
+    + ( \mc{D} \times \mc{A} ) ) \in \mathbf{T}\quad\Rightarrow \notag \\ %& & & \qquad
+     \quad \vdash
+    \mathbf{I} \lsem ( ( \mc{C} \minus \mc{B} ) ~\string^~ \mc{A} ) = ( (
+    \mc{C} ~\string^~ \mc{A} ) \minus ( \mc{B} ~\string^~ \mc{A} ) ) , \tau
+    \rsem\label{eq:bl.tssubi}\tag{bl.tssubi}
+\end{align}
+\end{restatable}
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash ( \tau + ( \mc{D} \times \mc{A} ) ) \in
+      \mathbf{T}&\text{Hyp~tssubi.4}\notag%bl.tssubi.4
+  \\ 2 &&  & \vdash \mathbf{I} \lsem ( \mc{C} \minus \mc{B} ) , ( \tau + (
+      \mc{D} \times \mc{A} ) ) \rsem = ( \mathbf{I} \lsem
+      \mc{C} , ( \tau + ( \mc{D} \times \mc{A} ) ) \rsem
+      \minus \mathbf{I} \lsem \mc{B} , ( \tau + ( \mc{D}
+      \times \mc{A} ) ) \rsem
+      )&(\mbox{\ref{eq:df-bl.subt}},1)\notag
+  \\ 3 &&  & \vdash \mc{A} \in \mathbb{Z}&\text{Hyp~tssubi.1}\notag%bl.tssubi.1
+  \\ 4 &&  & \vdash \mc{D} \in \mathbb{R}&\text{Hyp~tssubi.2}\notag%bl.tssubi.2
+  \\ 5 &&  & \vdash \tau \in \mathbf{T}&\text{Hyp~tssubi.3}\notag%bl.tssubi.3
+  \\ 6 &&  & \vdash ( \tau + ( \mc{D} \times \mc{A} ) ) \in
+      \mathbf{T}&\text{Hyp~tssubi.4}\notag%bl.tssubi.4
+  \\ 7 &&  & \vdash \mathbf{I} \lsem ( ( \mc{C} \minus \mc{B} ) ~\string^~
+      \mc{A} ) , \tau \rsem = \mathbf{I} \lsem ( \mc{C}
+      \minus \mc{B} ) , ( \tau + ( \mc{D} \times \mc{A} ) )
+      \rsem&(\mbox{\ref{eq:bl.tsci}},3,4,5,6)\notag
+  \\ 8 &&  & \vdash \mc{A} \in \mathbb{Z}&\text{Hyp~tssubi.1}\notag%bl.tssubi.1
+  \\ 9 &&  & \vdash \mc{D} \in \mathbb{R}&\text{Hyp~tssubi.2}\notag%bl.tssubi.2
+  \\ 10 &&  & \vdash \tau \in \mathbf{T}&\text{Hyp~tssubi.3}\notag%bl.tssubi.3
+  \\ 11 &&  & \vdash ( \tau + ( \mc{D} \times \mc{A} ) ) \in
+      \mathbf{T}&\text{Hyp~tssubi.4}\notag%bl.tssubi.4
+  \\ 12 &&  & \vdash \mathbf{I} \lsem ( \mc{C} ~\string^~ \mc{A} ) , \tau \rsem
+      = \mathbf{I} \lsem \mc{C} , ( \tau + ( \mc{D} \times
+      \mc{A} ) )
+      \rsem&(\mbox{\ref{eq:bl.tsci}},8,9,10,11)\notag
+  \\ 13 &&  & \vdash \mc{A} \in
+      \mathbb{Z}&\text{Hyp~tssubi.1}\notag%bl.tssubi.1
+  \\ 14 &&  & \vdash \mc{D} \in
+      \mathbb{R}&\text{Hyp~tssubi.2}\notag%bl.tssubi.2
+  \\ 15 &&  & \vdash \tau \in \mathbf{T}&\text{Hyp~tssubi.3}\notag%bl.tssubi.3
+  \\ 16 &&  & \vdash ( \tau + ( \mc{D} \times \mc{A} ) ) \in
+      \mathbf{T}&\text{Hyp~tssubi.4}\notag%bl.tssubi.4
+  \\ 17 &&  & \vdash \mathbf{I} \lsem ( \mc{B} ~\string^~ \mc{A} ) , \tau \rsem
+      = \mathbf{I} \lsem \mc{B} , ( \tau + ( \mc{D} \times
+      \mc{A} ) )
+      \rsem&(\mbox{\ref{eq:bl.tsci}},13,14,15,16)\notag
+  \\ 18 &&  & \vdash ( \mathbf{I} \lsem ( \mc{C} ~\string^~ \mc{A} ) , \tau
+      \rsem \minus \mathbf{I} \lsem ( \mc{B} ~\string^~
+      \mc{A} ) , \tau \rsem ) =  \notag \\ & & & \qquad
+     ( \mathbf{I} \lsem \mc{C} ,
+      ( \tau + ( \mc{D} \times \mc{A} ) ) \rsem \minus
+      \mathbf{I} \lsem \mc{B} , ( \tau + ( \mc{D} \times
+      \mc{A} ) ) \rsem
+      )&(\mbox{\ref{eq:oveq12i}},12,17)\notag
+  \\ 19 &&  & \vdash \mathbf{I} \lsem ( ( \mc{C} \minus \mc{B} ) ~\string^~
+      \mc{A} ) , \tau \rsem = ( \mathbf{I} \lsem ( \mc{C}
+      ~\string^~ \mc{A} ) , \tau \rsem \minus \mathbf{I}
+      \lsem ( \mc{B} ~\string^~ \mc{A} ) , \tau \rsem
+      )&(\mbox{\ref{eq:3eqtr4i}},2,7,18)\notag
+  \\ 20 &&  & \vdash \tau \in \mathbf{T}&\text{Hyp~tssubi.3}\notag%bl.tssubi.3
+  \\ 21 &&  & \vdash \mathbf{I} \lsem ( ( \mc{C} ~\string^~ \mc{A} ) \minus (
+      \mc{B} ~\string^~ \mc{A} ) ) , \tau \rsem = (
+      \mathbf{I} \lsem ( \mc{C} ~\string^~ \mc{A} ) , \tau
+      \rsem \minus \mathbf{I} \lsem ( \mc{B} ~\string^~
+      \mc{A} ) , \tau \rsem
+      )&(\mbox{\ref{eq:df-bl.subt}},20)\notag
+  \\ 22 &&  & \vdash \mathbf{I} \lsem ( ( \mc{C} \minus \mc{B} ) ~\string^~
+      \mc{A} ) , \tau \rsem = \mathbf{I} \lsem ( ( \mc{C}
+      ~\string^~ \mc{A} ) \minus ( \mc{B} ~\string^~ \mc{A}
+      ) ) , \tau \rsem&(\mbox{\ref{eq:eqtr4i}},19,21)\notag
+  \\ 23 &&  & \vdash \tau \in \mathbf{T}&\text{Hyp~tssubi.3}\notag%bl.tssubi.3
+  \\ 24 &&  & \vdash ( \mathbf{I} \lsem ( ( \mc{C} \minus \mc{B} ) ~\string^~
+      \mc{A} ) = ( ( \mc{C} ~\string^~ \mc{A} ) \minus (
+      \mc{B} ~\string^~ \mc{A} ) ) , \tau \rsem
+      \leftrightarrow  \notag \\ & & & \qquad
+     \mathbf{I} \lsem ( ( \mc{C} \minus
+      \mc{B} ) ~\string^~ \mc{A} ) , \tau \rsem =
+      \mathbf{I} \lsem ( ( \mc{C} ~\string^~ \mc{A} )
+      \minus ( \mc{B} ~\string^~ \mc{A} ) ) , \tau \rsem
+      )&(\mbox{\ref{eq:df-bl.eqt}},23)\notag
+  \\ 25 &&  & \vdash \mathbf{I} \lsem ( ( \mc{C} \minus \mc{B} ) ~\string^~
+      \mc{A} ) = ( ( \mc{C} ~\string^~ \mc{A} ) \minus (
+      \mc{B} ~\string^~ \mc{A} ) ) , \tau
+      \rsem&(\mbox{\ref{eq:mpbir}},22,24)\notag
+\end{align}
+\end{proof}
+
+\begin{restatable}{lemma}{bltsmul2i}~\blTitle{bl.tsmul2i}~ Distribute $~\string^~$ over
+multiplication, two terms, inference.
+\begin{align}
+\vdash \mc{A} \in \mathbb{Z}\quad\&\quad \vdash \mc{D} \in
+    \mathbb{R}\quad\&\quad \vdash \tau \in \mathbf{T}\quad\&\quad \vdash ( \tau
+    + ( \mc{D} \times \mc{A} ) ) \in \mathbf{T}\quad\Rightarrow \notag \\ %& & & \qquad
+     \quad \vdash
+    \mathbf{I} \lsem ( ( \mc{C} \times \mc{B} ) ~\string^~ \mc{A} ) = ( ( \mc{C}
+    ~\string^~ \mc{A} ) \times ( \mc{B} ~\string^~ \mc{A} ) ) , \tau
+    \rsem\label{eq:bl.tsmul2i}\tag{bl.tsmul2i}
+\end{align}
+\end{restatable}
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash ( \tau + ( \mc{D} \times \mc{A} ) ) \in
+      \mathbf{T}&\text{Hyp~tsmul2i.4}\notag%bl.tsmul2i.4
+  \\ 2 &&  & \vdash \mathbf{I} \lsem ( \mc{C} \times \mc{B} ) , ( \tau + (
+      \mc{D} \times \mc{A} ) ) \rsem = ( \mathbf{I} \lsem
+      \mc{C} , ( \tau + ( \mc{D} \times \mc{A} ) ) \rsem
+      \times \mathbf{I} \lsem \mc{B} , ( \tau + ( \mc{D}
+      \times \mc{A} ) ) \rsem
+      )&(\mbox{\ref{eq:df-bl.mult}},1)\notag
+  \\ 3 &&  & \vdash \mc{A} \in
+      \mathbb{Z}&\text{Hyp~tsmul2i.1}\notag%bl.tsmul2i.1
+  \\ 4 &&  & \vdash \mc{D} \in
+      \mathbb{R}&\text{Hyp~tsmul2i.2}\notag%bl.tsmul2i.2
+  \\ 5 &&  & \vdash \tau \in \mathbf{T}&\text{Hyp~tsmul2i.3}\notag%bl.tsmul2i.3
+  \\ 6 &&  & \vdash ( \tau + ( \mc{D} \times \mc{A} ) ) \in
+      \mathbf{T}&\text{Hyp~tsmul2i.4}\notag%bl.tsmul2i.4
+  \\ 7 &&  & \vdash \mathbf{I} \lsem ( ( \mc{C} \times \mc{B} ) ~\string^~
+      \mc{A} ) , \tau \rsem = \mathbf{I} \lsem ( \mc{C}
+      \times \mc{B} ) , ( \tau + ( \mc{D} \times \mc{A} ) )
+      \rsem&(\mbox{\ref{eq:bl.tsci}},3,4,5,6)\notag
+  \\ 8 &&  & \vdash \mc{A} \in
+      \mathbb{Z}&\text{Hyp~tsmul2i.1}\notag%bl.tsmul2i.1
+  \\ 9 &&  & \vdash \mc{D} \in
+      \mathbb{R}&\text{Hyp~tsmul2i.2}\notag%bl.tsmul2i.2
+  \\ 10 &&  & \vdash \tau \in
+      \mathbf{T}&\text{Hyp~tsmul2i.3}\notag%bl.tsmul2i.3
+  \\ 11 &&  & \vdash ( \tau + ( \mc{D} \times \mc{A} ) ) \in
+      \mathbf{T}&\text{Hyp~tsmul2i.4}\notag%bl.tsmul2i.4
+  \\ 12 &&  & \vdash \mathbf{I} \lsem ( \mc{C} ~\string^~ \mc{A} ) , \tau \rsem
+      = \mathbf{I} \lsem \mc{C} , ( \tau + ( \mc{D} \times
+      \mc{A} ) )
+      \rsem&(\mbox{\ref{eq:bl.tsci}},8,9,10,11)\notag
+  \\ 13 &&  & \vdash \mc{A} \in
+      \mathbb{Z}&\text{Hyp~tsmul2i.1}\notag%bl.tsmul2i.1
+  \\ 14 &&  & \vdash \mc{D} \in
+      \mathbb{R}&\text{Hyp~tsmul2i.2}\notag%bl.tsmul2i.2
+  \\ 15 &&  & \vdash \tau \in
+      \mathbf{T}&\text{Hyp~tsmul2i.3}\notag%bl.tsmul2i.3
+  \\ 16 &&  & \vdash ( \tau + ( \mc{D} \times \mc{A} ) ) \in
+      \mathbf{T}&\text{Hyp~tsmul2i.4}\notag%bl.tsmul2i.4
+  \\ 17 &&  & \vdash \mathbf{I} \lsem ( \mc{B} ~\string^~ \mc{A} ) , \tau \rsem
+      = \mathbf{I} \lsem \mc{B} , ( \tau + ( \mc{D} \times
+      \mc{A} ) )
+      \rsem&(\mbox{\ref{eq:bl.tsci}},13,14,15,16)\notag
+  \\ 18 &&  & \vdash ( \mathbf{I} \lsem ( \mc{C} ~\string^~ \mc{A} ) , \tau
+      \rsem \times \mathbf{I} \lsem ( \mc{B} ~\string^~
+      \mc{A} ) , \tau \rsem ) =  \notag \\ & & & \qquad
+     ( \mathbf{I} \lsem \mc{C} ,
+      ( \tau + ( \mc{D} \times \mc{A} ) ) \rsem \times
+      \mathbf{I} \lsem \mc{B} , ( \tau + ( \mc{D} \times
+      \mc{A} ) ) \rsem
+      )&(\mbox{\ref{eq:oveq12i}},12,17)\notag
+  \\ 19 &&  & \vdash \mathbf{I} \lsem ( ( \mc{C} \times \mc{B} ) ~\string^~
+      \mc{A} ) , \tau \rsem = ( \mathbf{I} \lsem ( \mc{C}
+      ~\string^~ \mc{A} ) , \tau \rsem \times \mathbf{I}
+      \lsem ( \mc{B} ~\string^~ \mc{A} ) , \tau \rsem
+      )&(\mbox{\ref{eq:3eqtr4i}},2,7,18)\notag
+  \\ 20 &&  & \vdash \tau \in
+      \mathbf{T}&\text{Hyp~tsmul2i.3}\notag%bl.tsmul2i.3
+  \\ 21 &&  & \vdash \mathbf{I} \lsem ( ( \mc{C} ~\string^~ \mc{A} ) \times (
+      \mc{B} ~\string^~ \mc{A} ) ) , \tau \rsem = (
+      \mathbf{I} \lsem ( \mc{C} ~\string^~ \mc{A} ) , \tau
+      \rsem \times \mathbf{I} \lsem ( \mc{B} ~\string^~
+      \mc{A} ) , \tau \rsem
+      )&(\mbox{\ref{eq:df-bl.mult}},20)\notag
+  \\ 22 &&  & \vdash \mathbf{I} \lsem ( ( \mc{C} \times \mc{B} ) ~\string^~
+      \mc{A} ) , \tau \rsem = \mathbf{I} \lsem ( ( \mc{C}
+      ~\string^~ \mc{A} ) \times ( \mc{B} ~\string^~ \mc{A}
+      ) ) , \tau \rsem&(\mbox{\ref{eq:eqtr4i}},19,21)\notag
+  \\ 23 &&  & \vdash \tau \in
+      \mathbf{T}&\text{Hyp~tsmul2i.3}\notag%bl.tsmul2i.3
+  \\ 24 &&  & \vdash ( \mathbf{I} \lsem ( ( \mc{C} \times \mc{B} ) ~\string^~
+      \mc{A} ) = ( ( \mc{C} ~\string^~ \mc{A} ) \times (
+      \mc{B} ~\string^~ \mc{A} ) ) , \tau \rsem
+      \leftrightarrow  \notag \\ & & & \qquad
+     \mathbf{I} \lsem ( ( \mc{C} \times
+      \mc{B} ) ~\string^~ \mc{A} ) , \tau \rsem =
+      \mathbf{I} \lsem ( ( \mc{C} ~\string^~ \mc{A} ) \times
+      ( \mc{B} ~\string^~ \mc{A} ) ) , \tau \rsem
+      )&(\mbox{\ref{eq:df-bl.eqt}},23)\notag
+  \\ 25 &&  & \vdash \mathbf{I} \lsem ( ( \mc{C} \times \mc{B} ) ~\string^~
+      \mc{A} ) = ( ( \mc{C} ~\string^~ \mc{A} ) \times (
+      \mc{B} ~\string^~ \mc{A} ) ) , \tau
+      \rsem&(\mbox{\ref{eq:mpbir}},22,24)\notag
+\end{align}
+\end{proof}
+
+\begin{restatable}{lemma}{bltsmul3ri}~\blTitle{bl.tsmul3ri}~ Distribute $~\string^~$ over
+multiplication, three terms (right), inference.
+\begin{align}
+\vdash \mc{A} \in \mathbb{Z}\quad\&\quad \vdash \mc{D} \in
+    \mathbb{R}\quad\&\quad \vdash \tau \in \mathbf{T}\quad\&\quad \vdash ( \tau
+    + ( \mc{D} \times \mc{A} ) ) \in \mathbf{T}\quad\Rightarrow  \notag \\ %& & & \qquad
+     \quad \vdash
+    \mathbf{I} \lsem ( ( \mc{C} \times ( E \times \mc{B} ) ) ~\string^~ \mc{A} )
+    = ( ( \mc{C} ~\string^~ \mc{A} ) \times ( ( E ~\string^~ \mc{A} ) \times (
+    \mc{B} ~\string^~ \mc{A} ) ) ) , \tau
+    \rsem\label{eq:bl.tsmul3ri}\tag{bl.tsmul3ri}
+\end{align}
+\end{restatable}
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash \mc{A} \in
+      \mathbb{Z}&\text{Hyp~tsmul3ri.1}\notag%bl.tsmul3ri.1
+  \\ 2 &&  & \vdash \mc{D} \in
+      \mathbb{R}&\text{Hyp~tsmul3ri.2}\notag%bl.tsmul3ri.2
+  \\ 3 &&  & \vdash \tau \in
+      \mathbf{T}&\text{Hyp~tsmul3ri.3}\notag%bl.tsmul3ri.3
+  \\ 4 &&  & \vdash ( \tau + ( \mc{D} \times \mc{A} ) ) \in
+      \mathbf{T}&\text{Hyp~tsmul3ri.4}\notag%bl.tsmul3ri.4
+  \\ 5 &&  & \vdash \mathbf{I} \lsem ( ( \mc{C} \times ( E \times \mc{B} ) )
+      ~\string^~ \mc{A} ) , \tau \rsem = \mathbf{I} \lsem (
+      \mc{C} \times ( E \times \mc{B} ) ) , ( \tau + ( \mc{D}
+      \times \mc{A} ) )
+      \rsem&(\mbox{\ref{eq:bl.tsci}},1,2,3,4)\notag
+  \\ 6 &&  & \vdash ( \tau + ( \mc{D} \times \mc{A} ) ) \in
+      \mathbf{T}&\text{Hyp~tsmul3ri.4}\notag%bl.tsmul3ri.4
+  \\ 7 &&  & \vdash \mathbf{I} \lsem ( \mc{C} \times ( E \times \mc{B} ) ) , (
+      \tau + ( \mc{D} \times \mc{A} ) ) \rsem =  \notag \\ & & & \qquad
+     ( \mathbf{I}
+      \lsem \mc{C} , ( \tau + ( \mc{D} \times \mc{A} ) )
+      \rsem \times \mathbf{I} \lsem ( E \times \mc{B} ) , (
+      \tau + ( \mc{D} \times \mc{A} ) ) \rsem
+      )&(\mbox{\ref{eq:df-bl.mult}},6)\notag
+  \\ 8 &&  & \vdash ( \tau + ( \mc{D} \times \mc{A} ) ) \in
+      \mathbf{T}&\text{Hyp~tsmul3ri.4}\notag%bl.tsmul3ri.4
+  \\ 9 &&  & \vdash \mathbf{I} \lsem ( E \times \mc{B} ) , ( \tau + ( \mc{D}
+      \times \mc{A} ) ) \rsem =  \notag \\ & & & \qquad
+     ( \mathbf{I} \lsem E , (
+      \tau + ( \mc{D} \times \mc{A} ) ) \rsem \times
+      \mathbf{I} \lsem \mc{B} , ( \tau + ( \mc{D} \times
+      \mc{A} ) ) \rsem
+      )&(\mbox{\ref{eq:df-bl.mult}},8)\notag
+  \\ 10 &&  & \vdash ( \mathbf{I} \lsem \mc{C} , ( \tau + ( \mc{D} \times \mc{A}
+      ) ) \rsem \times \mathbf{I} \lsem ( E \times \mc{B} ) ,
+      ( \tau + ( \mc{D} \times \mc{A} ) ) \rsem ) =  \notag \\ & & & \qquad
+     (
+      \mathbf{I} \lsem \mc{C} , ( \tau + ( \mc{D} \times
+      \mc{A} ) ) \rsem \times ( \mathbf{I} \lsem E , ( \tau
+      + ( \mc{D} \times \mc{A} ) ) \rsem \times \mathbf{I}
+      \lsem \mc{B} , ( \tau + ( \mc{D} \times \mc{A} ) )
+      \rsem ) )&(\mbox{\ref{eq:oveq2i}},9)\notag
+  \\ 11 &&  & \vdash \mathbf{I} \lsem ( ( \mc{C} \times ( E \times \mc{B} ) )
+      ~\string^~ \mc{A} ) , \tau \rsem =  \notag \\ & & & \qquad
+     ( \mathbf{I} \lsem
+      \mc{C} , ( \tau + ( \mc{D} \times \mc{A} ) ) \rsem
+      \times ( \mathbf{I} \lsem E , ( \tau + ( \mc{D} \times
+      \mc{A} ) ) \rsem \times \mathbf{I} \lsem \mc{B} , (
+      \tau + ( \mc{D} \times \mc{A} ) ) \rsem )
+      )&(\mbox{\ref{eq:3eqtri}},5,7,10)\notag
+  \\ 12 &&  & \vdash \mc{A} \in
+      \mathbb{Z}&\text{Hyp~tsmul3ri.1}\notag%bl.tsmul3ri.1
+  \\ 13 &&  & \vdash \mc{D} \in
+      \mathbb{R}&\text{Hyp~tsmul3ri.2}\notag%bl.tsmul3ri.2
+  \\ 14 &&  & \vdash \tau \in
+      \mathbf{T}&\text{Hyp~tsmul3ri.3}\notag%bl.tsmul3ri.3
+  \\ 15 &&  & \vdash ( \tau + ( \mc{D} \times \mc{A} ) ) \in
+      \mathbf{T}&\text{Hyp~tsmul3ri.4}\notag%bl.tsmul3ri.4
+  \\ 16 &&  & \vdash \mathbf{I} \lsem ( \mc{C} ~\string^~ \mc{A} ) , \tau \rsem
+      = \mathbf{I} \lsem \mc{C} , ( \tau + ( \mc{D} \times
+      \mc{A} ) )
+      \rsem&(\mbox{\ref{eq:bl.tsci}},12,13,14,15)\notag
+  \\ 17 &&  & \vdash \mc{A} \in
+      \mathbb{Z}&\text{Hyp~tsmul3ri.1}\notag%bl.tsmul3ri.1
+  \\ 18 &&  & \vdash \mc{D} \in
+      \mathbb{R}&\text{Hyp~tsmul3ri.2}\notag%bl.tsmul3ri.2
+  \\ 19 &&  & \vdash \tau \in
+      \mathbf{T}&\text{Hyp~tsmul3ri.3}\notag%bl.tsmul3ri.3
+  \\ 20 &&  & \vdash ( \tau + ( \mc{D} \times \mc{A} ) ) \in
+      \mathbf{T}&\text{Hyp~tsmul3ri.4}\notag%bl.tsmul3ri.4
+  \\ 21 &&  & \vdash \mathbf{I} \lsem ( E ~\string^~ \mc{A} ) , \tau \rsem =
+      \mathbf{I} \lsem E , ( \tau + ( \mc{D} \times \mc{A} )
+      ) \rsem&(\mbox{\ref{eq:bl.tsci}},17,18,19,20)\notag
+  \\ 22 &&  & \vdash \mc{A} \in
+      \mathbb{Z}&\text{Hyp~tsmul3ri.1}\notag%bl.tsmul3ri.1
+  \\ 23 &&  & \vdash \mc{D} \in
+      \mathbb{R}&\text{Hyp~tsmul3ri.2}\notag%bl.tsmul3ri.2
+  \\ 24 &&  & \vdash \tau \in
+      \mathbf{T}&\text{Hyp~tsmul3ri.3}\notag%bl.tsmul3ri.3
+  \\ 25 &&  & \vdash ( \tau + ( \mc{D} \times \mc{A} ) ) \in
+      \mathbf{T}&\text{Hyp~tsmul3ri.4}\notag%bl.tsmul3ri.4
+  \\ 26 &&  & \vdash \mathbf{I} \lsem ( \mc{B} ~\string^~ \mc{A} ) , \tau \rsem
+      = \mathbf{I} \lsem \mc{B} , ( \tau + ( \mc{D} \times
+      \mc{A} ) )
+      \rsem&(\mbox{\ref{eq:bl.tsci}},22,23,24,25)\notag
+  \\ 27 &&  & \vdash ( \mathbf{I} \lsem ( E ~\string^~ \mc{A} ) , \tau \rsem
+      \times \mathbf{I} \lsem ( \mc{B} ~\string^~ \mc{A} ) ,
+      \tau \rsem ) =  \notag \\ & & & \qquad
+     ( \mathbf{I} \lsem E , ( \tau + (
+      \mc{D} \times \mc{A} ) ) \rsem \times \mathbf{I} \lsem
+      \mc{B} , ( \tau + ( \mc{D} \times \mc{A} ) ) \rsem
+      )&(\mbox{\ref{eq:oveq12i}},21,26)\notag
+  \\ 28 &&  & \vdash ( \mathbf{I} \lsem ( \mc{C} ~\string^~ \mc{A} ) , \tau
+      \rsem \times ( \mathbf{I} \lsem ( E ~\string^~ \mc{A}
+      ) , \tau \rsem \times \mathbf{I} \lsem ( \mc{B}
+      ~\string^~ \mc{A} ) , \tau \rsem ) ) =  \notag \\ & & & \qquad
+     ( \mathbf{I}
+      \lsem \mc{C} , ( \tau + ( \mc{D} \times \mc{A} ) )
+      \rsem \times ( \mathbf{I} \lsem E , ( \tau + ( \mc{D}
+      \times \mc{A} ) ) \rsem \times \mathbf{I} \lsem \mc{B}
+      , ( \tau + ( \mc{D} \times \mc{A} ) ) \rsem )
+      )&(\mbox{\ref{eq:oveq12i}},16,27)\notag
+  \\ 29 &&  & \vdash \mathbf{I} \lsem ( ( \mc{C} \times ( E \times \mc{B} ) )
+      ~\string^~ \mc{A} ) , \tau \rsem =  \notag \\ & & & \qquad
+     ( \mathbf{I} \lsem
+      ( \mc{C} ~\string^~ \mc{A} ) , \tau \rsem \times (
+      \mathbf{I} \lsem ( E ~\string^~ \mc{A} ) , \tau \rsem
+      \times \mathbf{I} \lsem ( \mc{B} ~\string^~ \mc{A} ) ,
+      \tau \rsem ) )&(\mbox{\ref{eq:eqtr4i}},11,28)\notag
+  \\ 30 &&  & \vdash \tau \in
+      \mathbf{T}&\text{Hyp~tsmul3ri.3}\notag%bl.tsmul3ri.3
+  \\ 31 &&  & \vdash \mathbf{I} \lsem ( ( E ~\string^~ \mc{A} ) \times ( \mc{B}
+      ~\string^~ \mc{A} ) ) , \tau \rsem = ( \mathbf{I}
+      \lsem ( E ~\string^~ \mc{A} ) , \tau \rsem \times
+      \mathbf{I} \lsem ( \mc{B} ~\string^~ \mc{A} ) , \tau
+      \rsem )&(\mbox{\ref{eq:df-bl.mult}},30)\notag
+  \\ 32 &&  & \vdash ( \mathbf{I} \lsem ( \mc{C} ~\string^~ \mc{A} ) , \tau
+      \rsem \times \mathbf{I} \lsem ( ( E ~\string^~ \mc{A}
+      ) \times ( \mc{B} ~\string^~ \mc{A} ) ) , \tau \rsem )
+      =  \notag \\ & & & \qquad
+     ( \mathbf{I} \lsem ( \mc{C} ~\string^~ \mc{A} ) ,
+      \tau \rsem \times ( \mathbf{I} \lsem ( E ~\string^~
+      \mc{A} ) , \tau \rsem \times \mathbf{I} \lsem ( \mc{B}
+      ~\string^~ \mc{A} ) , \tau \rsem )
+      )&(\mbox{\ref{eq:oveq2i}},31)\notag
+  \\ 33 &&  & \vdash \mathbf{I} \lsem ( ( \mc{C} \times ( E \times \mc{B} ) )
+      ~\string^~ \mc{A} ) , \tau \rsem = ( \mathbf{I} \lsem
+      ( \mc{C} ~\string^~ \mc{A} ) , \tau \rsem \times
+      \mathbf{I} \lsem ( ( E ~\string^~ \mc{A} ) \times (
+      \mc{B} ~\string^~ \mc{A} ) ) , \tau \rsem
+      )&(\mbox{\ref{eq:eqtr4i}},29,32)\notag
+  \\ 34 &&  & \vdash \tau \in
+      \mathbf{T}&\text{Hyp~tsmul3ri.3}\notag%bl.tsmul3ri.3
+  \\ 35 &&  & \vdash \mathbf{I} \lsem ( ( \mc{C} ~\string^~ \mc{A} ) \times ( (
+      E ~\string^~ \mc{A} ) \times ( \mc{B} ~\string^~
+      \mc{A} ) ) ) , \tau \rsem =  \notag \\ & & & \qquad
+     ( \mathbf{I} \lsem (
+      \mc{C} ~\string^~ \mc{A} ) , \tau \rsem \times
+      \mathbf{I} \lsem ( ( E ~\string^~ \mc{A} ) \times (
+      \mc{B} ~\string^~ \mc{A} ) ) , \tau \rsem
+      )&(\mbox{\ref{eq:df-bl.mult}},34)\notag
+  \\ 36 &&  & \vdash \mathbf{I} \lsem ( ( \mc{C} \times ( E \times \mc{B} ) )
+      ~\string^~ \mc{A} ) , \tau \rsem = \mathbf{I} \lsem (
+      ( \mc{C} ~\string^~ \mc{A} ) \times ( ( E ~\string^~
+      \mc{A} ) \times ( \mc{B} ~\string^~ \mc{A} ) ) ) ,
+      \tau \rsem&(\mbox{\ref{eq:eqtr4i}},33,35)\notag
+  \\ 37 &&  & \vdash \tau \in
+      \mathbf{T}&\text{Hyp~tsmul3ri.3}\notag%bl.tsmul3ri.3
+  \\ 38 &&  & \vdash ( \mathbf{I} \lsem ( ( \mc{C} \times ( E \times \mc{B} ) )
+      ~\string^~ \mc{A} ) = ( ( \mc{C} ~\string^~ \mc{A} )
+      \times ( ( E ~\string^~ \mc{A} ) \times ( \mc{B}
+      ~\string^~ \mc{A} ) ) ) , \tau \rsem \leftrightarrow  \notag \\ & & & \qquad
+      \mathbf{I} \lsem ( ( \mc{C} \times ( E \times \mc{B} )
+      ) ~\string^~ \mc{A} ) , \tau \rsem = \mathbf{I} \lsem
+      ( ( \mc{C} ~\string^~ \mc{A} ) \times ( ( E ~\string^~
+      \mc{A} ) \times ( \mc{B} ~\string^~ \mc{A} ) ) ) ,
+      \tau \rsem )&(\mbox{\ref{eq:df-bl.eqt}},37)\notag
+  \\ 39 &&  & \vdash \mathbf{I} \lsem ( ( \mc{C} \times ( E \times \mc{B} ) )
+      ~\string^~ \mc{A} ) = ( ( \mc{C} ~\string^~ \mc{A} )
+      \times ( ( E ~\string^~ \mc{A} ) \times ( \mc{B}
+      ~\string^~ \mc{A} ) ) ) , \tau
+      \rsem&(\mbox{\ref{eq:mpbir}},36,38)\notag
+\end{align}
+\end{proof}
+
+\begin{restatable}{lemma}{bltsmul3li}~\blTitle{bl.tsmul3li}~ Distribute $~\string^~$ over
+multiplication, three terms (left), inference.
+\begin{align}
+\vdash \mc{A} \in \mathbb{Z}\quad\&\quad \vdash \mc{D} \in
+    \mathbb{R}\quad\&\quad \vdash \tau \in \mathbf{T}\quad\&\quad \vdash ( \tau
+    + ( \mc{D} \times \mc{A} ) ) \in \mathbf{T}\quad\Rightarrow \notag \\ %& & & \qquad
+     \quad \vdash
+    \mathbf{I} \lsem ( ( ( \mc{C} \times E ) \times \mc{B} ) ~\string^~ \mc{A} )
+    = ( ( ( \mc{C} ~\string^~ \mc{A} ) \times ( E ~\string^~ \mc{A} ) ) \times (
+    \mc{B} ~\string^~ \mc{A} ) ) , \tau
+    \rsem\label{eq:bl.tsmul3li}\tag{bl.tsmul3li}
+\end{align}
+\end{restatable}
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash \mc{A} \in
+      \mathbb{Z}&\text{Hyp~tsmul3li.1}\notag%bl.tsmul3li.1
+  \\ 2 &&  & \vdash \mc{D} \in
+      \mathbb{R}&\text{Hyp~tsmul3li.2}\notag%bl.tsmul3li.2
+  \\ 3 &&  & \vdash \tau \in
+      \mathbf{T}&\text{Hyp~tsmul3li.3}\notag%bl.tsmul3li.3
+  \\ 4 &&  & \vdash ( \tau + ( \mc{D} \times \mc{A} ) ) \in
+      \mathbf{T}&\text{Hyp~tsmul3li.4}\notag%bl.tsmul3li.4
+  \\ 5 &&  & \vdash \mathbf{I} \lsem ( ( ( \mc{C} \times E ) \times \mc{B} )
+      ~\string^~ \mc{A} ) , \tau \rsem = \mathbf{I} \lsem (
+      ( \mc{C} \times E ) \times \mc{B} ) , ( \tau + ( \mc{D}
+      \times \mc{A} ) )
+      \rsem&(\mbox{\ref{eq:bl.tsci}},1,2,3,4)\notag
+  \\ 6 &&  & \vdash ( \tau + ( \mc{D} \times \mc{A} ) ) \in
+      \mathbf{T}&\text{Hyp~tsmul3li.4}\notag%bl.tsmul3li.4
+  \\ 7 &&  & \vdash \mathbf{I} \lsem ( ( \mc{C} \times E ) \times \mc{B} ) , (
+      \tau + ( \mc{D} \times \mc{A} ) ) \rsem =  \notag \\ & & & \qquad
+     ( \mathbf{I}
+      \lsem ( \mc{C} \times E ) , ( \tau + ( \mc{D} \times
+      \mc{A} ) ) \rsem \times \mathbf{I} \lsem \mc{B} , (
+      \tau + ( \mc{D} \times \mc{A} ) ) \rsem
+      )&(\mbox{\ref{eq:df-bl.mult}},6)\notag
+  \\ 8 &&  & \vdash ( \tau + ( \mc{D} \times \mc{A} ) ) \in
+      \mathbf{T}&\text{Hyp~tsmul3li.4}\notag%bl.tsmul3li.4
+  \\ 9 &&  & \vdash \mathbf{I} \lsem ( \mc{C} \times E ) , ( \tau + ( \mc{D}
+      \times \mc{A} ) ) \rsem = ( \mathbf{I} \lsem \mc{C} ,
+      ( \tau + ( \mc{D} \times \mc{A} ) ) \rsem \times
+      \mathbf{I} \lsem E , ( \tau + ( \mc{D} \times \mc{A} )
+      ) \rsem )&(\mbox{\ref{eq:df-bl.mult}},8)\notag
+  \\ 10 &&  & \vdash ( \mathbf{I} \lsem ( \mc{C} \times E ) , ( \tau + ( \mc{D}
+      \times \mc{A} ) ) \rsem \times \mathbf{I} \lsem \mc{B}
+      , ( \tau + ( \mc{D} \times \mc{A} ) ) \rsem ) =  \notag \\ & & & \qquad
+     ( (
+      \mathbf{I} \lsem \mc{C} , ( \tau + ( \mc{D} \times
+      \mc{A} ) ) \rsem \times \mathbf{I} \lsem E , ( \tau +
+      ( \mc{D} \times \mc{A} ) ) \rsem ) \times \mathbf{I}
+      \lsem \mc{B} , ( \tau + ( \mc{D} \times \mc{A} ) )
+      \rsem )&(\mbox{\ref{eq:oveq1i}},9)\notag
+  \\ 11 &&  & \vdash \mathbf{I} \lsem ( ( ( \mc{C} \times E ) \times \mc{B} )
+      ~\string^~ \mc{A} ) , \tau \rsem =  \notag \\ & & & \qquad
+     ( ( \mathbf{I}
+      \lsem \mc{C} , ( \tau + ( \mc{D} \times \mc{A} ) )
+      \rsem \times \mathbf{I} \lsem E , ( \tau + ( \mc{D}
+      \times \mc{A} ) ) \rsem ) \times \mathbf{I} \lsem
+      \mc{B} , ( \tau + ( \mc{D} \times \mc{A} ) ) \rsem
+      )&(\mbox{\ref{eq:3eqtri}},5,7,10)\notag
+  \\ 12 &&  & \vdash \mc{A} \in
+      \mathbb{Z}&\text{Hyp~tsmul3li.1}\notag%bl.tsmul3li.1
+  \\ 13 &&  & \vdash \mc{D} \in
+      \mathbb{R}&\text{Hyp~tsmul3li.2}\notag%bl.tsmul3li.2
+  \\ 14 &&  & \vdash \tau \in
+      \mathbf{T}&\text{Hyp~tsmul3li.3}\notag%bl.tsmul3li.3
+  \\ 15 &&  & \vdash ( \tau + ( \mc{D} \times \mc{A} ) ) \in
+      \mathbf{T}&\text{Hyp~tsmul3li.4}\notag%bl.tsmul3li.4
+  \\ 16 &&  & \vdash \mathbf{I} \lsem ( \mc{C} ~\string^~ \mc{A} ) , \tau \rsem
+      = \mathbf{I} \lsem \mc{C} , ( \tau + ( \mc{D} \times
+      \mc{A} ) )
+      \rsem&(\mbox{\ref{eq:bl.tsci}},12,13,14,15)\notag
+  \\ 17 &&  & \vdash \mc{A} \in
+      \mathbb{Z}&\text{Hyp~tsmul3li.1}\notag%bl.tsmul3li.1
+  \\ 18 &&  & \vdash \mc{D} \in
+      \mathbb{R}&\text{Hyp~tsmul3li.2}\notag%bl.tsmul3li.2
+  \\ 19 &&  & \vdash \tau \in
+      \mathbf{T}&\text{Hyp~tsmul3li.3}\notag%bl.tsmul3li.3
+  \\ 20 &&  & \vdash ( \tau + ( \mc{D} \times \mc{A} ) ) \in
+      \mathbf{T}&\text{Hyp~tsmul3li.4}\notag%bl.tsmul3li.4
+  \\ 21 &&  & \vdash \mathbf{I} \lsem ( E ~\string^~ \mc{A} ) , \tau \rsem =
+      \mathbf{I} \lsem E , ( \tau + ( \mc{D} \times \mc{A} )
+      ) \rsem&(\mbox{\ref{eq:bl.tsci}},17,18,19,20)\notag
+  \\ 22 &&  & \vdash ( \mathbf{I} \lsem ( \mc{C} ~\string^~ \mc{A} ) , \tau
+      \rsem \times \mathbf{I} \lsem ( E ~\string^~ \mc{A} )
+      , \tau \rsem ) =  \notag \\ & & & \qquad
+     ( \mathbf{I} \lsem \mc{C} , ( \tau +
+      ( \mc{D} \times \mc{A} ) ) \rsem \times \mathbf{I}
+      \lsem E , ( \tau + ( \mc{D} \times \mc{A} ) ) \rsem
+      )&(\mbox{\ref{eq:oveq12i}},16,21)\notag
+  \\ 23 &&  & \vdash \mc{A} \in
+      \mathbb{Z}&\text{Hyp~tsmul3li.1}\notag%bl.tsmul3li.1
+  \\ 24 &&  & \vdash \mc{D} \in
+      \mathbb{R}&\text{Hyp~tsmul3li.2}\notag%bl.tsmul3li.2
+  \\ 25 &&  & \vdash \tau \in
+      \mathbf{T}&\text{Hyp~tsmul3li.3}\notag%bl.tsmul3li.3
+  \\ 26 &&  & \vdash ( \tau + ( \mc{D} \times \mc{A} ) ) \in
+      \mathbf{T}&\text{Hyp~tsmul3li.4}\notag%bl.tsmul3li.4
+  \\ 27 &&  & \vdash \mathbf{I} \lsem ( \mc{B} ~\string^~ \mc{A} ) , \tau \rsem
+      = \mathbf{I} \lsem \mc{B} , ( \tau + ( \mc{D} \times
+      \mc{A} ) )
+      \rsem&(\mbox{\ref{eq:bl.tsci}},23,24,25,26)\notag
+  \\ 28 &&  & \vdash ( ( \mathbf{I} \lsem ( \mc{C} ~\string^~ \mc{A} ) , \tau
+      \rsem \times \mathbf{I} \lsem ( E ~\string^~ \mc{A} )
+      , \tau \rsem ) \times \mathbf{I} \lsem ( \mc{B}
+      ~\string^~ \mc{A} ) , \tau \rsem ) =  \notag \\ & & & \qquad
+     ( ( \mathbf{I}
+      \lsem \mc{C} , ( \tau + ( \mc{D} \times \mc{A} ) )
+      \rsem \times \mathbf{I} \lsem E , ( \tau + ( \mc{D}
+      \times \mc{A} ) ) \rsem ) \times \mathbf{I} \lsem
+      \mc{B} , ( \tau + ( \mc{D} \times \mc{A} ) ) \rsem
+      )&(\mbox{\ref{eq:oveq12i}},22,27)\notag
+  \\ 29 &&  & \vdash \mathbf{I} \lsem ( ( ( \mc{C} \times E ) \times \mc{B} )
+      ~\string^~ \mc{A} ) , \tau \rsem =  \notag \\ & & & \qquad
+     ( ( \mathbf{I}
+      \lsem ( \mc{C} ~\string^~ \mc{A} ) , \tau \rsem \times
+      \mathbf{I} \lsem ( E ~\string^~ \mc{A} ) , \tau \rsem
+      ) \times \mathbf{I} \lsem ( \mc{B} ~\string^~ \mc{A} )
+      , \tau \rsem )&(\mbox{\ref{eq:eqtr4i}},11,28)\notag
+  \\ 30 &&  & \vdash \tau \in
+      \mathbf{T}&\text{Hyp~tsmul3li.3}\notag%bl.tsmul3li.3
+  \\ 31 &&  & \vdash \mathbf{I} \lsem ( ( \mc{C} ~\string^~ \mc{A} ) \times ( E
+      ~\string^~ \mc{A} ) ) , \tau \rsem = ( \mathbf{I}
+      \lsem ( \mc{C} ~\string^~ \mc{A} ) , \tau \rsem \times
+      \mathbf{I} \lsem ( E ~\string^~ \mc{A} ) , \tau \rsem
+      )&(\mbox{\ref{eq:df-bl.mult}},30)\notag
+  \\ 32 &&  & \vdash ( \mathbf{I} \lsem ( ( \mc{C} ~\string^~ \mc{A} ) \times (
+      E ~\string^~ \mc{A} ) ) , \tau \rsem \times \mathbf{I}
+      \lsem ( \mc{B} ~\string^~ \mc{A} ) , \tau \rsem ) =  \notag \\ & & & \qquad
+     (
+      ( \mathbf{I} \lsem ( \mc{C} ~\string^~ \mc{A} ) ,
+      \tau \rsem \times \mathbf{I} \lsem ( E ~\string^~
+      \mc{A} ) , \tau \rsem ) \times \mathbf{I} \lsem (
+      \mc{B} ~\string^~ \mc{A} ) , \tau \rsem
+      )&(\mbox{\ref{eq:oveq1i}},31)\notag
+  \\ 33 &&  & \vdash \mathbf{I} \lsem ( ( ( \mc{C} \times E ) \times \mc{B} )
+      ~\string^~ \mc{A} ) , \tau \rsem = ( \mathbf{I} \lsem
+      ( ( \mc{C} ~\string^~ \mc{A} ) \times ( E ~\string^~
+      \mc{A} ) ) , \tau \rsem \times \mathbf{I} \lsem (
+      \mc{B} ~\string^~ \mc{A} ) , \tau \rsem
+      )&(\mbox{\ref{eq:eqtr4i}},29,32)\notag
+  \\ 34 &&  & \vdash \tau \in
+      \mathbf{T}&\text{Hyp~tsmul3li.3}\notag%bl.tsmul3li.3
+  \\ 35 &&  & \vdash \mathbf{I} \lsem ( ( ( \mc{C} ~\string^~ \mc{A} ) \times (
+      E ~\string^~ \mc{A} ) ) \times ( \mc{B} ~\string^~
+      \mc{A} ) ) , \tau \rsem =  \notag \\ & & & \qquad
+     ( \mathbf{I} \lsem ( (
+      \mc{C} ~\string^~ \mc{A} ) \times ( E ~\string^~
+      \mc{A} ) ) , \tau \rsem \times \mathbf{I} \lsem (
+      \mc{B} ~\string^~ \mc{A} ) , \tau \rsem
+      )&(\mbox{\ref{eq:df-bl.mult}},34)\notag
+  \\ 36 &&  & \vdash \mathbf{I} \lsem ( ( ( \mc{C} \times E ) \times \mc{B} )
+      ~\string^~ \mc{A} ) , \tau \rsem = \mathbf{I} \lsem (
+      ( ( \mc{C} ~\string^~ \mc{A} ) \times ( E ~\string^~
+      \mc{A} ) ) \times ( \mc{B} ~\string^~ \mc{A} ) ) ,
+      \tau \rsem&(\mbox{\ref{eq:eqtr4i}},33,35)\notag
+  \\ 37 &&  & \vdash \tau \in
+      \mathbf{T}&\text{Hyp~tsmul3li.3}\notag%bl.tsmul3li.3
+  \\ 38 &&  & \vdash ( \mathbf{I} \lsem ( ( ( \mc{C} \times E ) \times \mc{B} )
+      ~\string^~ \mc{A} ) = ( ( ( \mc{C} ~\string^~ \mc{A}
+      ) \times ( E ~\string^~ \mc{A} ) ) \times ( \mc{B}
+      ~\string^~ \mc{A} ) ) , \tau \rsem \leftrightarrow  \notag \\ & & & \qquad
+      \mathbf{I} \lsem ( ( ( \mc{C} \times E ) \times \mc{B}
+      ) ~\string^~ \mc{A} ) , \tau \rsem = \mathbf{I} \lsem
+      ( ( ( \mc{C} ~\string^~ \mc{A} ) \times ( E ~\string^~
+      \mc{A} ) ) \times ( \mc{B} ~\string^~ \mc{A} ) ) ,
+      \tau \rsem )&(\mbox{\ref{eq:df-bl.eqt}},37)\notag
+  \\ 39 &&  & \vdash \mathbf{I} \lsem ( ( ( \mc{C} \times E ) \times \mc{B} )
+      ~\string^~ \mc{A} ) = ( ( ( \mc{C} ~\string^~ \mc{A}
+      ) \times ( E ~\string^~ \mc{A} ) ) \times ( \mc{B}
+      ~\string^~ \mc{A} ) ) , \tau
+      \rsem&(\mbox{\ref{eq:mpbir}},36,38)\notag
+\end{align}
+\end{proof}
+
+\begin{restatable}{lemma}{bltsmuli}~\blTitle{bl.tsmuli}~ Distribute $~\string^~$ over
+multiplication, class-list, inference.
+\begin{align}
+\vdash \mc{A} \in \mathbb{Z}\quad\&\quad \vdash \mc{D} \in
+    \mathbb{R}\quad\&\quad \vdash \tau \in \mathbf{T}\quad\&\quad \vdash ( \tau
+    + ( \mc{D} \times \mc{A} ) ) \in \mathbf{T}\quad\Rightarrow  \notag \\ %& & & \qquad
+     \quad \vdash
+    \mathbf{I} \lsem ( ( {\oplus\hspace{-1pt}[} \msc{csl_1} ] \times
+    {\oplus\hspace{-1pt}[} \msc{csl_2} ] ) ~\string^~ \mc{A} ) = ( (
+    {\oplus\hspace{-1pt}[} \msc{csl_1} ] ~\string^~ \mc{A} ) \times (
+    {\oplus\hspace{-1pt}[} \msc{csl_2} ] ~\string^~ \mc{A} ) ) , \tau
+    \rsem\label{eq:bl.tsmuli}\tag{bl.tsmuli}
+\end{align}
+\end{restatable}
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash \mc{A} \in \mathbb{Z}&\text{Hyp~tsmuli.1}\notag%bl.tsmuli.1
+  \\ 2 &&  & \vdash \mc{D} \in \mathbb{R}&\text{Hyp~tsmuli.2}\notag%bl.tsmuli.2
+  \\ 3 &&  & \vdash \tau \in \mathbf{T}&\text{Hyp~tsmuli.3}\notag%bl.tsmuli.3
+  \\ 4 &&  & \vdash ( \tau + ( \mc{D} \times \mc{A} ) ) \in
+      \mathbf{T}&\text{Hyp~tsmuli.4}\notag%bl.tsmuli.4
+  \\ 5 &&  & \vdash \mathbf{I} \lsem ( ( {\oplus\hspace{-1pt}[} \msc{csl_1} ]
+      \times {\oplus\hspace{-1pt}[} \msc{csl_2} ] )
+      ~\string^~ \mc{A} ) = ( ( {\oplus\hspace{-1pt}[}
+      \msc{csl_1} ] ~\string^~ \mc{A} ) \times (
+      {\oplus\hspace{-1pt}[} \msc{csl_2} ] ~\string^~
+      \mc{A} ) ) , \tau
+      \rsem&(\mbox{\ref{eq:bl.tsmul2i}},1,2,3,4)\notag
+\end{align}
+\end{proof}
+
+\begin{restatable}{lemma}{bltsdivi}~\blTitle{bl.tsdivi}~ Distribute $~\string^~$ over division,
+inference.
+\begin{align}
+\vdash \mc{A} \in \mathbb{Z}\quad\&\quad \vdash \mc{D} \in
+    \mathbb{R}\quad\&\quad \vdash \tau \in \mathbf{T}\quad\&\quad \vdash ( \tau
+    + ( \mc{D} \times \mc{A} ) ) \in \mathbf{T}\quad\Rightarrow \notag \\ %& & & \qquad
+     \quad \vdash
+    \mathbf{I} \lsem ( ( \mc{C} / \mc{B} ) ~\string^~ \mc{A} ) = ( ( \mc{C}
+    ~\string^~ \mc{A} ) / ( \mc{B} ~\string^~ \mc{A} ) ) , \tau
+    \rsem\label{eq:bl.tsdivi}\tag{bl.tsdivi}
+\end{align}
+\end{restatable}
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash ( \tau + ( \mc{D} \times \mc{A} ) ) \in
+      \mathbf{T}&\text{Hyp~tsdivi.4}\notag%bl.tsdivi.4
+  \\ 2 &&  & \vdash \mathbf{I} \lsem ( \mc{C} / \mc{B} ) , ( \tau + ( \mc{D}
+      \times \mc{A} ) ) \rsem = ( \mathbf{I} \lsem \mc{C} ,
+      ( \tau + ( \mc{D} \times \mc{A} ) ) \rsem / \mathbf{I}
+      \lsem \mc{B} , ( \tau + ( \mc{D} \times \mc{A} ) )
+      \rsem )&(\mbox{\ref{eq:df-bl.divt}},1)\notag
+  \\ 3 &&  & \vdash \mc{A} \in \mathbb{Z}&\text{Hyp~tsdivi.1}\notag%bl.tsdivi.1
+  \\ 4 &&  & \vdash \mc{D} \in \mathbb{R}&\text{Hyp~tsdivi.2}\notag%bl.tsdivi.2
+  \\ 5 &&  & \vdash \tau \in \mathbf{T}&\text{Hyp~tsdivi.3}\notag%bl.tsdivi.3
+  \\ 6 &&  & \vdash ( \tau + ( \mc{D} \times \mc{A} ) ) \in
+      \mathbf{T}&\text{Hyp~tsdivi.4}\notag%bl.tsdivi.4
+  \\ 7 &&  & \vdash \mathbf{I} \lsem ( ( \mc{C} / \mc{B} ) ~\string^~ \mc{A} )
+      , \tau \rsem = \mathbf{I} \lsem ( \mc{C} / \mc{B} ) ,
+      ( \tau + ( \mc{D} \times \mc{A} ) )
+      \rsem&(\mbox{\ref{eq:bl.tsci}},3,4,5,6)\notag
+  \\ 8 &&  & \vdash \mc{A} \in \mathbb{Z}&\text{Hyp~tsdivi.1}\notag%bl.tsdivi.1
+  \\ 9 &&  & \vdash \mc{D} \in \mathbb{R}&\text{Hyp~tsdivi.2}\notag%bl.tsdivi.2
+  \\ 10 &&  & \vdash \tau \in \mathbf{T}&\text{Hyp~tsdivi.3}\notag%bl.tsdivi.3
+  \\ 11 &&  & \vdash ( \tau + ( \mc{D} \times \mc{A} ) ) \in
+      \mathbf{T}&\text{Hyp~tsdivi.4}\notag%bl.tsdivi.4
+  \\ 12 &&  & \vdash \mathbf{I} \lsem ( \mc{C} ~\string^~ \mc{A} ) , \tau \rsem
+      = \mathbf{I} \lsem \mc{C} , ( \tau + ( \mc{D} \times
+      \mc{A} ) )
+      \rsem&(\mbox{\ref{eq:bl.tsci}},8,9,10,11)\notag
+  \\ 13 &&  & \vdash \mc{A} \in
+      \mathbb{Z}&\text{Hyp~tsdivi.1}\notag%bl.tsdivi.1
+  \\ 14 &&  & \vdash \mc{D} \in
+      \mathbb{R}&\text{Hyp~tsdivi.2}\notag%bl.tsdivi.2
+  \\ 15 &&  & \vdash \tau \in \mathbf{T}&\text{Hyp~tsdivi.3}\notag%bl.tsdivi.3
+  \\ 16 &&  & \vdash ( \tau + ( \mc{D} \times \mc{A} ) ) \in
+      \mathbf{T}&\text{Hyp~tsdivi.4}\notag%bl.tsdivi.4
+  \\ 17 &&  & \vdash \mathbf{I} \lsem ( \mc{B} ~\string^~ \mc{A} ) , \tau \rsem
+      = \mathbf{I} \lsem \mc{B} , ( \tau + ( \mc{D} \times
+      \mc{A} ) )
+      \rsem&(\mbox{\ref{eq:bl.tsci}},13,14,15,16)\notag
+  \\ 18 &&  & \vdash ( \mathbf{I} \lsem ( \mc{C} ~\string^~ \mc{A} ) , \tau
+      \rsem / \mathbf{I} \lsem ( \mc{B} ~\string^~ \mc{A} )
+      , \tau \rsem ) =  \notag \\ & & & \qquad
+     ( \mathbf{I} \lsem \mc{C} , ( \tau +
+      ( \mc{D} \times \mc{A} ) ) \rsem / \mathbf{I} \lsem
+      \mc{B} , ( \tau + ( \mc{D} \times \mc{A} ) ) \rsem
+      )&(\mbox{\ref{eq:oveq12i}},12,17)\notag
+  \\ 19 &&  & \vdash \mathbf{I} \lsem ( ( \mc{C} / \mc{B} ) ~\string^~ \mc{A} )
+      , \tau \rsem = ( \mathbf{I} \lsem ( \mc{C} ~\string^~
+      \mc{A} ) , \tau \rsem / \mathbf{I} \lsem ( \mc{B}
+      ~\string^~ \mc{A} ) , \tau \rsem
+      )&(\mbox{\ref{eq:3eqtr4i}},2,7,18)\notag
+  \\ 20 &&  & \vdash \tau \in \mathbf{T}&\text{Hyp~tsdivi.3}\notag%bl.tsdivi.3
+  \\ 21 &&  & \vdash \mathbf{I} \lsem ( ( \mc{C} ~\string^~ \mc{A} ) / ( \mc{B}
+      ~\string^~ \mc{A} ) ) , \tau \rsem = ( \mathbf{I}
+      \lsem ( \mc{C} ~\string^~ \mc{A} ) , \tau \rsem /
+      \mathbf{I} \lsem ( \mc{B} ~\string^~ \mc{A} ) , \tau
+      \rsem )&(\mbox{\ref{eq:df-bl.divt}},20)\notag
+  \\ 22 &&  & \vdash \mathbf{I} \lsem ( ( \mc{C} / \mc{B} ) ~\string^~ \mc{A} )
+      , \tau \rsem = \mathbf{I} \lsem ( ( \mc{C} ~\string^~
+      \mc{A} ) / ( \mc{B} ~\string^~ \mc{A} ) ) , \tau
+      \rsem&(\mbox{\ref{eq:eqtr4i}},19,21)\notag
+  \\ 23 &&  & \vdash \tau \in \mathbf{T}&\text{Hyp~tsdivi.3}\notag%bl.tsdivi.3
+  \\ 24 &&  & \vdash ( \mathbf{I} \lsem ( ( \mc{C} / \mc{B} ) ~\string^~ \mc{A}
+      ) = ( ( \mc{C} ~\string^~ \mc{A} ) / ( \mc{B}
+      ~\string^~ \mc{A} ) ) , \tau \rsem \leftrightarrow  \notag \\ & & & \qquad
+      \mathbf{I} \lsem ( ( \mc{C} / \mc{B} ) ~\string^~
+      \mc{A} ) , \tau \rsem = \mathbf{I} \lsem ( ( \mc{C}
+      ~\string^~ \mc{A} ) / ( \mc{B} ~\string^~ \mc{A} ) )
+      , \tau \rsem )&(\mbox{\ref{eq:df-bl.eqt}},23)\notag
+  \\ 25 &&  & \vdash \mathbf{I} \lsem ( ( \mc{C} / \mc{B} ) ~\string^~ \mc{A} )
+      = ( ( \mc{C} ~\string^~ \mc{A} ) / ( \mc{B}
+      ~\string^~ \mc{A} ) ) , \tau
+      \rsem&(\mbox{\ref{eq:mpbir}},22,24)\notag
+\end{align}
+\end{proof}
+
+\begin{restatable}{lemma}{bltsumi}~\blTitle{bl.tsumi}~ Distribute $~\string^~$ over unary minus,
+inference.
+\begin{align}
+\vdash \mc{A} \in \mathbb{Z}\quad\&\quad \vdash \mc{D} \in
+    \mathbb{R}\quad\&\quad \vdash \tau \in \mathbf{T}\quad\&\quad \vdash ( \tau
+    + ( \mc{D} \times \mc{A} ) ) \in \mathbf{T}\quad\Rightarrow\quad \vdash
+    \mathbf{I} \lsem ( \textrm{-} \mc{B} ~\string^~ \mc{A} ) = \textrm{-} (
+    \mc{B} ~\string^~ \mc{A} ) , \tau \rsem\label{eq:bl.tsumi}\tag{bl.tsumi}
+\end{align}
+\end{restatable}
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash ( \tau + ( \mc{D} \times \mc{A} ) ) \in
+      \mathbf{T}&\text{Hyp~tsumi.4}\notag%bl.tsumi.4
+  \\ 2 &&  & \vdash \mathbf{I} \lsem \textrm{-} \mc{B} , ( \tau + ( \mc{D}
+      \times \mc{A} ) ) \rsem = \textrm{-} \mathbf{I} \lsem
+      \mc{B} , ( \tau + ( \mc{D} \times \mc{A} ) )
+      \rsem&(\mbox{\ref{eq:df-bl.umt}},1)\notag
+  \\ 3 &&  & \vdash \mc{A} \in \mathbb{Z}&\text{Hyp~tsumi.1}\notag%bl.tsumi.1
+  \\ 4 &&  & \vdash \mc{D} \in \mathbb{R}&\text{Hyp~tsumi.2}\notag%bl.tsumi.2
+  \\ 5 &&  & \vdash \tau \in \mathbf{T}&\text{Hyp~tsumi.3}\notag%bl.tsumi.3
+  \\ 6 &&  & \vdash ( \tau + ( \mc{D} \times \mc{A} ) ) \in
+      \mathbf{T}&\text{Hyp~tsumi.4}\notag%bl.tsumi.4
+  \\ 7 &&  & \vdash \mathbf{I} \lsem ( \textrm{-} \mc{B} ~\string^~ \mc{A} ) ,
+      \tau \rsem = \mathbf{I} \lsem \textrm{-} \mc{B} , (
+      \tau + ( \mc{D} \times \mc{A} ) )
+      \rsem&(\mbox{\ref{eq:bl.tsci}},3,4,5,6)\notag
+  \\ 8 &&  & \vdash \mc{A} \in \mathbb{Z}&\text{Hyp~tsumi.1}\notag%bl.tsumi.1
+  \\ 9 &&  & \vdash \mc{D} \in \mathbb{R}&\text{Hyp~tsumi.2}\notag%bl.tsumi.2
+  \\ 10 &&  & \vdash \tau \in \mathbf{T}&\text{Hyp~tsumi.3}\notag%bl.tsumi.3
+  \\ 11 &&  & \vdash ( \tau + ( \mc{D} \times \mc{A} ) ) \in
+      \mathbf{T}&\text{Hyp~tsumi.4}\notag%bl.tsumi.4
+  \\ 12 &&  & \vdash \mathbf{I} \lsem ( \mc{B} ~\string^~ \mc{A} ) , \tau \rsem
+      = \mathbf{I} \lsem \mc{B} , ( \tau + ( \mc{D} \times
+      \mc{A} ) )
+      \rsem&(\mbox{\ref{eq:bl.tsci}},8,9,10,11)\notag
+  \\ 13 &&  & \vdash \textrm{-} \mathbf{I} \lsem ( \mc{B} ~\string^~ \mc{A} ) ,
+      \tau \rsem = \textrm{-} \mathbf{I} \lsem \mc{B} , (
+      \tau + ( \mc{D} \times \mc{A} ) )
+      \rsem&(\mbox{\ref{eq:negeqi}},12)\notag
+  \\ 14 &&  & \vdash \mathbf{I} \lsem ( \textrm{-} \mc{B} ~\string^~ \mc{A} ) ,
+      \tau \rsem = \textrm{-} \mathbf{I} \lsem ( \mc{B}
+      ~\string^~ \mc{A} ) , \tau
+      \rsem&(\mbox{\ref{eq:3eqtr4i}},2,7,13)\notag
+  \\ 15 &&  & \vdash \tau \in \mathbf{T}&\text{Hyp~tsumi.3}\notag%bl.tsumi.3
+  \\ 16 &&  & \vdash \mathbf{I} \lsem \textrm{-} ( \mc{B} ~\string^~ \mc{A} ) ,
+      \tau \rsem = \textrm{-} \mathbf{I} \lsem ( \mc{B}
+      ~\string^~ \mc{A} ) , \tau
+      \rsem&(\mbox{\ref{eq:df-bl.umt}},15)\notag
+  \\ 17 &&  & \vdash \mathbf{I} \lsem ( \textrm{-} \mc{B} ~\string^~ \mc{A} ) ,
+      \tau \rsem = \mathbf{I} \lsem \textrm{-} ( \mc{B}
+      ~\string^~ \mc{A} ) , \tau
+      \rsem&(\mbox{\ref{eq:eqtr4i}},14,16)\notag
+  \\ 18 &&  & \vdash \tau \in \mathbf{T}&\text{Hyp~tsumi.3}\notag%bl.tsumi.3
+  \\ 19 &&  & \vdash ( \mathbf{I} \lsem ( \textrm{-} \mc{B} ~\string^~ \mc{A} )
+      = \textrm{-} ( \mc{B} ~\string^~ \mc{A} ) , \tau
+      \rsem \leftrightarrow \mathbf{I} \lsem ( \textrm{-}
+      \mc{B} ~\string^~ \mc{A} ) , \tau \rsem = \mathbf{I}
+      \lsem \textrm{-} ( \mc{B} ~\string^~ \mc{A} ) , \tau
+      \rsem )&(\mbox{\ref{eq:df-bl.eqt}},18)\notag
+  \\ 20 &&  & \vdash \mathbf{I} \lsem ( \textrm{-} \mc{B} ~\string^~ \mc{A} ) =
+      \textrm{-} ( \mc{B} ~\string^~ \mc{A} ) , \tau
+      \rsem&(\mbox{\ref{eq:mpbir}},17,19)\notag
+\end{align}
+\end{proof}
+
+\begin{restatable}{lemma}{bltsdeqi}~\blTitle{bl.tsdeqi}~ Distribute $~\string^~$ over equality,
+inference.
+\begin{align}
+\vdash \mc{A} \in \mathbb{Z}\quad\&\quad \vdash \mc{D} \in
+    \mathbb{R}\quad\&\quad \vdash \tau \in \mathbf{T}\quad\&\quad \vdash ( \tau
+    + ( \mc{D} \times \mc{A} ) ) \in \mathbf{T}\quad\Rightarrow \notag \\ %& & & \qquad
+     \quad \vdash
+    \mathbf{I} \lsem ( ( \mc{C} = \mc{B} ~\string^~ \mc{A} ) \leftrightarrow (
+    \mc{C} ~\string^~ \mc{A} ) = ( \mc{B} ~\string^~ \mc{A} ) ) , \tau
+    \rsem\label{eq:bl.tsdeqi}\tag{bl.tsdeqi}
+\end{align}
+\end{restatable}
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash ( \tau + ( \mc{D} \times \mc{A} ) ) \in
+      \mathbf{T}&\text{Hyp~tsdeqi.4}\notag%bl.tsdeqi.4
+  \\ 2 &&  & \vdash ( \mathbf{I} \lsem \mc{C} = \mc{B} , ( \tau + ( \mc{D}
+      \times \mc{A} ) ) \rsem \leftrightarrow \mathbf{I}
+      \lsem \mc{C} , ( \tau + ( \mc{D} \times \mc{A} ) )
+      \rsem = \mathbf{I} \lsem \mc{B} , ( \tau + ( \mc{D}
+      \times \mc{A} ) ) \rsem
+      )&(\mbox{\ref{eq:df-bl.eqt}},1)\notag
+  \\ 3 &&  & \vdash \mc{A} \in \mathbb{Z}&\text{Hyp~tsdeqi.1}\notag%bl.tsdeqi.1
+  \\ 4 &&  & \vdash \mc{D} \in \mathbb{R}&\text{Hyp~tsdeqi.2}\notag%bl.tsdeqi.2
+  \\ 5 &&  & \vdash \tau \in \mathbf{T}&\text{Hyp~tsdeqi.3}\notag%bl.tsdeqi.3
+  \\ 6 &&  & \vdash ( \tau + ( \mc{D} \times \mc{A} ) ) \in
+      \mathbf{T}&\text{Hyp~tsdeqi.4}\notag%bl.tsdeqi.4
+  \\ 7 &&  & \vdash ( \mathbf{I} \lsem ( \mc{C} = \mc{B} ~\string^~ \mc{A} ) ,
+      \tau \rsem \leftrightarrow \mathbf{I} \lsem \mc{C} =
+      \mc{B} , ( \tau + ( \mc{D} \times \mc{A} ) ) \rsem
+      )&(\mbox{\ref{eq:bl.tsi}},3,4,5,6)\notag
+  \\ 8 &&  & \vdash \mc{A} \in \mathbb{Z}&\text{Hyp~tsdeqi.1}\notag%bl.tsdeqi.1
+  \\ 9 &&  & \vdash \mc{D} \in \mathbb{R}&\text{Hyp~tsdeqi.2}\notag%bl.tsdeqi.2
+  \\ 10 &&  & \vdash \tau \in \mathbf{T}&\text{Hyp~tsdeqi.3}\notag%bl.tsdeqi.3
+  \\ 11 &&  & \vdash ( \tau + ( \mc{D} \times \mc{A} ) ) \in
+      \mathbf{T}&\text{Hyp~tsdeqi.4}\notag%bl.tsdeqi.4
+  \\ 12 &&  & \vdash \mathbf{I} \lsem ( \mc{C} ~\string^~ \mc{A} ) , \tau \rsem
+      = \mathbf{I} \lsem \mc{C} , ( \tau + ( \mc{D} \times
+      \mc{A} ) )
+      \rsem&(\mbox{\ref{eq:bl.tsci}},8,9,10,11)\notag
+  \\ 13 &&  & \vdash \mc{A} \in
+      \mathbb{Z}&\text{Hyp~tsdeqi.1}\notag%bl.tsdeqi.1
+  \\ 14 &&  & \vdash \mc{D} \in
+      \mathbb{R}&\text{Hyp~tsdeqi.2}\notag%bl.tsdeqi.2
+  \\ 15 &&  & \vdash \tau \in \mathbf{T}&\text{Hyp~tsdeqi.3}\notag%bl.tsdeqi.3
+  \\ 16 &&  & \vdash ( \tau + ( \mc{D} \times \mc{A} ) ) \in
+      \mathbf{T}&\text{Hyp~tsdeqi.4}\notag%bl.tsdeqi.4
+  \\ 17 &&  & \vdash \mathbf{I} \lsem ( \mc{B} ~\string^~ \mc{A} ) , \tau \rsem
+      = \mathbf{I} \lsem \mc{B} , ( \tau + ( \mc{D} \times
+      \mc{A} ) )
+      \rsem&(\mbox{\ref{eq:bl.tsci}},13,14,15,16)\notag
+  \\ 18 &&  & \vdash ( \mathbf{I} \lsem ( \mc{C} ~\string^~ \mc{A} ) , \tau
+      \rsem = \mathbf{I} \lsem ( \mc{B} ~\string^~ \mc{A} )
+      , \tau \rsem \leftrightarrow  \notag \\ & & & \qquad
+     \mathbf{I} \lsem \mc{C}
+      , ( \tau + ( \mc{D} \times \mc{A} ) ) \rsem =
+      \mathbf{I} \lsem \mc{B} , ( \tau + ( \mc{D} \times
+      \mc{A} ) ) \rsem
+      )&(\mbox{\ref{eq:eqeq12i}},12,17)\notag
+  \\ 19 &&  & \vdash ( \mathbf{I} \lsem ( \mc{C} = \mc{B} ~\string^~ \mc{A} ) ,
+      \tau \rsem \leftrightarrow \mathbf{I} \lsem ( \mc{C}
+      ~\string^~ \mc{A} ) , \tau \rsem = \mathbf{I} \lsem (
+      \mc{B} ~\string^~ \mc{A} ) , \tau \rsem
+      )&(\mbox{\ref{eq:3bitr4i}},2,7,18)\notag
+  \\ 20 &&  & \vdash \tau \in \mathbf{T}&\text{Hyp~tsdeqi.3}\notag%bl.tsdeqi.3
+  \\ 21 &&  & \vdash ( \mathbf{I} \lsem ( \mc{C} ~\string^~ \mc{A} ) = ( \mc{B}
+      ~\string^~ \mc{A} ) , \tau \rsem \leftrightarrow
+      \mathbf{I} \lsem ( \mc{C} ~\string^~ \mc{A} ) , \tau
+      \rsem = \mathbf{I} \lsem ( \mc{B} ~\string^~ \mc{A} )
+      , \tau \rsem )&(\mbox{\ref{eq:df-bl.eqt}},20)\notag
+  \\ 22 &&  & \vdash ( \mathbf{I} \lsem ( \mc{C} = \mc{B} ~\string^~ \mc{A} ) ,
+      \tau \rsem \leftrightarrow \mathbf{I} \lsem ( \mc{C}
+      ~\string^~ \mc{A} ) = ( \mc{B} ~\string^~ \mc{A} ) ,
+      \tau \rsem )&(\mbox{\ref{eq:bitr4i}},19,21)\notag
+  \\ 23 &&  & \vdash \tau \in \mathbf{T}&\text{Hyp~tsdeqi.3}\notag%bl.tsdeqi.3
+  \\ 24 &&  & \vdash ( \mathbf{I} \lsem ( ( \mc{C} = \mc{B} ~\string^~ \mc{A} )
+      \leftrightarrow ( \mc{C} ~\string^~ \mc{A} ) = (
+      \mc{B} ~\string^~ \mc{A} ) ) , \tau \rsem
+      \leftrightarrow ( \mathbf{I} \lsem ( \mc{C} = \mc{B}
+      ~\string^~ \mc{A} ) , \tau \rsem \leftrightarrow  \notag \\ & & & \qquad
+      \mathbf{I} \lsem ( \mc{C} ~\string^~ \mc{A} ) = (
+      \mc{B} ~\string^~ \mc{A} ) , \tau \rsem )
+      )&(\mbox{\ref{eq:df-bl.bit}},23)\notag
+  \\ 25 &&  & \vdash \mathbf{I} \lsem ( ( \mc{C} = \mc{B} ~\string^~ \mc{A} )
+      \leftrightarrow ( \mc{C} ~\string^~ \mc{A} ) = (
+      \mc{B} ~\string^~ \mc{A} ) ) , \tau
+      \rsem&(\mbox{\ref{eq:mpbir}},22,24)\notag
+\end{align}
+\end{proof}
+
+\begin{restatable}{lemma}{bltslti}~\blTitle{bl.tslti}~ Distribute $~\string^~$ over less-than,
+inference.
+\begin{align}
+\vdash \mc{A} \in \mathbb{Z}\quad\&\quad \vdash \mc{D} \in
+    \mathbb{R}\quad\&\quad \vdash \tau \in \mathbf{T}\quad\&\quad \vdash ( \tau
+    + ( \mc{D} \times \mc{A} ) ) \in \mathbf{T}\quad\Rightarrow \notag \\ %& & & \qquad
+     \quad \vdash
+    \mathbf{I} \lsem ( ( \mc{C} < \mc{B} ~\string^~ \mc{A} ) \leftrightarrow (
+    \mc{C} ~\string^~ \mc{A} ) < ( \mc{B} ~\string^~ \mc{A} ) ) , \tau
+    \rsem\label{eq:bl.tslti}\tag{bl.tslti}
+\end{align}
+\end{restatable}
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash ( \tau + ( \mc{D} \times \mc{A} ) ) \in
+      \mathbf{T}&\text{Hyp~tslti.4}\notag%bl.tslti.4
+  \\ 2 &&  & \vdash ( \mathbf{I} \lsem \mc{C} < \mc{B} , ( \tau + ( \mc{D}
+      \times \mc{A} ) ) \rsem \leftrightarrow \mathbf{I}
+      \lsem \mc{C} , ( \tau + ( \mc{D} \times \mc{A} ) )
+      \rsem < \mathbf{I} \lsem \mc{B} , ( \tau + ( \mc{D}
+      \times \mc{A} ) ) \rsem
+      )&(\mbox{\ref{eq:df-bl.ltt}},1)\notag
+  \\ 3 &&  & \vdash \mc{A} \in \mathbb{Z}&\text{Hyp~tslti.1}\notag%bl.tslti.1
+  \\ 4 &&  & \vdash \mc{D} \in \mathbb{R}&\text{Hyp~tslti.2}\notag%bl.tslti.2
+  \\ 5 &&  & \vdash \tau \in \mathbf{T}&\text{Hyp~tslti.3}\notag%bl.tslti.3
+  \\ 6 &&  & \vdash ( \tau + ( \mc{D} \times \mc{A} ) ) \in
+      \mathbf{T}&\text{Hyp~tslti.4}\notag%bl.tslti.4
+  \\ 7 &&  & \vdash ( \mathbf{I} \lsem ( \mc{C} < \mc{B} ~\string^~ \mc{A} ) ,
+      \tau \rsem \leftrightarrow \mathbf{I} \lsem \mc{C} <
+      \mc{B} , ( \tau + ( \mc{D} \times \mc{A} ) ) \rsem
+      )&(\mbox{\ref{eq:bl.tsi}},3,4,5,6)\notag
+  \\ 8 &&  & \vdash \mc{A} \in \mathbb{Z}&\text{Hyp~tslti.1}\notag%bl.tslti.1
+  \\ 9 &&  & \vdash \mc{D} \in \mathbb{R}&\text{Hyp~tslti.2}\notag%bl.tslti.2
+  \\ 10 &&  & \vdash \tau \in \mathbf{T}&\text{Hyp~tslti.3}\notag%bl.tslti.3
+  \\ 11 &&  & \vdash ( \tau + ( \mc{D} \times \mc{A} ) ) \in
+      \mathbf{T}&\text{Hyp~tslti.4}\notag%bl.tslti.4
+  \\ 12 &&  & \vdash \mathbf{I} \lsem ( \mc{C} ~\string^~ \mc{A} ) , \tau \rsem
+      = \mathbf{I} \lsem \mc{C} , ( \tau + ( \mc{D} \times
+      \mc{A} ) )
+      \rsem&(\mbox{\ref{eq:bl.tsci}},8,9,10,11)\notag
+  \\ 13 &&  & \vdash \mc{A} \in \mathbb{Z}&\text{Hyp~tslti.1}\notag%bl.tslti.1
+  \\ 14 &&  & \vdash \mc{D} \in \mathbb{R}&\text{Hyp~tslti.2}\notag%bl.tslti.2
+  \\ 15 &&  & \vdash \tau \in \mathbf{T}&\text{Hyp~tslti.3}\notag%bl.tslti.3
+  \\ 16 &&  & \vdash ( \tau + ( \mc{D} \times \mc{A} ) ) \in
+      \mathbf{T}&\text{Hyp~tslti.4}\notag%bl.tslti.4
+  \\ 17 &&  & \vdash \mathbf{I} \lsem ( \mc{B} ~\string^~ \mc{A} ) , \tau \rsem
+      = \mathbf{I} \lsem \mc{B} , ( \tau + ( \mc{D} \times
+      \mc{A} ) )
+      \rsem&(\mbox{\ref{eq:bl.tsci}},13,14,15,16)\notag
+  \\ 18 &&  & \vdash ( \mathbf{I} \lsem ( \mc{C} ~\string^~ \mc{A} ) , \tau
+      \rsem < \mathbf{I} \lsem ( \mc{B} ~\string^~ \mc{A} )
+      , \tau \rsem \leftrightarrow  \notag \\ & & & \qquad
+     \mathbf{I} \lsem \mc{C}
+      , ( \tau + ( \mc{D} \times \mc{A} ) ) \rsem <
+      \mathbf{I} \lsem \mc{B} , ( \tau + ( \mc{D} \times
+      \mc{A} ) ) \rsem
+      )&(\mbox{\ref{eq:breq12i}},12,17)\notag
+  \\ 19 &&  & \vdash ( \mathbf{I} \lsem ( \mc{C} < \mc{B} ~\string^~ \mc{A} ) ,
+      \tau \rsem \leftrightarrow \mathbf{I} \lsem ( \mc{C}
+      ~\string^~ \mc{A} ) , \tau \rsem < \mathbf{I} \lsem (
+      \mc{B} ~\string^~ \mc{A} ) , \tau \rsem
+      )&(\mbox{\ref{eq:3bitr4i}},2,7,18)\notag
+  \\ 20 &&  & \vdash \tau \in \mathbf{T}&\text{Hyp~tslti.3}\notag%bl.tslti.3
+  \\ 21 &&  & \vdash ( \mathbf{I} \lsem ( \mc{C} ~\string^~ \mc{A} ) < ( \mc{B}
+      ~\string^~ \mc{A} ) , \tau \rsem \leftrightarrow
+      \mathbf{I} \lsem ( \mc{C} ~\string^~ \mc{A} ) , \tau
+      \rsem < \mathbf{I} \lsem ( \mc{B} ~\string^~ \mc{A} )
+      , \tau \rsem )&(\mbox{\ref{eq:df-bl.ltt}},20)\notag
+  \\ 22 &&  & \vdash ( \mathbf{I} \lsem ( \mc{C} < \mc{B} ~\string^~ \mc{A} ) ,
+      \tau \rsem \leftrightarrow \mathbf{I} \lsem ( \mc{C}
+      ~\string^~ \mc{A} ) < ( \mc{B} ~\string^~ \mc{A} ) ,
+      \tau \rsem )&(\mbox{\ref{eq:bitr4i}},19,21)\notag
+  \\ 23 &&  & \vdash \tau \in \mathbf{T}&\text{Hyp~tslti.3}\notag%bl.tslti.3
+  \\ 24 &&  & \vdash ( \mathbf{I} \lsem ( ( \mc{C} < \mc{B} ~\string^~ \mc{A} )
+      \leftrightarrow ( \mc{C} ~\string^~ \mc{A} ) < (
+      \mc{B} ~\string^~ \mc{A} ) ) , \tau \rsem
+      \leftrightarrow ( \mathbf{I} \lsem ( \mc{C} < \mc{B}
+      ~\string^~ \mc{A} ) , \tau \rsem \leftrightarrow  \notag \\ & & & \qquad
+      \mathbf{I} \lsem ( \mc{C} ~\string^~ \mc{A} ) < (
+      \mc{B} ~\string^~ \mc{A} ) , \tau \rsem )
+      )&(\mbox{\ref{eq:df-bl.bit}},23)\notag
+  \\ 25 &&  & \vdash \mathbf{I} \lsem ( ( \mc{C} < \mc{B} ~\string^~ \mc{A} )
+      \leftrightarrow ( \mc{C} ~\string^~ \mc{A} ) < (
+      \mc{B} ~\string^~ \mc{A} ) ) , \tau
+      \rsem&(\mbox{\ref{eq:mpbir}},22,24)\notag
+\end{align}
+\end{proof}
+
+\begin{restatable}{lemma}{bltsami}~\blTitle{bl.tsami}~ Distribute $~\string^~$ over at-most,
+inference.
+\begin{align}
+\vdash \mc{A} \in \mathbb{Z}\quad\&\quad \vdash \mc{D} \in
+    \mathbb{R}\quad\&\quad \vdash \tau \in \mathbf{T}\quad\&\quad \vdash ( \tau
+    + ( \mc{D} \times \mc{A} ) ) \in \mathbf{T}\quad\Rightarrow \notag \\
+    \quad \vdash
+    \mathbf{I} \lsem ( ( \mc{C} \le \mc{B} ~\string^~ \mc{A} ) \leftrightarrow
+    ( \mc{C} ~\string^~ \mc{A} ) \le ( \mc{B} ~\string^~ \mc{A} ) ) , \tau
+    \rsem\label{eq:bl.tsami}\tag{bl.tsami}
+\end{align}
+\end{restatable}
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash ( \tau + ( \mc{D} \times \mc{A} ) ) \in
+      \mathbf{T}&\text{Hyp~tsami.4}\notag%bl.tsami.4
+  \\ 2 &&  & \vdash ( \mathbf{I} \lsem \mc{C} \le \mc{B} , ( \tau + ( \mc{D}
+      \times \mc{A} ) ) \rsem \leftrightarrow \mathbf{I}
+      \lsem \mc{C} , ( \tau + ( \mc{D} \times \mc{A} ) )
+      \rsem \le \mathbf{I} \lsem \mc{B} , ( \tau + ( \mc{D}
+      \times \mc{A} ) ) \rsem
+      )&(\mbox{\ref{eq:df-bl.amt}},1)\notag
+  \\ 3 &&  & \vdash \mc{A} \in \mathbb{Z}&\text{Hyp~tsami.1}\notag%bl.tsami.1
+  \\ 4 &&  & \vdash \mc{D} \in \mathbb{R}&\text{Hyp~tsami.2}\notag%bl.tsami.2
+  \\ 5 &&  & \vdash \tau \in \mathbf{T}&\text{Hyp~tsami.3}\notag%bl.tsami.3
+  \\ 6 &&  & \vdash ( \tau + ( \mc{D} \times \mc{A} ) ) \in
+      \mathbf{T}&\text{Hyp~tsami.4}\notag%bl.tsami.4
+  \\ 7 &&  & \vdash ( \mathbf{I} \lsem ( \mc{C} \le \mc{B} ~\string^~ \mc{A} )
+      , \tau \rsem \leftrightarrow \mathbf{I} \lsem \mc{C}
+      \le \mc{B} , ( \tau + ( \mc{D} \times \mc{A} ) ) \rsem
+      )&(\mbox{\ref{eq:bl.tsi}},3,4,5,6)\notag
+  \\ 8 &&  & \vdash \mc{A} \in \mathbb{Z}&\text{Hyp~tsami.1}\notag%bl.tsami.1
+  \\ 9 &&  & \vdash \mc{D} \in \mathbb{R}&\text{Hyp~tsami.2}\notag%bl.tsami.2
+  \\ 10 &&  & \vdash \tau \in \mathbf{T}&\text{Hyp~tsami.3}\notag%bl.tsami.3
+  \\ 11 &&  & \vdash ( \tau + ( \mc{D} \times \mc{A} ) ) \in
+      \mathbf{T}&\text{Hyp~tsami.4}\notag%bl.tsami.4
+  \\ 12 &&  & \vdash \mathbf{I} \lsem ( \mc{C} ~\string^~ \mc{A} ) , \tau \rsem
+      = \mathbf{I} \lsem \mc{C} , ( \tau + ( \mc{D} \times
+      \mc{A} ) )
+      \rsem&(\mbox{\ref{eq:bl.tsci}},8,9,10,11)\notag
+  \\ 13 &&  & \vdash \mc{A} \in \mathbb{Z}&\text{Hyp~tsami.1}\notag%bl.tsami.1
+  \\ 14 &&  & \vdash \mc{D} \in \mathbb{R}&\text{Hyp~tsami.2}\notag%bl.tsami.2
+  \\ 15 &&  & \vdash \tau \in \mathbf{T}&\text{Hyp~tsami.3}\notag%bl.tsami.3
+  \\ 16 &&  & \vdash ( \tau + ( \mc{D} \times \mc{A} ) ) \in
+      \mathbf{T}&\text{Hyp~tsami.4}\notag%bl.tsami.4
+  \\ 17 &&  & \vdash \mathbf{I} \lsem ( \mc{B} ~\string^~ \mc{A} ) , \tau \rsem
+      = \mathbf{I} \lsem \mc{B} , ( \tau + ( \mc{D} \times
+      \mc{A} ) )
+      \rsem&(\mbox{\ref{eq:bl.tsci}},13,14,15,16)\notag
+  \\ 18 &&  & \vdash ( \mathbf{I} \lsem ( \mc{C} ~\string^~ \mc{A} ) , \tau
+      \rsem \le \mathbf{I} \lsem ( \mc{B} ~\string^~ \mc{A}
+      ) , \tau \rsem \leftrightarrow  \notag \\ & & & \qquad
+     \mathbf{I} \lsem
+      \mc{C} , ( \tau + ( \mc{D} \times \mc{A} ) ) \rsem \le
+      \mathbf{I} \lsem \mc{B} , ( \tau + ( \mc{D} \times
+      \mc{A} ) ) \rsem
+      )&(\mbox{\ref{eq:breq12i}},12,17)\notag
+  \\ 19 &&  & \vdash ( \mathbf{I} \lsem ( \mc{C} \le \mc{B} ~\string^~ \mc{A} )
+      , \tau \rsem \leftrightarrow \mathbf{I} \lsem (
+      \mc{C} ~\string^~ \mc{A} ) , \tau \rsem \le
+      \mathbf{I} \lsem ( \mc{B} ~\string^~ \mc{A} ) , \tau
+      \rsem )&(\mbox{\ref{eq:3bitr4i}},2,7,18)\notag
+  \\ 20 &&  & \vdash \tau \in \mathbf{T}&\text{Hyp~tsami.3}\notag%bl.tsami.3
+  \\ 21 &&  & \vdash ( \mathbf{I} \lsem ( \mc{C} ~\string^~ \mc{A} ) \le (
+      \mc{B} ~\string^~ \mc{A} ) , \tau \rsem
+      \leftrightarrow \mathbf{I} \lsem ( \mc{C} ~\string^~
+      \mc{A} ) , \tau \rsem \le \mathbf{I} \lsem ( \mc{B}
+      ~\string^~ \mc{A} ) , \tau \rsem
+      )&(\mbox{\ref{eq:df-bl.amt}},20)\notag
+  \\ 22 &&  & \vdash ( \mathbf{I} \lsem ( \mc{C} \le \mc{B} ~\string^~ \mc{A} )
+      , \tau \rsem \leftrightarrow \mathbf{I} \lsem (
+      \mc{C} ~\string^~ \mc{A} ) \le ( \mc{B} ~\string^~
+      \mc{A} ) , \tau \rsem
+      )&(\mbox{\ref{eq:bitr4i}},19,21)\notag
+  \\ 23 &&  & \vdash \tau \in \mathbf{T}&\text{Hyp~tsami.3}\notag%bl.tsami.3
+  \\ 24 &&  & \vdash ( \mathbf{I} \lsem ( ( \mc{C} \le \mc{B} ~\string^~ \mc{A}
+      ) \leftrightarrow ( \mc{C} ~\string^~ \mc{A} ) \le (
+      \mc{B} ~\string^~ \mc{A} ) ) , \tau \rsem
+      \leftrightarrow ( \mathbf{I} \lsem ( \mc{C} \le
+      \mc{B} ~\string^~ \mc{A} ) , \tau \rsem
+      \leftrightarrow \notag \\ & & & \qquad
+     \mathbf{I} \lsem ( \mc{C} ~\string^~
+      \mc{A} ) \le ( \mc{B} ~\string^~ \mc{A} ) , \tau
+      \rsem ) )&(\mbox{\ref{eq:df-bl.bit}},23)\notag
+  \\ 25 &&  & \vdash \mathbf{I} \lsem ( ( \mc{C} \le \mc{B} ~\string^~ \mc{A} )
+      \leftrightarrow ( \mc{C} ~\string^~ \mc{A} ) \le (
+      \mc{B} ~\string^~ \mc{A} ) ) , \tau
+      \rsem&(\mbox{\ref{eq:mpbir}},22,24)\notag
+\end{align}
+\end{proof}
+
+\begin{restatable}{metadefinition}{dfbltsali}~\blTitle{df-bl.tsali}~ Distribute $~\string^~$ over
+universal quantification, inference
+\begin{align}
+\vdash \mc{A} \in \mathbb{Z}\quad\&\quad \vdash \mc{D} \in
+    \mathbb{R}\quad\&\quad \vdash \tau \in \mathbf{T}\quad\&\quad \vdash ( \tau
+    + ( \mc{D} \times \mc{A} ) ) \in \mathbf{T}\quad\&\quad \vdash \mc{B} \in
+    \mathbb{R}\quad\Rightarrow \notag \\
+    \quad \vdash \mathbf{I} \lsem ( ( \forall \msc{x}
+    \in \mc{B}~\mw{\varphi} ~\string^~ \mc{A} ) \leftrightarrow \forall \msc{x}
+    \in \mc{B} ( \mw{\varphi} ~\string^~ \mc{A} ) ) , \tau
+    \rsem\label{eq:df-bl.tsali}\tag{df-bl.tsali}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{metadefinition}{dfbltsexi}~\blTitle{df-bl.tsexi}~ Distribute $~\string^~$ over
+existential quantification, inference
+\begin{align}
+\vdash \mc{A} \in \mathbb{Z}\quad\&\quad \vdash \mc{D} \in
+    \mathbb{R}\quad\&\quad \vdash \tau \in \mathbf{T}\quad\&\quad \vdash ( \tau
+    + ( \mc{D} \times \mc{A} ) ) \in \mathbf{T}\quad\&\quad \vdash \mc{B} \in
+    \mathbb{R}\quad\Rightarrow \notag \\
+    \quad \vdash \mathbf{I} \lsem ( ( \exists \msc{x}
+    \in \mc{B}~\mw{\varphi} ~\string^~ \mc{A} ) \leftrightarrow \exists \msc{x}
+    \in \mc{B} ( \mw{\varphi} ~\string^~ \mc{A} ) ) , \tau
+    \rsem\label{eq:df-bl.tsexi}\tag{df-bl.tsexi}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{metadefinition}{dfbltssumi}~\blTitle{df-bl.tssumi}~ Distribute $~\string^~$ over
+summation, inference
+\begin{align}
+\vdash \mc{A} \in \mathbb{Z}\quad\&\quad \vdash \mc{D} \in
+    \mathbb{R}\quad\&\quad \vdash \tau \in \mathbf{T}\quad\&\quad \vdash ( \tau
+    + ( \mc{D} \times \mc{A} ) ) \in \mathbf{T}\quad\&\quad \vdash ( \mc{B} \in
+    \mathbb{R} \wedge \mc{C} \in \mathbb{R} )\quad\Rightarrow \notag \\
+    \quad \vdash
+    \mathbf{I} \lsem ( \sum \msc{x} \in \mc{B} \mc{C} ~\string^~ \mc{A} ) =
+    \sum \msc{x} \in \mc{B} ( \mc{C} ~\string^~ \mc{A} ) , \tau
+    \rsem\label{eq:df-bl.tssumi}\tag{df-bl.tssumi}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{metadefinition}{dfbltsprodi}~\blTitle{df-bl.tsprodi}~ Distribute $~\string^~$ over
+product, inference
+\begin{align}
+\vdash \mc{A} \in \mathbb{Z}\quad\&\quad \vdash \mc{D} \in
+    \mathbb{R}\quad\&\quad \vdash \tau \in \mathbf{T}\quad\&\quad \vdash ( \tau
+    + ( \mc{D} \times \mc{A} ) ) \in \mathbf{T}\quad\&\quad \vdash ( \mc{B} \in
+    \mathbb{R} \wedge \mc{C} \in \mathbb{R} )\quad\Rightarrow \notag \\
+    \quad \vdash
+    \mathbf{I} \lsem ( \prod \msc{x} \in \mc{B} \mc{C} ~\string^~ \mc{A} ) =
+    \prod \msc{x} \in \mc{B} ( \mc{C} ~\string^~ \mc{A} ) , \tau
+    \rsem\label{eq:df-bl.tsprodi}\tag{df-bl.tsprodi}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{metadefinition}{dfbltsqq}~\blTitle{df-bl.tsqq}~ Distribute $~\string^~$ over
+conditional expression, inference
+\begin{align}
+\vdash \mc{A} \in \mathbb{Z}\quad\&\quad \vdash \mc{D} \in
+    \mathbb{R}\quad\&\quad \vdash \tau \in \mathbf{T}\quad\&\quad \vdash ( \tau
+    + ( \mc{D} \times \mc{A} ) ) \in \mathbf{T}\quad\&\quad \vdash ( \mc{B} \in
+    \mathbb{R} \wedge \mc{C} \in \mathbb{R} )\quad\Rightarrow \notag \\
+    \quad \vdash
+    \mathbf{I} \lsem ( \,\mathrm{if} ( \mw{\varphi} , \mc{B} , \mc{C} )
+    ~\string^~ \mc{A} ) = \,\mathrm{if} ( ( \mw{\varphi} ~\string^~ \mc{A} ) ,
+    ( \mc{B} ~\string^~ \mc{A} ) , ( \mc{C} ~\string^~ \mc{A} ) ) , \tau
+    \rsem\label{eq:df-bl.tsqq}\tag{df-bl.tsqq}
+\end{align}
+\end{restatable}
+

@@ -1,0 +1,125 @@
+% This LaTeX file was created by Metamath on 6-Mar-2024 11:48 AM.
+\begin{restatable}{axiom}{axrep}~\otherTitle{ax-rep}~ Axiom of Replacement.  An axiom scheme of
+Zermelo-Fraenkel set theory.  It tells us that the image of any
+set
+       under a function is also a set (see the variant {\tt funimaex}). 
+Although
+       $\mw{\varphi}$ may be any wff whatsoever, this axiom is useful (i.e.
+its
+       antecedent is satisfied) when we are given some function and
+$\mw{\varphi}$
+       encodes the predicate ``the value of the function at $\msc{w}$ is
+$\msc{z}$".
+       Thus, $\mw{\varphi}$ will ordinarily have free variables $\msc{w}$ and
+$\msc{z}$- think
+       of it informally as $\mw{\varphi} ( \msc{w} , \msc{z} )$.  
+\begin{align}
+\vdash ( \forall \msc{w} \exists \msc{y} \forall \msc{z} ( \forall \msc{y}
+    \mw{\varphi} \rightarrow \msc{z} = \msc{y} ) \rightarrow \exists \msc{y}
+    \forall \msc{z} ( \msc{z} \in \msc{y} \leftrightarrow \exists \msc{w} (
+    \msc{w} \in \msc{x} \wedge \forall \msc{y} \mw{\varphi} ) )
+    )\label{eq:ax-rep}\tag{ax-rep}
+\end{align}
+\end{restatable}
+
+\dfid
+%\begin{restatable}{metadefinition}{dfid}~\otherTitle{df-id}~ Define the identity relation.  ~
+%\begin{align}
+%\vdash \,\mathrm{I} = \{ \langle \msc{x} , \msc{y} \rangle~\vert~\msc{x} = \msc{y}
+%    \}\label{eq:df-id}\tag{df-id}
+%\end{align}
+%\end{restatable}
+
+\begin{restatable}{lemma}{ispod}~\otherTitle{ispod}~ Sufficient conditions for a partial order. 
+~
+\begin{align}
+\vdash ( ( \mw{\varphi} \wedge \msc{x} \in \mc{A} ) \rightarrow \lnot \msc{x}
+    \mc{R} \msc{x} )\quad\& \notag \\
+    \quad \vdash ( ( \mw{\varphi} \wedge ( \msc{x} \in
+    \mc{A} \wedge \msc{y} \in \mc{A} \wedge \msc{z} \in \mc{A} ) ) \rightarrow
+    ( ( \msc{x} \mc{R} \msc{y} \wedge \msc{y} \mc{R} \msc{z} ) \rightarrow
+    \msc{x} \mc{R} \msc{z} ) )\quad\Rightarrow \notag \\
+    \quad \vdash ( \mw{\varphi}
+    \rightarrow \mc{R} \,\mathrm{Po} \mc{A} )\label{eq:ispod}\tag{ispod}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{poirr}~\otherTitle{poirr}~ A partial order relation is irreflexive. 
+~
+\begin{align}
+\vdash ( ( \mc{R} \,\mathrm{Po} \mc{A} \wedge \mc{B} \in \mc{A} ) \rightarrow
+    \lnot \mc{B} \mc{R} \mc{B} )\label{eq:poirr}\tag{poirr}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{potr}~\otherTitle{potr}~ A partial order relation is a transitive
+relation.  ~
+\begin{align}
+\vdash ( ( \mc{R} \,\mathrm{Po} \mc{A} \wedge ( \mc{B} \in \mc{A} \wedge \mc{C}
+    \in \mc{A} \wedge \mc{D} \in \mc{A} ) ) \rightarrow ( ( \mc{B} \mc{R}
+    \mc{C} \wedge \mc{C} \mc{R} \mc{D} ) \rightarrow \mc{B} \mc{R} \mc{D} )
+    )\label{eq:potr}\tag{potr}
+\end{align}
+\end{restatable}
+
+\dfxp
+%\begin{restatable}{metadefinition}{dfxp}~\otherTitle{df-xp}~ Define the Cartesian product of two
+%classes.    ~
+%\begin{align}
+%\vdash ( \mc{A} \times \mc{B} ) = \{ \langle \msc{x} , \msc{y} \rangle~\vert~(
+%    \msc{x} \in \mc{A} \wedge \msc{y} \in \mc{B} )
+%    \}\label{eq:df-xp}\tag{df-xp}
+%\end{align}
+%\end{restatable}
+
+\dfrel
+%\begin{restatable}{metadefinition}{dfrel}~\otherTitle{df-rel}~ Define the relation predicate. 
+%\begin{align}
+%\vdash ( \,\mathrm{Rel}~ \mc{A} \leftrightarrow \mc{A} \subseteq ( \,\mathrm{V}
+%    \times \,\mathrm{V} ) )\label{eq:df-rel}\tag{df-rel}
+%\end{align}
+%\end{restatable}
+
+\dfcnv
+%\begin{restatable}{metadefinition}{dfcnv}~\otherTitle{df-cnv}~ Define the converse of a class. 
+%Definition 9.12 of [Quine] p. 64.  The
+%       converse of a binary relation swaps its arguments.
+%\begin{align}
+%\vdash {}^{\smallsmile} \mc{A} = \{ \langle \msc{x} , \msc{y} \rangle~\vert~\msc{y}
+%    \mc{A} \msc{x} \}\label{eq:df-cnv}\tag{df-cnv}
+%\end{align}
+%\end{restatable}
+
+\dfco
+%\begin{restatable}{metadefinition}{dfco}~\otherTitle{df-co}~ Define the composition of two classes. 
+%\begin{align}
+%\vdash ( \mc{A} \circ \mc{B} ) = \{ \langle \msc{x} , \msc{y} \rangle~\vert~\exists
+%    \msc{z} ( \msc{x} \mc{B} \msc{z} \wedge \msc{z} \mc{A} \msc{y} )
+%    \}\label{eq:df-co}\tag{df-co}
+%\end{align}
+%\end{restatable}
+
+\dfdm
+%\begin{restatable}{metadefinition}{dfdm}~\otherTitle{df-dm}~ Define the domain of a class.  
+%\begin{align}
+%\vdash \,\mathrm{dom}~ \mc{A} = \{ \msc{x}~\vert~\exists \msc{y} \msc{x} \mc{A}
+%    \msc{y} \}\label{eq:df-dm}\tag{df-dm}
+%\end{align}
+%\end{restatable}
+
+\dfrn
+%\begin{restatable}{metadefinition}{dfrn}~\otherTitle{df-rn}~ Define the range of a class.  F
+%\begin{align}
+%\vdash \,\mathrm{ran}~ \mc{A} = \,\mathrm{dom}~ {}^{\smallsmile}
+%    \mc{A}\label{eq:df-rn}\tag{df-rn}
+%\end{align}
+%\end{restatable}
+
+\dfres
+%\begin{restatable}{metadefinition}{dfres}~\otherTitle{df-res}~ Define the restriction of a class. 
+%\begin{align}
+%\vdash ( \mc{A} \restriction \mc{B} ) = ( \mc{A} \cap ( \mc{B} \times
+%    \,\mathrm{V} ) )\label{eq:df-res}\tag{df-res}
+%\end{align}
+%\end{restatable}
+

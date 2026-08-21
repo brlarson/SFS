@@ -1,0 +1,240 @@
+% This LaTeX file was created by Metamath on 24-Dec-2023 8:33 PM.
+\begin{lemma}\blTitle{bl.an2impor2} {P and Q implies P or R.}
+\begin{align}
+\vdash ( ( \mw{\varphi} \wedge \mw{\psi} ) \rightarrow ( \mw{\varphi} \vee
+    \mw{\chi} ) )\label{eq:bl.an2impor2}\tag{bl.an2impor2}
+\end{align}
+\end{lemma}
+
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash ( ( \mw{\varphi} \wedge \mw{\psi} ) \rightarrow \mw{\varphi}
+     )&(\mbox{\ref{eq:simpl}})\notag
+  \\ 2 &&  & \vdash ( \mw{\varphi} \rightarrow ( \mw{\varphi} \vee \mw{\chi} )
+     )&(\mbox{\ref{eq:orc}})\notag
+  \\ 3 &&  & \vdash ( ( \mw{\varphi} \wedge \mw{\psi} ) \rightarrow (
+     \mw{\varphi} \vee \mw{\chi} )
+     )&(\mbox{\ref{eq:syl}},1,2)\notag
+\end{align}
+\end{proof}
+
+\begin{lemma}\blTitle{bl.PandQorPisP} {Law of And-Simplification: P and (Q
+or P) is P}
+\begin{align}
+\vdash ( ( \mw{\varphi} \wedge ( \mw{\psi} \vee \mw{\varphi} ) )
+    \leftrightarrow \mw{\varphi} )\label{eq:bl.PandQorPisP}\tag{bl.PandQorPisP}
+\end{align}
+\end{lemma}
+
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash ( \mw{\varphi} \leftrightarrow ( \mw{\varphi} \wedge (
+     \mw{\varphi} \vee \mw{\psi} ) )
+     )&(\mbox{\ref{eq:pm4.45}})\notag
+  \\ 2 &&  & \vdash ( ( \mw{\varphi} \leftrightarrow ( \mw{\varphi} \wedge (
+     \mw{\varphi} \vee \mw{\psi} ) ) ) \leftrightarrow ( (
+     \mw{\varphi} \wedge ( \mw{\varphi} \vee \mw{\psi} ) )
+     \leftrightarrow \mw{\varphi} )
+     )&(\mbox{\ref{eq:bicom}})\notag
+  \\ 3 &&  & \vdash ( ( \mw{\varphi} \vee \mw{\psi} ) \leftrightarrow (
+     \mw{\psi} \vee \mw{\varphi} )
+     )&(\mbox{\ref{eq:orcom}})\notag
+  \\ 4 &&  & \vdash ( ( \mw{\varphi} \wedge ( \mw{\varphi} \vee \mw{\psi} ) )
+     \leftrightarrow ( \mw{\varphi} \wedge ( \mw{\psi}
+     \vee \mw{\varphi} ) )
+     )&(\mbox{\ref{eq:anbi2i}},3)\notag
+  \\ 5 &&  & \vdash ( ( ( \mw{\varphi} \wedge ( \mw{\varphi} \vee \mw{\psi} ) )
+     \leftrightarrow \mw{\varphi} ) \leftrightarrow ( (
+     \mw{\varphi} \wedge ( \mw{\psi} \vee \mw{\varphi} ) )
+     \leftrightarrow \mw{\varphi} )
+     )&(\mbox{\ref{eq:bibi1i}},4)\notag
+  \\ 6 &&  & \vdash ( ( \mw{\varphi} \leftrightarrow ( \mw{\varphi} \wedge (
+     \mw{\varphi} \vee \mw{\psi} ) ) ) \leftrightarrow ( (
+     \mw{\varphi} \wedge ( \mw{\psi} \vee \mw{\varphi} ) )
+     \leftrightarrow \mw{\varphi} )
+     )&(\mbox{\ref{eq:bitri}},2,5)\notag
+  \\ 7 &&  & \vdash ( ( \mw{\varphi} \wedge ( \mw{\psi} \vee \mw{\varphi} ) )
+     \leftrightarrow \mw{\varphi}
+     )&(\mbox{\ref{eq:mpbi}},1,6)\notag
+\end{align}
+\end{proof}
+
+\begin{lemma}\blTitle{bl.PandPorQisP} {Law of And-Simplification: P and (P
+or Q) is P}
+\begin{align}
+\vdash ( ( \mw{\varphi} \wedge ( \mw{\varphi} \vee \mw{\psi} ) )
+    \leftrightarrow \mw{\varphi} )\label{eq:bl.PandPorQisP}\tag{bl.PandPorQisP}
+\end{align}
+\end{lemma}
+
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash ( ( \mw{\varphi} \wedge ( \mw{\psi} \vee \mw{\varphi} ) )
+     \leftrightarrow \mw{\varphi}
+     )&(\mbox{\ref{eq:bl.PandQorPisP}})\notag
+  \\ 2 &&  & \vdash ( ( \mw{\psi} \vee \mw{\varphi} ) \leftrightarrow (
+     \mw{\varphi} \vee \mw{\psi} )
+     )&(\mbox{\ref{eq:orcom}})\notag
+  \\ 3 &&  & \vdash ( ( \mw{\varphi} \wedge ( \mw{\psi} \vee \mw{\varphi} ) )
+     \leftrightarrow ( \mw{\varphi} \wedge ( \mw{\varphi}
+     \vee \mw{\psi} ) ) )&(\mbox{\ref{eq:anbi2i}},2)\notag
+  \\ 4 &&  & \vdash ( ( ( \mw{\varphi} \wedge ( \mw{\psi} \vee \mw{\varphi} ) )
+     \leftrightarrow \mw{\varphi} ) \leftrightarrow ( (
+     \mw{\varphi} \wedge ( \mw{\varphi} \vee \mw{\psi} ) )
+     \leftrightarrow \mw{\varphi} )
+     )&(\mbox{\ref{eq:bibi1i}},3)\notag
+  \\ 5 &&  & \vdash ( ( \mw{\varphi} \wedge ( \mw{\varphi} \vee \mw{\psi} ) )
+     \leftrightarrow \mw{\varphi}
+     )&(\mbox{\ref{eq:mpbi}},1,4)\notag
+\end{align}
+\end{proof}
+
+\begin{lemma}\blTitle{bl.PisPandQorP} {Law of And-Simplification: P is P
+and (Q or P)}
+\begin{align}
+\vdash ( \mw{\varphi} \leftrightarrow ( \mw{\varphi} \wedge ( \mw{\psi} \vee
+    \mw{\varphi} ) ) )\label{eq:bl.PisPandQorP}\tag{bl.PisPandQorP}
+\end{align}
+\end{lemma}
+
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash ( \mw{\varphi} \leftrightarrow ( \mw{\varphi} \wedge (
+     \mw{\varphi} \vee \mw{\psi} ) )
+     )&(\mbox{\ref{eq:pm4.45}})\notag
+  \\ 2 &&  & \vdash ( ( \mw{\varphi} \vee \mw{\psi} ) \leftrightarrow (
+     \mw{\psi} \vee \mw{\varphi} )
+     )&(\mbox{\ref{eq:orcom}})\notag
+  \\ 3 &&  & \vdash ( ( \mw{\varphi} \wedge ( \mw{\varphi} \vee \mw{\psi} ) )
+     \leftrightarrow ( \mw{\varphi} \wedge ( \mw{\psi}
+     \vee \mw{\varphi} ) )
+     )&(\mbox{\ref{eq:anbi2i}},2)\notag
+  \\ 4 &&  & \vdash ( ( \mw{\varphi} \leftrightarrow ( \mw{\varphi} \wedge (
+     \mw{\varphi} \vee \mw{\psi} ) ) ) \leftrightarrow (
+     \mw{\varphi} \leftrightarrow ( \mw{\varphi} \wedge (
+     \mw{\psi} \vee \mw{\varphi} ) ) )
+     )&(\mbox{\ref{eq:bibi2i}},3)\notag
+  \\ 5 &&  & \vdash ( \mw{\varphi} \leftrightarrow ( \mw{\varphi} \wedge (
+     \mw{\psi} \vee \mw{\varphi} ) )
+     )&(\mbox{\ref{eq:mpbi}},1,4)\notag
+\end{align}
+\end{proof}
+
+\begin{lemma}\blTitle{bl.PorQandPisP} {Law of Or-Simplification: P or (Q
+and P) is P}
+\begin{align}
+\vdash ( ( \mw{\varphi} \vee ( \mw{\psi} \wedge \mw{\varphi} ) )
+    \leftrightarrow \mw{\varphi} )\label{eq:bl.PorQandPisP}\tag{bl.PorQandPisP}
+\end{align}
+\end{lemma}
+
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash ( \mw{\varphi} \leftrightarrow ( \mw{\varphi} \vee (
+     \mw{\varphi} \wedge \mw{\psi} ) )
+     )&(\mbox{\ref{eq:pm4.44}})\notag
+  \\ 2 &&  & \vdash ( ( \mw{\varphi} \leftrightarrow ( \mw{\varphi} \vee (
+     \mw{\varphi} \wedge \mw{\psi} ) ) ) \leftrightarrow (
+     ( \mw{\varphi} \vee ( \mw{\varphi} \wedge \mw{\psi} )
+     ) \leftrightarrow \mw{\varphi} )
+     )&(\mbox{\ref{eq:bicom}})\notag
+  \\ 3 &&  & \vdash ( ( \mw{\varphi} \wedge \mw{\psi} ) \leftrightarrow (
+     \mw{\psi} \wedge \mw{\varphi} )
+     )&(\mbox{\ref{eq:ancom}})\notag
+  \\ 4 &&  & \vdash ( ( \mw{\varphi} \vee ( \mw{\varphi} \wedge \mw{\psi} ) )
+     \leftrightarrow ( \mw{\varphi} \vee ( \mw{\psi}
+     \wedge \mw{\varphi} ) )
+     )&(\mbox{\ref{eq:orbi2i}},3)\notag
+  \\ 5 &&  & \vdash ( ( ( \mw{\varphi} \vee ( \mw{\varphi} \wedge \mw{\psi} ) )
+     \leftrightarrow \mw{\varphi} ) \leftrightarrow ( (
+     \mw{\varphi} \vee ( \mw{\psi} \wedge \mw{\varphi} ) )
+     \leftrightarrow \mw{\varphi} )
+     )&(\mbox{\ref{eq:bibi1i}},4)\notag
+  \\ 6 &&  & \vdash ( ( \mw{\varphi} \leftrightarrow ( \mw{\varphi} \vee (
+     \mw{\varphi} \wedge \mw{\psi} ) ) ) \leftrightarrow (
+     ( \mw{\varphi} \vee ( \mw{\psi} \wedge \mw{\varphi} )
+     ) \leftrightarrow \mw{\varphi} )
+     )&(\mbox{\ref{eq:bitri}},2,5)\notag
+  \\ 7 &&  & \vdash ( ( \mw{\varphi} \vee ( \mw{\psi} \wedge \mw{\varphi} ) )
+     \leftrightarrow \mw{\varphi}
+     )&(\mbox{\ref{eq:mpbi}},1,6)\notag
+\end{align}
+\end{proof}
+
+\begin{lemma}\blTitle{bl.PorPandQisP} {Law of Or-Simplification: P or (P
+and Q) is P}
+\begin{align}
+\vdash ( ( \mw{\varphi} \vee ( \mw{\varphi} \wedge \mw{\psi} ) )
+    \leftrightarrow \mw{\varphi} )\label{eq:bl.PorPandQisP}\tag{bl.PorPandQisP}
+\end{align}
+\end{lemma}
+
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash ( ( \mw{\varphi} \vee ( \mw{\psi} \wedge \mw{\varphi} ) )
+     \leftrightarrow \mw{\varphi}
+     )&(\mbox{\ref{eq:bl.PorQandPisP}})\notag
+  \\ 2 &&  & \vdash ( ( \mw{\psi} \wedge \mw{\varphi} ) \leftrightarrow (
+     \mw{\varphi} \wedge \mw{\psi} )
+     )&(\mbox{\ref{eq:ancom}})\notag
+  \\ 3 &&  & \vdash ( ( \mw{\varphi} \vee ( \mw{\psi} \wedge \mw{\varphi} ) )
+     \leftrightarrow ( \mw{\varphi} \vee ( \mw{\varphi}
+     \wedge \mw{\psi} ) )
+     )&(\mbox{\ref{eq:orbi2i}},2)\notag
+  \\ 4 &&  & \vdash ( ( ( \mw{\varphi} \vee ( \mw{\psi} \wedge \mw{\varphi} ) )
+     \leftrightarrow \mw{\varphi} ) \leftrightarrow ( (
+     \mw{\varphi} \vee ( \mw{\varphi} \wedge \mw{\psi} ) )
+     \leftrightarrow \mw{\varphi} )
+     )&(\mbox{\ref{eq:bibi1i}},3)\notag
+  \\ 5 &&  & \vdash ( ( \mw{\varphi} \vee ( \mw{\varphi} \wedge \mw{\psi} ) )
+     \leftrightarrow \mw{\varphi}
+     )&(\mbox{\ref{eq:mpbi}},1,4)\notag
+\end{align}
+\end{proof}
+
+\begin{lemma}\blTitle{bl.PisPorQandP} {Law of Or-Simplification: P is P or
+(Q and P)}
+\begin{align}
+\vdash ( \mw{\varphi} \leftrightarrow ( \mw{\varphi} \vee ( \mw{\psi} \wedge
+    \mw{\varphi} ) ) )\label{eq:bl.PisPorQandP}\tag{bl.PisPorQandP}
+\end{align}
+\end{lemma}
+
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash ( \mw{\varphi} \leftrightarrow ( \mw{\varphi} \vee (
+     \mw{\varphi} \wedge \mw{\psi} ) )
+     )&(\mbox{\ref{eq:pm4.44}})\notag
+  \\ 2 &&  & \vdash ( ( \mw{\varphi} \wedge \mw{\psi} ) \leftrightarrow (
+     \mw{\psi} \wedge \mw{\varphi} )
+     )&(\mbox{\ref{eq:ancom}})\notag
+  \\ 3 &&  & \vdash ( ( \mw{\varphi} \vee ( \mw{\varphi} \wedge \mw{\psi} ) )
+     \leftrightarrow ( \mw{\varphi} \vee ( \mw{\psi}
+     \wedge \mw{\varphi} ) )
+     )&(\mbox{\ref{eq:orbi2i}},2)\notag
+  \\ 4 &&  & \vdash ( ( \mw{\varphi} \leftrightarrow ( \mw{\varphi} \vee (
+     \mw{\varphi} \wedge \mw{\psi} ) ) ) \leftrightarrow (
+     \mw{\varphi} \leftrightarrow ( \mw{\varphi} \vee (
+     \mw{\psi} \wedge \mw{\varphi} ) ) )
+     )&(\mbox{\ref{eq:bibi2i}},3)\notag
+  \\ 5 &&  & \vdash ( \mw{\varphi} \leftrightarrow ( \mw{\varphi} \vee (
+     \mw{\psi} \wedge \mw{\varphi} ) )
+     )&(\mbox{\ref{eq:mpbi}},1,4)\notag
+\end{align}
+\end{proof}
+
+\begin{lemma}\blTitle{bl.xorall} {Associativity of Exclusive-Or}
+\begin{align}
+\vdash ( ( ( \mw{\varphi} \veebar \mw{\psi} ) \veebar \mw{\chi} )
+    \leftrightarrow ( \mw{\varphi} \veebar \mw{\psi} \veebar \mw{\chi} )
+    )\label{eq:bl.xorall}\tag{bl.xorall}
+\end{align}
+\end{lemma}
+

@@ -1,0 +1,210 @@
+% This LaTeX file was created by Metamath on 24-Dec-2023 8:33 PM.
+\begin{lemma}\blTitle{bl.ctao} {Common Term Between And-List and Or-List}
+(right)
+\begin{align}
+\vdash ( \bigwedge( \mwl{l_1} \mw{\varphi} ) \rightarrow \bigvee( \mwl{l_2}
+    \mw{\varphi} ) )\label{eq:bl.ctao}\tag{bl.ctao}
+\end{align}
+\end{lemma}
+
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash ( ( \bigwedge( \mwl{l_1} ) \wedge \mw{\varphi} ) \rightarrow (
+     \bigvee( \mwl{l_2} ) \vee \mw{\varphi} )
+     )&(\mbox{\ref{eq:animorr}})\notag
+  \\ 2 &&  & \vdash ( \bigwedge( \mwl{l_1} \mw{\varphi} ) \leftrightarrow (
+     \bigwedge( \mwl{l_1} ) \wedge \mw{\varphi} )
+     )&(\mbox{\ref{eq:bl.anplw}})\notag
+  \\ 3 &&  & \vdash ( \bigvee( \mwl{l_2} \mw{\varphi} ) \leftrightarrow (
+     \bigvee( \mwl{l_2} ) \vee \mw{\varphi} )
+     )&(\mbox{\ref{eq:bl.orplw}})\notag
+  \\ 4 &&  & \vdash ( \bigwedge( \mwl{l_1} \mw{\varphi} ) \rightarrow \bigvee(
+     \mwl{l_2} \mw{\varphi} )
+     )&(\mbox{\ref{eq:3imtr4i}},1,2,3)\notag
+\end{align}
+\end{proof}
+
+\begin{lemma}\blTitle{bl.ctaol} {Common Term Between And-List and Or-List
+(left)}
+\begin{align}
+\vdash ( \bigwedge( \mw{\varphi} \mwl{l_1} ) \rightarrow \bigvee( \mw{\varphi}
+    \mwl{l_2} ) )\label{eq:bl.ctaol}\tag{bl.ctaol}
+\end{align}
+\end{lemma}
+
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash ( \bigwedge( \mwl{l_1} \mwl{l_2} ) \leftrightarrow (
+     \bigwedge( \mwl{l_1} ) \wedge \bigwedge( \mwl{l_2} )
+     ) )&(\mbox{\ref{eq:df-bl.lan2wl}})\notag
+  \\ 2 &&  & \vdash ( ( \bigwedge( \mwl{l_1} ) \wedge \bigwedge( \mwl{l_2} ) )
+     \rightarrow ( \bigvee( \mwl{l_3} ) \vee \bigwedge(
+     \mwl{l_2} ) ) )&(\mbox{\ref{eq:animorr}})\notag
+  \\ 3 &&  & \vdash ( \bigwedge( \mwl{l_1} \mwl{l_2} ) \rightarrow ( \bigvee(
+     \mwl{l_3} ) \vee \bigwedge( \mwl{l_2} ) )
+     )&(\mbox{\ref{eq:sylbi}},1,2)\notag
+  \\ 4 &&  & \vdash ( \bigvee( \mwl{l_3} \bigwedge( \mwl{l_2} ) )
+     \leftrightarrow ( \bigvee( \mwl{l_3} ) \vee
+     \bigwedge( \mwl{l_2} ) )
+     )&(\mbox{\ref{eq:bl.orplw}})\notag
+  \\ 5 &&  & \vdash ( \bigwedge( \mwl{l_1} \mwl{l_2} ) \rightarrow \bigvee(
+     \mwl{l_3} \bigwedge( \mwl{l_2} ) )
+     )&(\mbox{\ref{eq:sylibr}},3,4)\notag
+\end{align}
+\end{proof}
+
+\begin{lemma}\blTitle{bl.animporanl} {Premise Has All Terms of Conjunction
+Within Disjunction (left)}
+\begin{align}
+\vdash ( \bigwedge( \mwl{l_2} \mwl{l_1} ) \rightarrow \bigvee( \bigwedge(
+    \mwl{l_2} ) \mwl{l_3} ) )\label{eq:bl.animporanl}\tag{bl.animporanl}
+\end{align}
+\end{lemma}
+
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash ( ( \bigwedge( \mwl{l_2} ) \wedge \bigwedge( \mwl{l_1} ) )
+     \rightarrow ( \bigwedge( \mwl{l_2} ) \vee \bigvee(
+     \mwl{l_3} ) ) )&(\mbox{\ref{eq:animorl}})\notag
+  \\ 2 &&  & \vdash ( \bigwedge( \mwl{l_2} \mwl{l_1} ) \leftrightarrow (
+     \bigwedge( \mwl{l_2} ) \wedge \bigwedge( \mwl{l_1} )
+     ) )&(\mbox{\ref{eq:df-bl.lan2wl}})\notag
+  \\ 3 &&  & \vdash ( \bigvee( \bigwedge( \mwl{l_2} ) \mwl{l_3} )
+     \leftrightarrow ( \bigwedge( \mwl{l_2} ) \vee
+     \bigvee( \mwl{l_3} ) )
+     )&(\mbox{\ref{eq:bl.orpfw}})\notag
+  \\ 4 &&  & \vdash ( \bigwedge( \mwl{l_2} \mwl{l_1} ) \rightarrow \bigvee(
+     \bigwedge( \mwl{l_2} ) \mwl{l_3} )
+     )&(\mbox{\ref{eq:3imtr4i}},1,2,3)\notag
+\end{align}
+\end{proof}
+
+\begin{lemma}\blTitle{bl.orcwl} {Or-Introduction Schema of wff (right)}
+\begin{align}
+\vdash ( \mw{\varphi} \rightarrow \bigvee( \mwl{l_1} \mw{\varphi} )
+    )\label{eq:bl.orcwl}\tag{bl.orcwl}
+\end{align}
+\end{lemma}
+
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash ( \mw{\varphi} \rightarrow ( \bigvee( \mwl{l_1} ) \vee
+     \mw{\varphi} ) )&(\mbox{\ref{eq:olc}})\notag
+  \\ 2 &&  & \vdash ( \bigvee( \mwl{l_1} \mw{\varphi} ) \leftrightarrow (
+     \bigvee( \mwl{l_1} ) \vee \mw{\varphi} )
+     )&(\mbox{\ref{eq:bl.orplw}})\notag
+  \\ 3 &&  & \vdash ( \mw{\varphi} \rightarrow \bigvee( \mwl{l_1} \mw{\varphi}
+     ) )&(\mbox{\ref{eq:sylibr}},1,2)\notag
+\end{align}
+\end{proof}
+
+\begin{lemma}\blTitle{bl.orcwll} {Or-Introduction Schema of wff (left)}
+\begin{align}
+\vdash ( \mw{\varphi} \rightarrow \bigvee( \mw{\varphi} \mwl{l_1} )
+    )\label{eq:bl.orcwll}\tag{bl.orcwll}
+\end{align}
+\end{lemma}
+
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash ( \mw{\varphi} \rightarrow ( \mw{\varphi} \vee \bigvee(
+     \mwl{l_1} ) ) )&(\mbox{\ref{eq:orc}})\notag
+  \\ 2 &&  & \vdash ( \bigvee( \mw{\varphi} \mwl{l_1} ) \leftrightarrow (
+     \mw{\varphi} \vee \bigvee( \mwl{l_1} ) )
+     )&(\mbox{\ref{eq:bl.orpfw}})\notag
+  \\ 3 &&  & \vdash ( \mw{\varphi} \rightarrow \bigvee( \mw{\varphi} \mwl{l_1}
+     ) )&(\mbox{\ref{eq:sylibr}},1,2)\notag
+\end{align}
+\end{proof}
+
+\begin{lemma}\blTitle{bl.aisl} {And-Introduction Schema of wff (left)}
+\begin{align}
+\vdash ( \bigwedge( \mwl{l_1} \mw{\varphi} ) \rightarrow \mw{\varphi}
+    )\label{eq:bl.aisl}\tag{bl.aisl}
+\end{align}
+\end{lemma}
+
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash ( \bigwedge( \mwl{l_1} \mw{\varphi} ) \leftrightarrow (
+     \bigwedge( \mwl{l_1} ) \wedge \mw{\varphi} )
+     )&(\mbox{\ref{eq:bl.anplw}})\notag
+  \\ 2 &&  & \vdash ( ( \bigwedge( \mwl{l_1} ) \wedge \mw{\varphi} )
+     \rightarrow \mw{\varphi}
+     )&(\mbox{\ref{eq:simpr}})\notag
+  \\ 3 &&  & \vdash ( \bigwedge( \mwl{l_1} \mw{\varphi} ) \rightarrow
+     \mw{\varphi} )&(\mbox{\ref{eq:sylbi}},1,2)\notag
+\end{align}
+\end{proof}
+
+\begin{lemma}\blTitle{bl.aisr} {And-Introduction Schema of wff (right)}
+\begin{align}
+\vdash ( \bigwedge( \mw{\varphi} \mwl{l_1} ) \rightarrow \mw{\varphi}
+    )\label{eq:bl.aisr}\tag{bl.aisr}
+\end{align}
+\end{lemma}
+
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash ( \bigwedge( \mw{\varphi} \mwl{l_1} ) \leftrightarrow (
+     \mw{\varphi} \wedge \bigwedge( \mwl{l_1} ) )
+     )&(\mbox{\ref{eq:bl.anpfw}})\notag
+  \\ 2 &&  & \vdash ( ( \mw{\varphi} \wedge \bigwedge( \mwl{l_1} ) )
+     \rightarrow \mw{\varphi}
+     )&(\mbox{\ref{eq:simpl}})\notag
+  \\ 3 &&  & \vdash ( \bigwedge( \mw{\varphi} \mwl{l_1} ) \rightarrow
+     \mw{\varphi} )&(\mbox{\ref{eq:sylbi}},1,2)\notag
+\end{align}
+\end{proof}
+
+\begin{lemma}\blTitle{bl.aiswll} {And-Introduction Schema of wff-List
+(left)}
+\begin{align}
+\vdash ( \bigwedge( \mwl{l_1} \mwl{l_2} ) \rightarrow \bigwedge( \mwl{l_2} )
+    )\label{eq:bl.aiswll}\tag{bl.aiswll}
+\end{align}
+\end{lemma}
+
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash ( \bigwedge( \mwl{l_1} \mwl{l_2} ) \leftrightarrow (
+     \bigwedge( \mwl{l_1} ) \wedge \bigwedge( \mwl{l_2} )
+     ) )&(\mbox{\ref{eq:df-bl.lan2wl}})\notag
+  \\ 2 &&  & \vdash ( ( \bigwedge( \mwl{l_1} ) \wedge \bigwedge( \mwl{l_2} ) )
+     \rightarrow \bigwedge( \mwl{l_2} )
+     )&(\mbox{\ref{eq:simpr}})\notag
+  \\ 3 &&  & \vdash ( \bigwedge( \mwl{l_1} \mwl{l_2} ) \rightarrow \bigwedge(
+     \mwl{l_2} ) )&(\mbox{\ref{eq:sylbi}},1,2)\notag
+\end{align}
+\end{proof}
+
+\begin{lemma}\blTitle{bl.aiswlr} {And-Introduction Schema of wff-List
+(right)}
+\begin{align}
+\vdash ( \bigwedge( \mwl{l_1} \mwl{l_2} ) \rightarrow \bigwedge( \mwl{l_1} )
+    )\label{eq:bl.aiswlr}\tag{bl.aiswlr}
+\end{align}
+\end{lemma}
+
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash ( \bigwedge( \mwl{l_1} \mwl{l_2} ) \leftrightarrow (
+     \bigwedge( \mwl{l_1} ) \wedge \bigwedge( \mwl{l_2} )
+     ) )&(\mbox{\ref{eq:df-bl.lan2wl}})\notag
+  \\ 2 &&  & \vdash ( ( \bigwedge( \mwl{l_1} ) \wedge \bigwedge( \mwl{l_2} ) )
+     \rightarrow \bigwedge( \mwl{l_1} )
+     )&(\mbox{\ref{eq:simpl}})\notag
+  \\ 3 &&  & \vdash ( \bigwedge( \mwl{l_1} \mwl{l_2} ) \rightarrow \bigwedge(
+     \mwl{l_1} ) )&(\mbox{\ref{eq:sylbi}},1,2)\notag
+\end{align}
+\end{proof}
+

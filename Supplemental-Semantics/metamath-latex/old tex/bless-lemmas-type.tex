@@ -1,0 +1,95 @@
+% This LaTeX file was created by Metamath on 24-Dec-2023 8:33 PM.
+
+%\begin{metadefinition}\blTitle{df-bl.enum} Create Class Enum which contains all
+%identifiers;
+%Every enumeration will be a subset of Enum: $x \subsetneq \,\mathrm{Enum}$
+%\begin{align}
+%\vdash \,\mathrm{Enum} = \{ x~\vert~x \in \,\mathrm{ID}
+%    \}\label{eq:df-bl.enum}\tag{df-bl.enum}
+%\end{align}
+%\end{metadefinition}
+
+
+
+%\begin{lemma}\blTitle{bl.arst} An array is an extensible structure.
+%\begin{align}
+%\vdash ( F \,\mathrm{Array} \langle M , N \rangle \rightarrow F {\rm Struct}
+%    \langle M , N \rangle )\label{eq:bl.arst}\tag{bl.arst}
+%\end{align}
+%\end{lemma}
+
+%\begin{proof}
+%\begin{align}
+%  1 &&  & \vdash ( F \,\mathrm{Array} \langle M , N \rangle \leftrightarrow ( (
+%     M \in \mathbb{N} \wedge N \in \mathbb{N} \wedge M \le
+%     N ) \wedge ( {\rm Fun} ( F \setminus \{ \varnothing
+%     \} ) \wedge {\rm dom} F \subseteq ( M \ldots N ) )
+%     \wedge {\rm ran} F \subseteq \mathsf{TYPE} )
+%     )&(\mbox{\ref{eq:df-bl.array}})\notag
+%  \\ 2 &&  & \vdash ( ( ( M \in \mathbb{N} \wedge N \in \mathbb{N} \wedge M \le
+%     N ) \wedge ( {\rm Fun} ( F \setminus \{ \varnothing
+%     \} ) \wedge {\rm dom} F \subseteq ( M \ldots N ) )
+%     \wedge {\rm ran} F \subseteq \mathsf{TYPE} )
+%     \rightarrow ( ( M \in \mathbb{N} \wedge N \in
+%     \mathbb{N} \wedge M \le N ) \wedge ( {\rm Fun} ( F
+%     \setminus \{ \varnothing \} ) \wedge {\rm dom} F
+%     \subseteq ( M \ldots N ) ) )
+%     )&(\mbox{\ref{eq:3simpa}})\notag
+%  \\ 3 &&  & \vdash ( F \,\mathrm{Array} \langle M , N \rangle \rightarrow ( (
+%     M \in \mathbb{N} \wedge N \in \mathbb{N} \wedge M \le
+%     N ) \wedge ( {\rm Fun} ( F \setminus \{ \varnothing
+%     \} ) \wedge {\rm dom} F \subseteq ( M \ldots N ) ) )
+%     )&(\mbox{\ref{eq:sylbi}},1,2)\notag
+%  \\ 4 &&  & \vdash ( ( ( M \in \mathbb{N} \wedge N \in \mathbb{N} \wedge M \le
+%     N ) \wedge {\rm Fun} ( F \setminus \{ \varnothing \}
+%     ) \wedge {\rm dom} F \subseteq ( M \ldots N ) )
+%     \leftrightarrow ( ( M \in \mathbb{N} \wedge N \in
+%     \mathbb{N} \wedge M \le N ) \wedge ( {\rm Fun} ( F
+%     \setminus \{ \varnothing \} ) \wedge {\rm dom} F
+%     \subseteq ( M \ldots N ) ) )
+%     )&(\mbox{\ref{eq:3anass}})\notag
+%  \\ 5 &&  & \vdash ( F \,\mathrm{Array} \langle M , N \rangle \rightarrow ( (
+%     M \in \mathbb{N} \wedge N \in \mathbb{N} \wedge M \le
+%     N ) \wedge {\rm Fun} ( F \setminus \{ \varnothing \}
+%     ) \wedge {\rm dom} F \subseteq ( M \ldots N ) )
+%     )&(\mbox{\ref{eq:sylibr}},3,4)\notag
+%  \\ 6 &&  & \vdash ( F {\rm Struct} \langle M , N \rangle \leftrightarrow ( (
+%     M \in \mathbb{N} \wedge N \in \mathbb{N} \wedge M \le
+%     N ) \wedge {\rm Fun} ( F \setminus \{ \varnothing \}
+%     ) \wedge {\rm dom} F \subseteq ( M \ldots N ) )
+%     )&(\mbox{\ref{eq:isstruct}})\notag
+%  \\ 7 &&  & \vdash ( F \,\mathrm{Array} \langle M , N \rangle \rightarrow F
+%     {\rm Struct} \langle M , N \rangle
+%     )&(\mbox{\ref{eq:sylibr}},5,6)\notag
+%\end{align}
+%\end{proof}
+
+%\begin{metadefinition}\blTitle{df-bl.record} Record type is a function from
+%identifiers to types.
+%\begin{align}
+%\vdash ( x \in \,\mathrm{Record} \leftrightarrow x : \,\mathrm{ID}
+%    \longrightarrow \mathsf{TYPE} )\label{eq:df-bl.record}\tag{df-bl.record}
+%\end{align}
+%\end{metadefinition}
+
+%
+%\begin{metadefinition}\blTitle{df-bl.variant} Variant type uses a discriminant
+%to determine which record field holds its type.
+%\begin{align}
+%\vdash ( x \in \,\mathrm{Variant} \leftrightarrow x \in \{ \langle y , z
+%    \rangle~\vert~( z \in \,\mathrm{Record} \wedge y \in {\rm dom} z ) \}
+%    )\label{eq:df-bl.variant}\tag{df-bl.variant}
+%\end{align}
+%\end{metadefinition}
+
+
+%\begin{metadefinition}\blTitle{df-bl.string} String type is a Word of QWERTY
+%characters
+%\begin{align}
+%\vdash x \in \,\mathrm{Word }
+%    \,\mathrm{QWERTY}\label{eq:df-bl.string}\tag{df-bl.string}
+%\end{align}
+%\end{metadefinition}
+
+
+

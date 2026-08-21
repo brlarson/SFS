@@ -1,0 +1,195 @@
+% This LaTeX file was created by Metamath on 18-Feb-2024 9:42 PM.
+\begin{restatable}{axiom}{axblat}~\blTitle{ax-bl.at}~ Axiom of @ for predicates.
+   @ determines in which world to evaluate.
+\begin{align}
+\vdash \msc{t_1} \in \mathbf{T}\quad\Rightarrow \notag \\ 
+	\quad \vdash ( ( \mathfrak{M}
+    \models ( \mw{\varphi} @ \msc{t_1} ) ) \leftrightarrow ( \mathfrak{M} ,
+    \msc{t_1} \models \mw{\varphi} ) )\label{eq:ax-bl.at}\tag{ax-bl.at}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{axiom}{axblatc}~\blTitle{ax-bl.atc}~ Axiom of @ for values.
+   @ determines in which world to evaluate.
+\begin{align}
+\vdash \msc{t_1} \in \mathbf{T}\quad\Rightarrow \notag \\ 
+	\quad \vdash ( \mathfrak{M}
+    \models ( \mc{A} @ \msc{t_1} ) ) = ( \mathfrak{M} , \msc{t_1} \models
+    \mc{A} )\label{eq:ax-bl.atc}\tag{ax-bl.atc}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{axiom}{axblattwo}~\blTitle{ax-bl.at2}~ Axiom of Double @ for predicates.
+   Second application of @ is inconsequential, predicate.
+\begin{align}
+\vdash \msc{t_1} \in \mathbf{T}\quad\&\quad \vdash \msc{t_2} \in
+    \mathbf{T}\quad\Rightarrow \notag \\ 
+	\quad \vdash ( ( \mathfrak{M} \models ( (
+    \mw{\varphi} @ \msc{t_1} ) @ \msc{t_2} ) ) \leftrightarrow ( \mathfrak{M} ,
+    \msc{t_1} \models \mw{\varphi} ) )\label{eq:ax-bl.at2}\tag{ax-bl.at2}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{axiom}{axblattwoc}~\blTitle{ax-bl.at2c}~ Axiom of Double @ for values.
+   Second application of @ is inconsequential, value.
+\begin{align}
+\vdash \msc{t_1} \in \mathbf{T}\quad\&\quad \vdash \msc{t_2} \in
+    \mathbf{T}\quad\Rightarrow \notag \\ 
+	\quad \vdash ( \mathfrak{M} \models ( ( \mc{A} @
+    \msc{t_1} ) @ \msc{t_2} ) ) = ( \mathfrak{M} , \msc{t_1} \models \mc{A}
+    )\label{eq:ax-bl.at2c}\tag{ax-bl.at2c}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{blatintro}~\blTitle{bl.atintro}~ @ Introduction for predicates.
+   If a predicate is always true it's true at any time.
+\begin{align}
+\vdash \msc{t} \in \mathbf{T}\quad\Rightarrow \notag \\ 
+	\quad \vdash ( ( \mathfrak{M}
+    \models \mw{\varphi} ) \rightarrow ( \mathfrak{M} \models ( \mw{\varphi} @
+    \msc{t} ) ) )\label{eq:bl.atintro}\tag{bl.atintro}
+\end{align}
+\end{restatable}
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash \msc{t} \in \mathbf{T}&\text{Hyp~atintro.1}\notag%bl.atintro.1
+  \\ 2 &&  & \vdash ( ( \mathfrak{M} \models \mw{\varphi} ) \rightarrow (
+     ~\mathfrak{M} , \msc{t} \models \mw{\varphi} )
+     ~)&(\mbox{\ref{eq:ax-bl.models}},1)\notag
+  \\ 3 &&  & \vdash \msc{t} \in
+     ~\mathbf{T}&\text{Hyp~atintro.1}\notag%bl.atintro.1
+  \\ 4 &&  & \vdash ( ( \mathfrak{M} \models ( \mw{\varphi} @ \msc{t} ) )
+     ~\leftrightarrow ( \mathfrak{M} , \msc{t} \models
+     ~\mw{\varphi} ) )&(\mbox{\ref{eq:ax-bl.at}},3)\notag
+  \\ 5 &&  & \vdash ( ( \mathfrak{M} \models \mw{\varphi} ) \rightarrow (
+     ~\mathfrak{M} \models ( \mw{\varphi} @ \msc{t} ) )
+     ~)&(\mbox{\ref{eq:sylibr}},2,4)\notag
+\end{align}
+\end{proof}
+
+\begin{restatable}{axiom}{axblatbi}~\blTitle{ax-bl.atbi}~ Axiom of @ Equivalence (biconditional) for
+predicates.
+\begin{align}
+\vdash \msc{t_1} \in \mathbf{T}\quad\&\quad \vdash \msc{t_2} \in
+    \mathbf{T}\quad\Rightarrow \notag \\ 
+	\quad \vdash ( ( \msc{t_1} = \msc{t_2} \wedge (
+    \mw{\varphi} \leftrightarrow \mw{\psi} ) ) \rightarrow ( ( \mathfrak{M}
+    \models ( \mw{\varphi} @ \msc{t_1} ) ) \leftrightarrow ( \mathfrak{M}
+    \models ( \mw{\psi} @ \msc{t_2} ) ) )
+    )\label{eq:ax-bl.atbi}\tag{ax-bl.atbi}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{blatbii}~\blTitle{bl.atbii}~ @ Equivalence (biconditional) for
+predicates, inference.
+\begin{align}
+\vdash \msc{t_1} \in \mathbf{T}\quad\&\quad \vdash \msc{t_2} \in
+    \mathbf{T}\quad\&\quad \vdash ( \mw{\varphi} \leftrightarrow \mw{\psi}
+    )\quad\&\quad \vdash \msc{t_1} = \msc{t_2}\quad\Rightarrow \notag \\ 
+	\quad \vdash ( (
+    \mathfrak{M} \models ( \mw{\varphi} @ \msc{t_1} ) ) \leftrightarrow (
+    \mathfrak{M} \models ( \mw{\psi} @ \msc{t_2} ) )
+    )\label{eq:bl.atbii}\tag{bl.atbii}
+\end{align}
+\end{restatable}
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash \msc{t_1} = \msc{t_2}&\text{Hyp~atbii.4}\notag%bl.atbii.4
+  \\ 2 &&  & \vdash ( \mw{\varphi} \leftrightarrow \mw{\psi}
+     ~)&\text{Hyp~atbii.3}\notag%bl.atbii.3
+  \\ 3 &&  & \vdash \msc{t_1} \in
+     ~\mathbf{T}&\text{Hyp~atbii.1}\notag%bl.atbii.1
+  \\ 4 &&  & \vdash \msc{t_2} \in
+     ~\mathbf{T}&\text{Hyp~atbii.2}\notag%bl.atbii.2
+  \\ 5 &&  & \vdash ( ( \msc{t_1} = \msc{t_2} \wedge ( \mw{\varphi}
+     ~\leftrightarrow \mw{\psi} ) ) \rightarrow ( (
+     ~\mathfrak{M} \models ( \mw{\varphi} @ \msc{t_1} ) )
+     ~\leftrightarrow ( \mathfrak{M} \models ( \mw{\psi} @
+     ~\msc{t_2} ) ) )
+     ~)&(\mbox{\ref{eq:ax-bl.atbi}},3,4)\notag
+  \\ 6 &&  & \vdash ( ( \mathfrak{M} \models ( \mw{\varphi} @ \msc{t_1} ) )
+     ~\leftrightarrow ( \mathfrak{M} \models ( \mw{\psi} @
+     ~\msc{t_2} ) ) )&(\mbox{\ref{eq:mp2an}},1,2,5)\notag
+\end{align}
+\end{proof}
+
+\begin{restatable}{axiom}{axblateqc}~\blTitle{ax-bl.ateqc}~ Axiom of @ Equality for values.
+\begin{align}
+\vdash \msc{t_1} \in \mathbf{T}\quad\&\quad \vdash \msc{t_2} \in
+    \mathbf{T}\quad\Rightarrow \notag \\ 
+	\quad \vdash ( ( \msc{t_1} = \msc{t_2} \wedge
+    \mc{A} = \mc{B} ) \rightarrow ( \mathfrak{M} \models ( \mc{A} @ \msc{t_1} )
+    ) = ( \mathfrak{M} \models ( \mc{B} @ \msc{t_2} ) )
+    )\label{eq:ax-bl.ateqc}\tag{ax-bl.ateqc}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{lemma}{blateqci}~\blTitle{bl.ateqci}~ Equality of @ for values, inference.
+\begin{align}
+\vdash \msc{t_1} \in \mathbf{T}\quad\&\quad \vdash \msc{t_2} \in
+    \mathbf{T}\quad\&\quad \vdash \mc{A} = \mc{B}\quad\&\quad \vdash \msc{t_1}
+    = \msc{t_2}\quad\Rightarrow \notag \\ 
+	\quad \vdash ( \mathfrak{M} \models ( \mc{A} @
+    \msc{t_1} ) ) = ( \mathfrak{M} \models ( \mc{B} @ \msc{t_2} )
+    )\label{eq:bl.ateqci}\tag{bl.ateqci}
+\end{align}
+\end{restatable}
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash \msc{t_1} = \msc{t_2}&\text{Hyp~ateqci.4}\notag%bl.ateqci.4
+  \\ 2 &&  & \vdash \mc{A} = \mc{B}&\text{Hyp~ateqci.3}\notag%bl.ateqci.3
+  \\ 3 &&  & \vdash \msc{t_1} \in
+     ~\mathbf{T}&\text{Hyp~ateqci.1}\notag%bl.ateqci.1
+  \\ 4 &&  & \vdash \msc{t_2} \in
+     ~\mathbf{T}&\text{Hyp~ateqci.2}\notag%bl.ateqci.2
+  \\ 5 &&  & \vdash ( ( \msc{t_1} = \msc{t_2} \wedge \mc{A} = \mc{B} )
+     ~\rightarrow ( \mathfrak{M} \models ( \mc{A} @
+     ~\msc{t_1} ) ) = ( \mathfrak{M} \models ( \mc{B} @
+     ~\msc{t_2} ) )
+     ~)&(\mbox{\ref{eq:ax-bl.ateqc}},3,4)\notag
+  \\ 6 &&  & \vdash ( \mathfrak{M} \models ( \mc{A} @ \msc{t_1} ) ) = (
+     ~\mathfrak{M} \models ( \mc{B} @ \msc{t_2} )
+     ~)&(\mbox{\ref{eq:mp2an}},1,2,5)\notag
+\end{align}
+\end{proof}
+
+\begin{restatable}{lemma}{blatintroc}~\blTitle{bl.atintroc}~ @ Introduction: if a value is constant
+its value is the same at any time.
+\begin{align}
+\vdash \msc{t} \in \mathbf{T}\quad\Rightarrow \notag \\ 
+	\quad \vdash ( ( \mathfrak{M}
+    \models \mc{A} ) = \mc{B} \rightarrow ( \mathfrak{M} \models ( \mc{A} @
+    \msc{t} ) ) = \mc{B} )\label{eq:bl.atintroc}\tag{bl.atintroc}
+\end{align}
+\end{restatable}
+
+\begin{proof}
+\begin{align}
+  1 &&  & \vdash \msc{t} \in
+     ~\mathbf{T}&\text{Hyp~atintroc.1}\notag%bl.atintroc.1
+  \\ 2 &&  & \vdash ( \mathfrak{M} \models ( \mc{A} @ \msc{t} ) ) = (
+     ~\mathfrak{M} , \msc{t} \models \mc{A}
+     ~)&(\mbox{\ref{eq:ax-bl.atc}},1)\notag
+  \\ 3 &&  & \vdash \msc{t} \in
+     ~\mathbf{T}&\text{Hyp~atintroc.1}\notag%bl.atintroc.1
+  \\ 4 &&  & \vdash ( ( \mathfrak{M} \models \mc{A} ) = \mc{B} \rightarrow (
+     ~\mathfrak{M} , \msc{t} \models \mc{A} ) = \mc{B}
+     ~)&(\mbox{\ref{eq:ax-bl.modelsc}},3)\notag
+  \\ 5 &&  & \vdash ( ( \mathfrak{M} \models \mc{A} ) = \mc{B} \rightarrow (
+     ~\mathfrak{M} \models ( \mc{A} @ \msc{t} ) ) = \mc{B}
+     ~)&(\mbox{\ref{eq:syl5eq}},2,4)\notag
+\end{align}
+\end{proof}
+
+\begin{restatable}{metadefinition}{dfblatrt}~\blTitle{df-bl.atrt}~ Applying @ retains type.
+\begin{align}
+\vdash \msc{t} \in \mathbf{T}\quad\Rightarrow \notag \\ 
+	\quad \vdash ( \mc{A} \in \mc{B}
+    \rightarrow ( \mathfrak{M} \models ( \mc{A} @ \msc{t} ) ) \in \mc{B}
+    )\label{eq:df-bl.atrt}\tag{df-bl.atrt}
+\end{align}
+\end{restatable}
+
