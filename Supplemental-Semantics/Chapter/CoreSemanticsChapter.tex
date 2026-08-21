@@ -255,11 +255,11 @@ Given that premise, $C$ --- the type's extent, i.e.\ what $A$ denotes --- is a g
 \end{align}
 \end{restatable}
 
-\begin{restatable}{leandefinition}{Design}~\leanTitle{Design}~ Define \texttt{type} in Lean.
+\begin{restatable}{leanaxiom}{Design}~\leanTitle{Design}~ Define \texttt{type} in Lean.
 \texttt{DesignKind} is a fresh sum type, not \texttt{ElementKind}: a \texttt{Design} triple's
 kind slot must hold either one of \texttt{ElementKind}'s fourteen tags or \texttt{type}, and
 \texttt{type} is deliberately excluded from \texttt{ElementKind} itself.  Unlike \texttt{df-type},
-no separate ``is a genuine set" assertion is needed here: \texttt{Set KElement} already
+no separate ``is a genuine set" assertion is needed here: \texttt{Set Element} already
 guarantees \texttt{C} is a real value for every triple in \texttt{Design}, so the declarations
 below are the complete translation.
 
@@ -267,7 +267,7 @@ below are the complete translation.
 
 \texttt{~~| ofElementKind (k : ElementKind) | type}
 
-\texttt{\textcolor{leancolor}{axiom} \textcolor{leanyellow}{Design} : Set (DesignKind $\times$ ID $\times$ Set KElement)}
+\texttt{\textcolor{leancolor}{axiom} \textcolor{leanyellow}{Design} : Set (DesignKind $\times$ Element $\times$ Set Element)}
 \label{Design}
 \end{restatable}
 
@@ -285,13 +285,13 @@ reading \ref{eq:df-type} gives that text --- then $x \in V_T$.
 \end{align}
 \end{restatable}
 
-\begin{restatable}{leandefinition}{VT}~\leanTitle{VT}~ Define \texttt{Types} in Lean. Unlike
+\begin{restatable}{leanaxiom}{VT}~\leanTitle{VT}~ Define \texttt{Types} in Lean. Unlike
 \texttt{df-type} above, this genuinely needs to stay an axiom here too: \texttt{VT} is
 independently primitive on both sides, so there's no automatic Lean-typing shortcut this time.
 
-\texttt{\textcolor{leancolor}{axiom} \textcolor{leanyellow}{VT} : Set ID}
+\texttt{\textcolor{leancolor}{axiom} \textcolor{leanyellow}{VT} : Set Element}
 
-\texttt{\textcolor{leancolor}{axiom} \textcolor{leanyellow}{df\_types} : $\forall$ x : ID, ($\exists$ y, (DesignKind.type, x, y) $\in$ Design) $\to$ x $\in$ VT}
+\texttt{\textcolor{leancolor}{axiom} \textcolor{leanyellow}{df\_types} : $\forall$ e : Element, ($\exists$ C : Set Element, (DesignKind.type, e, C) $\in$ Design) $\to$ e $\in$ VT}
 \label{VT}
 \end{restatable}
 
@@ -301,10 +301,30 @@ independently primitive on both sides, so there's no automatic Lean-typing short
 
 \pn A specialization of a \texttt{Type} is its subset (subclass).  For all types $t_s$ and $t_g$ in $V_T$, $t_s$ specializing $t_g$ implies that $t_s$ is a subset (subclass) of $t_g$.
 
-\begin{restatable}{definition}{dfspecializes}~\blTitle{df-specializes}~ Define \texttt{specializes}.  
+\begin{restatable}{definition}{dfspecializes}~\blTitle{df-specializes}~ Define \texttt{specializes}.
 \begin{align}
 \vdash \forall t_g , t_s \in V_T ~(\texttt{type}~t_s~\texttt{specializes}~t_g ~\rightarrow~ t_s \subseteq t_g)\label{eq:df-specializes}\tag{df-specializes}
 \end{align}
+\end{restatable}
+
+\begin{restatable}{leanaxiom}{Specializes}~\leanTitle{Specializes}~ KerML's own textual \texttt{specializes} keyword,
+in Lean. A fresh \texttt{Element}-level primitive: the structural elaboration of \texttt{specializes} (a
+\texttt{Specialization}/\texttt{Subclassification} value) carries no semantic content of its own, and --- being a
+bare, unconstrained structure --- isn't tied to what's actually asserted in the current model the way
+\texttt{Design} is.
+
+\texttt{\textcolor{leancolor}{axiom} \textcolor{leanyellow}{Specializes} : Element $\to$ Element $\to$ Prop}
+\label{Specializes}
+\end{restatable}
+
+\begin{restatable}{leanaxiom}{dfSpecializes}~\leanTitle{df\_specializes}~ Define \texttt{specializes} in Lean.
+
+\texttt{\textcolor{leancolor}{axiom} \textcolor{leanyellow}{df\_specializes} \{ts tg : Element\} \{Cs Cg : Set Element\}}
+
+\texttt{~~(hs : (DesignKind.type, ts, Cs) $\in$ Design) (hg : (DesignKind.type, tg, Cg) $\in$ Design) :}
+
+\texttt{~~Specializes ts tg $\to$ Cs $\subseteq$ Cg}
+\label{df_specializes}
 \end{restatable}
 
 \pn The subclass relationship is defined in \ref{eq:df-ss}.
@@ -315,6 +335,24 @@ independently primitive on both sides, so there's no automatic Lean-typing short
 \begin{align}
 \vdash \forall t_g ,~ \ldots,~ t_j, t_s \in V_T ~(\texttt{type}~t_s~\texttt{specializes}~t_g,~ \ldots, ~t_j ~\rightarrow~ t_s \subseteq t_g \cap \ldots \cap t_j)\label{eq:df-multspec}\tag{df-multspec}
 \end{align}
+\end{restatable}
+
+\begin{restatable}{leantheorem}{dfMultspecLean}~\leanTitle{df\_multspec}~ Multiple specialization bounds the
+specific type's extension within the intersection of every one of its generalizations' extensions, in Lean.
+Proved directly from \texttt{df\_specializes} applied to each generalization independently, exactly as the
+prose above describes it --- so, unlike \texttt{Specializes}/\texttt{df\_specializes}, this one genuinely is a
+theorem, not an axiom.
+
+\texttt{\textcolor{leancolor}{theorem} \textcolor{leanyellow}{df\_multspec} \{ts tg th : Element\} \{Cs Cg Ch : Set Element\}}
+
+\texttt{~~(hs : (DesignKind.type, ts, Cs) $\in$ Design) (hg : (DesignKind.type, tg, Cg) $\in$ Design)}
+
+\texttt{~~(hh : (DesignKind.type, th, Ch) $\in$ Design)}
+
+\texttt{~~(hsg : Specializes ts tg) (hsh : Specializes ts th) : Cs $\subseteq$ Cg $\cap$ Ch :=}
+
+\texttt{~~fun \_ hx $\Rightarrow$ $\langle$df\_specializes hs hg hsg hx, df\_specializes hs hh hsh hx$\rangle$}
+\label{df_multspec}
 \end{restatable}
 
 \pn The intersection relationship is defined in \ref{eq:df-in}.
