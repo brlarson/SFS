@@ -429,6 +429,14 @@ For example, one might reject (1) in favor of the view that exact location is a 
 \end{align}
 \end{restatable}
 
+\begin{restatable}{leandefinition}{lfu}~\leanTitle{lfu}~ Locational functionality is now a real theorem, not an
+axiom, in Lean: a Lean function is automatically single-valued, so \texttt{Location}'s own function-valued type
+already proves it.
+
+\texttt{\textcolor{leancolor}{theorem} \textcolor{leanyellow}{lfu} \{x : Occurrence\} \{r1 r2 : Region\} (h1 : Location x = r1) (h2 : Location x = r2) : r1 = r2 := h1 $\triangleright$ h2}
+\label{lfu}
+\end{restatable}
+
 \pn No two things share an exact location.  This principle is called \bemph{injectivity of location}.
 \begin{restatable}{metadefinition}{df-lin}~\blTitle{df-lin}~ Define injectivity of location.
 \begin{align}
@@ -437,13 +445,27 @@ For example, one might reject (1) in favor of the view that exact location is a 
 \end{align}
 \end{restatable}
 
-\pn Two regions containing the same point \bemph{overlap}, $r_1Or_2$.  A region $r$ is a set of points, and {contains} point $p$ 
+\begin{restatable}{leandefinition}{lin}~\leanTitle{lin}~ Injectivity of location in Lean. Still a genuine,
+non-derivable constraint even with \texttt{Location} function-valued (nothing forces a function to be
+injective), so this stays an axiom.
+
+\texttt{\textcolor{leancolor}{axiom} \textcolor{leanyellow}{lin} \{x y : Occurrence\} \{r : Region\} : Location x = r $\to$ Location y = r $\to$ x = y}
+\label{lin}
+\end{restatable}
+
+\pn Two regions containing the same point \bemph{overlap}, $r_1Or_2$.  A region $r$ is a set of points, and {contains} point $p$
 iff $p~\epsilon_r~ r$.
 \begin{restatable}{metadefinition}{df-rov}~\blTitle{df-rov}~ Define region overlap O.
 \begin{align}
 \vdash r_1 \,O \,r_2 \leftrightarrow \exists p ( p ~\epsilon_r~ r_1 \wedge p
     ~\epsilon_r~ r_2 )\label{eq:df-rov}\tag{df-rov}
 \end{align}
+\end{restatable}
+
+\begin{restatable}{leandefinition}{RegionOverlap}~\leanTitle{RegionOverlap}~ Define region overlap in Lean.
+
+\texttt{\textcolor{leancolor}{def} \textcolor{leanyellow}{RegionOverlap} (r1 r2 : Region) : Prop := $\exists$ p, InRegion p r1 $\wedge$ InRegion p r2}
+\label{RegionOverlap}
 \end{restatable}
 
 \pn A region \bemph{contains} another, $r_1Cr_2$ when it contains all of its points.
@@ -454,12 +476,26 @@ iff $p~\epsilon_r~ r$.
 \end{align}
 \end{restatable}
 
+\begin{restatable}{leandefinition}{RegionContainment}~\leanTitle{RegionContainment}~ Define region containment in Lean.
+
+\texttt{\textcolor{leancolor}{def} \textcolor{leanyellow}{RegionContainment} (r1 r2 : Region) : Prop := $\forall$ p, InRegion p r2 $\to$ InRegion p r1}
+\label{RegionContainment}
+\end{restatable}
+
 \pn A region is \bemph{atomic}, $Ar$, when it contains no other regions.
 \begin{restatable}{metadefinition}{df-rat}~\blTitle{df-rat}~ Define atomic region.
 \begin{align}
 \vdash A \,r \leftrightarrow \forall r_1 ( r \,C
     \,r_1 \rightarrow r = r_1 )\label{eq:df-rat}\tag{df-rat}
 \end{align}
+\end{restatable}
+
+\begin{restatable}{leandefinition}{AtomicRegion}~\leanTitle{AtomicRegion}~ Define atomic region in Lean.
+
+\texttt{\textcolor{leancolor}{def} \textcolor{leanyellow}{AtomicRegion} (r0 : Region) : Prop :=}
+
+\texttt{~~$\forall$ (x : Occurrence) (r1 : Region), Location x = r1 $\wedge$ RegionContainment r0 r1 $\to$ r0 = r1}
+\label{AtomicRegion}
 \end{restatable}
 
 \pn No atomic regions overlap.
@@ -470,12 +506,24 @@ iff $p~\epsilon_r~ r$.
 \end{align}
 \end{restatable}
 
+\begin{restatable}{leandefinition}{rdi}~\leanTitle{rdi}~ Atomic regions are disjoint, in Lean.
+
+\texttt{\textcolor{leancolor}{axiom} \textcolor{leanyellow}{rdi} \{r1 r2 : Region\} : AtomicRegion r1 $\to$ AtomicRegion r2 $\to$ $\lnot$ RegionOverlap r1 r2 $\vee$ r1 = r2}
+\label{rdi}
+\end{restatable}
+
 \pn Atomic parts have atomic regions.
 \begin{restatable}{metadefinition}{df-apar}~\blTitle{df-apar}~ Atomic parts have atomic regions.
 \begin{align}
 \vdash \forall x \forall r ( ( x \,L \,r \wedge A \,x ) \rightarrow A \,r
     )\label{eq:df-apar}\tag{df-apar}
 \end{align}
+\end{restatable}
+
+\begin{restatable}{leandefinition}{apar}~\leanTitle{apar}~ Atomic parts have atomic regions, in Lean.
+
+\texttt{\textcolor{leancolor}{axiom} \textcolor{leanyellow}{apar} \{x : Occurrence\} \{r0 : Region\} : Location x = r0 $\to$ AtomPart x $\to$ AtomicRegion r0}
+\label{apar}
 \end{restatable}
 
 \pn Parthood implies regional containment.  This property is called \bemph{expansivity}.
@@ -487,12 +535,28 @@ iff $p~\epsilon_r~ r$.
 \end{align}
 \end{restatable}
 
+\begin{restatable}{leandefinition}{expansivity}~\leanTitle{expansivity}~ Define expansivity in Lean, tying
+\texttt{PartOf} to \texttt{RegionContainment} via \texttt{Location}.
+
+\texttt{\textcolor{leancolor}{axiom} \textcolor{leanyellow}{expansivity} \{x y : Occurrence\} \{r1 r2 : Region\} :}
+
+\texttt{~~Location x = r1 $\to$ Location y = r2 $\to$ PartOf x y $\to$ RegionContainment r1 r2}
+\label{expansivity}
+\end{restatable}
+
 \pn Regions overlap only if one contains the other.  This property is called \emph{no} \emph{interpenetration}.
 \begin{restatable}{metadefinition}{df-rni}~\blTitle{df-rni}~ Define no interpenetration.
 \begin{align}
 \vdash \forall r_1 \forall r_2 ( r_1 \,O \,r_2 \rightarrow ( r_1 \,C \,r_2 \vee
     r_2 \,C \,r_1 ) )\label{eq:df-rni}\tag{df-rni}
 \end{align}
+\end{restatable}
+
+\begin{restatable}{leandefinition}{noInterpenetration}~\leanTitle{no\_interpenetration}~ Define no
+interpenetration in Lean.
+
+\texttt{\textcolor{leancolor}{axiom} \textcolor{leanyellow}{no\_interpenetration} \{r1 r2 : Region\} : RegionOverlap r1 r2 $\to$ RegionContainment r1 r2 $\vee$ RegionContainment r2 r1}
+\label{no_interpenetration}
 \end{restatable}
 
 \pn These choices for mereological metaphysics are called \bemph{supersubstantivalism} which entails perfect \bemph{mereolological harmony}.\cite{location-mereology}
@@ -509,6 +573,14 @@ iff $p~\epsilon_r~ r$.
 \end{align}
 \end{restatable}
 
+\begin{restatable}{leandefinition}{Adjacent}~\leanTitle{Adjacent}~ Define adjacent points in Lean, as a
+two-place predicate on points directly rather than translating \texttt{Adj}$(p_1)$'s set-builder form. No
+further constraint (symmetry, irreflexivity, ...) is asserted beyond that.
+
+\texttt{\textcolor{leancolor}{axiom} \textcolor{leanyellow}{Adjacent} : Point $\to$ Point $\to$ Prop}
+\label{Adjacent}
+\end{restatable}
+
 \pn The surface of a region is points adjacent to points not in the region.
 
 \begin{restatable}{metadefinition}{df-rsurf}~\blTitle{df-rsurf}~ Define surface of region.
@@ -516,6 +588,18 @@ iff $p~\epsilon_r~ r$.
 \vdash \textit{Surf}(r)~=~ \{~p~\vert~p~\epsilon_r~r~\wedge~\exists p_2~\vert~ p_2~\in~\textit{Adj}(p)~\wedge~\lnot p_2 ~\epsilon_r~r \}
 \label{eq:df-rsurf}\tag{df-rsurf}
 \end{align}
+\end{restatable}
+
+\begin{restatable}{leandefinition}{RegionSurface}~\leanTitle{RegionSurface}~ Define surface of region in Lean.
+Function-valued (\texttt{Region} $\to$ \texttt{Surface}), matching \texttt{Regions.kerml}'s own functional
+declaration: genuinely new content, asserting for the first time that every region has exactly one surface.
+
+\texttt{\textcolor{leancolor}{axiom} \textcolor{leanyellow}{RegionSurface} : Region $\to$ Surface}
+
+\texttt{\textcolor{leancolor}{axiom} \textcolor{leanyellow}{regionSurfaceProp} (r0 : Region) :}
+
+\texttt{~~$\exists$ r1 : Region, $\forall$ p, OnSurface p (RegionSurface r0) $\to$ InRegion p r0 $\wedge$ $\lnot$ InRegion p r1}
+\label{RegionSurface}
 \end{restatable}
 
 \pn The interior of a region is points not on its surface.
@@ -527,6 +611,17 @@ iff $p~\epsilon_r~ r$.
 \end{align}
 \end{restatable}
 
+\begin{restatable}{leandefinition}{RegionInterior}~\leanTitle{RegionInterior}~ Define interior of region in Lean.
+Function-valued (\texttt{Region} $\to$ \texttt{Region}) for the same reason as \texttt{RegionSurface} above.
+
+\texttt{\textcolor{leancolor}{axiom} \textcolor{leanyellow}{RegionInterior} : Region $\to$ Region}
+
+\texttt{\textcolor{leancolor}{axiom} \textcolor{leanyellow}{regionInteriorProp} (r1 : Region) :}
+
+\texttt{~~$\forall$ p, InRegion p r1 $\to$ InRegion p (RegionInterior r1) $\wedge$ $\lnot$ OnSurface p (RegionSurface (RegionInterior r1))}
+\label{RegionInterior}
+\end{restatable}
+
 \pn The film of a region is points not in the region, but adjacent to a point on its surface.
 
 \begin{restatable}{metadefinition}{df-rfilm}~\blTitle{df-rfilm}~ Define film of region.
@@ -534,6 +629,14 @@ iff $p~\epsilon_r~ r$.
 \vdash \textit{Rfilm}(r)~=~ \{~p~\vert~\lnot~p~\epsilon_r~r~\wedge~\exists~p_2\vert~p_2~\in~\textit{Surf}(r)~\wedge~p_2~\in~\textit{Adj}(p)~ \}
 \label{eq:df-rfilm}\tag{df-rfilm}
 \end{align}
+\end{restatable}
+
+\begin{restatable}{leandefinition}{RegionFilm}~\leanTitle{RegionFilm}~ Define film of region in Lean. Needs no
+new axiom: once \texttt{RegionSurface}/\texttt{RegionInterior} are functions, the film of \texttt{r0} is
+already fully determined.
+
+\texttt{\textcolor{leancolor}{noncomputable def} \textcolor{leanyellow}{RegionFilm} (r0 : Region) : Surface := RegionSurface (RegionInterior r0)}
+\label{RegionFilm}
 \end{restatable}
 
 \subsection{Region Connection}
@@ -546,6 +649,15 @@ The Region Connection Calculus \cite{RCC8} consists of 8 basic relations that ar
 \vdash \textit{EC}(r_1,r_2)~\leftrightarrow~\lnot~r_1~O~r_2~\wedge~\exists~p~\vert~p~\in~\textit{Rfilm}(r_1)~\wedge~p~\epsilon_r~r_2
 \label{eq:df-rec}\tag{df-rec}
 \end{align}
+\end{restatable}
+
+\begin{restatable}{leandefinition}{ExternallyConnected}~\leanTitle{ExternallyConnected}~ Define external
+connection of regions in Lean.
+
+\texttt{\textcolor{leancolor}{def} \textcolor{leanyellow}{ExternallyConnected} (r1 r2 : Region) : Prop :=}
+
+\texttt{~~$\exists$ p : Point, OnSurface p (RegionSurface r1) $\wedge$ OnSurface p (RegionSurface r2)}
+\label{ExternallyConnected}
 \end{restatable}
 
 

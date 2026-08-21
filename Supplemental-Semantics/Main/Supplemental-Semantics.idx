@@ -85,1246 +85,1260 @@
 \indexentry{endures|hyperpage}{22}
 \indexentry{locational functionality|hyperpage}{22}
 \indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-lfu|hyperpage}{22}
+\indexentry{zzzl@\color  {leancolor}Lean!\tt  lfu|hyperpage}{22}
 \indexentry{injectivity of location|hyperpage}{22}
 \indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-lin|hyperpage}{22}
-\indexentry{overlap|hyperpage}{22}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-rov|hyperpage}{22}
-\indexentry{contains|hyperpage}{22}
+\indexentry{zzzl@\color  {leancolor}Lean!\tt  lin|hyperpage}{22}
+\indexentry{overlap|hyperpage}{23}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-rov|hyperpage}{23}
+\indexentry{zzzl@\color  {leancolor}Lean!\tt  RegionOverlap|hyperpage}{23}
+\indexentry{contains|hyperpage}{23}
 \indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-rco|hyperpage}{23}
+\indexentry{zzzl@\color  {leancolor}Lean!\tt  RegionContainment|hyperpage}{23}
 \indexentry{atomic|hyperpage}{23}
 \indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-rat|hyperpage}{23}
+\indexentry{zzzl@\color  {leancolor}Lean!\tt  AtomicRegion|hyperpage}{23}
 \indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-rdi|hyperpage}{23}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-apar|hyperpage}{23}
-\indexentry{expansivity|hyperpage}{23}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-pex|hyperpage}{23}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-rni|hyperpage}{23}
-\indexentry{supersubstantivalism|hyperpage}{23}
-\indexentry{mereolological harmony|hyperpage}{23}
-\indexentry{surface|hyperpage}{23}
-\indexentry{interior|hyperpage}{23}
+\indexentry{zzzl@\color  {leancolor}Lean!\tt  rdi|hyperpage}{23}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-apar|hyperpage}{24}
+\indexentry{zzzl@\color  {leancolor}Lean!\tt  apar|hyperpage}{24}
+\indexentry{expansivity|hyperpage}{24}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-pex|hyperpage}{24}
+\indexentry{zzzl@\color  {leancolor}Lean!\tt  expansivity|hyperpage}{24}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-rni|hyperpage}{24}
+\indexentry{zzzl@\color  {leancolor}Lean!\tt  no\_interpenetration|hyperpage}{24}
+\indexentry{supersubstantivalism|hyperpage}{24}
+\indexentry{mereolological harmony|hyperpage}{24}
+\indexentry{surface|hyperpage}{24}
+\indexentry{interior|hyperpage}{24}
 \indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-adjp|hyperpage}{24}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-rsurf|hyperpage}{24}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-rint|hyperpage}{24}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-rfilm|hyperpage}{24}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-rec|hyperpage}{24}
-\indexentry{perdurance|hyperindexformat{\textbf}}{24}
-\indexentry{endurance|hyperindexformat{\textbf}}{25}
-\indexentry{haecceity|hyperindexformat{\textbf}}{25}
-\indexentry{quiddity|hyperindexformat{\textbf}}{25}
-\indexentry{distinct|hyperpage}{25}
-\indexentry{event|hyperindexformat{\textbf}}{25}
-\indexentry{state|hyperindexformat{\textbf}}{26}
-\indexentry{token|hyperpage}{26}
-\indexentry{happening|hyperpage}{26}
-\indexentry{type|hyperpage}{26}
-\indexentry{causation|hyperpage}{26}
-\indexentry{influence|hyperpage}{26}
-\indexentry{manipulability|hyperpage}{27}
-\indexentry{structural equation model|hyperpage}{27}
-\indexentry{SEM|hyperindexformat{\textbf}}{27}
-\indexentry{de re|hyperindexformat{\textbf}}{27}
-\indexentry{de dicto|hyperindexformat{\textbf}}{27}
-\indexentry{factive|hyperindexformat{\textbf}}{27}
-\indexentry{veridical|hyperindexformat{\textbf}}{28}
-\indexentry{instances|hyperpage}{28}
-\indexentry{represent|hyperpage}{31}
-\indexentry{interpreted|hyperpage}{31}
-\indexentry{operate|hyperpage}{31}
-\indexentry{modal|hyperpage}{31}
-\indexentry{worlds|hyperpage}{31}
-\indexentry{interpretation|hyperpage}{31}
-\indexentry{execution model|hyperpage}{31}
-\indexentry{design|hyperpage}{31}
-\indexentry{semantics|hyperpage}{31}
-\indexentry{semantic constraint|hyperpage}{34}
-\indexentry{set|hyperpage}{35}
-\indexentry{class|hyperpage}{35}
-\indexentry{well-formed formula|hyperpage}{35}
-\indexentry{WFF|hyperpage}{35}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  df-v|hyperpage}{36}
-\indexentry{defined|hyperpage}{36}
-\indexentry{represented|hyperpage}{36}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-rep|hyperpage}{36}
-\indexentry{zzzl@\color  {leancolor}Lean!\tt  ElementRep|hyperpage}{36}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-kind|hyperpage}{37}
-\indexentry{zzzl@\color  {leancolor}Lean!\tt  ElementKind|hyperpage}{37}
-\indexentry{wonce|hyperpage}{37}
-\indexentry{nonce|hyperpage}{37}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-wonce|hyperpage}{37}
-\indexentry{zzzl@\color  {leancolor}Lean!\tt  mkUid|hyperpage}{38}
-\indexentry{vocabulary|hyperpage}{38}
-\indexentry{ VT@$V_T$ types|hyperpage}{38}
-\indexentry{ VC@$V_C$ classifiers|hyperpage}{38}
-\indexentry{ VF@$V_F$ features|hyperpage}{38}
-\indexentry{design|hyperpage}{38}
-\indexentry{ D@$D$ design|hyperpage}{38}
-\indexentry{extent|hyperpage}{38}
-\indexentry{instance|hyperpage}{38}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-type|hyperpage}{38}
-\indexentry{zzzl@\color  {leancolor}Lean!\tt  Design|hyperpage}{39}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-types|hyperpage}{39}
-\indexentry{zzzl@\color  {leancolor}Lean!\tt  VT|hyperpage}{39}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-specializes|hyperpage}{39}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-multspec|hyperpage}{39}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-unions|hyperpage}{40}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-intersects|hyperpage}{40}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-differences|hyperpage}{40}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-disjoint|hyperpage}{40}
-\indexentry{multiplicity|hyperpage}{41}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-cardinality|hyperpage}{41}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-typemultiplicity|hyperpage}{41}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-typemultiplicityrange|hyperpage}{41}
-\indexentry{feature|hyperpage}{41}
-\indexentry{domain|hyperpage}{41}
-\indexentry{featuring type|hyperpage}{41}
-\indexentry{co-domain|hyperpage}{41}
-\indexentry{featured type|hyperpage}{41}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-feature|hyperpage}{42}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-featuredby|hyperpage}{42}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-domainless|hyperpage}{42}
-\indexentry{rule|hyperpage}{42}
-\indexentry{class|hyperpage}{42}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-featuremember|hyperpage}{43}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-featureoffeature|hyperpage}{43}
-\indexentry{Person|hyperpage}{44}
-\indexentry{parent|hyperpage}{44}
-\indexentry{Person|hyperpage}{44}
-\indexentry{different|hyperpage}{44}
-\indexentry{Persons|hyperpage}{44}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-fixedfeaturemultiplicity|hyperpage}{44}
-\indexentry{unbound|hyperpage}{44}
-\indexentry{infinite|hyperpage}{44}
-\indexentry{different|hyperpage}{44}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-undefinedfeaturemultiplicity|hyperpage}{44}
+\indexentry{zzzl@\color  {leancolor}Lean!\tt  Adjacent|hyperpage}{25}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-rsurf|hyperpage}{25}
+\indexentry{zzzl@\color  {leancolor}Lean!\tt  RegionSurface|hyperpage}{25}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-rint|hyperpage}{25}
+\indexentry{zzzl@\color  {leancolor}Lean!\tt  RegionInterior|hyperpage}{25}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-rfilm|hyperpage}{25}
+\indexentry{zzzl@\color  {leancolor}Lean!\tt  RegionFilm|hyperpage}{25}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-rec|hyperpage}{26}
+\indexentry{zzzl@\color  {leancolor}Lean!\tt  ExternallyConnected|hyperpage}{26}
+\indexentry{perdurance|hyperindexformat{\textbf}}{26}
+\indexentry{endurance|hyperindexformat{\textbf}}{26}
+\indexentry{haecceity|hyperindexformat{\textbf}}{26}
+\indexentry{quiddity|hyperindexformat{\textbf}}{27}
+\indexentry{distinct|hyperpage}{27}
+\indexentry{event|hyperindexformat{\textbf}}{27}
+\indexentry{state|hyperindexformat{\textbf}}{27}
+\indexentry{token|hyperpage}{28}
+\indexentry{happening|hyperpage}{28}
+\indexentry{type|hyperpage}{28}
+\indexentry{causation|hyperpage}{28}
+\indexentry{influence|hyperpage}{28}
+\indexentry{manipulability|hyperpage}{28}
+\indexentry{structural equation model|hyperpage}{28}
+\indexentry{SEM|hyperindexformat{\textbf}}{28}
+\indexentry{de re|hyperindexformat{\textbf}}{29}
+\indexentry{de dicto|hyperindexformat{\textbf}}{29}
+\indexentry{factive|hyperindexformat{\textbf}}{29}
+\indexentry{veridical|hyperindexformat{\textbf}}{29}
+\indexentry{instances|hyperpage}{29}
+\indexentry{represent|hyperpage}{32}
+\indexentry{interpreted|hyperpage}{32}
+\indexentry{operate|hyperpage}{32}
+\indexentry{modal|hyperpage}{32}
+\indexentry{worlds|hyperpage}{32}
+\indexentry{interpretation|hyperpage}{32}
+\indexentry{execution model|hyperpage}{32}
+\indexentry{design|hyperpage}{32}
+\indexentry{semantics|hyperpage}{32}
+\indexentry{semantic constraint|hyperpage}{35}
+\indexentry{set|hyperpage}{36}
+\indexentry{class|hyperpage}{36}
+\indexentry{well-formed formula|hyperpage}{36}
+\indexentry{WFF|hyperpage}{36}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  df-v|hyperpage}{37}
+\indexentry{defined|hyperpage}{37}
+\indexentry{represented|hyperpage}{37}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-rep|hyperpage}{37}
+\indexentry{zzzl@\color  {leancolor}Lean!\tt  ElementRep|hyperpage}{37}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-kind|hyperpage}{38}
+\indexentry{zzzl@\color  {leancolor}Lean!\tt  ElementKind|hyperpage}{38}
+\indexentry{wonce|hyperpage}{38}
+\indexentry{nonce|hyperpage}{38}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-wonce|hyperpage}{38}
+\indexentry{zzzl@\color  {leancolor}Lean!\tt  mkUid|hyperpage}{39}
+\indexentry{vocabulary|hyperpage}{39}
+\indexentry{ VT@$V_T$ types|hyperpage}{39}
+\indexentry{ VC@$V_C$ classifiers|hyperpage}{39}
+\indexentry{ VF@$V_F$ features|hyperpage}{39}
+\indexentry{design|hyperpage}{39}
+\indexentry{ D@$D$ design|hyperpage}{39}
+\indexentry{extent|hyperpage}{39}
+\indexentry{instance|hyperpage}{39}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-type|hyperpage}{39}
+\indexentry{zzzl@\color  {leancolor}Lean!\tt  Design|hyperpage}{40}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-types|hyperpage}{40}
+\indexentry{zzzl@\color  {leancolor}Lean!\tt  VT|hyperpage}{40}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-specializes|hyperpage}{40}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-multspec|hyperpage}{40}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-unions|hyperpage}{41}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-intersects|hyperpage}{41}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-differences|hyperpage}{41}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-disjoint|hyperpage}{41}
+\indexentry{multiplicity|hyperpage}{42}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-cardinality|hyperpage}{42}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-typemultiplicity|hyperpage}{42}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-typemultiplicityrange|hyperpage}{42}
+\indexentry{feature|hyperpage}{42}
+\indexentry{domain|hyperpage}{42}
+\indexentry{featuring type|hyperpage}{42}
+\indexentry{co-domain|hyperpage}{42}
+\indexentry{featured type|hyperpage}{42}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-feature|hyperpage}{43}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-featuredby|hyperpage}{43}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-domainless|hyperpage}{43}
+\indexentry{rule|hyperpage}{43}
+\indexentry{class|hyperpage}{43}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-featuremember|hyperpage}{44}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-featureoffeature|hyperpage}{44}
+\indexentry{Person|hyperpage}{45}
+\indexentry{parent|hyperpage}{45}
+\indexentry{Person|hyperpage}{45}
 \indexentry{different|hyperpage}{45}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-featuremultiplicityrange|hyperpage}{45}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-featuremultiplicityrangestar|hyperpage}{45}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-membershipfeature|hyperpage}{45}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-typebody|hyperpage}{46}
-\indexentry{domain|hyperpage}{46}
-\indexentry{co-domain|hyperpage}{46}
-\indexentry{co-domain|hyperpage}{46}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-ordered|hyperpage}{46}
-\indexentry{direction|hyperpage}{46}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-specializationwithfeatures|hyperpage}{47}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-featureinverting|hyperpage}{47}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-featurechaining|hyperpage}{48}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-co|hyperpage}{48}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-classifier|hyperpage}{49}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-classifier2|hyperpage}{49}
-\indexentry{Vince Moln\'ar|hyperpage}{49}
-\indexentry{modal logic|hyperpage}{50}
-\indexentry{temporal logic|hyperpage}{50}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-model|hyperpage}{50}
-\indexentry{class|hyperpage}{50}
-\indexentry{P|hyperpage}{50}
-\indexentry{execution|hyperpage}{51}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.models|hyperpage}{51}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.modelsc|hyperpage}{51}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.time|hyperpage}{51}
-\indexentry{present instant|hyperpage}{51}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.nowrr|hyperpage}{51}
-\indexentry{temporal precedence|hyperpage}{51}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.before|hyperpage}{51}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.beforeeq|hyperpage}{51}
-\indexentry{ex@\texttt{ex}|hyperpage}{51}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.exists|hyperpage}{52}
-\indexentry{birth@\texttt  {birth}|hyperpage}{52}
-\indexentry{birth@\texttt{birth}|hyperpage}{52}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.birth|hyperpage}{52}
-\indexentry{ xdc@\lstinline+.,+ open right|hyperpage}{52}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.alldc|hyperpage}{52}
-\indexentry{death@\texttt  {death}|hyperpage}{52}
-\indexentry{death@\texttt{death}|hyperpage}{52}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.death|hyperpage}{52}
-\indexentry{ xcd@\lstinline+,.+ open left|hyperpage}{52}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.allcd|hyperpage}{52}
-\indexentry{life@\texttt{life}|hyperpage}{52}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.lifetime|hyperpage}{52}
-\indexentry{ xdd@\lstinline+..+ closed both|hyperpage}{52}
-\indexentry{ xcc@\lstinline+,,+ open both|hyperpage}{52}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.alldd|hyperpage}{52}
-\indexentry{ xdd@\lstinline+..+ closed interval|hyperpage}{52}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.allcc|hyperpage}{53}
-\indexentry{ xcc@\lstinline+,,+ open interval|hyperpage}{53}
-\indexentry{instant|hyperpage}{53}
-\indexentry{interval|hyperpage}{53}
-\indexentry{Allen's intervals|hyperpage}{53}
-\indexentry{precedes|hyperpage}{53}
-\indexentry{precedes@\texttt  {precedes}|hyperpage}{53}
-\indexentry{meets|hyperpage}{53}
-\indexentry{meets@\texttt  {meets}|hyperpage}{53}
-\indexentry{overlaps|hyperpage}{53}
-\indexentry{overlaps@\texttt  {overlaps}|hyperpage}{53}
-\indexentry{starts|hyperpage}{53}
-\indexentry{starts@\texttt  {starts}|hyperpage}{53}
-\indexentry{during|hyperpage}{53}
-\indexentry{during@\texttt  {during}|hyperpage}{53}
-\indexentry{finishes|hyperpage}{53}
-\indexentry{finishes@\texttt  {finishes}|hyperpage}{53}
-\indexentry{equals|hyperpage}{53}
-\indexentry{coincident@\texttt  {coincident}|hyperpage}{53}
-\indexentry{meets@\texttt{meets}|hyperpage}{54}
-\indexentry{meets@\texttt{meets}|hyperpage}{54}
-\indexentry{overlaps@\texttt{overlaps}|hyperpage}{54}
-\indexentry{starts@\texttt{starts}|hyperpage}{54}
-\indexentry{during@\texttt{during}|hyperpage}{54}
-\indexentry{finishes@\texttt{finishes}|hyperpage}{54}
-\indexentry{coincident@\texttt{coincident}|hyperpage}{55}
-\indexentry{nonoverlaps@\texttt{nonoverlaps}|hyperpage}{55}
-\indexentry{nearly meets|hyperpage}{55}
-\indexentry{nearlyMeets@\texttt{nearlyMeets}|hyperpage}{55}
-\indexentry{in@\texttt  {in}|hyperpage}{55}
-\indexentry{in@\texttt{in}|hyperpage}{55}
-\indexentry{out@\texttt  {out}|hyperpage}{55}
-\indexentry{out@\texttt{out}|hyperpage}{55}
-\indexentry{inout@\texttt  {inout}|hyperpage}{55}
-\indexentry{inout@\texttt{inout}|hyperpage}{55}
-\indexentry{var@\texttt  {var}|hyperpage}{55}
-\indexentry{var@\texttt{var}|hyperpage}{55}
-\indexentry{Get@\texttt{Get}|hyperpage}{56}
-\indexentry{GetNow@\texttt{GetNow}|hyperpage}{56}
-\indexentry{SetNow@\texttt{SetNow}|hyperpage}{56}
-\indexentry{GetChange@\texttt{GetChange}|hyperpage}{56}
-\indexentry{GetBooleanChange@\texttt{GetBooleanChange}|hyperpage}{56}
-\indexentry{GetChangeToTrue@\texttt{GetChangeToTrue}|hyperpage}{57}
-\indexentry{GetChangeToFalse@\texttt{GetChangeToFalse}|hyperpage}{57}
-\indexentry{changed@\texttt{changed}|hyperpage}{57}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.changed|hyperpage}{57}
-\indexentry{timeof@\texttt{timeof}|hyperpage}{57}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.timeof|hyperpage}{57}
-\indexentry{composite|hyperpage}{57}
-\indexentry{portion|hyperpage}{57}
-\indexentry{delta|hyperpage}{58}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.delta|hyperpage}{58}
-\indexentry{DataType@\texttt{DataType}|hyperpage}{58}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-datatype|hyperpage}{58}
-\indexentry{ natural@$\mathbb{N}$ natural|hyperpage}{58}
-\indexentry{ natural@$\mathbb{N}_0$ natural|hyperpage}{58}
-\indexentry{ integer@$\mathbb{Z}$ integer|hyperpage}{58}
-\indexentry{ rational@$\mathbb{Q}$ rational|hyperpage}{58}
-\indexentry{ real@$\mathbb{R}$ real|hyperpage}{59}
-\indexentry{ complex@$\mathbb{C}$ complex|hyperpage}{59}
-\indexentry{ boolean@$\mathbb{B}$ boolean|hyperpage}{59}
-\indexentry{ string@$\mathbb{S}$ string|hyperpage}{59}
-\indexentry{ time@$\mathbb{T}$ time|hyperpage}{59}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-scalarvalues|hyperpage}{59}
-\indexentry{class|hyperpage}{60}
-\indexentry{occurrence|hyperpage}{60}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.containment|hyperpage}{66}
-\indexentry{association|hyperpage}{67}
-\indexentry{end|hyperpage}{67}
-\indexentry{source|hyperpage}{67}
-\indexentry{target|hyperpage}{67}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-binassoc|hyperpage}{68}
-\indexentry{cross feature|hyperpage}{68}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-binassocx|hyperpage}{69}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-assoc|hyperpage}{71}
-\indexentry{connector|hyperpage}{71}
-\indexentry{association|hyperpage}{71}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-binconnect|hyperpage}{73}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-binconnectx|hyperpage}{74}
-\indexentry{binding connector|hyperpage}{75}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bind|hyperpage}{76}
-\indexentry{succession|hyperpage}{76}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-succession|hyperpage}{76}
-\indexentry{behavior|hyperpage}{76}
-\indexentry{parameter|hyperpage}{76}
-\indexentry{in|hyperpage}{76}
-\indexentry{out|hyperpage}{76}
-\indexentry{inout|hyperpage}{76}
-\indexentry{step|hyperpage}{77}
-\indexentry{function|hyperpage}{78}
-\indexentry{expression|hyperpage}{80}
-\indexentry{value|hyperpage}{80}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.itemflow|hyperpage}{83}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.bfv|hyperpage}{83}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.ifv|hyperpage}{84}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  TRANS|hyperpage}{86}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  SUBS|hyperpage}{86}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  FEAT|hyperpage}{87}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  REDEF|hyperpage}{87}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  REPL|hyperpage}{87}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  MULTI|hyperpage}{87}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  MULTN|hyperpage}{87}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  MULTF|hyperpage}{88}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  MULTS|hyperpage}{88}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  MULTM|hyperpage}{88}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  CONTRA|hyperpage}{89}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-change|hyperpage}{92}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-nochange|hyperpage}{92}
-\indexentry{complete|hyperpage}{93}
-\indexentry{set|hyperpage}{99}
-\indexentry{true|hyperpage}{99}
-\indexentry{false|hyperpage}{99}
-\indexentry{ bar@$~\vert~$ such that|hyperpage}{99}
-\indexentry{ in@$\in$ element of set|hyperpage}{99}
-\indexentry{ notin@$\notin$ not element of set|hyperpage}{99}
-\indexentry{ emptyset@$\emptyset$ empty set|hyperpage}{99}
-\indexentry{ natural@$\mathbb{N}$ natural number|hyperpage}{99}
-\indexentry{ natural@$\mathbb{N}_0$ natural|hyperpage}{99}
-\indexentry{ integer@$\mathbb{Z}$ integer|hyperpage}{99}
-\indexentry{ rational@$\mathbb{Q}$ rational|hyperpage}{99}
-\indexentry{ real@$\mathbb{R}$ real|hyperpage}{99}
-\indexentry{ complex@$\mathbb{C}$ complex|hyperpage}{99}
-\indexentry{ boolean@$\mathbb{B}$ boolean|hyperpage}{99}
-\indexentry{fixed-point|hyperpage}{99}
-\indexentry{ subset@$\subseteq$ subset|hyperpage}{100}
-\indexentry{subset|hyperpage}{100}
-\indexentry{ intersection@$\cap$ intersection|hyperpage}{100}
-\indexentry{intersection|hyperpage}{100}
-\indexentry{ union@$\cup$ union|hyperpage}{100}
-\indexentry{union|hyperpage}{100}
-\indexentry{difference|hyperpage}{100}
-\indexentry{ equivalence@$\equiv$ equivalence|hyperpage}{100}
-\indexentry{disjoint|hyperpage}{100}
-\indexentry{ cardinality@$\Vert A\Vert$ cardinality|hyperpage}{100}
-\indexentry{cardinality|hyperpage}{100}
-\indexentry{minimum|hyperpage}{100}
-\indexentry{ordered pair|hyperpage}{100}
-\indexentry{components|hyperpage}{100}
-\indexentry{n-tuple|hyperpage}{100}
-\indexentry{Cartesian product|hyperpage}{100}
-\indexentry{ product@$\times$ product|hyperpage}{100}
-\indexentry{relation|hyperpage}{100}
-\indexentry{reflexive|hyperpage}{100}
-\indexentry{irreflexive|hyperpage}{100}
-\indexentry{symmetric|hyperpage}{100}
-\indexentry{antisymmetric|hyperpage}{100}
-\indexentry{transitive|hyperpage}{100}
-\indexentry{closure|hyperpage}{100}
-\indexentry{ closure@$R^{\star}$ transitive reflexive closure|hyperpage}{100}
-\indexentry{ closure2@$R^{+}$ transitive irreflexive closure|hyperpage}{100}
-\indexentry{relational composition|hyperpage}{101}
-\indexentry{ composition@$\circ$ relational composition|hyperpage}{101}
-\indexentry{function|hyperpage}{101}
-\indexentry{domain|hyperpage}{101}
-\indexentry{range|hyperpage}{101}
-\indexentry{co-domain|hyperpage}{101}
-\indexentry{restriction|hyperpage}{101}
-\indexentry{one-to-one|hyperpage}{101}
-\indexentry{injective|hyperpage}{101}
-\indexentry{onto|hyperpage}{101}
-\indexentry{subjective|hyperpage}{101}
-\indexentry{bijective|hyperpage}{101}
-\indexentry{tuple|hyperpage}{101}
-\indexentry{fixed point|hyperpage}{101}
-\indexentry{conjunction|hyperpage}{101}
-\indexentry{ conjunction@$\wedge$ conjunction|hyperpage}{101}
-\indexentry{disjunction|hyperpage}{101}
-\indexentry{ disjunction@$\vee$ disjunction|hyperpage}{101}
-\indexentry{implication|hyperpage}{101}
-\indexentry{ implication@$\rightarrow$ implication|hyperpage}{101}
-\indexentry{if-and-only-if|hyperpage}{101}
-\indexentry{ iff@$\leftrightarrow$ if-and-only-if|hyperpage}{101}
-\indexentry{exclusive disjunction|hyperpage}{101}
-\indexentry{ exclusive@$\oplus$ exclusive disjunction|hyperpage}{101}
-\indexentry{complement|hyperpage}{101}
-\indexentry{ complement@$\neg$ complement|hyperpage}{101}
-\indexentry{sequence|hyperpage}{102}
-\indexentry{empty sequence|hyperpage}{102}
-\indexentry{ epsilon@$\epsilon$ empty sequence|hyperpage}{102}
-\indexentry{index|hyperpage}{102}
-\indexentry{permutation|hyperpage}{102}
-\indexentry{ permutation@$\leftrightarrows$ permutation|hyperpage}{102}
-\indexentry{alphabet|hyperpage}{102}
-\indexentry{string|hyperpage}{102}
-\indexentry{concatenation|hyperpage}{102}
-\indexentry{substring|hyperpage}{102}
-\indexentry{partial order|hyperpage}{102}
-\indexentry{ partial@$\sqsubset$|hyperpage}{102}
-\indexentry{ partialeq@$\sqsubseteq$|hyperpage}{102}
-\indexentry{less than|hyperpage}{102}
-\indexentry{greater than|hyperpage}{102}
-\indexentry{least element|hyperpage}{102}
-\indexentry{upper bound|hyperpage}{102}
-\indexentry{least upper bound|hyperpage}{102}
-\indexentry{complete|hyperpage}{103}
-\indexentry{graph|hyperpage}{103}
-\indexentry{directed|hyperpage}{103}
-\indexentry{model time|hyperpage}{103}
-\indexentry{real time|hyperpage}{103}
-\indexentry{hyperperiod|hyperpage}{103}
-\indexentry{ productof@$\prod$ product of|hyperpage}{103}
-\indexentry{now|hyperpage}{103}
-\indexentry{ xdd@\lstinline+..+ closed interval|hyperpage}{103}
-\indexentry{ xcd@\lstinline+,.+ open left|hyperpage}{103}
-\indexentry{ xdc@\lstinline+.,+ open right|hyperpage}{103}
-\indexentry{ xcc@\lstinline+,,+ open interval|hyperpage}{103}
-\indexentry{value|hyperpage}{103}
-\indexentry{type|hyperpage}{103}
-\indexentry{null|hyperpage}{104}
-\indexentry{logic|hyperpage}{104}
-\indexentry{well-formed|hyperpage}{104}
-\indexentry{satisfy|hyperpage}{104}
-\indexentry{unsatisfiable|hyperpage}{104}
-\indexentry{tautology|hyperpage}{104}
-\indexentry{schema|hyperpage}{105}
-\indexentry{deductive|hyperpage}{106}
-\indexentry{set|hyperpage}{106}
-\indexentry{true|hyperpage}{106}
-\indexentry{false|hyperpage}{106}
-\indexentry{ in@$\in$ element of set|hyperpage}{108}
-\indexentry{ notin@$\notin$ not element of set|hyperpage}{108}
-\indexentry{class|hyperpage}{108}
-\indexentry{ bar@$~\vert~$ such that|hyperpage}{108}
-\indexentry{class|hyperpage}{108}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  df-clab|hyperpage}{108}
-\indexentry{proper class|hyperpage}{108}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  df-v|hyperpage}{108}
-\indexentry{ emptyset@$\emptyset$ empty set|hyperpage}{108}
-\indexentry{ natural@$\mathbb{N}$ natural|hyperpage}{108}
-\indexentry{ natural@$\mathbb{N}_0$ natural|hyperpage}{108}
-\indexentry{ integer@$\mathbb{Z}$ integer|hyperpage}{108}
-\indexentry{ real@$\mathbb{R}$ real|hyperpage}{108}
-\indexentry{ complex@$\mathbb{C}$ complex|hyperpage}{108}
-\indexentry{ boolean@$\mathbb{B}$ boolean|hyperpage}{108}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  df-nn|hyperpage}{109}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  df-n0|hyperpage}{109}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  df-z|hyperpage}{109}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  df-z|hyperpage}{109}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  df-r|hyperpage}{109}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  df-c|hyperpage}{109}
-\indexentry{ class equality@$=$ class equality|hyperpage}{109}
-\indexentry{class equality|hyperpage}{109}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  dfcleq|hyperpage}{109}
-\indexentry{ intersection@$\cap$ intersection|hyperpage}{109}
-\indexentry{intersection|hyperpage}{109}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  df-in|hyperpage}{109}
-\indexentry{ union@$\cup$ union|hyperpage}{109}
-\indexentry{union|hyperpage}{109}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  df-un|hyperpage}{110}
-\indexentry{difference|hyperpage}{110}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  df-dif|hyperpage}{110}
-\indexentry{ subset@$\subseteq$ subset|hyperpage}{110}
-\indexentry{subclass|hyperpage}{110}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  df-ss|hyperpage}{110}
-\indexentry{ proper subclass@$\subset$ proper subclass|hyperpage}{110}
-\indexentry{proper subclass|hyperpage}{110}
-\indexentry{disjoint|hyperpage}{110}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  df-disj|hyperpage}{110}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  df-iun|hyperpage}{110}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  df-iin|hyperpage}{110}
-\indexentry{ cardinality@$\Vert A\Vert$ cardinality|hyperpage}{110}
-\indexentry{cardinality|hyperpage}{110}
-\indexentry{minimum|hyperpage}{110}
-\indexentry{ordered pair|hyperpage}{111}
-\indexentry{components|hyperpage}{111}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  df-op|hyperpage}{111}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  opeq12|hyperpage}{111}
-\indexentry{ordered triple|hyperpage}{111}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  df-ot|hyperpage}{111}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  oteq123d|hyperpage}{111}
-\indexentry{n-tuple|hyperpage}{111}
-\indexentry{Cartesian product|hyperpage}{111}
-\indexentry{ product@$\times$ product|hyperpage}{111}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  df-xp|hyperpage}{111}
-\indexentry{relation|hyperpage}{112}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  df-rel|hyperpage}{112}
-\indexentry{binary relation|hyperpage}{112}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  df-br|hyperpage}{112}
-\indexentry{converse|hyperpage}{112}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  df-cnv|hyperpage}{112}
-\indexentry{domain|hyperpage}{112}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  df-dm|hyperpage}{112}
-\indexentry{range|hyperpage}{112}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  df-rn|hyperpage}{112}
-\indexentry{relational composition|hyperpage}{112}
-\indexentry{ composition@$\circ$ relational composition|hyperpage}{112}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-co|hyperpage}{113}
-\indexentry{identity relation|hyperpage}{113}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  df-id|hyperpage}{113}
-\indexentry{restriction|hyperpage}{113}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  df-res|hyperpage}{113}
-\indexentry{reflexive|hyperpage}{113}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  isref|hyperpage}{113}
-\indexentry{irreflexive|hyperpage}{113}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  intirr|hyperpage}{113}
-\indexentry{symmetric|hyperpage}{113}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  cnvsym|hyperpage}{113}
-\indexentry{antisymmetric|hyperpage}{113}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  intasym|hyperpage}{113}
-\indexentry{transitive|hyperpage}{114}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  cotr|hyperpage}{114}
-\indexentry{closure|hyperpage}{114}
-\indexentry{ closure2@$R^{+}$ transitive irreflexive closure|hyperpage}{114}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  df-tc|hyperpage}{114}
-\indexentry{closure|hyperpage}{114}
-\indexentry{ closure@$R^{\star}$ transitive reflexive closure|hyperpage}{114}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  tc2|hyperpage}{114}
-\indexentry{function|hyperpage}{114}
-\indexentry{domain|hyperpage}{114}
-\indexentry{range|hyperpage}{114}
-\indexentry{codomain|hyperpage}{114}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  df-fun|hyperpage}{115}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  df-fn|hyperpage}{115}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  df-f|hyperpage}{115}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  df-fv|hyperpage}{115}
-\indexentry{restriction|hyperpage}{115}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  funssres|hyperpage}{115}
-\indexentry{one-to-one|hyperpage}{115}
-\indexentry{injective|hyperpage}{115}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  df-f1|hyperpage}{115}
-\indexentry{onto|hyperpage}{115}
-\indexentry{subjective|hyperpage}{115}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  df-fo|hyperpage}{115}
-\indexentry{bijective|hyperpage}{115}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  df-f1o|hyperpage}{116}
-\indexentry{tuple|hyperpage}{116}
-\indexentry{fixed point|hyperpage}{116}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  fninfp|hyperpage}{116}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  fnelfp|hyperpage}{116}
-\indexentry{conjunction|hyperpage}{116}
-\indexentry{ conjunction@$\wedge$ conjunction|hyperpage}{116}
-\indexentry{disjunction|hyperpage}{116}
-\indexentry{ disjunction@$\vee$ disjunction|hyperpage}{116}
-\indexentry{implication|hyperpage}{116}
-\indexentry{ implication@$\rightarrow$ implication|hyperpage}{116}
-\indexentry{if-and-only-if|hyperpage}{116}
-\indexentry{ iff@$\leftrightarrow$ if-and-only-if|hyperpage}{116}
-\indexentry{exclusive disjunction|hyperpage}{116}
-\indexentry{ exclusive@$\oplus$ exclusive disjunction|hyperpage}{116}
-\indexentry{complement|hyperpage}{116}
-\indexentry{ complement@$\neg$ complement|hyperpage}{116}
-\indexentry{sequence|hyperpage}{116}
-\indexentry{empty sequence|hyperpage}{116}
-\indexentry{index|hyperpage}{116}
-\indexentry{permutation|hyperpage}{117}
-\indexentry{ permutation@$\leftrightarrows$ permutation|hyperpage}{117}
-\indexentry{alphabet|hyperpage}{117}
-\indexentry{string|hyperpage}{117}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  df-word|hyperpage}{117}
-\indexentry{concatenation|hyperpage}{117}
-\indexentry{substring|hyperpage}{117}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  df-concat|hyperpage}{117}
-\indexentry{substring|hyperpage}{117}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  df-substr|hyperpage}{117}
-\indexentry{partial order|hyperpage}{117}
-\indexentry{ partial@$\sqsubset$|hyperpage}{117}
-\indexentry{ partialeq@$\sqsubseteq$|hyperpage}{117}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  ispod|hyperpage}{118}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  poirr|hyperpage}{118}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  potr|hyperpage}{118}
-\indexentry{less than|hyperpage}{118}
-\indexentry{greater than|hyperpage}{118}
-\indexentry{least element|hyperpage}{118}
-\indexentry{upper bound|hyperpage}{118}
-\indexentry{least upper bound|hyperpage}{118}
-\indexentry{complete|hyperpage}{118}
-\indexentry{graph|hyperpage}{118}
-\indexentry{directed|hyperpage}{118}
-\indexentry{lattice|hyperpage}{118}
+\indexentry{Persons|hyperpage}{45}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-fixedfeaturemultiplicity|hyperpage}{45}
+\indexentry{unbound|hyperpage}{45}
+\indexentry{infinite|hyperpage}{45}
+\indexentry{different|hyperpage}{45}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-undefinedfeaturemultiplicity|hyperpage}{45}
+\indexentry{different|hyperpage}{46}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-featuremultiplicityrange|hyperpage}{46}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-featuremultiplicityrangestar|hyperpage}{46}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-membershipfeature|hyperpage}{46}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-typebody|hyperpage}{47}
+\indexentry{domain|hyperpage}{47}
+\indexentry{co-domain|hyperpage}{47}
+\indexentry{co-domain|hyperpage}{47}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-ordered|hyperpage}{47}
+\indexentry{direction|hyperpage}{47}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-specializationwithfeatures|hyperpage}{48}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-featureinverting|hyperpage}{48}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-featurechaining|hyperpage}{49}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-co|hyperpage}{49}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-classifier|hyperpage}{50}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-classifier2|hyperpage}{50}
+\indexentry{Vince Moln\'ar|hyperpage}{50}
+\indexentry{modal logic|hyperpage}{51}
+\indexentry{temporal logic|hyperpage}{51}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-model|hyperpage}{51}
+\indexentry{class|hyperpage}{51}
+\indexentry{P|hyperpage}{51}
+\indexentry{execution|hyperpage}{52}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.models|hyperpage}{52}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.modelsc|hyperpage}{52}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.time|hyperpage}{52}
+\indexentry{present instant|hyperpage}{52}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.nowrr|hyperpage}{52}
+\indexentry{temporal precedence|hyperpage}{52}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.before|hyperpage}{52}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.beforeeq|hyperpage}{52}
+\indexentry{ex@\texttt{ex}|hyperpage}{52}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.exists|hyperpage}{53}
+\indexentry{birth@\texttt  {birth}|hyperpage}{53}
+\indexentry{birth@\texttt{birth}|hyperpage}{53}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.birth|hyperpage}{53}
+\indexentry{ xdc@\lstinline+.,+ open right|hyperpage}{53}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.alldc|hyperpage}{53}
+\indexentry{death@\texttt  {death}|hyperpage}{53}
+\indexentry{death@\texttt{death}|hyperpage}{53}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.death|hyperpage}{53}
+\indexentry{ xcd@\lstinline+,.+ open left|hyperpage}{53}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.allcd|hyperpage}{53}
+\indexentry{life@\texttt{life}|hyperpage}{53}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.lifetime|hyperpage}{53}
+\indexentry{ xdd@\lstinline+..+ closed both|hyperpage}{53}
+\indexentry{ xcc@\lstinline+,,+ open both|hyperpage}{53}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.alldd|hyperpage}{53}
+\indexentry{ xdd@\lstinline+..+ closed interval|hyperpage}{53}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.allcc|hyperpage}{54}
+\indexentry{ xcc@\lstinline+,,+ open interval|hyperpage}{54}
+\indexentry{instant|hyperpage}{54}
+\indexentry{interval|hyperpage}{54}
+\indexentry{Allen's intervals|hyperpage}{54}
+\indexentry{precedes|hyperpage}{54}
+\indexentry{precedes@\texttt  {precedes}|hyperpage}{54}
+\indexentry{meets|hyperpage}{54}
+\indexentry{meets@\texttt  {meets}|hyperpage}{54}
+\indexentry{overlaps|hyperpage}{54}
+\indexentry{overlaps@\texttt  {overlaps}|hyperpage}{54}
+\indexentry{starts|hyperpage}{54}
+\indexentry{starts@\texttt  {starts}|hyperpage}{54}
+\indexentry{during|hyperpage}{54}
+\indexentry{during@\texttt  {during}|hyperpage}{54}
+\indexentry{finishes|hyperpage}{54}
+\indexentry{finishes@\texttt  {finishes}|hyperpage}{54}
+\indexentry{equals|hyperpage}{54}
+\indexentry{coincident@\texttt  {coincident}|hyperpage}{54}
+\indexentry{meets@\texttt{meets}|hyperpage}{55}
+\indexentry{meets@\texttt{meets}|hyperpage}{55}
+\indexentry{overlaps@\texttt{overlaps}|hyperpage}{55}
+\indexentry{starts@\texttt{starts}|hyperpage}{55}
+\indexentry{during@\texttt{during}|hyperpage}{55}
+\indexentry{finishes@\texttt{finishes}|hyperpage}{55}
+\indexentry{coincident@\texttt{coincident}|hyperpage}{56}
+\indexentry{nonoverlaps@\texttt{nonoverlaps}|hyperpage}{56}
+\indexentry{nearly meets|hyperpage}{56}
+\indexentry{nearlyMeets@\texttt{nearlyMeets}|hyperpage}{56}
+\indexentry{in@\texttt  {in}|hyperpage}{56}
+\indexentry{in@\texttt{in}|hyperpage}{56}
+\indexentry{out@\texttt  {out}|hyperpage}{56}
+\indexentry{out@\texttt{out}|hyperpage}{56}
+\indexentry{inout@\texttt  {inout}|hyperpage}{56}
+\indexentry{inout@\texttt{inout}|hyperpage}{56}
+\indexentry{var@\texttt  {var}|hyperpage}{56}
+\indexentry{var@\texttt{var}|hyperpage}{56}
+\indexentry{Get@\texttt{Get}|hyperpage}{57}
+\indexentry{GetNow@\texttt{GetNow}|hyperpage}{57}
+\indexentry{SetNow@\texttt{SetNow}|hyperpage}{57}
+\indexentry{GetChange@\texttt{GetChange}|hyperpage}{57}
+\indexentry{GetBooleanChange@\texttt{GetBooleanChange}|hyperpage}{57}
+\indexentry{GetChangeToTrue@\texttt{GetChangeToTrue}|hyperpage}{58}
+\indexentry{GetChangeToFalse@\texttt{GetChangeToFalse}|hyperpage}{58}
+\indexentry{changed@\texttt{changed}|hyperpage}{58}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.changed|hyperpage}{58}
+\indexentry{timeof@\texttt{timeof}|hyperpage}{58}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.timeof|hyperpage}{58}
+\indexentry{composite|hyperpage}{58}
+\indexentry{portion|hyperpage}{58}
+\indexentry{delta|hyperpage}{59}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.delta|hyperpage}{59}
+\indexentry{DataType@\texttt{DataType}|hyperpage}{59}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-datatype|hyperpage}{59}
+\indexentry{ natural@$\mathbb{N}$ natural|hyperpage}{59}
+\indexentry{ natural@$\mathbb{N}_0$ natural|hyperpage}{59}
+\indexentry{ integer@$\mathbb{Z}$ integer|hyperpage}{59}
+\indexentry{ rational@$\mathbb{Q}$ rational|hyperpage}{59}
+\indexentry{ real@$\mathbb{R}$ real|hyperpage}{60}
+\indexentry{ complex@$\mathbb{C}$ complex|hyperpage}{60}
+\indexentry{ boolean@$\mathbb{B}$ boolean|hyperpage}{60}
+\indexentry{ string@$\mathbb{S}$ string|hyperpage}{60}
+\indexentry{ time@$\mathbb{T}$ time|hyperpage}{60}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-scalarvalues|hyperpage}{60}
+\indexentry{class|hyperpage}{61}
+\indexentry{occurrence|hyperpage}{61}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.containment|hyperpage}{67}
+\indexentry{association|hyperpage}{68}
+\indexentry{end|hyperpage}{68}
+\indexentry{source|hyperpage}{68}
+\indexentry{target|hyperpage}{68}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-binassoc|hyperpage}{69}
+\indexentry{cross feature|hyperpage}{69}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-binassocx|hyperpage}{70}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-assoc|hyperpage}{72}
+\indexentry{connector|hyperpage}{72}
+\indexentry{association|hyperpage}{72}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-binconnect|hyperpage}{74}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-binconnectx|hyperpage}{75}
+\indexentry{binding connector|hyperpage}{76}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bind|hyperpage}{77}
+\indexentry{succession|hyperpage}{77}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-succession|hyperpage}{77}
+\indexentry{behavior|hyperpage}{77}
+\indexentry{parameter|hyperpage}{77}
+\indexentry{in|hyperpage}{77}
+\indexentry{out|hyperpage}{77}
+\indexentry{inout|hyperpage}{77}
+\indexentry{step|hyperpage}{78}
+\indexentry{function|hyperpage}{79}
+\indexentry{expression|hyperpage}{81}
+\indexentry{value|hyperpage}{81}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.itemflow|hyperpage}{84}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.bfv|hyperpage}{84}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.ifv|hyperpage}{85}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  TRANS|hyperpage}{87}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  SUBS|hyperpage}{87}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  FEAT|hyperpage}{88}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  REDEF|hyperpage}{88}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  REPL|hyperpage}{88}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  MULTI|hyperpage}{88}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  MULTN|hyperpage}{88}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  MULTF|hyperpage}{89}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  MULTS|hyperpage}{89}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  MULTM|hyperpage}{89}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  CONTRA|hyperpage}{90}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-change|hyperpage}{93}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-nochange|hyperpage}{93}
+\indexentry{complete|hyperpage}{94}
+\indexentry{set|hyperpage}{100}
+\indexentry{true|hyperpage}{100}
+\indexentry{false|hyperpage}{100}
+\indexentry{ bar@$~\vert~$ such that|hyperpage}{100}
+\indexentry{ in@$\in$ element of set|hyperpage}{100}
+\indexentry{ notin@$\notin$ not element of set|hyperpage}{100}
+\indexentry{ emptyset@$\emptyset$ empty set|hyperpage}{100}
+\indexentry{ natural@$\mathbb{N}$ natural number|hyperpage}{100}
+\indexentry{ natural@$\mathbb{N}_0$ natural|hyperpage}{100}
+\indexentry{ integer@$\mathbb{Z}$ integer|hyperpage}{100}
+\indexentry{ rational@$\mathbb{Q}$ rational|hyperpage}{100}
+\indexentry{ real@$\mathbb{R}$ real|hyperpage}{100}
+\indexentry{ complex@$\mathbb{C}$ complex|hyperpage}{100}
+\indexentry{ boolean@$\mathbb{B}$ boolean|hyperpage}{100}
+\indexentry{fixed-point|hyperpage}{100}
+\indexentry{ subset@$\subseteq$ subset|hyperpage}{101}
+\indexentry{subset|hyperpage}{101}
+\indexentry{ intersection@$\cap$ intersection|hyperpage}{101}
+\indexentry{intersection|hyperpage}{101}
+\indexentry{ union@$\cup$ union|hyperpage}{101}
+\indexentry{union|hyperpage}{101}
+\indexentry{difference|hyperpage}{101}
+\indexentry{ equivalence@$\equiv$ equivalence|hyperpage}{101}
+\indexentry{disjoint|hyperpage}{101}
+\indexentry{ cardinality@$\Vert A\Vert$ cardinality|hyperpage}{101}
+\indexentry{cardinality|hyperpage}{101}
+\indexentry{minimum|hyperpage}{101}
+\indexentry{ordered pair|hyperpage}{101}
+\indexentry{components|hyperpage}{101}
+\indexentry{n-tuple|hyperpage}{101}
+\indexentry{Cartesian product|hyperpage}{101}
+\indexentry{ product@$\times$ product|hyperpage}{101}
+\indexentry{relation|hyperpage}{101}
+\indexentry{reflexive|hyperpage}{101}
+\indexentry{irreflexive|hyperpage}{101}
+\indexentry{symmetric|hyperpage}{101}
+\indexentry{antisymmetric|hyperpage}{101}
+\indexentry{transitive|hyperpage}{101}
+\indexentry{closure|hyperpage}{101}
+\indexentry{ closure@$R^{\star}$ transitive reflexive closure|hyperpage}{101}
+\indexentry{ closure2@$R^{+}$ transitive irreflexive closure|hyperpage}{101}
+\indexentry{relational composition|hyperpage}{102}
+\indexentry{ composition@$\circ$ relational composition|hyperpage}{102}
+\indexentry{function|hyperpage}{102}
+\indexentry{domain|hyperpage}{102}
+\indexentry{range|hyperpage}{102}
+\indexentry{co-domain|hyperpage}{102}
+\indexentry{restriction|hyperpage}{102}
+\indexentry{one-to-one|hyperpage}{102}
+\indexentry{injective|hyperpage}{102}
+\indexentry{onto|hyperpage}{102}
+\indexentry{subjective|hyperpage}{102}
+\indexentry{bijective|hyperpage}{102}
+\indexentry{tuple|hyperpage}{102}
+\indexentry{fixed point|hyperpage}{102}
+\indexentry{conjunction|hyperpage}{102}
+\indexentry{ conjunction@$\wedge$ conjunction|hyperpage}{102}
+\indexentry{disjunction|hyperpage}{102}
+\indexentry{ disjunction@$\vee$ disjunction|hyperpage}{102}
+\indexentry{implication|hyperpage}{102}
+\indexentry{ implication@$\rightarrow$ implication|hyperpage}{102}
+\indexentry{if-and-only-if|hyperpage}{102}
+\indexentry{ iff@$\leftrightarrow$ if-and-only-if|hyperpage}{102}
+\indexentry{exclusive disjunction|hyperpage}{102}
+\indexentry{ exclusive@$\oplus$ exclusive disjunction|hyperpage}{102}
+\indexentry{complement|hyperpage}{102}
+\indexentry{ complement@$\neg$ complement|hyperpage}{102}
+\indexentry{sequence|hyperpage}{103}
+\indexentry{empty sequence|hyperpage}{103}
+\indexentry{ epsilon@$\epsilon$ empty sequence|hyperpage}{103}
+\indexentry{index|hyperpage}{103}
+\indexentry{permutation|hyperpage}{103}
+\indexentry{ permutation@$\leftrightarrows$ permutation|hyperpage}{103}
+\indexentry{alphabet|hyperpage}{103}
+\indexentry{string|hyperpage}{103}
+\indexentry{concatenation|hyperpage}{103}
+\indexentry{substring|hyperpage}{103}
+\indexentry{partial order|hyperpage}{103}
+\indexentry{ partial@$\sqsubset$|hyperpage}{103}
+\indexentry{ partialeq@$\sqsubseteq$|hyperpage}{103}
+\indexentry{less than|hyperpage}{103}
+\indexentry{greater than|hyperpage}{103}
+\indexentry{least element|hyperpage}{103}
+\indexentry{upper bound|hyperpage}{103}
+\indexentry{least upper bound|hyperpage}{103}
+\indexentry{complete|hyperpage}{104}
+\indexentry{graph|hyperpage}{104}
+\indexentry{directed|hyperpage}{104}
+\indexentry{model time|hyperpage}{104}
+\indexentry{real time|hyperpage}{104}
+\indexentry{hyperperiod|hyperpage}{104}
+\indexentry{ productof@$\prod$ product of|hyperpage}{104}
+\indexentry{now|hyperpage}{104}
+\indexentry{ xdd@\lstinline+..+ closed interval|hyperpage}{104}
+\indexentry{ xcd@\lstinline+,.+ open left|hyperpage}{104}
+\indexentry{ xdc@\lstinline+.,+ open right|hyperpage}{104}
+\indexentry{ xcc@\lstinline+,,+ open interval|hyperpage}{104}
+\indexentry{value|hyperpage}{104}
+\indexentry{type|hyperpage}{104}
+\indexentry{null|hyperpage}{105}
+\indexentry{logic|hyperpage}{105}
+\indexentry{well-formed|hyperpage}{105}
+\indexentry{satisfy|hyperpage}{105}
+\indexentry{unsatisfiable|hyperpage}{105}
+\indexentry{tautology|hyperpage}{105}
+\indexentry{schema|hyperpage}{106}
+\indexentry{deductive|hyperpage}{107}
+\indexentry{set|hyperpage}{107}
+\indexentry{true|hyperpage}{107}
+\indexentry{false|hyperpage}{107}
+\indexentry{ in@$\in$ element of set|hyperpage}{109}
+\indexentry{ notin@$\notin$ not element of set|hyperpage}{109}
+\indexentry{class|hyperpage}{109}
+\indexentry{ bar@$~\vert~$ such that|hyperpage}{109}
+\indexentry{class|hyperpage}{109}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  df-clab|hyperpage}{109}
+\indexentry{proper class|hyperpage}{109}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  df-v|hyperpage}{109}
+\indexentry{ emptyset@$\emptyset$ empty set|hyperpage}{109}
+\indexentry{ natural@$\mathbb{N}$ natural|hyperpage}{109}
+\indexentry{ natural@$\mathbb{N}_0$ natural|hyperpage}{109}
+\indexentry{ integer@$\mathbb{Z}$ integer|hyperpage}{109}
+\indexentry{ real@$\mathbb{R}$ real|hyperpage}{109}
+\indexentry{ complex@$\mathbb{C}$ complex|hyperpage}{109}
+\indexentry{ boolean@$\mathbb{B}$ boolean|hyperpage}{109}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  df-nn|hyperpage}{110}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  df-n0|hyperpage}{110}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  df-z|hyperpage}{110}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  df-z|hyperpage}{110}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  df-r|hyperpage}{110}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  df-c|hyperpage}{110}
+\indexentry{ class equality@$=$ class equality|hyperpage}{110}
+\indexentry{class equality|hyperpage}{110}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  dfcleq|hyperpage}{110}
+\indexentry{ intersection@$\cap$ intersection|hyperpage}{110}
+\indexentry{intersection|hyperpage}{110}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  df-in|hyperpage}{110}
+\indexentry{ union@$\cup$ union|hyperpage}{110}
+\indexentry{union|hyperpage}{110}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  df-un|hyperpage}{111}
+\indexentry{difference|hyperpage}{111}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  df-dif|hyperpage}{111}
+\indexentry{ subset@$\subseteq$ subset|hyperpage}{111}
+\indexentry{subclass|hyperpage}{111}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  df-ss|hyperpage}{111}
+\indexentry{ proper subclass@$\subset$ proper subclass|hyperpage}{111}
+\indexentry{proper subclass|hyperpage}{111}
+\indexentry{disjoint|hyperpage}{111}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  df-disj|hyperpage}{111}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  df-iun|hyperpage}{111}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  df-iin|hyperpage}{111}
+\indexentry{ cardinality@$\Vert A\Vert$ cardinality|hyperpage}{111}
+\indexentry{cardinality|hyperpage}{111}
+\indexentry{minimum|hyperpage}{111}
+\indexentry{ordered pair|hyperpage}{112}
+\indexentry{components|hyperpage}{112}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  df-op|hyperpage}{112}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  opeq12|hyperpage}{112}
+\indexentry{ordered triple|hyperpage}{112}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  df-ot|hyperpage}{112}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  oteq123d|hyperpage}{112}
+\indexentry{n-tuple|hyperpage}{112}
+\indexentry{Cartesian product|hyperpage}{112}
+\indexentry{ product@$\times$ product|hyperpage}{112}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  df-xp|hyperpage}{112}
+\indexentry{relation|hyperpage}{113}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  df-rel|hyperpage}{113}
+\indexentry{binary relation|hyperpage}{113}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  df-br|hyperpage}{113}
+\indexentry{converse|hyperpage}{113}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  df-cnv|hyperpage}{113}
+\indexentry{domain|hyperpage}{113}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  df-dm|hyperpage}{113}
+\indexentry{range|hyperpage}{113}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  df-rn|hyperpage}{113}
+\indexentry{relational composition|hyperpage}{113}
+\indexentry{ composition@$\circ$ relational composition|hyperpage}{113}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-co|hyperpage}{114}
+\indexentry{identity relation|hyperpage}{114}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  df-id|hyperpage}{114}
+\indexentry{restriction|hyperpage}{114}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  df-res|hyperpage}{114}
+\indexentry{reflexive|hyperpage}{114}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  isref|hyperpage}{114}
+\indexentry{irreflexive|hyperpage}{114}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  intirr|hyperpage}{114}
+\indexentry{symmetric|hyperpage}{114}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  cnvsym|hyperpage}{114}
+\indexentry{antisymmetric|hyperpage}{114}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  intasym|hyperpage}{114}
+\indexentry{transitive|hyperpage}{115}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  cotr|hyperpage}{115}
+\indexentry{closure|hyperpage}{115}
+\indexentry{ closure2@$R^{+}$ transitive irreflexive closure|hyperpage}{115}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  df-tc|hyperpage}{115}
+\indexentry{closure|hyperpage}{115}
+\indexentry{ closure@$R^{\star}$ transitive reflexive closure|hyperpage}{115}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  tc2|hyperpage}{115}
+\indexentry{function|hyperpage}{115}
+\indexentry{domain|hyperpage}{115}
+\indexentry{range|hyperpage}{115}
+\indexentry{codomain|hyperpage}{115}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  df-fun|hyperpage}{116}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  df-fn|hyperpage}{116}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  df-f|hyperpage}{116}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  df-fv|hyperpage}{116}
+\indexentry{restriction|hyperpage}{116}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  funssres|hyperpage}{116}
+\indexentry{one-to-one|hyperpage}{116}
+\indexentry{injective|hyperpage}{116}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  df-f1|hyperpage}{116}
+\indexentry{onto|hyperpage}{116}
+\indexentry{subjective|hyperpage}{116}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  df-fo|hyperpage}{116}
+\indexentry{bijective|hyperpage}{116}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  df-f1o|hyperpage}{117}
+\indexentry{tuple|hyperpage}{117}
+\indexentry{fixed point|hyperpage}{117}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  fninfp|hyperpage}{117}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  fnelfp|hyperpage}{117}
+\indexentry{conjunction|hyperpage}{117}
+\indexentry{ conjunction@$\wedge$ conjunction|hyperpage}{117}
+\indexentry{disjunction|hyperpage}{117}
+\indexentry{ disjunction@$\vee$ disjunction|hyperpage}{117}
+\indexentry{implication|hyperpage}{117}
+\indexentry{ implication@$\rightarrow$ implication|hyperpage}{117}
+\indexentry{if-and-only-if|hyperpage}{117}
+\indexentry{ iff@$\leftrightarrow$ if-and-only-if|hyperpage}{117}
+\indexentry{exclusive disjunction|hyperpage}{117}
+\indexentry{ exclusive@$\oplus$ exclusive disjunction|hyperpage}{117}
+\indexentry{complement|hyperpage}{117}
+\indexentry{ complement@$\neg$ complement|hyperpage}{117}
+\indexentry{sequence|hyperpage}{117}
+\indexentry{empty sequence|hyperpage}{117}
+\indexentry{index|hyperpage}{117}
+\indexentry{permutation|hyperpage}{118}
+\indexentry{ permutation@$\leftrightarrows$ permutation|hyperpage}{118}
+\indexentry{alphabet|hyperpage}{118}
+\indexentry{string|hyperpage}{118}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  df-word|hyperpage}{118}
+\indexentry{concatenation|hyperpage}{118}
+\indexentry{substring|hyperpage}{118}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  df-concat|hyperpage}{118}
+\indexentry{substring|hyperpage}{118}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  df-substr|hyperpage}{118}
+\indexentry{partial order|hyperpage}{118}
 \indexentry{ partial@$\sqsubset$|hyperpage}{118}
-\indexentry{ forall@$\forall$ for all|hyperpage}{119}
-\indexentry{before|hyperpage}{119}
-\indexentry{ concurrent@$\parallel$ concurrent|hyperpage}{119}
-\indexentry{lattice|hyperpage}{120}
-\indexentry{sequential lattice combination|hyperpage}{120}
-\indexentry{ seq@$\curvearrowright $ sequential combination|hyperpage}{120}
-\indexentry{concurrent lattice combination|hyperpage}{120}
-\indexentry{ con@$\downdownarrows $ concurrent combination|hyperpage}{120}
-\indexentry{insertion combination|hyperpage}{120}
-\indexentry{meaning|hyperpage}{120}
-\indexentry{model|hyperpage}{120}
-\indexentry{ meaning@$\mathfrak{M}$ meaning|hyperpage}{120}
-\indexentry{model time|hyperpage}{120}
-\indexentry{real time|hyperpage}{120}
-\indexentry{hyperperiod|hyperpage}{121}
-\indexentry{ productof@$\prod$ product of|hyperpage}{121}
-\indexentry{now|hyperpage}{121}
-\indexentry{ xdd@\lstinline+..+ closed interval|hyperpage}{121}
-\indexentry{ xcd@\lstinline+,.+ open left|hyperpage}{121}
-\indexentry{ xdc@\lstinline+.,+ open right|hyperpage}{121}
-\indexentry{ xcc@\lstinline+,,+ open interval|hyperpage}{121}
-\indexentry{modal|hyperpage}{122}
-\indexentry{propositional|hyperpage}{122}
-\indexentry{first-order|hyperpage}{122}
+\indexentry{ partialeq@$\sqsubseteq$|hyperpage}{118}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  ispod|hyperpage}{119}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  poirr|hyperpage}{119}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  potr|hyperpage}{119}
+\indexentry{less than|hyperpage}{119}
+\indexentry{greater than|hyperpage}{119}
+\indexentry{least element|hyperpage}{119}
+\indexentry{upper bound|hyperpage}{119}
+\indexentry{least upper bound|hyperpage}{119}
+\indexentry{complete|hyperpage}{119}
+\indexentry{graph|hyperpage}{119}
+\indexentry{directed|hyperpage}{119}
+\indexentry{lattice|hyperpage}{119}
+\indexentry{ partial@$\sqsubset$|hyperpage}{119}
+\indexentry{ forall@$\forall$ for all|hyperpage}{120}
+\indexentry{before|hyperpage}{120}
+\indexentry{ concurrent@$\parallel$ concurrent|hyperpage}{120}
+\indexentry{lattice|hyperpage}{121}
+\indexentry{sequential lattice combination|hyperpage}{121}
+\indexentry{ seq@$\curvearrowright $ sequential combination|hyperpage}{121}
+\indexentry{concurrent lattice combination|hyperpage}{121}
+\indexentry{ con@$\downdownarrows $ concurrent combination|hyperpage}{121}
+\indexentry{insertion combination|hyperpage}{121}
+\indexentry{meaning|hyperpage}{121}
+\indexentry{model|hyperpage}{121}
+\indexentry{ meaning@$\mathfrak{M}$ meaning|hyperpage}{121}
+\indexentry{model time|hyperpage}{121}
+\indexentry{real time|hyperpage}{121}
+\indexentry{hyperperiod|hyperpage}{122}
+\indexentry{ productof@$\prod$ product of|hyperpage}{122}
 \indexentry{now|hyperpage}{122}
-\indexentry{decidable|hyperpage}{122}
-\indexentry{deductive system|hyperpage}{122}
-\indexentry{complete|hyperpage}{122}
-\indexentry{sound|hyperpage}{122}
-\indexentry{temporal precedence|hyperpage}{123}
-\indexentry{next|hyperpage}{123}
-\indexentry{next|hyperpage}{123}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.next|hyperpage}{123}
-\indexentry{false|hyperpage}{124}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.nextuniq|hyperpage}{124}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.nextdense|hyperpage}{124}
-\indexentry{hybrid logics|hyperpage}{124}
-\indexentry{nominals|hyperpage}{124}
-\indexentry{satisfaction operator|hyperpage}{124}
-\indexentry{now|hyperpage}{124}
-\indexentry{now|hyperpage}{124}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.bl0|hyperpage}{125}
-\indexentry{temporal frame|hyperpage}{125}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl0wff|hyperpage}{125}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.time|hyperpage}{126}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.before|hyperpage}{126}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.beforeeq|hyperpage}{126}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.dd|hyperpage}{126}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.cc|hyperpage}{126}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.cd|hyperpage}{126}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.dc|hyperpage}{126}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.alldd|hyperpage}{127}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.allcd|hyperpage}{127}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.alldc|hyperpage}{127}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.allcc|hyperpage}{127}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.exdd|hyperpage}{127}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.excc|hyperpage}{127}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.excd|hyperpage}{127}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.exdc|hyperpage}{128}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-model|hyperpage}{128}
-\indexentry{class|hyperpage}{128}
-\indexentry{P|hyperpage}{128}
-\indexentry{execution|hyperpage}{128}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.models|hyperpage}{129}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.modelsc|hyperpage}{129}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.exists|hyperpage}{129}
-\indexentry{birth|hyperpage}{129}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.birth|hyperpage}{129}
-\indexentry{death|hyperpage}{129}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.death|hyperpage}{129}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.lifetime|hyperpage}{129}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  blwff|hyperpage}{130}
-\indexentry{correct|hyperpage}{131}
-\indexentry{reference time|hyperpage}{131}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.nowrr|hyperpage}{131}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.ts|hyperpage}{131}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.tsc|hyperpage}{132}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.tsdis|hyperpage}{132}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.tsdisc|hyperpage}{132}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.ts0|hyperpage}{132}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.ts0c|hyperpage}{132}
-\indexentry{Metamath|hyperpage}{133}
-\indexentry{sound|hyperpage}{133}
-\indexentry{Modus Ponens|hyperpage}{134}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  cv|hyperpage}{137}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  wcel|hyperpage}{137}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  wa|hyperpage}{137}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  wi|hyperpage}{137}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  df-an|hyperpage}{137}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  df-or|hyperpage}{137}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  df-ltxr|hyperpage}{137}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  df-tru|hyperpage}{137}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  df-fal|hyperpage}{138}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  wfl1|hyperpage}{139}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  wfl2|hyperpage}{139}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  wland|hyperpage}{139}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  wlo|hyperpage}{139}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  wsbw|hyperpage}{139}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.cl|hyperpage}{140}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.cl0|hyperpage}{140}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.cadd|hyperpage}{140}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.cmul|hyperpage}{140}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  cnow|hyperpage}{140}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  ctops|hyperpage}{140}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  ctime|hyperpage}{140}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  wtp|hyperpage}{140}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  wtpe|hyperpage}{140}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  wat|hyperpage}{141}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  clat0|hyperpage}{141}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.an2impor2|hyperpage}{141}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.PandQorPisP|hyperpage}{141}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.PandPorQisP|hyperpage}{141}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.PisPandQorP|hyperpage}{142}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.PorQandPisP|hyperpage}{142}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.PorPandQisP|hyperpage}{142}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.PisPorQandP|hyperpage}{143}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.cd|hyperpage}{143}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.ralssi|hyperpage}{143}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.addass4i|hyperpage}{144}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.anfal|hyperpage}{144}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.anfar|hyperpage}{145}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.ortrl|hyperpage}{145}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.ortrr|hyperpage}{145}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.seq|hyperpage}{145}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.adddii|hyperpage}{146}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.adddizi|hyperpage}{146}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.sbw|hyperpage}{147}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.sbwid|hyperpage}{147}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.bisbwl|hyperpage}{147}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.bisbwr|hyperpage}{147}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.sylsbw|hyperpage}{148}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.sbwsyl|hyperpage}{148}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.lan1|hyperpage}{148}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.lan2wl|hyperpage}{148}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.an2wl|hyperpage}{149}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.an3wl|hyperpage}{149}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.ancomphwl|hyperpage}{149}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.ancomwlwl|hyperpage}{150}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.anpfw|hyperpage}{150}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.anplw|hyperpage}{150}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.anabpf|hyperpage}{151}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.anabpl|hyperpage}{151}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.aisl|hyperpage}{151}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.aisr|hyperpage}{151}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.aiswll|hyperpage}{152}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.aiswlr|hyperpage}{152}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.ancomphfirst|hyperpage}{152}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.ancomphlast|hyperpage}{152}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.anpmw|hyperpage}{153}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.anabpm|hyperpage}{153}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.ais|hyperpage}{153}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.aiswl|hyperpage}{153}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.lor1|hyperpage}{154}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.lor2wl|hyperpage}{154}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.or2wl|hyperpage}{154}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.or3wl|hyperpage}{154}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.orcomphwl|hyperpage}{155}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.orcom|hyperpage}{155}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.orpfw|hyperpage}{155}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.orplw|hyperpage}{156}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.orabpf|hyperpage}{156}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.orabpl|hyperpage}{156}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.orcwl|hyperpage}{157}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.orcwll|hyperpage}{157}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.orcomphfirst|hyperpage}{157}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.orcomphlast|hyperpage}{157}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.orpmw|hyperpage}{158}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.orabpm|hyperpage}{158}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.dbo2a|hyperpage}{158}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.dba2o|hyperpage}{159}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.dbo2awl|hyperpage}{159}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.dba2owl|hyperpage}{159}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.ctao|hyperpage}{160}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.ctaol|hyperpage}{160}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.animporan|hyperpage}{160}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.animporanl|hyperpage}{161}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.2teqop|hyperpage}{161}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.3teqot|hyperpage}{161}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.add1|hyperpage}{161}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.add2|hyperpage}{161}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.addcom|hyperpage}{161}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.adeqi|hyperpage}{162}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.add2i|hyperpage}{162}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.add3i|hyperpage}{162}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.addcom2|hyperpage}{163}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.addcom3bac|hyperpage}{163}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.addcom3acb|hyperpage}{164}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.addcom3cba|hyperpage}{164}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.addcom3cab|hyperpage}{165}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.mul1|hyperpage}{166}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.mul2|hyperpage}{166}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.mulcom|hyperpage}{166}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.muleqi|hyperpage}{166}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.mul2i|hyperpage}{166}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.mul3i|hyperpage}{167}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.mulcom2|hyperpage}{167}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.mulcom3bac|hyperpage}{168}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.mulcom3acb|hyperpage}{168}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.mulcom3cba|hyperpage}{169}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.mulcom3cab|hyperpage}{170}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.time|hyperpage}{171}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.rt|hyperpage}{171}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.ert|hyperpage}{171}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.etir|hyperpage}{172}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.etial0|hyperpage}{172}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.etiamn|hyperpage}{173}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.before|hyperpage}{173}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.beforeeq|hyperpage}{173}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.nowrr|hyperpage}{173}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.nowt|hyperpage}{173}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.alldd|hyperpage}{175}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.allcd|hyperpage}{176}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.alldc|hyperpage}{176}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.allcc|hyperpage}{177}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.exdd|hyperpage}{178}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.excc|hyperpage}{178}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.excd|hyperpage}{179}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.exdc|hyperpage}{179}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  ax-bl.taut|hyperpage}{179}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.ty|hyperpage}{179}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.im|hyperpage}{179}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.mono|hyperpage}{180}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.bi|hyperpage}{180}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.an|hyperpage}{180}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.3an|hyperpage}{180}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.or|hyperpage}{181}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.3or|hyperpage}{181}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.not|hyperpage}{181}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.al|hyperpage}{181}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.monobi|hyperpage}{182}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.al|hyperpage}{182}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.nf|hyperpage}{182}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.dfrex2|hyperpage}{183}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.exraw|hyperpage}{183}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.exlem0|hyperpage}{183}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.exlem|hyperpage}{184}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.ex|hyperpage}{184}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.add|hyperpage}{184}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.sub|hyperpage}{184}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.mul|hyperpage}{185}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.div|hyperpage}{185}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.um|hyperpage}{185}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.eq|hyperpage}{185}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.lt|hyperpage}{185}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.am|hyperpage}{185}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  ax-bl.models|hyperpage}{185}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  ax-bl.modelsc|hyperpage}{185}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  ax-bl.bi|hyperpage}{185}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  ax-bl.eq|hyperpage}{186}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.monobit|hyperpage}{186}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.bit|hyperpage}{186}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.ant|hyperpage}{186}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.an3t|hyperpage}{186}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.ort|hyperpage}{187}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.or3t|hyperpage}{187}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.imt|hyperpage}{188}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.nott|hyperpage}{188}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.bitrit|hyperpage}{188}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.addt|hyperpage}{188}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.subt|hyperpage}{189}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.mult|hyperpage}{189}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.divt|hyperpage}{189}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.umt|hyperpage}{189}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.eqt|hyperpage}{189}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.ltt|hyperpage}{189}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.amt|hyperpage}{189}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.ralt|hyperpage}{189}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.rext|hyperpage}{189}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.at|hyperpage}{190}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.atc|hyperpage}{190}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.at2|hyperpage}{190}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.at2c|hyperpage}{190}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.atintro|hyperpage}{190}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.atbi|hyperpage}{190}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.atbii|hyperpage}{191}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.ateqc|hyperpage}{191}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.ateqci|hyperpage}{191}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.atintroc|hyperpage}{191}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.atrt|hyperpage}{192}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.atan2|hyperpage}{192}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.atan2i|hyperpage}{192}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.atan3i|hyperpage}{192}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.atan3ri|hyperpage}{193}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.atan3li|hyperpage}{194}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.ator2|hyperpage}{195}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.ator2i|hyperpage}{195}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.ator3i|hyperpage}{196}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.ator3ri|hyperpage}{197}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.ator3li|hyperpage}{197}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.atbi|hyperpage}{198}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.atbii|hyperpage}{198}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.atnot|hyperpage}{198}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.atnoti|hyperpage}{199}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.atad2|hyperpage}{199}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.atad2i|hyperpage}{199}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.atad3|hyperpage}{199}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.atad3l|hyperpage}{200}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.atad|hyperpage}{201}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.atmul2|hyperpage}{201}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.atmul2i|hyperpage}{201}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.atmul3|hyperpage}{201}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.atmul3l|hyperpage}{202}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.atmul|hyperpage}{203}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.atsub|hyperpage}{203}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.atsubi|hyperpage}{203}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.atdiv|hyperpage}{204}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.atdivi|hyperpage}{204}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.atum|hyperpage}{204}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.atumi|hyperpage}{204}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.ateq|hyperpage}{204}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.ateq|hyperpage}{204}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.atlt|hyperpage}{205}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.atlti|hyperpage}{205}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.atami|hyperpage}{205}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.atal|hyperpage}{206}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.atexi|hyperpage}{206}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.atsum|hyperpage}{206}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.atprod|hyperpage}{206}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.atqq|hyperpage}{206}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.ts|hyperpage}{207}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.tsi|hyperpage}{207}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.tsc|hyperpage}{207}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.tsci|hyperpage}{207}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.tsoi|hyperpage}{208}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.ts0|hyperpage}{210}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.tsc0|hyperpage}{211}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.tscomi|hyperpage}{212}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.tscomci|hyperpage}{214}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.tsbii|hyperpage}{216}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.tseqi|hyperpage}{218}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.tsan2i|hyperpage}{220}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.tsan3i|hyperpage}{221}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.tsan3ri|hyperpage}{223}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.tsan3li|hyperpage}{224}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.tsani|hyperpage}{226}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.tsor2i|hyperpage}{226}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.tsor3i|hyperpage}{227}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.tsor3ri|hyperpage}{229}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.tsor3li|hyperpage}{230}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.tsori|hyperpage}{232}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.tsad2i|hyperpage}{232}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.tsad3ri|hyperpage}{233}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.tsad3li|hyperpage}{235}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.tsadi|hyperpage}{236}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.tssubi|hyperpage}{236}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.tsmul2i|hyperpage}{237}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.tsmul3ri|hyperpage}{238}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.tsmul3li|hyperpage}{240}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.tsmuli|hyperpage}{241}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.tsdivi|hyperpage}{241}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.tsumi|hyperpage}{242}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.tsdeqi|hyperpage}{243}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.tslti|hyperpage}{244}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.tsami|hyperpage}{245}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.tsali|hyperpage}{246}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.tsexi|hyperpage}{246}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.tssumi|hyperpage}{246}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.tsprodi|hyperpage}{246}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.tsqq|hyperpage}{246}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  ax-mp|hyperpage}{247}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  ax-1|hyperpage}{247}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  ax-2|hyperpage}{247}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  ax-3|hyperpage}{247}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  mp2b|hyperpage}{247}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  a1i|hyperpage}{248}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  imim2i|hyperpage}{248}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  syl|hyperpage}{248}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  id|hyperpage}{248}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  idd|hyperpage}{248}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  pm2.86i|hyperpage}{248}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  notnot|hyperpage}{248}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  pm2.61|hyperpage}{248}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  impbii|hyperpage}{248}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  biimpi|hyperpage}{249}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  sylbi|hyperpage}{249}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  biimpr|hyperpage}{249}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  bicom|hyperpage}{249}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  bicomi|hyperpage}{249}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  biimpri|hyperpage}{249}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  mpbi|hyperpage}{249}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  mpbir|hyperpage}{249}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  mpbid|hyperpage}{249}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  sylibr|hyperpage}{250}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  mpbird|hyperpage}{250}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  biid|hyperpage}{250}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  bitri|hyperpage}{250}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  bitr2i|hyperpage}{250}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  bitr3i|hyperpage}{250}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  bitr4i|hyperpage}{250}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  bitrd|hyperpage}{250}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  bitr4d|hyperpage}{250}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  3imtr3i|hyperpage}{251}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  3imtr4i|hyperpage}{251}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  3bitri|hyperpage}{251}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  3bitr2ri|hyperpage}{251}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  3bitr4i|hyperpage}{251}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  3bitr4ri|hyperpage}{251}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  con4bii|hyperpage}{251}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  mtbir|hyperpage}{251}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  notbii|hyperpage}{252}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  imbi2i|hyperpage}{252}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  bibi2i|hyperpage}{252}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  bibi1i|hyperpage}{252}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  imbi1i|hyperpage}{252}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  bitr3|hyperpage}{252}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  con1bii|hyperpage}{252}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  a1bi|hyperpage}{252}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  wa|hyperpage}{252}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  df-an|hyperpage}{253}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  pm3.24|hyperpage}{253}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  pm3.22|hyperpage}{253}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  ancom|hyperpage}{253}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  anass|hyperpage}{253}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  pm3.2i|hyperpage}{253}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  adantr|hyperpage}{253}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  simpl|hyperpage}{253}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  simpli|hyperpage}{253}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  simpr|hyperpage}{254}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  simpri|hyperpage}{254}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  intnan|hyperpage}{254}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  intnanr|hyperpage}{254}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  jca|hyperpage}{254}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  pm4.24|hyperpage}{254}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  anidm|hyperpage}{254}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  syl2anc|hyperpage}{254}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  syldan|hyperpage}{254}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  anim12i|hyperpage}{255}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  anim1i|hyperpage}{255}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  anbi2i|hyperpage}{255}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  anbi1i|hyperpage}{255}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  anbi12i|hyperpage}{255}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  anbi2d|hyperpage}{255}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  mp2an|hyperpage}{255}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  pm4.45im|hyperpage}{255}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  df-or|hyperpage}{255}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  orci|hyperpage}{256}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  olci|hyperpage}{256}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  orc|hyperpage}{256}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  olc|hyperpage}{256}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  orcom|hyperpage}{256}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  exmid|hyperpage}{256}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  oridm|hyperpage}{256}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  orim12i|hyperpage}{256}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  orbi2i|hyperpage}{257}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  orbi1i|hyperpage}{257}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  orbi12i|hyperpage}{257}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  orbi2d|hyperpage}{257}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  orass|hyperpage}{257}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  animorl|hyperpage}{257}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  animorr|hyperpage}{257}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  pm4.56|hyperpage}{257}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  pm4.44|hyperpage}{257}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  pm4.45|hyperpage}{258}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  andir|hyperpage}{258}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  df-3or|hyperpage}{258}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  df-3an|hyperpage}{258}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  3orass|hyperpage}{258}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  3anass|hyperpage}{258}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  ordir|hyperpage}{258}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  3jca|hyperpage}{258}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  3adant3|hyperpage}{258}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  simp1|hyperpage}{259}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  simp2|hyperpage}{259}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  simp3|hyperpage}{259}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  simp1i|hyperpage}{259}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  simp2i|hyperpage}{259}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  simp1bi|hyperpage}{259}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  simp2bi|hyperpage}{259}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  simp3bi|hyperpage}{259}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  3simpa|hyperpage}{259}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  3anbi123i|hyperpage}{260}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  3orbi123i|hyperpage}{260}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  3pm3.2i|hyperpage}{260}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  mp3an|hyperpage}{260}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  df-tru|hyperpage}{260}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  tru|hyperpage}{260}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  trut|hyperpage}{260}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  bitru|hyperpage}{260}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  df-fal|hyperpage}{260}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  fal|hyperpage}{261}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  bifal|hyperpage}{261}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  falim|hyperpage}{261}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  dfnot|hyperpage}{261}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  nottru|hyperpage}{261}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  notfal|hyperpage}{261}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  3bitr2ri|hyperpage}{261}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  ax-gen|hyperpage}{261}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  df-ex|hyperpage}{262}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  altru|hyperpage}{262}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  ax-4|hyperpage}{262}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  alim|hyperpage}{262}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  albii|hyperpage}{262}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  exbii|hyperpage}{262}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  ax-5|hyperpage}{262}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  ax-6|hyperpage}{262}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  ax6|hyperpage}{263}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  ax-7|hyperpage}{263}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  ax7|hyperpage}{263}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  ax-8|hyperpage}{263}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  ax8|hyperpage}{263}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  ax-9|hyperpage}{263}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  ax-10|hyperpage}{263}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  ax-11|hyperpage}{263}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  ax-12|hyperpage}{264}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  ax-13|hyperpage}{264}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  3eqtr3i|hyperpage}{264}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  ralv|hyperpage}{264}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  rexlimi|hyperpage}{264}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  orim1i|hyperpage}{264}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  nf5-1|hyperpage}{264}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  nfre1|hyperpage}{264}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  19.3|hyperpage}{265}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  19.8a|hyperpage}{265}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  ex|hyperpage}{265}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  ax-ext|hyperpage}{265}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  df-clab|hyperpage}{265}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  abid|hyperpage}{265}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  dfcleq|hyperpage}{265}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  eqid|hyperpage}{265}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  eqidd|hyperpage}{266}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  eqeq1i|hyperpage}{266}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  eqcomd|hyperpage}{266}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  eqcom|hyperpage}{266}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  eqcomi|hyperpage}{266}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  eqeq12i|hyperpage}{266}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  eqtri|hyperpage}{266}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  eqtr3i|hyperpage}{266}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  eqtr4i|hyperpage}{266}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  3eqtri|hyperpage}{267}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  3eqtr2i|hyperpage}{267}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  3eqtr4i|hyperpage}{267}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  eqtrd|hyperpage}{267}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  eqtr3d|hyperpage}{267}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  eqtr4d|hyperpage}{267}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  syl5eq|hyperpage}{267}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  syl6eqr|hyperpage}{267}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  eleq1i|hyperpage}{267}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  eleq2i|hyperpage}{268}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  eqeltri|hyperpage}{268}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  clelab|hyperpage}{268}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  necom|hyperpage}{268}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  df-ral|hyperpage}{268}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  df-rex|hyperpage}{268}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  dfrex2|hyperpage}{268}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  sbc5|hyperpage}{268}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  df-ss|hyperpage}{268}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  alral|hyperpage}{269}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  ralbii|hyperpage}{269}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  r19.26|hyperpage}{269}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  dfss3|hyperpage}{269}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  sbc3an|hyperpage}{269}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  sbcel1v|hyperpage}{269}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  df-dif|hyperpage}{269}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  df-un|hyperpage}{269}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  df-in|hyperpage}{269}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  df-v|hyperpage}{270}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  sbcan|hyperpage}{270}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  df-pss|hyperpage}{270}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  sseli|hyperpage}{270}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  sselii|hyperpage}{270}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  ssriv|hyperpage}{270}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  sstri|hyperpage}{270}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  rex0|hyperpage}{270}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  csbvarg|hyperpage}{271}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  df-op|hyperpage}{271}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  dfopif|hyperpage}{271}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  df-ot|hyperpage}{271}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  rexsns|hyperpage}{271}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  ralsng|hyperpage}{271}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  opeq12|hyperpage}{271}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  oteq123d|hyperpage}{271}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  df-iun|hyperpage}{271}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  df-iin|hyperpage}{272}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  eqbrtrrd|hyperpage}{272}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  df-disj|hyperpage}{272}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  df-br|hyperpage}{272}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  breq12d|hyperpage}{272}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  df-co|hyperpage}{272}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  df-dm|hyperpage}{272}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  breq12i|hyperpage}{272}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  breqtri|hyperpage}{272}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  sbcbr1g|hyperpage}{273}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  sbcbr2g|hyperpage}{273}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  ax-rep|hyperpage}{273}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  df-id|hyperpage}{273}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  ispod|hyperpage}{273}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  poirr|hyperpage}{273}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  potr|hyperpage}{273}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  df-xp|hyperpage}{274}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  df-rel|hyperpage}{274}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  df-cnv|hyperpage}{274}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  df-co|hyperpage}{274}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  df-dm|hyperpage}{274}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  df-rn|hyperpage}{274}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  df-res|hyperpage}{274}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  ax-pow|hyperpage}{274}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  cotr|hyperpage}{275}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  cnvsym|hyperpage}{275}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  intasym|hyperpage}{275}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  intirr|hyperpage}{275}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  df-fun|hyperpage}{275}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  df-fn|hyperpage}{275}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  df-f|hyperpage}{275}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  df-f|hyperpage}{275}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  df-fo|hyperpage}{275}
+\indexentry{ xdd@\lstinline+..+ closed interval|hyperpage}{122}
+\indexentry{ xcd@\lstinline+,.+ open left|hyperpage}{122}
+\indexentry{ xdc@\lstinline+.,+ open right|hyperpage}{122}
+\indexentry{ xcc@\lstinline+,,+ open interval|hyperpage}{122}
+\indexentry{modal|hyperpage}{123}
+\indexentry{propositional|hyperpage}{123}
+\indexentry{first-order|hyperpage}{123}
+\indexentry{now|hyperpage}{123}
+\indexentry{decidable|hyperpage}{123}
+\indexentry{deductive system|hyperpage}{123}
+\indexentry{complete|hyperpage}{123}
+\indexentry{sound|hyperpage}{123}
+\indexentry{temporal precedence|hyperpage}{124}
+\indexentry{next|hyperpage}{124}
+\indexentry{next|hyperpage}{124}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.next|hyperpage}{124}
+\indexentry{false|hyperpage}{125}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.nextuniq|hyperpage}{125}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.nextdense|hyperpage}{125}
+\indexentry{hybrid logics|hyperpage}{125}
+\indexentry{nominals|hyperpage}{125}
+\indexentry{satisfaction operator|hyperpage}{125}
+\indexentry{now|hyperpage}{125}
+\indexentry{now|hyperpage}{125}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.bl0|hyperpage}{126}
+\indexentry{temporal frame|hyperpage}{126}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl0wff|hyperpage}{126}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.time|hyperpage}{127}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.before|hyperpage}{127}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.beforeeq|hyperpage}{127}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.dd|hyperpage}{127}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.cc|hyperpage}{127}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.cd|hyperpage}{127}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.dc|hyperpage}{127}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.alldd|hyperpage}{128}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.allcd|hyperpage}{128}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.alldc|hyperpage}{128}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.allcc|hyperpage}{128}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.exdd|hyperpage}{128}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.excc|hyperpage}{128}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.excd|hyperpage}{128}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.exdc|hyperpage}{129}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-model|hyperpage}{129}
+\indexentry{class|hyperpage}{129}
+\indexentry{P|hyperpage}{129}
+\indexentry{execution|hyperpage}{129}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.models|hyperpage}{130}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.modelsc|hyperpage}{130}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.exists|hyperpage}{130}
+\indexentry{birth|hyperpage}{130}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.birth|hyperpage}{130}
+\indexentry{death|hyperpage}{130}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.death|hyperpage}{130}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.lifetime|hyperpage}{130}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  blwff|hyperpage}{131}
+\indexentry{correct|hyperpage}{132}
+\indexentry{reference time|hyperpage}{132}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.nowrr|hyperpage}{132}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.ts|hyperpage}{132}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.tsc|hyperpage}{133}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.tsdis|hyperpage}{133}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.tsdisc|hyperpage}{133}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.ts0|hyperpage}{133}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.ts0c|hyperpage}{133}
+\indexentry{Metamath|hyperpage}{134}
+\indexentry{sound|hyperpage}{134}
+\indexentry{Modus Ponens|hyperpage}{135}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  cv|hyperpage}{138}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  wcel|hyperpage}{138}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  wa|hyperpage}{138}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  wi|hyperpage}{138}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  df-an|hyperpage}{138}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  df-or|hyperpage}{138}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  df-ltxr|hyperpage}{138}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  df-tru|hyperpage}{138}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  df-fal|hyperpage}{139}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  wfl1|hyperpage}{140}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  wfl2|hyperpage}{140}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  wland|hyperpage}{140}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  wlo|hyperpage}{140}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  wsbw|hyperpage}{140}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.cl|hyperpage}{141}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.cl0|hyperpage}{141}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.cadd|hyperpage}{141}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.cmul|hyperpage}{141}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  cnow|hyperpage}{141}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  ctops|hyperpage}{141}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  ctime|hyperpage}{141}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  wtp|hyperpage}{141}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  wtpe|hyperpage}{141}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  wat|hyperpage}{142}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  clat0|hyperpage}{142}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.an2impor2|hyperpage}{142}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.PandQorPisP|hyperpage}{142}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.PandPorQisP|hyperpage}{142}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.PisPandQorP|hyperpage}{143}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.PorQandPisP|hyperpage}{143}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.PorPandQisP|hyperpage}{143}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.PisPorQandP|hyperpage}{144}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.cd|hyperpage}{144}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.ralssi|hyperpage}{144}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.addass4i|hyperpage}{145}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.anfal|hyperpage}{145}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.anfar|hyperpage}{146}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.ortrl|hyperpage}{146}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.ortrr|hyperpage}{146}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.seq|hyperpage}{146}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.adddii|hyperpage}{147}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.adddizi|hyperpage}{147}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.sbw|hyperpage}{148}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.sbwid|hyperpage}{148}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.bisbwl|hyperpage}{148}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.bisbwr|hyperpage}{148}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.sylsbw|hyperpage}{149}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.sbwsyl|hyperpage}{149}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.lan1|hyperpage}{149}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.lan2wl|hyperpage}{149}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.an2wl|hyperpage}{150}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.an3wl|hyperpage}{150}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.ancomphwl|hyperpage}{150}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.ancomwlwl|hyperpage}{151}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.anpfw|hyperpage}{151}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.anplw|hyperpage}{151}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.anabpf|hyperpage}{152}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.anabpl|hyperpage}{152}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.aisl|hyperpage}{152}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.aisr|hyperpage}{152}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.aiswll|hyperpage}{153}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.aiswlr|hyperpage}{153}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.ancomphfirst|hyperpage}{153}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.ancomphlast|hyperpage}{153}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.anpmw|hyperpage}{154}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.anabpm|hyperpage}{154}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.ais|hyperpage}{154}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.aiswl|hyperpage}{154}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.lor1|hyperpage}{155}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.lor2wl|hyperpage}{155}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.or2wl|hyperpage}{155}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.or3wl|hyperpage}{155}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.orcomphwl|hyperpage}{156}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.orcom|hyperpage}{156}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.orpfw|hyperpage}{156}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.orplw|hyperpage}{157}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.orabpf|hyperpage}{157}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.orabpl|hyperpage}{157}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.orcwl|hyperpage}{158}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.orcwll|hyperpage}{158}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.orcomphfirst|hyperpage}{158}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.orcomphlast|hyperpage}{158}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.orpmw|hyperpage}{159}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.orabpm|hyperpage}{159}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.dbo2a|hyperpage}{159}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.dba2o|hyperpage}{160}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.dbo2awl|hyperpage}{160}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.dba2owl|hyperpage}{160}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.ctao|hyperpage}{161}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.ctaol|hyperpage}{161}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.animporan|hyperpage}{161}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.animporanl|hyperpage}{162}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.2teqop|hyperpage}{162}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.3teqot|hyperpage}{162}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.add1|hyperpage}{162}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.add2|hyperpage}{162}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.addcom|hyperpage}{162}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.adeqi|hyperpage}{163}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.add2i|hyperpage}{163}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.add3i|hyperpage}{163}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.addcom2|hyperpage}{164}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.addcom3bac|hyperpage}{164}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.addcom3acb|hyperpage}{165}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.addcom3cba|hyperpage}{165}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.addcom3cab|hyperpage}{166}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.mul1|hyperpage}{167}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.mul2|hyperpage}{167}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.mulcom|hyperpage}{167}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.muleqi|hyperpage}{167}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.mul2i|hyperpage}{167}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.mul3i|hyperpage}{168}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.mulcom2|hyperpage}{168}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.mulcom3bac|hyperpage}{169}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.mulcom3acb|hyperpage}{169}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.mulcom3cba|hyperpage}{170}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.mulcom3cab|hyperpage}{171}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.time|hyperpage}{172}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.rt|hyperpage}{172}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.ert|hyperpage}{172}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.etir|hyperpage}{173}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.etial0|hyperpage}{173}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.etiamn|hyperpage}{174}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.before|hyperpage}{174}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.beforeeq|hyperpage}{174}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.nowrr|hyperpage}{174}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.nowt|hyperpage}{174}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.alldd|hyperpage}{176}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.allcd|hyperpage}{177}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.alldc|hyperpage}{177}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.allcc|hyperpage}{178}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.exdd|hyperpage}{179}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.excc|hyperpage}{179}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.excd|hyperpage}{180}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.exdc|hyperpage}{180}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  ax-bl.taut|hyperpage}{180}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.ty|hyperpage}{180}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.im|hyperpage}{180}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.mono|hyperpage}{181}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.bi|hyperpage}{181}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.an|hyperpage}{181}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.3an|hyperpage}{181}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.or|hyperpage}{182}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.3or|hyperpage}{182}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.not|hyperpage}{182}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.al|hyperpage}{182}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.monobi|hyperpage}{183}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.al|hyperpage}{183}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.nf|hyperpage}{183}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.dfrex2|hyperpage}{184}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.exraw|hyperpage}{184}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.exlem0|hyperpage}{184}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.exlem|hyperpage}{185}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.ex|hyperpage}{185}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.add|hyperpage}{185}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.sub|hyperpage}{185}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.mul|hyperpage}{186}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.div|hyperpage}{186}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.um|hyperpage}{186}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.eq|hyperpage}{186}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.lt|hyperpage}{186}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.am|hyperpage}{186}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  ax-bl.models|hyperpage}{186}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  ax-bl.modelsc|hyperpage}{186}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  ax-bl.bi|hyperpage}{186}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  ax-bl.eq|hyperpage}{187}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.monobit|hyperpage}{187}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.bit|hyperpage}{187}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.ant|hyperpage}{187}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.an3t|hyperpage}{187}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.ort|hyperpage}{188}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.or3t|hyperpage}{188}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.imt|hyperpage}{189}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.nott|hyperpage}{189}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.bitrit|hyperpage}{189}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.addt|hyperpage}{189}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.subt|hyperpage}{190}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.mult|hyperpage}{190}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.divt|hyperpage}{190}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.umt|hyperpage}{190}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.eqt|hyperpage}{190}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.ltt|hyperpage}{190}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.amt|hyperpage}{190}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.ralt|hyperpage}{190}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.rext|hyperpage}{190}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.at|hyperpage}{191}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.atc|hyperpage}{191}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.at2|hyperpage}{191}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.at2c|hyperpage}{191}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.atintro|hyperpage}{191}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.atbi|hyperpage}{191}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.atbii|hyperpage}{192}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.ateqc|hyperpage}{192}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.ateqci|hyperpage}{192}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.atintroc|hyperpage}{192}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.atrt|hyperpage}{193}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.atan2|hyperpage}{193}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.atan2i|hyperpage}{193}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.atan3i|hyperpage}{193}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.atan3ri|hyperpage}{194}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.atan3li|hyperpage}{195}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.ator2|hyperpage}{196}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.ator2i|hyperpage}{196}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.ator3i|hyperpage}{197}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.ator3ri|hyperpage}{198}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.ator3li|hyperpage}{198}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.atbi|hyperpage}{199}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.atbii|hyperpage}{199}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.atnot|hyperpage}{199}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.atnoti|hyperpage}{200}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.atad2|hyperpage}{200}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.atad2i|hyperpage}{200}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.atad3|hyperpage}{200}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.atad3l|hyperpage}{201}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.atad|hyperpage}{202}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.atmul2|hyperpage}{202}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.atmul2i|hyperpage}{202}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.atmul3|hyperpage}{202}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.atmul3l|hyperpage}{203}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.atmul|hyperpage}{204}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.atsub|hyperpage}{204}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.atsubi|hyperpage}{204}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.atdiv|hyperpage}{205}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.atdivi|hyperpage}{205}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.atum|hyperpage}{205}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.atumi|hyperpage}{205}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.ateq|hyperpage}{205}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.ateq|hyperpage}{205}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.atlt|hyperpage}{206}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.atlti|hyperpage}{206}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.atami|hyperpage}{206}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.atal|hyperpage}{207}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.atexi|hyperpage}{207}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.atsum|hyperpage}{207}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.atprod|hyperpage}{207}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.atqq|hyperpage}{207}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.ts|hyperpage}{208}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.tsi|hyperpage}{208}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.tsc|hyperpage}{208}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.tsci|hyperpage}{208}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.tsoi|hyperpage}{209}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.ts0|hyperpage}{211}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.tsc0|hyperpage}{212}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.tscomi|hyperpage}{213}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.tscomci|hyperpage}{215}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.tsbii|hyperpage}{217}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.tseqi|hyperpage}{219}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.tsan2i|hyperpage}{221}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.tsan3i|hyperpage}{222}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.tsan3ri|hyperpage}{224}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.tsan3li|hyperpage}{225}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.tsani|hyperpage}{227}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.tsor2i|hyperpage}{227}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.tsor3i|hyperpage}{228}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.tsor3ri|hyperpage}{230}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.tsor3li|hyperpage}{231}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.tsori|hyperpage}{233}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.tsad2i|hyperpage}{233}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.tsad3ri|hyperpage}{234}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.tsad3li|hyperpage}{236}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.tsadi|hyperpage}{237}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.tssubi|hyperpage}{237}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.tsmul2i|hyperpage}{238}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.tsmul3ri|hyperpage}{239}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.tsmul3li|hyperpage}{241}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.tsmuli|hyperpage}{242}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.tsdivi|hyperpage}{242}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.tsumi|hyperpage}{243}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.tsdeqi|hyperpage}{244}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.tslti|hyperpage}{245}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.tsami|hyperpage}{246}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.tsali|hyperpage}{247}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.tsexi|hyperpage}{247}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.tssumi|hyperpage}{247}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.tsprodi|hyperpage}{247}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.tsqq|hyperpage}{247}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  ax-mp|hyperpage}{248}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  ax-1|hyperpage}{248}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  ax-2|hyperpage}{248}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  ax-3|hyperpage}{248}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  mp2b|hyperpage}{248}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  a1i|hyperpage}{249}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  imim2i|hyperpage}{249}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  syl|hyperpage}{249}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  id|hyperpage}{249}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  idd|hyperpage}{249}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  pm2.86i|hyperpage}{249}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  notnot|hyperpage}{249}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  pm2.61|hyperpage}{249}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  impbii|hyperpage}{249}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  biimpi|hyperpage}{250}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  sylbi|hyperpage}{250}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  biimpr|hyperpage}{250}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  bicom|hyperpage}{250}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  bicomi|hyperpage}{250}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  biimpri|hyperpage}{250}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  mpbi|hyperpage}{250}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  mpbir|hyperpage}{250}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  mpbid|hyperpage}{250}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  sylibr|hyperpage}{251}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  mpbird|hyperpage}{251}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  biid|hyperpage}{251}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  bitri|hyperpage}{251}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  bitr2i|hyperpage}{251}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  bitr3i|hyperpage}{251}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  bitr4i|hyperpage}{251}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  bitrd|hyperpage}{251}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  bitr4d|hyperpage}{251}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  3imtr3i|hyperpage}{252}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  3imtr4i|hyperpage}{252}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  3bitri|hyperpage}{252}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  3bitr2ri|hyperpage}{252}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  3bitr4i|hyperpage}{252}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  3bitr4ri|hyperpage}{252}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  con4bii|hyperpage}{252}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  mtbir|hyperpage}{252}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  notbii|hyperpage}{253}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  imbi2i|hyperpage}{253}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  bibi2i|hyperpage}{253}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  bibi1i|hyperpage}{253}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  imbi1i|hyperpage}{253}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  bitr3|hyperpage}{253}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  con1bii|hyperpage}{253}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  a1bi|hyperpage}{253}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  wa|hyperpage}{253}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  df-an|hyperpage}{254}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  pm3.24|hyperpage}{254}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  pm3.22|hyperpage}{254}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  ancom|hyperpage}{254}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  anass|hyperpage}{254}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  pm3.2i|hyperpage}{254}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  adantr|hyperpage}{254}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  simpl|hyperpage}{254}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  simpli|hyperpage}{254}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  simpr|hyperpage}{255}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  simpri|hyperpage}{255}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  intnan|hyperpage}{255}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  intnanr|hyperpage}{255}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  jca|hyperpage}{255}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  pm4.24|hyperpage}{255}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  anidm|hyperpage}{255}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  syl2anc|hyperpage}{255}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  syldan|hyperpage}{255}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  anim12i|hyperpage}{256}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  anim1i|hyperpage}{256}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  anbi2i|hyperpage}{256}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  anbi1i|hyperpage}{256}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  anbi12i|hyperpage}{256}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  anbi2d|hyperpage}{256}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  mp2an|hyperpage}{256}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  pm4.45im|hyperpage}{256}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  df-or|hyperpage}{256}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  orci|hyperpage}{257}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  olci|hyperpage}{257}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  orc|hyperpage}{257}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  olc|hyperpage}{257}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  orcom|hyperpage}{257}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  exmid|hyperpage}{257}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  oridm|hyperpage}{257}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  orim12i|hyperpage}{257}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  orbi2i|hyperpage}{258}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  orbi1i|hyperpage}{258}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  orbi12i|hyperpage}{258}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  orbi2d|hyperpage}{258}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  orass|hyperpage}{258}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  animorl|hyperpage}{258}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  animorr|hyperpage}{258}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  pm4.56|hyperpage}{258}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  pm4.44|hyperpage}{258}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  pm4.45|hyperpage}{259}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  andir|hyperpage}{259}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  df-3or|hyperpage}{259}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  df-3an|hyperpage}{259}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  3orass|hyperpage}{259}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  3anass|hyperpage}{259}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  ordir|hyperpage}{259}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  3jca|hyperpage}{259}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  3adant3|hyperpage}{259}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  simp1|hyperpage}{260}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  simp2|hyperpage}{260}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  simp3|hyperpage}{260}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  simp1i|hyperpage}{260}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  simp2i|hyperpage}{260}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  simp1bi|hyperpage}{260}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  simp2bi|hyperpage}{260}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  simp3bi|hyperpage}{260}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  3simpa|hyperpage}{260}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  3anbi123i|hyperpage}{261}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  3orbi123i|hyperpage}{261}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  3pm3.2i|hyperpage}{261}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  mp3an|hyperpage}{261}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  df-tru|hyperpage}{261}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  tru|hyperpage}{261}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  trut|hyperpage}{261}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  bitru|hyperpage}{261}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  df-fal|hyperpage}{261}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  fal|hyperpage}{262}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  bifal|hyperpage}{262}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  falim|hyperpage}{262}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  dfnot|hyperpage}{262}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  nottru|hyperpage}{262}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  notfal|hyperpage}{262}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  3bitr2ri|hyperpage}{262}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  ax-gen|hyperpage}{262}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  df-ex|hyperpage}{263}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  altru|hyperpage}{263}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  ax-4|hyperpage}{263}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  alim|hyperpage}{263}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  albii|hyperpage}{263}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  exbii|hyperpage}{263}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  ax-5|hyperpage}{263}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  ax-6|hyperpage}{263}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  ax6|hyperpage}{264}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  ax-7|hyperpage}{264}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  ax7|hyperpage}{264}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  ax-8|hyperpage}{264}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  ax8|hyperpage}{264}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  ax-9|hyperpage}{264}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  ax-10|hyperpage}{264}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  ax-11|hyperpage}{264}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  ax-12|hyperpage}{265}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  ax-13|hyperpage}{265}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  3eqtr3i|hyperpage}{265}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  ralv|hyperpage}{265}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  rexlimi|hyperpage}{265}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  orim1i|hyperpage}{265}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  nf5-1|hyperpage}{265}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  nfre1|hyperpage}{265}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  19.3|hyperpage}{266}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  19.8a|hyperpage}{266}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  ex|hyperpage}{266}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  ax-ext|hyperpage}{266}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  df-clab|hyperpage}{266}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  abid|hyperpage}{266}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  dfcleq|hyperpage}{266}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  eqid|hyperpage}{266}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  eqidd|hyperpage}{267}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  eqeq1i|hyperpage}{267}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  eqcomd|hyperpage}{267}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  eqcom|hyperpage}{267}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  eqcomi|hyperpage}{267}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  eqeq12i|hyperpage}{267}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  eqtri|hyperpage}{267}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  eqtr3i|hyperpage}{267}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  eqtr4i|hyperpage}{267}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  3eqtri|hyperpage}{268}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  3eqtr2i|hyperpage}{268}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  3eqtr4i|hyperpage}{268}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  eqtrd|hyperpage}{268}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  eqtr3d|hyperpage}{268}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  eqtr4d|hyperpage}{268}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  syl5eq|hyperpage}{268}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  syl6eqr|hyperpage}{268}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  eleq1i|hyperpage}{268}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  eleq2i|hyperpage}{269}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  eqeltri|hyperpage}{269}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  clelab|hyperpage}{269}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  necom|hyperpage}{269}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  df-ral|hyperpage}{269}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  df-rex|hyperpage}{269}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  dfrex2|hyperpage}{269}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  sbc5|hyperpage}{269}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  df-ss|hyperpage}{269}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  alral|hyperpage}{270}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  ralbii|hyperpage}{270}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  r19.26|hyperpage}{270}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  dfss3|hyperpage}{270}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  sbc3an|hyperpage}{270}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  sbcel1v|hyperpage}{270}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  df-dif|hyperpage}{270}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  df-un|hyperpage}{270}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  df-in|hyperpage}{270}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  df-v|hyperpage}{271}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  sbcan|hyperpage}{271}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  df-pss|hyperpage}{271}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  sseli|hyperpage}{271}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  sselii|hyperpage}{271}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  ssriv|hyperpage}{271}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  sstri|hyperpage}{271}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  rex0|hyperpage}{271}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  csbvarg|hyperpage}{272}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  df-op|hyperpage}{272}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  dfopif|hyperpage}{272}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  df-ot|hyperpage}{272}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  rexsns|hyperpage}{272}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  ralsng|hyperpage}{272}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  opeq12|hyperpage}{272}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  oteq123d|hyperpage}{272}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  df-iun|hyperpage}{272}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  df-iin|hyperpage}{273}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  eqbrtrrd|hyperpage}{273}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  df-disj|hyperpage}{273}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  df-br|hyperpage}{273}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  breq12d|hyperpage}{273}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  df-co|hyperpage}{273}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  df-dm|hyperpage}{273}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  breq12i|hyperpage}{273}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  breqtri|hyperpage}{273}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  sbcbr1g|hyperpage}{274}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  sbcbr2g|hyperpage}{274}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  ax-rep|hyperpage}{274}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  df-id|hyperpage}{274}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  ispod|hyperpage}{274}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  poirr|hyperpage}{274}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  potr|hyperpage}{274}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  df-xp|hyperpage}{275}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  df-rel|hyperpage}{275}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  df-cnv|hyperpage}{275}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  df-co|hyperpage}{275}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  df-dm|hyperpage}{275}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  df-rn|hyperpage}{275}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  df-res|hyperpage}{275}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  ax-pow|hyperpage}{275}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  cotr|hyperpage}{276}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  cnvsym|hyperpage}{276}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  intasym|hyperpage}{276}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  intirr|hyperpage}{276}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  df-fun|hyperpage}{276}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  df-fn|hyperpage}{276}
 \indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  df-f|hyperpage}{276}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  df-fv|hyperpage}{276}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  fninfp|hyperpage}{276}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  fnelfp|hyperpage}{276}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  funssres|hyperpage}{276}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  oveq1i|hyperpage}{276}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  oveq2i|hyperpage}{276}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  oveq12i|hyperpage}{276}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  oveq2d|hyperpage}{276}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  ax-un|hyperpage}{277}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  ax-reg|hyperpage}{277}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  ax-inf|hyperpage}{277}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  ax-ac|hyperpage}{277}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  df-tc|hyperpage}{277}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  tc2|hyperpage}{277}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  df-c|hyperpage}{278}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  df-r|hyperpage}{278}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  ax-resscn|hyperpage}{278}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  0cn|hyperpage}{278}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  addcan|hyperpage}{278}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  add12|hyperpage}{278}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  addcl|hyperpage}{278}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  readdcl|hyperpage}{278}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  mulcl|hyperpage}{279}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  remulcl|hyperpage}{279}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  mulcom|hyperpage}{279}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  mulass|hyperpage}{279}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  recn|hyperpage}{279}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  0re|hyperpage}{279}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  addcli|hyperpage}{279}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  mulcli|hyperpage}{279}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  mulcomi|hyperpage}{279}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  addassi|hyperpage}{280}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  adddii|hyperpage}{280}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  recni|hyperpage}{280}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  remulcli|hyperpage}{280}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  df-ltxr|hyperpage}{280}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  ressxr|hyperpage}{280}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  lttr|hyperpage}{280}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  leloe|hyperpage}{280}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  ltle|hyperpage}{280}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  ltnr|hyperpage}{281}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  leid|hyperpage}{281}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  lenlti|hyperpage}{281}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  ltnei|hyperpage}{281}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  letri|hyperpage}{281}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  addid1|hyperpage}{281}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  mul12i|hyperpage}{281}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  df-neg|hyperpage}{281}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  negeqi|hyperpage}{281}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  negcl|hyperpage}{282}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  subcl|hyperpage}{282}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  mul01|hyperpage}{282}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  pncan|hyperpage}{282}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  pncan2|hyperpage}{282}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  npcan|hyperpage}{282}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  subid|hyperpage}{282}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  subid1|hyperpage}{282}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  subcan2|hyperpage}{282}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  subsub3|hyperpage}{283}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  subsub4|hyperpage}{283}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  addsub4|hyperpage}{283}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  subadd4|hyperpage}{283}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  negid|hyperpage}{283}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  negsub|hyperpage}{283}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  negdi|hyperpage}{283}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  negsubdi2|hyperpage}{283}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  negcli|hyperpage}{283}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  pncan3i|hyperpage}{284}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  negcld|hyperpage}{284}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  nncand|hyperpage}{284}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  subnegd|hyperpage}{284}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  mulcan2|hyperpage}{284}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  mulle0b|hyperpage}{284}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  0z|hyperpage}{284}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  df-f|hyperpage}{276}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  df-fo|hyperpage}{276}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  df-f|hyperpage}{277}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  df-fv|hyperpage}{277}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  fninfp|hyperpage}{277}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  fnelfp|hyperpage}{277}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  funssres|hyperpage}{277}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  oveq1i|hyperpage}{277}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  oveq2i|hyperpage}{277}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  oveq12i|hyperpage}{277}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  oveq2d|hyperpage}{277}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  ax-un|hyperpage}{278}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  ax-reg|hyperpage}{278}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  ax-inf|hyperpage}{278}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  ax-ac|hyperpage}{278}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  df-tc|hyperpage}{278}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  tc2|hyperpage}{278}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  df-c|hyperpage}{279}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  df-r|hyperpage}{279}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  ax-resscn|hyperpage}{279}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  0cn|hyperpage}{279}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  addcan|hyperpage}{279}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  add12|hyperpage}{279}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  addcl|hyperpage}{279}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  readdcl|hyperpage}{279}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  mulcl|hyperpage}{280}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  remulcl|hyperpage}{280}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  mulcom|hyperpage}{280}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  mulass|hyperpage}{280}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  recn|hyperpage}{280}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  0re|hyperpage}{280}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  addcli|hyperpage}{280}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  mulcli|hyperpage}{280}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  mulcomi|hyperpage}{280}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  addassi|hyperpage}{281}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  adddii|hyperpage}{281}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  recni|hyperpage}{281}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  remulcli|hyperpage}{281}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  df-ltxr|hyperpage}{281}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  ressxr|hyperpage}{281}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  lttr|hyperpage}{281}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  leloe|hyperpage}{281}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  ltle|hyperpage}{281}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  ltnr|hyperpage}{282}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  leid|hyperpage}{282}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  lenlti|hyperpage}{282}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  ltnei|hyperpage}{282}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  letri|hyperpage}{282}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  addid1|hyperpage}{282}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  mul12i|hyperpage}{282}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  df-neg|hyperpage}{282}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  negeqi|hyperpage}{282}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  negcl|hyperpage}{283}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  subcl|hyperpage}{283}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  mul01|hyperpage}{283}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  pncan|hyperpage}{283}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  pncan2|hyperpage}{283}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  npcan|hyperpage}{283}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  subid|hyperpage}{283}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  subid1|hyperpage}{283}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  subcan2|hyperpage}{283}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  subsub3|hyperpage}{284}
 \indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  subsub4|hyperpage}{284}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  readdcli|hyperpage}{284}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  letri3|hyperpage}{285}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  leadd2i|hyperpage}{285}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  df-nn|hyperpage}{285}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  df-n0|hyperpage}{285}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  df-z|hyperpage}{285}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  df-z|hyperpage}{285}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  zre|hyperpage}{285}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  zcn|hyperpage}{285}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  zsscn|hyperpage}{285}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  zaddcl|hyperpage}{286}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  elioo1|hyperpage}{286}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  elioc1|hyperpage}{286}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  elico1|hyperpage}{286}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  elicc1|hyperpage}{286}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  df-concat|hyperpage}{286}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  df-word|hyperpage}{286}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  df-substr|hyperpage}{287}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  sum0|hyperpage}{287}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  sumsns|hyperpage}{287}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  df-struct|hyperpage}{287}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  df-ndx|hyperpage}{287}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  df-slot|hyperpage}{287}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  df-base|hyperpage}{287}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  df-sets|hyperpage}{288}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  isstruct|hyperpage}{288}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  addcomgi|hyperpage}{288}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  esumnul|hyperpage}{288}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  orfa|hyperpage}{288}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  truconj|hyperpage}{288}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  remul01|hyperpage}{288}
-\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  readdid1|hyperpage}{288}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  addsub4|hyperpage}{284}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  subadd4|hyperpage}{284}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  negid|hyperpage}{284}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  negsub|hyperpage}{284}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  negdi|hyperpage}{284}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  negsubdi2|hyperpage}{284}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  negcli|hyperpage}{284}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  pncan3i|hyperpage}{285}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  negcld|hyperpage}{285}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  nncand|hyperpage}{285}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  subnegd|hyperpage}{285}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  mulcan2|hyperpage}{285}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  mulle0b|hyperpage}{285}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  0z|hyperpage}{285}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  subsub4|hyperpage}{285}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  readdcli|hyperpage}{285}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  letri3|hyperpage}{286}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  leadd2i|hyperpage}{286}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  df-nn|hyperpage}{286}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  df-n0|hyperpage}{286}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  df-z|hyperpage}{286}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  df-z|hyperpage}{286}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  zre|hyperpage}{286}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  zcn|hyperpage}{286}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  zsscn|hyperpage}{286}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  zaddcl|hyperpage}{287}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  elioo1|hyperpage}{287}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  elioc1|hyperpage}{287}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  elico1|hyperpage}{287}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  elicc1|hyperpage}{287}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  df-concat|hyperpage}{287}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  df-word|hyperpage}{287}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  df-substr|hyperpage}{288}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  sum0|hyperpage}{288}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  sumsns|hyperpage}{288}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  df-struct|hyperpage}{288}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  df-ndx|hyperpage}{288}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  df-slot|hyperpage}{288}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  df-base|hyperpage}{288}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  df-sets|hyperpage}{289}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  isstruct|hyperpage}{289}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  addcomgi|hyperpage}{289}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  esumnul|hyperpage}{289}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  orfa|hyperpage}{289}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  truconj|hyperpage}{289}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  remul01|hyperpage}{289}
+\indexentry{zzzmm@\color  {setmmcolor}Metatheorems (from set.mm)!\tt  readdid1|hyperpage}{289}
