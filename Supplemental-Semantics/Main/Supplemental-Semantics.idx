@@ -286,15 +286,16 @@
 \indexentry{class|hyperpage}{59}
 \indexentry{P|hyperpage}{59}
 \indexentry{execution|hyperpage}{60}
+\indexentry{zzzl@\color  {leancolor}Lean!\tt  Model|hyperpage}{60}
 \indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.models|hyperpage}{60}
 \indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.modelsc|hyperpage}{60}
 \indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.time|hyperpage}{60}
 \indexentry{present instant|hyperpage}{60}
 \indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.nowrr|hyperpage}{60}
 \indexentry{temporal precedence|hyperpage}{60}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.before|hyperpage}{60}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.beforeeq|hyperpage}{60}
-\indexentry{ex@\texttt{ex}|hyperpage}{60}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.before|hyperpage}{61}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.beforeeq|hyperpage}{61}
+\indexentry{ex@\texttt{ex}|hyperpage}{61}
 \indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.exists|hyperpage}{61}
 \indexentry{birth@\texttt  {birth}|hyperpage}{61}
 \indexentry{birth@\texttt{birth}|hyperpage}{61}
@@ -306,12 +307,12 @@
 \indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.death|hyperpage}{61}
 \indexentry{ xcd@\lstinline+,.+ open left|hyperpage}{61}
 \indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.allcd|hyperpage}{61}
-\indexentry{life@\texttt{life}|hyperpage}{61}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.lifetime|hyperpage}{61}
-\indexentry{ xdd@\lstinline+..+ closed both|hyperpage}{61}
-\indexentry{ xcc@\lstinline+,,+ open both|hyperpage}{61}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.alldd|hyperpage}{61}
-\indexentry{ xdd@\lstinline+..+ closed interval|hyperpage}{61}
+\indexentry{life@\texttt{life}|hyperpage}{62}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-bl.lifetime|hyperpage}{62}
+\indexentry{ xdd@\lstinline+..+ closed both|hyperpage}{62}
+\indexentry{ xcc@\lstinline+,,+ open both|hyperpage}{62}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.alldd|hyperpage}{62}
+\indexentry{ xdd@\lstinline+..+ closed interval|hyperpage}{62}
 \indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  bl.allcc|hyperpage}{62}
 \indexentry{ xcc@\lstinline+,,+ open interval|hyperpage}{62}
 \indexentry{instant|hyperpage}{62}

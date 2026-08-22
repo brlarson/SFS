@@ -65,6 +65,32 @@ Furthermore, the interpretation is contingent on the values of the system bounda
 
 %\pn For this several definitions will be useful.
 
+\begin{restatable}{leandefinition}{Model}~\leanTitle{Model}~ Define a dynamic architecture model in Lean, as a
+\texttt{structure} bundling $D$/$E$/$P$/$\mathbf{I}$. $\mathbf{T}$ and $\prec$ are \emph{not} separate fields
+here: this file already treats \texttt{TIME}/$\prec$ as global, ambient primitives rather than something that
+varies per model (matching how \texttt{SFS.mm}'s own \texttt{ctime}/\texttt{wtp} are likewise bare, file-level
+constants, not parameters to anything) --- a \texttt{Model} field for them would just rename what's already
+there. The book states $E\in D$ on first introduction, then immediately reinterprets $E$ itself as a
+\emph{class} (``$E$ will be treated as a set theory class: a collection defined by a rule''; ``$E$ may have
+many possible elements at time $\tau$; interpretation picks just one''). The second reading is the one
+formalized here (\texttt{E\_sub\_D} : $E\subseteq D$, not $E\in D$), since it's the one under which
+``interpretation picks one member of $E$'' is meaningful at all; the first-stated $E\in D$ is not separately
+restated as an axiom.
+
+\texttt{\textcolor{leancolor}{structure} \textcolor{leanyellow}{Model} \textcolor{leancolor}{where}}
+
+\texttt{~~D : Set Element}
+
+\texttt{~~E : Set Element}
+
+\texttt{~~E\_sub\_D : E $\subseteq$ D}
+
+\texttt{~~P : Time $\to$ Set Element}
+
+\texttt{~~I : Element $\to$ TVal (Set Element)}
+\label{Model}
+\end{restatable}
+
 \pn  $\mathbf{I}\lsem d \rsem$ is the same at every time $\tau\in\mathbf{T}$:
  
  \begin{restatable}{definition}{dfblmodels}~\blTitle{df-bl.models}~ Define interpretation of predicate for
