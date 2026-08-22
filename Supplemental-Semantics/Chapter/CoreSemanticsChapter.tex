@@ -116,7 +116,7 @@ To avoid Russel's Paradox, ZFC prohibits sets having themselves as elements.  Th
 
 \texttt{~~id : String}
 
-\texttt{~~C  : Set KElement}
+\texttt{~~C  : Set Element}
 \label{ElementRep}
 \end{restatable}
 
@@ -361,13 +361,34 @@ theorem, not an axiom.
 \pn The \texttt{unions} of \texttt{Types} is the set of elements in at least one of them.  Although just a pair of \texttt{Types} is used in the definition,
 \texttt{unions} generalizes to any number of \texttt{Types}.  Unlike ordinary multiple specialization (\ref{eq:df-multspec}), which only bounds $t_s$ within the \emph{intersection} of its generalizations, \texttt{unions} asserts that $t_a$ \emph{equals} the union of its unioning types (KerML \S8.4.3.2, rule~3)---so \texttt{unions} is \emph{not} superfluous.
 
-\begin{restatable}{definition}{dfunions}~\blTitle{df-unions}~ Define \texttt{unions}.  
+\begin{restatable}{definition}{dfunions}~\blTitle{df-unions}~ Define \texttt{unions}.
 \begin{align}
 \vdash \forall t_a , t_b, t_c \in V_T~(\texttt{type}~t_a~\texttt{specializes}~t_b~\texttt{unions}~t_c~ \rightarrow~ t_a~=~t_b \cup t_c)\label{eq:df-unions}\tag{df-unions}
 \end{align}
 \end{restatable}
 
-%\begin{definition} Define union of two classes.  
+\begin{restatable}{leanaxiom}{Unions}~\leanTitle{Unions}~ KerML's own textual \texttt{unions} keyword, in Lean.
+A fresh \texttt{Element}-level primitive, same reasoning as \texttt{Specializes}: the structural elaboration of
+\texttt{unions} (a \texttt{Unioning} value) carries no semantic content of its own and isn't tied to what's
+actually asserted in the current model.
+
+\texttt{\textcolor{leancolor}{axiom} \textcolor{leanyellow}{Unions} : Element $\to$ Element $\to$ Prop}
+\label{Unions}
+\end{restatable}
+
+\begin{restatable}{leanaxiom}{dfUnionsLean}~\leanTitle{df\_unions}~ Define \texttt{unions} in Lean.
+
+\texttt{\textcolor{leancolor}{axiom} \textcolor{leanyellow}{df\_unions} \{ta tb tc : Element\} \{Ca Cb Cc : Set Element\}}
+
+\texttt{~~(ha : (DesignKind.type, ta, Ca) $\in$ Design) (hb : (DesignKind.type, tb, Cb) $\in$ Design)}
+
+\texttt{~~(hc : (DesignKind.type, tc, Cc) $\in$ Design) :}
+
+\texttt{~~Specializes ta tb $\to$ Unions ta tc $\to$ Ca = Cb $\cup$ Cc}
+\label{df_unions}
+\end{restatable}
+
+%\begin{definition} Define union of two classes.
 %\begin{align}
 %(\mc{A}~\cup~\mc{B})~=~\{~x~\vert ~(x \in \mc{A}~\vee~x \in\mc{B})~\} \label{eq:df-un}\tag{df-un}
 %\end{align}
@@ -377,10 +398,29 @@ theorem, not an axiom.
 %Although just a pair of \texttt{Types} is used in the definition,
 %\texttt{intersects} generalizes to any number of \texttt{Types}.
 
-\begin{restatable}{definition}{dfintersects}~\blTitle{df-intersects}~  Define \texttt{intersects}.  
+\begin{restatable}{definition}{dfintersects}~\blTitle{df-intersects}~  Define \texttt{intersects}.
 \begin{align}
 \vdash \forall t_a , t_b, t_c \in V_T~(\texttt{type}~t_a~\texttt{specializes}~t_b~\texttt{intersects}~t_c~ \rightarrow ~t_a~=~t_b \cap t_c)\label{eq:df-intersects}\tag{df-intersects}
 \end{align}
+\end{restatable}
+
+\begin{restatable}{leanaxiom}{Intersects}~\leanTitle{Intersects}~ KerML's own textual \texttt{intersects}
+keyword, in Lean. Same reasoning as \texttt{Unions} above.
+
+\texttt{\textcolor{leancolor}{axiom} \textcolor{leanyellow}{Intersects} : Element $\to$ Element $\to$ Prop}
+\label{Intersects}
+\end{restatable}
+
+\begin{restatable}{leanaxiom}{dfIntersectsLean}~\leanTitle{df\_intersects}~ Define \texttt{intersects} in Lean.
+
+\texttt{\textcolor{leancolor}{axiom} \textcolor{leanyellow}{df\_intersects} \{ta tb tc : Element\} \{Ca Cb Cc : Set Element\}}
+
+\texttt{~~(ha : (DesignKind.type, ta, Ca) $\in$ Design) (hb : (DesignKind.type, tb, Cb) $\in$ Design)}
+
+\texttt{~~(hc : (DesignKind.type, tc, Cc) $\in$ Design) :}
+
+\texttt{~~Specializes ta tb $\to$ Intersects ta tc $\to$ Ca = Cb $\cap$ Cc}
+\label{df_intersects}
 \end{restatable}
 
 %The intersection relationship is defined in \ref{eq:df-in}.
@@ -393,10 +433,30 @@ theorem, not an axiom.
 
 \pn The \texttt{differences} of \texttt{Types} is class difference.
 
-\begin{restatable}{definition}{dfdifferences}~\blTitle{df-differences}~ Define \texttt{differences}.  
+\begin{restatable}{definition}{dfdifferences}~\blTitle{df-differences}~ Define \texttt{differences}.
 \begin{align}
 \vdash \forall t_a , t_b, t_c \in V_T~(\texttt{type}~t_a~\texttt{specializes}~t_b~\texttt{differences}~t_c~ \rightarrow ~t_a~=~(t_b~\backslash~ t_c))~\label{eq:df-differences}\tag{df-differences}
 \end{align}
+\end{restatable}
+
+\begin{restatable}{leanaxiom}{Differences}~\leanTitle{Differences}~ KerML's own textual \texttt{differences}
+keyword, in Lean. Same reasoning as \texttt{Unions} above.
+
+\texttt{\textcolor{leancolor}{axiom} \textcolor{leanyellow}{Differences} : Element $\to$ Element $\to$ Prop}
+\label{Differences}
+\end{restatable}
+
+\begin{restatable}{leanaxiom}{dfDifferencesLean}~\leanTitle{df\_differences}~ Define \texttt{differences} in
+Lean.
+
+\texttt{\textcolor{leancolor}{axiom} \textcolor{leanyellow}{df\_differences} \{ta tb tc : Element\} \{Ca Cb Cc : Set Element\}}
+
+\texttt{~~(ha : (DesignKind.type, ta, Ca) $\in$ Design) (hb : (DesignKind.type, tb, Cb) $\in$ Design)}
+
+\texttt{~~(hc : (DesignKind.type, tc, Cc) $\in$ Design) :}
+
+\texttt{~~Specializes ta tb $\to$ Differences ta tc $\to$ Ca = Cb $\setminus$ Cc}
+\label{df_differences}
 \end{restatable}
 
 \pn The class difference relationship is defined in \ref{eq:df-dif}.
@@ -408,6 +468,28 @@ theorem, not an axiom.
 \begin{align}
 \vdash \forall t_a , t_b, t_c  \in V_T~(\texttt{type}~t_a~\texttt{specializes}~t_b~\texttt{disjoint}~\texttt{from}~t_c ~\rightarrow~  ~t_a \subseteq t_b~\wedge~t_a \cap t_c = \emptyset)\label{eq:df-disjoint}\tag{df-disjoint}
 \end{align}
+\end{restatable}
+
+\begin{restatable}{leanaxiom}{Disjoint}~\leanTitle{Disjoint}~ KerML's own textual \texttt{disjoint from}
+keyword, in Lean. Same reasoning as \texttt{Unions} above.
+
+\texttt{\textcolor{leancolor}{axiom} \textcolor{leanyellow}{Disjoint} : Element $\to$ Element $\to$ Prop}
+\label{Disjoint}
+\end{restatable}
+
+\begin{restatable}{leanaxiom}{dfDisjointLean}~\leanTitle{df\_disjoint}~ Define \texttt{disjoint} in Lean. The
+first conjunct below (\texttt{Ca} $\subseteq$ \texttt{Cb}) is, notably, already exactly \texttt{df\_specializes}'s
+own conclusion given \texttt{Specializes ta tb}; it's restated here as part of the conjunction only because
+that's the literal shape \texttt{df-disjoint} itself asserts above, not because it's independently new content.
+
+\texttt{\textcolor{leancolor}{axiom} \textcolor{leanyellow}{df\_disjoint} \{ta tb tc : Element\} \{Ca Cb Cc : Set Element\}}
+
+\texttt{~~(ha : (DesignKind.type, ta, Ca) $\in$ Design) (hb : (DesignKind.type, tb, Cb) $\in$ Design)}
+
+\texttt{~~(hc : (DesignKind.type, tc, Cc) $\in$ Design) :}
+
+\texttt{~~Specializes ta tb $\to$ Disjoint ta tc $\to$ Ca $\subseteq$ Cb $\wedge$ Ca $\cap$ Cc = $\emptyset$}
+\label{df_disjoint}
 \end{restatable}
 
 \subsection{Type Operator Composition}
