@@ -1,235 +1,235 @@
 \begin{theindex}
 
-  \item $~\vert~$ such that, \hyperpage{103}, \hyperpage{112}
-  \item $\mathbb{B}$ boolean, \hyperpage{63}, \hyperpage{103}, 
-		\hyperpage{112}
-  \item $\Vert A\Vert$ cardinality, \hyperpage{104}, \hyperpage{114}
-  \item $=$ class equality, \hyperpage{113}
-  \item $R^{\star}$ transitive reflexive closure, \hyperpage{104}, 
-		\hyperpage{118}
-  \item $R^{+}$ transitive irreflexive closure, \hyperpage{104}, 
-		\hyperpage{118}
-  \item $\neg$ complement, \hyperpage{105}, \hyperpage{120}
-  \item $\mathbb{C}$ complex, \hyperpage{63}, \hyperpage{103}, 
-		\hyperpage{112}
-  \item $\circ$ relational composition, \hyperpage{105}, 
+  \item $~\vert~$ such that, \hyperpage{107}, \hyperpage{116}
+  \item $\mathbb{B}$ boolean, \hyperpage{67}, \hyperpage{107}, 
 		\hyperpage{116}
-  \item $\downdownarrows $ concurrent combination, \hyperpage{124}
-  \item $\parallel$ concurrent, \hyperpage{123}
-  \item $\wedge$ conjunction, \hyperpage{105}, \hyperpage{120}
+  \item $\Vert A\Vert$ cardinality, \hyperpage{108}, \hyperpage{118}
+  \item $=$ class equality, \hyperpage{117}
+  \item $R^{\star}$ transitive reflexive closure, \hyperpage{108}, 
+		\hyperpage{122}
+  \item $R^{+}$ transitive irreflexive closure, \hyperpage{108}, 
+		\hyperpage{122}
+  \item $\neg$ complement, \hyperpage{109}, \hyperpage{124}
+  \item $\mathbb{C}$ complex, \hyperpage{67}, \hyperpage{107}, 
+		\hyperpage{116}
+  \item $\circ$ relational composition, \hyperpage{109}, 
+		\hyperpage{120}
+  \item $\downdownarrows $ concurrent combination, \hyperpage{128}
+  \item $\parallel$ concurrent, \hyperpage{127}
+  \item $\wedge$ conjunction, \hyperpage{109}, \hyperpage{124}
   \item $D$ design, \hyperpage{39}
-  \item $\vee$ disjunction, \hyperpage{105}, \hyperpage{120}
-  \item $\emptyset$ empty set, \hyperpage{103}, \hyperpage{112}
-  \item $\epsilon$ empty sequence, \hyperpage{106}
-  \item $\equiv$ equivalence, \hyperpage{104}
-  \item $\oplus$ exclusive disjunction, \hyperpage{105}, 
-		\hyperpage{120}
-  \item $\forall$ for all, \hyperpage{123}
-  \item $\leftrightarrow$ if-and-only-if, \hyperpage{105}, 
-		\hyperpage{120}
-  \item $\rightarrow$ implication, \hyperpage{105}, \hyperpage{120}
-  \item $\in$ element of set, \hyperpage{103}, \hyperpage{112}
-  \item $\mathbb{Z}$ integer, \hyperpage{62}, \hyperpage{103}, 
-		\hyperpage{112}
-  \item $\cap$ intersection, \hyperpage{104}, \hyperpage{113}
-  \item $\mathfrak{M}$ meaning, \hyperpage{124}
-  \item $\mathbb{N}$ natural, \hyperpage{62}, \hyperpage{112}
-  \item $\mathbb{N}$ natural number, \hyperpage{103}
-  \item $\mathbb{N}_0$ natural, \hyperpage{62}, \hyperpage{103}, 
-		\hyperpage{112}
-  \item $\notin$ not element of set, \hyperpage{103}, \hyperpage{112}
-  \item $\sqsubset$, \hyperpage{106}, \hyperpage{121, 122}
-  \item $\sqsubseteq$, \hyperpage{106}, \hyperpage{121}
-  \item $\leftrightarrows$ permutation, \hyperpage{106}, 
-		\hyperpage{121}
-  \item $\times$ product, \hyperpage{104}, \hyperpage{115}
-  \item $\prod$ product of, \hyperpage{107}, \hyperpage{125}
-  \item $\subset$ proper subclass, \hyperpage{114}
-  \item $\mathbb{Q}$ rational, \hyperpage{62}, \hyperpage{103}
-  \item $\mathbb{R}$ real, \hyperpage{63}, \hyperpage{103}, 
-		\hyperpage{112}
-  \item $\curvearrowright $ sequential combination, \hyperpage{124}
-  \item $\mathbb{S}$ string, \hyperpage{63}
-  \item $\subseteq$ subset, \hyperpage{104}, \hyperpage{114}
-  \item $\mathbb{T}$ time, \hyperpage{63}
-  \item $\cup$ union, \hyperpage{104}, \hyperpage{113}
+  \item $\vee$ disjunction, \hyperpage{109}, \hyperpage{124}
+  \item $\emptyset$ empty set, \hyperpage{107}, \hyperpage{116}
+  \item $\epsilon$ empty sequence, \hyperpage{110}
+  \item $\equiv$ equivalence, \hyperpage{108}
+  \item $\oplus$ exclusive disjunction, \hyperpage{109}, 
+		\hyperpage{124}
+  \item $\forall$ for all, \hyperpage{127}
+  \item $\leftrightarrow$ if-and-only-if, \hyperpage{109}, 
+		\hyperpage{124}
+  \item $\rightarrow$ implication, \hyperpage{109}, \hyperpage{124}
+  \item $\in$ element of set, \hyperpage{107}, \hyperpage{116}
+  \item $\mathbb{Z}$ integer, \hyperpage{66}, \hyperpage{107}, 
+		\hyperpage{116}
+  \item $\cap$ intersection, \hyperpage{108}, \hyperpage{117}
+  \item $\mathfrak{M}$ meaning, \hyperpage{128}
+  \item $\mathbb{N}$ natural, \hyperpage{66}, \hyperpage{116}
+  \item $\mathbb{N}$ natural number, \hyperpage{107}
+  \item $\mathbb{N}_0$ natural, \hyperpage{66}, \hyperpage{107}, 
+		\hyperpage{116}
+  \item $\notin$ not element of set, \hyperpage{107}, \hyperpage{116}
+  \item $\sqsubset$, \hyperpage{110}, \hyperpage{125, 126}
+  \item $\sqsubseteq$, \hyperpage{110}, \hyperpage{125}
+  \item $\leftrightarrows$ permutation, \hyperpage{110}, 
+		\hyperpage{125}
+  \item $\times$ product, \hyperpage{108}, \hyperpage{119}
+  \item $\prod$ product of, \hyperpage{111}, \hyperpage{129}
+  \item $\subset$ proper subclass, \hyperpage{118}
+  \item $\mathbb{Q}$ rational, \hyperpage{66}, \hyperpage{107}
+  \item $\mathbb{R}$ real, \hyperpage{67}, \hyperpage{107}, 
+		\hyperpage{116}
+  \item $\curvearrowright $ sequential combination, \hyperpage{128}
+  \item $\mathbb{S}$ string, \hyperpage{67}
+  \item $\subseteq$ subset, \hyperpage{108}, \hyperpage{118}
+  \item $\mathbb{T}$ time, \hyperpage{67}
+  \item $\cup$ union, \hyperpage{108}, \hyperpage{117}
   \item $V_C$ classifiers, \hyperpage{39}
   \item $V_F$ features, \hyperpage{39}
   \item $V_T$ types, \hyperpage{39}
-  \item \lstinline+,,+ open both, \hyperpage{56}
-  \item \lstinline+,,+ open interval, \hyperpage{57}, \hyperpage{107}, 
-		\hyperpage{125}
-  \item \lstinline+,.+ open left, \hyperpage{56}, \hyperpage{107}, 
-		\hyperpage{125}
-  \item \lstinline+.,+ open right, \hyperpage{56}, \hyperpage{107}, 
-		\hyperpage{125}
-  \item \lstinline+..+ closed both, \hyperpage{56}
-  \item \lstinline+..+ closed interval, \hyperpage{56}, \hyperpage{107}, 
-		\hyperpage{125}
+  \item \lstinline+,,+ open both, \hyperpage{60}
+  \item \lstinline+,,+ open interval, \hyperpage{61}, \hyperpage{111}, 
+		\hyperpage{129}
+  \item \lstinline+,.+ open left, \hyperpage{60}, \hyperpage{111}, 
+		\hyperpage{129}
+  \item \lstinline+.,+ open right, \hyperpage{60}, \hyperpage{111}, 
+		\hyperpage{129}
+  \item \lstinline+..+ closed both, \hyperpage{60}
+  \item \lstinline+..+ closed interval, \hyperpage{60}, \hyperpage{111}, 
+		\hyperpage{129}
 
   \indexspace
 
-  \item Allen's intervals, \hyperpage{57}
-  \item alphabet, \hyperpage{106}, \hyperpage{121}
-  \item antisymmetric, \hyperpage{104}, \hyperpage{117}
-  \item association, \hyperpage{71}, \hyperpage{75}
+  \item Allen's intervals, \hyperpage{61}
+  \item alphabet, \hyperpage{110}, \hyperpage{125}
+  \item antisymmetric, \hyperpage{108}, \hyperpage{121}
+  \item association, \hyperpage{75}, \hyperpage{79}
   \item atom, \hyperpage{21}
   \item atomic, \hyperpage{23}
 
   \indexspace
 
-  \item before, \hyperpage{123}
-  \item behavior, \hyperpage{80}
-  \item bijective, \hyperpage{105}, \hyperpage{119}
-  \item binary relation, \hyperpage{116}
-  \item binding connector, \hyperpage{79}
-  \item birth, \hyperpage{133}
-  \item \texttt  {birth}, \hyperpage{56}
-  \item \texttt{birth}, \hyperpage{56}
+  \item before, \hyperpage{127}
+  \item behavior, \hyperpage{84}
+  \item bijective, \hyperpage{109}, \hyperpage{123}
+  \item binary relation, \hyperpage{120}
+  \item binding connector, \hyperpage{83}
+  \item birth, \hyperpage{137}
+  \item \texttt  {birth}, \hyperpage{60}
+  \item \texttt{birth}, \hyperpage{60}
 
   \indexspace
 
-  \item cardinality, \hyperpage{104}, \hyperpage{114}
-  \item Cartesian product, \hyperpage{104}, \hyperpage{115}
+  \item cardinality, \hyperpage{108}, \hyperpage{118}
+  \item Cartesian product, \hyperpage{108}, \hyperpage{119}
   \item causation, \hyperpage{28}
-  \item \texttt{changed}, \hyperpage{61}
-  \item class, \hyperpage{36}, \hyperpage{47}, \hyperpage{54}, 
-		\hyperpage{64}, \hyperpage{112}, \hyperpage{132}
-  \item class equality, \hyperpage{113}
-  \item closure, \hyperpage{104}, \hyperpage{118}
-  \item co-domain, \hyperpage{45}, \hyperpage{50}, \hyperpage{105}
-  \item codomain, \hyperpage{118}
-  \item \texttt  {coincident}, \hyperpage{57}
-  \item \texttt{coincident}, \hyperpage{59}
-  \item complement, \hyperpage{105}, \hyperpage{120}
-  \item complete, \hyperpage{97}, \hyperpage{107}, \hyperpage{122}, 
-		\hyperpage{126}
-  \item components, \hyperpage{104}, \hyperpage{115}
-  \item composite, \hyperpage{61}
-  \item concatenation, \hyperpage{106}, \hyperpage{121}
-  \item concurrent lattice combination, \hyperpage{124}
-  \item conjunction, \hyperpage{105}, \hyperpage{120}
-  \item connector, \hyperpage{75}
+  \item \texttt{changed}, \hyperpage{65}
+  \item class, \hyperpage{36}, \hyperpage{47}, \hyperpage{58}, 
+		\hyperpage{68}, \hyperpage{116}, \hyperpage{136}
+  \item class equality, \hyperpage{117}
+  \item closure, \hyperpage{108}, \hyperpage{122}
+  \item co-domain, \hyperpage{45}, \hyperpage{53}, \hyperpage{109}
+  \item codomain, \hyperpage{122}
+  \item \texttt  {coincident}, \hyperpage{61}
+  \item \texttt{coincident}, \hyperpage{63}
+  \item complement, \hyperpage{109}, \hyperpage{124}
+  \item complete, \hyperpage{101}, \hyperpage{111}, \hyperpage{126}, 
+		\hyperpage{130}
+  \item components, \hyperpage{108}, \hyperpage{119}
+  \item composite, \hyperpage{65}
+  \item concatenation, \hyperpage{110}, \hyperpage{125}
+  \item concurrent lattice combination, \hyperpage{128}
+  \item conjunction, \hyperpage{109}, \hyperpage{124}
+  \item connector, \hyperpage{79}
   \item containment hierarchy, \hyperpage{21}
   \item contains, \hyperpage{23}
   \item contingent, \hyperindexformat{\textbf}{17}
-  \item converse, \hyperpage{116}
-  \item correct, \hyperpage{135}
-  \item cross feature, \hyperpage{72}
+  \item converse, \hyperpage{120}
+  \item correct, \hyperpage{139}
+  \item cross feature, \hyperpage{76}
 
   \indexspace
 
-  \item \texttt{DataType}, \hyperpage{62}
+  \item \texttt{DataType}, \hyperpage{66}
   \item de dicto, \hyperindexformat{\textbf}{29}
   \item de re, \hyperindexformat{\textbf}{29}
-  \item death, \hyperpage{133}
-  \item \texttt  {death}, \hyperpage{56}
-  \item \texttt{death}, \hyperpage{56}
-  \item decidable, \hyperpage{126}
-  \item deductive, \hyperpage{110}
-  \item deductive system, \hyperpage{126}
+  \item death, \hyperpage{137}
+  \item \texttt  {death}, \hyperpage{60}
+  \item \texttt{death}, \hyperpage{60}
+  \item decidable, \hyperpage{130}
+  \item deductive, \hyperpage{114}
+  \item deductive system, \hyperpage{130}
   \item defined, \hyperpage{37}
-  \item delta, \hyperpage{62}
+  \item delta, \hyperpage{66}
   \item dependent type theory, \hyperpage{15}
   \item design, \hyperpage{32}, \hyperpage{39}
-  \item difference, \hyperpage{104}, \hyperpage{114}
-  \item different, \hyperpage{48, 49}
-  \item directed, \hyperpage{107}, \hyperpage{122}
-  \item direction, \hyperpage{51}
-  \item disjoint, \hyperpage{21}, \hyperpage{104}, \hyperpage{114}
-  \item disjunction, \hyperpage{105}, \hyperpage{120}
+  \item difference, \hyperpage{108}, \hyperpage{118}
+  \item different, \hyperpage{49, 50}
+  \item directed, \hyperpage{111}, \hyperpage{126}
+  \item direction, \hyperpage{54}
+  \item disjoint, \hyperpage{21}, \hyperpage{108}, \hyperpage{118}
+  \item disjunction, \hyperpage{109}, \hyperpage{124}
   \item distinct, \hyperpage{27}
-  \item domain, \hyperpage{45}, \hyperpage{50}, \hyperpage{105}, 
-		\hyperpage{116}, \hyperpage{118}
-  \item during, \hyperpage{57}
-  \item \texttt  {during}, \hyperpage{57}
-  \item \texttt{during}, \hyperpage{58}
+  \item domain, \hyperpage{45}, \hyperpage{53}, \hyperpage{109}, 
+		\hyperpage{120}, \hyperpage{122}
+  \item during, \hyperpage{61}
+  \item \texttt  {during}, \hyperpage{61}
+  \item \texttt{during}, \hyperpage{62}
 
   \indexspace
 
-  \item empty sequence, \hyperpage{106}, \hyperpage{120}
-  \item end, \hyperpage{71}
+  \item empty sequence, \hyperpage{110}, \hyperpage{124}
+  \item end, \hyperpage{75}
   \item endurance, \hyperindexformat{\textbf}{26}
   \item endures, \hyperpage{22}
   \item engineering truth, \hyperpage{14}
-  \item equals, \hyperpage{57}
+  \item equals, \hyperpage{61}
   \item eternalism, \hyperindexformat{\textbf}{18}
   \item event, \hyperindexformat{\textbf}{27}
-  \item \texttt{ex}, \hyperpage{55}
+  \item \texttt{ex}, \hyperpage{59}
   \item exact location, \hyperpage{22}
-  \item exclusive disjunction, \hyperpage{105}, \hyperpage{120}
-  \item execution, \hyperpage{55}, \hyperpage{132}
+  \item exclusive disjunction, \hyperpage{109}, \hyperpage{124}
+  \item execution, \hyperpage{59}, \hyperpage{136}
   \item execution model, \hyperpage{32}
   \item expansivity, \hyperpage{24}
-  \item expression, \hyperpage{84}
+  \item expression, \hyperpage{88}
   \item extent, \hyperpage{39}
 
   \indexspace
 
   \item factive, \hyperindexformat{\textbf}{29}
-  \item false, \hyperpage{103}, \hyperpage{110}, \hyperpage{128}
+  \item false, \hyperpage{107}, \hyperpage{114}, \hyperpage{132}
   \item feature, \hyperpage{45}
   \item featured type, \hyperpage{45}
   \item featuring type, \hyperpage{45}
-  \item finishes, \hyperpage{57}
-  \item \texttt  {finishes}, \hyperpage{57}
-  \item \texttt{finishes}, \hyperpage{58}
-  \item first-order, \hyperpage{126}
-  \item fixed point, \hyperpage{105}, \hyperpage{120}
-  \item fixed-point, \hyperpage{103}
+  \item finishes, \hyperpage{61}
+  \item \texttt  {finishes}, \hyperpage{61}
+  \item \texttt{finishes}, \hyperpage{62}
+  \item first-order, \hyperpage{130}
+  \item fixed point, \hyperpage{109}, \hyperpage{124}
+  \item fixed-point, \hyperpage{107}
   \item form, \hyperpage{14}
   \item formal, \hyperindexformat{\textbf}{14}, \hyperpage{14}
   \item formula, \hyperindexformat{\textbf}{14}
   \item frame-of-reference, \hyperpage{18}
   \item frames-of-reference, \hyperpage{18}
-  \item function, \hyperpage{82}, \hyperpage{105}, \hyperpage{118}
+  \item function, \hyperpage{86}, \hyperpage{109}, \hyperpage{122}
   \item Fundamental Principle of Systems Engineering Metaphysics, 
 		\hyperindexformat{\textbf}{15}
 
   \indexspace
 
-  \item \texttt{Get}, \hyperpage{60}
-  \item \texttt{GetBooleanChange}, \hyperpage{60}
-  \item \texttt{GetChange}, \hyperpage{60}
-  \item \texttt{GetChangeToFalse}, \hyperpage{61}
-  \item \texttt{GetChangeToTrue}, \hyperpage{61}
-  \item \texttt{GetNow}, \hyperpage{60}
-  \item graph, \hyperpage{107}, \hyperpage{122}
-  \item greater than, \hyperpage{106}, \hyperpage{122}
+  \item \texttt{Get}, \hyperpage{64}
+  \item \texttt{GetBooleanChange}, \hyperpage{64}
+  \item \texttt{GetChange}, \hyperpage{64}
+  \item \texttt{GetChangeToFalse}, \hyperpage{65}
+  \item \texttt{GetChangeToTrue}, \hyperpage{65}
+  \item \texttt{GetNow}, \hyperpage{64}
+  \item graph, \hyperpage{111}, \hyperpage{126}
+  \item greater than, \hyperpage{110}, \hyperpage{126}
 
   \indexspace
 
   \item haecceity, \hyperindexformat{\textbf}{26}
   \item happening, \hyperpage{28}
-  \item hybrid logics, \hyperpage{128}
-  \item hyperperiod, \hyperpage{107}, \hyperpage{125}
+  \item hybrid logics, \hyperpage{132}
+  \item hyperperiod, \hyperpage{111}, \hyperpage{129}
 
   \indexspace
 
-  \item identity relation, \hyperpage{117}
-  \item if-and-only-if, \hyperpage{105}, \hyperpage{120}
-  \item implication, \hyperpage{105}, \hyperpage{120}
-  \item in, \hyperpage{80}
-  \item \texttt  {in}, \hyperpage{59}
-  \item \texttt{in}, \hyperpage{59}
-  \item index, \hyperpage{106}, \hyperpage{120}
-  \item infinite, \hyperpage{48}
+  \item identity relation, \hyperpage{121}
+  \item if-and-only-if, \hyperpage{109}, \hyperpage{124}
+  \item implication, \hyperpage{109}, \hyperpage{124}
+  \item in, \hyperpage{84}
+  \item \texttt  {in}, \hyperpage{63}
+  \item \texttt{in}, \hyperpage{63}
+  \item index, \hyperpage{110}, \hyperpage{124}
+  \item infinite, \hyperpage{49}
   \item influence, \hyperpage{28}
-  \item injective, \hyperpage{105}, \hyperpage{119}
+  \item injective, \hyperpage{109}, \hyperpage{123}
   \item injectivity of location, \hyperpage{22}
-  \item inout, \hyperpage{80}
-  \item \texttt  {inout}, \hyperpage{59}
-  \item \texttt{inout}, \hyperpage{59}
-  \item insertion combination, \hyperpage{124}
+  \item inout, \hyperpage{84}
+  \item \texttt  {inout}, \hyperpage{63}
+  \item \texttt{inout}, \hyperpage{63}
+  \item insertion combination, \hyperpage{128}
   \item instance, \hyperpage{39}
   \item instances, \hyperpage{29}
-  \item instant, \hyperpage{18}, \hyperpage{57}
+  \item instant, \hyperpage{18}, \hyperpage{61}
   \item interior, \hyperpage{24}
   \item interpretation, \hyperpage{32}
   \item interpreted, \hyperpage{32}
-  \item intersection, \hyperpage{104}, \hyperpage{113}
-  \item interval, \hyperpage{57}
-  \item irreflexive, \hyperpage{104}, \hyperpage{117}
+  \item intersection, \hyperpage{108}, \hyperpage{117}
+  \item interval, \hyperpage{61}
+  \item irreflexive, \hyperpage{108}, \hyperpage{121}
 
   \indexspace
 
@@ -237,16 +237,16 @@
 
   \indexspace
 
-  \item lattice, \hyperpage{122}, \hyperpage{124}
+  \item lattice, \hyperpage{126}, \hyperpage{128}
   \item Lean, \hyperpage{15}
   \item Lean 4, \hyperpage{15}
-  \item least element, \hyperpage{106}, \hyperpage{122}
-  \item least upper bound, \hyperpage{106}, \hyperpage{122}
-  \item less than, \hyperpage{106}, \hyperpage{122}
-  \item \texttt{life}, \hyperpage{56}
+  \item least element, \hyperpage{110}, \hyperpage{126}
+  \item least upper bound, \hyperpage{110}, \hyperpage{126}
+  \item less than, \hyperpage{110}, \hyperpage{126}
+  \item \texttt{life}, \hyperpage{60}
   \item location, \hyperpage{22}
   \item locational functionality, \hyperpage{22}
-  \item logic, \hyperpage{108}
+  \item logic, \hyperpage{112}
 
   \indexspace
 
@@ -254,85 +254,85 @@
   \item material implication, \hyperindexformat{\textbf}{14}
   \item mathematical truth, \hyperpage{14}
   \item Mathlib, \hyperpage{15}
-  \item meaning, \hyperpage{124}
-  \item meets, \hyperpage{57}
-  \item \texttt  {meets}, \hyperpage{57}
-  \item \texttt{meets}, \hyperpage{58}
+  \item meaning, \hyperpage{128}
+  \item meets, \hyperpage{61}
+  \item \texttt  {meets}, \hyperpage{61}
+  \item \texttt{meets}, \hyperpage{62}
   \item mereological fusion, \hyperindexformat{\textbf}{21}
   \item mereology, \hyperindexformat{\textbf}{19}
   \item mereolological harmony, \hyperpage{24}
-  \item Metamath, \hyperpage{15}, \hyperpage{137}
+  \item Metamath, \hyperpage{15}, \hyperpage{141}
   \item Metamath Proof Explorer, \hyperpage{15}
   \item metaphysical necessity, \hyperindexformat{\textbf}{17}
   \item metaphysics, \hyperindexformat{\textbf}{13}
-  \item minimum, \hyperpage{104}, \hyperpage{114}
+  \item minimum, \hyperpage{108}, \hyperpage{118}
   \item modal, \hyperindexformat{\textbf}{16}, \hyperpage{32}, 
-		\hyperpage{126}
-  \item modal logic, \hyperpage{54}
-  \item model, \hyperpage{124}
-  \item model time, \hyperpage{107}, \hyperpage{124}
-  \item Modus Ponens, \hyperpage{138}
+		\hyperpage{130}
+  \item modal logic, \hyperpage{58}
+  \item model, \hyperpage{128}
+  \item model time, \hyperpage{111}, \hyperpage{128}
+  \item Modus Ponens, \hyperpage{142}
   \item modus ponens, \hyperindexformat{\textbf}{14}, \hyperpage{14}
   \item moment, \hyperpage{18}
   \item multiplicity, \hyperpage{43}
 
   \indexspace
 
-  \item n-tuple, \hyperpage{104}, \hyperpage{115}
-  \item nearly meets, \hyperpage{59}
-  \item \texttt{nearlyMeets}, \hyperpage{59}
+  \item n-tuple, \hyperpage{108}, \hyperpage{119}
+  \item nearly meets, \hyperpage{63}
+  \item \texttt{nearlyMeets}, \hyperpage{63}
   \item necessary, \hyperindexformat{\textbf}{17}
   \item Newtonian spacetime, \hyperindexformat{\textbf}{18}
-  \item next, \hyperpage{127}
+  \item next, \hyperpage{131}
   \item nomic necessity, \hyperindexformat{\textbf}{17}
-  \item nominals, \hyperpage{128}
+  \item nominals, \hyperpage{132}
   \item nonce, \hyperpage{38}
-  \item \texttt{nonoverlaps}, \hyperpage{59}
-  \item now, \hyperpage{19}, \hyperpage{107}, \hyperpage{125, 126}, 
-		\hyperpage{128}
-  \item null, \hyperpage{108}
+  \item \texttt{nonoverlaps}, \hyperpage{63}
+  \item now, \hyperpage{19}, \hyperpage{111}, \hyperpage{129, 130}, 
+		\hyperpage{132}
+  \item null, \hyperpage{112}
 
   \indexspace
 
-  \item occurrence, \hyperpage{64}
-  \item one-to-one, \hyperpage{105}, \hyperpage{119}
-  \item onto, \hyperpage{105}, \hyperpage{119}
+  \item occurrence, \hyperpage{68}
+  \item one-to-one, \hyperpage{109}, \hyperpage{123}
+  \item onto, \hyperpage{109}, \hyperpage{123}
   \item ontologically depends, \hyperindexformat{\textbf}{17}
   \item operate, \hyperpage{32}
-  \item ordered pair, \hyperpage{104}, \hyperpage{115}
-  \item ordered triple, \hyperpage{115}
-  \item out, \hyperpage{80}
-  \item \texttt  {out}, \hyperpage{59}
-  \item \texttt{out}, \hyperpage{59}
+  \item ordered pair, \hyperpage{108}, \hyperpage{119}
+  \item ordered triple, \hyperpage{119}
+  \item out, \hyperpage{84}
+  \item \texttt  {out}, \hyperpage{63}
+  \item \texttt{out}, \hyperpage{63}
   \item overlap, \hyperpage{20}, \hyperpage{23}
-  \item overlaps, \hyperpage{57}
-  \item \texttt  {overlaps}, \hyperpage{57}
-  \item \texttt{overlaps}, \hyperpage{58}
+  \item overlaps, \hyperpage{61}
+  \item \texttt  {overlaps}, \hyperpage{61}
+  \item \texttt{overlaps}, \hyperpage{62}
 
   \indexspace
 
-  \item P, \hyperpage{54}, \hyperpage{132}
-  \item parameter, \hyperpage{80}
-  \item parent, \hyperpage{48}
+  \item P, \hyperpage{58}, \hyperpage{136}
+  \item parameter, \hyperpage{84}
+  \item parent, \hyperpage{49}
   \item part, \hyperindexformat{\textbf}{19}, \hyperpage{19}
-  \item partial order, \hyperpage{106}, \hyperpage{121}
+  \item partial order, \hyperpage{110}, \hyperpage{125}
   \item perdurance, \hyperindexformat{\textbf}{26}
-  \item permutation, \hyperpage{106}, \hyperpage{121}
-  \item Person, \hyperpage{48}
-  \item Persons, \hyperpage{48}
+  \item permutation, \hyperpage{110}, \hyperpage{125}
+  \item Person, \hyperpage{49}
+  \item Persons, \hyperpage{49}
   \item philosophical ontology, \hyperindexformat{\textbf}{16}
-  \item portion, \hyperpage{61}
+  \item portion, \hyperpage{65}
   \item possibilism, \hyperindexformat{\textbf}{19}
   \item possible, \hyperindexformat{\textbf}{17}
-  \item precedes, \hyperpage{57}
-  \item \texttt  {precedes}, \hyperpage{57}
-  \item present instant, \hyperpage{55}
+  \item precedes, \hyperpage{61}
+  \item \texttt  {precedes}, \hyperpage{61}
+  \item present instant, \hyperpage{59}
   \item presentism, \hyperindexformat{\textbf}{18}
   \item Principle of Relativity, \hyperindexformat{\textbf}{18}
-  \item proper class, \hyperpage{112}
+  \item proper class, \hyperpage{116}
   \item proper part, \hyperpage{19}
-  \item proper subclass, \hyperpage{114}
-  \item propositional, \hyperpage{126}
+  \item proper subclass, \hyperpage{118}
+  \item propositional, \hyperpage{130}
 
   \indexspace
 
@@ -340,95 +340,95 @@
 
   \indexspace
 
-  \item range, \hyperpage{105}, \hyperpage{116}, \hyperpage{118}
-  \item real time, \hyperpage{107}, \hyperpage{124}
-  \item reference time, \hyperpage{135}
-  \item reflexive, \hyperpage{104}, \hyperpage{117}
+  \item range, \hyperpage{109}, \hyperpage{120}, \hyperpage{122}
+  \item real time, \hyperpage{111}, \hyperpage{128}
+  \item reference time, \hyperpage{139}
+  \item reflexive, \hyperpage{108}, \hyperpage{121}
   \item region, \hyperpage{22}
-  \item relation, \hyperpage{104}, \hyperpage{116}
-  \item relational composition, \hyperpage{105}, \hyperpage{116}
+  \item relation, \hyperpage{108}, \hyperpage{120}
+  \item relational composition, \hyperpage{109}, \hyperpage{120}
   \item represent, \hyperpage{32}
   \item represented, \hyperpage{37}
-  \item restriction, \hyperpage{105}, \hyperpage{117}, \hyperpage{119}
+  \item restriction, \hyperpage{109}, \hyperpage{121}, \hyperpage{123}
   \item rule, \hyperpage{47}
 
   \indexspace
 
   \item satisfaction, \hyperindexformat{\textbf}{17}
-  \item satisfaction operator, \hyperpage{128}
-  \item satisfy, \hyperpage{108}
-  \item schema, \hyperpage{109}
+  \item satisfaction operator, \hyperpage{132}
+  \item satisfy, \hyperpage{112}
+  \item schema, \hyperpage{113}
   \item scientific truth, \hyperpage{14}
   \item SEM, \hyperindexformat{\textbf}{28}
   \item semantic constraint, \hyperpage{35}
   \item semantics, \hyperindexformat{\textbf}{14}, \hyperpage{14}, 
 		\hyperpage{32}
-  \item sequence, \hyperpage{106}, \hyperpage{120}
-  \item sequential lattice combination, \hyperpage{124}
-  \item set, \hyperpage{36}, \hyperpage{103}, \hyperpage{110}
+  \item sequence, \hyperpage{110}, \hyperpage{124}
+  \item sequential lattice combination, \hyperpage{128}
+  \item set, \hyperpage{36}, \hyperpage{107}, \hyperpage{114}
   \item set.mm, \hyperpage{15}
-  \item \texttt{SetNow}, \hyperpage{60}
+  \item \texttt{SetNow}, \hyperpage{64}
   \item SFS.lean, \hyperpage{16}
   \item simultaneous, \hyperindexformat{\textbf}{18}
-  \item sound, \hyperpage{126}, \hyperpage{137}
-  \item source, \hyperpage{71}
-  \item starts, \hyperpage{57}
-  \item \texttt  {starts}, \hyperpage{57}
-  \item \texttt{starts}, \hyperpage{58}
+  \item sound, \hyperpage{130}, \hyperpage{141}
+  \item source, \hyperpage{75}
+  \item starts, \hyperpage{61}
+  \item \texttt  {starts}, \hyperpage{61}
+  \item \texttt{starts}, \hyperpage{62}
   \item state, \hyperindexformat{\textbf}{27}
-  \item step, \hyperpage{81}
-  \item string, \hyperpage{106}, \hyperpage{121}
+  \item step, \hyperpage{85}
+  \item string, \hyperpage{110}, \hyperpage{125}
   \item structural equation model, \hyperpage{28}
-  \item subclass, \hyperpage{114}
-  \item subjective, \hyperpage{105}, \hyperpage{119}
-  \item subset, \hyperpage{104}
+  \item subclass, \hyperpage{118}
+  \item subjective, \hyperpage{109}, \hyperpage{123}
+  \item subset, \hyperpage{108}
   \item substantialism, \hyperindexformat{\textbf}{18}
-  \item substring, \hyperpage{106}, \hyperpage{121}
-  \item succession, \hyperpage{80}
+  \item substring, \hyperpage{110}, \hyperpage{125}
+  \item succession, \hyperpage{84}
   \item supersubstantivalism, \hyperpage{24}
   \item supervenes, \hyperindexformat{\textbf}{21}
   \item surface, \hyperpage{24}
-  \item symmetric, \hyperpage{104}, \hyperpage{117}
+  \item symmetric, \hyperpage{108}, \hyperpage{121}
   \item system, \hyperindexformat{\textbf}{2}
 
   \indexspace
 
-  \item target, \hyperpage{71}
-  \item tautology, \hyperpage{108}
+  \item target, \hyperpage{75}
+  \item tautology, \hyperpage{112}
   \item technological ontology, \hyperindexformat{\textbf}{16}
-  \item temporal frame, \hyperpage{129}
-  \item temporal logic, \hyperpage{54}
-  \item temporal precedence, \hyperpage{55}, \hyperpage{127}
+  \item temporal frame, \hyperpage{133}
+  \item temporal logic, \hyperpage{58}
+  \item temporal precedence, \hyperpage{59}, \hyperpage{131}
   \item things, \hyperpage{19}
   \item time, \hyperpage{18}
-  \item \texttt{timeof}, \hyperpage{61}
+  \item \texttt{timeof}, \hyperpage{65}
   \item token, \hyperpage{28}
-  \item transitive, \hyperpage{104}, \hyperpage{118}
-  \item true, \hyperpage{103}, \hyperpage{110}
+  \item transitive, \hyperpage{108}, \hyperpage{122}
+  \item true, \hyperpage{107}, \hyperpage{114}
   \item truth, \hyperindexformat{\textbf}{13}
-  \item tuple, \hyperpage{105}, \hyperpage{120}
-  \item type, \hyperpage{28}, \hyperpage{107}
+  \item tuple, \hyperpage{109}, \hyperpage{124}
+  \item type, \hyperpage{28}, \hyperpage{111}
 
   \indexspace
 
-  \item unbound, \hyperpage{48}
+  \item unbound, \hyperpage{49}
   \item underlap, \hyperpage{20}
-  \item union, \hyperpage{104}, \hyperpage{113}
-  \item unsatisfiable, \hyperpage{108}
-  \item upper bound, \hyperpage{106}, \hyperpage{122}
+  \item union, \hyperpage{108}, \hyperpage{117}
+  \item unsatisfiable, \hyperpage{112}
+  \item upper bound, \hyperpage{110}, \hyperpage{126}
 
   \indexspace
 
-  \item value, \hyperpage{84}, \hyperpage{107}
-  \item \texttt  {var}, \hyperpage{59}
-  \item \texttt{var}, \hyperpage{59}
+  \item value, \hyperpage{88}, \hyperpage{111}
+  \item \texttt  {var}, \hyperpage{63}
+  \item \texttt{var}, \hyperpage{63}
   \item veridical, \hyperindexformat{\textbf}{29}
-  \item Vince Moln\'ar, \hyperpage{53}
+  \item Vince Moln\'ar, \hyperpage{57}
   \item vocabulary, \hyperpage{39}
 
   \indexspace
 
-  \item well-formed, \hyperpage{108}
+  \item well-formed, \hyperpage{112}
   \item well-formed formula, \hyperpage{36}
   \item WFF, \hyperpage{14}, \hyperpage{36}
   \item whole, \hyperpage{21}
@@ -438,342 +438,342 @@
   \indexspace
 
   \item \color  {blcolor}Metatheorems
-    \subitem \tt  CONTRA, \hyperpage{93}
-    \subitem \tt  FEAT, \hyperpage{91}
-    \subitem \tt  MULTF, \hyperpage{92}
-    \subitem \tt  MULTI, \hyperpage{91}
-    \subitem \tt  MULTM, \hyperpage{92}
-    \subitem \tt  MULTN, \hyperpage{91}
-    \subitem \tt  MULTS, \hyperpage{92}
-    \subitem \tt  REDEF, \hyperpage{91}
-    \subitem \tt  REPL, \hyperpage{91}
-    \subitem \tt  SUBS, \hyperpage{90}
-    \subitem \tt  TRANS, \hyperpage{90}
-    \subitem \tt  ax-bl.bi, \hyperpage{189}
-    \subitem \tt  ax-bl.eq, \hyperpage{190}
-    \subitem \tt  ax-bl.models, \hyperpage{189}
-    \subitem \tt  ax-bl.modelsc, \hyperpage{189}
-    \subitem \tt  ax-bl.taut, \hyperpage{183}
-    \subitem \tt  bl.3an, \hyperpage{184}
-    \subitem \tt  bl.3or, \hyperpage{185}
-    \subitem \tt  bl.PandPorQisP, \hyperpage{145}
-    \subitem \tt  bl.PandQorPisP, \hyperpage{145}
-    \subitem \tt  bl.PisPandQorP, \hyperpage{146}
-    \subitem \tt  bl.PisPorQandP, \hyperpage{147}
-    \subitem \tt  bl.PorPandQisP, \hyperpage{146}
-    \subitem \tt  bl.PorQandPisP, \hyperpage{146}
-    \subitem \tt  bl.add2i, \hyperpage{166}
-    \subitem \tt  bl.add3i, \hyperpage{166}
-    \subitem \tt  bl.addass4i, \hyperpage{148}
-    \subitem \tt  bl.addcom, \hyperpage{165}
-    \subitem \tt  bl.addcom2, \hyperpage{167}
-    \subitem \tt  bl.addcom3acb, \hyperpage{168}
-    \subitem \tt  bl.addcom3bac, \hyperpage{167}
-    \subitem \tt  bl.addcom3cab, \hyperpage{169}
-    \subitem \tt  bl.addcom3cba, \hyperpage{168}
-    \subitem \tt  bl.adddii, \hyperpage{150}
-    \subitem \tt  bl.adddizi, \hyperpage{150}
-    \subitem \tt  bl.adeqi, \hyperpage{166}
-    \subitem \tt  bl.ais, \hyperpage{157}
-    \subitem \tt  bl.aisl, \hyperpage{155}
-    \subitem \tt  bl.aisr, \hyperpage{155}
-    \subitem \tt  bl.aiswl, \hyperpage{157}
-    \subitem \tt  bl.aiswll, \hyperpage{156}
-    \subitem \tt  bl.aiswlr, \hyperpage{156}
-    \subitem \tt  bl.al, \hyperpage{186}
-    \subitem \tt  bl.allcc, \hyperpage{57}, \hyperpage{131}, 
-		\hyperpage{181}
-    \subitem \tt  bl.allcd, \hyperpage{56}, \hyperpage{131}, 
-		\hyperpage{180}
-    \subitem \tt  bl.alldc, \hyperpage{56}, \hyperpage{131}, 
-		\hyperpage{180}
-    \subitem \tt  bl.alldd, \hyperpage{56}, \hyperpage{131}, 
-		\hyperpage{179}
-    \subitem \tt  bl.an2impor2, \hyperpage{145}
-    \subitem \tt  bl.an2wl, \hyperpage{153}
-    \subitem \tt  bl.an3t, \hyperpage{190}
-    \subitem \tt  bl.an3wl, \hyperpage{153}
-    \subitem \tt  bl.anabpf, \hyperpage{155}
-    \subitem \tt  bl.anabpl, \hyperpage{155}
-    \subitem \tt  bl.anabpm, \hyperpage{157}
-    \subitem \tt  bl.ancomphfirst, \hyperpage{156}
-    \subitem \tt  bl.ancomphlast, \hyperpage{156}
-    \subitem \tt  bl.ancomphwl, \hyperpage{153}
-    \subitem \tt  bl.ancomwlwl, \hyperpage{154}
-    \subitem \tt  bl.anfal, \hyperpage{148}
-    \subitem \tt  bl.anfar, \hyperpage{149}
-    \subitem \tt  bl.animporan, \hyperpage{164}
-    \subitem \tt  bl.animporanl, \hyperpage{165}
-    \subitem \tt  bl.anpfw, \hyperpage{154}
-    \subitem \tt  bl.anplw, \hyperpage{154}
-    \subitem \tt  bl.anpmw, \hyperpage{157}
-    \subitem \tt  bl.atad, \hyperpage{205}
-    \subitem \tt  bl.atad2i, \hyperpage{203}
-    \subitem \tt  bl.atad3, \hyperpage{203}
-    \subitem \tt  bl.atad3l, \hyperpage{204}
-    \subitem \tt  bl.atami, \hyperpage{209}
-    \subitem \tt  bl.atan2i, \hyperpage{196}
-    \subitem \tt  bl.atan3i, \hyperpage{196}
-    \subitem \tt  bl.atan3li, \hyperpage{198}
-    \subitem \tt  bl.atan3ri, \hyperpage{197}
-    \subitem \tt  bl.atbii, \hyperpage{195}, \hyperpage{202}
-    \subitem \tt  bl.atdivi, \hyperpage{208}
-    \subitem \tt  bl.ateq, \hyperpage{208}
-    \subitem \tt  bl.ateqci, \hyperpage{195}
-    \subitem \tt  bl.atintro, \hyperpage{194}
-    \subitem \tt  bl.atintroc, \hyperpage{195}
-    \subitem \tt  bl.atlti, \hyperpage{209}
-    \subitem \tt  bl.atmul, \hyperpage{207}
-    \subitem \tt  bl.atmul2i, \hyperpage{205}
-    \subitem \tt  bl.atmul3, \hyperpage{205}
-    \subitem \tt  bl.atmul3l, \hyperpage{206}
-    \subitem \tt  bl.atnoti, \hyperpage{203}
-    \subitem \tt  bl.ator2i, \hyperpage{199}
-    \subitem \tt  bl.ator3i, \hyperpage{200}
-    \subitem \tt  bl.ator3li, \hyperpage{201}
-    \subitem \tt  bl.ator3ri, \hyperpage{201}
-    \subitem \tt  bl.atsubi, \hyperpage{207}
-    \subitem \tt  bl.atumi, \hyperpage{208}
-    \subitem \tt  bl.bisbwl, \hyperpage{151}
-    \subitem \tt  bl.bisbwr, \hyperpage{151}
-    \subitem \tt  bl.bitrit, \hyperpage{192}
-    \subitem \tt  bl.cadd, \hyperpage{144}
-    \subitem \tt  bl.cd, \hyperpage{147}
-    \subitem \tt  bl.cmul, \hyperpage{144}
-    \subitem \tt  bl.containment, \hyperpage{70}
-    \subitem \tt  bl.ctao, \hyperpage{164}
-    \subitem \tt  bl.ctaol, \hyperpage{164}
-    \subitem \tt  bl.dba2o, \hyperpage{163}
-    \subitem \tt  bl.dba2owl, \hyperpage{163}
-    \subitem \tt  bl.dbo2a, \hyperpage{162}
-    \subitem \tt  bl.dbo2awl, \hyperpage{163}
-    \subitem \tt  bl.dfrex2, \hyperpage{187}
-    \subitem \tt  bl.ert, \hyperpage{175}
-    \subitem \tt  bl.etial0, \hyperpage{176}
-    \subitem \tt  bl.etiamn, \hyperpage{177}
-    \subitem \tt  bl.etir, \hyperpage{176}
-    \subitem \tt  bl.ex, \hyperpage{188}
-    \subitem \tt  bl.excc, \hyperpage{131}, \hyperpage{182}
-    \subitem \tt  bl.excd, \hyperpage{131}, \hyperpage{183}
-    \subitem \tt  bl.exdc, \hyperpage{132}, \hyperpage{183}
-    \subitem \tt  bl.exdd, \hyperpage{131}, \hyperpage{182}
-    \subitem \tt  bl.exlem, \hyperpage{188}
-    \subitem \tt  bl.exlem0, \hyperpage{187}
-    \subitem \tt  bl.exraw, \hyperpage{187}
-    \subitem \tt  bl.mono, \hyperpage{184}
-    \subitem \tt  bl.monobi, \hyperpage{186}
-    \subitem \tt  bl.monobit, \hyperpage{190}
-    \subitem \tt  bl.mul2i, \hyperpage{170}
-    \subitem \tt  bl.mul3i, \hyperpage{171}
-    \subitem \tt  bl.mulcom, \hyperpage{170}
-    \subitem \tt  bl.mulcom2, \hyperpage{171}
-    \subitem \tt  bl.mulcom3acb, \hyperpage{172}
-    \subitem \tt  bl.mulcom3bac, \hyperpage{172}
-    \subitem \tt  bl.mulcom3cab, \hyperpage{174}
-    \subitem \tt  bl.mulcom3cba, \hyperpage{173}
-    \subitem \tt  bl.muleqi, \hyperpage{170}
-    \subitem \tt  bl.nextdense, \hyperpage{128}
-    \subitem \tt  bl.nextuniq, \hyperpage{128}
-    \subitem \tt  bl.nf, \hyperpage{186}
-    \subitem \tt  bl.nowrr, \hyperpage{135}
-    \subitem \tt  bl.nowt, \hyperpage{177}
-    \subitem \tt  bl.or2wl, \hyperpage{158}
-    \subitem \tt  bl.or3t, \hyperpage{191}
-    \subitem \tt  bl.or3wl, \hyperpage{158}
-    \subitem \tt  bl.orabpf, \hyperpage{160}
-    \subitem \tt  bl.orabpl, \hyperpage{160}
-    \subitem \tt  bl.orabpm, \hyperpage{162}
-    \subitem \tt  bl.orcom, \hyperpage{159}
-    \subitem \tt  bl.orcomphfirst, \hyperpage{161}
-    \subitem \tt  bl.orcomphlast, \hyperpage{161}
-    \subitem \tt  bl.orcomphwl, \hyperpage{159}
-    \subitem \tt  bl.orcwl, \hyperpage{161}
-    \subitem \tt  bl.orcwll, \hyperpage{161}
-    \subitem \tt  bl.orpfw, \hyperpage{159}
-    \subitem \tt  bl.orplw, \hyperpage{160}
-    \subitem \tt  bl.orpmw, \hyperpage{162}
-    \subitem \tt  bl.ortrl, \hyperpage{149}
-    \subitem \tt  bl.ortrr, \hyperpage{149}
-    \subitem \tt  bl.ralssi, \hyperpage{147}
-    \subitem \tt  bl.rt, \hyperpage{175}
-    \subitem \tt  bl.sbwid, \hyperpage{151}
-    \subitem \tt  bl.sbwsyl, \hyperpage{152}
-    \subitem \tt  bl.seq, \hyperpage{149}
-    \subitem \tt  bl.sylsbw, \hyperpage{152}
-    \subitem \tt  bl.ts0, \hyperpage{136}, \hyperpage{214}
-    \subitem \tt  bl.ts0c, \hyperpage{136}
-    \subitem \tt  bl.tsad2i, \hyperpage{236}
-    \subitem \tt  bl.tsad3li, \hyperpage{239}
-    \subitem \tt  bl.tsad3ri, \hyperpage{237}
-    \subitem \tt  bl.tsadi, \hyperpage{240}
-    \subitem \tt  bl.tsami, \hyperpage{249}
-    \subitem \tt  bl.tsan2i, \hyperpage{224}
-    \subitem \tt  bl.tsan3i, \hyperpage{225}
-    \subitem \tt  bl.tsan3li, \hyperpage{228}
-    \subitem \tt  bl.tsan3ri, \hyperpage{227}
-    \subitem \tt  bl.tsani, \hyperpage{230}
-    \subitem \tt  bl.tsbii, \hyperpage{220}
-    \subitem \tt  bl.tsc0, \hyperpage{215}
-    \subitem \tt  bl.tsci, \hyperpage{211}
-    \subitem \tt  bl.tscomci, \hyperpage{218}
-    \subitem \tt  bl.tscomi, \hyperpage{216}
-    \subitem \tt  bl.tsdeqi, \hyperpage{247}
-    \subitem \tt  bl.tsdivi, \hyperpage{245}
-    \subitem \tt  bl.tseqi, \hyperpage{222}
-    \subitem \tt  bl.tsi, \hyperpage{211}
-    \subitem \tt  bl.tslti, \hyperpage{248}
-    \subitem \tt  bl.tsmul2i, \hyperpage{241}
-    \subitem \tt  bl.tsmul3li, \hyperpage{244}
-    \subitem \tt  bl.tsmul3ri, \hyperpage{242}
-    \subitem \tt  bl.tsmuli, \hyperpage{245}
-    \subitem \tt  bl.tsoi, \hyperpage{212}
-    \subitem \tt  bl.tsor2i, \hyperpage{230}
-    \subitem \tt  bl.tsor3i, \hyperpage{231}
-    \subitem \tt  bl.tsor3li, \hyperpage{234}
-    \subitem \tt  bl.tsor3ri, \hyperpage{233}
-    \subitem \tt  bl.tsori, \hyperpage{236}
-    \subitem \tt  bl.tssubi, \hyperpage{240}
-    \subitem \tt  bl.tsumi, \hyperpage{246}
-    \subitem \tt  bl.ty, \hyperpage{183}
-    \subitem \tt  bl0wff, \hyperpage{129}
-    \subitem \tt  blwff, \hyperpage{134}
-    \subitem \tt  clat0, \hyperpage{145}
-    \subitem \tt  cnow, \hyperpage{144}
-    \subitem \tt  ctime, \hyperpage{144}
-    \subitem \tt  ctops, \hyperpage{144}
+    \subitem \tt  CONTRA, \hyperpage{97}
+    \subitem \tt  FEAT, \hyperpage{95}
+    \subitem \tt  MULTF, \hyperpage{96}
+    \subitem \tt  MULTI, \hyperpage{95}
+    \subitem \tt  MULTM, \hyperpage{96}
+    \subitem \tt  MULTN, \hyperpage{95}
+    \subitem \tt  MULTS, \hyperpage{96}
+    \subitem \tt  REDEF, \hyperpage{95}
+    \subitem \tt  REPL, \hyperpage{95}
+    \subitem \tt  SUBS, \hyperpage{94}
+    \subitem \tt  TRANS, \hyperpage{94}
+    \subitem \tt  ax-bl.bi, \hyperpage{193}
+    \subitem \tt  ax-bl.eq, \hyperpage{194}
+    \subitem \tt  ax-bl.models, \hyperpage{193}
+    \subitem \tt  ax-bl.modelsc, \hyperpage{193}
+    \subitem \tt  ax-bl.taut, \hyperpage{187}
+    \subitem \tt  bl.3an, \hyperpage{188}
+    \subitem \tt  bl.3or, \hyperpage{189}
+    \subitem \tt  bl.PandPorQisP, \hyperpage{149}
+    \subitem \tt  bl.PandQorPisP, \hyperpage{149}
+    \subitem \tt  bl.PisPandQorP, \hyperpage{150}
+    \subitem \tt  bl.PisPorQandP, \hyperpage{151}
+    \subitem \tt  bl.PorPandQisP, \hyperpage{150}
+    \subitem \tt  bl.PorQandPisP, \hyperpage{150}
+    \subitem \tt  bl.add2i, \hyperpage{170}
+    \subitem \tt  bl.add3i, \hyperpage{170}
+    \subitem \tt  bl.addass4i, \hyperpage{152}
+    \subitem \tt  bl.addcom, \hyperpage{169}
+    \subitem \tt  bl.addcom2, \hyperpage{171}
+    \subitem \tt  bl.addcom3acb, \hyperpage{172}
+    \subitem \tt  bl.addcom3bac, \hyperpage{171}
+    \subitem \tt  bl.addcom3cab, \hyperpage{173}
+    \subitem \tt  bl.addcom3cba, \hyperpage{172}
+    \subitem \tt  bl.adddii, \hyperpage{154}
+    \subitem \tt  bl.adddizi, \hyperpage{154}
+    \subitem \tt  bl.adeqi, \hyperpage{170}
+    \subitem \tt  bl.ais, \hyperpage{161}
+    \subitem \tt  bl.aisl, \hyperpage{159}
+    \subitem \tt  bl.aisr, \hyperpage{159}
+    \subitem \tt  bl.aiswl, \hyperpage{161}
+    \subitem \tt  bl.aiswll, \hyperpage{160}
+    \subitem \tt  bl.aiswlr, \hyperpage{160}
+    \subitem \tt  bl.al, \hyperpage{190}
+    \subitem \tt  bl.allcc, \hyperpage{61}, \hyperpage{135}, 
+		\hyperpage{185}
+    \subitem \tt  bl.allcd, \hyperpage{60}, \hyperpage{135}, 
+		\hyperpage{184}
+    \subitem \tt  bl.alldc, \hyperpage{60}, \hyperpage{135}, 
+		\hyperpage{184}
+    \subitem \tt  bl.alldd, \hyperpage{60}, \hyperpage{135}, 
+		\hyperpage{183}
+    \subitem \tt  bl.an2impor2, \hyperpage{149}
+    \subitem \tt  bl.an2wl, \hyperpage{157}
+    \subitem \tt  bl.an3t, \hyperpage{194}
+    \subitem \tt  bl.an3wl, \hyperpage{157}
+    \subitem \tt  bl.anabpf, \hyperpage{159}
+    \subitem \tt  bl.anabpl, \hyperpage{159}
+    \subitem \tt  bl.anabpm, \hyperpage{161}
+    \subitem \tt  bl.ancomphfirst, \hyperpage{160}
+    \subitem \tt  bl.ancomphlast, \hyperpage{160}
+    \subitem \tt  bl.ancomphwl, \hyperpage{157}
+    \subitem \tt  bl.ancomwlwl, \hyperpage{158}
+    \subitem \tt  bl.anfal, \hyperpage{152}
+    \subitem \tt  bl.anfar, \hyperpage{153}
+    \subitem \tt  bl.animporan, \hyperpage{168}
+    \subitem \tt  bl.animporanl, \hyperpage{169}
+    \subitem \tt  bl.anpfw, \hyperpage{158}
+    \subitem \tt  bl.anplw, \hyperpage{158}
+    \subitem \tt  bl.anpmw, \hyperpage{161}
+    \subitem \tt  bl.atad, \hyperpage{209}
+    \subitem \tt  bl.atad2i, \hyperpage{207}
+    \subitem \tt  bl.atad3, \hyperpage{207}
+    \subitem \tt  bl.atad3l, \hyperpage{208}
+    \subitem \tt  bl.atami, \hyperpage{213}
+    \subitem \tt  bl.atan2i, \hyperpage{200}
+    \subitem \tt  bl.atan3i, \hyperpage{200}
+    \subitem \tt  bl.atan3li, \hyperpage{202}
+    \subitem \tt  bl.atan3ri, \hyperpage{201}
+    \subitem \tt  bl.atbii, \hyperpage{199}, \hyperpage{206}
+    \subitem \tt  bl.atdivi, \hyperpage{212}
+    \subitem \tt  bl.ateq, \hyperpage{212}
+    \subitem \tt  bl.ateqci, \hyperpage{199}
+    \subitem \tt  bl.atintro, \hyperpage{198}
+    \subitem \tt  bl.atintroc, \hyperpage{199}
+    \subitem \tt  bl.atlti, \hyperpage{213}
+    \subitem \tt  bl.atmul, \hyperpage{211}
+    \subitem \tt  bl.atmul2i, \hyperpage{209}
+    \subitem \tt  bl.atmul3, \hyperpage{209}
+    \subitem \tt  bl.atmul3l, \hyperpage{210}
+    \subitem \tt  bl.atnoti, \hyperpage{207}
+    \subitem \tt  bl.ator2i, \hyperpage{203}
+    \subitem \tt  bl.ator3i, \hyperpage{204}
+    \subitem \tt  bl.ator3li, \hyperpage{205}
+    \subitem \tt  bl.ator3ri, \hyperpage{205}
+    \subitem \tt  bl.atsubi, \hyperpage{211}
+    \subitem \tt  bl.atumi, \hyperpage{212}
+    \subitem \tt  bl.bisbwl, \hyperpage{155}
+    \subitem \tt  bl.bisbwr, \hyperpage{155}
+    \subitem \tt  bl.bitrit, \hyperpage{196}
+    \subitem \tt  bl.cadd, \hyperpage{148}
+    \subitem \tt  bl.cd, \hyperpage{151}
+    \subitem \tt  bl.cmul, \hyperpage{148}
+    \subitem \tt  bl.containment, \hyperpage{74}
+    \subitem \tt  bl.ctao, \hyperpage{168}
+    \subitem \tt  bl.ctaol, \hyperpage{168}
+    \subitem \tt  bl.dba2o, \hyperpage{167}
+    \subitem \tt  bl.dba2owl, \hyperpage{167}
+    \subitem \tt  bl.dbo2a, \hyperpage{166}
+    \subitem \tt  bl.dbo2awl, \hyperpage{167}
+    \subitem \tt  bl.dfrex2, \hyperpage{191}
+    \subitem \tt  bl.ert, \hyperpage{179}
+    \subitem \tt  bl.etial0, \hyperpage{180}
+    \subitem \tt  bl.etiamn, \hyperpage{181}
+    \subitem \tt  bl.etir, \hyperpage{180}
+    \subitem \tt  bl.ex, \hyperpage{192}
+    \subitem \tt  bl.excc, \hyperpage{135}, \hyperpage{186}
+    \subitem \tt  bl.excd, \hyperpage{135}, \hyperpage{187}
+    \subitem \tt  bl.exdc, \hyperpage{136}, \hyperpage{187}
+    \subitem \tt  bl.exdd, \hyperpage{135}, \hyperpage{186}
+    \subitem \tt  bl.exlem, \hyperpage{192}
+    \subitem \tt  bl.exlem0, \hyperpage{191}
+    \subitem \tt  bl.exraw, \hyperpage{191}
+    \subitem \tt  bl.mono, \hyperpage{188}
+    \subitem \tt  bl.monobi, \hyperpage{190}
+    \subitem \tt  bl.monobit, \hyperpage{194}
+    \subitem \tt  bl.mul2i, \hyperpage{174}
+    \subitem \tt  bl.mul3i, \hyperpage{175}
+    \subitem \tt  bl.mulcom, \hyperpage{174}
+    \subitem \tt  bl.mulcom2, \hyperpage{175}
+    \subitem \tt  bl.mulcom3acb, \hyperpage{176}
+    \subitem \tt  bl.mulcom3bac, \hyperpage{176}
+    \subitem \tt  bl.mulcom3cab, \hyperpage{178}
+    \subitem \tt  bl.mulcom3cba, \hyperpage{177}
+    \subitem \tt  bl.muleqi, \hyperpage{174}
+    \subitem \tt  bl.nextdense, \hyperpage{132}
+    \subitem \tt  bl.nextuniq, \hyperpage{132}
+    \subitem \tt  bl.nf, \hyperpage{190}
+    \subitem \tt  bl.nowrr, \hyperpage{139}
+    \subitem \tt  bl.nowt, \hyperpage{181}
+    \subitem \tt  bl.or2wl, \hyperpage{162}
+    \subitem \tt  bl.or3t, \hyperpage{195}
+    \subitem \tt  bl.or3wl, \hyperpage{162}
+    \subitem \tt  bl.orabpf, \hyperpage{164}
+    \subitem \tt  bl.orabpl, \hyperpage{164}
+    \subitem \tt  bl.orabpm, \hyperpage{166}
+    \subitem \tt  bl.orcom, \hyperpage{163}
+    \subitem \tt  bl.orcomphfirst, \hyperpage{165}
+    \subitem \tt  bl.orcomphlast, \hyperpage{165}
+    \subitem \tt  bl.orcomphwl, \hyperpage{163}
+    \subitem \tt  bl.orcwl, \hyperpage{165}
+    \subitem \tt  bl.orcwll, \hyperpage{165}
+    \subitem \tt  bl.orpfw, \hyperpage{163}
+    \subitem \tt  bl.orplw, \hyperpage{164}
+    \subitem \tt  bl.orpmw, \hyperpage{166}
+    \subitem \tt  bl.ortrl, \hyperpage{153}
+    \subitem \tt  bl.ortrr, \hyperpage{153}
+    \subitem \tt  bl.ralssi, \hyperpage{151}
+    \subitem \tt  bl.rt, \hyperpage{179}
+    \subitem \tt  bl.sbwid, \hyperpage{155}
+    \subitem \tt  bl.sbwsyl, \hyperpage{156}
+    \subitem \tt  bl.seq, \hyperpage{153}
+    \subitem \tt  bl.sylsbw, \hyperpage{156}
+    \subitem \tt  bl.ts0, \hyperpage{140}, \hyperpage{218}
+    \subitem \tt  bl.ts0c, \hyperpage{140}
+    \subitem \tt  bl.tsad2i, \hyperpage{240}
+    \subitem \tt  bl.tsad3li, \hyperpage{243}
+    \subitem \tt  bl.tsad3ri, \hyperpage{241}
+    \subitem \tt  bl.tsadi, \hyperpage{244}
+    \subitem \tt  bl.tsami, \hyperpage{253}
+    \subitem \tt  bl.tsan2i, \hyperpage{228}
+    \subitem \tt  bl.tsan3i, \hyperpage{229}
+    \subitem \tt  bl.tsan3li, \hyperpage{232}
+    \subitem \tt  bl.tsan3ri, \hyperpage{231}
+    \subitem \tt  bl.tsani, \hyperpage{234}
+    \subitem \tt  bl.tsbii, \hyperpage{224}
+    \subitem \tt  bl.tsc0, \hyperpage{219}
+    \subitem \tt  bl.tsci, \hyperpage{215}
+    \subitem \tt  bl.tscomci, \hyperpage{222}
+    \subitem \tt  bl.tscomi, \hyperpage{220}
+    \subitem \tt  bl.tsdeqi, \hyperpage{251}
+    \subitem \tt  bl.tsdivi, \hyperpage{249}
+    \subitem \tt  bl.tseqi, \hyperpage{226}
+    \subitem \tt  bl.tsi, \hyperpage{215}
+    \subitem \tt  bl.tslti, \hyperpage{252}
+    \subitem \tt  bl.tsmul2i, \hyperpage{245}
+    \subitem \tt  bl.tsmul3li, \hyperpage{248}
+    \subitem \tt  bl.tsmul3ri, \hyperpage{246}
+    \subitem \tt  bl.tsmuli, \hyperpage{249}
+    \subitem \tt  bl.tsoi, \hyperpage{216}
+    \subitem \tt  bl.tsor2i, \hyperpage{234}
+    \subitem \tt  bl.tsor3i, \hyperpage{235}
+    \subitem \tt  bl.tsor3li, \hyperpage{238}
+    \subitem \tt  bl.tsor3ri, \hyperpage{237}
+    \subitem \tt  bl.tsori, \hyperpage{240}
+    \subitem \tt  bl.tssubi, \hyperpage{244}
+    \subitem \tt  bl.tsumi, \hyperpage{250}
+    \subitem \tt  bl.ty, \hyperpage{187}
+    \subitem \tt  bl0wff, \hyperpage{133}
+    \subitem \tt  blwff, \hyperpage{138}
+    \subitem \tt  clat0, \hyperpage{149}
+    \subitem \tt  cnow, \hyperpage{148}
+    \subitem \tt  ctime, \hyperpage{148}
+    \subitem \tt  ctops, \hyperpage{148}
     \subitem \tt  df-adjp, \hyperpage{24}
     \subitem \tt  df-apar, \hyperpage{24}
-    \subitem \tt  df-assoc, \hyperpage{75}
-    \subitem \tt  df-binassoc, \hyperpage{72}
-    \subitem \tt  df-binassocx, \hyperpage{73}
-    \subitem \tt  df-binconnect, \hyperpage{77}
-    \subitem \tt  df-binconnectx, \hyperpage{78}
-    \subitem \tt  df-bind, \hyperpage{80}
-    \subitem \tt  df-bl.2teqop, \hyperpage{165}
-    \subitem \tt  df-bl.3teqot, \hyperpage{165}
-    \subitem \tt  df-bl.add, \hyperpage{188}
-    \subitem \tt  df-bl.add1, \hyperpage{165}
-    \subitem \tt  df-bl.add2, \hyperpage{165}
-    \subitem \tt  df-bl.addt, \hyperpage{192}
-    \subitem \tt  df-bl.al, \hyperpage{185}
-    \subitem \tt  df-bl.am, \hyperpage{189}
-    \subitem \tt  df-bl.amt, \hyperpage{193}
-    \subitem \tt  df-bl.an, \hyperpage{184}
-    \subitem \tt  df-bl.ant, \hyperpage{190}
-    \subitem \tt  df-bl.at, \hyperpage{194}
-    \subitem \tt  df-bl.at2, \hyperpage{194}
-    \subitem \tt  df-bl.at2c, \hyperpage{194}
-    \subitem \tt  df-bl.atad2, \hyperpage{203}
-    \subitem \tt  df-bl.atal, \hyperpage{210}
-    \subitem \tt  df-bl.atan2, \hyperpage{196}
-    \subitem \tt  df-bl.atbi, \hyperpage{194}, \hyperpage{202}
-    \subitem \tt  df-bl.atc, \hyperpage{194}
-    \subitem \tt  df-bl.atdiv, \hyperpage{208}
-    \subitem \tt  df-bl.ateq, \hyperpage{208}
-    \subitem \tt  df-bl.ateqc, \hyperpage{195}
-    \subitem \tt  df-bl.atexi, \hyperpage{210}
-    \subitem \tt  df-bl.atlt, \hyperpage{209}
-    \subitem \tt  df-bl.atmul2, \hyperpage{205}
-    \subitem \tt  df-bl.atnot, \hyperpage{202}
-    \subitem \tt  df-bl.ator2, \hyperpage{199}
-    \subitem \tt  df-bl.atprod, \hyperpage{210}
-    \subitem \tt  df-bl.atqq, \hyperpage{210}
-    \subitem \tt  df-bl.atrt, \hyperpage{196}
-    \subitem \tt  df-bl.atsub, \hyperpage{207}
-    \subitem \tt  df-bl.atsum, \hyperpage{210}
-    \subitem \tt  df-bl.atum, \hyperpage{208}
-    \subitem \tt  df-bl.before, \hyperpage{55}, \hyperpage{130}, 
-		\hyperpage{177}
-    \subitem \tt  df-bl.beforeeq, \hyperpage{55}, \hyperpage{130}, 
-		\hyperpage{177}
-    \subitem \tt  df-bl.bfv, \hyperpage{87}
-    \subitem \tt  df-bl.bi, \hyperpage{184}
-    \subitem \tt  df-bl.birth, \hyperpage{56}, \hyperpage{133}
-    \subitem \tt  df-bl.bit, \hyperpage{190}
-    \subitem \tt  df-bl.bl0, \hyperpage{129}
-    \subitem \tt  df-bl.cc, \hyperpage{130}
-    \subitem \tt  df-bl.cd, \hyperpage{130}
-    \subitem \tt  df-bl.changed, \hyperpage{61}
-    \subitem \tt  df-bl.cl, \hyperpage{144}
-    \subitem \tt  df-bl.cl0, \hyperpage{144}
-    \subitem \tt  df-bl.dc, \hyperpage{130}
-    \subitem \tt  df-bl.dd, \hyperpage{130}
-    \subitem \tt  df-bl.death, \hyperpage{56}, \hyperpage{133}
-    \subitem \tt  df-bl.delta, \hyperpage{62}
-    \subitem \tt  df-bl.div, \hyperpage{189}
-    \subitem \tt  df-bl.divt, \hyperpage{193}
-    \subitem \tt  df-bl.eq, \hyperpage{189}
-    \subitem \tt  df-bl.eqt, \hyperpage{193}
-    \subitem \tt  df-bl.exists, \hyperpage{56}, \hyperpage{133}
-    \subitem \tt  df-bl.ifv, \hyperpage{88}
-    \subitem \tt  df-bl.im, \hyperpage{183}
-    \subitem \tt  df-bl.imt, \hyperpage{192}
-    \subitem \tt  df-bl.itemflow, \hyperpage{87}
-    \subitem \tt  df-bl.lan1, \hyperpage{152}
-    \subitem \tt  df-bl.lan2wl, \hyperpage{152}
-    \subitem \tt  df-bl.lifetime, \hyperpage{56}, \hyperpage{133}
-    \subitem \tt  df-bl.lor1, \hyperpage{158}
-    \subitem \tt  df-bl.lor2wl, \hyperpage{158}
-    \subitem \tt  df-bl.lt, \hyperpage{189}
-    \subitem \tt  df-bl.ltt, \hyperpage{193}
-    \subitem \tt  df-bl.models, \hyperpage{55}, \hyperpage{133}
-    \subitem \tt  df-bl.modelsc, \hyperpage{55}, \hyperpage{133}
-    \subitem \tt  df-bl.mul, \hyperpage{189}
-    \subitem \tt  df-bl.mul1, \hyperpage{170}
-    \subitem \tt  df-bl.mul2, \hyperpage{170}
-    \subitem \tt  df-bl.mult, \hyperpage{193}
-    \subitem \tt  df-bl.next, \hyperpage{127}
-    \subitem \tt  df-bl.not, \hyperpage{185}
-    \subitem \tt  df-bl.nott, \hyperpage{192}
-    \subitem \tt  df-bl.nowrr, \hyperpage{55}, \hyperpage{177}
-    \subitem \tt  df-bl.or, \hyperpage{185}
-    \subitem \tt  df-bl.ort, \hyperpage{191}
-    \subitem \tt  df-bl.ralt, \hyperpage{193}
-    \subitem \tt  df-bl.rext, \hyperpage{193}
-    \subitem \tt  df-bl.sbw, \hyperpage{151}
-    \subitem \tt  df-bl.sub, \hyperpage{188}
-    \subitem \tt  df-bl.subt, \hyperpage{193}
-    \subitem \tt  df-bl.time, \hyperpage{55}, \hyperpage{130}, 
-		\hyperpage{175}
-    \subitem \tt  df-bl.timeof, \hyperpage{61}
-    \subitem \tt  df-bl.ts, \hyperpage{135}, \hyperpage{211}
-    \subitem \tt  df-bl.tsali, \hyperpage{250}
-    \subitem \tt  df-bl.tsc, \hyperpage{136}, \hyperpage{211}
-    \subitem \tt  df-bl.tsdis, \hyperpage{136}
-    \subitem \tt  df-bl.tsdisc, \hyperpage{136}
-    \subitem \tt  df-bl.tsexi, \hyperpage{250}
-    \subitem \tt  df-bl.tsprodi, \hyperpage{250}
-    \subitem \tt  df-bl.tsqq, \hyperpage{250}
-    \subitem \tt  df-bl.tssumi, \hyperpage{250}
-    \subitem \tt  df-bl.um, \hyperpage{189}
-    \subitem \tt  df-bl.umt, \hyperpage{193}
+    \subitem \tt  df-assoc, \hyperpage{79}
+    \subitem \tt  df-binassoc, \hyperpage{76}
+    \subitem \tt  df-binassocx, \hyperpage{77}
+    \subitem \tt  df-binconnect, \hyperpage{81}
+    \subitem \tt  df-binconnectx, \hyperpage{82}
+    \subitem \tt  df-bind, \hyperpage{84}
+    \subitem \tt  df-bl.2teqop, \hyperpage{169}
+    \subitem \tt  df-bl.3teqot, \hyperpage{169}
+    \subitem \tt  df-bl.add, \hyperpage{192}
+    \subitem \tt  df-bl.add1, \hyperpage{169}
+    \subitem \tt  df-bl.add2, \hyperpage{169}
+    \subitem \tt  df-bl.addt, \hyperpage{196}
+    \subitem \tt  df-bl.al, \hyperpage{189}
+    \subitem \tt  df-bl.am, \hyperpage{193}
+    \subitem \tt  df-bl.amt, \hyperpage{197}
+    \subitem \tt  df-bl.an, \hyperpage{188}
+    \subitem \tt  df-bl.ant, \hyperpage{194}
+    \subitem \tt  df-bl.at, \hyperpage{198}
+    \subitem \tt  df-bl.at2, \hyperpage{198}
+    \subitem \tt  df-bl.at2c, \hyperpage{198}
+    \subitem \tt  df-bl.atad2, \hyperpage{207}
+    \subitem \tt  df-bl.atal, \hyperpage{214}
+    \subitem \tt  df-bl.atan2, \hyperpage{200}
+    \subitem \tt  df-bl.atbi, \hyperpage{198}, \hyperpage{206}
+    \subitem \tt  df-bl.atc, \hyperpage{198}
+    \subitem \tt  df-bl.atdiv, \hyperpage{212}
+    \subitem \tt  df-bl.ateq, \hyperpage{212}
+    \subitem \tt  df-bl.ateqc, \hyperpage{199}
+    \subitem \tt  df-bl.atexi, \hyperpage{214}
+    \subitem \tt  df-bl.atlt, \hyperpage{213}
+    \subitem \tt  df-bl.atmul2, \hyperpage{209}
+    \subitem \tt  df-bl.atnot, \hyperpage{206}
+    \subitem \tt  df-bl.ator2, \hyperpage{203}
+    \subitem \tt  df-bl.atprod, \hyperpage{214}
+    \subitem \tt  df-bl.atqq, \hyperpage{214}
+    \subitem \tt  df-bl.atrt, \hyperpage{200}
+    \subitem \tt  df-bl.atsub, \hyperpage{211}
+    \subitem \tt  df-bl.atsum, \hyperpage{214}
+    \subitem \tt  df-bl.atum, \hyperpage{212}
+    \subitem \tt  df-bl.before, \hyperpage{59}, \hyperpage{134}, 
+		\hyperpage{181}
+    \subitem \tt  df-bl.beforeeq, \hyperpage{59}, \hyperpage{134}, 
+		\hyperpage{181}
+    \subitem \tt  df-bl.bfv, \hyperpage{91}
+    \subitem \tt  df-bl.bi, \hyperpage{188}
+    \subitem \tt  df-bl.birth, \hyperpage{60}, \hyperpage{137}
+    \subitem \tt  df-bl.bit, \hyperpage{194}
+    \subitem \tt  df-bl.bl0, \hyperpage{133}
+    \subitem \tt  df-bl.cc, \hyperpage{134}
+    \subitem \tt  df-bl.cd, \hyperpage{134}
+    \subitem \tt  df-bl.changed, \hyperpage{65}
+    \subitem \tt  df-bl.cl, \hyperpage{148}
+    \subitem \tt  df-bl.cl0, \hyperpage{148}
+    \subitem \tt  df-bl.dc, \hyperpage{134}
+    \subitem \tt  df-bl.dd, \hyperpage{134}
+    \subitem \tt  df-bl.death, \hyperpage{60}, \hyperpage{137}
+    \subitem \tt  df-bl.delta, \hyperpage{66}
+    \subitem \tt  df-bl.div, \hyperpage{193}
+    \subitem \tt  df-bl.divt, \hyperpage{197}
+    \subitem \tt  df-bl.eq, \hyperpage{193}
+    \subitem \tt  df-bl.eqt, \hyperpage{197}
+    \subitem \tt  df-bl.exists, \hyperpage{60}, \hyperpage{137}
+    \subitem \tt  df-bl.ifv, \hyperpage{92}
+    \subitem \tt  df-bl.im, \hyperpage{187}
+    \subitem \tt  df-bl.imt, \hyperpage{196}
+    \subitem \tt  df-bl.itemflow, \hyperpage{91}
+    \subitem \tt  df-bl.lan1, \hyperpage{156}
+    \subitem \tt  df-bl.lan2wl, \hyperpage{156}
+    \subitem \tt  df-bl.lifetime, \hyperpage{60}, \hyperpage{137}
+    \subitem \tt  df-bl.lor1, \hyperpage{162}
+    \subitem \tt  df-bl.lor2wl, \hyperpage{162}
+    \subitem \tt  df-bl.lt, \hyperpage{193}
+    \subitem \tt  df-bl.ltt, \hyperpage{197}
+    \subitem \tt  df-bl.models, \hyperpage{59}, \hyperpage{137}
+    \subitem \tt  df-bl.modelsc, \hyperpage{59}, \hyperpage{137}
+    \subitem \tt  df-bl.mul, \hyperpage{193}
+    \subitem \tt  df-bl.mul1, \hyperpage{174}
+    \subitem \tt  df-bl.mul2, \hyperpage{174}
+    \subitem \tt  df-bl.mult, \hyperpage{197}
+    \subitem \tt  df-bl.next, \hyperpage{131}
+    \subitem \tt  df-bl.not, \hyperpage{189}
+    \subitem \tt  df-bl.nott, \hyperpage{196}
+    \subitem \tt  df-bl.nowrr, \hyperpage{59}, \hyperpage{181}
+    \subitem \tt  df-bl.or, \hyperpage{189}
+    \subitem \tt  df-bl.ort, \hyperpage{195}
+    \subitem \tt  df-bl.ralt, \hyperpage{197}
+    \subitem \tt  df-bl.rext, \hyperpage{197}
+    \subitem \tt  df-bl.sbw, \hyperpage{155}
+    \subitem \tt  df-bl.sub, \hyperpage{192}
+    \subitem \tt  df-bl.subt, \hyperpage{197}
+    \subitem \tt  df-bl.time, \hyperpage{59}, \hyperpage{134}, 
+		\hyperpage{179}
+    \subitem \tt  df-bl.timeof, \hyperpage{65}
+    \subitem \tt  df-bl.ts, \hyperpage{139}, \hyperpage{215}
+    \subitem \tt  df-bl.tsali, \hyperpage{254}
+    \subitem \tt  df-bl.tsc, \hyperpage{140}, \hyperpage{215}
+    \subitem \tt  df-bl.tsdis, \hyperpage{140}
+    \subitem \tt  df-bl.tsdisc, \hyperpage{140}
+    \subitem \tt  df-bl.tsexi, \hyperpage{254}
+    \subitem \tt  df-bl.tsprodi, \hyperpage{254}
+    \subitem \tt  df-bl.tsqq, \hyperpage{254}
+    \subitem \tt  df-bl.tssumi, \hyperpage{254}
+    \subitem \tt  df-bl.um, \hyperpage{193}
+    \subitem \tt  df-bl.umt, \hyperpage{197}
     \subitem \tt  df-cardinality, \hyperpage{43}
-    \subitem \tt  df-change, \hyperpage{96}
-    \subitem \tt  df-classifier, \hyperpage{53}
-    \subitem \tt  df-classifier2, \hyperpage{53}
-    \subitem \tt  df-co, \hyperpage{53}, \hyperpage{117}
-    \subitem \tt  df-datatype, \hyperpage{62}
+    \subitem \tt  df-change, \hyperpage{100}
+    \subitem \tt  df-classifier, \hyperpage{57}
+    \subitem \tt  df-classifier2, \hyperpage{57}
+    \subitem \tt  df-co, \hyperpage{57}, \hyperpage{121}
+    \subitem \tt  df-datatype, \hyperpage{66}
     \subitem \tt  df-differences, \hyperpage{42}
     \subitem \tt  df-disjoint, \hyperpage{42}
     \subitem \tt  df-domainless, \hyperpage{46}
     \subitem \tt  df-feature, \hyperpage{45}
-    \subitem \tt  df-featurechaining, \hyperpage{53}
+    \subitem \tt  df-featurechaining, \hyperpage{56}
     \subitem \tt  df-featuredby, \hyperpage{45}
-    \subitem \tt  df-featureinverting, \hyperpage{52}
+    \subitem \tt  df-featureinverting, \hyperpage{55}
     \subitem \tt  df-featuremember, \hyperpage{47}
-    \subitem \tt  df-featuremultiplicityrange, \hyperpage{49}
-    \subitem \tt  df-featuremultiplicityrangestar, \hyperpage{49}
+    \subitem \tt  df-featuremultiplicityrange, \hyperpage{50}
+    \subitem \tt  df-featuremultiplicityrangestar, \hyperpage{51}
     \subitem \tt  df-featureoffeature, \hyperpage{48}
-    \subitem \tt  df-fixedfeaturemultiplicity, \hyperpage{48}
+    \subitem \tt  df-fixedfeaturemultiplicity, \hyperpage{49}
     \subitem \tt  df-intersects, \hyperpage{41}
     \subitem \tt  df-kind, \hyperpage{38}
     \subitem \tt  df-lfu, \hyperpage{22}
     \subitem \tt  df-lin, \hyperpage{22}
-    \subitem \tt  df-membershipfeature, \hyperpage{50}
-    \subitem \tt  df-model, \hyperpage{54}, \hyperpage{132}
+    \subitem \tt  df-membershipfeature, \hyperpage{52}
+    \subitem \tt  df-model, \hyperpage{58}, \hyperpage{136}
     \subitem \tt  df-multspec, \hyperpage{41}
-    \subitem \tt  df-nochange, \hyperpage{96}
-    \subitem \tt  df-ordered, \hyperpage{50}
+    \subitem \tt  df-nochange, \hyperpage{100}
+    \subitem \tt  df-ordered, \hyperpage{53}
     \subitem \tt  df-par, \hyperpage{20}
     \subitem \tt  df-pat, \hyperpage{21}
     \subitem \tt  df-pch, \hyperpage{21}
@@ -794,30 +794,31 @@
     \subitem \tt  df-rni, \hyperpage{24}
     \subitem \tt  df-rov, \hyperpage{23}
     \subitem \tt  df-rsurf, \hyperpage{25}
-    \subitem \tt  df-scalarvalues, \hyperpage{63}
-    \subitem \tt  df-specializationwithfeatures, \hyperpage{51}
+    \subitem \tt  df-scalarvalues, \hyperpage{67}
+    \subitem \tt  df-specializationwithfeatures, \hyperpage{54}
     \subitem \tt  df-specializes, \hyperpage{40}
-    \subitem \tt  df-succession, \hyperpage{80}
+    \subitem \tt  df-succession, \hyperpage{84}
     \subitem \tt  df-type, \hyperpage{39}
-    \subitem \tt  df-typebody, \hyperpage{50}
+    \subitem \tt  df-typebody, \hyperpage{52}
     \subitem \tt  df-typemultiplicity, \hyperpage{44}
     \subitem \tt  df-typemultiplicityrange, \hyperpage{44}
     \subitem \tt  df-types, \hyperpage{40}
-    \subitem \tt  df-undefinedfeaturemultiplicity, \hyperpage{49}
+    \subitem \tt  df-undefinedfeaturemultiplicity, \hyperpage{50}
     \subitem \tt  df-unions, \hyperpage{41}
     \subitem \tt  df-wonce, \hyperpage{38}
-    \subitem \tt  wat, \hyperpage{145}
-    \subitem \tt  wfl1, \hyperpage{143}
-    \subitem \tt  wfl2, \hyperpage{143}
-    \subitem \tt  wland, \hyperpage{143}
-    \subitem \tt  wlo, \hyperpage{143}
-    \subitem \tt  wsbw, \hyperpage{143}
-    \subitem \tt  wtp, \hyperpage{144}
-    \subitem \tt  wtpe, \hyperpage{144}
+    \subitem \tt  wat, \hyperpage{149}
+    \subitem \tt  wfl1, \hyperpage{147}
+    \subitem \tt  wfl2, \hyperpage{147}
+    \subitem \tt  wland, \hyperpage{147}
+    \subitem \tt  wlo, \hyperpage{147}
+    \subitem \tt  wsbw, \hyperpage{147}
+    \subitem \tt  wtp, \hyperpage{148}
+    \subitem \tt  wtpe, \hyperpage{148}
   \item \color  {leancolor}Lean
     \subitem \tt  Adjacent, \hyperpage{25}
     \subitem \tt  AtomPart, \hyperpage{21}
     \subitem \tt  AtomicRegion, \hyperpage{23}
+    \subitem \tt  ChainsDecl, \hyperpage{56}
     \subitem \tt  Design, \hyperpage{40}
     \subitem \tt  Differences, \hyperpage{42}
     \subitem \tt  Disjoint, \hyperpage{42}
@@ -826,10 +827,21 @@
     \subitem \tt  ElementRep, \hyperpage{37}
     \subitem \tt  ExternallyConnected, \hyperpage{26}
     \subitem \tt  FeatureContent, \hyperpage{46}
+    \subitem \tt  FeatureMemberOf, \hyperpage{47}
     \subitem \tt  FeaturedByDecl, \hyperpage{46}
     \subitem \tt  ImproperPart, \hyperpage{20}
     \subitem \tt  Intersects, \hyperpage{42}
+    \subitem \tt  MemberOf, \hyperpage{52}
+    \subitem \tt  OrderedDecl, \hyperpage{53}
+    \subitem \tt  OrderedOn, \hyperpage{53}
     \subitem \tt  Overlap, \hyperpage{20}
+    \subitem \tt  OwnedFeatureTypedBy, \hyperpage{47}
+    \subitem \tt  OwnedFeatureTypedByExact, \hyperpage{49}
+    \subitem \tt  OwnedFeatureTypedByRange, \hyperpage{50}
+    \subitem \tt  OwnedFeatureTypedByRangeStar, \hyperpage{51}
+    \subitem \tt  OwnedFeatureTypedByStar, \hyperpage{50}
+    \subitem \tt  OwnedFeatures, \hyperpage{53}
+    \subitem \tt  PairOrderedOn, \hyperpage{53}
     \subitem \tt  PartDisjoint, \hyperpage{21}
     \subitem \tt  RegionContainment, \hyperpage{23}
     \subitem \tt  RegionFilm, \hyperpage{25}
@@ -850,13 +862,27 @@
     \subitem \tt  df\_disjoint, \hyperpage{43}
     \subitem \tt  df\_domainless, \hyperpage{46}
     \subitem \tt  df\_feature, \hyperpage{45}
+    \subitem \tt  df\_featurechaining, \hyperpage{57}
     \subitem \tt  df\_featuredby, \hyperpage{46}
+    \subitem \tt  df\_featureinverting, \hyperpage{55}
+    \subitem \tt  df\_featuremember, \hyperpage{48}
+    \subitem \tt  df\_featuremultiplicityrange, \hyperpage{51}
+    \subitem \tt  df\_featuremultiplicityrangestar, \hyperpage{51}
+    \subitem \tt  df\_featureoffeature, \hyperpage{48}
+    \subitem \tt  df\_fixedfeaturemultiplicity, \hyperpage{49}
     \subitem \tt  df\_intersects, \hyperpage{42}
+    \subitem \tt  df\_membershipfeature, \hyperpage{52}
     \subitem \tt  df\_multspec, \hyperpage{41}
+    \subitem \tt  df\_ordered, \hyperpage{54}
+    \subitem \tt  df\_specializationwithfeatures, \hyperpage{55}
     \subitem \tt  df\_specializes, \hyperpage{40}
+    \subitem \tt  df\_typebody, \hyperpage{53}
     \subitem \tt  df\_typemultiplicity, \hyperpage{44}
     \subitem \tt  df\_typemultiplicityrange, \hyperpage{45}
+    \subitem \tt  df\_undefinedfeaturemultiplicity, \hyperpage{50}
     \subitem \tt  df\_unions, \hyperpage{41}
+    \subitem \tt  encodePair, \hyperpage{48}
+    \subitem \tt  encodePair\_inj, \hyperpage{48}
     \subitem \tt  expansivity, \hyperpage{24}
     \subitem \tt  lfu, \hyperpage{22}
     \subitem \tt  lin, \hyperpage{22}
@@ -866,361 +892,362 @@
     \subitem \tt  pch, \hyperpage{21}
     \subitem \tt  ptr, \hyperpage{20}
     \subitem \tt  rdi, \hyperpage{23}
+    \subitem \tt  relCompose, \hyperpage{57}
   \item \color  {setmmcolor}Metatheorems (from set.mm)
-    \subitem \tt  0cn, \hyperpage{282}
-    \subitem \tt  0re, \hyperpage{283}
-    \subitem \tt  0z, \hyperpage{288}
-    \subitem \tt  19.3, \hyperpage{269}
-    \subitem \tt  19.8a, \hyperpage{269}
-    \subitem \tt  3adant3, \hyperpage{262}
-    \subitem \tt  3anass, \hyperpage{262}
-    \subitem \tt  3anbi123i, \hyperpage{264}
-    \subitem \tt  3bitr2ri, \hyperpage{255}, \hyperpage{265}
-    \subitem \tt  3bitr4i, \hyperpage{255}
-    \subitem \tt  3bitr4ri, \hyperpage{255}
-    \subitem \tt  3bitri, \hyperpage{255}
-    \subitem \tt  3eqtr2i, \hyperpage{271}
-    \subitem \tt  3eqtr3i, \hyperpage{268}
-    \subitem \tt  3eqtr4i, \hyperpage{271}
-    \subitem \tt  3eqtri, \hyperpage{271}
-    \subitem \tt  3imtr3i, \hyperpage{255}
-    \subitem \tt  3imtr4i, \hyperpage{255}
-    \subitem \tt  3jca, \hyperpage{262}
-    \subitem \tt  3orass, \hyperpage{262}
-    \subitem \tt  3orbi123i, \hyperpage{264}
-    \subitem \tt  3pm3.2i, \hyperpage{264}
-    \subitem \tt  3simpa, \hyperpage{263}
-    \subitem \tt  a1bi, \hyperpage{256}
-    \subitem \tt  a1i, \hyperpage{252}
-    \subitem \tt  abid, \hyperpage{269}
-    \subitem \tt  adantr, \hyperpage{257}
-    \subitem \tt  add12, \hyperpage{282}
-    \subitem \tt  addassi, \hyperpage{284}
-    \subitem \tt  addcan, \hyperpage{282}
-    \subitem \tt  addcl, \hyperpage{282}
-    \subitem \tt  addcli, \hyperpage{283}
-    \subitem \tt  addcomgi, \hyperpage{292}
-    \subitem \tt  adddii, \hyperpage{284}
-    \subitem \tt  addid1, \hyperpage{285}
-    \subitem \tt  addsub4, \hyperpage{287}
-    \subitem \tt  albii, \hyperpage{266}
-    \subitem \tt  alim, \hyperpage{266}
-    \subitem \tt  alral, \hyperpage{273}
-    \subitem \tt  altru, \hyperpage{266}
-    \subitem \tt  anass, \hyperpage{257}
-    \subitem \tt  anbi12i, \hyperpage{259}
-    \subitem \tt  anbi1i, \hyperpage{259}
-    \subitem \tt  anbi2d, \hyperpage{259}
-    \subitem \tt  anbi2i, \hyperpage{259}
-    \subitem \tt  ancom, \hyperpage{257}
-    \subitem \tt  andir, \hyperpage{262}
-    \subitem \tt  anidm, \hyperpage{258}
-    \subitem \tt  anim12i, \hyperpage{259}
-    \subitem \tt  anim1i, \hyperpage{259}
-    \subitem \tt  animorl, \hyperpage{261}
-    \subitem \tt  animorr, \hyperpage{261}
-    \subitem \tt  ax-1, \hyperpage{251}
-    \subitem \tt  ax-10, \hyperpage{267}
-    \subitem \tt  ax-11, \hyperpage{267}
-    \subitem \tt  ax-12, \hyperpage{268}
-    \subitem \tt  ax-13, \hyperpage{268}
-    \subitem \tt  ax-2, \hyperpage{251}
-    \subitem \tt  ax-3, \hyperpage{251}
-    \subitem \tt  ax-4, \hyperpage{266}
-    \subitem \tt  ax-5, \hyperpage{266}
-    \subitem \tt  ax-6, \hyperpage{266}
-    \subitem \tt  ax-7, \hyperpage{267}
-    \subitem \tt  ax-8, \hyperpage{267}
-    \subitem \tt  ax-9, \hyperpage{267}
-    \subitem \tt  ax-ac, \hyperpage{281}
-    \subitem \tt  ax-ext, \hyperpage{269}
-    \subitem \tt  ax-gen, \hyperpage{265}
-    \subitem \tt  ax-inf, \hyperpage{281}
-    \subitem \tt  ax-mp, \hyperpage{251}
-    \subitem \tt  ax-pow, \hyperpage{278}
-    \subitem \tt  ax-reg, \hyperpage{281}
-    \subitem \tt  ax-rep, \hyperpage{277}
-    \subitem \tt  ax-resscn, \hyperpage{282}
-    \subitem \tt  ax-un, \hyperpage{281}
-    \subitem \tt  ax6, \hyperpage{267}
-    \subitem \tt  ax7, \hyperpage{267}
-    \subitem \tt  ax8, \hyperpage{267}
-    \subitem \tt  bibi1i, \hyperpage{256}
-    \subitem \tt  bibi2i, \hyperpage{256}
-    \subitem \tt  bicom, \hyperpage{253}
-    \subitem \tt  bicomi, \hyperpage{253}
-    \subitem \tt  bifal, \hyperpage{265}
-    \subitem \tt  biid, \hyperpage{254}
-    \subitem \tt  biimpi, \hyperpage{253}
-    \subitem \tt  biimpr, \hyperpage{253}
-    \subitem \tt  biimpri, \hyperpage{253}
-    \subitem \tt  bitr2i, \hyperpage{254}
-    \subitem \tt  bitr3, \hyperpage{256}
-    \subitem \tt  bitr3i, \hyperpage{254}
-    \subitem \tt  bitr4d, \hyperpage{254}
-    \subitem \tt  bitr4i, \hyperpage{254}
-    \subitem \tt  bitrd, \hyperpage{254}
-    \subitem \tt  bitri, \hyperpage{254}
-    \subitem \tt  bitru, \hyperpage{264}
-    \subitem \tt  breq12d, \hyperpage{276}
-    \subitem \tt  breq12i, \hyperpage{276}
-    \subitem \tt  breqtri, \hyperpage{276}
-    \subitem \tt  clelab, \hyperpage{272}
-    \subitem \tt  cnvsym, \hyperpage{117}, \hyperpage{279}
-    \subitem \tt  con1bii, \hyperpage{256}
-    \subitem \tt  con4bii, \hyperpage{255}
-    \subitem \tt  cotr, \hyperpage{118}, \hyperpage{279}
-    \subitem \tt  csbvarg, \hyperpage{275}
-    \subitem \tt  cv, \hyperpage{141}
-    \subitem \tt  df-3an, \hyperpage{262}
-    \subitem \tt  df-3or, \hyperpage{262}
-    \subitem \tt  df-an, \hyperpage{141}, \hyperpage{257}
-    \subitem \tt  df-base, \hyperpage{291}
-    \subitem \tt  df-br, \hyperpage{116}, \hyperpage{276}
-    \subitem \tt  df-c, \hyperpage{113}, \hyperpage{282}
-    \subitem \tt  df-clab, \hyperpage{112}, \hyperpage{269}
-    \subitem \tt  df-cnv, \hyperpage{116}, \hyperpage{278}
-    \subitem \tt  df-co, \hyperpage{276}, \hyperpage{278}
-    \subitem \tt  df-concat, \hyperpage{121}, \hyperpage{290}
-    \subitem \tt  df-dif, \hyperpage{114}, \hyperpage{273}
-    \subitem \tt  df-disj, \hyperpage{114}, \hyperpage{276}
-    \subitem \tt  df-dm, \hyperpage{116}, \hyperpage{276}, 
+    \subitem \tt  0cn, \hyperpage{286}
+    \subitem \tt  0re, \hyperpage{287}
+    \subitem \tt  0z, \hyperpage{292}
+    \subitem \tt  19.3, \hyperpage{273}
+    \subitem \tt  19.8a, \hyperpage{273}
+    \subitem \tt  3adant3, \hyperpage{266}
+    \subitem \tt  3anass, \hyperpage{266}
+    \subitem \tt  3anbi123i, \hyperpage{268}
+    \subitem \tt  3bitr2ri, \hyperpage{259}, \hyperpage{269}
+    \subitem \tt  3bitr4i, \hyperpage{259}
+    \subitem \tt  3bitr4ri, \hyperpage{259}
+    \subitem \tt  3bitri, \hyperpage{259}
+    \subitem \tt  3eqtr2i, \hyperpage{275}
+    \subitem \tt  3eqtr3i, \hyperpage{272}
+    \subitem \tt  3eqtr4i, \hyperpage{275}
+    \subitem \tt  3eqtri, \hyperpage{275}
+    \subitem \tt  3imtr3i, \hyperpage{259}
+    \subitem \tt  3imtr4i, \hyperpage{259}
+    \subitem \tt  3jca, \hyperpage{266}
+    \subitem \tt  3orass, \hyperpage{266}
+    \subitem \tt  3orbi123i, \hyperpage{268}
+    \subitem \tt  3pm3.2i, \hyperpage{268}
+    \subitem \tt  3simpa, \hyperpage{267}
+    \subitem \tt  a1bi, \hyperpage{260}
+    \subitem \tt  a1i, \hyperpage{256}
+    \subitem \tt  abid, \hyperpage{273}
+    \subitem \tt  adantr, \hyperpage{261}
+    \subitem \tt  add12, \hyperpage{286}
+    \subitem \tt  addassi, \hyperpage{288}
+    \subitem \tt  addcan, \hyperpage{286}
+    \subitem \tt  addcl, \hyperpage{286}
+    \subitem \tt  addcli, \hyperpage{287}
+    \subitem \tt  addcomgi, \hyperpage{296}
+    \subitem \tt  adddii, \hyperpage{288}
+    \subitem \tt  addid1, \hyperpage{289}
+    \subitem \tt  addsub4, \hyperpage{291}
+    \subitem \tt  albii, \hyperpage{270}
+    \subitem \tt  alim, \hyperpage{270}
+    \subitem \tt  alral, \hyperpage{277}
+    \subitem \tt  altru, \hyperpage{270}
+    \subitem \tt  anass, \hyperpage{261}
+    \subitem \tt  anbi12i, \hyperpage{263}
+    \subitem \tt  anbi1i, \hyperpage{263}
+    \subitem \tt  anbi2d, \hyperpage{263}
+    \subitem \tt  anbi2i, \hyperpage{263}
+    \subitem \tt  ancom, \hyperpage{261}
+    \subitem \tt  andir, \hyperpage{266}
+    \subitem \tt  anidm, \hyperpage{262}
+    \subitem \tt  anim12i, \hyperpage{263}
+    \subitem \tt  anim1i, \hyperpage{263}
+    \subitem \tt  animorl, \hyperpage{265}
+    \subitem \tt  animorr, \hyperpage{265}
+    \subitem \tt  ax-1, \hyperpage{255}
+    \subitem \tt  ax-10, \hyperpage{271}
+    \subitem \tt  ax-11, \hyperpage{271}
+    \subitem \tt  ax-12, \hyperpage{272}
+    \subitem \tt  ax-13, \hyperpage{272}
+    \subitem \tt  ax-2, \hyperpage{255}
+    \subitem \tt  ax-3, \hyperpage{255}
+    \subitem \tt  ax-4, \hyperpage{270}
+    \subitem \tt  ax-5, \hyperpage{270}
+    \subitem \tt  ax-6, \hyperpage{270}
+    \subitem \tt  ax-7, \hyperpage{271}
+    \subitem \tt  ax-8, \hyperpage{271}
+    \subitem \tt  ax-9, \hyperpage{271}
+    \subitem \tt  ax-ac, \hyperpage{285}
+    \subitem \tt  ax-ext, \hyperpage{273}
+    \subitem \tt  ax-gen, \hyperpage{269}
+    \subitem \tt  ax-inf, \hyperpage{285}
+    \subitem \tt  ax-mp, \hyperpage{255}
+    \subitem \tt  ax-pow, \hyperpage{282}
+    \subitem \tt  ax-reg, \hyperpage{285}
+    \subitem \tt  ax-rep, \hyperpage{281}
+    \subitem \tt  ax-resscn, \hyperpage{286}
+    \subitem \tt  ax-un, \hyperpage{285}
+    \subitem \tt  ax6, \hyperpage{271}
+    \subitem \tt  ax7, \hyperpage{271}
+    \subitem \tt  ax8, \hyperpage{271}
+    \subitem \tt  bibi1i, \hyperpage{260}
+    \subitem \tt  bibi2i, \hyperpage{260}
+    \subitem \tt  bicom, \hyperpage{257}
+    \subitem \tt  bicomi, \hyperpage{257}
+    \subitem \tt  bifal, \hyperpage{269}
+    \subitem \tt  biid, \hyperpage{258}
+    \subitem \tt  biimpi, \hyperpage{257}
+    \subitem \tt  biimpr, \hyperpage{257}
+    \subitem \tt  biimpri, \hyperpage{257}
+    \subitem \tt  bitr2i, \hyperpage{258}
+    \subitem \tt  bitr3, \hyperpage{260}
+    \subitem \tt  bitr3i, \hyperpage{258}
+    \subitem \tt  bitr4d, \hyperpage{258}
+    \subitem \tt  bitr4i, \hyperpage{258}
+    \subitem \tt  bitrd, \hyperpage{258}
+    \subitem \tt  bitri, \hyperpage{258}
+    \subitem \tt  bitru, \hyperpage{268}
+    \subitem \tt  breq12d, \hyperpage{280}
+    \subitem \tt  breq12i, \hyperpage{280}
+    \subitem \tt  breqtri, \hyperpage{280}
+    \subitem \tt  clelab, \hyperpage{276}
+    \subitem \tt  cnvsym, \hyperpage{121}, \hyperpage{283}
+    \subitem \tt  con1bii, \hyperpage{260}
+    \subitem \tt  con4bii, \hyperpage{259}
+    \subitem \tt  cotr, \hyperpage{122}, \hyperpage{283}
+    \subitem \tt  csbvarg, \hyperpage{279}
+    \subitem \tt  cv, \hyperpage{145}
+    \subitem \tt  df-3an, \hyperpage{266}
+    \subitem \tt  df-3or, \hyperpage{266}
+    \subitem \tt  df-an, \hyperpage{145}, \hyperpage{261}
+    \subitem \tt  df-base, \hyperpage{295}
+    \subitem \tt  df-br, \hyperpage{120}, \hyperpage{280}
+    \subitem \tt  df-c, \hyperpage{117}, \hyperpage{286}
+    \subitem \tt  df-clab, \hyperpage{116}, \hyperpage{273}
+    \subitem \tt  df-cnv, \hyperpage{120}, \hyperpage{282}
+    \subitem \tt  df-co, \hyperpage{280}, \hyperpage{282}
+    \subitem \tt  df-concat, \hyperpage{125}, \hyperpage{294}
+    \subitem \tt  df-dif, \hyperpage{118}, \hyperpage{277}
+    \subitem \tt  df-disj, \hyperpage{118}, \hyperpage{280}
+    \subitem \tt  df-dm, \hyperpage{120}, \hyperpage{280}, 
+		\hyperpage{282}
+    \subitem \tt  df-ex, \hyperpage{270}
+    \subitem \tt  df-f, \hyperpage{123}, \hyperpage{283, 284}
+    \subitem \tt  df-f1, \hyperpage{123}
+    \subitem \tt  df-f1o, \hyperpage{124}
+    \subitem \tt  df-fal, \hyperpage{146}, \hyperpage{268}
+    \subitem \tt  df-fn, \hyperpage{123}, \hyperpage{283}
+    \subitem \tt  df-fo, \hyperpage{123}, \hyperpage{283}
+    \subitem \tt  df-fun, \hyperpage{123}, \hyperpage{283}
+    \subitem \tt  df-fv, \hyperpage{123}, \hyperpage{284}
+    \subitem \tt  df-id, \hyperpage{121}, \hyperpage{281}
+    \subitem \tt  df-iin, \hyperpage{118}, \hyperpage{280}
+    \subitem \tt  df-in, \hyperpage{117}, \hyperpage{277}
+    \subitem \tt  df-iun, \hyperpage{118}, \hyperpage{279}
+    \subitem \tt  df-ltxr, \hyperpage{145}, \hyperpage{288}
+    \subitem \tt  df-n0, \hyperpage{117}, \hyperpage{293}
+    \subitem \tt  df-ndx, \hyperpage{295}
+    \subitem \tt  df-neg, \hyperpage{289}
+    \subitem \tt  df-nn, \hyperpage{117}, \hyperpage{293}
+    \subitem \tt  df-op, \hyperpage{119}, \hyperpage{279}
+    \subitem \tt  df-or, \hyperpage{145}, \hyperpage{263}
+    \subitem \tt  df-ot, \hyperpage{119}, \hyperpage{279}
+    \subitem \tt  df-pss, \hyperpage{278}
+    \subitem \tt  df-r, \hyperpage{117}, \hyperpage{286}
+    \subitem \tt  df-ral, \hyperpage{276}
+    \subitem \tt  df-rel, \hyperpage{120}, \hyperpage{282}
+    \subitem \tt  df-res, \hyperpage{121}, \hyperpage{282}
+    \subitem \tt  df-rex, \hyperpage{276}
+    \subitem \tt  df-rn, \hyperpage{120}, \hyperpage{282}
+    \subitem \tt  df-sets, \hyperpage{296}
+    \subitem \tt  df-slot, \hyperpage{295}
+    \subitem \tt  df-ss, \hyperpage{118}, \hyperpage{276}
+    \subitem \tt  df-struct, \hyperpage{295}
+    \subitem \tt  df-substr, \hyperpage{125}, \hyperpage{295}
+    \subitem \tt  df-tc, \hyperpage{122}, \hyperpage{285}
+    \subitem \tt  df-tru, \hyperpage{145}, \hyperpage{268}
+    \subitem \tt  df-un, \hyperpage{118}, \hyperpage{277}
+    \subitem \tt  df-v, \hyperpage{37}, \hyperpage{116}, 
 		\hyperpage{278}
-    \subitem \tt  df-ex, \hyperpage{266}
-    \subitem \tt  df-f, \hyperpage{119}, \hyperpage{279, 280}
-    \subitem \tt  df-f1, \hyperpage{119}
-    \subitem \tt  df-f1o, \hyperpage{120}
-    \subitem \tt  df-fal, \hyperpage{142}, \hyperpage{264}
-    \subitem \tt  df-fn, \hyperpage{119}, \hyperpage{279}
-    \subitem \tt  df-fo, \hyperpage{119}, \hyperpage{279}
-    \subitem \tt  df-fun, \hyperpage{119}, \hyperpage{279}
-    \subitem \tt  df-fv, \hyperpage{119}, \hyperpage{280}
-    \subitem \tt  df-id, \hyperpage{117}, \hyperpage{277}
-    \subitem \tt  df-iin, \hyperpage{114}, \hyperpage{276}
-    \subitem \tt  df-in, \hyperpage{113}, \hyperpage{273}
-    \subitem \tt  df-iun, \hyperpage{114}, \hyperpage{275}
-    \subitem \tt  df-ltxr, \hyperpage{141}, \hyperpage{284}
-    \subitem \tt  df-n0, \hyperpage{113}, \hyperpage{289}
-    \subitem \tt  df-ndx, \hyperpage{291}
-    \subitem \tt  df-neg, \hyperpage{285}
-    \subitem \tt  df-nn, \hyperpage{113}, \hyperpage{289}
-    \subitem \tt  df-op, \hyperpage{115}, \hyperpage{275}
-    \subitem \tt  df-or, \hyperpage{141}, \hyperpage{259}
-    \subitem \tt  df-ot, \hyperpage{115}, \hyperpage{275}
-    \subitem \tt  df-pss, \hyperpage{274}
-    \subitem \tt  df-r, \hyperpage{113}, \hyperpage{282}
-    \subitem \tt  df-ral, \hyperpage{272}
-    \subitem \tt  df-rel, \hyperpage{116}, \hyperpage{278}
-    \subitem \tt  df-res, \hyperpage{117}, \hyperpage{278}
-    \subitem \tt  df-rex, \hyperpage{272}
-    \subitem \tt  df-rn, \hyperpage{116}, \hyperpage{278}
-    \subitem \tt  df-sets, \hyperpage{292}
-    \subitem \tt  df-slot, \hyperpage{291}
-    \subitem \tt  df-ss, \hyperpage{114}, \hyperpage{272}
-    \subitem \tt  df-struct, \hyperpage{291}
-    \subitem \tt  df-substr, \hyperpage{121}, \hyperpage{291}
-    \subitem \tt  df-tc, \hyperpage{118}, \hyperpage{281}
-    \subitem \tt  df-tru, \hyperpage{141}, \hyperpage{264}
-    \subitem \tt  df-un, \hyperpage{114}, \hyperpage{273}
-    \subitem \tt  df-v, \hyperpage{37}, \hyperpage{112}, 
-		\hyperpage{274}
-    \subitem \tt  df-word, \hyperpage{121}, \hyperpage{290}
-    \subitem \tt  df-xp, \hyperpage{115}, \hyperpage{278}
-    \subitem \tt  df-z, \hyperpage{113}, \hyperpage{289}
-    \subitem \tt  dfcleq, \hyperpage{113}, \hyperpage{269}
-    \subitem \tt  dfnot, \hyperpage{265}
-    \subitem \tt  dfopif, \hyperpage{275}
-    \subitem \tt  dfrex2, \hyperpage{272}
-    \subitem \tt  dfss3, \hyperpage{273}
-    \subitem \tt  eleq1i, \hyperpage{271}
-    \subitem \tt  eleq2i, \hyperpage{272}
-    \subitem \tt  elicc1, \hyperpage{290}
-    \subitem \tt  elico1, \hyperpage{290}
-    \subitem \tt  elioc1, \hyperpage{290}
-    \subitem \tt  elioo1, \hyperpage{290}
-    \subitem \tt  eqbrtrrd, \hyperpage{276}
-    \subitem \tt  eqcom, \hyperpage{270}
-    \subitem \tt  eqcomd, \hyperpage{270}
-    \subitem \tt  eqcomi, \hyperpage{270}
-    \subitem \tt  eqeltri, \hyperpage{272}
-    \subitem \tt  eqeq12i, \hyperpage{270}
-    \subitem \tt  eqeq1i, \hyperpage{270}
-    \subitem \tt  eqid, \hyperpage{269}
-    \subitem \tt  eqidd, \hyperpage{270}
-    \subitem \tt  eqtr3d, \hyperpage{271}
-    \subitem \tt  eqtr3i, \hyperpage{270}
-    \subitem \tt  eqtr4d, \hyperpage{271}
-    \subitem \tt  eqtr4i, \hyperpage{270}
-    \subitem \tt  eqtrd, \hyperpage{271}
-    \subitem \tt  eqtri, \hyperpage{270}
-    \subitem \tt  esumnul, \hyperpage{292}
-    \subitem \tt  ex, \hyperpage{269}
-    \subitem \tt  exbii, \hyperpage{266}
-    \subitem \tt  exmid, \hyperpage{260}
-    \subitem \tt  fal, \hyperpage{265}
-    \subitem \tt  falim, \hyperpage{265}
-    \subitem \tt  fnelfp, \hyperpage{120}, \hyperpage{280}
-    \subitem \tt  fninfp, \hyperpage{120}, \hyperpage{280}
-    \subitem \tt  funssres, \hyperpage{119}, \hyperpage{280}
-    \subitem \tt  id, \hyperpage{252}
-    \subitem \tt  idd, \hyperpage{252}
-    \subitem \tt  imbi1i, \hyperpage{256}
-    \subitem \tt  imbi2i, \hyperpage{256}
-    \subitem \tt  imim2i, \hyperpage{252}
-    \subitem \tt  impbii, \hyperpage{252}
-    \subitem \tt  intasym, \hyperpage{117}, \hyperpage{279}
-    \subitem \tt  intirr, \hyperpage{117}, \hyperpage{279}
-    \subitem \tt  intnan, \hyperpage{258}
-    \subitem \tt  intnanr, \hyperpage{258}
-    \subitem \tt  ispod, \hyperpage{122}, \hyperpage{277}
-    \subitem \tt  isref, \hyperpage{117}
-    \subitem \tt  isstruct, \hyperpage{292}
-    \subitem \tt  jca, \hyperpage{258}
-    \subitem \tt  leadd2i, \hyperpage{289}
-    \subitem \tt  leid, \hyperpage{285}
-    \subitem \tt  leloe, \hyperpage{284}
-    \subitem \tt  lenlti, \hyperpage{285}
-    \subitem \tt  letri, \hyperpage{285}
-    \subitem \tt  letri3, \hyperpage{289}
-    \subitem \tt  ltle, \hyperpage{284}
-    \subitem \tt  ltnei, \hyperpage{285}
-    \subitem \tt  ltnr, \hyperpage{285}
-    \subitem \tt  lttr, \hyperpage{284}
-    \subitem \tt  mp2an, \hyperpage{259}
-    \subitem \tt  mp2b, \hyperpage{251}
-    \subitem \tt  mp3an, \hyperpage{264}
-    \subitem \tt  mpbi, \hyperpage{253}
-    \subitem \tt  mpbid, \hyperpage{253}
-    \subitem \tt  mpbir, \hyperpage{253}
-    \subitem \tt  mpbird, \hyperpage{254}
-    \subitem \tt  mtbir, \hyperpage{255}
-    \subitem \tt  mul01, \hyperpage{286}
-    \subitem \tt  mul12i, \hyperpage{285}
-    \subitem \tt  mulass, \hyperpage{283}
-    \subitem \tt  mulcan2, \hyperpage{288}
-    \subitem \tt  mulcl, \hyperpage{283}
-    \subitem \tt  mulcli, \hyperpage{283}
-    \subitem \tt  mulcom, \hyperpage{283}
-    \subitem \tt  mulcomi, \hyperpage{283}
-    \subitem \tt  mulle0b, \hyperpage{288}
-    \subitem \tt  necom, \hyperpage{272}
-    \subitem \tt  negcl, \hyperpage{286}
-    \subitem \tt  negcld, \hyperpage{288}
-    \subitem \tt  negcli, \hyperpage{287}
-    \subitem \tt  negdi, \hyperpage{287}
-    \subitem \tt  negeqi, \hyperpage{285}
-    \subitem \tt  negid, \hyperpage{287}
-    \subitem \tt  negsub, \hyperpage{287}
-    \subitem \tt  negsubdi2, \hyperpage{287}
-    \subitem \tt  nf5-1, \hyperpage{268}
-    \subitem \tt  nfre1, \hyperpage{268}
-    \subitem \tt  nncand, \hyperpage{288}
-    \subitem \tt  notbii, \hyperpage{256}
-    \subitem \tt  notfal, \hyperpage{265}
-    \subitem \tt  notnot, \hyperpage{252}
-    \subitem \tt  nottru, \hyperpage{265}
-    \subitem \tt  npcan, \hyperpage{286}
-    \subitem \tt  olc, \hyperpage{260}
-    \subitem \tt  olci, \hyperpage{260}
-    \subitem \tt  opeq12, \hyperpage{115}, \hyperpage{275}
-    \subitem \tt  orass, \hyperpage{261}
-    \subitem \tt  orbi12i, \hyperpage{261}
-    \subitem \tt  orbi1i, \hyperpage{261}
-    \subitem \tt  orbi2d, \hyperpage{261}
-    \subitem \tt  orbi2i, \hyperpage{261}
-    \subitem \tt  orc, \hyperpage{260}
-    \subitem \tt  orci, \hyperpage{260}
-    \subitem \tt  orcom, \hyperpage{260}
-    \subitem \tt  ordir, \hyperpage{262}
-    \subitem \tt  orfa, \hyperpage{292}
-    \subitem \tt  oridm, \hyperpage{260}
-    \subitem \tt  orim12i, \hyperpage{260}
-    \subitem \tt  orim1i, \hyperpage{268}
-    \subitem \tt  oteq123d, \hyperpage{115}, \hyperpage{275}
-    \subitem \tt  oveq12i, \hyperpage{280}
-    \subitem \tt  oveq1i, \hyperpage{280}
-    \subitem \tt  oveq2d, \hyperpage{280}
-    \subitem \tt  oveq2i, \hyperpage{280}
-    \subitem \tt  pm2.61, \hyperpage{252}
-    \subitem \tt  pm2.86i, \hyperpage{252}
-    \subitem \tt  pm3.22, \hyperpage{257}
-    \subitem \tt  pm3.24, \hyperpage{257}
-    \subitem \tt  pm3.2i, \hyperpage{257}
-    \subitem \tt  pm4.24, \hyperpage{258}
-    \subitem \tt  pm4.44, \hyperpage{261}
-    \subitem \tt  pm4.45, \hyperpage{262}
-    \subitem \tt  pm4.45im, \hyperpage{259}
-    \subitem \tt  pm4.56, \hyperpage{261}
-    \subitem \tt  pncan, \hyperpage{286}
-    \subitem \tt  pncan2, \hyperpage{286}
-    \subitem \tt  pncan3i, \hyperpage{288}
-    \subitem \tt  poirr, \hyperpage{122}, \hyperpage{277}
-    \subitem \tt  potr, \hyperpage{122}, \hyperpage{277}
-    \subitem \tt  r19.26, \hyperpage{273}
-    \subitem \tt  ralbii, \hyperpage{273}
-    \subitem \tt  ralsng, \hyperpage{275}
-    \subitem \tt  ralv, \hyperpage{268}
-    \subitem \tt  readdcl, \hyperpage{282}
-    \subitem \tt  readdcli, \hyperpage{288}
-    \subitem \tt  readdid1, \hyperpage{292}
-    \subitem \tt  recn, \hyperpage{283}
-    \subitem \tt  recni, \hyperpage{284}
-    \subitem \tt  remul01, \hyperpage{292}
-    \subitem \tt  remulcl, \hyperpage{283}
-    \subitem \tt  remulcli, \hyperpage{284}
-    \subitem \tt  ressxr, \hyperpage{284}
-    \subitem \tt  rex0, \hyperpage{274}
-    \subitem \tt  rexlimi, \hyperpage{268}
-    \subitem \tt  rexsns, \hyperpage{275}
-    \subitem \tt  sbc3an, \hyperpage{273}
-    \subitem \tt  sbc5, \hyperpage{272}
-    \subitem \tt  sbcan, \hyperpage{274}
-    \subitem \tt  sbcbr1g, \hyperpage{277}
-    \subitem \tt  sbcbr2g, \hyperpage{277}
-    \subitem \tt  sbcel1v, \hyperpage{273}
-    \subitem \tt  simp1, \hyperpage{263}
-    \subitem \tt  simp1bi, \hyperpage{263}
-    \subitem \tt  simp1i, \hyperpage{263}
-    \subitem \tt  simp2, \hyperpage{263}
-    \subitem \tt  simp2bi, \hyperpage{263}
-    \subitem \tt  simp2i, \hyperpage{263}
-    \subitem \tt  simp3, \hyperpage{263}
-    \subitem \tt  simp3bi, \hyperpage{263}
-    \subitem \tt  simpl, \hyperpage{257}
-    \subitem \tt  simpli, \hyperpage{257}
-    \subitem \tt  simpr, \hyperpage{258}
-    \subitem \tt  simpri, \hyperpage{258}
-    \subitem \tt  sseli, \hyperpage{274}
-    \subitem \tt  sselii, \hyperpage{274}
-    \subitem \tt  ssriv, \hyperpage{274}
-    \subitem \tt  sstri, \hyperpage{274}
-    \subitem \tt  subadd4, \hyperpage{287}
-    \subitem \tt  subcan2, \hyperpage{286}
-    \subitem \tt  subcl, \hyperpage{286}
-    \subitem \tt  subid, \hyperpage{286}
-    \subitem \tt  subid1, \hyperpage{286}
-    \subitem \tt  subnegd, \hyperpage{288}
-    \subitem \tt  subsub3, \hyperpage{287}
-    \subitem \tt  subsub4, \hyperpage{287, 288}
-    \subitem \tt  sum0, \hyperpage{291}
-    \subitem \tt  sumsns, \hyperpage{291}
-    \subitem \tt  syl, \hyperpage{252}
-    \subitem \tt  syl2anc, \hyperpage{258}
-    \subitem \tt  syl5eq, \hyperpage{271}
-    \subitem \tt  syl6eqr, \hyperpage{271}
-    \subitem \tt  sylbi, \hyperpage{253}
-    \subitem \tt  syldan, \hyperpage{258}
-    \subitem \tt  sylibr, \hyperpage{254}
-    \subitem \tt  tc2, \hyperpage{118}, \hyperpage{281}
-    \subitem \tt  tru, \hyperpage{264}
-    \subitem \tt  truconj, \hyperpage{292}
-    \subitem \tt  trut, \hyperpage{264}
-    \subitem \tt  wa, \hyperpage{141}, \hyperpage{256}
-    \subitem \tt  wcel, \hyperpage{141}
-    \subitem \tt  wi, \hyperpage{141}
-    \subitem \tt  zaddcl, \hyperpage{290}
-    \subitem \tt  zcn, \hyperpage{289}
-    \subitem \tt  zre, \hyperpage{289}
-    \subitem \tt  zsscn, \hyperpage{289}
+    \subitem \tt  df-word, \hyperpage{125}, \hyperpage{294}
+    \subitem \tt  df-xp, \hyperpage{119}, \hyperpage{282}
+    \subitem \tt  df-z, \hyperpage{117}, \hyperpage{293}
+    \subitem \tt  dfcleq, \hyperpage{117}, \hyperpage{273}
+    \subitem \tt  dfnot, \hyperpage{269}
+    \subitem \tt  dfopif, \hyperpage{279}
+    \subitem \tt  dfrex2, \hyperpage{276}
+    \subitem \tt  dfss3, \hyperpage{277}
+    \subitem \tt  eleq1i, \hyperpage{275}
+    \subitem \tt  eleq2i, \hyperpage{276}
+    \subitem \tt  elicc1, \hyperpage{294}
+    \subitem \tt  elico1, \hyperpage{294}
+    \subitem \tt  elioc1, \hyperpage{294}
+    \subitem \tt  elioo1, \hyperpage{294}
+    \subitem \tt  eqbrtrrd, \hyperpage{280}
+    \subitem \tt  eqcom, \hyperpage{274}
+    \subitem \tt  eqcomd, \hyperpage{274}
+    \subitem \tt  eqcomi, \hyperpage{274}
+    \subitem \tt  eqeltri, \hyperpage{276}
+    \subitem \tt  eqeq12i, \hyperpage{274}
+    \subitem \tt  eqeq1i, \hyperpage{274}
+    \subitem \tt  eqid, \hyperpage{273}
+    \subitem \tt  eqidd, \hyperpage{274}
+    \subitem \tt  eqtr3d, \hyperpage{275}
+    \subitem \tt  eqtr3i, \hyperpage{274}
+    \subitem \tt  eqtr4d, \hyperpage{275}
+    \subitem \tt  eqtr4i, \hyperpage{274}
+    \subitem \tt  eqtrd, \hyperpage{275}
+    \subitem \tt  eqtri, \hyperpage{274}
+    \subitem \tt  esumnul, \hyperpage{296}
+    \subitem \tt  ex, \hyperpage{273}
+    \subitem \tt  exbii, \hyperpage{270}
+    \subitem \tt  exmid, \hyperpage{264}
+    \subitem \tt  fal, \hyperpage{269}
+    \subitem \tt  falim, \hyperpage{269}
+    \subitem \tt  fnelfp, \hyperpage{124}, \hyperpage{284}
+    \subitem \tt  fninfp, \hyperpage{124}, \hyperpage{284}
+    \subitem \tt  funssres, \hyperpage{123}, \hyperpage{284}
+    \subitem \tt  id, \hyperpage{256}
+    \subitem \tt  idd, \hyperpage{256}
+    \subitem \tt  imbi1i, \hyperpage{260}
+    \subitem \tt  imbi2i, \hyperpage{260}
+    \subitem \tt  imim2i, \hyperpage{256}
+    \subitem \tt  impbii, \hyperpage{256}
+    \subitem \tt  intasym, \hyperpage{121}, \hyperpage{283}
+    \subitem \tt  intirr, \hyperpage{121}, \hyperpage{283}
+    \subitem \tt  intnan, \hyperpage{262}
+    \subitem \tt  intnanr, \hyperpage{262}
+    \subitem \tt  ispod, \hyperpage{126}, \hyperpage{281}
+    \subitem \tt  isref, \hyperpage{121}
+    \subitem \tt  isstruct, \hyperpage{296}
+    \subitem \tt  jca, \hyperpage{262}
+    \subitem \tt  leadd2i, \hyperpage{293}
+    \subitem \tt  leid, \hyperpage{289}
+    \subitem \tt  leloe, \hyperpage{288}
+    \subitem \tt  lenlti, \hyperpage{289}
+    \subitem \tt  letri, \hyperpage{289}
+    \subitem \tt  letri3, \hyperpage{293}
+    \subitem \tt  ltle, \hyperpage{288}
+    \subitem \tt  ltnei, \hyperpage{289}
+    \subitem \tt  ltnr, \hyperpage{289}
+    \subitem \tt  lttr, \hyperpage{288}
+    \subitem \tt  mp2an, \hyperpage{263}
+    \subitem \tt  mp2b, \hyperpage{255}
+    \subitem \tt  mp3an, \hyperpage{268}
+    \subitem \tt  mpbi, \hyperpage{257}
+    \subitem \tt  mpbid, \hyperpage{257}
+    \subitem \tt  mpbir, \hyperpage{257}
+    \subitem \tt  mpbird, \hyperpage{258}
+    \subitem \tt  mtbir, \hyperpage{259}
+    \subitem \tt  mul01, \hyperpage{290}
+    \subitem \tt  mul12i, \hyperpage{289}
+    \subitem \tt  mulass, \hyperpage{287}
+    \subitem \tt  mulcan2, \hyperpage{292}
+    \subitem \tt  mulcl, \hyperpage{287}
+    \subitem \tt  mulcli, \hyperpage{287}
+    \subitem \tt  mulcom, \hyperpage{287}
+    \subitem \tt  mulcomi, \hyperpage{287}
+    \subitem \tt  mulle0b, \hyperpage{292}
+    \subitem \tt  necom, \hyperpage{276}
+    \subitem \tt  negcl, \hyperpage{290}
+    \subitem \tt  negcld, \hyperpage{292}
+    \subitem \tt  negcli, \hyperpage{291}
+    \subitem \tt  negdi, \hyperpage{291}
+    \subitem \tt  negeqi, \hyperpage{289}
+    \subitem \tt  negid, \hyperpage{291}
+    \subitem \tt  negsub, \hyperpage{291}
+    \subitem \tt  negsubdi2, \hyperpage{291}
+    \subitem \tt  nf5-1, \hyperpage{272}
+    \subitem \tt  nfre1, \hyperpage{272}
+    \subitem \tt  nncand, \hyperpage{292}
+    \subitem \tt  notbii, \hyperpage{260}
+    \subitem \tt  notfal, \hyperpage{269}
+    \subitem \tt  notnot, \hyperpage{256}
+    \subitem \tt  nottru, \hyperpage{269}
+    \subitem \tt  npcan, \hyperpage{290}
+    \subitem \tt  olc, \hyperpage{264}
+    \subitem \tt  olci, \hyperpage{264}
+    \subitem \tt  opeq12, \hyperpage{119}, \hyperpage{279}
+    \subitem \tt  orass, \hyperpage{265}
+    \subitem \tt  orbi12i, \hyperpage{265}
+    \subitem \tt  orbi1i, \hyperpage{265}
+    \subitem \tt  orbi2d, \hyperpage{265}
+    \subitem \tt  orbi2i, \hyperpage{265}
+    \subitem \tt  orc, \hyperpage{264}
+    \subitem \tt  orci, \hyperpage{264}
+    \subitem \tt  orcom, \hyperpage{264}
+    \subitem \tt  ordir, \hyperpage{266}
+    \subitem \tt  orfa, \hyperpage{296}
+    \subitem \tt  oridm, \hyperpage{264}
+    \subitem \tt  orim12i, \hyperpage{264}
+    \subitem \tt  orim1i, \hyperpage{272}
+    \subitem \tt  oteq123d, \hyperpage{119}, \hyperpage{279}
+    \subitem \tt  oveq12i, \hyperpage{284}
+    \subitem \tt  oveq1i, \hyperpage{284}
+    \subitem \tt  oveq2d, \hyperpage{284}
+    \subitem \tt  oveq2i, \hyperpage{284}
+    \subitem \tt  pm2.61, \hyperpage{256}
+    \subitem \tt  pm2.86i, \hyperpage{256}
+    \subitem \tt  pm3.22, \hyperpage{261}
+    \subitem \tt  pm3.24, \hyperpage{261}
+    \subitem \tt  pm3.2i, \hyperpage{261}
+    \subitem \tt  pm4.24, \hyperpage{262}
+    \subitem \tt  pm4.44, \hyperpage{265}
+    \subitem \tt  pm4.45, \hyperpage{266}
+    \subitem \tt  pm4.45im, \hyperpage{263}
+    \subitem \tt  pm4.56, \hyperpage{265}
+    \subitem \tt  pncan, \hyperpage{290}
+    \subitem \tt  pncan2, \hyperpage{290}
+    \subitem \tt  pncan3i, \hyperpage{292}
+    \subitem \tt  poirr, \hyperpage{126}, \hyperpage{281}
+    \subitem \tt  potr, \hyperpage{126}, \hyperpage{281}
+    \subitem \tt  r19.26, \hyperpage{277}
+    \subitem \tt  ralbii, \hyperpage{277}
+    \subitem \tt  ralsng, \hyperpage{279}
+    \subitem \tt  ralv, \hyperpage{272}
+    \subitem \tt  readdcl, \hyperpage{286}
+    \subitem \tt  readdcli, \hyperpage{292}
+    \subitem \tt  readdid1, \hyperpage{296}
+    \subitem \tt  recn, \hyperpage{287}
+    \subitem \tt  recni, \hyperpage{288}
+    \subitem \tt  remul01, \hyperpage{296}
+    \subitem \tt  remulcl, \hyperpage{287}
+    \subitem \tt  remulcli, \hyperpage{288}
+    \subitem \tt  ressxr, \hyperpage{288}
+    \subitem \tt  rex0, \hyperpage{278}
+    \subitem \tt  rexlimi, \hyperpage{272}
+    \subitem \tt  rexsns, \hyperpage{279}
+    \subitem \tt  sbc3an, \hyperpage{277}
+    \subitem \tt  sbc5, \hyperpage{276}
+    \subitem \tt  sbcan, \hyperpage{278}
+    \subitem \tt  sbcbr1g, \hyperpage{281}
+    \subitem \tt  sbcbr2g, \hyperpage{281}
+    \subitem \tt  sbcel1v, \hyperpage{277}
+    \subitem \tt  simp1, \hyperpage{267}
+    \subitem \tt  simp1bi, \hyperpage{267}
+    \subitem \tt  simp1i, \hyperpage{267}
+    \subitem \tt  simp2, \hyperpage{267}
+    \subitem \tt  simp2bi, \hyperpage{267}
+    \subitem \tt  simp2i, \hyperpage{267}
+    \subitem \tt  simp3, \hyperpage{267}
+    \subitem \tt  simp3bi, \hyperpage{267}
+    \subitem \tt  simpl, \hyperpage{261}
+    \subitem \tt  simpli, \hyperpage{261}
+    \subitem \tt  simpr, \hyperpage{262}
+    \subitem \tt  simpri, \hyperpage{262}
+    \subitem \tt  sseli, \hyperpage{278}
+    \subitem \tt  sselii, \hyperpage{278}
+    \subitem \tt  ssriv, \hyperpage{278}
+    \subitem \tt  sstri, \hyperpage{278}
+    \subitem \tt  subadd4, \hyperpage{291}
+    \subitem \tt  subcan2, \hyperpage{290}
+    \subitem \tt  subcl, \hyperpage{290}
+    \subitem \tt  subid, \hyperpage{290}
+    \subitem \tt  subid1, \hyperpage{290}
+    \subitem \tt  subnegd, \hyperpage{292}
+    \subitem \tt  subsub3, \hyperpage{291}
+    \subitem \tt  subsub4, \hyperpage{291, 292}
+    \subitem \tt  sum0, \hyperpage{295}
+    \subitem \tt  sumsns, \hyperpage{295}
+    \subitem \tt  syl, \hyperpage{256}
+    \subitem \tt  syl2anc, \hyperpage{262}
+    \subitem \tt  syl5eq, \hyperpage{275}
+    \subitem \tt  syl6eqr, \hyperpage{275}
+    \subitem \tt  sylbi, \hyperpage{257}
+    \subitem \tt  syldan, \hyperpage{262}
+    \subitem \tt  sylibr, \hyperpage{258}
+    \subitem \tt  tc2, \hyperpage{122}, \hyperpage{285}
+    \subitem \tt  tru, \hyperpage{268}
+    \subitem \tt  truconj, \hyperpage{296}
+    \subitem \tt  trut, \hyperpage{268}
+    \subitem \tt  wa, \hyperpage{145}, \hyperpage{260}
+    \subitem \tt  wcel, \hyperpage{145}
+    \subitem \tt  wi, \hyperpage{145}
+    \subitem \tt  zaddcl, \hyperpage{294}
+    \subitem \tt  zcn, \hyperpage{293}
+    \subitem \tt  zre, \hyperpage{293}
+    \subitem \tt  zsscn, \hyperpage{293}
 
 \end{theindex}

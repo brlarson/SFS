@@ -12,18 +12,44 @@
 \bemph{Vince Moln\'ar}.}
 Let $V_C$ be the set of all \texttt{Classifiers} in the design $D$:  $V_C \subset D$, then for all elements in the design, an element being defined a \texttt{Classifier} implies the element is a member of $V_C$.
 
-\begin{restatable}{definition}{dfclassifier}~\blTitle{df-classifier}~  Define \texttt{classifier}.  
+\begin{restatable}{definition}{dfclassifier}~\blTitle{df-classifier}~  Define \texttt{classifier}.
 \begin{align}
 \vdash \forall c \in D~(\texttt{classifier}~c~ \rightarrow ~c \in V_C)~\label{eq:df-classifier}\tag{df-classifier}
 \end{align}
 \end{restatable}
 
-\pn \texttt{Classifiers} are also \texttt{Types}. 
+\begin{restatable}{leanaxiom}{VC}~\leanTitle{VC}~ Define the set of \texttt{Classifiers} in Lean. Exact
+parallel of \texttt{VT}/\texttt{VF} above, one more \texttt{ElementKind} tag down.
+
+\texttt{\textcolor{leancolor}{axiom} \textcolor{leanyellow}{VC} : Set Element}
+\label{VC}
+\end{restatable}
+
+\begin{restatable}{leanaxiom}{dfClassifierLean}~\leanTitle{df\_classifier}~ Define \texttt{classifier} in Lean.
+\texttt{Classifier} already has a slot in \texttt{ElementKind}'s fourteen tags, so no new \texttt{DesignKind}
+case is needed --- exact parallel of \texttt{df\_types}/\texttt{df\_feature} above.
+
+\texttt{\textcolor{leancolor}{axiom} \textcolor{leanyellow}{df\_classifier} : $\forall$ e : Element,}
+
+\texttt{~~($\exists$ C : Set Element, (DesignKind.ofElementKind ElementKind.Classifier, e, C) $\in$ Design) $\to$ e $\in$ VC}
+\label{df_classifier}
+\end{restatable}
+
+\pn \texttt{Classifiers} are also \texttt{Types}.
 
 \begin{restatable}{definition}{dfclassifier2} ~\blTitle{df-classifier2}~  \texttt{Classifiers} are also \texttt{Types}.
 \begin{align}
 \vdash V_C~\subset~V_T~\label{eq:df-classifier2}\tag{df-classifier2}
 \end{align}
+\end{restatable}
+
+\begin{restatable}{leanaxiom}{dfClassifier2Lean}~\leanTitle{df\_classifier2}~ \texttt{Classifiers} are also
+\texttt{Types}, in Lean. Not derivable from \texttt{VC}'s/\texttt{VT}'s own definitions (each is
+independently primitive, same situation \texttt{df\_types}/\texttt{df\_feature} were already in), so this
+stays an axiom here too.
+
+\texttt{\textcolor{leancolor}{axiom} \textcolor{leanyellow}{df\_classifier2} : VC $\subseteq$ VT}
+\label{df_classifier2}
 \end{restatable}
 
 \pn A \texttt{Classifier} is just the same as a \texttt{Type}, but it also is a member of $V_C$.

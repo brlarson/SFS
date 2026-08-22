@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.4.26)  21 AUG 2026 20:13
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.4.26)  21 AUG 2026 20:21
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -6952,27 +6952,70 @@ Overfull \hbox (4.0pt too wide) in paragraph at lines 19--19
  []
 
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
-ine 27.
-LaTeX Font Info:    No math alphabet change to frozen version normal on input l
-ine 27.
-LaTeX Font Info:    No math alphabet change to frozen version normal on input l
-ine 27.
-LaTeX Font Info:    No math alphabet change to frozen version normal on input l
-ine 27.
-LaTeX Font Info:    No math alphabet change to frozen version normal on input l
-ine 27.
-LaTeX Font Info:    No math alphabet change to frozen version normal on input l
-ine 27.
-LaTeX Font Info:    No math alphabet change to frozen version normal on input l
-ine 27.
+ine 26.
 
-Overfull \hbox (4.0pt too wide) in paragraph at lines 27--27
+Overfull \hbox (4.0pt too wide) in paragraph at lines 26--26
 [][] 
  []
 
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
-ine 29.
-) (../Chapter/KernelSemanticsChapter.tex [57]
+ine 36.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input l
+ine 36.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input l
+ine 36.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input l
+ine 36.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input l
+ine 36.
+
+Underfull \hbox (badness 10000) in paragraph at lines 36--36
+[]  \OT1/pcr/m/n/10 ($\U/MnSymbolC/m/n/10 §$ \OT1/pcr/m/n/10 C : Set Element, (
+DesignKind.ofElementKind ElementKind.Classifier, e,
+ []
+
+LaTeX Font Info:    No math alphabet change to frozen version normal on input l
+ine 36.
+
+Overfull \hbox (4.0pt too wide) in paragraph at lines 36--36
+[][] 
+ []
+
+LaTeX Font Info:    No math alphabet change to frozen version normal on input l
+ine 44.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input l
+ine 44.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input l
+ine 44.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input l
+ine 44.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input l
+ine 44.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input l
+ine 44.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input l
+ine 44.
+
+Overfull \vbox (0.31754pt too high) has occurred while \output is active []
+
+
+[57]
+Overfull \hbox (4.0pt too wide) in paragraph at lines 44--44
+[][] 
+ []
+
+LaTeX Font Info:    No math alphabet change to frozen version normal on input l
+ine 53.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input l
+ine 53.
+
+Overfull \hbox (4.0pt too wide) in paragraph at lines 53--53
+[][] 
+ []
+
+LaTeX Font Info:    No math alphabet change to frozen version normal on input l
+ine 55.
+) (../Chapter/KernelSemanticsChapter.tex [58]
 Chapter 3.
 
 Overfull \hbox (30.0pt too wide) in paragraph at lines 3--3
@@ -7036,7 +7079,7 @@ LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 56.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 56.
-[58
+[59
 
 ]
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
@@ -7226,7 +7269,7 @@ Overfull \hbox (4.0pt too wide) in paragraph at lines 142--142
 [][] 
  []
 
-[59]
+[60]
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 144.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
@@ -7444,7 +7487,7 @@ Overfull \hbox (4.0pt too wide) in paragraph at lines 224--224
 [][] 
  []
 
-[60]
+[61]
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 259.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
@@ -7522,7 +7565,7 @@ ine 266.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [61]
+ [62]
 Overfull \hbox (10.80469pt too wide) in paragraph at lines 277--278
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
 ][] 
@@ -7552,7 +7595,7 @@ Overfull \hbox (20.40479pt too wide) in paragraph at lines 355--356
 
  []
 
-[62]
+[63]
 LaTeX Font Info:    Undo math alphabet allocation in version normal on input li
 ne 381.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
@@ -7599,7 +7642,7 @@ LaTeX Font Info:    Undo math alphabet allocation in version normal on input li
 ne 412.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 412.
- [63]
+ [64]
 Overfull \hbox (78.00537pt too wide) in paragraph at lines 462--463
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
 ][][][][][][][][][][][][][][][][][][][][][][][][][][] 
@@ -7621,7 +7664,7 @@ Overfull \hbox (63.60522pt too wide) in paragraph at lines 493--494
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
-[64]
+[65]
 Overfull \hbox (73.20532pt too wide) in paragraph at lines 503--504
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
@@ -7718,7 +7761,7 @@ Overfull \hbox (4.0pt too wide) in paragraph at lines 538--538
 [][] 
  []
 
-[65]
+[66]
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 563.
 
@@ -7810,7 +7853,7 @@ LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 622.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 624.
-[66]
+[67]
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 625.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
@@ -7893,7 +7936,7 @@ are un-re-stricted to el-e-ment type. There must be a con-straint \OT1/pcr/b/n/
 10 checkDataTypeElement
  []
 
-) (../Chapter/ClassSemantics.tex [67]
+) (../Chapter/ClassSemantics.tex [68]
 Overfull \hbox (14.88411pt too wide) in paragraph at lines 28--31
 []  [] \OT1/pcr/m/n/10 Occurrence \OT1/txr/m/n/10 is a \OT1/pcr/m/n/10 Domain::
 Interval \OT1/txr/m/n/10 hav-ing \OT1/pcr/m/n/10 startShot \OT1/txr/m/n/10 as \
@@ -7908,9 +7951,9 @@ ine 66.
 LaTeX Font Info:    Font shape `OT1/txr/b/n' in size <8> not available
 (Font)              Font shape `OT1/txr/bx/n' tried instead on input line 66.
 
-LaTeX Warning: Reference `' on page 68 undefined on input line 66.
+LaTeX Warning: Reference `' on page 69 undefined on input line 66.
 
-[68] [69]
+[69] [70]
 Overfull \hbox (1.65408pt too wide) in paragraph at lines 159--160
 []  [] \OT1/txr/m/n/10 Use pred-i-cate \OT1/pcr/m/n/10 timeCoincidentOccurrence
  \OT1/txr/m/n/10 in-stead of fea-ture \OT1/pcr/m/n/10 timeCoincidentOccurrences
@@ -7924,7 +7967,7 @@ nce \OT1/txr/m/n/10 in-stead of fea-ture \OT1/pcr/m/n/10 spaceTimeEnclosedOccur
 rences\OT1/txr/m/n/10 . 
  []
 
-[70]
+[71]
 Overfull \hbox (6.00464pt too wide) in paragraph at lines 283--284
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
@@ -7936,7 +7979,7 @@ Overfull \hbox (3.40018pt too wide) in paragraph at lines 289--292
 g". 
  []
 
-[71]
+[72]
 Overfull \hbox (0.80414pt too wide) in paragraph at lines 490--491
 []  [] \OT1/pcr/m/n/10 Within\OT1/txr/m/n/10 , \OT1/pcr/m/n/10 WithinBoth\OT1/t
 xr/m/n/10 , \OT1/pcr/m/n/10 PortionOf\OT1/txr/m/n/10 , \OT1/pcr/m/n/10 TimeSlic
@@ -7949,7 +7992,7 @@ Overfull \hbox (1.20459pt too wide) in paragraph at lines 498--499
 [][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
-[72]
+[73]
 Overfull \hbox (20.40479pt too wide) in paragraph at lines 595--596
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
@@ -7965,7 +8008,7 @@ Overfull \hbox (15.60474pt too wide) in paragraph at lines 598--599
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
-) (../Chapter/StructureSemantics.tex [73]
+) (../Chapter/StructureSemantics.tex [74]
 Overfull \hbox (25.20483pt too wide) in paragraph at lines 21--22
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
 ][][][][] 
@@ -8037,7 +8080,7 @@ Overfull \hbox (25.20483pt too wide) in paragraph at lines 105--106
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
-[74]) (../Chapter/AssociationSemantics.tex [75]
+[75]) (../Chapter/AssociationSemantics.tex [76]
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 78.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
@@ -8163,7 +8206,7 @@ Overfull \hbox (4.0pt too wide) in paragraph at lines 92--92
 [][] 
  []
 
-[76]
+[77]
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 130.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
@@ -8309,7 +8352,7 @@ Overfull \hbox (4.0pt too wide) in paragraph at lines 144--144
 [][] 
  []
 
-[77]
+[78]
 Overfull \hbox (1.20459pt too wide) in paragraph at lines 219--220
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
@@ -8404,14 +8447,14 @@ Overfull \hbox (4.0pt too wide) in paragraph at lines 240--240
 
 Underfull \vbox (badness 2088) has occurred while \output is active []
 
- [78]
+ [79]
 Overfull \hbox (8.01007pt too wide) in paragraph at lines 274--276
 \OT1/txr/m/n/10 im-plic-itly) \OT1/pcr/m/n/10 Objects::LinkObject \OT1/txr/m/n/
 10 which spe-cial-izes both \OT1/pcr/m/n/10 Links::Link \OT1/txr/m/n/10 and \OT
 1/pcr/m/n/10 Objects::Object\OT1/txr/m/n/10 . 
  []
 
-) (../Chapter/ConnectorSemantics.tex [79]
+) (../Chapter/ConnectorSemantics.tex [80]
 Overfull \hbox (31.25415pt too wide) in paragraph at lines 18--19
 []  [] \OT1/txr/m/n/10 In the fol-low-ing ex-am-ple, \OT1/pcr/m/n/10 Mounting \
 OT1/txr/m/n/10 is an as-so-ci-a-tion struc-ture; \OT1/pcr/m/n/10 mount \OT1/txr
@@ -8434,7 +8477,7 @@ Overfull \hbox (30.87021pt too wide) in paragraph at lines 44--45
 
  []
 
-[80]
+[81]
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 87.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
@@ -8722,7 +8765,7 @@ Overfull \hbox (4.0pt too wide) in paragraph at lines 116--116
 [][] 
  []
 
-[81]
+[82]
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 153.
 
@@ -8737,7 +8780,7 @@ con-nec-tor struc-ture. A con-nec-tor struc-ture is thus an \OT1/pcr/m/n/10 Obj
 ects::Object
  []
 
-[82] [83]
+[83] [84]
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 276.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
@@ -8880,7 +8923,7 @@ r/m/n/10 which im-plic-itly spe-cial-ize \OT1/pcr/m/n/10 Performances::Performa
 nce \OT1/txr/m/n/10 which is an \OT1/pcr/m/n/10 Occur-
  []
 
-[84] [85]
+[85] [86]
 Overfull \hbox (1.20459pt too wide) in paragraph at lines 95--96
 [][][][][][][][][][][][][][][][][][][][][][] 
  []
@@ -8896,7 +8939,7 @@ Overfull \hbox (30.00488pt too wide) in paragraph at lines 111--112
 ][][][][][][][][] 
  []
 
-[86]) (../Chapter/ExpressionSemantics.tex [87]
+[87]) (../Chapter/ExpressionSemantics.tex [88]
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 27.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
@@ -8905,12 +8948,12 @@ LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 33.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 33.
- [88])
-(../Chapter/InteractionSemantics.tex) (../Chapter/FlowSemantics.tex [89]
+ [89])
+(../Chapter/InteractionSemantics.tex) (../Chapter/FlowSemantics.tex [90]
 
-LaTeX Warning: Reference `sec:action' on page 90 undefined on input line 41.
+LaTeX Warning: Reference `sec:action' on page 91 undefined on input line 41.
 
-[90]
+[91]
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 96.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
@@ -9077,12 +9120,12 @@ Overfull \hbox (4.0pt too wide) in paragraph at lines 25--25
 [][] 
  []
 
-[91]) (../Chapter/OtherSemantics.tex
+[92]) (../Chapter/OtherSemantics.tex
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 6.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 6.
- [92]) [93]
+ [93]) [94]
 Chapter 4.
 
 Overfull \hbox (30.0pt too wide) in paragraph at lines 115--115
@@ -9254,7 +9297,7 @@ LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 55.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 55.
-[94
+[95
 
 ]
 Overfull \hbox (4.0pt too wide) in paragraph at lines 55--55
@@ -9617,7 +9660,7 @@ LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 120.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 120.
-[95]
+[96]
 Overfull \hbox (4.0pt too wide) in paragraph at lines 120--120
 [][] 
  []
@@ -9865,7 +9908,7 @@ Overfull \hbox (4.0pt too wide) in paragraph at lines 171--171
 [][] 
  []
 
-[96]
+[97]
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 172.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
@@ -9914,7 +9957,7 @@ LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 206.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 207.
-) [97]
+) [98]
 Chapter 5.
 
 Overfull \hbox (30.0pt too wide) in paragraph at lines 119--119
@@ -10042,7 +10085,7 @@ LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 48.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 48.
- [98
+ [99
 
 ]
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
@@ -10302,7 +10345,7 @@ Overfull \hbox (4.0pt too wide) in paragraph at lines 103--103
 [][] 
  []
 
-[99]
+[100]
 LaTeX Font Info:    Undo math alphabet allocation in version normal on input li
 ne 105.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
@@ -10488,7 +10531,7 @@ LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 151.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 151.
-[100]
+[101]
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 161.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
@@ -10859,7 +10902,7 @@ LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 213.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 213.
- [101]
+ [102]
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 213.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
@@ -10946,7 +10989,7 @@ LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 251.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 251.
-) [102] [103
+) [103] [104
 
 ]
 Chapter 6.
@@ -10955,7 +10998,7 @@ Overfull \hbox (30.0pt too wide) in paragraph at lines 126--126
 [][]  
  []
 
-(../Chapter/SysMLSemanticsOverview.tex) [104
+(../Chapter/SysMLSemanticsOverview.tex) [105
 
 ]
 Chapter 7.
@@ -10964,9 +11007,9 @@ Overfull \hbox (30.0pt too wide) in paragraph at lines 129--129
 [][]  
  []
 
-[105
+[106
 
-] [106
+] [107
 
 ]
 Chapter H.
@@ -11082,7 +11125,7 @@ LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 58.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 58.
- [107
+ [108
 
 ]
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
@@ -11325,7 +11368,7 @@ LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 105.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 106.
- [108{/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/mnsymbol/MnSymbolF.enc
+ [109{/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/mnsymbol/MnSymbolF.enc
 }]
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 108.
@@ -11506,7 +11549,7 @@ LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 176.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 181.
- [109]
+ [110]
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 190.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
@@ -11681,7 +11724,7 @@ LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 240.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 242.
- [110]
+ [111]
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 247.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
@@ -11750,14 +11793,14 @@ LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 413.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 413.
- [111]
+ [112]
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 417.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 468.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 468.
-) [112]
+) [113]
 Chapter I.
 
 Overfull \hbox (30.0pt too wide) in paragraph at lines 143--143
@@ -11769,7 +11812,7 @@ LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 9.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 9.
- [113
+ [114
 
 ]
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
@@ -11884,7 +11927,7 @@ LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 138.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 138.
- [114] [115{/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/mnsymbol/MnSymbo
+ [115] [116{/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/mnsymbol/MnSymbo
 lB.enc}]
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 140.
@@ -12013,7 +12056,7 @@ Overfull \hbox (4.0pt too wide) in paragraph at lines 220--220
 [][] 
  []
 
-[116]
+[117]
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 226.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
@@ -12194,7 +12237,7 @@ Overfull \hbox (4.0pt too wide) in paragraph at lines 282--282
 [][] 
  []
 
-[117{/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/mnsymbol/MnSymbolS.enc}
+[118{/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/mnsymbol/MnSymbolS.enc}
 ]
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 284.
@@ -12374,7 +12417,7 @@ ine 358.
 
 Underfull \vbox (badness 1675) has occurred while \output is active []
 
- [118]
+ [119]
 Overfull \hbox (4.0pt too wide) in paragraph at lines 358--358
 [][] 
  []
@@ -12551,7 +12594,7 @@ LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 420.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 420.
-[119]
+[120]
 Overfull \hbox (4.0pt too wide) in paragraph at lines 420--420
 [][] 
  []
@@ -12704,7 +12747,7 @@ Overfull \hbox (4.0pt too wide) in paragraph at lines 479--479
 
 Underfull \vbox (badness 3417) has occurred while \output is active []
 
- [120]
+ [121]
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 480.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
@@ -12895,7 +12938,7 @@ LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 545.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 545.
-[121]
+[122]
 Overfull \hbox (4.0pt too wide) in paragraph at lines 545--545
 [][] 
  []
@@ -13067,7 +13110,7 @@ Overfull \hbox (4.0pt too wide) in paragraph at lines 623--623
 [][] 
  []
 
-[122]
+[123]
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 630.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
@@ -13304,7 +13347,7 @@ Overfull \hbox (4.0pt too wide) in paragraph at lines 694--694
 
 Underfull \vbox (badness 2409) has occurred while \output is active []
 
- [123]
+ [124]
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 696.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
@@ -13519,7 +13562,7 @@ LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 765.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 766.
-[124]
+[125]
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 769.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
@@ -13676,7 +13719,7 @@ Overfull \hbox (4.0pt too wide) in paragraph at lines 844--844
 [][] 
  []
 
-[125]
+[126]
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 849.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
@@ -13829,7 +13872,7 @@ LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 909.
 LaTeX Font Info:    Undo math alphabet allocation in version normal on input li
 ne 909.
- [126]
+ [127]
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 912.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
@@ -13861,7 +13904,7 @@ ine 921.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [127]
+ [128]
 (../Diagram/lattice2.tex
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 36.
@@ -13975,11 +14018,11 @@ ine 973.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 973.
 
-LaTeX Warning: Reference `chapter:BL' on page 128 undefined on input line 986.
+LaTeX Warning: Reference `chapter:BL' on page 129 undefined on input line 986.
 
 LaTeX Font Info:    Undo math alphabet allocation in version normal on input li
 ne 992.
-[128]
+[129]
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 997.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
@@ -14038,11 +14081,11 @@ LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 1032.
 
 
-LaTeX Warning: Reference `sec:timedpredicate' on page 129 undefined on input li
+LaTeX Warning: Reference `sec:timedpredicate' on page 130 undefined on input li
 ne 1033.
 
 
-LaTeX Warning: Reference `sec:timedexpression' on page 129 undefined on input l
+LaTeX Warning: Reference `sec:timedexpression' on page 130 undefined on input l
 ine 1033.
 
 
@@ -14053,7 +14096,7 @@ f mean-ing. Sub-scripted time as con-text no-ta-tion $\U/txsyc/m/n/10 ~\U/txmia
  \U/MnSymbolD/m/n/10 ^^A  []\U/MnSymbolC/m/n/10 ^^E$
  []
 
-) [129]
+) [130]
 Chapter J.
 
 Overfull \hbox (30.0pt too wide) in paragraph at lines 146--146
@@ -14077,7 +14120,7 @@ LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 3.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 3.
- [130
+ [131
 
 ]
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
@@ -14161,7 +14204,7 @@ LaTeX Font Info:    Undo math alphabet allocation in version normal on input li
 ne 75.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 81.
-[131]
+[132]
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 85.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
@@ -14336,7 +14379,7 @@ Overfull \hbox (4.0pt too wide) in paragraph at lines 138--138
 
 Underfull \vbox (badness 1147) has occurred while \output is active []
 
- [132]
+ [133]
 LaTeX Font Info:    Undo math alphabet allocation in version normal on input li
 ne 145.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
@@ -14481,7 +14524,7 @@ LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 213.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 213.
-[133]
+[134]
 Overfull \hbox (4.0pt too wide) in paragraph at lines 213--213
 [][] 
  []
@@ -14629,7 +14672,7 @@ Overfull \hbox (4.0pt too wide) in paragraph at lines 328--328
 
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 328.
-[134]
+[135]
 LaTeX Font Info:    Undo math alphabet allocation in version normal on input li
 ne 342.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
@@ -14765,7 +14808,7 @@ Overfull \hbox (4.0pt too wide) in paragraph at lines 415--415
 
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 415.
-[135]
+[136]
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 420.
 LaTeX Font Info:    Undo math alphabet allocation in version normal on input li
@@ -14879,7 +14922,7 @@ LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 449.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 449.
-[136]
+[137]
 LaTeX Font Info:    Undo math alphabet allocation in version normal on input li
 ne 451.
 LaTeX Font Info:    Undo math alphabet allocation in version normal on input li
@@ -15100,7 +15143,7 @@ LaTeX Font Info:    Undo math alphabet allocation in version normal on input li
 ne 515.
 LaTeX Font Info:    Undo math alphabet allocation in version normal on input li
 ne 517.
-[137]
+[138]
 LaTeX Font Info:    Undo math alphabet allocation in version normal on input li
 ne 519.
 LaTeX Font Info:    Undo math alphabet allocation in version normal on input li
@@ -15205,7 +15248,7 @@ LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 566.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 566.
-[138]
+[139]
 LaTeX Font Info:    Undo math alphabet allocation in version normal on input li
 ne 570.
 
@@ -15338,7 +15381,7 @@ Overfull \hbox (4.0pt too wide) in paragraph at lines 614--614
 
 LaTeX Font Info:    Undo math alphabet allocation in version normal on input li
 ne 614.
-[139]
+[140]
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 621.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
@@ -15424,7 +15467,7 @@ ne 646.
 )
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 149.
- [140]
+ [141]
 Chapter K.
 
 Overfull \hbox (30.0pt too wide) in paragraph at lines 149--149
@@ -15438,7 +15481,7 @@ LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 5.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 24.
- [141
+ [142
 
 ]
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
@@ -15587,7 +15630,7 @@ Overfull \hbox (4.0pt too wide) in paragraph at lines 113--113
 [][] 
  []
 
-[142]
+[143]
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 116.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
@@ -15759,7 +15802,7 @@ Overfull \hbox (4.0pt too wide) in paragraph at lines 164--164
 [][] 
  []
 
-[143]
+[144]
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 175.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
@@ -15912,7 +15955,7 @@ Overfull \hbox (4.0pt too wide) in paragraph at lines 358--358
 [][] 
  []
 
-[144]
+[145]
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 364.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
@@ -16079,7 +16122,7 @@ Overfull \hbox (4.0pt too wide) in paragraph at lines 420--420
 [][] 
  []
 
-[145]) [146]
+[146]) [147]
 Chapter L.
 
 Overfull \hbox (30.0pt too wide) in paragraph at lines 153--153
@@ -16204,7 +16247,7 @@ Overfull \hbox (4.0pt too wide) in paragraph at lines 40--40
 
 Underfull \vbox (badness 2753) has occurred while \output is active []
 
- [147
+ [148
 
 ]
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
@@ -16384,7 +16427,7 @@ Overfull \hbox (4.0pt too wide) in paragraph at lines 96--96
 [][] 
  []
 
-[148]
+[149]
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 102.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
@@ -16834,7 +16877,7 @@ LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 89.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 89.
-[149]
+[150]
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 89.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
@@ -17308,7 +17351,7 @@ LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 192.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 192.
-[150]
+[151]
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 192.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
@@ -17842,7 +17885,7 @@ LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 293.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 293.
-[151]
+[152]
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 293.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
@@ -18237,7 +18280,7 @@ Overfull \hbox (4.0pt too wide) in paragraph at lines 351--351
 [][] 
  []
 
-[152]
+[153]
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 360.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
@@ -18635,7 +18678,7 @@ LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 413.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 413.
-[153]
+[154]
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 413.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
@@ -19192,7 +19235,7 @@ Overfull \hbox (4.0pt too wide) in paragraph at lines 9--9
 [][] 
  []
 
-[154]
+[155]
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 16.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
@@ -19583,7 +19626,7 @@ Overfull \hbox (4.0pt too wide) in paragraph at lines 93--93
 [][] 
  []
 
-[155]
+[156]
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 115.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
@@ -19965,7 +20008,7 @@ Overfull \hbox (4.0pt too wide) in paragraph at lines 22--22
 [][] 
  []
 
-[156]
+[157]
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 39.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
@@ -20528,7 +20571,7 @@ LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 117.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 117.
-[157]
+[158]
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 117.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
@@ -20913,7 +20956,7 @@ Overfull \hbox (4.0pt too wide) in paragraph at lines 196--196
 [][] 
  []
 
-[158]
+[159]
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 220.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
@@ -21399,7 +21442,7 @@ LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 289.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 289.
-[159]
+[160]
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 289.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
@@ -21708,7 +21751,7 @@ LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 365.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 365.
-[160]
+[161]
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 365.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
@@ -22171,7 +22214,7 @@ LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 466.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 466.
-[161]
+[162]
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 466.
 ) (../metamath-latex/frombless/bless-lemmas-wff-list-disj.tex
@@ -22629,7 +22672,7 @@ LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 88.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 88.
-[162]
+[163]
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 88.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
@@ -22993,7 +23036,7 @@ LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 160.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 160.
-[163]
+[164]
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 160.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
@@ -23422,7 +23465,7 @@ Overfull \hbox (4.0pt too wide) in paragraph at lines 246--246
 [][] 
  []
 
-[164]
+[165]
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 257.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
@@ -23731,7 +23774,7 @@ Overfull \hbox (4.0pt too wide) in paragraph at lines 319--319
 [][] 
  []
 
-[165]
+[166]
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 334.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
@@ -24140,7 +24183,7 @@ Overfull \hbox (4.0pt too wide) in paragraph at lines 52--52
 [][] 
  []
 
-[166]
+[167]
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 85.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
@@ -24735,7 +24778,7 @@ Overfull \hbox (2.42418pt too wide) detected at line 186
 []
  []
 
-[167]
+[168]
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 186.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
@@ -25142,7 +25185,7 @@ Overfull \hbox (4.0pt too wide) in paragraph at lines 274--274
 [][] 
  []
 
-[168]
+[169]
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 291.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
@@ -25442,7 +25485,7 @@ LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 45.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 45.
-[169]
+[170]
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 45.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
@@ -26032,7 +26075,7 @@ LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 131.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 131.
-[170]
+[171]
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 131.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
@@ -26553,7 +26596,7 @@ LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 200.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 200.
-[171]
+[172]
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 200.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
@@ -27384,7 +27427,7 @@ LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 299.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 299.
-[172]
+[173]
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 299.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
@@ -27871,7 +27914,7 @@ Overfull \hbox (4.0pt too wide) in paragraph at lines 360--360
 [][] 
  []
 
-[173]
+[174]
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 369.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
@@ -28452,7 +28495,7 @@ LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 459.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 459.
-[174]
+[175]
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 459.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
@@ -29119,7 +29162,7 @@ LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 549.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 549.
-[175]
+[176]
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 549.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
@@ -29562,7 +29605,7 @@ Overfull \hbox (4.0pt too wide) in paragraph at lines 610--610
 [][] 
  []
 
-[176]
+[177]
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 646.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
@@ -30776,7 +30819,7 @@ LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 740.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 740.
-[177]
+[178]
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 740.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
@@ -31418,7 +31461,7 @@ LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 814.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 814.
-[178]
+[179]
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 814.
 ) (../metamath-latex/frombless/bless-lemmas-temporal.tex
@@ -31717,7 +31760,7 @@ LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 56.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 56.
-[179]
+[180]
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 56.
 LaTeX Font Info:    Undo math alphabet allocation in version normal on input li
@@ -33253,7 +33296,7 @@ Overfull \hbox (4.0pt too wide) in paragraph at lines 158--158
 [][] 
  []
 
-[180]
+[181]
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 224.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
@@ -37571,10 +37614,10 @@ LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 398.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 398.
-[181]
+[182]
 Underfull \vbox (badness 1173) has occurred while \output is active []
 
- [182]
+ [183]
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 398.
 )
@@ -38244,7 +38287,7 @@ Overfull \hbox (4.0pt too wide) in paragraph at lines 125--125
 [][] 
  []
 
-[183]
+[184]
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 219.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
@@ -39494,7 +39537,7 @@ LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 327.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 327.
-[184]
+[185]
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 327.
 LaTeX Font Info:    Undo math alphabet allocation in version normal on input li
@@ -40130,7 +40173,7 @@ LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 434.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 434.
-[185]
+[186]
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 434.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
@@ -40262,7 +40305,7 @@ Overfull \hbox (4.0pt too wide) in paragraph at lines 484--484
 [][] 
  []
 
-[186]
+[187]
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 491.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
@@ -40447,7 +40490,7 @@ Overfull \hbox (4.0pt too wide) in paragraph at lines 43--43
 [][] 
  []
 
-[187]
+[188]
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 58.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
@@ -40863,7 +40906,7 @@ LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 152.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 152.
-[188]
+[189]
 LaTeX Font Info:    Undo math alphabet allocation in version normal on input li
 ne 165.
 LaTeX Font Info:    Undo math alphabet allocation in version normal on input li
@@ -41245,7 +41288,7 @@ Overfull \hbox (4.0pt too wide) in paragraph at lines 265--265
 [][] 
  []
 
-[189]
+[190]
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 280.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
@@ -41820,7 +41863,7 @@ LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 367.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 367.
-[190]
+[191]
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 367.
 LaTeX Font Info:    Undo math alphabet allocation in version normal on input li
@@ -42320,7 +42363,7 @@ LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 479.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 479.
-[191]
+[192]
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 479.
 LaTeX Font Info:    Undo math alphabet allocation in version normal on input li
@@ -42594,7 +42637,7 @@ Overfull \hbox (4.0pt too wide) in paragraph at lines 551--551
 [][] 
  []
 
-[192]
+[193]
 LaTeX Font Info:    Undo math alphabet allocation in version normal on input li
 ne 558.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
@@ -42779,7 +42822,7 @@ Overfull \hbox (4.0pt too wide) in paragraph at lines 37--37
 [][] 
  []
 
-[193]
+[194]
 LaTeX Font Info:    Undo math alphabet allocation in version normal on input li
 ne 50.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
@@ -43482,7 +43525,7 @@ LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 179.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 179.
-[194]
+[195]
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 179.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
@@ -43967,7 +44010,7 @@ LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 272.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 272.
-[195]
+[196]
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 272.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
@@ -44373,7 +44416,7 @@ Overfull \hbox (4.0pt too wide) in paragraph at lines 360--360
 [][] 
  []
 
-[196]
+[197]
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 370.
 LaTeX Font Info:    Undo math alphabet allocation in version normal on input li
@@ -44570,7 +44613,7 @@ Overfull \hbox (4.0pt too wide) in paragraph at lines 9--9
 [][] 
  []
 
-[197]
+[198]
 LaTeX Font Info:    Undo math alphabet allocation in version normal on input li
 ne 18.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
@@ -44817,7 +44860,7 @@ Overfull \hbox (4.0pt too wide) in paragraph at lines 85--85
 [][] 
  []
 
-[198]
+[199]
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 102.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
@@ -45329,7 +45372,7 @@ LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 164.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 164.
-[199]
+[200]
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 164.
 LaTeX Font Info:    Undo math alphabet allocation in version normal on input li
@@ -46277,7 +46320,7 @@ LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 175.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 175.
-[200]
+[201]
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 175.
 LaTeX Font Info:    Undo math alphabet allocation in version normal on input li
@@ -47134,7 +47177,7 @@ Overfull \hbox (1.78601pt too wide) detected at line 323
 []
  []
 
-[201]
+[202]
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 323.
 LaTeX Font Info:    Undo math alphabet allocation in version normal on input li
@@ -47942,7 +47985,7 @@ LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 463.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 463.
-[202]
+[203]
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 463.
 LaTeX Font Info:    Undo math alphabet allocation in version normal on input li
@@ -48065,7 +48108,7 @@ LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 498.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 498.
-[203]
+[204]
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 498.
 LaTeX Font Info:    Undo math alphabet allocation in version normal on input li
@@ -48681,7 +48724,7 @@ Overfull \hbox (4.0pt too wide) in paragraph at lines 624--624
 [][] 
  []
 
-[204]
+[205]
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 704.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
@@ -49699,7 +49742,7 @@ LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 788.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 788.
-[205]
+[206]
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 788.
 LaTeX Font Info:    Undo math alphabet allocation in version normal on input li
@@ -49940,7 +49983,7 @@ Overfull \hbox (4.0pt too wide) in paragraph at lines 845--845
 [][] 
  []
 
-[206]
+[207]
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 857.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
@@ -50588,7 +50631,7 @@ LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 956.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 956.
-[207]
+[208]
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 956.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
@@ -51053,7 +51096,7 @@ Overfull \hbox (4.0pt too wide) in paragraph at lines 1033--1033
 [][] 
  []
 
-[208]
+[209]
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 1079.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
@@ -51879,7 +51922,7 @@ LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 1183.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 1183.
-[209]
+[210]
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 1183.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
@@ -52323,7 +52366,7 @@ LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 1254.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 1254.
-[210]
+[211]
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 1254.
 LaTeX Font Info:    Undo math alphabet allocation in version normal on input li
@@ -52748,7 +52791,7 @@ Overfull \hbox (4.0pt too wide) in paragraph at lines 1360--1360
 [][] 
  []
 
-[211]
+[212]
 LaTeX Font Info:    Undo math alphabet allocation in version normal on input li
 ne 1369.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
@@ -53262,7 +53305,7 @@ LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 1468.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 1468.
-[212]
+[213]
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 1468.
 LaTeX Font Info:    Undo math alphabet allocation in version normal on input li
@@ -53834,7 +53877,7 @@ LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 1571.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 1571.
-[213]
+[214]
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 1571.
 LaTeX Font Info:    Undo math alphabet allocation in version normal on input li
@@ -53955,7 +53998,7 @@ Overfull \hbox (4.0pt too wide) in paragraph at lines 10--10
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [214]
+ [215]
 LaTeX Font Info:    Undo math alphabet allocation in version normal on input li
 ne 22.
 LaTeX Font Info:    Undo math alphabet allocation in version normal on input li
@@ -54431,7 +54474,7 @@ LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 91.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 91.
-[215]
+[216]
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 91.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
@@ -58265,10 +58308,10 @@ LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 345.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 345.
-[216]
+[217]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [217]
+ [218]
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 345.
 LaTeX Font Info:    Undo math alphabet allocation in version normal on input li
@@ -59136,7 +59179,7 @@ LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 448.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 448.
-[218]
+[219]
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 448.
 LaTeX Font Info:    Undo math alphabet allocation in version normal on input li
@@ -60004,7 +60047,7 @@ LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 539.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 539.
-[219]
+[220]
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 539.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
@@ -61674,8 +61717,8 @@ Overfull \hbox (0.97246pt too wide) detected at line 734
 
 Underfull \vbox (badness 2521) has occurred while \output is active []
 
- [220]
-[221]
+ [221]
+[222]
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 734.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
@@ -63345,8 +63388,8 @@ Overfull \hbox (1.67827pt too wide) detected at line 921
 
 Underfull \vbox (badness 2521) has occurred while \output is active []
 
- [222]
-[223]
+ [223]
+[224]
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 921.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
@@ -64933,8 +64976,8 @@ ine 1105.
 
 Underfull \vbox (badness 2521) has occurred while \output is active []
 
- [224]
-[225]
+ [225]
+[226]
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 1105.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
@@ -66568,10 +66611,10 @@ LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 1281.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 1281.
-[226]
+[227]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [227]
+ [228]
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 1281.
 )
@@ -67270,7 +67313,7 @@ Overfull \hbox (5.59387pt too wide) detected at line 98
 []
  []
 
-[228]
+[229]
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 98.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
@@ -68807,10 +68850,10 @@ Overfull \hbox (16.86627pt too wide) detected at line 340
 []
  []
 
-[229]
+[230]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [230]
+ [231]
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 340.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
@@ -69994,7 +70037,7 @@ LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 536.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 536.
-[231]
+[232]
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 536.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
@@ -71156,7 +71199,7 @@ LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 725.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 725.
-[232] [233]
+[233] [234]
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 725.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
@@ -71663,7 +71706,7 @@ Overfull \hbox (4.0pt too wide) in paragraph at lines 799--799
 [][] 
  []
 
-[234]
+[235]
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 883.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
@@ -73717,10 +73760,10 @@ Overfull \hbox (19.39925pt too wide) detected at line 1117
 []
  []
 
-[235]
+[236]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [236]
+ [237]
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 1117.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
@@ -74902,7 +74945,7 @@ LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 1306.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 1306.
-[237]
+[238]
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 1306.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
@@ -76069,10 +76112,10 @@ Overfull \hbox (5.59387pt too wide) detected at line 1492
 []
  []
 
-[238]
+[239]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [239]
+ [240]
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 1492.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
@@ -77261,7 +77304,7 @@ LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 1640.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 1640.
-[240]
+[241]
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 1640.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
@@ -78430,10 +78473,10 @@ Overfull \hbox (1.22513pt too wide) detected at line 1813
 []
  []
 
-[241]
+[242]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [242]
+ [243]
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 1813.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
@@ -79602,7 +79645,7 @@ Overfull \hbox (2.28516pt too wide) detected at line 1986
 []
  []
 
-[243]
+[244]
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 1986.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
@@ -80466,7 +80509,7 @@ Overfull \hbox (0.62283pt too wide) detected at line 2110
 []
  []
 
-[244]
+[245]
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 2110.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
@@ -81163,7 +81206,7 @@ Overfull \hbox (0.62283pt too wide) detected at line 2211
 []
  []
 
-[245]
+[246]
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 2211.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
@@ -82347,7 +82390,7 @@ LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 2390.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 2390.
-[246]
+[247]
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 2390.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
@@ -82372,7 +82415,7 @@ LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 2405.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 2405.
- [247]
+ [248]
 Overfull \hbox (4.0pt too wide) in paragraph at lines 2405--2405
 [][] 
  []
@@ -83516,7 +83559,7 @@ Overfull \hbox (1.58286pt too wide) detected at line 2567
 []
  []
 
-[248]
+[249]
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 2567.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
@@ -84375,7 +84418,7 @@ LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 2687.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 2687.
-[249]
+[250]
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 2687.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
@@ -84975,7 +85018,7 @@ LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 2754.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 2754.
-[250]
+[251]
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 2754.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
@@ -85667,7 +85710,7 @@ LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 2845.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 2845.
-[251]
+[252]
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 2845.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
@@ -86361,7 +86404,7 @@ LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 2934.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 2934.
-[252]
+[253]
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 2948.
 LaTeX Font Info:    Undo math alphabet allocation in version normal on input li
@@ -87083,7 +87126,7 @@ Overfull \hbox (4.0pt too wide) in paragraph at lines 3041--3041
 
 Underfull \vbox (badness 1024) has occurred while \output is active []
 
- [253]
+ [254]
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 3055.
 LaTeX Font Info:    Undo math alphabet allocation in version normal on input li
@@ -87192,7 +87235,7 @@ Overfull \hbox (4.0pt too wide) in paragraph at lines 3098--3098
 [][] 
  []
 
-) [254]
+) [255]
 Chapter M.
 
 Overfull \hbox (30.0pt too wide) in paragraph at lines 242--242
@@ -87320,7 +87363,7 @@ Overfull \hbox (4.0pt too wide) in paragraph at lines 50--50
 [][] 
  []
 
-[255
+[256
 
 ]
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
@@ -87498,7 +87541,7 @@ Overfull \hbox (4.0pt too wide) in paragraph at lines 124--124
 [][] 
  []
 
-[256]
+[257]
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 133.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
@@ -87670,7 +87713,7 @@ Overfull \hbox (4.0pt too wide) in paragraph at lines 197--197
 [][] 
  []
 
-[257]
+[258]
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 206.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
@@ -87842,7 +87885,7 @@ Overfull \hbox (4.0pt too wide) in paragraph at lines 278--278
 [][] 
  []
 
-[258]
+[259]
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 289.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
@@ -87998,7 +88041,7 @@ Overfull \hbox (4.0pt too wide) in paragraph at lines 356--356
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [259]
+ [260]
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 365.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
@@ -88170,7 +88213,7 @@ Overfull \hbox (4.0pt too wide) in paragraph at lines 431--431
 [][] 
  []
 
-[260]
+[261]
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 438.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
@@ -88342,7 +88385,7 @@ Overfull \hbox (4.0pt too wide) in paragraph at lines 498--498
 [][] 
  []
 
-[261]
+[262]
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 505.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
@@ -88514,7 +88557,7 @@ Overfull \hbox (4.0pt too wide) in paragraph at lines 575--575
 [][] 
  []
 
-[262]
+[263]
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 584.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
@@ -88686,7 +88729,7 @@ Overfull \hbox (4.0pt too wide) in paragraph at lines 656--656
 [][] 
  []
 
-[263]
+[264]
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 663.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
@@ -88842,7 +88885,7 @@ Overfull \hbox (4.0pt too wide) in paragraph at lines 722--722
 
 Underfull \vbox (badness 5189) has occurred while \output is active []
 
- [264]
+ [265]
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 732.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
@@ -89014,7 +89057,7 @@ Overfull \hbox (4.0pt too wide) in paragraph at lines 803--803
 [][] 
  []
 
-[265]
+[266]
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 812.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
@@ -89186,7 +89229,7 @@ Overfull \hbox (4.0pt too wide) in paragraph at lines 884--884
 [][] 
  []
 
-[266]
+[267]
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 893.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
@@ -89358,7 +89401,7 @@ Overfull \hbox (4.0pt too wide) in paragraph at lines 965--965
 [][] 
  []
 
-[267]
+[268]
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 976.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
@@ -89540,7 +89583,7 @@ Overfull \hbox (4.0pt too wide) in paragraph at lines 1040--1040
 [][] 
  []
 
-[268]
+[269]
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 1048.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
@@ -89714,7 +89757,7 @@ Overfull \hbox (4.0pt too wide) in paragraph at lines 16--16
 [][] 
  []
 
-[269]
+[270]
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 22.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
@@ -89884,7 +89927,7 @@ Overfull \hbox (4.0pt too wide) in paragraph at lines 87--87
 
 Underfull \vbox (badness 2351) has occurred while \output is active []
 
- [270]
+ [271]
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 94.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
@@ -90044,7 +90087,7 @@ Overfull \hbox (4.0pt too wide) in paragraph at lines 155--155
 
 Underfull \vbox (badness 5847) has occurred while \output is active []
 
- [271]
+ [272]
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 167.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
@@ -90230,7 +90273,7 @@ Overfull \hbox (4.0pt too wide) in paragraph at lines 230--230
 
 Underfull \vbox (badness 2310) has occurred while \output is active []
 
- [272]
+ [273]
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 238.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
@@ -90390,7 +90433,7 @@ Overfull \hbox (4.0pt too wide) in paragraph at lines 52--52
 [][] 
  []
 
-[273]
+[274]
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 60.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
@@ -90562,7 +90605,7 @@ Overfull \hbox (4.0pt too wide) in paragraph at lines 126--126
 [][] 
  []
 
-[274]
+[275]
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 135.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
@@ -90734,7 +90777,7 @@ Overfull \hbox (4.0pt too wide) in paragraph at lines 205--205
 [][] 
  []
 
-[275]
+[276]
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 214.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
@@ -91005,7 +91048,7 @@ LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 284.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 284.
-[276]
+[277]
 Overfull \hbox (4.0pt too wide) in paragraph at lines 284--284
 [][] 
  []
@@ -91661,7 +91704,7 @@ Overfull \hbox (4.0pt too wide) in paragraph at lines 369--369
 [][] 
  []
 
-[277]
+[278]
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 379.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
@@ -92105,7 +92148,7 @@ Overfull \hbox (4.0pt too wide) in paragraph at lines 440--440
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [278]
+ [279]
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 450.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
@@ -92376,7 +92419,7 @@ LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 523.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 523.
-[279]
+[280]
 Overfull \hbox (4.0pt too wide) in paragraph at lines 523--523
 [][] 
  []
@@ -92651,7 +92694,7 @@ LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 606.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 606.
-[280]
+[281]
 Overfull \hbox (4.0pt too wide) in paragraph at lines 606--606
 [][] 
  []
@@ -92917,7 +92960,7 @@ Overfull \hbox (4.0pt too wide) in paragraph at lines 74--74
 
 Underfull \vbox (badness 1776) has occurred while \output is active []
 
- [281]
+ [282]
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 82.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
@@ -93077,7 +93120,7 @@ Overfull \hbox (4.0pt too wide) in paragraph at lines 23--23
 [][] 
  []
 
-[282]
+[283]
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 32.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
@@ -93259,7 +93302,7 @@ Overfull \hbox (4.0pt too wide) in paragraph at lines 99--99
 [][] 
  []
 
-[283]
+[284]
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 119.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
@@ -93444,7 +93487,7 @@ Overfull \hbox (4.0pt too wide) in paragraph at lines 12--12
 [][] 
  []
 
-[284]
+[285]
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 28.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
@@ -93576,7 +93619,7 @@ Overfull \hbox (4.0pt too wide) in paragraph at lines 8--8
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [285]
+ [286]
 LaTeX Font Info:    Undo math alphabet allocation in version normal on input li
 ne 16.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
@@ -93732,7 +93775,7 @@ Overfull \hbox (4.0pt too wide) in paragraph at lines 68--68
 
 Underfull \vbox (badness 6758) has occurred while \output is active []
 
- [286]
+ [287]
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 75.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
@@ -93904,7 +93947,7 @@ Overfull \hbox (4.0pt too wide) in paragraph at lines 141--141
 [][] 
  []
 
-[287]
+[288]
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 151.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
@@ -94076,7 +94119,7 @@ Overfull \hbox (4.0pt too wide) in paragraph at lines 218--218
 [][] 
  []
 
-[288]
+[289]
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 226.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
@@ -94266,7 +94309,7 @@ Overfull \hbox (4.0pt too wide) in paragraph at lines 294--294
 [][] 
  []
 
-[289]
+[290]
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 302.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
@@ -94440,7 +94483,7 @@ Overfull \hbox (4.0pt too wide) in paragraph at lines 368--368
 [][] 
  []
 
-[290]
+[291]
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 376.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
@@ -94640,7 +94683,7 @@ Overfull \hbox (4.0pt too wide) in paragraph at lines 450--450
 [][] 
  []
 
-[291]
+[292]
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 458.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
@@ -94820,7 +94863,7 @@ Overfull \hbox (4.0pt too wide) in paragraph at lines 530--530
 [][] 
  []
 
-[292]
+[293]
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 540.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
@@ -94996,7 +95039,7 @@ Overfull \hbox (4.0pt too wide) in paragraph at lines 595--595
 [][] 
  []
 
-[293]
+[294]
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 606.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
@@ -95388,7 +95431,7 @@ Overfull \hbox (4.0pt too wide) in paragraph at lines 40--40
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [294])
+ [295])
 (../metamath-latex/fromsetmm/mm-sums.tex
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 7.
@@ -95528,7 +95571,7 @@ Overfull \hbox (4.0pt too wide) in paragraph at lines 49--49
 [][] 
  []
 
-[295]
+[296]
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 61.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
@@ -95673,7 +95716,7 @@ Overfull \hbox (4.0pt too wide) in paragraph at lines 45--45
 [][] 
  []
 
-) (./Supplemental-Semantics.bbl [296]
+) (./Supplemental-Semantics.bbl [297]
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 18.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
@@ -95684,7 +95727,7 @@ LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 77.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 93.
- [297
+ [298
 
 ]
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
@@ -95698,7 +95741,7 @@ ine 149.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 157.
 ) (./Supplemental-Semantics.ind
-[298]
+[299]
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 3.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
@@ -95789,36 +95832,64 @@ LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 57.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 58.
- [299
+ [300
 
-] [300] [301] [302] [303] [304]
+] [301] [302] [303] [304] [305]
 Overfull \hbox (16.0pt too wide) in paragraph at lines 764--765
-[]| \OT1/pcr/m/n/10 df-featuremultiplicityrange, []49[] 
+[]| \OT1/pcr/m/n/10 df-featuremultiplicityrange, []50[] 
  []
 
 
 Overfull \hbox (40.0pt too wide) in paragraph at lines 765--766
-[]| \OT1/pcr/m/n/10 df-featuremultiplicityrangestar, []49[] 
+[]| \OT1/pcr/m/n/10 df-featuremultiplicityrangestar, []51[] 
  []
 
 
 Overfull \hbox (16.0pt too wide) in paragraph at lines 767--768
-[]| \OT1/pcr/m/n/10 df-fixedfeaturemultiplicity, []48[] 
+[]| \OT1/pcr/m/n/10 df-fixedfeaturemultiplicity, []49[] 
  []
 
-[305]
+[306]
 Overfull \hbox (28.0pt too wide) in paragraph at lines 798--799
-[]| \OT1/pcr/m/n/10 df-specializationwithfeatures, []51[] 
+[]| \OT1/pcr/m/n/10 df-specializationwithfeatures, []54[] 
  []
 
 
 Overfull \hbox (40.0pt too wide) in paragraph at lines 806--807
-[]| \OT1/pcr/m/n/10 df-undefinedfeaturemultiplicity, []49[] 
+[]| \OT1/pcr/m/n/10 df-undefinedfeaturemultiplicity, []50[] 
  []
 
-[306] [307] [308] [309] [310
 
-])
+Overfull \hbox (22.0pt too wide) in paragraph at lines 841--842
+[]| \OT1/pcr/m/n/10 OwnedFeatureTypedByRangeStar, []51[] 
+ []
+
+
+Overfull \hbox (13.6pt too wide) in paragraph at lines 869--870
+[]| \OT1/pcr/m/n/10 df[]featuremultiplicityrange, []51[] 
+ []
+
+
+Overfull \hbox (37.6pt too wide) in paragraph at lines 870--871
+[]| \OT1/pcr/m/n/10 df[]featuremultiplicityrangestar, []51[] 
+ []
+
+[307]
+Overfull \hbox (13.6pt too wide) in paragraph at lines 872--873
+[]| \OT1/pcr/m/n/10 df[]fixedfeaturemultiplicity, []49[] 
+ []
+
+
+Overfull \hbox (25.6pt too wide) in paragraph at lines 877--878
+[]| \OT1/pcr/m/n/10 df[]specializationwithfeatures, []55[] 
+ []
+
+
+Overfull \hbox (37.6pt too wide) in paragraph at lines 882--883
+[]| \OT1/pcr/m/n/10 df[]undefinedfeaturemultiplicity, []50[] 
+ []
+
+[308] [309] [310] [311])
 
 enddocument/afterlastpage: lastpage setting LastPage.
 (./Supplemental-Semantics.aux)
@@ -95833,10 +95904,10 @@ Package rerunfilecheck Info: File `Supplemental-Semantics.out' has not changed.
 (rerunfilecheck)             Checksum: 9ED0178F5480B4D320AB88706C6AD1E0;33939.
  ) 
 Here is how much of TeX's memory you used:
- 37836 strings out of 476025
- 652809 string characters out of 5790017
+ 37855 strings out of 476025
+ 653163 string characters out of 5790017
  2282388 words of memory out of 5000000
- 54121 multiletter control sequences out of 15000+600000
+ 54136 multiletter control sequences out of 15000+600000
  603413 words of font info for 244 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  89i,18n,92p,1211b,1963s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -95866,10 +95937,10 @@ vr8a.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/urw/times/utmb8a.pfb><
 /usr/local/texlive/2023/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/loca
 l/texlive/2023/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/
 2023/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on Supplemental-Semantics.pdf (310 pages, 1787423 bytes).
+Output written on Supplemental-Semantics.pdf (311 pages, 1790723 bytes).
 PDF statistics:
- 10775 PDF objects out of 12825 (max. 8388607)
- 8797 compressed objects within 88 object streams
- 3287 named destinations out of 3580 (max. 500000)
+ 10811 PDF objects out of 12825 (max. 8388607)
+ 8831 compressed objects within 89 object streams
+ 3291 named destinations out of 3580 (max. 500000)
  1718 words of extra memory for PDF output out of 10000 (max. 10000000)
 

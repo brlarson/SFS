@@ -62,156 +62,156 @@
 \contentsline {subsection}{\numberline {2.4.12}Feature of Feature}{56}{subsection.2.4.12}%
 \contentsline {subsection}{\numberline {2.4.13}Feature Chaining}{56}{subsection.2.4.13}%
 \contentsline {section}{\numberline {2.5}Classifiers Semantics (KerML 8.4.3.3)}{57}{section.2.5}%
-\contentsline {chapter}{\numberline {3}Kernel Semantics}{58}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Kernel Semantics Overview (KerML 8.4.4.1)}{58}{section.3.1}%
-\contentsline {subsection}{\numberline {3.1.1}Domain\nobreakspace {} Logic}{58}{subsection.3.1.1}%
-\contentsline {subsection}{\numberline {3.1.2}Instant and Interval}{61}{subsection.3.1.2}%
-\contentsline {subsection}{\numberline {3.1.3}Allen's Intervals}{61}{subsection.3.1.3}%
-\contentsline {subsection}{\numberline {3.1.4}Variable Features}{63}{subsection.3.1.4}%
-\contentsline {subsection}{\numberline {3.1.5}Changed}{65}{subsection.3.1.5}%
-\contentsline {subsection}{\numberline {3.1.6}Time Of}{65}{subsection.3.1.6}%
-\contentsline {subsection}{\numberline {3.1.7}Composite and Portion Features:}{65}{subsection.3.1.7}%
-\contentsline {subsection}{\numberline {3.1.8}Infinitesimal Duration $\delta $:}{66}{subsection.3.1.8}%
-\contentsline {section}{\numberline {3.2}Data Type Semantics (KerML 8.4.4.2)}{66}{section.3.2}%
-\contentsline {subsection}{\numberline {3.2.1}Scalar Values $SV$:}{66}{subsection.3.2.1}%
-\contentsline {subsection}{\numberline {3.2.2}VectorValues $VV$:}{67}{subsection.3.2.2}%
-\contentsline {subsection}{\numberline {3.2.3}Collections $C$:}{67}{subsection.3.2.3}%
-\contentsline {section}{\numberline {3.3}Class Semantics (KerML 8.4.4.3)}{68}{section.3.3}%
-\contentsline {subsection}{\numberline {3.3.1}Occurrence Interval}{68}{subsection.3.3.1}%
-\contentsline {subsection}{\numberline {3.3.2}Replacing M0 Features}{68}{subsection.3.3.2}%
-\contentsline {subsection}{\numberline {3.3.3}Composite}{71}{subsection.3.3.3}%
-\contentsline {subsection}{\numberline {3.3.4}Portion}{71}{subsection.3.3.4}%
-\contentsline {subsubsection}{No Temporal Parts}{71}{subsection.3.3.4}%
-\contentsline {subsubsection}{Space Slices}{72}{subsection.3.3.4}%
-\contentsline {subsection}{\numberline {3.3.5}Associations}{72}{subsection.3.3.5}%
-\contentsline {section}{\numberline {3.4}Structures Semantics (KerML 8.4.4.4)}{73}{section.3.4}%
-\contentsline {section}{\numberline {3.5}Associations Semantics (KerML 8.4.4.5.1)}{75}{section.3.5}%
-\contentsline {subsection}{\numberline {3.5.1}Binary Associations}{76}{subsection.3.5.1}%
-\contentsline {subsection}{\numberline {3.5.2}Cross Features}{76}{subsection.3.5.2}%
-\contentsline {subsection}{\numberline {3.5.3}Owned Cross Features}{77}{subsection.3.5.3}%
-\contentsline {subsection}{\numberline {3.5.4}Self-Link}{78}{subsection.3.5.4}%
-\contentsline {subsection}{\numberline {3.5.5}N-ary Associations}{78}{subsection.3.5.5}%
-\contentsline {section}{\numberline {3.6}Association Structures (KerML 8.4.4.5.2)}{79}{section.3.6}%
-\contentsline {section}{\numberline {3.7}Connectors Semantics (KerML 8.4.4.6)}{79}{section.3.7}%
-\contentsline {subsection}{\numberline {3.7.1}Binary Connectors}{80}{subsection.3.7.1}%
-\contentsline {subsection}{\numberline {3.7.2}Connector Cross Features}{81}{subsection.3.7.2}%
-\contentsline {subsection}{\numberline {3.7.3}Connector Structures}{83}{subsection.3.7.3}%
-\contentsline {subsection}{\numberline {3.7.4}N-ary Connectors}{83}{subsection.3.7.4}%
-\contentsline {section}{\numberline {3.8}Binding Connectors (KerML 8.4.4.6.2)}{83}{section.3.8}%
-\contentsline {section}{\numberline {3.9}Successions (KerML 8.4.4.6.3)}{84}{section.3.9}%
-\contentsline {section}{\numberline {3.10}Behaviors (KerML 8.4.4.7.1)}{84}{section.3.10}%
-\contentsline {section}{\numberline {3.11}Steps (KerML 8.4.4.7.2)}{85}{section.3.11}%
-\contentsline {section}{\numberline {3.12}Functions Semantics (KerML 8.4.4.8)}{86}{section.3.12}%
-\contentsline {section}{\numberline {3.13}Expressions Semantics (KerML 8.4.4.9)}{88}{section.3.13}%
-\contentsline {subsection}{\numberline {3.13.1}Extending Expression for SFS}{88}{subsection.3.13.1}%
-\contentsline {section}{\numberline {3.14}Interactions Semantics (KerML 8.4.4.10)}{89}{section.3.14}%
-\contentsline {section}{\numberline {3.15}Flows (KerML 8.4.4.10.2)}{90}{section.3.15}%
-\contentsline {subsection}{\numberline {3.15.1}Message Transfer}{90}{subsection.3.15.1}%
-\contentsline {subsection}{\numberline {3.15.2}Flow Transfer}{90}{subsection.3.15.2}%
-\contentsline {section}{\numberline {3.16}Feature Values Semantics (KerML 8.4.4.11)}{91}{section.3.16}%
-\contentsline {section}{\numberline {3.17}Multiplicities Semantics (KerML 8.4.4.12)}{92}{section.3.17}%
-\contentsline {section}{\numberline {3.18}Metadata Semantics (KerML 8.4.4.13)}{92}{section.3.18}%
-\contentsline {section}{\numberline {3.19}Packages Semantics (KerML 8.4.4.14)}{93}{section.3.19}%
-\contentsline {chapter}{\numberline {4}KerML Type Inferencing Rules}{94}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Specialization Transitivity}{94}{section.4.1}%
-\contentsline {section}{\numberline {4.2}Subsumption}{94}{section.4.2}%
-\contentsline {section}{\numberline {4.3}Add Feature}{95}{section.4.3}%
-\contentsline {section}{\numberline {4.4}Co-variant Feature Redefinition}{95}{section.4.4}%
-\contentsline {section}{\numberline {4.5}Multiple Inheritance}{95}{section.4.5}%
-\contentsline {section}{\numberline {4.6}Multiple Inheritance with Features}{96}{section.4.6}%
-\contentsline {section}{\numberline {4.7}Multiple Inheritance with Feature Multiplicity}{96}{section.4.7}%
-\contentsline {section}{\numberline {4.8}Contravariant Expression Specialization}{96}{section.4.8}%
-\contentsline {chapter}{\numberline {5}KerML Model Execution}{98}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Overview}{98}{section.5.1}%
-\contentsline {section}{\numberline {5.2}Modeling Instances}{98}{section.5.2}%
-\contentsline {paragraph}{Classifier Specialization}{98}{section.5.2}%
-\contentsline {section}{\numberline {5.3}Instantiation Procedure}{99}{section.5.3}%
-\contentsline {subsection}{\numberline {5.3.1}Overview}{99}{subsection.5.3.1}%
-\contentsline {subsection}{\numberline {5.3.2}Without features or time}{100}{subsection.5.3.2}%
-\contentsline {subsection}{\numberline {5.3.3}With features without time}{102}{subsection.5.3.3}%
-\contentsline {part}{II\hspace {1em}SysML Semantics}{103}{part.2}%
-\contentsline {chapter}{\numberline {6}SysML Semantics Overview}{104}{chapter.6}%
-\contentsline {chapter}{\numberline {7}SysML Semantics}{105}{chapter.7}%
-\contentsline {part}{III\hspace {1em}Math}{106}{part.3}%
-\contentsline {chapter}{\numberline {H}Informal Mathematics}{107}{chapter.8}%
-\contentsline {section}{\numberline {H.1}Sets}{107}{section.8.1}%
-\contentsline {section}{\numberline {H.2}Tuples}{108}{section.8.2}%
-\contentsline {section}{\numberline {H.3}Relations}{108}{section.8.3}%
-\contentsline {section}{\numberline {H.4}Functions}{109}{section.8.4}%
-\contentsline {section}{\numberline {H.5}Sequences}{110}{section.8.5}%
-\contentsline {section}{\numberline {H.6}Strings}{110}{section.8.6}%
-\contentsline {section}{\numberline {H.7}Partial Orders}{110}{section.8.7}%
-\contentsline {section}{\numberline {H.8}Graphs}{111}{section.8.8}%
-\contentsline {section}{\numberline {H.9}Time}{111}{section.8.9}%
-\contentsline {section}{\numberline {H.10}Values}{111}{section.8.10}%
-\contentsline {section}{\numberline {H.11}Arithmetic}{112}{section.8.11}%
-\contentsline {section}{\numberline {H.12}Logic}{112}{section.8.12}%
-\contentsline {chapter}{\numberline {I}Formal Mathematics}{113}{chapter.9}%
-\contentsline {section}{\numberline {I.1}Metamath}{114}{section.9.1}%
-\contentsline {section}{\numberline {I.2}Metamath Symbols}{114}{section.9.2}%
-\contentsline {section}{\numberline {I.3}Sets}{114}{section.9.3}%
-\contentsline {section}{\numberline {I.4}Tuples}{119}{section.9.4}%
-\contentsline {section}{\numberline {I.5}Relations}{120}{section.9.5}%
-\contentsline {section}{\numberline {I.6}Functions}{122}{section.9.6}%
-\contentsline {section}{\numberline {I.7}Sequences}{124}{section.9.7}%
-\contentsline {section}{\numberline {I.8}Strings}{125}{section.9.8}%
-\contentsline {section}{\numberline {I.9}Partial Orders}{125}{section.9.9}%
-\contentsline {section}{\numberline {I.10}Graphs}{126}{section.9.10}%
-\contentsline {section}{\numberline {I.11}Lattices}{126}{section.9.11}%
-\contentsline {section}{\numberline {I.12}Meaning by Model}{128}{section.9.12}%
-\contentsline {section}{\numberline {I.13}Time}{128}{section.9.13}%
-\contentsline {chapter}{\numberline {J}Domain\nobreakspace {}Logic}{130}{chapter.10}%
-\contentsline {section}{\numberline {J.1}Temporal Precedence}{131}{section.10.1}%
-\contentsline {section}{\numberline {J.2}Hybrid Logics}{132}{section.10.2}%
-\contentsline {section}{\numberline {J.3}KerML\nobreakspace {}Logic 0: Domain$_0$}{132}{section.10.3}%
-\contentsline {subsection}{\numberline {J.3.1}Domain$_0$ Well-formed Formulas}{133}{subsection.10.3.1}%
-\contentsline {subsection}{\numberline {J.3.2}Domain$_0$ Semantics}{133}{subsection.10.3.2}%
-\contentsline {subsection}{\numberline {J.3.3}Time: $\mathbf {T}$}{134}{subsection.10.3.3}%
-\contentsline {section}{\numberline {J.4}KerML\nobreakspace {} Logic: Domain}{136}{section.10.4}%
-\contentsline {section}{\numberline {J.5}The Interpretation\nobreakspace {}$\mathbf {I}_{t}$}{139}{section.10.5}%
-\contentsline {section}{\numberline {J.6}Models: $\mathfrak {M}\nobreakspace {}\models $}{139}{section.10.6}%
-\contentsline {section}{\numberline {J.7}Discrete Time KerML\nobreakspace {} Logic: Domain$_d$}{139}{section.10.7}%
-\contentsline {chapter}{\numberline {K}Metamath Proof System}{141}{chapter.11}%
-\contentsline {section}{\numberline {K.1}Metamath Preliminaries}{141}{section.11.1}%
-\contentsline {section}{\numberline {K.2}Metamath Symbols}{141}{section.11.2}%
-\contentsline {section}{\numberline {K.3}Axioms}{142}{section.11.3}%
-\contentsline {subsection}{\numberline {K.3.1}Axioms of Propositional Logic}{142}{subsection.11.3.1}%
-\contentsline {subsection}{\numberline {K.3.2}Axioms of Predicate Calculus with Equality}{142}{subsection.11.3.2}%
-\contentsline {subsection}{\numberline {K.3.3}Axioms of Zermelo-Frankel with Choice (ZFC) set theory}{144}{subsection.11.3.3}%
-\contentsline {subsection}{\numberline {K.3.4}Class and Well-formed Formula Definitions}{145}{subsection.11.3.4}%
-\contentsline {subsection}{\numberline {K.3.5}Symbol Definitions}{145}{subsection.11.3.5}%
-\contentsline {chapter}{\numberline {L}Domain\nobreakspace {} Theorems}{147}{chapter.12}%
-\contentsline {section}{\numberline {L.1}Define Metamath Grammar for Symbols Defined for Domain}{147}{section.12.1}%
-\contentsline {section}{\numberline {L.2}Helpers}{149}{section.12.2}%
-\contentsline {section}{\numberline {L.3}Well-Formed Formula Substitution}{155}{section.12.3}%
-\contentsline {section}{\numberline {L.4}WFF-list Logic}{156}{section.12.4}%
-\contentsline {subsection}{\numberline {L.4.1}WFF-list Conjunction}{156}{subsection.12.4.1}%
-\contentsline {subsection}{\numberline {L.4.2}WFF-list Disjunction}{162}{subsection.12.4.2}%
-\contentsline {subsection}{\numberline {L.4.3}WFF-list Combined Conjunction and Disjunction}{166}{subsection.12.4.3}%
-\contentsline {section}{\numberline {L.5}Class-list Expressions}{169}{section.12.5}%
-\contentsline {subsection}{\numberline {L.5.1}Class-list Definitions}{169}{subsection.12.5.1}%
-\contentsline {subsection}{\numberline {L.5.2}Class-list Add and Multiply}{169}{subsection.12.5.2}%
-\contentsline {section}{\numberline {L.6}Domain\nobreakspace {} Logic}{179}{section.12.6}%
-\contentsline {subsection}{\numberline {L.6.1}Domain\nobreakspace {} Definitions}{179}{subsection.12.6.1}%
-\contentsline {subsection}{\numberline {L.6.2}Time: $\mathbf {T}$}{183}{subsection.12.6.2}%
-\contentsline {subsection}{\numberline {L.6.3}Domain\nobreakspace {} Interpretation}{187}{subsection.12.6.3}%
-\contentsline {section}{\numberline {L.7} @ operator}{198}{section.12.7}%
-\contentsline {subsection}{\numberline {L.7.1}Define @}{198}{subsection.12.7.1}%
-\contentsline {subsection}{\numberline {L.7.2}Distribute @}{200}{subsection.12.7.2}%
-\contentsline {section}{\numberline {L.8} Time-Shift operator}{215}{section.12.8}%
-\contentsline {subsection}{\numberline {L.8.1}Define Time-Shift}{215}{subsection.12.8.1}%
-\contentsline {subsection}{\numberline {L.8.2}Distribute Time-Shift}{228}{subsection.12.8.2}%
-\contentsline {chapter}{\numberline {M}Metamath Theorems from \texttt {set.mm}}{255}{chapter.13}%
-\contentsline {section}{\numberline {M.1}Propositional Logic}{255}{section.13.1}%
-\contentsline {section}{\numberline {M.2}Predicate Calculus}{269}{section.13.2}%
-\contentsline {section}{\numberline {M.3}Axiom of Extensionality}{273}{section.13.3}%
-\contentsline {section}{\numberline {M.4}Axiom of Replacement}{281}{section.13.4}%
-\contentsline {section}{\numberline {M.5}Axiom of Power Sets}{282}{section.13.5}%
-\contentsline {section}{\numberline {M.6}Axiom of Union}{285}{section.13.6}%
-\contentsline {section}{\numberline {M.7}Numbers}{286}{section.13.7}%
-\contentsline {section}{\numberline {M.8}Words over a set}{294}{section.13.8}%
-\contentsline {section}{\numberline {M.9}Sums}{295}{section.13.9}%
-\contentsline {section}{\numberline {M.10}Extensible Structures}{295}{section.13.10}%
-\contentsline {section}{\numberline {M.11}Mathbox}{296}{section.13.11}%
-\contentsline {chapter}{Bibliography}{297}{AMS.1674}%
-\contentsline {chapter}{Index}{299}{AMS.1674}%
+\contentsline {chapter}{\numberline {3}Kernel Semantics}{59}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Kernel Semantics Overview (KerML 8.4.4.1)}{59}{section.3.1}%
+\contentsline {subsection}{\numberline {3.1.1}Domain\nobreakspace {} Logic}{59}{subsection.3.1.1}%
+\contentsline {subsection}{\numberline {3.1.2}Instant and Interval}{62}{subsection.3.1.2}%
+\contentsline {subsection}{\numberline {3.1.3}Allen's Intervals}{62}{subsection.3.1.3}%
+\contentsline {subsection}{\numberline {3.1.4}Variable Features}{64}{subsection.3.1.4}%
+\contentsline {subsection}{\numberline {3.1.5}Changed}{66}{subsection.3.1.5}%
+\contentsline {subsection}{\numberline {3.1.6}Time Of}{66}{subsection.3.1.6}%
+\contentsline {subsection}{\numberline {3.1.7}Composite and Portion Features:}{66}{subsection.3.1.7}%
+\contentsline {subsection}{\numberline {3.1.8}Infinitesimal Duration $\delta $:}{67}{subsection.3.1.8}%
+\contentsline {section}{\numberline {3.2}Data Type Semantics (KerML 8.4.4.2)}{67}{section.3.2}%
+\contentsline {subsection}{\numberline {3.2.1}Scalar Values $SV$:}{67}{subsection.3.2.1}%
+\contentsline {subsection}{\numberline {3.2.2}VectorValues $VV$:}{68}{subsection.3.2.2}%
+\contentsline {subsection}{\numberline {3.2.3}Collections $C$:}{68}{subsection.3.2.3}%
+\contentsline {section}{\numberline {3.3}Class Semantics (KerML 8.4.4.3)}{69}{section.3.3}%
+\contentsline {subsection}{\numberline {3.3.1}Occurrence Interval}{69}{subsection.3.3.1}%
+\contentsline {subsection}{\numberline {3.3.2}Replacing M0 Features}{69}{subsection.3.3.2}%
+\contentsline {subsection}{\numberline {3.3.3}Composite}{72}{subsection.3.3.3}%
+\contentsline {subsection}{\numberline {3.3.4}Portion}{72}{subsection.3.3.4}%
+\contentsline {subsubsection}{No Temporal Parts}{72}{subsection.3.3.4}%
+\contentsline {subsubsection}{Space Slices}{73}{subsection.3.3.4}%
+\contentsline {subsection}{\numberline {3.3.5}Associations}{73}{subsection.3.3.5}%
+\contentsline {section}{\numberline {3.4}Structures Semantics (KerML 8.4.4.4)}{74}{section.3.4}%
+\contentsline {section}{\numberline {3.5}Associations Semantics (KerML 8.4.4.5.1)}{76}{section.3.5}%
+\contentsline {subsection}{\numberline {3.5.1}Binary Associations}{77}{subsection.3.5.1}%
+\contentsline {subsection}{\numberline {3.5.2}Cross Features}{77}{subsection.3.5.2}%
+\contentsline {subsection}{\numberline {3.5.3}Owned Cross Features}{78}{subsection.3.5.3}%
+\contentsline {subsection}{\numberline {3.5.4}Self-Link}{79}{subsection.3.5.4}%
+\contentsline {subsection}{\numberline {3.5.5}N-ary Associations}{79}{subsection.3.5.5}%
+\contentsline {section}{\numberline {3.6}Association Structures (KerML 8.4.4.5.2)}{80}{section.3.6}%
+\contentsline {section}{\numberline {3.7}Connectors Semantics (KerML 8.4.4.6)}{80}{section.3.7}%
+\contentsline {subsection}{\numberline {3.7.1}Binary Connectors}{81}{subsection.3.7.1}%
+\contentsline {subsection}{\numberline {3.7.2}Connector Cross Features}{82}{subsection.3.7.2}%
+\contentsline {subsection}{\numberline {3.7.3}Connector Structures}{84}{subsection.3.7.3}%
+\contentsline {subsection}{\numberline {3.7.4}N-ary Connectors}{84}{subsection.3.7.4}%
+\contentsline {section}{\numberline {3.8}Binding Connectors (KerML 8.4.4.6.2)}{84}{section.3.8}%
+\contentsline {section}{\numberline {3.9}Successions (KerML 8.4.4.6.3)}{85}{section.3.9}%
+\contentsline {section}{\numberline {3.10}Behaviors (KerML 8.4.4.7.1)}{85}{section.3.10}%
+\contentsline {section}{\numberline {3.11}Steps (KerML 8.4.4.7.2)}{86}{section.3.11}%
+\contentsline {section}{\numberline {3.12}Functions Semantics (KerML 8.4.4.8)}{87}{section.3.12}%
+\contentsline {section}{\numberline {3.13}Expressions Semantics (KerML 8.4.4.9)}{89}{section.3.13}%
+\contentsline {subsection}{\numberline {3.13.1}Extending Expression for SFS}{89}{subsection.3.13.1}%
+\contentsline {section}{\numberline {3.14}Interactions Semantics (KerML 8.4.4.10)}{90}{section.3.14}%
+\contentsline {section}{\numberline {3.15}Flows (KerML 8.4.4.10.2)}{91}{section.3.15}%
+\contentsline {subsection}{\numberline {3.15.1}Message Transfer}{91}{subsection.3.15.1}%
+\contentsline {subsection}{\numberline {3.15.2}Flow Transfer}{91}{subsection.3.15.2}%
+\contentsline {section}{\numberline {3.16}Feature Values Semantics (KerML 8.4.4.11)}{92}{section.3.16}%
+\contentsline {section}{\numberline {3.17}Multiplicities Semantics (KerML 8.4.4.12)}{93}{section.3.17}%
+\contentsline {section}{\numberline {3.18}Metadata Semantics (KerML 8.4.4.13)}{93}{section.3.18}%
+\contentsline {section}{\numberline {3.19}Packages Semantics (KerML 8.4.4.14)}{94}{section.3.19}%
+\contentsline {chapter}{\numberline {4}KerML Type Inferencing Rules}{95}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Specialization Transitivity}{95}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Subsumption}{95}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Add Feature}{96}{section.4.3}%
+\contentsline {section}{\numberline {4.4}Co-variant Feature Redefinition}{96}{section.4.4}%
+\contentsline {section}{\numberline {4.5}Multiple Inheritance}{96}{section.4.5}%
+\contentsline {section}{\numberline {4.6}Multiple Inheritance with Features}{97}{section.4.6}%
+\contentsline {section}{\numberline {4.7}Multiple Inheritance with Feature Multiplicity}{97}{section.4.7}%
+\contentsline {section}{\numberline {4.8}Contravariant Expression Specialization}{97}{section.4.8}%
+\contentsline {chapter}{\numberline {5}KerML Model Execution}{99}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Overview}{99}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Modeling Instances}{99}{section.5.2}%
+\contentsline {paragraph}{Classifier Specialization}{99}{section.5.2}%
+\contentsline {section}{\numberline {5.3}Instantiation Procedure}{100}{section.5.3}%
+\contentsline {subsection}{\numberline {5.3.1}Overview}{100}{subsection.5.3.1}%
+\contentsline {subsection}{\numberline {5.3.2}Without features or time}{101}{subsection.5.3.2}%
+\contentsline {subsection}{\numberline {5.3.3}With features without time}{103}{subsection.5.3.3}%
+\contentsline {part}{II\hspace {1em}SysML Semantics}{104}{part.2}%
+\contentsline {chapter}{\numberline {6}SysML Semantics Overview}{105}{chapter.6}%
+\contentsline {chapter}{\numberline {7}SysML Semantics}{106}{chapter.7}%
+\contentsline {part}{III\hspace {1em}Math}{107}{part.3}%
+\contentsline {chapter}{\numberline {H}Informal Mathematics}{108}{chapter.8}%
+\contentsline {section}{\numberline {H.1}Sets}{108}{section.8.1}%
+\contentsline {section}{\numberline {H.2}Tuples}{109}{section.8.2}%
+\contentsline {section}{\numberline {H.3}Relations}{109}{section.8.3}%
+\contentsline {section}{\numberline {H.4}Functions}{110}{section.8.4}%
+\contentsline {section}{\numberline {H.5}Sequences}{111}{section.8.5}%
+\contentsline {section}{\numberline {H.6}Strings}{111}{section.8.6}%
+\contentsline {section}{\numberline {H.7}Partial Orders}{111}{section.8.7}%
+\contentsline {section}{\numberline {H.8}Graphs}{112}{section.8.8}%
+\contentsline {section}{\numberline {H.9}Time}{112}{section.8.9}%
+\contentsline {section}{\numberline {H.10}Values}{112}{section.8.10}%
+\contentsline {section}{\numberline {H.11}Arithmetic}{113}{section.8.11}%
+\contentsline {section}{\numberline {H.12}Logic}{113}{section.8.12}%
+\contentsline {chapter}{\numberline {I}Formal Mathematics}{114}{chapter.9}%
+\contentsline {section}{\numberline {I.1}Metamath}{115}{section.9.1}%
+\contentsline {section}{\numberline {I.2}Metamath Symbols}{115}{section.9.2}%
+\contentsline {section}{\numberline {I.3}Sets}{115}{section.9.3}%
+\contentsline {section}{\numberline {I.4}Tuples}{120}{section.9.4}%
+\contentsline {section}{\numberline {I.5}Relations}{121}{section.9.5}%
+\contentsline {section}{\numberline {I.6}Functions}{123}{section.9.6}%
+\contentsline {section}{\numberline {I.7}Sequences}{125}{section.9.7}%
+\contentsline {section}{\numberline {I.8}Strings}{126}{section.9.8}%
+\contentsline {section}{\numberline {I.9}Partial Orders}{126}{section.9.9}%
+\contentsline {section}{\numberline {I.10}Graphs}{127}{section.9.10}%
+\contentsline {section}{\numberline {I.11}Lattices}{127}{section.9.11}%
+\contentsline {section}{\numberline {I.12}Meaning by Model}{129}{section.9.12}%
+\contentsline {section}{\numberline {I.13}Time}{129}{section.9.13}%
+\contentsline {chapter}{\numberline {J}Domain\nobreakspace {}Logic}{131}{chapter.10}%
+\contentsline {section}{\numberline {J.1}Temporal Precedence}{132}{section.10.1}%
+\contentsline {section}{\numberline {J.2}Hybrid Logics}{133}{section.10.2}%
+\contentsline {section}{\numberline {J.3}KerML\nobreakspace {}Logic 0: Domain$_0$}{133}{section.10.3}%
+\contentsline {subsection}{\numberline {J.3.1}Domain$_0$ Well-formed Formulas}{134}{subsection.10.3.1}%
+\contentsline {subsection}{\numberline {J.3.2}Domain$_0$ Semantics}{134}{subsection.10.3.2}%
+\contentsline {subsection}{\numberline {J.3.3}Time: $\mathbf {T}$}{135}{subsection.10.3.3}%
+\contentsline {section}{\numberline {J.4}KerML\nobreakspace {} Logic: Domain}{137}{section.10.4}%
+\contentsline {section}{\numberline {J.5}The Interpretation\nobreakspace {}$\mathbf {I}_{t}$}{140}{section.10.5}%
+\contentsline {section}{\numberline {J.6}Models: $\mathfrak {M}\nobreakspace {}\models $}{140}{section.10.6}%
+\contentsline {section}{\numberline {J.7}Discrete Time KerML\nobreakspace {} Logic: Domain$_d$}{140}{section.10.7}%
+\contentsline {chapter}{\numberline {K}Metamath Proof System}{142}{chapter.11}%
+\contentsline {section}{\numberline {K.1}Metamath Preliminaries}{142}{section.11.1}%
+\contentsline {section}{\numberline {K.2}Metamath Symbols}{142}{section.11.2}%
+\contentsline {section}{\numberline {K.3}Axioms}{143}{section.11.3}%
+\contentsline {subsection}{\numberline {K.3.1}Axioms of Propositional Logic}{143}{subsection.11.3.1}%
+\contentsline {subsection}{\numberline {K.3.2}Axioms of Predicate Calculus with Equality}{143}{subsection.11.3.2}%
+\contentsline {subsection}{\numberline {K.3.3}Axioms of Zermelo-Frankel with Choice (ZFC) set theory}{145}{subsection.11.3.3}%
+\contentsline {subsection}{\numberline {K.3.4}Class and Well-formed Formula Definitions}{146}{subsection.11.3.4}%
+\contentsline {subsection}{\numberline {K.3.5}Symbol Definitions}{146}{subsection.11.3.5}%
+\contentsline {chapter}{\numberline {L}Domain\nobreakspace {} Theorems}{148}{chapter.12}%
+\contentsline {section}{\numberline {L.1}Define Metamath Grammar for Symbols Defined for Domain}{148}{section.12.1}%
+\contentsline {section}{\numberline {L.2}Helpers}{150}{section.12.2}%
+\contentsline {section}{\numberline {L.3}Well-Formed Formula Substitution}{156}{section.12.3}%
+\contentsline {section}{\numberline {L.4}WFF-list Logic}{157}{section.12.4}%
+\contentsline {subsection}{\numberline {L.4.1}WFF-list Conjunction}{157}{subsection.12.4.1}%
+\contentsline {subsection}{\numberline {L.4.2}WFF-list Disjunction}{163}{subsection.12.4.2}%
+\contentsline {subsection}{\numberline {L.4.3}WFF-list Combined Conjunction and Disjunction}{167}{subsection.12.4.3}%
+\contentsline {section}{\numberline {L.5}Class-list Expressions}{170}{section.12.5}%
+\contentsline {subsection}{\numberline {L.5.1}Class-list Definitions}{170}{subsection.12.5.1}%
+\contentsline {subsection}{\numberline {L.5.2}Class-list Add and Multiply}{170}{subsection.12.5.2}%
+\contentsline {section}{\numberline {L.6}Domain\nobreakspace {} Logic}{180}{section.12.6}%
+\contentsline {subsection}{\numberline {L.6.1}Domain\nobreakspace {} Definitions}{180}{subsection.12.6.1}%
+\contentsline {subsection}{\numberline {L.6.2}Time: $\mathbf {T}$}{184}{subsection.12.6.2}%
+\contentsline {subsection}{\numberline {L.6.3}Domain\nobreakspace {} Interpretation}{188}{subsection.12.6.3}%
+\contentsline {section}{\numberline {L.7} @ operator}{199}{section.12.7}%
+\contentsline {subsection}{\numberline {L.7.1}Define @}{199}{subsection.12.7.1}%
+\contentsline {subsection}{\numberline {L.7.2}Distribute @}{201}{subsection.12.7.2}%
+\contentsline {section}{\numberline {L.8} Time-Shift operator}{216}{section.12.8}%
+\contentsline {subsection}{\numberline {L.8.1}Define Time-Shift}{216}{subsection.12.8.1}%
+\contentsline {subsection}{\numberline {L.8.2}Distribute Time-Shift}{229}{subsection.12.8.2}%
+\contentsline {chapter}{\numberline {M}Metamath Theorems from \texttt {set.mm}}{256}{chapter.13}%
+\contentsline {section}{\numberline {M.1}Propositional Logic}{256}{section.13.1}%
+\contentsline {section}{\numberline {M.2}Predicate Calculus}{270}{section.13.2}%
+\contentsline {section}{\numberline {M.3}Axiom of Extensionality}{274}{section.13.3}%
+\contentsline {section}{\numberline {M.4}Axiom of Replacement}{282}{section.13.4}%
+\contentsline {section}{\numberline {M.5}Axiom of Power Sets}{283}{section.13.5}%
+\contentsline {section}{\numberline {M.6}Axiom of Union}{286}{section.13.6}%
+\contentsline {section}{\numberline {M.7}Numbers}{287}{section.13.7}%
+\contentsline {section}{\numberline {M.8}Words over a set}{295}{section.13.8}%
+\contentsline {section}{\numberline {M.9}Sums}{296}{section.13.9}%
+\contentsline {section}{\numberline {M.10}Extensible Structures}{296}{section.13.10}%
+\contentsline {section}{\numberline {M.11}Mathbox}{297}{section.13.11}%
+\contentsline {chapter}{Bibliography}{298}{AMS.1674}%
+\contentsline {chapter}{Index}{300}{AMS.1674}%
