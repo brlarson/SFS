@@ -817,10 +817,41 @@ $F$ is a set containing a single triple for the \texttt{familyname} feature havi
 \begin{align}
 \texttt{type}~ Z~\texttt{specializes}~T~\{ \texttt{feature}~ x ~\texttt{typed by}~ Y~\texttt{;} \}~\Rightarrow  \notag \\
 \mc{Z}=\{~\langle \textbf{type},w,\langle \mc{C},\mc{F}\rangle\rangle ~\vert~
-w=W(``Z")~ \wedge 
+w=W(``Z")~ \wedge
 \mc{C}=\{~c~\vert ~c \in \mc{T}~\}~\wedge~\notag \\
 ~b\in \mc{Y}~\wedge~\mc{F}~=~\{~\langle\textbf{feature},``x",\langle w,b \rangle\rangle~\}~\}~\label{eq:df-featuremember}\tag{df-featuremember}
 \end{align}
+\end{restatable}
+
+\begin{restatable}{leanaxiom}{FeatureMemberOf}~\leanTitle{FeatureMemberOf}~ A type or feature $Z$'s owned
+feature member, in Lean: $Z$ has a feature member identified by $x$ whose relation content is $R$. The shared
+primitive \texttt{df-featuremember}/\texttt{df-featureoffeature}/\texttt{df-typebody} all build on below.
+
+\texttt{\textcolor{leancolor}{axiom} \textcolor{leanyellow}{FeatureMemberOf} : Element $\to$ Element $\to$ Set (Element $\times$ Element) $\to$ Prop}
+\label{FeatureMemberOf}
+\end{restatable}
+
+\begin{restatable}{leanaxiom}{OwnedFeatureTypedBy}~\leanTitle{OwnedFeatureTypedBy}~ \texttt{type Z \{ feature x
+typed by Y; \}} (an owned feature member, no explicit \texttt{featured by}), in Lean. A fresh
+\texttt{Element}-level primitive, same reasoning as \texttt{Specializes}.
+
+\texttt{\textcolor{leancolor}{axiom} \textcolor{leanyellow}{OwnedFeatureTypedBy} : Element $\to$ Element $\to$ Element $\to$ Prop}
+\label{OwnedFeatureTypedBy}
+\end{restatable}
+
+\begin{restatable}{leanaxiom}{dfFeaturememberLean}~\leanTitle{df\_featuremember}~ Define \texttt{Feature
+Member} in Lean: a type $Z$ specializing $T$ with an owned feature $x$ typed by $Y$ has a feature member whose
+relation pairs $T$'s extension (domain, matching the book's own $C=\{c \vert c\in T\}$ clause) with $Y$'s
+extension (co-domain).
+
+\texttt{\textcolor{leancolor}{axiom} \textcolor{leanyellow}{df\_featuremember} \{Z T x Y' : Element\} \{Ct Cy : Set Element\}}
+
+\texttt{~~(ht : (DesignKind.type, T, Ct) $\in$ Design) (hy : (DesignKind.type, Y', Cy) $\in$ Design) :}
+
+\texttt{~~Specializes Z T $\to$ OwnedFeatureTypedBy Z x Y' $\to$}
+
+\texttt{~~~~FeatureMemberOf Z x \{p : Element $\times$ Element $\vert$ p.1 $\in$ Ct $\wedge$ p.2 $\in$ Cy\}}
+\label{df_featuremember}
 \end{restatable}
 
 \pn This says that \texttt{type Z} is the class of all tuples where the first element is \textbf{type} (indicating it is a type), the second element is the wonce of the string ``Z'', and the third element is itself a pair of class $\langle \mc{C},\mc{F}\rangle$ where $\mc{C}$ has type $\mc{T}$ and $\mc{F}$ is a set having a single element for feature $x$ which holds a pair 
@@ -840,6 +871,43 @@ the first element is $w$ and the second element is a $\mc{Y}$.
 \mc{x}=\{~\langle \textbf{feature},``x",\langle \mc{C},\mc{F}\rangle\rangle~\vert~\mc{C}~=~\{~\langle v,y\rangle~\vert~y \in \mc{Y} \wedge v \in \mc{\mathrm{V}}~\} \notag \\
 ~\wedge~\mc{F}~=~\{~\langle\textbf{feature},``w",\langle c,z\rangle\rangle~\vert~c~\in~\mc{C}~\wedge~z~\in~\mc{Z}~\}~\}~\label{eq:df-featureoffeature}\tag{df-featureoffeature}
 \end{align}
+\end{restatable}
+
+\begin{restatable}{leanaxiom}{encodePair}~\leanTitle{encodePair}~ Kuratowski-style pairing, in Lean, encoding
+an ordered pair of \texttt{Element}s as a single \texttt{Element}. Needed because features can have features
+(this very definition), whose own domain is itself a relation of pairs, and so on to unbounded nesting
+depth --- without a uniform way to fold a pair back into a plain \texttt{Element}, each nesting level would
+need its own primitive.
+
+\texttt{\textcolor{leancolor}{axiom} \textcolor{leanyellow}{encodePair} : Element $\to$ Element $\to$ Element}
+\label{encodePair}
+\end{restatable}
+
+\begin{restatable}{leanaxiom}{encodePairInj}~\leanTitle{encodePair\_inj}~ \texttt{encodePair} is injective:
+distinct pairs give distinct encodings. No other structure is assumed, matching this project's general
+practice of adding only the constraint actually needed.
+
+\texttt{\textcolor{leancolor}{axiom} \textcolor{leanyellow}{encodePair\_inj} \{a b c d : Element\} : encodePair a b = encodePair c d $\to$ a = c $\wedge$ b = d}
+\label{encodePair_inj}
+\end{restatable}
+
+\begin{restatable}{leanaxiom}{dfFeatureoffeatureLean}~\leanTitle{df\_featureoffeature}~ Define \texttt{featured
+by} for nested features in Lean: a domain-less feature $x$ typed by $Y$, with its own owned feature $w$ typed
+by $Z$, has content pairing the universe with $Y$'s extension (via \texttt{df\_domainless}), and $w$'s
+relation pairs $x$'s own encoded pairs (domain $v$, codomain from $Y$) with $Z$'s extension.
+
+\texttt{\textcolor{leancolor}{axiom} \textcolor{leanyellow}{df\_featureoffeature} \{x w Y' Z' : Element\} \{Cy Cz : Set Element\}}
+
+\texttt{~~(hy : (DesignKind.type, Y', Cy) $\in$ Design) (hz : (DesignKind.type, Z', Cz) $\in$ Design) :}
+
+\texttt{~~DomainlessDecl x Y' $\to$ OwnedFeatureTypedBy x w Z' $\to$}
+
+\texttt{~~~~FeatureContent x \{p : Element $\times$ Element $\vert$ p.2 $\in$ Cy\} $\wedge$}
+
+\texttt{~~~~FeatureMemberOf x w \{q : Element $\times$ Element $\vert$}
+
+\texttt{~~~~~~($\exists$ v y, q.1 = encodePair v y $\wedge$ y $\in$ Cy) $\wedge$ q.2 $\in$ Cz\}}
+\label{df_featureoffeature}
 \end{restatable}
 
 \pn Feature $\mc{x}$ is domain-less so get default domain of the universe, $\mc{\mathrm{V}}$.  Feature $x$ is still a relation (set of pairs), but has its own member feature $w$, which is also a relation, but its domain is a pair $\langle v,y\rangle$ from $x$ and co-domain $z$.
@@ -872,6 +940,28 @@ says each \bemph{Person} \texttt{Type} must have a relation named \bemph{parent}
 \end{align}
 \end{restatable}
 
+\begin{restatable}{leanaxiom}{OwnedFeatureTypedByExact}~\leanTitle{OwnedFeatureTypedByExact}~ \texttt{type Z \{
+feature x[k] typed by Y; \}} (exact feature multiplicity), in Lean.
+
+\texttt{\textcolor{leancolor}{axiom} \textcolor{leanyellow}{OwnedFeatureTypedByExact} : Element $\to$ Element $\to$ Element $\to$ $\mathbb{N}$ $\to$ Prop}
+\label{OwnedFeatureTypedByExact}
+\end{restatable}
+
+\begin{restatable}{leanaxiom}{dfFixedfeaturemultiplicityLean}~\leanTitle{df\_fixedfeaturemultiplicity}~ Define
+\texttt{Fixed Multiplicity} in Lean: a feature member declared with exact multiplicity $k$ has a relation of
+cardinality exactly $k$, every pair's co-domain drawn from $Y$'s extension. Reuses \texttt{Set.ncard} the same
+way \texttt{cardElem}/\texttt{df\_typemultiplicity} did in \S2.2.3, just for pair-sets.
+
+\texttt{\textcolor{leancolor}{axiom} \textcolor{leanyellow}{df\_fixedfeaturemultiplicity} \{Z x Y' : Element\} \{Cy : Set Element\}}
+
+\texttt{~~\{R : Set (Element $\times$ Element)\} \{k : $\mathbb{N}$\} (hy : (DesignKind.type, Y', Cy) $\in$ Design) :}
+
+\texttt{~~OwnedFeatureTypedByExact Z x Y' k $\to$ FeatureMemberOf Z x R $\to$}
+
+\texttt{~~~~R.ncard = k $\wedge$ $\forall$ p $\in$ R, p.2 $\in$ Cy}
+\label{df_fixedfeaturemultiplicity}
+\end{restatable}
+
 \pn The $y_1,\ldots,y_k$ are \texttt{unique} because $\mc{R}$ is a set and cannot contain duplicate pairs.
 
 \subsection{Unbound Feature Multiplicity}  
@@ -890,6 +980,25 @@ says each Person \texttt{Type} must have a relation named ``children'' having an
 \mc{Z}=\{~\langle \textbf{type},w,\mc{C}\rangle~\vert~w=W(``Z")~\wedge~k \in \mathbb{N}_0~\wedge \{ y_1,\ldots,y_k \} \subseteq \mc{Y} \notag \\
 ~\wedge~ \mc{C}=\{~\langle~\textbf{feature}, ``x",\mc{R} \rangle~\vert ~\mc{R}=\{~\langle w,y_1\rangle,\ldots,\langle w,y_k\rangle~\}~\}~\}~\label{eq:df-undefinedfeaturemultiplicity}\tag{df-undefinedfeaturemultiplicity}
 \end{align}
+\end{restatable}
+
+\begin{restatable}{leanaxiom}{OwnedFeatureTypedByStar}~\leanTitle{OwnedFeatureTypedByStar}~ \texttt{type Z \{
+feature x[*] typed by Y; \}} (unbounded feature multiplicity), in Lean.
+
+\texttt{\textcolor{leancolor}{axiom} \textcolor{leanyellow}{OwnedFeatureTypedByStar} : Element $\to$ Element $\to$ Element $\to$ Prop}
+\label{OwnedFeatureTypedByStar}
+\end{restatable}
+
+\begin{restatable}{leanaxiom}{dfUndefinedfeaturemultiplicityLean}~\leanTitle{df\_undefinedfeaturemultiplicity}~
+Define \texttt{Undefined Feature Multiplicity} in Lean: an unbounded feature member's relation has every
+pair's co-domain drawn from $Y$'s extension, with no cardinality constraint at all.
+
+\texttt{\textcolor{leancolor}{axiom} \textcolor{leanyellow}{df\_undefinedfeaturemultiplicity} \{Z x Y' : Element\} \{Cy : Set Element\}}
+
+\texttt{~~\{R : Set (Element $\times$ Element)\} (hy : (DesignKind.type, Y', Cy) $\in$ Design) :}
+
+\texttt{~~OwnedFeatureTypedByStar Z x Y' $\to$ FeatureMemberOf Z x R $\to$ $\forall$ p $\in$ R, p.2 $\in$ Cy}
+\label{df_undefinedfeaturemultiplicity}
 \end{restatable}
 
 The cardinality of $x$ may be zero or greater.
@@ -913,6 +1022,27 @@ says each Person \texttt{Type} must have a relation named ``bff'' having from tw
 \end{align}
 \end{restatable}
 
+\begin{restatable}{leanaxiom}{OwnedFeatureTypedByRange}~\leanTitle{OwnedFeatureTypedByRange}~ \texttt{type Z \{
+feature x[l..u] typed by Y; \}} (feature multiplicity range), in Lean.
+
+\texttt{\textcolor{leancolor}{axiom} \textcolor{leanyellow}{OwnedFeatureTypedByRange} : Element $\to$ Element $\to$ Element $\to$ $\mathbb{N}$ $\to$ $\mathbb{N}$ $\to$ Prop}
+\label{OwnedFeatureTypedByRange}
+\end{restatable}
+
+\begin{restatable}{leanaxiom}{dfFeaturemultiplicityrangeLean}~\leanTitle{df\_featuremultiplicityrange}~ Define
+\texttt{Feature Multiplicity Range} in Lean: a range-bounded feature member's relation has cardinality
+between $l$ and $u$, every pair's co-domain drawn from $Y$'s extension.
+
+\texttt{\textcolor{leancolor}{axiom} \textcolor{leanyellow}{df\_featuremultiplicityrange} \{Z x Y' : Element\} \{Cy : Set Element\}}
+
+\texttt{~~\{R : Set (Element $\times$ Element)\} \{l u : $\mathbb{N}$\} (hy : (DesignKind.type, Y', Cy) $\in$ Design) :}
+
+\texttt{~~OwnedFeatureTypedByRange Z x Y' l u $\to$ FeatureMemberOf Z x R $\to$}
+
+\texttt{~~~~l $\le$ R.ncard $\wedge$ R.ncard $\le$ u $\wedge$ $\forall$ p $\in$ R, p.2 $\in$ Cy}
+\label{df_featuremultiplicityrange}
+\end{restatable}
+
 \pn The upper bound of multiplicity range may also be undefined.
 
 \begin{restatable}{definition}{dffeaturemultiplicityrangestar}~\blTitle{df-featuremultiplicityrangestar}~ \\~~  Define \texttt{Feature Multiplicity Range Star}
@@ -921,6 +1051,27 @@ says each Person \texttt{Type} must have a relation named ``bff'' having from tw
 \mc{Z}=\{~\langle \textbf{type},w,\mc{C}\rangle~\vert~w=W(``Z")~\wedge~k \in \mathbb{N}_0~\wedge \{ y_l,\ldots,y_k \} \subseteq \mc{Y} \notag \\
 ~\wedge~ \mc{C}=\{~\langle~\textbf{feature}, ``x",\mc{R} \rangle~\vert ~\mc{R}=\{~\langle w,y_l\rangle,\ldots,\langle w,y_k\rangle~\}~\}~\}~~\label{eq:df-featuremultiplicityrangestar}\tag{df-featuremultiplicityrangestar}
 \end{align}
+\end{restatable}
+
+\begin{restatable}{leanaxiom}{OwnedFeatureTypedByRangeStar}~\leanTitle{OwnedFeatureTypedByRangeStar}~
+\texttt{type Z \{ feature x[l..*] typed by Y; \}} (feature multiplicity range, unbounded upper end), in Lean.
+
+\texttt{\textcolor{leancolor}{axiom} \textcolor{leanyellow}{OwnedFeatureTypedByRangeStar} : Element $\to$ Element $\to$ Element $\to$ $\mathbb{N}$ $\to$ Prop}
+\label{OwnedFeatureTypedByRangeStar}
+\end{restatable}
+
+\begin{restatable}{leanaxiom}{dfFeaturemultiplicityrangestarLean}~\leanTitle{df\_featuremultiplicityrangestar}~
+Define \texttt{Feature Multiplicity Range Star} in Lean: same as \texttt{df\_featuremultiplicityrange} above
+but with only a lower bound $l$.
+
+\texttt{\textcolor{leancolor}{axiom} \textcolor{leanyellow}{df\_featuremultiplicityrangestar} \{Z x Y' : Element\} \{Cy : Set Element\}}
+
+\texttt{~~\{R : Set (Element $\times$ Element)\} \{l : $\mathbb{N}$\} (hy : (DesignKind.type, Y', Cy) $\in$ Design) :}
+
+\texttt{~~OwnedFeatureTypedByRangeStar Z x Y' l $\to$ FeatureMemberOf Z x R $\to$}
+
+\texttt{~~~~l $\le$ R.ncard $\wedge$ $\forall$ p $\in$ R, p.2 $\in$ Cy}
+\label{df_featuremultiplicityrangestar}
 \end{restatable}
 
 \subsection{Type Membership Feature}
@@ -946,6 +1097,36 @@ type B {
 ~\wedge~ \mc{M}=\{~\langle~\textbf{member}, ``g",\mc{R} \rangle~\vert ~\mc{R}=\{~\langle a,c\rangle~\}~\}~\}
 \label{eq:df-membershipfeature}\tag{df-membershipfeature}
 \end{align}
+\end{restatable}
+
+\begin{restatable}{leanaxiom}{MemberOf}~\leanTitle{MemberOf}~ \texttt{type B \{ member feature g typed by C
+featured by A; \}} (\texttt{member feature}, not an owned feature member), in Lean. A fresh
+\texttt{Element}-level primitive: $B$ has ordinary (non-feature) membership of $g$, distinct from
+\texttt{FeatureMemberOf}/\texttt{OwnedFeatureTypedBy} above --- matching the book's own point that $g$ is
+\emph{not} an owned feature of $B$.
+
+\texttt{\textcolor{leancolor}{axiom} \textcolor{leanyellow}{MemberOf} : Element $\to$ Element $\to$ Prop}
+\label{MemberOf}
+\end{restatable}
+
+\begin{restatable}{leantheorem}{dfMembershipfeatureLean}~\leanTitle{df\_membershipfeature}~ Define Membership
+in Lean. A member feature $g$'s own relation is determined entirely by its own \texttt{featured by}
+declaration, independent of its containing type $B$ --- exactly \texttt{df\_featuredby}'s own conclusion,
+applied to $g$. \texttt{MemberOf B g} is included as a hypothesis only for faithfulness to the concrete-syntax
+shape ($B$ does own $g$ as a \emph{member}), not because the proof needs it: that $B$'s membership plays no
+role in $g$'s content is precisely the book's own point (``the feature is not an owned feature of the
+containing type''), so this one genuinely is a theorem.
+
+\texttt{\textcolor{leancolor}{theorem} \textcolor{leanyellow}{df\_membershipfeature} \{B g C' A' : Element\} \{Cc Ca : Set Element\}}
+
+\texttt{~~(hc : (DesignKind.type, C', Cc) $\in$ Design) (ha : (DesignKind.type, A', Ca) $\in$ Design)}
+
+\texttt{~~(\_hmem : MemberOf B g) (hfbd : FeaturedByDecl g C' A') :}
+
+\texttt{~~FeatureContent g \{p : Element $\times$ Element $\vert$ p.1 $\in$ Ca $\wedge$ p.2 $\in$ Cc\} :=}
+
+\texttt{~~df\_featuredby hc ha hfbd}
+\label{df_membershipfeature}
 \end{restatable}
 
 \subsection{Multiple Type Body Elements}
@@ -977,6 +1158,33 @@ type Z {
 \end{align}
 \end{restatable}
 
+\begin{restatable}{leanaxiom}{OwnedFeatures}~\leanTitle{OwnedFeatures}~ \texttt{type Z \{ feature x1 typed by
+Y1; ...; feature xj typed by Yj; \}} (\texttt{TypeBody} with several feature members, variable arity $j$), in
+Lean. \texttt{feats} holds the declared (feature, type) pairs as a \texttt{List}, sidestepping Lean's lack of
+a literal ``...'' ellipsis for a fixed but unspecified arity $j$.
+
+\texttt{\textcolor{leancolor}{axiom} \textcolor{leanyellow}{OwnedFeatures} : Element $\to$ List (Element $\times$ Element) $\to$ Prop}
+\label{OwnedFeatures}
+\end{restatable}
+
+\begin{restatable}{leanaxiom}{dfTypebodyLean}~\leanTitle{df\_typebody}~ Define multiple \texttt{TypeBody}
+elements in Lean: generalizes \texttt{df\_featuremember} (domain $Z$'s own extension, since no
+\texttt{specializes} clause is given here) to every feature $(x_i,Y_i)$ declared in \texttt{feats}
+independently --- the ``...'' in the book's own $C_1,\ldots,C_j$ really means ``this holds
+member-by-member'', which is exactly what quantifying over \texttt{feats} states.
+
+\texttt{\textcolor{leancolor}{axiom} \textcolor{leanyellow}{df\_typebody} \{Z : Element\} \{feats : List (Element $\times$ Element)\} \{Cz : Set Element\}}
+
+\texttt{~~(hz : (DesignKind.type, Z, Cz) $\in$ Design) :}
+
+\texttt{~~OwnedFeatures Z feats $\to$}
+
+\texttt{~~~~$\forall$ p $\in$ feats, $\exists$ Cy : Set Element, (DesignKind.type, p.2, Cy) $\in$ Design $\wedge$}
+
+\texttt{~~~~~~FeatureMemberOf Z p.1 \{q : Element $\times$ Element $\vert$ q.1 $\in$ Cz $\wedge$ q.2 $\in$ Cy\}}
+\label{df_typebody}
+\end{restatable}
+
 \begin{description}
 \item[Unique: ] Sets and classes disallow repeated elements, so unique is appropriate default for features.
 \item[Non-unique: ] A feature may be \texttt{nonunique} then for any \bemph{domain} instance, the same \bemph{co-domain} instance may appear more than once as a value of the feature.
@@ -989,6 +1197,47 @@ Non-unique beaks the definition of features as relations, and is nonsensical exc
 \texttt{type}~ Z ~\texttt{\{ feature}~ x[\star] ~\texttt{ordered typed by}~ Y~\texttt{; \}}~\Rightarrow  \notag \\
 \forall \langle z,y_1\rangle, \langle z,y_2\rangle~\in~Z.x~\vert~(y_1<y_2)~\rightarrow ( \langle z,y_1\rangle< \langle z,y_2\rangle)~\label{eq:df-ordered}\tag{df-ordered}
 \end{align}
+\end{restatable}
+
+\begin{restatable}{leanaxiom}{OrderedOn}~\leanTitle{OrderedOn}~ \texttt{OrderedOn Y a b} means $a<b$ under
+$Y$'s own (type-relative) ordering, in Lean --- not every type has a natural order (the book's own note: ``if
+$Y$ is not ordered, the feature $x$ cannot be ordered''), so this is parameterized by $Y$ rather than a single
+global order on \texttt{Element}.
+
+\texttt{\textcolor{leancolor}{axiom} \textcolor{leanyellow}{OrderedOn} : Element $\to$ Element $\to$ Element $\to$ Prop}
+\label{OrderedOn}
+\end{restatable}
+
+\begin{restatable}{leanaxiom}{OrderedDecl}~\leanTitle{OrderedDecl}~ \texttt{type Z \{ feature x[*] ordered
+typed by Y; \}}, in Lean.
+
+\texttt{\textcolor{leancolor}{axiom} \textcolor{leanyellow}{OrderedDecl} : Element $\to$ Element $\to$ Element $\to$ Prop}
+\label{OrderedDecl}
+\end{restatable}
+
+\begin{restatable}{leandefinition}{PairOrderedOn}~\leanTitle{PairOrderedOn}~ \texttt{df-ordered}'s pair order,
+in Lean: pairs sharing the same first component are ordered by their second component's own ($Y$-relative)
+order. A genuine \texttt{def}, not an axiom --- this is exactly what ``the pair inherits $y_1$'s/$y_2$'s order
+when $z$ is fixed'' means, not an independent constraint.
+
+\texttt{\textcolor{leancolor}{def} \textcolor{leanyellow}{PairOrderedOn} (Y : Element) (p q : Element $\times$ Element) : Prop := p.1 = q.1 $\wedge$ OrderedOn Y p.2 q.2}
+\label{PairOrderedOn}
+\end{restatable}
+
+\begin{restatable}{leantheorem}{dfOrderedLean}~\leanTitle{df\_ordered}~ Define \texttt{Ordered} in Lean: when
+two pairs of an ordered feature's relation share the same first component $z$, and their second components
+are $Y$-ordered, the pairs themselves are $Y$-ordered (via \texttt{PairOrderedOn}). Free directly from
+\texttt{PairOrderedOn}'s own definition --- genuinely a theorem, matching the
+\texttt{df\_typemultiplicity}-family precedent of only axiomatizing what's not already definitional.
+
+\texttt{\textcolor{leancolor}{theorem} \textcolor{leanyellow}{df\_ordered} \{Z x Y' : Element\} \{R : Set (Element $\times$ Element)\} \{z y1 y2 : Element\}}
+
+\texttt{~~(\_hR : FeatureMemberOf Z x R) (\_hDecl : OrderedDecl Z x Y')}
+
+\texttt{~~(\_h1 : (z, y1) $\in$ R) (\_h2 : (z, y2) $\in$ R) (hlt : OrderedOn Y' y1 y2) :}
+
+\texttt{~~PairOrderedOn Y' (z, y1) (z, y2) := $\langle$rfl, hlt$\rangle$}
+\label{df_ordered}
 \end{restatable}
 
 Of course, if the co-domain, $Y$ is not ordered, the feature $x$ cannot be ordered.  The relation $<$ is a total ordering on $Y$ iff:
@@ -1029,6 +1278,26 @@ then the class definition of $Y$ will be:
 \end{align}
 \end{restatable}
 
+\begin{restatable}{leantheorem}{dfSpecializationwithfeaturesLean}~\leanTitle{df\_specializationwithfeatures}~
+Define \texttt{Type Specialization with Features} in Lean: a type $Y$ specializing $Z$, with its own owned
+feature $u$ typed by $B$, has a feature member for $u$ whose relation pairs $Z$'s extension (domain, since
+$Y$ specializes $Z$) with $B$'s extension --- exactly \texttt{df\_featuremember} applied with $T:=Z$, so this
+one genuinely is a theorem. Scoped down from the book's own full $\langle C_z,C_u,C_x\rangle$ triple: the
+re-inclusion of $Z$'s own inherited feature $x$ as part of $Y$'s content isn't covered here, since nothing in
+this project axiomatizes feature inheritance through \texttt{Specializes} itself.
+
+\texttt{\textcolor{leancolor}{theorem} \textcolor{leanyellow}{df\_specializationwithfeatures} \{Z Y u B : Element\} \{Cz Cb : Set Element\}}
+
+\texttt{~~(hz : (DesignKind.type, Z, Cz) $\in$ Design) (hb : (DesignKind.type, B, Cb) $\in$ Design)}
+
+\texttt{~~(hspec : Specializes Y Z) (hyu : OwnedFeatureTypedBy Y u B) :}
+
+\texttt{~~FeatureMemberOf Y u \{p : Element $\times$ Element $\vert$ p.1 $\in$ Cz $\wedge$ p.2 $\in$ Cb\} :=}
+
+\texttt{~~df\_featuremember hz hb hspec hyu}
+\label{df_specializationwithfeatures}
+\end{restatable}
+
 \pn Therefore $\mc{Y}~\subset~\mc{Z}$ because the rule defining class $\mc{Y}$, implies the rule defining class $\mc{Z}$.
 The rule defining the ZFC-class for $\mc{Z}$ will have the terms for $w$, $a$, and $\mc{C_x}$, which is implied by the rule for $Y$ in (\ref{eq:df-specializationwithfeatures}) by (\ref{eq:simpl}).  \comment{Full exposition and proof left to the reader.}
 
@@ -1055,6 +1324,27 @@ says $\mc{x}$ is a class of pairs where the first element is from $\mc{Z}$ and t
 ~\mc{x} \subseteq~\{~\langle z,y\rangle~\vert~y \in \mc{Y} \wedge z \in \mc{Z}~\}~\wedge~w \subseteq~\{~\langle y,z\rangle~\vert~y \in \mc{Y} \wedge z \in \mc{Z}~\}
 \label{eq:df-featureinverting}\tag{df-featureinverting}
 \end{align}
+\end{restatable}
+
+\begin{restatable}{leantheorem}{dfFeatureinvertingLean}~\leanTitle{df\_featureinverting}~ Define \texttt{Feature
+Inverting} in Lean: ``\texttt{inverse w of x}'' needs no new primitive at all --- it's captured directly as
+$w$ independently satisfying \texttt{FeaturedByDecl} with domain/co-domain swapped relative to $x$, so both
+halves reduce straight to \texttt{df\_featuredby}, applied twice. The book's own formula states $\subseteq$,
+but \texttt{df\_featuredby} already gives the stronger exact content --- that stronger fact is given directly
+here rather than artificially weakening it, so this one genuinely is a theorem.
+
+\texttt{\textcolor{leancolor}{theorem} \textcolor{leanyellow}{df\_featureinverting} \{x w y z : Element\} \{Cy Cz : Set Element\}}
+
+\texttt{~~(hy : (DesignKind.type, y, Cy) $\in$ Design) (hz : (DesignKind.type, z, Cz) $\in$ Design)}
+
+\texttt{~~(hxfb : FeaturedByDecl x y z) (hwfb : FeaturedByDecl w z y) :}
+
+\texttt{~~FeatureContent x \{p : Element $\times$ Element $\vert$ p.1 $\in$ Cz $\wedge$ p.2 $\in$ Cy\} $\wedge$}
+
+\texttt{~~FeatureContent w \{p : Element $\times$ Element $\vert$ p.1 $\in$ Cy $\wedge$ p.2 $\in$ Cz\} :=}
+
+\texttt{~~$\langle$df\_featuredby hy hz hxfb, df\_featuredby hz hy hwfb$\rangle$}
+\label{df_featureinverting}
 \end{restatable}
 
 \subsection{Owned Feature Inverting}  
@@ -1134,11 +1424,40 @@ The domain of \texttt{c1} is a set of pairs--not $A$ as one might expect.
 \end{align}
 \end{restatable}
 
+\begin{restatable}{leanaxiom}{ChainsDecl}~\leanTitle{ChainsDecl}~ \texttt{feature a chains b.c;}, in Lean. A
+fresh \texttt{Element}-level primitive, same reasoning as \texttt{Specializes}.
+
+\texttt{\textcolor{leancolor}{axiom} \textcolor{leanyellow}{ChainsDecl} : Element $\to$ Element $\to$ Element $\to$ Prop}
+\label{ChainsDecl}
+\end{restatable}
+
+\begin{restatable}{leanaxiom}{dfFeaturechainingLean}~\leanTitle{df\_featurechaining}~ Define \texttt{Feature
+Chaining} in Lean: a feature $a$ declared as chaining $b.c$ has content the composition of $c$'s and $b$'s own
+relations (via \texttt{relCompose}, defined just below at \texttt{df-co}).
+
+\texttt{\textcolor{leancolor}{axiom} \textcolor{leanyellow}{df\_featurechaining} \{a b c : Element\} \{Rb Rc : Set (Element $\times$ Element)\}}
+
+\texttt{~~(hb : FeatureContent b Rb) (hc : FeatureContent c Rc) :}
+
+\texttt{~~ChainsDecl a b c $\to$ FeatureContent a (relCompose Rc Rb)}
+\label{df_featurechaining}
+\end{restatable}
+
 \begin{restatable}{definition}{dfco}~\blTitle{df-co}~   Define composition of two relations.\footnote{The ordering of the relation composition operator $\circ$ is the reverse of what you might intuit.}
 \begin{align}
 \vdash (\mc{A}~\circ~\mc{B})~\equiv~\{~\langle x,y\rangle~\vert~\exists z ( x \mc{B} z~\wedge~z \mc{A} y )~\}
 \label{eq:df-co}\tag{df-co}
 \end{align}
+\end{restatable}
+
+\begin{restatable}{leandefinition}{relCompose}~\leanTitle{relCompose}~ Define composition of two relations in
+Lean. A genuine \texttt{def}, no axiom needed --- pure set-builder over already-available \texttt{Set}/pair
+machinery.
+
+\texttt{\textcolor{leancolor}{def} \textcolor{leanyellow}{relCompose} (A B : Set (Element $\times$ Element)) : Set (Element $\times$ Element) :=}
+
+\texttt{~~\{p : Element $\times$ Element $\vert$ $\exists$ z, (p.1, z) $\in$ B $\wedge$ (z, p.2) $\in$ A\}}
+\label{relCompose}
 \end{restatable}
 
 \pn When chaining \texttt{b.c} the co-domain of \texttt{b} must be a subset of the domain of \texttt{c} or the chain will be empty.
