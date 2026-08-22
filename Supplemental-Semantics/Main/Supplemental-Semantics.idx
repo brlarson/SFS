@@ -197,44 +197,49 @@
 \indexentry{zzzl@\color  {leancolor}Lean!\tt  df\_disjoint|hyperpage}{43}
 \indexentry{multiplicity|hyperpage}{43}
 \indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-cardinality|hyperpage}{43}
+\indexentry{zzzl@\color  {leancolor}Lean!\tt  cardElem|hyperpage}{44}
 \indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-typemultiplicity|hyperpage}{44}
+\indexentry{zzzl@\color  {leancolor}Lean!\tt  TypeMultiplicityExact|hyperpage}{44}
+\indexentry{zzzl@\color  {leancolor}Lean!\tt  df\_typemultiplicity|hyperpage}{44}
 \indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-typemultiplicityrange|hyperpage}{44}
-\indexentry{feature|hyperpage}{44}
-\indexentry{domain|hyperpage}{44}
-\indexentry{featuring type|hyperpage}{44}
-\indexentry{co-domain|hyperpage}{44}
-\indexentry{featured type|hyperpage}{44}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-feature|hyperpage}{44}
+\indexentry{zzzl@\color  {leancolor}Lean!\tt  TypeMultiplicityRange|hyperpage}{44}
+\indexentry{zzzl@\color  {leancolor}Lean!\tt  df\_typemultiplicityrange|hyperpage}{45}
+\indexentry{feature|hyperpage}{45}
+\indexentry{domain|hyperpage}{45}
+\indexentry{featuring type|hyperpage}{45}
+\indexentry{co-domain|hyperpage}{45}
+\indexentry{featured type|hyperpage}{45}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-feature|hyperpage}{45}
 \indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-featuredby|hyperpage}{45}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-domainless|hyperpage}{45}
-\indexentry{rule|hyperpage}{45}
-\indexentry{class|hyperpage}{45}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-domainless|hyperpage}{46}
+\indexentry{rule|hyperpage}{46}
+\indexentry{class|hyperpage}{46}
 \indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-featuremember|hyperpage}{46}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-featureoffeature|hyperpage}{46}
-\indexentry{Person|hyperpage}{46}
-\indexentry{parent|hyperpage}{46}
-\indexentry{Person|hyperpage}{46}
-\indexentry{different|hyperpage}{46}
-\indexentry{Persons|hyperpage}{46}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-featureoffeature|hyperpage}{47}
+\indexentry{Person|hyperpage}{47}
+\indexentry{parent|hyperpage}{47}
+\indexentry{Person|hyperpage}{47}
+\indexentry{different|hyperpage}{47}
+\indexentry{Persons|hyperpage}{47}
 \indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-fixedfeaturemultiplicity|hyperpage}{47}
 \indexentry{unbound|hyperpage}{47}
 \indexentry{infinite|hyperpage}{47}
-\indexentry{different|hyperpage}{47}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-undefinedfeaturemultiplicity|hyperpage}{47}
-\indexentry{different|hyperpage}{47}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-featuremultiplicityrange|hyperpage}{47}
+\indexentry{different|hyperpage}{48}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-undefinedfeaturemultiplicity|hyperpage}{48}
+\indexentry{different|hyperpage}{48}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-featuremultiplicityrange|hyperpage}{48}
 \indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-featuremultiplicityrangestar|hyperpage}{48}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-membershipfeature|hyperpage}{48}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-membershipfeature|hyperpage}{49}
 \indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-typebody|hyperpage}{49}
 \indexentry{domain|hyperpage}{49}
 \indexentry{co-domain|hyperpage}{49}
 \indexentry{co-domain|hyperpage}{49}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-ordered|hyperpage}{49}
-\indexentry{direction|hyperpage}{49}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-ordered|hyperpage}{50}
+\indexentry{direction|hyperpage}{50}
 \indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-specializationwithfeatures|hyperpage}{50}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-featureinverting|hyperpage}{50}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-featurechaining|hyperpage}{51}
-\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-co|hyperpage}{51}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-featureinverting|hyperpage}{51}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-featurechaining|hyperpage}{52}
+\indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-co|hyperpage}{52}
 \indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-classifier|hyperpage}{52}
 \indexentry{zzzbl@\color  {blcolor}Metatheorems!\tt  df-classifier2|hyperpage}{52}
 \indexentry{Vince Moln\'ar|hyperpage}{52}

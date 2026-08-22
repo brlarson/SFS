@@ -524,10 +524,21 @@ type A specializes B differences E disjoint from F unions C intersects D
 
 \pn $\mathrm{card} ` \mc{A}$ is application of the cardinality operator to a class in Metamath which will be abbreviated as  $\#\mc{A}$, or $\#\{x~\vert~some rule~\}$ when using class abstraction, or $\#\{a, b, c\}$ when a set is defined by listing its elements.
 
-\begin{restatable}{definition}{dfcardinality}~\blTitle{df-cardinality}~ Define class cardinality (\#).  
+\begin{restatable}{definition}{dfcardinality}~\blTitle{df-cardinality}~ Define class cardinality (\#).
 \begin{align}
 \vdash \#\mc{A}~\equiv \mathrm{card} ` \mc{A}~\label{eq:df-cardinality}\tag{df-cardinality}
 \end{align}
+\end{restatable}
+
+\begin{restatable}{leandefinition}{cardElem}~\leanTitle{cardElem}~ Define class cardinality in Lean. \texttt{\#}
+is literal notation for \texttt{Set.ncard} (Mathlib's own finite-set cardinality --- "junk value zero if
+infinite", matching the book's own "nothing in a system is infinite" stance), not a new primitive:
+\texttt{SFS.mm}'s own \texttt{df-cardinality} is itself just an abbreviation reusing base \texttt{set.mm}'s
+already-developed cardinal number theory, so this is the direct Lean analogue, not a shortcut --- a genuine
+\texttt{def}, no axiom needed.
+
+\texttt{\textcolor{leancolor}{noncomputable def} \textcolor{leanyellow}{cardElem} (A : Set Element) : $\mathbb{N}$ := A.ncard}
+\label{cardElem}
 \end{restatable}
 
 \pn Multiplicity for types is defined by placing the value in square brackets, [ ].
@@ -538,6 +549,30 @@ type A specializes B differences E disjoint from F unions C intersects D
 \vdash (~\mc{B}~\subseteq \mc{A}~\wedge~n\le\#\mc{A}~\wedge~\#\mc{B}=n~)
 \label{eq:df-typemultiplicity}\tag{df-typemultiplicity}
 \end{align}
+\end{restatable}
+
+\begin{restatable}{leanaxiom}{TypeMultiplicityExact}~\leanTitle{TypeMultiplicityExact}~ KerML's exact
+multiplicity bracket \texttt{[n]}, in Lean. A fresh \texttt{Element}-level primitive, same reasoning as
+\texttt{Specializes}: nothing currently represents a type's declared multiplicity.
+
+\texttt{\textcolor{leancolor}{axiom} \textcolor{leanyellow}{TypeMultiplicityExact} : Element $\to$ $\mathbb{N}$ $\to$ Prop}
+\label{TypeMultiplicityExact}
+\end{restatable}
+
+\begin{restatable}{leanaxiom}{dfTypemultiplicityLean}~\leanTitle{df\_typemultiplicity}~ Define type
+multiplicity in Lean. The first conjunct below (\texttt{Cb} $\subseteq$ \texttt{Ca}) is, notably, already
+exactly \texttt{df\_specializes}'s own conclusion given \texttt{Specializes B A}; it's restated here as part
+of the conjunction only because that's the literal shape \texttt{df-typemultiplicity} itself asserts above,
+not because it's independently new content.
+
+\texttt{\textcolor{leancolor}{axiom} \textcolor{leanyellow}{df\_typemultiplicity} \{A B : Element\} \{Ca Cb : Set Element\} \{n : $\mathbb{N}$\}}
+
+\texttt{~~(hA : (DesignKind.type, A, Ca) $\in$ Design) (hB : (DesignKind.type, B, Cb) $\in$ Design) :}
+
+\texttt{~~Specializes B A $\to$ TypeMultiplicityExact B n $\to$}
+
+\texttt{~~~~Cb $\subseteq$ Ca $\wedge$ n $\le$ cardElem Ca $\wedge$ cardElem Cb = n}
+\label{df_typemultiplicity}
 \end{restatable}
 
 \pn Nothing in a system is infinite.  Therefore [*] is undefined multiplicity--not infinite multiplicity.
@@ -554,6 +589,26 @@ type A specializes B differences E disjoint from F unions C intersects D
 \vdash (~\mc{B}~\subseteq \mc{A}~\wedge~n\le\#\mc{A}~~\wedge~m\le\#\mc{B}~\wedge~\#\mc{B}\le n~)
 \label{eq:df-typemultiplicityrange}\tag{df-typemultiplicityrange}
 \end{align}
+\end{restatable}
+
+\begin{restatable}{leanaxiom}{TypeMultiplicityRange}~\leanTitle{TypeMultiplicityRange}~ KerML's multiplicity
+range bracket \texttt{[m..n]}, in Lean. Same reasoning as \texttt{TypeMultiplicityExact} above.
+
+\texttt{\textcolor{leancolor}{axiom} \textcolor{leanyellow}{TypeMultiplicityRange} : Element $\to$ $\mathbb{N}$ $\to$ $\mathbb{N}$ $\to$ Prop}
+\label{TypeMultiplicityRange}
+\end{restatable}
+
+\begin{restatable}{leanaxiom}{dfTypemultiplicityrangeLean}~\leanTitle{df\_typemultiplicityrange}~ Define type
+multiplicity range in Lean. Same reasoning as \texttt{df\_typemultiplicity} above.
+
+\texttt{\textcolor{leancolor}{axiom} \textcolor{leanyellow}{df\_typemultiplicityrange} \{A B : Element\} \{Ca Cb : Set Element\} \{m n : $\mathbb{N}$\}}
+
+\texttt{~~(hA : (DesignKind.type, A, Ca) $\in$ Design) (hB : (DesignKind.type, B, Cb) $\in$ Design) :}
+
+\texttt{~~Specializes B A $\to$ TypeMultiplicityRange B m n $\to$}
+
+\texttt{~~~~Cb $\subseteq$ Ca $\wedge$ n $\le$ cardElem Ca $\wedge$ m $\le$ cardElem Cb $\wedge$ cardElem Cb $\le$ n}
+\label{df_typemultiplicityrange}
 \end{restatable}
 
 

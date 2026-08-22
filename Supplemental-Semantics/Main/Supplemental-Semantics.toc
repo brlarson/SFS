@@ -44,23 +44,23 @@
 \contentsline {subsection}{\numberline {2.2.1}Type Operators}{40}{subsection.2.2.1}%
 \contentsline {subsection}{\numberline {2.2.2}Type Operator Composition}{43}{subsection.2.2.2}%
 \contentsline {subsection}{\numberline {2.2.3}Type Multiplicity}{43}{subsection.2.2.3}%
-\contentsline {section}{\numberline {2.3}Features Semantics (KerML 8.4.3.4)}{44}{section.2.3}%
-\contentsline {subsection}{\numberline {2.3.1}Featured By}{44}{subsection.2.3.1}%
+\contentsline {section}{\numberline {2.3}Features Semantics (KerML 8.4.3.4)}{45}{section.2.3}%
+\contentsline {subsection}{\numberline {2.3.1}Featured By}{45}{subsection.2.3.1}%
 \contentsline {subsection}{\numberline {2.3.2}Domain-less Feature}{45}{subsection.2.3.2}%
-\contentsline {section}{\numberline {2.4}Types with Features (KerML 8.4.3.5)}{45}{section.2.4}%
-\contentsline {subsection}{\numberline {2.4.1}Feature Member:}{45}{subsection.2.4.1}%
-\contentsline {subsection}{\numberline {2.4.2}Feature with Feature}{46}{subsection.2.4.2}%
-\contentsline {subsection}{\numberline {2.4.3}Fixed Feature Multiplicity}{46}{subsection.2.4.3}%
+\contentsline {section}{\numberline {2.4}Types with Features (KerML 8.4.3.5)}{46}{section.2.4}%
+\contentsline {subsection}{\numberline {2.4.1}Feature Member:}{46}{subsection.2.4.1}%
+\contentsline {subsection}{\numberline {2.4.2}Feature with Feature}{47}{subsection.2.4.2}%
+\contentsline {subsection}{\numberline {2.4.3}Fixed Feature Multiplicity}{47}{subsection.2.4.3}%
 \contentsline {subsection}{\numberline {2.4.4}Unbound Feature Multiplicity}{47}{subsection.2.4.4}%
-\contentsline {subsection}{\numberline {2.4.5}Feature Multiplicity Range}{47}{subsection.2.4.5}%
+\contentsline {subsection}{\numberline {2.4.5}Feature Multiplicity Range}{48}{subsection.2.4.5}%
 \contentsline {subsection}{\numberline {2.4.6}Type Membership Feature}{48}{subsection.2.4.6}%
-\contentsline {subsection}{\numberline {2.4.7}Multiple Type Body Elements}{48}{subsection.2.4.7}%
-\contentsline {subsection}{\numberline {2.4.8}Feature Direction and Conjugation}{49}{subsection.2.4.8}%
-\contentsline {subsection}{\numberline {2.4.9}Type Specialization with Features}{49}{subsection.2.4.9}%
-\contentsline {subsection}{\numberline {2.4.10}Feature Inverting}{50}{subsection.2.4.10}%
-\contentsline {subsection}{\numberline {2.4.11}Owned Feature Inverting}{50}{subsection.2.4.11}%
+\contentsline {subsection}{\numberline {2.4.7}Multiple Type Body Elements}{49}{subsection.2.4.7}%
+\contentsline {subsection}{\numberline {2.4.8}Feature Direction and Conjugation}{50}{subsection.2.4.8}%
+\contentsline {subsection}{\numberline {2.4.9}Type Specialization with Features}{50}{subsection.2.4.9}%
+\contentsline {subsection}{\numberline {2.4.10}Feature Inverting}{51}{subsection.2.4.10}%
+\contentsline {subsection}{\numberline {2.4.11}Owned Feature Inverting}{51}{subsection.2.4.11}%
 \contentsline {subsection}{\numberline {2.4.12}Feature of Feature}{51}{subsection.2.4.12}%
-\contentsline {subsection}{\numberline {2.4.13}Feature Chaining}{51}{subsection.2.4.13}%
+\contentsline {subsection}{\numberline {2.4.13}Feature Chaining}{52}{subsection.2.4.13}%
 \contentsline {section}{\numberline {2.5}Classifiers Semantics (KerML 8.4.3.3)}{52}{section.2.5}%
 \contentsline {chapter}{\numberline {3}Kernel Semantics}{53}{chapter.3}%
 \contentsline {section}{\numberline {3.1}Kernel Semantics Overview (KerML 8.4.4.1)}{53}{section.3.1}%
