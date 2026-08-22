@@ -618,10 +618,27 @@ multiplicity range in Lean. Same reasoning as \texttt{df\_typemultiplicity} abov
 
 \pn Let $V_F$ be the set of all \texttt{Features} in the design $D$:  $V_F \subset D$, then for all elements in the design, an element being defined a \texttt{feature} implies the element is a member of $V_F$.
 
-\begin{restatable}{definition}{dffeature}~\blTitle{df-feature}~  Define \texttt{feature}.  
+\begin{restatable}{definition}{dffeature}~\blTitle{df-feature}~  Define \texttt{feature}.
 \begin{align}
 \forall f \in D~(\texttt{feature}~f~ \rightarrow ~f \in V_F)~\label{eq:df-feature}\tag{df-feature}
 \end{align}
+\end{restatable}
+
+\begin{restatable}{leanaxiom}{VF}~\leanTitle{VF}~ Define the set of \texttt{Features} in Lean. Exact parallel of
+\texttt{VT} above, one level down.
+
+\texttt{\textcolor{leancolor}{axiom} \textcolor{leanyellow}{VF} : Set Element}
+\label{VF}
+\end{restatable}
+
+\begin{restatable}{leanaxiom}{dfFeatureLean}~\leanTitle{df\_feature}~ Define \texttt{feature} in Lean. Unlike
+\texttt{type}, \texttt{Feature} already has a slot in \texttt{ElementKind}'s fourteen tags, so no new
+\texttt{DesignKind} case is needed --- exact parallel of \texttt{df\_types} above.
+
+\texttt{\textcolor{leancolor}{axiom} \textcolor{leanyellow}{df\_feature} : $\forall$ e : Element,}
+
+\texttt{~~($\exists$ C : Set Element, (DesignKind.ofElementKind ElementKind.Feature, e, C) $\in$ Design) $\to$ e $\in$ VF}
+\label{df_feature}
 \end{restatable}
 
 Note:  $V_F$ only contains stand-alone  \texttt{Features}.  Most  \texttt{Features} are declared within the \texttt{TypeBody} of a type declaration.
@@ -647,6 +664,33 @@ says $x$ is a class of pairs where the first element is from $\mc{Z}$ and the se
 \end{align}
 \end{restatable}
 
+\begin{restatable}{leanaxiom}{FeatureContent}~\leanTitle{FeatureContent}~ A feature's design-triple content, in
+Lean, as a set of ordered pairs (a relation) --- \texttt{Design}'s own content slot (\texttt{Set Element})
+can't hold that, so this is a dedicated primitive, independent of \texttt{Design}, rather than forcing this
+into the \texttt{(DesignKind, Element, Set Element)} triple shape used everywhere else.
+
+\texttt{\textcolor{leancolor}{axiom} \textcolor{leanyellow}{FeatureContent} : Element $\to$ Set (Element $\times$ Element) $\to$ Prop}
+\label{FeatureContent}
+\end{restatable}
+
+\begin{restatable}{leanaxiom}{FeaturedByDecl}~\leanTitle{FeaturedByDecl}~ \texttt{feature x typed by Y featured
+by Z;} in Lean. A fresh \texttt{Element}-level primitive, same reasoning as \texttt{Specializes}: nothing
+currently represents this concrete-syntax clause.
+
+\texttt{\textcolor{leancolor}{axiom} \textcolor{leanyellow}{FeaturedByDecl} : Element $\to$ Element $\to$ Element $\to$ Prop}
+\label{FeaturedByDecl}
+\end{restatable}
+
+\begin{restatable}{leanaxiom}{dfFeaturedbyLean}~\leanTitle{df\_featuredby}~ Define \texttt{featured by} in Lean.
+
+\texttt{\textcolor{leancolor}{axiom} \textcolor{leanyellow}{df\_featuredby} \{x y z : Element\} \{Cy Cz : Set Element\}}
+
+\texttt{~~(hy : (DesignKind.type, y, Cy) $\in$ Design) (hz : (DesignKind.type, z, Cz) $\in$ Design) :}
+
+\texttt{~~FeaturedByDecl x y z $\to$ FeatureContent x \{p : Element $\times$ Element $\vert$ p.1 $\in$ Cz $\wedge$ p.2 $\in$ Cy\}}
+\label{df_featuredby}
+\end{restatable}
+
 Note:  $\mc{Z}$ doesn't ``know'' about \texttt{Feature} $x$; something else needed a relation with domain $\mc{Z}$ and co-domain $\mc{Y}$.
 
 
@@ -659,6 +703,28 @@ Note:  $\mc{Z}$ doesn't ``know'' about \texttt{Feature} $x$; something else need
 \texttt{feature}~x~\texttt{typed by}~ Y ~\texttt{;}~\Rightarrow  \notag \\
 \vdash~x=\{~\langle \textbf{feature},``x",\mc{C}\rangle~\vert~\mc{C}~=~\{~\langle z,y\rangle~\vert~y \in \mc{Y} \wedge z \in \mc{\mathrm{V}}~\}~\}~\label{eq:df-domainless}\tag{df-domainless}
 \end{align}
+\end{restatable}
+
+\begin{restatable}{leanaxiom}{DomainlessDecl}~\leanTitle{DomainlessDecl}~ \texttt{feature x typed by Y;} (no
+\texttt{featured by} clause) in Lean. A separate primitive from \texttt{FeaturedByDecl} above, mirroring the
+book's own two separate definitions for the two distinct concrete-syntax forms, rather than one primitive
+plus a ``no featured-by clause'' side condition.
+
+\texttt{\textcolor{leancolor}{axiom} \textcolor{leanyellow}{DomainlessDecl} : Element $\to$ Element $\to$ Prop}
+\label{DomainlessDecl}
+\end{restatable}
+
+\begin{restatable}{leanaxiom}{dfDomainlessLean}~\leanTitle{df\_domainless}~ Define domain-less \texttt{Feature}
+in Lean. The universal domain quantification collapses to no constraint on the pair's first component at
+all --- the same ``vacuous existential/quantifier disappears'' simplification used for
+\texttt{RegionSurface}/\texttt{RegionFilm} in \S0.8.
+
+\texttt{\textcolor{leancolor}{axiom} \textcolor{leanyellow}{df\_domainless} \{x y : Element\} \{Cy : Set Element\}}
+
+\texttt{~~(hy : (DesignKind.type, y, Cy) $\in$ Design) :}
+
+\texttt{~~DomainlessDecl x y $\to$ FeatureContent x \{p : Element $\times$ Element $\vert$ p.2 $\in$ Cy\}}
+\label{df_domainless}
 \end{restatable}
 
 \ref{eq:df-domainless} defines a relation with domain $\mc{\mathrm{V}}$, the universe, and co-domain $\mc{Y}$ 
