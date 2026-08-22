@@ -102,6 +102,14 @@ any $\tau \in \mathbf{T}$
 \end{align}
 \end{restatable}
 
+\begin{restatable}{leantheorem}{axDlModelsLean}~\leanTitle{ax\_dl\_models}~ Define interpretation of predicate
+for any $\tau\in\mathbf{T}$, in Lean. The $\tau\in\mathbf{T}$ hypothesis \texttt{SFS.mm} carries is no longer
+stated separately: it's automatic from \texttt{t0}'s type (\texttt{Time}, not bare \texttt{Instant}).
+
+\texttt{\textcolor{leancolor}{theorem} \textcolor{leanyellow}{ax\_dl\_models} \{$\varphi$ : TProp\} \{t0 : Time\} : interp $\varphi$ $\to$ interpAt $\varphi$ t0 := fun h $\Rightarrow$ h t0}
+\label{ax_dl_models}
+\end{restatable}
+
 \begin{restatable}{definition}{dfblmodelsc}~\blTitle{df-bl.modelsc}~ Define interpretation of values over
 any $\tau \in \mathbf{T}$
 \begin{align}
@@ -110,6 +118,10 @@ any $\tau \in \mathbf{T}$
     \mc{B} )\label{eq:df-bl.modelsc}\tag{df-bl.modelsc}
 \end{align}
 \end{restatable}
+
+\pn \texttt{df-bl.modelsc} is only meaningful when $\mc{A}$ is actually constant, and is not needed to make
+any of the value-side distribution facts in \texttt{SFS.lean} provable --- so, unlike everything else in this
+section, it is deliberately \emph{not} restated as a Lean axiom or theorem.
 
 
 \pn $\mathbf{T}$ is the set of real times between 0 and $\mathsf{\mc{now}}$, inclusive:
@@ -123,6 +135,13 @@ from $\msc{t} = 0$ to $\mathsf{\mc{now}}$.
 \end{align}
 \end{restatable}
 
+\begin{restatable}{leandefinition}{TIMELean}~\leanTitle{TIME}~ Define domain of time $\mathbf{T}$ in Lean, as
+\texttt{Set.Icc 0 now} (Mathlib's own closed-interval notation) rather than a raw set-builder --- the same
+content, but already equipped with Mathlib's interval lemmas.
+
+\texttt{\textcolor{leancolor}{def} \textcolor{leanyellow}{TIME} : Set Instant := Set.Icc 0 now}
+\label{TIME}
+\end{restatable}
 
 \pn Define the \bemph{present instant} $\mathsf{\mc{now}}$:
 
@@ -131,6 +150,15 @@ from $\msc{t} = 0$ to $\mathsf{\mc{now}}$.
 \vdash ( \mathsf{\mc{now}} \in \mathbb{R} \wedge 0 \le \mathsf{\mc{now}}
     )\label{eq:df-bl.nowrr}\tag{df-bl.nowrr}
 \end{align}
+\end{restatable}
+
+\begin{restatable}{leanaxiom}{nowLean}~\leanTitle{now}~ Define the present instant in Lean: a fixed
+nonnegative real, the end of recorded time.
+
+\texttt{\textcolor{leancolor}{axiom} \textcolor{leanyellow}{now} : $\mathbb{R}$}
+
+\texttt{\textcolor{leancolor}{axiom} \textcolor{leanyellow}{now\_nonneg} : 0 $\le$ now}
+\label{now}
 \end{restatable}
 
 
@@ -144,7 +172,27 @@ from $\msc{t} = 0$ to $\mathsf{\mc{now}}$.
 \end{align}
 \end{restatable}
 
-\pn It's also useful to define ``before or coincident".: 
+\begin{restatable}{leandefinition}{tprec}~\leanTitle{tprec}~ Define temporal precedence in Lean, directly as
+$<$ on all of $\mathbb{R}$ rather than only characterized on \texttt{TIME}. Its Leibniz congruence
+(\texttt{bl.tpeq1}/\texttt{bl.tpeq2} in \texttt{SFS.mm} --- needed there as \emph{extra} axioms because
+\texttt{wtp} is a bare primitive) is just \texttt{congrArg}, free of charge here.
+
+\texttt{\textcolor{leancolor}{def} \textcolor{leanyellow}{tprec} (t1 t2 : Instant) : Prop := t1 < t2}
+
+\texttt{\textcolor{leancolor}{infix:50} " $\prec$ " => tprec}
+\label{tprec}
+\end{restatable}
+
+\begin{restatable}{leantheorem}{dlBefore}~\leanTitle{dl\_before}~ Temporal Precedence (before), in Lean ---
+free directly from \texttt{tprec}'s own definition.
+
+\texttt{\textcolor{leancolor}{theorem} \textcolor{leanyellow}{dl\_before} \{t1 t2 : Instant\} (\_ : t1 $\in$ TIME) (\_ : t2 $\in$ TIME) :}
+
+\texttt{~~(t1 $\prec$ t2) $\leftrightarrow$ t1 < t2 := Iff.rfl}
+\label{dl_before}
+\end{restatable}
+
+\pn It's also useful to define ``before or coincident".:
 
 \begin{restatable}{definition}{dfblbeforeeq}~\blTitle{df-bl.beforeeq}~ Temporal Precedence (before or
 coincident).
@@ -153,6 +201,24 @@ coincident).
     \tau_1 \preccurlyeq \tau_2 \leftrightarrow ( \tau_1 < \tau_2 \vee \tau_1 =
     \tau_2 ) ) )\label{eq:df-bl.beforeeq}\tag{df-bl.beforeeq}
 \end{align}
+\end{restatable}
+
+\begin{restatable}{leandefinition}{tprecEq}~\leanTitle{tprecEq}~ Define ``before or coincident'' in Lean,
+directly as $\le$ on all of $\mathbb{R}$, same reasoning as \texttt{tprec} above.
+
+\texttt{\textcolor{leancolor}{def} \textcolor{leanyellow}{tprecEq} (t1 t2 : Instant) : Prop := t1 $\le$ t2}
+
+\texttt{\textcolor{leancolor}{infix:50} " $\preccurlyeq$ " => tprecEq}
+\label{tprecEq}
+\end{restatable}
+
+\begin{restatable}{leantheorem}{dlBeforeeq}~\leanTitle{dl\_beforeeq}~ Temporal Precedence (before or
+coincident), in Lean --- free directly from \texttt{tprecEq}'s own definition (\texttt{le\_iff\_lt\_or\_eq}).
+
+\texttt{\textcolor{leancolor}{theorem} \textcolor{leanyellow}{dl\_beforeeq} \{t1 t2 : Instant\} (\_ : t1 $\in$ TIME) (\_ : t2 $\in$ TIME) :}
+
+\texttt{~~(t1 $\preccurlyeq$ t2) $\leftrightarrow$ (t1 < t2 $\vee$ t1 = t2) := le\_iff\_lt\_or\_eq}
+\label{dl_beforeeq}
 \end{restatable}
 
 %\subsection{Existence}
@@ -167,7 +233,15 @@ The interpretation of a classifier which doesn't exist is the empty class, $\emp
 \end{align}
 \end{restatable}
 
-\pn The \textidx{birth}\index{birth@\texttt{birth}} time of a KerML class $\texttt{birth}(c)$ is when it comes into existence.  The birth of $c$ is $\tau_b$ if-and-only-if $c$ exists at 
+\begin{restatable}{leandefinition}{existsAtLean}~\leanTitle{existsAt}~ Define element existence predicate in
+Lean, for an \texttt{Occurrence} (\texttt{TVal (Set Item)}, so ``$\ne\emptyset$'' reads directly against its
+own \texttt{interpValAt}).
+
+\texttt{\textcolor{leancolor}{def} \textcolor{leanyellow}{existsAt} (A : Occurrence) (t0 : Time) : Prop := interpValAt A t0 $\ne$ $\emptyset$}
+\label{existsAt}
+\end{restatable}
+
+\pn The \textidx{birth}\index{birth@\texttt{birth}} time of a KerML class $\texttt{birth}(c)$ is when it comes into existence.  The birth of $c$ is $\tau_b$ if-and-only-if $c$ exists at
 $\tau_b$ and does not exist before $\tau_b$.
 %The death time of a classifier $\texttt{death}(c)$ is when it ceases to exist.
 
@@ -176,6 +250,24 @@ $\tau_b$ and does not exist before $\tau_b$.
 \vdash (~\texttt{birth}(c)=\tau_b \leftrightarrow ( \texttt{ex}(c,\tau_b) \wedge \forall \tau \in (0[,)\tau_b)~\vert~ \lnot \texttt{ex}(c,\tau)~)~)
 \label{eq:df-bl.birth}\tag{df-bl.birth}
 \end{align}
+\end{restatable}
+
+\begin{restatable}{leanaxiom}{birthLean}~\leanTitle{birth}~ Define Birth time in Lean: a primitive (no
+construction of ``the first instant a exists'' is given, only the characterizing property
+\texttt{birthIff} below). Returns \texttt{Time}, not bare \texttt{Instant}: an occurrence's birth is itself one
+of the instants under discussion.
+
+\texttt{\textcolor{leancolor}{axiom} \textcolor{leanyellow}{birth} : Occurrence $\to$ Time}
+\label{birth}
+\end{restatable}
+
+\begin{restatable}{leanaxiom}{birthIff}~\leanTitle{birthIff}~ Define Birth time's characterizing property in
+Lean.
+
+\texttt{\textcolor{leancolor}{axiom} \textcolor{leanyellow}{birthIff} \{A : Occurrence\} \{t0 : Time\} :}
+
+\texttt{~~birth A = t0 $\leftrightarrow$ existsAt A t0 $\wedge$ $\forall$ t1 : Time, t1.val $\in$ Set.Ico (0 : Instant) t0.val $\to$ $\lnot$ existsAt A t1}
+\label{birthIff}
 \end{restatable}
 
 \pn $(0[,)\tau_b)$ is the open-right time interval\index{ xdc@\lstinline+.,+ open right} from time 0 up to, but not including $\tau_b$:
@@ -191,6 +283,18 @@ time interval [t1 ., t2].
 \end{align}
 \end{restatable}
 
+\begin{restatable}{leantheorem}{dlAlldc}~\leanTitle{dl\_alldc}~ Universal quantification over open-right time
+interval, in Lean --- just unfolds what membership in an open-right interval means arithmetically, already
+exactly Mathlib's \texttt{Set.mem\_Ico}.
+
+\texttt{\textcolor{leancolor}{theorem} \textcolor{leanyellow}{dl\_alldc} (t1 t2 : Time) ($\varphi$ : TProp) :}
+
+\texttt{~~($\forall$ x : Time, x.val $\in$ Set.Ico t1.val t2.val $\wedge$ $\varphi$ x) $\leftrightarrow$}
+
+\texttt{~~~~($\forall$ x : Time, t1.val $\le$ x.val $\wedge$ x.val < t2.val $\wedge$ $\varphi$ x)}
+\label{dl_alldc}
+\end{restatable}
+
 \pn The \textidx{death}\index{death@\texttt{death}} time of a KerML class $\texttt{death}(c)$ is its last moment of existence.  The death of $c$ is $\tau_d$ if-and-only-if $c$ exists at
 $\tau_d$ and does not exist after $\tau_d$.
 
@@ -199,6 +303,22 @@ $\tau_d$ and does not exist after $\tau_d$.
 \vdash (~\texttt{death}(c)=\tau_d \leftrightarrow ( \texttt{ex}(c,\tau_d) \wedge \forall \tau \in (\tau_d(,]\mathsf{\mc{now}})~\vert~ \lnot \texttt{ex}(c,\tau)~)~)
 \label{eq:df-bl.death}\tag{df-bl.death}
 \end{align}
+\end{restatable}
+
+\begin{restatable}{leanaxiom}{deathLean}~\leanTitle{death}~ Define Death time in Lean: a primitive, same
+reasoning as \texttt{birth} above.
+
+\texttt{\textcolor{leancolor}{axiom} \textcolor{leanyellow}{death} : Occurrence $\to$ Time}
+\label{death}
+\end{restatable}
+
+\begin{restatable}{leanaxiom}{deathIff}~\leanTitle{deathIff}~ Define Death time's characterizing property in
+Lean.
+
+\texttt{\textcolor{leancolor}{axiom} \textcolor{leanyellow}{deathIff} \{A : Occurrence\} \{t0 : Time\} :}
+
+\texttt{~~death A = t0 $\leftrightarrow$ existsAt A t0 $\wedge$ $\forall$ t1 : Time, t1.val $\in$ Set.Ioc t0.val now $\to$ $\lnot$ existsAt A t1}
+\label{deathIff}
 \end{restatable}
 
 \pn $(\tau_d(,]\mathsf{\mc{now}})$ is the open-left\index{ xcd@\lstinline+,.+ open left} time interval greater than time $\tau_d$ up to $\mathsf{\mc{now}}$.
@@ -214,6 +334,17 @@ time interval [t1 ,. t2].
 \end{align}
 \end{restatable}
 
+\begin{restatable}{leantheorem}{dlAllcd}~\leanTitle{dl\_allcd}~ Universal quantification over open-left time
+interval, in Lean --- Mathlib's \texttt{Set.mem\_Ioc}.
+
+\texttt{\textcolor{leancolor}{theorem} \textcolor{leanyellow}{dl\_allcd} (t1 t2 : Time) ($\varphi$ : TProp) :}
+
+\texttt{~~($\forall$ x : Time, x.val $\in$ Set.Ioc t1.val t2.val $\wedge$ $\varphi$ x) $\leftrightarrow$}
+
+\texttt{~~~~($\forall$ x : Time, t1.val < x.val $\wedge$ x.val $\le$ t2.val $\wedge$ $\varphi$ x)}
+\label{dl_allcd}
+\end{restatable}
+
 \pn The lifetime of a KerML class  $\texttt{life}(c)$\index{life@\texttt{life}} is the closed time interval between birth and death.
 
 \begin{restatable}{definition}{dflifetime}~\blTitle{df-bl.lifetime}~Define Lifetime.
@@ -221,6 +352,13 @@ time interval [t1 ,. t2].
 \vdash \texttt{life}(c)~=~ (\texttt{birth}(c)~[,]~\texttt{death}(c))
 \label{eq:df-bl.lifetime}\tag{df-bl.lifetime}
 \end{align}
+\end{restatable}
+
+\begin{restatable}{leandefinition}{lifeLean}~\leanTitle{life}~ Define Lifetime in Lean, as \texttt{Set.Icc}
+between \texttt{birth}'s and \texttt{death}'s own values.
+
+\texttt{\textcolor{leancolor}{def} \textcolor{leanyellow}{life} (A : Occurrence) : Set Instant := Set.Icc (birth A).val (death A).val}
+\label{life}
 \end{restatable}
 
 \pn $[,]$ denotes an interval closed\index{ xdd@\lstinline+..+ closed both} on both ends;
@@ -238,6 +376,17 @@ interval [t1 .. t2].
 \end{restatable}
 \index{ xdd@\lstinline+..+ closed interval}
 
+\begin{restatable}{leantheorem}{dlAlldd}~\leanTitle{dl\_alldd}~ Universal quantification over closed time
+interval, in Lean --- Mathlib's \texttt{Set.mem\_Icc}.
+
+\texttt{\textcolor{leancolor}{theorem} \textcolor{leanyellow}{dl\_alldd} (t1 t2 : Time) ($\varphi$ : TProp) :}
+
+\texttt{~~($\forall$ x : Time, x.val $\in$ Set.Icc t1.val t2.val $\wedge$ $\varphi$ x) $\leftrightarrow$}
+
+\texttt{~~~~($\forall$ x : Time, t1.val $\le$ x.val $\wedge$ x.val $\le$ t2.val $\wedge$ $\varphi$ x)}
+\label{dl_alldd}
+\end{restatable}
+
 \begin{restatable}{lemma}{blallcc}~\blTitle{bl.allcc}~ Universal quantification over open time
 interval [t1 ,, t2].
 \begin{align}
@@ -247,6 +396,17 @@ interval [t1 ,, t2].
     \msc{x} \in \mathbf{T} ( \tau_1 < \msc{x} \wedge \msc{x} < \tau_2 \wedge
     \mw{\varphi} ) )\label{eq:bl.allcc}\tag{bl.allcc}
 \end{align}
+\end{restatable}
+
+\begin{restatable}{leantheorem}{dlAllcc}~\leanTitle{dl\_allcc}~ Universal quantification over open time
+interval, in Lean --- Mathlib's \texttt{Set.mem\_Ioo}.
+
+\texttt{\textcolor{leancolor}{theorem} \textcolor{leanyellow}{dl\_allcc} (t1 t2 : Time) ($\varphi$ : TProp) :}
+
+\texttt{~~($\forall$ x : Time, x.val $\in$ Set.Ioo t1.val t2.val $\wedge$ $\varphi$ x) $\leftrightarrow$}
+
+\texttt{~~~~($\forall$ x : Time, t1.val < x.val $\wedge$ x.val < t2.val $\wedge$ $\varphi$ x)}
+\label{dl_allcc}
 \end{restatable}
 \index{ xcc@\lstinline+,,+ open interval}
 
