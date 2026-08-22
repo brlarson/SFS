@@ -457,39 +457,94 @@ $X ~=~ Y$ & X  \bemph{equals} Y & $\texttt{birth}(Y) = \texttt{birth}(X)~\wedge~
 \pagebreak %really want to prevent lstlisting from breaking over page boundary
 
 %\pn For use in \texttt{@Assert} Allen's intervals are also defined in the \texttt{Time} library package.
+\begin{restatable}{metadefinition}{dfprecedes}~\blTitle{df-precedes}~ Define Allen's interval precedes.
+\begin{align}
+\vdash \textit{precedes}(X,Y) \leftrightarrow \texttt{death}(X) \prec \texttt{birth}(Y)
+\label{eq:df-precedes}\tag{df-precedes}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{leandefinition}{precedesLean}~\leanTitle{precedes}~ Define Allen's interval precedes in Lean.
+
+\texttt{\textcolor{leancolor}{def} \textcolor{leanyellow}{precedes} (A B : Occurrence) : Prop := (death A).val $\prec$ (birth B).val}
+\label{precedes}
+\end{restatable}
+
 \ecaption{precedes}
 \begin{lstlisting}
   predicate precedes {
-    @Assert{n="precedes"; f="<<precedes : x~Occurrence, y~Occurrence : death(x) < birth(y) >>";}
+    @Assert{n="precedes"; f="<<precedes : x~Occurrence, y~Occurrence : death(x) < birth(y) >>"; 
+    		t="precedes";}
     in x : Occurrence;
     in y : Occurrence;
     x.endShot < y.startShot
   }
 \end{lstlisting}\index{meets@\texttt{meets}}
+\begin{restatable}{metadefinition}{dfmeets}~\blTitle{df-meets}~ Define Allen's interval meets.
+\begin{align}
+\vdash \textit{meets}(X,Y) \leftrightarrow \texttt{death}(X) = \texttt{birth}(Y)
+\label{eq:df-meets}\tag{df-meets}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{leandefinition}{meetsLean}~\leanTitle{meets}~ Define Allen's interval meets in Lean.
+
+\texttt{\textcolor{leancolor}{def} \textcolor{leanyellow}{meets} (A B : Occurrence) : Prop := death A = birth B}
+\label{meets}
+\end{restatable}
+
 \ecaption{meets}
 \begin{lstlisting}
   predicate meets {
-    @Assert{n="meets"; f="<<meets : x~Occurrence, y~Occurrence : death(x) = birth(y) >>";}
+    @Assert{n="meets"; f="<<meets : x~Occurrence, y~Occurrence : death(x) = birth(y) >>"; 
+    		t="meets";}
     doc /* x must not be open-right, and y must not be open-left */
     in x : Occurrence;
     in y : Occurrence;
     x.endShot == y.startShot and not x.openRight and not y.openLeft
   }
 \end{lstlisting}\index{meets@\texttt{meets}}
+\begin{restatable}{metadefinition}{dfoverlaps}~\blTitle{df-overlaps}~ Define Allen's interval overlaps.
+\begin{align}
+\vdash \textit{overlaps}(X,Y) \leftrightarrow \texttt{birth}(Y) \prec \texttt{death}(X)
+\label{eq:df-overlaps}\tag{df-overlaps}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{leandefinition}{overlapsLean}~\leanTitle{overlaps}~ Define Allen's interval overlaps in Lean.
+
+\texttt{\textcolor{leancolor}{def} \textcolor{leanyellow}{overlaps} (A B : Occurrence) : Prop := (birth B).val $\prec$ (death A).val}
+\label{overlaps}
+\end{restatable}
+
 \ecaption{overlaps}
 \begin{lstlisting}
   predicate overlaps {
-    @Assert{n="overlaps"; f="<<overlaps : x~Occurrence, y~Occurrence : birth(y) <  death(x)>>";}
+    @Assert{n="overlaps"; f="<<overlaps : x~Occurrence, y~Occurrence : birth(y) <  death(x)>>"; 
+    		t="overlaps";}
     in x : Occurrence;
     in y : Occurrence;
     y.startShot < x.endShot
   }
 \end{lstlisting}\index{overlaps@\texttt{overlaps}}
+\begin{restatable}{metadefinition}{dfstarts}~\blTitle{df-starts}~ Define Allen's interval starts.
+\begin{align}
+\vdash \textit{starts}(X,Y) \leftrightarrow \texttt{birth}(X) = \texttt{birth}(Y) \wedge \texttt{death}(Y) \prec \texttt{death}(X)
+\label{eq:df-starts}\tag{df-starts}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{leandefinition}{startsLean}~\leanTitle{starts}~ Define Allen's interval starts in Lean.
+
+\texttt{\textcolor{leancolor}{def} \textcolor{leanyellow}{starts} (A B : Occurrence) : Prop := birth A = birth B $\wedge$ (death B).val $\prec$ (death A).val}
+\label{starts}
+\end{restatable}
+
 \ecaption{starts}
 \begin{lstlisting}
   predicate starts {
     @Assert{n="starts"; f="<<starts : x~Occurrence, y~Occurrence : birth(x) = birth(y)"+
-        " and death(y) < death(x) and x.openLeft = y.openLeft >>";}
+        " and death(y) < death(x) and x.openLeft = y.openLeft >>"; t="starts";}
     doc /* both should be the same for open-left */
     in x : Occurrence;
     in y : Occurrence;
@@ -498,22 +553,48 @@ $X ~=~ Y$ & X  \bemph{equals} Y & $\texttt{birth}(Y) = \texttt{birth}(X)~\wedge~
   }
 \end{lstlisting}\index{starts@\texttt{starts}}
 
+\begin{restatable}{metadefinition}{dfduring}~\blTitle{df-during}~ Define Allen's interval during.
+\begin{align}
+\vdash \textit{during}(X,Y) \leftrightarrow \texttt{birth}(Y) \preccurlyeq \texttt{birth}(X) \wedge \texttt{death}(X) \preccurlyeq \texttt{death}(Y)
+\label{eq:df-during}\tag{df-during}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{leandefinition}{duringLean}~\leanTitle{during}~ Define Allen's interval during in Lean.
+
+\texttt{\textcolor{leancolor}{def} \textcolor{leanyellow}{during} (A B : Occurrence) : Prop := (birth B).val $\preccurlyeq$ (birth A).val $\wedge$ (death A).val $\preccurlyeq$ (death B).val}
+\label{during}
+\end{restatable}
+
 \ecaption{during}
 \begin{lstlisting}
   predicate during {
     @Assert{n="during"; f="<<during : x~Occurrence, y~Occurrence : birth(y) <= birth(x)"+
-      " and death(x) <= death(y)>>";}
+      " and death(x) <= death(y)>>"; t="during";}
     in x : Occurrence;
     in y : Occurrence;
     (y.startShot <= x.startShot) and (x.endShot <= y.endShot)
   }
 \end{lstlisting}\index{during@\texttt{during}}
 
+\begin{restatable}{metadefinition}{dffinishes}~\blTitle{df-finishes}~ Define Allen's interval finishes.
+\begin{align}
+\vdash \textit{finishes}(X,Y) \leftrightarrow \texttt{birth}(Y) \prec \texttt{birth}(X) \wedge \texttt{death}(X) = \texttt{death}(Y)
+\label{eq:df-finishes}\tag{df-finishes}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{leandefinition}{finishesLean}~\leanTitle{finishes}~ Define Allen's interval finishes in Lean.
+
+\texttt{\textcolor{leancolor}{def} \textcolor{leanyellow}{finishes} (A B : Occurrence) : Prop := (birth B).val $\prec$ (birth A).val $\wedge$ death A = death B}
+\label{finishes}
+\end{restatable}
+
 \ecaption{finishes}
 \begin{lstlisting}
   predicate finishes {
     @Assert{n="finishes"; f="<<finishes : x~Occurrence, y~Occurrence : birth(y) < birth(x)"+
-        " and death(x) = death(y) and x.openRight = y.openRight >>";}
+        " and death(x) = death(y) and x.openRight = y.openRight >>"; t="finishes";}
     doc /* both should be the same for open-right */
     in x : Occurrence;
     in y : Occurrence;
@@ -522,11 +603,26 @@ $X ~=~ Y$ & X  \bemph{equals} Y & $\texttt{birth}(Y) = \texttt{birth}(X)~\wedge~
   }
 \end{lstlisting}\index{finishes@\texttt{finishes}}
 
+\begin{restatable}{metadefinition}{dfcoincident}~\blTitle{df-coincident}~ Define Allen's interval coincident.
+\begin{align}
+\vdash \textit{coincident}(X,Y) \leftrightarrow \texttt{birth}(X) = \texttt{birth}(Y) \wedge \texttt{death}(X) = \texttt{death}(Y)
+\label{eq:df-coincident}\tag{df-coincident}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{leandefinition}{coincidentLean}~\leanTitle{coincident}~ Define Allen's interval coincident in
+Lean.
+
+\texttt{\textcolor{leancolor}{def} \textcolor{leanyellow}{coincident} (A B : Occurrence) : Prop := birth A = birth B $\wedge$ death A = death B}
+\label{coincident}
+\end{restatable}
+
 \ecaption{coincident}
 \begin{lstlisting}
   predicate coincident {
-    @Assert{n="coincident"; f="<<coincident : x~Occurrence, y~Occurrence : birth(y) = birth(x)"+
-        " and death(x) = death(y) and x.openLeft = y.openLeft and x.openRight = y.openRight >>" ;}
+    @Assert{n="coincident"; f="<<coincident : x~Occurrence, y~Occurrence : "+
+    		"birth(y) = birth(x)" and death(x) = death(y) and x.openLeft = y.openLeft "+
+		"and x.openRight = y.openRight >>"; t="coincident";}
     doc /* both should be the same for open-left and open-right */
     in x : Occurrence;
     in y : Occurrence;
@@ -535,11 +631,25 @@ $X ~=~ Y$ & X  \bemph{equals} Y & $\texttt{birth}(Y) = \texttt{birth}(X)~\wedge~
   }
 \end{lstlisting}\index{coincident@\texttt{coincident}}
 
+\begin{restatable}{metadefinition}{dfnonoverlaps}~\blTitle{df-nonoverlaps}~ Define Allen's interval nonoverlaps.
+\begin{align}
+\vdash \textit{nonoverlaps}(X,Y) \leftrightarrow \texttt{death}(X) \prec \texttt{birth}(Y) \vee \texttt{death}(Y) \prec \texttt{birth}(X)
+\label{eq:df-nonoverlaps}\tag{df-nonoverlaps}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{leandefinition}{nonoverlapsLean}~\leanTitle{nonoverlaps}~ Define Allen's interval
+nonoverlaps in Lean.
+
+\texttt{\textcolor{leancolor}{def} \textcolor{leanyellow}{nonoverlaps} (A B : Occurrence) : Prop := (death A).val $\prec$ (birth B).val $\vee$ (death B).val $\prec$ (birth A).val}
+\label{nonoverlaps}
+\end{restatable}
+
 \ecaption{nonoverlaps}
 \begin{lstlisting}
   predicate nonoverlaps {
     @Assert{n="nonoverlaps"; f="<<nonoverlaps : x~Occurrence, y~Occurrence : birth(y) > death(x)"+
-      " or birth(x) > death(y)>>";}
+      " or birth(x) > death(y)>>"; t="nonoverlaps";}
     in x : Occurrence;
     in y : Occurrence;
     (y.startShot > x.endShot) or (x.startShot > y.endShot)
@@ -548,17 +658,62 @@ $X ~=~ Y$ & X  \bemph{equals} Y & $\texttt{birth}(Y) = \texttt{birth}(X)~\wedge~
 
 \pn Although not an Allen interval, \bemph{nearly meets} is useful defining immediate predecessor and successor (\texttt{Happens\-JustBefore}).
 
+\begin{restatable}{metadefinition}{dfnearlymeets}~\blTitle{df-nearlymeets}~ Define nearlymeets: X and Y don't
+meet, but there is no instant strictly between $\texttt{death}(X)$ and $\texttt{birth}(Y)$ --- either because
+they share that boundary instant and X is open-right or Y is open-left there, or because there simply is no
+instant between under \texttt{next}, even without either boundary being open.
+\begin{align}
+\vdash \textit{nearlymeets}(X,Y) \leftrightarrow \big( \texttt{birth}(Y) = \texttt{death}(X) \wedge (
+    \texttt{openRight}(X) \vee \texttt{openLeft}(Y) ) \big) \vee \notag \\
+     \textit{next}(\texttt{death}(X),\texttt{birth}(Y))
+\label{eq:df-nearlymeets}\tag{df-nearlymeets}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{leanaxiom}{openLeftRight}~\leanTitle{openLeft / openRight}~ \texttt{Interval}'s own
+boundary-openness features, in Lean, reused on \texttt{Occurrence} here since \texttt{Allen.kerml}'s own
+\texttt{nearlyMeets} calls them on \texttt{x}/\texttt{y~:~Occurrence}. Fresh primitives: nothing represented
+interval boundary openness before \texttt{df-nearlymeets} was added to \texttt{SFS.mm}.
+
+\texttt{\textcolor{leancolor}{axiom} \textcolor{leanyellow}{openLeft} : Occurrence $\to$ Prop}
+
+\texttt{\textcolor{leancolor}{axiom} \textcolor{leanyellow}{openRight} : Occurrence $\to$ Prop}
+\label{openLeft}
+\end{restatable}
+
+\begin{restatable}{leandefinition}{nearlyMeetsLean}~\leanTitle{nearlyMeets}~ Define nearlymeets in Lean. The
+\texttt{next (death A) (birth B)} disjunct is, per \texttt{next\_dense} (\S3.1.1), provably always
+\texttt{False} here (\texttt{next} is vacuous on dense $\mathbb{R}$), so this reduces semantically to just the
+open-boundary disjunct --- see \texttt{nearlyMeets\_iff} below. Included literally anyway, matching
+\texttt{SFS.mm}'s own formula rather than silently dropping the now-vacuous part.
+
+\texttt{\textcolor{leancolor}{def} \textcolor{leanyellow}{nearlyMeets} (A B : Occurrence) : Prop :=}
+
+\texttt{~~(birth B = death A $\wedge$ (openRight A $\vee$ openLeft B)) $\vee$ next (death A) (birth B)}
+\label{nearlyMeets}
+\end{restatable}
+
+\begin{restatable}{leantheorem}{nearlyMeetsIff}~\leanTitle{nearlyMeets\_iff}~ Free consequence of
+\texttt{next\_dense}, not a fact \texttt{SFS.mm}/\texttt{Allen.kerml} state themselves: \texttt{nearlyMeets}
+collapses to its open-boundary disjunct alone.
+
+\texttt{\textcolor{leancolor}{theorem} \textcolor{leanyellow}{nearlyMeets\_iff} (A B : Occurrence) :}
+
+\texttt{~~nearlyMeets A B $\leftrightarrow$ (birth B = death A $\wedge$ (openRight A $\vee$ openLeft B)) :=}
+
+\texttt{~~\textcolor{leancolor}{by} unfold nearlyMeets; simp [next\_dense]}
+\label{nearlyMeets_iff}
+\end{restatable}
+
 \ecaption{nearlyMeets}
 \begin{lstlisting}
   predicate nearlyMeets {
     @Assert{n="nearlyMeets"; f="<<nearlyMeets : x~Occurrence, y~Occurrence :"+
-      " birth(y) = death(x) and (x.openRight or y.openLeft)>>";}
-    doc /*  don't meet, but no instants between the end-shot of x and the start-shot of y
-     * x is open-right; y is open-left, or both
-     */
+      " (birth(y) = death(x) and (x.openRight or y.openLeft)) or next(death(x), birth(y))>>";}
+    doc /*  don't meet, but no instants between the end-shot of x and the start-shot of y */
     in x : Occurrence;
     in y : Occurrence;
-    x.endShot==y.startShot and ( x.openRight or y.openLeft)
+    ( x.endShot==y.startShot and ( x.openRight or y.openLeft) ) or next(x.endShot, y.startShot)
   }
 \end{lstlisting}\index{nearlyMeets@\texttt{nearlyMeets}}
 
