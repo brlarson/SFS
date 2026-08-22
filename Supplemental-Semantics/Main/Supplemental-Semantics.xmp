@@ -20,87 +20,87 @@
 \contentsline {example}{nonoverlaps}{67}{thmt@dummyctr.dummy.372}%
 \contentsline {example}{nearlyMeets}{68}{thmt@dummyctr.dummy.380}%
 \contentsline {example}{Variable Features}{68}{subsection.3.1.4}%
-\contentsline {example}{Get}{68}{lstnumber.-27.6}%
-\contentsline {example}{GetNow}{69}{lstnumber.-28.10}%
-\contentsline {example}{SetNow}{69}{lstnumber.-29.9}%
-\contentsline {example}{GetChange}{69}{lstnumber.-30.9}%
-\contentsline {example}{GetBooleanChange}{69}{lstnumber.-31.13}%
-\contentsline {example}{GetChangeToTrue}{69}{lstnumber.-32.12}%
-\contentsline {example}{GetChangeToFalse}{70}{lstnumber.-33.6}%
-\contentsline {example}{composite}{70}{subsection.3.1.7}%
-\contentsline {example}{portion}{70}{lstnumber.-35.4}%
-\contentsline {example}{Occurrence}{73}{subsection.3.3.1}%
-\contentsline {example}{getLife}{74}{subsection.3.3.2}%
-\contentsline {example}{sameLife}{74}{lstnumber.-39.8}%
-\contentsline {example}{withoutOccurrence}{74}{lstnumber.-40.5}%
-\contentsline {example}{predecessor}{74}{lstnumber.-41.5}%
-\contentsline {example}{successor}{74}{lstnumber.-42.5}%
-\contentsline {example}{immediatePredecessor}{74}{lstnumber.-43.5}%
-\contentsline {example}{immediateSuccessor}{74}{lstnumber.-44.5}%
-\contentsline {example}{timeEnclosedOccurrence}{75}{lstnumber.-45.5}%
-\contentsline {example}{timeCoincidentOccurrence}{75}{lstnumber.-46.5}%
-\contentsline {example}{spaceEnclosedOccurrence}{75}{lstnumber.-47.5}%
-\contentsline {example}{spaceTimeEnclosedOccurrence}{75}{lstnumber.-48.5}%
-\contentsline {example}{spaceTimeEnclosedPoint}{75}{lstnumber.-49.5}%
-\contentsline {example}{spaceCoincidentOccurrence}{75}{lstnumber.-50.5}%
-\contentsline {example}{spaceTimeCoincidentOccurrence}{75}{lstnumber.-51.6}%
-\contentsline {example}{outsideOfOccurrence}{75}{lstnumber.-52.5}%
-\contentsline {example}{justOutsideOfOccurrence}{76}{lstnumber.-53.5}%
-\contentsline {example}{matesWithOccurrence}{76}{lstnumber.-54.5}%
-\contentsline {example}{suboccurrences}{76}{subsection.3.3.3}%
-\contentsline {example}{HappensDuring}{77}{subsection.3.3.5}%
-\contentsline {example}{HappensWhile}{77}{lstnumber.-57.7}%
-\contentsline {example}{HappensBefore}{77}{lstnumber.-58.10}%
-\contentsline {example}{HappensJustBefore}{77}{lstnumber.-59.6}%
-\contentsline {example}{InsideOf}{77}{lstnumber.-60.7}%
-\contentsline {example}{OutsideOf}{78}{lstnumber.-61.5}%
-\contentsline {example}{JustOutsideOf}{78}{lstnumber.-62.7}%
-\contentsline {example}{MatesWith}{78}{lstnumber.-63.10}%
-\contentsline {example}{InnerSpaceOf}{78}{lstnumber.-64.8}%
-\contentsline {example}{Recursive Structure}{78}{section.3.4}%
-\contentsline {example}{subobjects}{79}{lstnumber.-66.4}%
-\contentsline {example}{structuredSpaceBoundary}{79}{lstnumber.-67.8}%
-\contentsline {example}{involvingPerformances}{79}{AMS.172}%
-\contentsline {example}{enactedPerformances}{79}{lstnumber.-69.6}%
-\contentsline {example}{ownedPerformances}{80}{lstnumber.-70.7}%
-\contentsline {example}{association}{80}{section.3.5}%
-\contentsline {example}{Link}{81}{subsection.3.5.1}%
-\contentsline {example}{BinaryLink}{81}{lstnumber.-74.7}%
-\contentsline {example}{ cross subsetting}{81}{subsection.3.5.2}%
-\contentsline {example}{cross subsetting}{82}{subsection.3.5.3}%
-\contentsline {example}{owned cross features}{83}{lstnumber.-77.11}%
-\contentsline {example}{AssetOwnership}{83}{lstnumber.-78.5}%
-\contentsline {example}{LegalEntity}{83}{lstnumber.-79.5}%
-\contentsline {example}{SelfLink}{83}{subsection.3.5.4}%
-\contentsline {example}{N-ary Cross Features}{84}{AMS.178}%
-\contentsline {example}{AgreedAssetOwnership}{84}{lstnumber.-82.5}%
-\contentsline {example}{Mounting}{85}{section.3.7}%
-\contentsline {example}{WheelAssembly}{85}{lstnumber.-84.13}%
-\contentsline {example}{connector mount[2]}{85}{lstnumber.-85.8}%
-\contentsline {example}{binary connector}{85}{subsection.3.7.1}%
-\contentsline {example}{binary connector from}{86}{AMS.180}%
-\contentsline {example}{Connector Cross Features}{86}{subsection.3.7.2}%
-\contentsline {example}{connector end}{87}{thmt@dummyctr.dummy.397}%
-\contentsline {example}{Owned cross features }{87}{lstnumber.-90.9}%
-\contentsline {example}{Owned cross features without labels}{87}{lstnumber.-91.10}%
-\contentsline {example}{connector structure}{88}{subsection.3.7.3}%
-\contentsline {example}{Binding connector}{88}{section.3.8}%
-\contentsline {example}{succession}{89}{section.3.9}%
-\contentsline {example}{succession equivalent}{89}{lstnumber.-96.1}%
-\contentsline {example}{behavior}{89}{section.3.10}%
-\contentsline {example}{behavior specializes}{90}{lstnumber.-98.5}%
-\contentsline {example}{behavior specializes equivalent}{90}{lstnumber.-99.6}%
-\contentsline {example}{TakePicture}{90}{lstnumber.-100.4}%
-\contentsline {example}{step}{91}{section.3.11}%
-\contentsline {example}{enclosedPerformances}{91}{lstnumber.-102.8}%
-\contentsline {example}{subperformances}{91}{lstnumber.-103.7}%
-\contentsline {example}{metaclass Function}{91}{section.3.12}%
-\contentsline {example}{Performances::Evaluation}{92}{lstnumber.-105.4}%
-\contentsline {example}{Performances::Computation}{92}{lstnumber.-106.8}%
-\contentsline {example}{Performances::evaluations}{92}{lstnumber.-107.8}%
-\contentsline {example}{function}{92}{lstnumber.-109.6}%
-\contentsline {example}{bound return parameter}{92}{lstnumber.-110.5}%
-\contentsline {example}{metaclass Expression}{93}{section.3.13}%
-\contentsline {example}{}{95}{section.3.15}%
-\contentsline {example}{MessageTransfer}{95}{subsection.3.15.1}%
-\contentsline {example}{FlowTransfer}{95}{subsection.3.15.2}%
+\contentsline {example}{Get}{69}{thmt@dummyctr.dummy.384}%
+\contentsline {example}{GetNow}{69}{AMS.164}%
+\contentsline {example}{SetNow}{70}{thmt@dummyctr.dummy.390}%
+\contentsline {example}{GetChange}{70}{thmt@dummyctr.dummy.394}%
+\contentsline {example}{GetBooleanChange}{71}{thmt@dummyctr.dummy.398}%
+\contentsline {example}{GetChangeToTrue}{71}{thmt@dummyctr.dummy.402}%
+\contentsline {example}{GetChangeToFalse}{72}{thmt@dummyctr.dummy.406}%
+\contentsline {example}{composite}{73}{subsection.3.1.7}%
+\contentsline {example}{portion}{73}{lstnumber.-35.4}%
+\contentsline {example}{Occurrence}{75}{subsection.3.3.1}%
+\contentsline {example}{getLife}{76}{subsection.3.3.2}%
+\contentsline {example}{sameLife}{76}{lstnumber.-39.8}%
+\contentsline {example}{withoutOccurrence}{76}{lstnumber.-40.5}%
+\contentsline {example}{predecessor}{76}{lstnumber.-41.5}%
+\contentsline {example}{successor}{76}{lstnumber.-42.5}%
+\contentsline {example}{immediatePredecessor}{77}{lstnumber.-43.5}%
+\contentsline {example}{immediateSuccessor}{77}{lstnumber.-44.5}%
+\contentsline {example}{timeEnclosedOccurrence}{77}{lstnumber.-45.5}%
+\contentsline {example}{timeCoincidentOccurrence}{77}{lstnumber.-46.5}%
+\contentsline {example}{spaceEnclosedOccurrence}{77}{lstnumber.-47.5}%
+\contentsline {example}{spaceTimeEnclosedOccurrence}{77}{lstnumber.-48.5}%
+\contentsline {example}{spaceTimeEnclosedPoint}{77}{lstnumber.-49.5}%
+\contentsline {example}{spaceCoincidentOccurrence}{78}{lstnumber.-50.5}%
+\contentsline {example}{spaceTimeCoincidentOccurrence}{78}{lstnumber.-51.6}%
+\contentsline {example}{outsideOfOccurrence}{78}{lstnumber.-52.5}%
+\contentsline {example}{justOutsideOfOccurrence}{78}{lstnumber.-53.5}%
+\contentsline {example}{matesWithOccurrence}{78}{lstnumber.-54.5}%
+\contentsline {example}{suboccurrences}{78}{subsection.3.3.3}%
+\contentsline {example}{HappensDuring}{79}{subsection.3.3.5}%
+\contentsline {example}{HappensWhile}{79}{lstnumber.-57.7}%
+\contentsline {example}{HappensBefore}{79}{lstnumber.-58.10}%
+\contentsline {example}{HappensJustBefore}{80}{lstnumber.-59.6}%
+\contentsline {example}{InsideOf}{80}{lstnumber.-60.7}%
+\contentsline {example}{OutsideOf}{80}{lstnumber.-61.5}%
+\contentsline {example}{JustOutsideOf}{80}{lstnumber.-62.7}%
+\contentsline {example}{MatesWith}{80}{lstnumber.-63.10}%
+\contentsline {example}{InnerSpaceOf}{80}{lstnumber.-64.8}%
+\contentsline {example}{Recursive Structure}{81}{section.3.4}%
+\contentsline {example}{subobjects}{81}{lstnumber.-66.4}%
+\contentsline {example}{structuredSpaceBoundary}{81}{lstnumber.-67.8}%
+\contentsline {example}{involvingPerformances}{81}{AMS.186}%
+\contentsline {example}{enactedPerformances}{82}{lstnumber.-69.6}%
+\contentsline {example}{ownedPerformances}{82}{lstnumber.-70.7}%
+\contentsline {example}{association}{82}{section.3.5}%
+\contentsline {example}{Link}{83}{subsection.3.5.1}%
+\contentsline {example}{BinaryLink}{83}{lstnumber.-74.7}%
+\contentsline {example}{ cross subsetting}{84}{subsection.3.5.2}%
+\contentsline {example}{cross subsetting}{85}{subsection.3.5.3}%
+\contentsline {example}{owned cross features}{85}{lstnumber.-77.11}%
+\contentsline {example}{AssetOwnership}{85}{lstnumber.-78.5}%
+\contentsline {example}{LegalEntity}{85}{lstnumber.-79.5}%
+\contentsline {example}{SelfLink}{85}{subsection.3.5.4}%
+\contentsline {example}{N-ary Cross Features}{86}{AMS.192}%
+\contentsline {example}{AgreedAssetOwnership}{86}{lstnumber.-82.5}%
+\contentsline {example}{Mounting}{87}{section.3.7}%
+\contentsline {example}{WheelAssembly}{87}{lstnumber.-84.13}%
+\contentsline {example}{connector mount[2]}{88}{lstnumber.-85.8}%
+\contentsline {example}{binary connector}{88}{subsection.3.7.1}%
+\contentsline {example}{binary connector from}{88}{AMS.194}%
+\contentsline {example}{Connector Cross Features}{89}{subsection.3.7.2}%
+\contentsline {example}{connector end}{89}{thmt@dummyctr.dummy.423}%
+\contentsline {example}{Owned cross features }{89}{lstnumber.-90.9}%
+\contentsline {example}{Owned cross features without labels}{90}{lstnumber.-91.10}%
+\contentsline {example}{connector structure}{90}{subsection.3.7.3}%
+\contentsline {example}{Binding connector}{91}{section.3.8}%
+\contentsline {example}{succession}{91}{section.3.9}%
+\contentsline {example}{succession equivalent}{91}{lstnumber.-96.1}%
+\contentsline {example}{behavior}{92}{section.3.10}%
+\contentsline {example}{behavior specializes}{92}{lstnumber.-98.5}%
+\contentsline {example}{behavior specializes equivalent}{92}{lstnumber.-99.6}%
+\contentsline {example}{TakePicture}{92}{lstnumber.-100.4}%
+\contentsline {example}{step}{93}{section.3.11}%
+\contentsline {example}{enclosedPerformances}{93}{lstnumber.-102.8}%
+\contentsline {example}{subperformances}{93}{lstnumber.-103.7}%
+\contentsline {example}{metaclass Function}{94}{section.3.12}%
+\contentsline {example}{Performances::Evaluation}{94}{lstnumber.-105.4}%
+\contentsline {example}{Performances::Computation}{94}{lstnumber.-106.8}%
+\contentsline {example}{Performances::evaluations}{94}{lstnumber.-107.8}%
+\contentsline {example}{function}{94}{lstnumber.-109.6}%
+\contentsline {example}{bound return parameter}{95}{lstnumber.-110.5}%
+\contentsline {example}{metaclass Expression}{95}{section.3.13}%
+\contentsline {example}{}{97}{section.3.15}%
+\contentsline {example}{MessageTransfer}{97}{subsection.3.15.1}%
+\contentsline {example}{FlowTransfer}{97}{subsection.3.15.2}%

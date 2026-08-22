@@ -754,12 +754,33 @@ By \ref{eq:df-typebody} the ZFC-class defined for B would be something like this
 
 \pn Variable accessing functions and behaviors are defined in the \texttt{Domain} library.
 
+\pn \texttt{Get} is the read accessor for a variable feature: given an \texttt{Occurrence} \texttt{d}, a
+feature \texttt{f} of \texttt{d}, and an instant \texttt{tau}, it returns the interpretation
+$\mathbf{I}\lsem d{::}f,\tau\rsem$ --- the value \texttt{d::f} had at \texttt{tau}. It replaces
+\texttt{FeatureReferencingPer\-form\-ances::FeatureReadEvaluation}.
+
+\begin{restatable}{metadefinition}{dfGet}~\blTitle{df-Get}~ Define \texttt{Get}.
+\begin{align}
+\vdash \textit{Get}(d,f,\tau) \equiv \mathbf{I}\lsem d{::}f,\tau\rsem
+\label{eq:df-Get}\tag{df-Get}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{leandefinition}{GetLean}~\leanTitle{Get}~ Define \texttt{Get} in Lean, via a new primitive
+\texttt{featureAccess} standing for KerML's \texttt{d::f} feature navigation.
+
+\texttt{\textcolor{leancolor}{axiom} \textcolor{leanyellow}{featureAccess} : Occurrence $\to$ Element $\to$ Occurrence}
+
+\texttt{\textcolor{leancolor}{def} \textcolor{leanyellow}{Get} (d : Occurrence) (f : Element) (tau : Time) : Set Item := interpValAt (featureAccess d f) tau}
+\label{Get}
+\end{restatable}
+
 \ecaption{Get}
 \begin{lstlisting}
 	function Get { // replaces FeatureReferencingPerformances::FeatureReadEvaluation
 		doc /* Get(d,f,tau) returns the value of the feature d::f at time tau. */
 		@Assert{n="Get"; f="<<Get : d~Occurrence, f~Anything, tau~Instant := I[[d::f,tau]] >>";
-				t="df-model";}
+				t="Get";}
 		in feature d : Occurrence[1] {  //onOccurrence
 		  feature f : Anything[1];  //accessedFeature
 		}
@@ -767,6 +788,21 @@ By \ref{eq:df-typebody} the ZFC-class defined for B would be something like this
 		return result : Anything[0..1];
 	}
 \end{lstlisting}\index{Get@\texttt{Get}}
+
+\pn \texttt{GetNow} is a convenience specialization of \texttt{Get}: it always reads at the current instant,
+$\mathsf{\mc{now}}$, rather than requiring the caller to supply \texttt{tau} explicitly.
+
+\begin{restatable}{metadefinition}{dfGetNow}~\blTitle{df-GetNow}~ Define \texttt{GetNow}.
+\begin{align}
+\vdash \textit{GetNow}(d,f) \equiv \textit{Get}(d,f,\mathsf{\mc{now}})
+\label{eq:df-GetNow}\tag{df-GetNow}
+\end{align}
+\end{restatable}
+
+\pn \texttt{SFS.lean} gives \texttt{GetNow} no separate identifier of its own: it's just
+\texttt{Get d f \textcolor{leancolor}{$\langle$}now, dl\_nowt\textcolor{leancolor}{$\rangle$}} applied
+directly wherever needed, matching the \texttt{t=("Get","now")} citation on \texttt{Domain.kerml}'s own
+\texttt{@Assert}.
 
 \ecaption{GetNow}
 \begin{lstlisting}
@@ -781,6 +817,27 @@ By \ref{eq:df-typebody} the ZFC-class defined for B would be something like this
 	}
 \end{lstlisting}\index{GetNow@\texttt{GetNow}}
 
+\pn \texttt{SetNow} is the write counterpart to \texttt{Get}/\texttt{GetNow}: it constrains
+$\mathbf{I}\lsem d{::}f,\mathsf{\mc{now}}\rsem$ to equal \texttt{v}, i.e.\ it sets the value of \texttt{d::f}
+at the current instant. Because worlds don't retroactively change, only the current one is being set: nothing
+is asserted about \texttt{d::f}'s value at any instant other than $\mathsf{\mc{now}}$. It replaces
+ \texttt{FeatureReferencingPer\-form\-ances::FeatureWritePerformance}.
+
+\begin{restatable}{metadefinition}{dfSetNow}~\blTitle{df-SetNow}~ Define \texttt{SetNow}.
+\begin{align}
+\vdash \textit{SetNow}(d,f,v) \leftrightarrow \mathbf{I}\lsem d{::}f,\mathsf{\mc{now}}\rsem = v
+\label{eq:df-SetNow}\tag{df-SetNow}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{leandefinition}{SetNowLean}~\leanTitle{SetNow}~ Define \texttt{SetNow} in Lean. Not a
+separate operational primitive --- \texttt{SetNow d f v} \emph{is} \texttt{Domain.kerml}'s own \texttt{SetNow}
+assertion by definition.
+
+\texttt{\textcolor{leancolor}{def} \textcolor{leanyellow}{SetNow} (d : Occurrence) (f : Element) (v : Set Item) : Prop := Get d f $\langle$now, dl\_nowt$\rangle$ = v}
+\label{SetNow}
+\end{restatable}
+
 \ecaption{SetNow}
 \begin{lstlisting}
 	behavior SetNow {  // replaces FeatureReferencingPerformances::FeatureWritePerformance
@@ -794,14 +851,39 @@ By \ref{eq:df-typebody} the ZFC-class defined for B would be something like this
 	}
 \end{lstlisting}\index{SetNow@\texttt{SetNow}}
 
+\pn \texttt{GetChange} waits for \texttt{d::f} to change value: if \texttt{d::f} was stable at
+\texttt{Get(d,f,tau)} throughout $[\texttt{tau},\mathsf{\mc{now}})$ and has changed as of $\mathsf{\mc{now}}$,
+its output \texttt{v} is that new (changed) value.
+
+\begin{restatable}{metadefinition}{dfGetChange}~\blTitle{df-GetChange}~ Define \texttt{GetChange}.
+\begin{align}
+\vdash \textit{GetChange}(d,f,\tau,v) \leftrightarrow \notag \\
+  \big( \lnot \mathbf{I}\lsem d{::}f,\tau\rsem = \mathbf{I}\lsem d{::}f,\mathsf{\mc{now}}\rsem \, \wedge \,
+  \forall t \in [\tau,\mathsf{\mc{now}}) \; \mathbf{I}\lsem d{::}f,t\rsem = \mathbf{I}\lsem d{::}f,\tau\rsem
+  \big) \rightarrow v = \mathbf{I}\lsem d{::}f,\mathsf{\mc{now}}\rsem
+\label{eq:df-GetChange}\tag{df-GetChange}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{leandefinition}{GetChangeLean}~\leanTitle{GetChange}~ Define \texttt{GetChange} in Lean.
+
+\texttt{\textcolor{leancolor}{def} \textcolor{leanyellow}{GetChange} (d : Occurrence) (f : Element) (tau : Time) (v : Set Item) : Prop :=}
+
+\texttt{~~(Get d f tau $\ne$ Get d f $\langle$now, dl\_nowt$\rangle$ $\wedge$ $\forall$ t $\in$ Set.Ico tau
+($\langle$now, dl\_nowt$\rangle$ : Time), Get d f t = Get d f tau)}
+
+\texttt{~~~~$\to$ v = Get d f $\langle$now, dl\_nowt$\rangle$}
+\label{GetChange}
+\end{restatable}
+
 \ecaption{GetChange}
 \begin{lstlisting}
   behavior GetChange {
 		doc /* GetChange(d,f) waits for value of the feature d::f to change
 		     * from its value at time tau. */
 		@Assert{n="GetChange"; f="<<GetChange : d~Occurrence, f~Anything, tau~Instant : "+
-				"(I[[d::f,tau]] <> I[[d::f,now]] and forall t~Instant in tau ., now are I[[d::f,t]] = I[[d::f,tau]])"+
-				" implies v = I[[d::f,now]] >>";
+				"(I[[d::f,tau]] <> I[[d::f,now]] and forall t~Instant in tau ., now are "+
+				" I[[d::f,t]] = I[[d::f,tau]]) implies v = I[[d::f,now]] >>";
 				t="df-bl.changed";}
 		in feature d : Occurrence[1] {  //onOccurrence
 		  feature f : Anything[1];  //accessedFeature
@@ -811,14 +893,34 @@ By \ref{eq:df-typebody} the ZFC-class defined for B would be something like this
 	}
 \end{lstlisting}\index{GetChange@\texttt{GetChange}}
 
+\pn \texttt{GetBooleanChange} specializes \texttt{GetChange} (\texttt{:> GetChange}) for a Boolean-valued
+feature \texttt{e}: it waits for \texttt{d::e} to toggle, with the same ``stable then changed'' condition as
+\texttt{GetChange}, just restated with \texttt{e}/\texttt{b} in place of \texttt{f}/\texttt{v}.
+
+\begin{restatable}{metadefinition}{dfGetBooleanChange}~\blTitle{df-GetBooleanChange}~ Define
+\texttt{GetBooleanChange}.
+\begin{align}
+\vdash \textit{GetBooleanChange}(d,e,\tau,b) \leftrightarrow \textit{GetChange}(d,e,\tau,b)
+\label{eq:df-GetBooleanChange}\tag{df-GetBooleanChange}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{leandefinition}{GetBooleanChangeLean}~\leanTitle{GetBooleanChange}~ Define
+\texttt{GetBooleanChange} in Lean, defined directly in terms of \texttt{GetChange} rather than repeating its
+body, mirroring \texttt{GetBooleanChange :> GetChange}'s real KerML specialization.
+
+\texttt{\textcolor{leancolor}{def} \textcolor{leanyellow}{GetBooleanChange} (d : Occurrence) (e : Element) (tau : Time) (b : Set Item) : Prop := GetChange d e tau b}
+\label{GetBooleanChange}
+\end{restatable}
+
 \ecaption{GetBooleanChange}
 \begin{lstlisting}
 	behavior GetBooleanChange :> GetChange {
 		doc /* GetBooleanChange, like GetChange, waits for d::e to toggle */
-		@Assert{n="GetBooleanChange"; f="<<GetBooleanChange : d~Occurrence, e~BooleanEvaluation, tau~Instant : "+
-				"(I[[d::e,tau]] <> I[[d::e,now]] and forall t~Instant in tau ., now are I[[d::e,t]] = I[[d::e,tau]])"+
-				" implies b = I[[d::e,now]] >>";
-				t="df-bl.changed";}
+		@Assert{n="GetBooleanChange"; f="<<GetBooleanChange : d~Occurrence, e~BooleanEvaluation,"+
+			" tau~Instant : (I[[d::e,tau]] <> I[[d::e,now]] and forall t~Instant in tau ., now are "+
+			"I[[d::e,t]] = I[[d::e,tau]]) implies b = I[[d::e,now]] >>";
+			t="df-bl.changed";}
 		in feature :>> d {
 			feature e : BooleanEvaluation[1] :>> f;
 		}
@@ -827,23 +929,89 @@ By \ref{eq:df-typebody} the ZFC-class defined for B would be something like this
 	}
 \end{lstlisting}\index{GetBooleanChange@\texttt{GetBooleanChange}}
 
+\pn \texttt{GetChangeToTrue} specializes \texttt{GetBooleanChange} (\texttt{:> GetBooleanChange}) with a
+shortcut: unlike plain \texttt{GetBooleanChange}, it does \emph{not} wait if \texttt{d::e} is already true ---
+if \texttt{d::e} holds at $\mathsf{\mc{now}}$ and did not hold throughout $[\texttt{tau},\mathsf{\mc{now}})$,
+its output \texttt{b} is immediately true.
+
+\begin{restatable}{metadefinition}{dfGetChangeToTrue}~\blTitle{df-GetChangeToTrue}~ Define
+\texttt{GetChangeToTrue}.
+\begin{align}
+\vdash \textit{GetChangeToTrue}(d,e,\tau,b) \leftrightarrow \notag \\
+  \big( \mathbf{I}\lsem d{::}e,\mathsf{\mc{now}}\rsem \, \wedge \,
+  \forall t \in [\tau,\mathsf{\mc{now}}) \; \lnot \mathbf{I}\lsem d{::}e,t\rsem \big)
+  \rightarrow b = \texttt{true}
+\label{eq:df-GetChangeToTrue}\tag{df-GetChangeToTrue}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{leanaxiom}{GetChangeToTrueLean}~\leanTitle{GetChangeToTrue}~ Define \texttt{GetChangeToTrue}
+in Lean. Uses \texttt{GetP} (the predicate reading), not \texttt{Get}: its own \texttt{@Assert} formula uses
+$\mathbf{I}\lsem d{::}e,\tau\rsem$ bare, not compared against anything --- a genuinely independent primitive
+from \texttt{featureAccess}, since there is no sound way to recover ``this feature value denotes true'' from
+\texttt{featureAccess}'s class-valued result alone. \texttt{trueItem} is a fresh opaque canonical value
+standing for the Boolean literal \texttt{true}.
+
+\texttt{\textcolor{leancolor}{axiom} \textcolor{leanyellow}{featureAccessProp} : Occurrence $\to$ Element $\to$ TProp}
+
+\texttt{\textcolor{leancolor}{def} \textcolor{leanyellow}{GetP} (d : Occurrence) (f : Element) (tau : Time) : Prop := interpAt (featureAccessProp d f) tau}
+
+\texttt{\textcolor{leancolor}{axiom} \textcolor{leanyellow}{trueItem} : Set Item}
+
+\texttt{\textcolor{leancolor}{def} \textcolor{leanyellow}{GetChangeToTrue} (d : Occurrence) (e : Element) (tau : Time) (b : Set Item) : Prop :=}
+
+\texttt{~~(GetP d e $\langle$now, dl\_nowt$\rangle$ $\wedge$ $\forall$ t $\in$ Set.Ico tau
+($\langle$now, dl\_nowt$\rangle$ : Time), $\lnot$ GetP d e t) $\to$ b = trueItem}
+\label{GetChangeToTrue}
+\end{restatable}
+
 \ecaption{GetChangeToTrue}
 \begin{lstlisting}
 	behavior GetChangeToTrue :> GetBooleanChange{
 		doc /* GetChangeToTrue does not wait if d::e is already true */
-		@Assert{n="GetChangeToTrue"; f="<<GetChangeToTrue : d~Occurrence, e~BooleanEvaluation, tau~Instant : "+
-				"(I[[d::e,now]] and forall t~Instant in tau ., now are not I[[d::e,t]] )"+
-				" implies b = true >>";}
+		@Assert{n="GetChangeToTrue"; f="<<GetChangeToTrue : d~Occurrence, e~BooleanEvaluation,"+
+			" tau~Instant : (I[[d::e,now]] and forall t~Instant in tau ., now are not I[[d::e,t]] )"+
+			" implies b = true >>";
+			t="GetChangeToTrue";}
 	}
 \end{lstlisting}\index{GetChangeToTrue@\texttt{GetChangeToTrue}}
+
+\pn \texttt{GetChangeToFalse} is the mirror image of \texttt{GetChangeToTrue}: it does not wait if
+\texttt{d::e} is already false --- if \texttt{d::e} does not hold at $\mathsf{\mc{now}}$ and held throughout
+$[\texttt{tau},\mathsf{\mc{now}})$, its output \texttt{b} is immediately false.
+
+\begin{restatable}{metadefinition}{dfGetChangeToFalse}~\blTitle{df-GetChangeToFalse}~ Define
+\texttt{GetChangeToFalse}.
+\begin{align}
+\vdash \textit{GetChangeToFalse}(d,e,\tau,b) \leftrightarrow \notag \\
+  \big( \lnot \mathbf{I}\lsem d{::}e,\mathsf{\mc{now}}\rsem \, \wedge \,
+  \forall t \in [\tau,\mathsf{\mc{now}}) \; \mathbf{I}\lsem d{::}e,t\rsem \big)
+  \rightarrow b = \texttt{false}
+\label{eq:df-GetChangeToFalse}\tag{df-GetChangeToFalse}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{leanaxiom}{GetChangeToFalseLean}~\leanTitle{GetChangeToFalse}~ Define
+\texttt{GetChangeToFalse} in Lean, mirror of \texttt{GetChangeToTrue} above. \texttt{falseItem} is a fresh
+opaque canonical value standing for the Boolean literal \texttt{false}.
+
+\texttt{\textcolor{leancolor}{axiom} \textcolor{leanyellow}{falseItem} : Set Item}
+
+\texttt{\textcolor{leancolor}{def} \textcolor{leanyellow}{GetChangeToFalse} (d : Occurrence) (e : Element) (tau : Time) (b : Set Item) : Prop :=}
+
+\texttt{~~($\lnot$ GetP d e $\langle$now, dl\_nowt$\rangle$ $\wedge$ $\forall$ t $\in$ Set.Ico tau
+($\langle$now, dl\_nowt$\rangle$ : Time), GetP d e t) $\to$ b = falseItem}
+\label{GetChangeToFalse}
+\end{restatable}
 
 \ecaption{GetChangeToFalse}
 \begin{lstlisting}
 	behavior GetChangeToFalse :> GetBooleanChange{
 		doc /* GetChangeToFalse does not wait if d::e is already false */
-		@Assert{n="GetChangeToFalse"; f="<<GetChangeToFalse : d~Occurrence, e~BooleanEvaluation, tau~Instant : "+
-				"(not I[[d::e,now]] and forall t~Instant in tau ., now are I[[d::e,t]] )"+
-				" implies b = false >>";}
+		@Assert{n="GetChangeToFalse"; f="<<GetChangeToFalse : d~Occurrence, e~BooleanEvaluation,"+
+			" tau~Instant : (not I[[d::e,now]] and forall t~Instant in tau ., now are I[[d::e,t]] )"+
+			" implies b = false >>";
+			t="GetChangeToFalse";}
 	}
 \end{lstlisting}\index{GetChangeToFalse@\texttt{GetChangeToFalse}}
 
