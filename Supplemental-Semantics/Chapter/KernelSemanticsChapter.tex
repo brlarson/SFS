@@ -1031,9 +1031,29 @@ $\texttt{changed}(d,\tau_1)~=~0$ when $d$ has not changed before $\tau_1$.
 \end{align}
 \end{restatable}
 
+\begin{restatable}{leanaxiom}{changedLean}~\leanTitle{changed}~ Define \texttt{changed} in Lean: a primitive
+(no construction of ``the most recent instant before $\tau_1$ that $d$'s value differed'' is given, only the
+characterizing property \texttt{changedIff} below), same treatment as \texttt{birth}/\texttt{death}.
 
+\texttt{\textcolor{leancolor}{axiom} \textcolor{leanyellow}{changed} : Occurrence $\to$ Time $\to$ Time}
+\label{changed}
+\end{restatable}
 
-\subsection{Time Of}  
+\begin{restatable}{leanaxiom}{changedIff}~\leanTitle{changedIff}~ Define \texttt{changed}'s characterizing
+property in Lean. Same caveat as \texttt{birth}/\texttt{death}: this is a total function even though the
+book's own \texttt{df-bl.changed} only partially characterizes it.
+
+\texttt{\textcolor{leancolor}{axiom} \textcolor{leanyellow}{changedIff} \{d : Occurrence\} \{t1 t2 : Time\} :}
+
+\texttt{~~changed d t1 = t2 $\leftrightarrow$}
+
+\texttt{~~~~(t2.val $\prec$ t1.val $\wedge$ (interpValAt d t1 $\ne$ interpValAt d t2 $\vee$ t2.val = 0) $\wedge$}
+
+\texttt{~~~~~$\forall$ t : Time, t.val $\in$ Set.Ioo t2.val t1.val $\to$ interpValAt d t = interpValAt d t2)}
+\label{changedIff}
+\end{restatable}
+
+\subsection{Time Of}
 
 \pn Rather than given a model element $d$ to find its interpretation at time $\tau$, $\mathbf{I}\lsem d,\tau\rsem$, we want to know when predicate $\varphi$ first becomes true.  If $\varphi$ never holds for any $\tau \in \textbf{T}$ the value of $\texttt{timeof}(\varphi)$\index{timeof@\texttt{timeof}} is the empty set.
 For this, the interpretation function needs to extended from interpretation of elements at given times (element valuations) to interpretations of well-formed formulas (predicates) over element valuations.  See \ref{subsec:interpretation} for application of  $\mathbf{I}\lsem \varphi,\tau\rsem$.
@@ -1044,6 +1064,27 @@ For this, the interpretation function needs to extended from interpretation of e
  (~\forall \tau \in (0 [,) \tau_1)~\vert~\lnot \mathbf{I}\lsem \varphi,\tau\rsem ~)~)
 \label{eq:df-bl.timeof}\tag{df-bl.timeof}
 \end{align}
+\end{restatable}
+
+\begin{restatable}{leanaxiom}{timeofLean}~\leanTitle{timeof}~ Define \texttt{timeof} in Lean: a primitive, same
+treatment as \texttt{changed}/\texttt{birth}/\texttt{death} above. The book's own prose notes
+\texttt{timeof}$(\varphi)$ should read as the empty set when $\varphi$ never holds for any $\tau\in\mathbf{T}$
+--- a genuine ZFC partial-function reading this file's total \texttt{Time}-valued \texttt{timeof} doesn't
+literally capture (same simplification already accepted for \texttt{birth}/\texttt{death}), so
+\texttt{timeofIff} below is a characterization, not a full definition.
+
+\texttt{\textcolor{leancolor}{axiom} \textcolor{leanyellow}{timeof} : TProp $\to$ Time}
+\label{timeof}
+\end{restatable}
+
+\begin{restatable}{leanaxiom}{timeofIff}~\leanTitle{timeofIff}~ Define \texttt{timeof}'s characterizing
+property in Lean.
+
+\texttt{\textcolor{leancolor}{axiom} \textcolor{leanyellow}{timeofIff} \{$\varphi$ : TProp\} \{t1 : Time\} :}
+
+\texttt{~~timeof $\varphi$ = t1 $\leftrightarrow$ (interpAt $\varphi$ t1 $\wedge$ $\forall$ t : Time, t.val
+$\in$ Set.Ico (0 : Instant) t1.val $\to$ $\lnot$ interpAt $\varphi$ t)}
+\label{timeofIff}
 \end{restatable}
 
 \subsection{Composite and Portion Features:}\label{par:cnp}
@@ -1069,16 +1110,16 @@ In terms of Allen's interval relations:  \texttt{coincident(fuelPortion,Fuel)}.
 
 \comment{Would like to have formal definitions for \texttt{composite} and \texttt{portion} similar to \ref{eq:df-featuremember}.}
 
-\subsection{Infinitesimal Duration $\delta$:}\label{subsec:delta}
-Often, a tiny bit of time (called \bemph{delta}) is useful for modeling.
-
-\begin{restatable}{definition}{bldelta}~\blTitle{df-bl.delta}~ Define infinitesimal time. 
-\begin{align}
-\vdash \delta = \lim_{\tau \to 0} \tau \label{eq:df-bl.delta}\tag{df-bl.delta}
-\end{align}
-\end{restatable}
-
-Therefore, $(\tau \prec \tau + \delta)$.  Using $\tau'$ as shorthand for $\tau + \delta$, then $(\tau \prec \tau')$.
+%\subsection{Infinitesimal Duration $\delta$:}\label{subsec:delta}
+%Often, a tiny bit of time (called \bemph{delta}) is useful for modeling.
+%
+%\begin{restatable}{definition}{bldelta}~\blTitle{df-bl.delta}~ Define infinitesimal time. 
+%\begin{align}
+%\vdash \delta = \lim_{\tau \to 0} \tau \label{eq:df-bl.delta}\tag{df-bl.delta}
+%\end{align}
+%\end{restatable}
+%
+%Therefore, $(\tau \prec \tau + \delta)$.  Using $\tau'$ as shorthand for $\tau + \delta$, then $(\tau \prec \tau')$.
 
 
 %\ksec{Kernel Constraints (KerML 8.4.4.1)}
