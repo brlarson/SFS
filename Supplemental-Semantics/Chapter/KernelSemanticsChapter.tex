@@ -252,23 +252,24 @@ $\tau_b$ and does not exist before $\tau_b$.
 \end{align}
 \end{restatable}
 
-\pn \texttt{birth} and \texttt{death} are defined together in Lean, class-based (2026-08-26),
-porting a general repair recipe from toy \texttt{$\mathbb{N}$} to the real \texttt{Instant}/\texttt{Time}/
-\texttt{TIME}: guard each characterizing law with its presupposition, keep the function total (or here
-\texttt{Option}-valued) with an unconstrained/undefined value when the presupposition fails, then \emph{prove}
-a model exists rather than assume one. The port is not mechanical -- \texttt{$\mathbb{N}$} is well-ordered for
-free, so any nonempty subset has a least element with no extra assumption; an arbitrary subset of the dense
-continuum \texttt{Time} need not (e.g.\ $\{t \mid t.\mathrm{val} < 0.5\}$ has an infimum but no attained
-minimum) -- so \texttt{birth}'s guard needs one further, explicitly-named structural axiom
-(\ref{occurrenceHasFirstInstant} below) that the $\mathbb{N}$ case gets for free from well-ordering.
+\pn \texttt{birth}, \texttt{death}, and \texttt{timeof} (\S\ref{sec:timeof} below) are defined together in
+Lean, class-based (2026-08-26), porting a general repair recipe from toy \texttt{$\mathbb{N}$} to the real
+\texttt{Instant}/\texttt{Time}/\texttt{TIME}: guard each characterizing law with its presupposition, keep the
+function total (or here \texttt{Option}-valued) with an unconstrained/undefined value when the presupposition
+fails, then \emph{prove} a model exists rather than assume one. The port is not mechanical -- \texttt{$\mathbb{N}$}
+is well-ordered for free, so any nonempty subset has a least element with no extra assumption; an arbitrary
+subset of the dense continuum \texttt{Time} need not (e.g.\ $\{t \mid t.\mathrm{val} < 0.5\}$ has an infimum but
+no attained minimum) -- so \texttt{birth}'s (and \texttt{timeof}'s) guard needs one further, explicitly-named
+structural axiom (\ref{hasFirstInstant} below) that the $\mathbb{N}$ case gets for free from well-ordering.
 \texttt{death} needs no such extra axiom: its guard is self-certifying, the same reasoning that already
 justified \texttt{endShot}'s \texttt{Option} redesign.
 
-\begin{restatable}{leandefinition}{LifetimesLean}~\leanTitle{Lifetimes}~ Define the \texttt{birth}/\texttt{death}
-class in Lean: \texttt{birth} stays total (\texttt{startShot} stays mandatory), \texttt{death} stays
-\texttt{Option}-valued (\texttt{endShot} does not); \texttt{birthIff} is guarded on \texttt{A} existing
-somewhere (unconditional would force even a never-existing \texttt{A} to have \emph{some} birth instant);
-\texttt{deathIff} needs no such guard -- the \texttt{Option} codomain already \emph{is} the guard.
+\begin{restatable}{leandefinition}{LifetimesLean}~\leanTitle{Lifetimes}~ Define the \texttt{birth}/\texttt{death}/
+\texttt{timeof} class in Lean: \texttt{birth}/\texttt{timeof} stay total (\texttt{startShot} stays mandatory;
+\texttt{timeof}'s own guard is analogous), \texttt{death} stays \texttt{Option}-valued (\texttt{endShot} does
+not); \texttt{birthIff}/\texttt{timeofIff} are guarded on existing/holding somewhere (unconditional would force
+even a never-existing \texttt{A} or nowhere-true $\varphi$ to have \emph{some} first instant); \texttt{deathIff}
+needs no such guard -- the \texttt{Option} codomain already \emph{is} the guard.
 
 \texttt{\textcolor{leancolor}{class} \textcolor{leanyellow}{Lifetimes} \textcolor{leancolor}{where}}
 
@@ -284,25 +285,33 @@ somewhere (unconditional would force even a never-existing \texttt{A} to have \e
 
 \texttt{~~~~death A = some t0 $\leftrightarrow$ existsAt A t0 $\wedge$ $\forall$ t1 : Time, t1.val $\in$ Set.Ioc t0.val now $\to$ $\lnot$ existsAt A t1}
 
-\texttt{\textcolor{leancolor}{export} Lifetimes (birth death birthIff deathIff)}
+\texttt{~~timeof : TProp $\to$ Time}
+
+\texttt{~~timeofIff : $\forall$ \{$\varphi$ : TProp\} \{t1 : Time\}, ($\exists$ s, interpAt $\varphi$ s) $\to$}
+
+\texttt{~~~~(timeof $\varphi$ = t1 $\leftrightarrow$ interpAt $\varphi$ t1 $\wedge$ $\forall$ t : Time, t.val $\in$ Set.Ico (0 : Instant) t1.val $\to$ $\lnot$ interpAt $\varphi$ t)}
+
+\texttt{\textcolor{leancolor}{export} Lifetimes (birth death birthIff deathIff timeof timeofIff)}
 \label{Lifetimes}
 \end{restatable}
 
-\begin{restatable}{leanaxiom}{occurrenceHasFirstInstantLean}~\leanTitle{occurrenceHasFirstInstant}~ The one new
-trusted ingredient this reformation needs: every \texttt{Occurrence} that exists anywhere has a \emph{first}
-instant of existence, not merely an infimum of existence times -- formalizes \texttt{Occurrences.kerml}'s
-mandatory \texttt{startShot: Instant[1]} (unlike \texttt{endShot}, never weakened to \texttt{[0..1]}).
+\begin{restatable}{leanaxiom}{hasFirstInstantLean}~\leanTitle{hasFirstInstant}~ The one new trusted ingredient
+this reformation needs, stated generically (not fixed to \texttt{existsAt A}) so it serves both \texttt{birth}
+(\texttt{P := existsAt A}, formalizing \texttt{Occurrences.kerml}'s mandatory \texttt{startShot: Instant[1]})
+and \texttt{timeof} below (\texttt{P := interpAt $\varphi$}) without a near-duplicate axiom for each: any
+\texttt{Time $\to$ Prop} predicate that holds anywhere has a \emph{first} instant where it holds, not merely
+an infimum of the instants where it holds.
 
-\texttt{\textcolor{leancolor}{axiom} \textcolor{leanyellow}{occurrenceHasFirstInstant} (A : Occurrence)}
+\texttt{\textcolor{leancolor}{axiom} \textcolor{leanyellow}{hasFirstInstant} (P : Time $\to$ Prop)}
 
-\texttt{~~(\_h : $\exists$ s, existsAt A s) : $\exists$ $\tau$, IsLeast \{t : Time $\mid$ existsAt A t\} $\tau$}
-\label{occurrenceHasFirstInstant}
+\texttt{~~(\_h : $\exists$ s, P s) : $\exists$ $\tau$, IsLeast \{t : Time $\mid$ P t\} $\tau$}
+\label{hasFirstInstant}
 \end{restatable}
 
 \begin{restatable}{leantheorem}{birthExistsLean}~\leanTitle{birth\_exists}~ A total selector satisfying
-\texttt{birthIff}'s guarded spec exists for every occurrence: \ref{occurrenceHasFirstInstant}'s witness when
-\texttt{A} exists somewhere, an unconstrained junk value otherwise. Proof omitted here (case split on
-existence, direct from \ref{occurrenceHasFirstInstant} in the positive case).
+\texttt{birthIff}'s guarded spec exists for every occurrence: \ref{hasFirstInstant}'s witness (at
+\texttt{P := existsAt A}) when \texttt{A} exists somewhere, an unconstrained junk value otherwise. Proof
+omitted here (case split on existence, direct from \ref{hasFirstInstant} in the positive case).
 
 \texttt{\textcolor{leancolor}{theorem} \textcolor{leanyellow}{birth\_exists} (A : Occurrence) :}
 
@@ -329,15 +338,31 @@ omitted here (case split on whether a greatest existence instant exists, uniquen
 \label{death_exists}
 \end{restatable}
 
+\begin{restatable}{leantheorem}{timeofExistsLean}~\leanTitle{timeof\_exists}~ SFS.mm \texttt{df-bl.timeof}'s own
+guarded existence (\S\ref{sec:timeof}), exactly \ref{birth_exists}'s argument with \texttt{existsAt A} replaced
+by \texttt{interpAt $\varphi$} -- the same structural shape (\texttt{timeofIff} is \texttt{birthIff} with
+\texttt{interpAt $\varphi$} in place of \texttt{existsAt A}), so the same proof, via the same generic
+\ref{hasFirstInstant}, carries over unchanged.
+
+\texttt{\textcolor{leancolor}{theorem} \textcolor{leanyellow}{timeof\_exists} ($\varphi$ : TProp) :}
+
+\texttt{~~$\exists$ t1 : Time, ($\exists$ s, interpAt $\varphi$ s) $\to$}
+
+\texttt{~~~~(interpAt $\varphi$ t1 $\wedge$ $\forall$ t : Time, t.val $\in$ Set.Ico (0 : Instant) t1.val $\to$ $\lnot$ interpAt $\varphi$ t)}
+\label{timeof_exists}
+\end{restatable}
+
 \begin{restatable}{leandefinition}{modelLean}~\leanTitle{model}~ The consistency certificate: a real model,
-built via \texttt{Classical.choose} over \ref{birth_exists}/\ref{death_exists} -- exactly the construction
-that would be impossible without \texttt{birthIff}/\texttt{deathIff}'s guards. A plain (not locally-scoped)
-\texttt{instance}, so every downstream use of \texttt{birth}/\texttt{death}/\texttt{birthIff}/\texttt{deathIff}
-elsewhere resolves to it automatically. \texttt{birthIff}/\texttt{deathIff}'s own field proofs (via
+built via \texttt{Classical.choose} over \ref{birth_exists}/\ref{death_exists}/\ref{timeof_exists} -- exactly
+the construction that would be impossible without \texttt{birthIff}/\texttt{deathIff}/\texttt{timeofIff}'s
+guards. A plain (not locally-scoped) \texttt{instance}, so every downstream use of
+\texttt{birth}/\texttt{death}/\texttt{birthIff}/\texttt{deathIff}/\texttt{timeof}/\texttt{timeofIff} elsewhere
+resolves to it automatically. \texttt{birthIff}/\texttt{deathIff}/\texttt{timeofIff}'s own field proofs (via
 \texttt{Classical.choose\_spec} and a short order-theoretic argument) are omitted here for brevity. The audit,
 matching the toy \texttt{$\mathbb{N}$} demo's own convention: \texttt{\#print axioms model} reports exactly
 Lean's three standard classical axioms plus the project's pre-existing foundational primitives plus
-\emph{one} new ingredient, \ref{occurrenceHasFirstInstant} -- nothing else.
+\emph{one} new ingredient, \ref{hasFirstInstant} -- reused for both \texttt{birth} and \texttt{timeof} --
+nothing else.
 
 \texttt{\textcolor{leancolor}{noncomputable instance} \textcolor{leanyellow}{model} : Lifetimes \textcolor{leancolor}{where}}
 
@@ -345,9 +370,13 @@ Lean's three standard classical axioms plus the project's pre-existing foundatio
 
 \texttt{~~death A := Classical.choose (death\_exists A)}
 
+\texttt{~~timeof $\varphi$ := Classical.choose (timeof\_exists $\varphi$)}
+
 \texttt{~~birthIff \{A\} \{t0\} h := \textcolor{leancolor}{by} \ldots}
 
 \texttt{~~deathIff \{A\} \{t0\} := \textcolor{leancolor}{by} \ldots}
+
+\texttt{~~timeofIff \{$\varphi$\} \{t1\} h := \textcolor{leancolor}{by} \ldots}
 \label{model}
 \end{restatable}
 
@@ -1156,15 +1185,28 @@ $\texttt{changed}(d,\tau_1)~=~0$ when $d$ has not changed before $\tau_1$.
 
 \begin{restatable}{leanaxiom}{changedLean}~\leanTitle{changed}~ Define \texttt{changed} in Lean: a primitive
 (no construction of ``the most recent instant before $\tau_1$ that $d$'s value differed'' is given, only the
-characterizing property \texttt{changedIff} below), same treatment as \texttt{birth}/\texttt{death}.
+characterizing property \texttt{changedIff} below). \textbf{Not} given the same guard-and-prove treatment as
+\texttt{birth}/\texttt{death}/\texttt{timeof} (2026-08-26 investigation): unlike those, \texttt{changedIff}'s
+presupposition isn't merely ``sometimes fails at existence edge cases.'' For an ordinary step-function
+\texttt{Occurrence} (e.g.\ $d$ constant $A$ before $0.5$, constant $B$ from $0.5$ on) and any $\tau_1$ that
+isn't itself a fresh transition instant for $d$ (e.g.\ $\tau_1=0.8$), \emph{no} $\tau_2$ satisfies
+\eqref{eq:df-bl.changed}'s three conditions jointly: the exact transition point fails the ``differs'' disjunct
+(its value already matches $d(\tau_1)$), and every earlier $\tau_2$ fails the open-interval constancy clause
+(the interval $(\tau_2,\tau_1)$ straddles the transition). This looks like a real gap in
+\texttt{df-bl.changed}'s own formalization (likely inherited from \texttt{SFS.mm}), not the
+\texttt{birth}/\texttt{death}-style ``no least element in a dense order'' presupposition gap. A promising fix
+(finite variability -- only finitely many instants in $[0,\mathsf{now}]$ are actual value-changes, sidestepping
+the dense-order completeness problem entirely since finite sets always have an attained maximum) has been
+proposed but not yet implemented; left here as a known, unresolved issue rather than guessed at.
 
 \texttt{\textcolor{leancolor}{axiom} \textcolor{leanyellow}{changed} : Occurrence $\to$ Time $\to$ Time}
 \label{changed}
 \end{restatable}
 
 \begin{restatable}{leanaxiom}{changedIff}~\leanTitle{changedIff}~ Define \texttt{changed}'s characterizing
-property in Lean. Same caveat as \texttt{birth}/\texttt{death}: this is a total function even though the
-book's own \texttt{df-bl.changed} only partially characterizes it.
+property in Lean. See \texttt{changed}'s own doc note above: this file's \texttt{changed} stays a total,
+unguarded function -- not merely because ``the book's own \texttt{df-bl.changed} only partially characterizes
+it'' (the original framing), but because the guard-and-prove treatment doesn't obviously apply as-is.
 
 \texttt{\textcolor{leancolor}{axiom} \textcolor{leanyellow}{changedIff} \{d : Occurrence\} \{t1 t2 : Time\} :}
 
@@ -1176,7 +1218,7 @@ book's own \texttt{df-bl.changed} only partially characterizes it.
 \label{changedIff}
 \end{restatable}
 
-\subsection{Time Of}
+\subsection{Time Of}\label{sec:timeof}
 
 \pn Rather than given a model element $d$ to find its interpretation at time $\tau$, $\mathbf{I}\lsem d,\tau\rsem$, we want to know when predicate $\varphi$ first becomes true.  If $\varphi$ never holds for any $\tau \in \textbf{T}$ the value of $\texttt{timeof}(\varphi)$\index{timeof@\texttt{timeof}} is the empty set.
 For this, the interpretation function needs to extended from interpretation of elements at given times (element valuations) to interpretations of well-formed formulas (predicates) over element valuations.  See \ref{subsec:interpretation} for application of  $\mathbf{I}\lsem \varphi,\tau\rsem$.
@@ -1189,26 +1231,13 @@ For this, the interpretation function needs to extended from interpretation of e
 \end{align}
 \end{restatable}
 
-\begin{restatable}{leanaxiom}{timeofLean}~\leanTitle{timeof}~ Define \texttt{timeof} in Lean: a primitive, same
-treatment as \texttt{changed}/\texttt{birth}/\texttt{death} above. The book's own prose notes
-\texttt{timeof}$(\varphi)$ should read as the empty set when $\varphi$ never holds for any $\tau\in\mathbf{T}$
---- a genuine ZFC partial-function reading this file's total \texttt{Time}-valued \texttt{timeof} doesn't
-literally capture (same simplification already accepted for \texttt{birth}/\texttt{death}), so
-\texttt{timeofIff} below is a characterization, not a full definition.
-
-\texttt{\textcolor{leancolor}{axiom} \textcolor{leanyellow}{timeof} : TProp $\to$ Time}
-\label{timeof}
-\end{restatable}
-
-\begin{restatable}{leanaxiom}{timeofIff}~\leanTitle{timeofIff}~ Define \texttt{timeof}'s characterizing
-property in Lean.
-
-\texttt{\textcolor{leancolor}{axiom} \textcolor{leanyellow}{timeofIff} \{$\varphi$ : TProp\} \{t1 : Time\} :}
-
-\texttt{~~timeof $\varphi$ = t1 $\leftrightarrow$ (interpAt $\varphi$ t1 $\wedge$ $\forall$ t : Time, t.val
-$\in$ Set.Ico (0 : Instant) t1.val $\to$ $\lnot$ interpAt $\varphi$ t)}
-\label{timeofIff}
-\end{restatable}
+\pn \texttt{timeof}/\texttt{timeofIff} are, as of 2026-08-26, fields of the same \texttt{Lifetimes} class as
+\texttt{birth}/\texttt{death} (\ref{Lifetimes}), guarded on $\varphi$ holding somewhere -- exactly
+\texttt{birth}'s own shape with \texttt{interpAt $\varphi$} in place of \texttt{existsAt A} -- rather than a
+standalone total axiom pair. \texttt{timeof}$(\varphi)$'s ZFC partial-function reading (the empty set when
+$\varphi$ never holds) is now captured directly by the guard, not merely noted in prose. See \ref{Lifetimes}
+for the field declarations, \ref{timeof_exists} for the guarded existence proof (reusing \ref{hasFirstInstant},
+the same new axiom \texttt{birth} needs), and \ref{model} for the real, audited construction.
 
 \subsection{Composite and Portion Features:}\label{par:cnp}
 
