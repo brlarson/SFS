@@ -112,6 +112,78 @@ hypothesis at any $\tau_1,\tau_2$ with $\texttt{next}(\tau_1,\tau_2)$ (which giv
 \tau_2$): density yields an instant strictly between them, directly contradicting the non-existence
 conjunct of \eqref{eq:df-bl.next}.
 
+\pn \eqref{eq:bl.nextdense}'s own remark above -- \textit{next} only does real work applied to ``instants drawn
+from a single discretized Period'' -- is given real formal content in Lean (2026-08-26, at direct
+request): every \texttt{Occurrence}'s raw interpretation only ever changes at finitely many \emph{shared}
+instants, a single ``event calendar,'' not a per-\texttt{Occurrence} one. This is a genuine new modeling
+commitment, not derivable from anything else in the development -- physically, it says the system has a
+shared discrete event structure, matching how \texttt{Occurrence} values are already \texttt{Set Item}-typed
+(discrete), not continuously varying. Hyperreals were considered and rejected as an alternative fix for
+\textit{next}'s vacuity: the transfer principle makes ``nothing between'' vacuous in the hyperreals too, and
+``infinitesimally close'' is always false for two distinct \emph{standard} reals, which every \texttt{Time}
+value is -- finiteness, not a richer number system, is what actually works.
+
+\begin{restatable}{leanaxiom}{finitePartitionLean}~\leanTitle{finitePartition}~ Every \texttt{Occurrence}'s
+raw interpretation only changes at finitely many shared ticks, stated without reference to ``pieces'' to
+sidestep any \texttt{Ico}/\texttt{Icc} boundary bookkeeping: if no shared tick falls strictly inside
+$(t_1,t_2]$, \texttt{d}'s value cannot have changed between \texttt{t1} and \texttt{t2}.
+
+\texttt{\textcolor{leancolor}{axiom} \textcolor{leanyellow}{finitePartition} :}
+
+\texttt{~~$\exists$ (n : $\mathbb{N}$) (breaks : Fin (n + 1) $\to$ Time),}
+
+\texttt{~~~~breaks 0 = $\langle$0, TIME\_nonempty$\rangle$ $\wedge$ breaks (Fin.last n) = $\langle$now, dl\_nowt$\rangle$ $\wedge$}
+
+\texttt{~~~~($\forall$ i j : Fin (n + 1), i < j $\to$ (breaks i).val $\prec$ (breaks j).val) $\wedge$}
+
+\texttt{~~~~$\forall$ (d : Occurrence) (t1 t2 : Time), t1.val $\preccurlyeq$ t2.val $\to$}
+
+\texttt{~~~~~~($\lnot$ $\exists$ i : Fin (n + 1), (breaks i).val $\in$ Set.Ioc t1.val t2.val) $\to$}
+
+\texttt{~~~~~~interpValAt d t1 = interpValAt d t2}
+\label{finitePartition}
+\end{restatable}
+
+\begin{restatable}{leandefinition}{ticksLean}~\leanTitle{tickCount / ticks}~ The chosen tick count and
+instants themselves, extracted from \ref{finitePartition} once via \texttt{Classical.choose} -- every
+downstream definition (\textit{next}, \texttt{changed}) is stated against this one fixed choice.
+
+\texttt{\textcolor{leancolor}{noncomputable def} \textcolor{leanyellow}{tickCount} : $\mathbb{N}$ := finitePartition.choose}
+
+\texttt{\textcolor{leancolor}{noncomputable def} \textcolor{leanyellow}{ticks} : Fin (tickCount + 1) $\to$ Time := finitePartition.choose\_spec.choose}
+\label{ticks}
+\end{restatable}
+
+\begin{restatable}{leandefinition}{isTickLean}~\leanTitle{isTick}~ \texttt{t} is one of the finitely many
+shared ticks.
+
+\texttt{\textcolor{leancolor}{def} \textcolor{leanyellow}{isTick} (t : Time) : Prop := $\exists$ i : Fin (tickCount + 1), ticks i = t}
+\label{isTick}
+\end{restatable}
+
+\begin{restatable}{leandefinition}{nextLean}~\leanTitle{next}~ Redefined against \ref{isTick} (was
+``$\tau_1 \prec \tau_2$ and no \texttt{Time} value strictly between them,'' provably vacuous on dense
+$\mathbb{R}$ per \eqref{eq:bl.nextdense} above regardless of $\tau_1$/$\tau_2$) as ``$\tau_1$, $\tau_2$ are both
+shared ticks, $\tau_1 \prec \tau_2$, and no \emph{other tick} lies strictly between them'' -- genuine
+successor-in-a-finite-set, no longer forced to be \texttt{False} for every input.
+
+\texttt{\textcolor{leancolor}{noncomputable def} \textcolor{leanyellow}{next} (t1 t2 : Time) : Prop :=}
+
+\texttt{~~isTick t1 $\wedge$ isTick t2 $\wedge$ t1.val $\prec$ t2.val $\wedge$}
+
+\texttt{~~~~$\lnot$ $\exists$ x : Time, isTick x $\wedge$ t1.val $\prec$ x.val $\wedge$ x.val $\prec$ t2.val}
+\label{nextLean}
+\end{restatable}
+
+\begin{restatable}{leantheorem}{nextUniqLean}~\leanTitle{next\_uniq}~ \eqref{eq:bl.nextuniq}, genuinely
+reinstated: whichever tick has the smaller index turns out to lie strictly between $\tau_1$ and the other,
+contradicting that other's own ``nothing between'' clause. (Before this redesign this theorem was
+vacuously true via \eqref{eq:bl.nextdense}, since \textit{next} was never satisfiable at all.)
+
+\texttt{\textcolor{leancolor}{theorem} \textcolor{leanyellow}{next\_uniq} \{t1 t2 t3 : Time\} (h2 : next t1 t2) (h3 : next t1 t3) : t2 = t3}
+\label{next_uniq}
+\end{restatable}
+
 \section{Hybrid Logics}\label{sec:hybridlogics}
 
 \pn The temporal logics closest to \logicid~ are called \bemph{hybrid logics} in that they extend a propositional temporal logic with quantifiers, and use \bemph{nominals} \cite{sep-logic-hybrid}\cite{Bull-1970}.  Nominals are atomic propositions which are true at exactly one $t \in T$.  With nominals, a \bemph{satisfaction operator} can be defined to represent that a formula $\phi$ is true at the exact instant which nominal $i$ is true,~~ $@_i \phi$

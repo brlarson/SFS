@@ -833,28 +833,18 @@ instant between under \texttt{next}, even without either boundary being open.
 \end{restatable}
 
 
-\begin{restatable}{leandefinition}{nearlyMeetsLean}~\leanTitle{nearlyMeets}~ Define nearlymeets in Lean. The
-\texttt{next (death A) (birth B)} disjunct is, per \texttt{next\_dense} (\S3.1.1), provably always
-\texttt{False} here (\texttt{next} is vacuous on dense $\mathbb{R}$), so this reduces semantically to just the
-open-boundary disjunct --- see \texttt{nearlyMeets\_iff} below. Included literally anyway, matching
-\texttt{SFS.mm}'s own formula rather than silently dropping the now-vacuous part.
+\begin{restatable}{leandefinition}{nearlyMeetsLean}~\leanTitle{nearlyMeets}~ Define nearlymeets in Lean,
+\texttt{Option}-valued (\texttt{death} became \texttt{Option}-valued, \ref{Lifetimes}). The
+\texttt{next (death A) (birth B)} disjunct, before \textit{next}'s own redesign (\S\ref{sec:precedence},
+\ref{nextLean}), was provably always \texttt{False} here; now genuinely possible whenever \texttt{death A}/
+\texttt{birth B} are consecutive shared ticks, so there is no longer an unconditional collapse to just the
+open-boundary disjunct to state (the old \texttt{nearlyMeets\_iff} is retired along with the vacuity it
+relied on).
 
-\texttt{\textcolor{leancolor}{def} \textcolor{leanyellow}{nearlyMeets} (A B : Occurrence) : Prop :=}
+\texttt{\textcolor{leancolor}{noncomputable def} \textcolor{leanyellow}{nearlyMeets} (A B : Occurrence) : Option Prop :=}
 
-\texttt{~~(birth B = death A $\wedge$ (openRight A $\vee$ openLeft B)) $\vee$ next (death A) (birth B)}
+\texttt{~~(death A).map fun tA $\Rightarrow$ (birth B = tA $\wedge$ (openRight A $\vee$ openLeft B)) $\vee$ next tA (birth B)}
 \label{nearlyMeets}
-\end{restatable}
-
-\begin{restatable}{leantheorem}{nearlyMeetsIff}~\leanTitle{nearlyMeets\_iff}~ Free consequence of
-\texttt{next\_dense}, not a fact \texttt{SFS.mm}/\texttt{Allen.kerml} state themselves: \texttt{nearlyMeets}
-collapses to its open-boundary disjunct alone.
-
-\texttt{\textcolor{leancolor}{theorem} \textcolor{leanyellow}{nearlyMeets\_iff} (A B : Occurrence) :}
-
-\texttt{~~nearlyMeets A B $\leftrightarrow$ (birth B = death A $\wedge$ (openRight A $\vee$ openLeft B)) :=}
-
-\texttt{~~\textcolor{leancolor}{by} unfold nearlyMeets; simp [next\_dense]}
-\label{nearlyMeets_iff}
 \end{restatable}
 
 \ecaption{nearlyMeets}
@@ -1183,39 +1173,50 @@ $\texttt{changed}(d,\tau_1)~=~0$ when $d$ has not changed before $\tau_1$.
 \end{align}
 \end{restatable}
 
-\begin{restatable}{leanaxiom}{changedLean}~\leanTitle{changed}~ Define \texttt{changed} in Lean: a primitive
-(no construction of ``the most recent instant before $\tau_1$ that $d$'s value differed'' is given, only the
-characterizing property \texttt{changedIff} below). \textbf{Not} given the same guard-and-prove treatment as
-\texttt{birth}/\texttt{death}/\texttt{timeof} (2026-08-26 investigation): unlike those, \texttt{changedIff}'s
-presupposition isn't merely ``sometimes fails at existence edge cases.'' For an ordinary step-function
-\texttt{Occurrence} (e.g.\ $d$ constant $A$ before $0.5$, constant $B$ from $0.5$ on) and any $\tau_1$ that
-isn't itself a fresh transition instant for $d$ (e.g.\ $\tau_1=0.8$), \emph{no} $\tau_2$ satisfies
-\eqref{eq:df-bl.changed}'s three conditions jointly: the exact transition point fails the ``differs'' disjunct
-(its value already matches $d(\tau_1)$), and every earlier $\tau_2$ fails the open-interval constancy clause
-(the interval $(\tau_2,\tau_1)$ straddles the transition). This looks like a real gap in
-\texttt{df-bl.changed}'s own formalization (likely inherited from \texttt{SFS.mm}), not the
-\texttt{birth}/\texttt{death}-style ``no least element in a dense order'' presupposition gap. A promising fix
-(finite variability -- only finitely many instants in $[0,\mathsf{now}]$ are actual value-changes, sidestepping
-the dense-order completeness problem entirely since finite sets always have an attained maximum) has been
-proposed but not yet implemented; left here as a known, unresolved issue rather than guessed at.
+\begin{restatable}{leandefinition}{changedLean}~\leanTitle{changed}~ Redefined 2026-08-26 via
+\ref{finitePartition}'s shared ticks, replacing the old unconditional \texttt{axiom changed} +
+\texttt{changedIff} pair, which (investigated the same day) was close to vacuous for ordinary
+step-function \texttt{Occurrence}s: for $d$ constant $A$ before $0.5$, constant $B$ from $0.5$ on, and
+any $\tau_1$ that isn't itself a fresh transition instant (e.g.\ $\tau_1=0.8$), \emph{no} $\tau_2$
+satisfied \eqref{eq:df-bl.changed}'s three conditions jointly -- the exact transition point failed the
+``differs'' disjunct (its value already matched $d(\tau_1)$), and every earlier $\tau_2$ failed the
+open-interval constancy clause. Not the \texttt{birth}/\texttt{death}-style ``no least element in a dense
+order'' gap; a real gap in \texttt{df-bl.changed}'s own formalization (likely inherited from
+\texttt{SFS.mm}). \texttt{changed d t1} is now: among the ticks strictly before \texttt{t1} where
+\texttt{d}'s value differs from \texttt{d t1}, take the greatest one (\texttt{Finset.max'} over a finite,
+decidable set -- no infimum/supremum-of-a-continuum issue), then report the tick immediately after it (the
+start of \texttt{t1}'s own current, matching-\texttt{d t1} run); \texttt{0} if no such differing tick
+exists (recovering \eqref{eq:df-bl.changed}'s own $\tau_2=0$ case as a real consequence of the search
+coming up empty, not a separate disjunct). Total, no guard needed -- finiteness does all the work.
 
-\texttt{\textcolor{leancolor}{axiom} \textcolor{leanyellow}{changed} : Occurrence $\to$ Time $\to$ Time}
+\texttt{\textcolor{leancolor}{noncomputable def} \textcolor{leanyellow}{changed} (d : Occurrence) (t1 : Time) : Time :=}
+
+\texttt{~~\textcolor{leancolor}{let} differing : Finset (Fin (tickCount + 1)) :=}
+
+\texttt{~~~~Finset.univ.filter \textcolor{leancolor}{fun} i $\Rightarrow$ (ticks i).val $\prec$ t1.val $\wedge$ interpValAt d (ticks i) $\ne$ interpValAt d t1}
+
+\texttt{~~\textcolor{leancolor}{if} h : differing.Nonempty \textcolor{leancolor}{then}}
+
+\texttt{~~~~\textcolor{leancolor}{let} i := differing.max' h}
+
+\texttt{~~~~\textcolor{leancolor}{if} hlt : (i : $\mathbb{N}$) + 1 < tickCount + 1 \textcolor{leancolor}{then} ticks $\langle$i + 1, hlt$\rangle$ \textcolor{leancolor}{else} $\langle$now, dl\_nowt$\rangle$}
+
+\texttt{~~\textcolor{leancolor}{else} $\langle$0, TIME\_nonempty$\rangle$}
 \label{changed}
 \end{restatable}
 
-\begin{restatable}{leanaxiom}{changedIff}~\leanTitle{changedIff}~ Define \texttt{changed}'s characterizing
-property in Lean. See \texttt{changed}'s own doc note above: this file's \texttt{changed} stays a total,
-unguarded function -- not merely because ``the book's own \texttt{df-bl.changed} only partially characterizes
-it'' (the original framing), but because the guard-and-prove treatment doesn't obviously apply as-is.
+\begin{restatable}{leantheorem}{changedZeroLean}~\leanTitle{changed\_zero\_of\_no\_diff}~ Sanity check, not
+a full re-derivation of the old \texttt{changedIff}: if \texttt{d} never differs from its own value at
+\texttt{t1} among any tick strictly before \texttt{t1}, \texttt{changed} reports \texttt{0} --
+\eqref{eq:df-bl.changed}'s own ``hasn't changed before $\tau_1$'' case, now a real theorem rather than an
+axiomatized disjunct.
 
-\texttt{\textcolor{leancolor}{axiom} \textcolor{leanyellow}{changedIff} \{d : Occurrence\} \{t1 t2 : Time\} :}
+\texttt{\textcolor{leancolor}{theorem} \textcolor{leanyellow}{changed\_zero\_of\_no\_diff} \{d : Occurrence\} \{t1 : Time\}}
 
-\texttt{~~changed d t1 = t2 $\leftrightarrow$}
+\texttt{~~(h : $\forall$ i : Fin (tickCount + 1), (ticks i).val $\prec$ t1.val $\to$ interpValAt d (ticks i) = interpValAt d t1) :}
 
-\texttt{~~~~(t2.val $\prec$ t1.val $\wedge$ (interpValAt d t1 $\ne$ interpValAt d t2 $\vee$ t2.val = 0) $\wedge$}
-
-\texttt{~~~~~$\forall$ t : Time, t.val $\in$ Set.Ioo t2.val t1.val $\to$ interpValAt d t = interpValAt d t2)}
-\label{changedIff}
+\texttt{~~changed d t1 = $\langle$0, TIME\_nonempty$\rangle$}
+\label{changed_zero_of_no_diff}
 \end{restatable}
 
 \subsection{Time Of}\label{sec:timeof}
