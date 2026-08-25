@@ -577,12 +577,26 @@ up, in \texttt{kand}/\texttt{kor}, not here.
 \end{align}
 \end{restatable}
 
+\begin{restatable}{leanaxiom}{openLeftRight}~\leanTitle{openLeft / openRight}~ \texttt{Interval}'s own
+boundary-openness features, in Lean, reused on \texttt{Occurrence} here since \texttt{Allen.kerml}'s own
+\texttt{starts}/\texttt{finishes}/\texttt{coincident}/\texttt{nearlyMeets} all call them on
+\texttt{x}/\texttt{y~:~Occurrence}. Fresh primitives: nothing represented interval boundary openness before
+\texttt{df-nearlymeets} was added to \texttt{SFS.mm}.
+
+\texttt{\textcolor{leancolor}{axiom} \textcolor{leanyellow}{openLeft} : Occurrence $\to$ Prop}
+
+\texttt{\textcolor{leancolor}{axiom} \textcolor{leanyellow}{openRight} : Occurrence $\to$ Prop}
+\label{openLeft}
+\end{restatable}
+
 \begin{restatable}{leandefinition}{startsLean}~\leanTitle{starts}~ Define Allen's interval starts in Lean --
 compares $X$'s and $Y$'s deaths directly, so needs both, via \texttt{kand}/\texttt{klt} (\ref{kand},
-\ref{klt}): short-circuits to \texttt{some False} when $\texttt{birth}(X)=\texttt{birth}(Y)$ already fails,
-even if a death is unknown.
+\ref{klt}): short-circuits to a definite answer as soon as any known conjunct settles it, even if a death
+is unknown. Nested \texttt{kand}s mirror the real \texttt{@Assert} formula's own right-associative
+\texttt{and}-chain literally, not just logically -- \texttt{Assert.lean}'s \texttt{example ... := rfl}
+confirms exact agreement.
 
-\texttt{\textcolor{leancolor}{noncomputable def} \textcolor{leanyellow}{starts} (A B : Occurrence) : Option Prop := kand (some (birth A = birth B)) (klt (death B) (death A))}
+\texttt{\textcolor{leancolor}{noncomputable def} \textcolor{leanyellow}{starts} (A B : Occurrence) : Option Prop := kand (some (birth A = birth B)) (kand (klt (death B) (death A)) (some (openLeft A = openLeft B)))}
 \label{starts}
 \end{restatable}
 
@@ -632,9 +646,10 @@ needs both deaths, same reasoning as \texttt{starts}, via \texttt{kand}/\texttt{
 \end{restatable}
 
 \begin{restatable}{leandefinition}{finishesLean}~\leanTitle{finishes}~ Define Allen's interval finishes in Lean
--- needs both deaths, same reasoning as \texttt{starts}, via \texttt{kand}/\texttt{keq}.
+-- needs both deaths, same reasoning as \texttt{starts}, via \texttt{kand}/\texttt{keq}, same right-associative
+nesting.
 
-\texttt{\textcolor{leancolor}{noncomputable def} \textcolor{leanyellow}{finishes} (A B : Occurrence) : Option Prop := kand (some ((birth B).val $\prec$ (birth A).val)) (keq (death A) (death B))}
+\texttt{\textcolor{leancolor}{noncomputable def} \textcolor{leanyellow}{finishes} (A B : Occurrence) : Option Prop := kand (some ((birth B).val $\prec$ (birth A).val)) (kand (keq (death A) (death B)) (some (openRight A = openRight B)))}
 \label{finishes}
 \end{restatable}
 
@@ -659,9 +674,11 @@ needs both deaths, same reasoning as \texttt{starts}, via \texttt{kand}/\texttt{
 \end{restatable}
 
 \begin{restatable}{leandefinition}{coincidentLean}~\leanTitle{coincident}~ Define Allen's interval coincident in
-Lean -- needs both deaths, same reasoning as \texttt{starts}, via \texttt{kand}/\texttt{keq}.
+Lean -- needs both deaths, same reasoning as \texttt{starts}, via \texttt{kand}/\texttt{keq}; the trailing
+$\texttt{openLeft}$/$\texttt{openRight}$ pair (both non-partial) combine via plain $\wedge$, matching where
+the real formula's own right-associative parse bottoms out.
 
-\texttt{\textcolor{leancolor}{noncomputable def} \textcolor{leanyellow}{coincident} (A B : Occurrence) : Option Prop := kand (some (birth A = birth B)) (keq (death A) (death B))}
+\texttt{\textcolor{leancolor}{noncomputable def} \textcolor{leanyellow}{coincident} (A B : Occurrence) : Option Prop := kand (some (birth B = birth A)) (kand (keq (death A) (death B)) (some (openLeft A = openLeft B $\wedge$ openRight A = openRight B)))}
 \label{coincident}
 \end{restatable}
 
@@ -720,16 +737,6 @@ instant between under \texttt{next}, even without either boundary being open.
 \end{align}
 \end{restatable}
 
-\begin{restatable}{leanaxiom}{openLeftRight}~\leanTitle{openLeft / openRight}~ \texttt{Interval}'s own
-boundary-openness features, in Lean, reused on \texttt{Occurrence} here since \texttt{Allen.kerml}'s own
-\texttt{nearlyMeets} calls them on \texttt{x}/\texttt{y~:~Occurrence}. Fresh primitives: nothing represented
-interval boundary openness before \texttt{df-nearlymeets} was added to \texttt{SFS.mm}.
-
-\texttt{\textcolor{leancolor}{axiom} \textcolor{leanyellow}{openLeft} : Occurrence $\to$ Prop}
-
-\texttt{\textcolor{leancolor}{axiom} \textcolor{leanyellow}{openRight} : Occurrence $\to$ Prop}
-\label{openLeft}
-\end{restatable}
 
 \begin{restatable}{leandefinition}{nearlyMeetsLean}~\leanTitle{nearlyMeets}~ Define nearlymeets in Lean. The
 \texttt{next (death A) (birth B)} disjunct is, per \texttt{next\_dense} (\S3.1.1), provably always
