@@ -122,7 +122,7 @@ conjunct of \eqref{eq:df-bl.next}.
 \pn  Some of the expressive features of \lang~ logic, such as evaluating a predicate at a particular time, or quantification over time, or \bemph{now} have been found useful by others.  Furthermore, this is not the place to explore subtle differences between concepts, or why \lang~ logic is more powerful or elegant.  %(it is!)
  Rather to acknowledge some similarities of \lang~ logic with other independently-developed logics.
  
- \section{\lang~Logic 0:  \logicid$_0$}\label{sec:bl0}
+ \section{\logicid~Logic 0:  \logicid$_0$}\label{sec:bl0}
  
 \pn  As preliminary, a propositional subset of \logicid~ called \logicid$_0$ is presented.  A model, $\mathfrak{M}$ is defined as a tuple:
  
@@ -415,9 +415,9 @@ interval [t1 ., t2].
 \end{restatable}
 Proof of {\tt bl.exdc} on page \pageref{proof:bl.exdc}.
 
- \section{\lang~ Logic:  \logicid}\label{sec:bl}
+ \section{\logicid~ Logic}\label{sec:bl}
 
- \logicid$_0$ is extended to the full \lang~ Logic (\logicid) by grounding its model directly in KerML: the propositional symbols ($\mathsf{PROP}$) are replaced by n-ary predicate symbols ($\mathsf{PRED}$) and terms ($\mathsf{TERM}$), built from constants ($\mathsf{CON}$), variables ($\mathsf{VAR}$), and n-ary function application ($\mathsf{FUNC}$), used to write formulas about a KerML design; and the propositional valuation $\mathbf{I}_t$ is replaced by an interpretation $\mathbf{I}$ of KerML design elements, contingent on the system boundary.
+ \logicid$_0$ is extended to the full \logicid~ Logic by grounding its model directly in KerML: the propositional symbols ($\mathsf{PROP}$) are replaced by n-ary predicate symbols ($\mathsf{PRED}$) and terms ($\mathsf{TERM}$), built from constants ($\mathsf{CON}$), variables ($\mathsf{VAR}$), and n-ary function application ($\mathsf{FUNC}$), used to write formulas about a KerML design; and the propositional valuation $\mathbf{I}_t$ is replaced by an interpretation $\mathbf{I}$ of KerML design elements, contingent on the system boundary.
 
  \pn Classical logic and set theory are used to define a many-world modal logic with a Kripke structure: possible worlds are time instants $\mathbf{T}$, the accessibility relation is temporal precedence $\prec$, and the valuation is the interpretation $\mathbf{I}$ (\S\ref{sec:modallogic}).
 
@@ -446,7 +446,7 @@ $\mathbf{I}\lsem d,\tau\rsem$: is an interpretation for design element $d\in D$ 
 
 \pn $P(\tau)$ is the system boundary where the system interacts with its environment.  It is called \bemph{P} in honor of the Parnas four variable model to represent the physical world sensors detect and actuators affect.  When modeling subsystems, $P$ represents the inputs and outputs of connected subsystems.  Constructing a model $\mathfrak{M}$ for $E$ is \bemph{execution}.
 
-\pn The interpretation $\mathbf{I}\lsem d,\tau\rsem$ is only defined for any element $d$ in the design $D$.  Furthermore, the interpretation is contingent on the values of the system boundary $P(\tau)$.
+\pn The interpretation $\mathbf{I}\lsem d,\tau\rsem$ is only defined for any element $d$ in the design $D$.  Furthermore, the interpretation is contingent on the values of the system boundary $P(\tau)$.  This partiality is not confined to $\mathbf{I}\lsem d,\tau\rsem$ itself: it is made a formal part of \logicid's semantics in \S\ref{sec:bldefinedness} below, since some of $\mathsf{FUNC}$'s own members (\texttt{death}, \S\ref{sec:allen}) are genuinely partial.
 
 \pn \texttt{Type} and \texttt{Classifier} elements have the same interpretation for all $\tau\in\mathbf{T}$, because they are immutable.  \texttt{Class} elements may have variable features, and lifetimes.  $\mathbf{I}\lsem d \rsem$ is the same at every time $\tau\in\mathbf{T}$:
 
@@ -536,11 +536,11 @@ $\mathbf{I}\lsem d,\tau\rsem$: is an interpretation for design element $d\in D$ 
  
  predicates $ \mathsf{PRED}$ are n-ary:
  
- \( \mathsf{PRED} \equiv \{ P^1_0, P^1_1, P^1_2, \ldots, P^2_0, P^2_1, P^2_2, \ldots, P^n_0, P^n_1, P^n_2, \ldots \} \) 
- 
+ \( \mathsf{PRED} \equiv \{ P^1_0, P^1_1, P^1_2, \ldots, P^2_0, P^2_1, P^2_2, \ldots, P^n_0, P^n_1, P^n_2, \ldots \} \)
+
  and $\mathbf{I}$ assigns a denotation to every non-logical symbol relative to the design $D$ and system boundary $P$:\\
  $\mathbf{I}(c) \in D$ for $c \in \mathsf{CON}$;\\
- $\mathbf{I}(f) \in D^n \rightarrow D$ for $f \in \mathsf{FUNC}$;\\
+ $\mathbf{I}(f) \in D^n \rightharpoonup D$ for $f \in \mathsf{FUNC}$ (a \emph{partial} function -- \S\ref{sec:bldefinedness});\\
  $\mathbf{I}(p) \in D^n \rightarrow \{\top,\bot\}$ for $p \in \mathsf{PRED}$; and \\
  $\mathbf{I}_{t}(v) \in D$ for $v \in \mathsf{VAR}$.\\
  Note, only variables have different values at different times $t$.
@@ -550,7 +550,7 @@ $\mathbf{I}\lsem d,\tau\rsem$: is an interpretation for design element $d\in D$ 
  
  \begin{definition}\blTitle{blwff} {Define well-formed formulas of \logicid}
 \begin{align}
-\mathsf{WFF}:= \mathsf{WFF}_0~\vert~ P^n_j(r_1,r_2,\ldots,r_n)~ \vert~ P^n_j(r_1,r_2,\ldots,r_n)@r_t~ \vert~ r_1 = r_2 \label{eq:blwff}\tag{BL-wff}
+\mathsf{WFF}:= \mathsf{WFF}_0~\vert~ P^n_j(r_1,r_2,\ldots,r_n)~ \vert~ P^n_j(r_1,r_2,\ldots,r_n)@r_t~ \vert~ r_1 = r_2~\vert~r\!\downarrow \label{eq:blwff}\tag{BL-wff}
 \end{align}
 \end{definition}
 
@@ -567,6 +567,46 @@ However, variable values do change with time.  Some variables will correspond to
 
 Variables can also be `ghosts' in that they don't exist in the system, but are used for reasoning.  For example, values of program variables can be assigned to ghost variables before entering a loop, so that the variables after loop termination can be compared with their prior values.  Another use would be to identify the value measured by a temperature sensor is the temperature of feed water into a boiler.
  
+\subsection{Partiality: the Undefined Truth Value}\label{sec:bldefinedness}
+
+\pn Not every $f\in\mathsf{FUNC}$ denotes a value for every argument at every $\tau$: \texttt{death}(c) (\ref{eq:df-bl.death}, \S\ref{sec:allen}) is the running example, characterizing only $\texttt{death}(c)=\tau_d$ and saying nothing about the case where $c$ has not yet ceased to exist. $\mathsf{WFF}_0$ (\eqref{eq:bl0wff}) itself only ever compares bare time symbols ($\msc{\tau_1}\prec\msc{\tau_2}$), which are always defined; it is $\mathsf{WFF}$'s own extension to general terms $r_1,r_2,\ldots\in\mathsf{TERM}$ (\S\ref{sec:modallogic}) where partiality first becomes possible. A definedness atom is accordingly added there, to \eqref{eq:blwff}:
+
+\[ \mathsf{WFF}:= \mathsf{WFF}_0~\vert~ P^n_j(r_1,\ldots,r_n)~\vert~ P^n_j(r_1,\ldots,r_n)@r_t~\vert~ r_1=r_2~\vert~r\!\downarrow \]
+
+for $r \in \mathsf{TERM}$, read ``$r$ is defined'' -- true exactly when evaluating $r$ (recursively evaluating every $\mathsf{FUNC}$ application inside it) does not encounter an undefined subterm. $r\!\downarrow$ is itself always classically two-valued: definedness is a fact about $r$'s evaluation, not itself a further partial notion.
+
+\pn Every other formula built from a possibly-partial term may now take a third truth value, $\bot_u$ (\emph{undefined}), alongside $\top$/$\bot$. A comparison atom $r_1 \prec r_2$ or $r_1 = r_2$ denotes $\bot_u$ iff $r_1\!\downarrow$ fails or $r_2\!\downarrow$ fails, and the classical two-valued result otherwise -- this is exactly \emph{compare only when defined}. The connectives of $\mathsf{WFF}_0$ (inherited by $\mathsf{WFF}$) extend to $\bot_u$ by \emph{Strong Kleene} semantics: undefined propagates, except where the other operand already forces the answer regardless.
+
+\begin{center}
+\begin{tabular}{c|c}
+$\lnot$ & \\\hline
+$\top$ & $\bot$\\
+$\bot$ & $\top$\\
+$\bot_u$ & $\bot_u$
+\end{tabular}
+\qquad
+\begin{tabular}{c|ccc}
+$\wedge$ & $\top$ & $\bot$ & $\bot_u$ \\\hline
+$\top$ & $\top$ & $\bot$ & $\bot_u$ \\
+$\bot$ & $\bot$ & $\bot$ & $\bot$ \\
+$\bot_u$ & $\bot_u$ & $\bot$ & $\bot_u$
+\end{tabular}
+\qquad
+\begin{tabular}{c|ccc}
+$\vee$ & $\top$ & $\bot$ & $\bot_u$ \\\hline
+$\top$ & $\top$ & $\top$ & $\top$ \\
+$\bot$ & $\top$ & $\bot$ & $\bot_u$ \\
+$\bot_u$ & $\top$ & $\bot_u$ & $\bot_u$
+\end{tabular}
+\end{center}
+
+\pn $\rightarrow$ and $\leftrightarrow$ are as usual ($\phi\rightarrow\psi \equiv \lnot\phi\vee\psi$, $\phi\leftrightarrow\psi\equiv(\phi\rightarrow\psi)\wedge(\psi\rightarrow\phi)$), inheriting these tables. $\forall\msc{\tau}\in R~\phi$ and $\exists\msc{\tau}\in R~\phi$ (\S\ref{sec:extendingexpression}) extend the same way: $\exists$ is $\top$ if some witness is $\top$, $\bot$ if every witness is $\bot$, and $\bot_u$ otherwise (some witness $\bot_u$, none $\top$); $\forall$ is dual.
+
+\begin{theorem}[Conservativity of Partiality]\label{thm:conservativity} If every $\mathsf{FUNC}$/$\mathsf{PRED}$ symbol occurring in $\phi$ denotes a total function/predicate, $\phi$'s truth value under this extended semantics is never $\bot_u$, and coincides exactly with its value under \S\ref{sec:bl0sem}'s original bivalent semantics.
+\end{theorem}
+
+\pn No new surface syntax is needed to make a formula partiality-aware once one of its function symbols is known to be partial -- \eqref{eq:df-precedes} (\S\ref{sec:allen}) is written exactly the same whether \texttt{death} is total or partial; only the truth value it can now take, and the proof obligations that follow from that, change. $r\!\downarrow$ is available where a formula needs to test definedness explicitly, but none of \S\ref{sec:allen}'s own formulas need it -- they rely on the comparison-atom and Strong Kleene $\wedge$/$\vee$ rules above alone.
+
 \section{The Interpretation~$\mathbf{I}_{t}$}\label{sec:interpretation}
  
 The interpretation $\mathbf{I}_{t}$ defines the meaning of \logicid~ symbols at time $t$.  However, except for the variables in $VAR$, all other interpretations are constant at all times.  Some of the variables represent inputs to the system, sensors like a temperature measurement or a switch closing.  These are monitored variables.  Other variables represent outputs of the system, actuators like a motor or a LED.  These are controlled variables.
@@ -577,7 +617,7 @@ Execution of \lang~ programs \emph{causes} the values of variables given by $\ma
 
 When we say that a program is \bemph{correct}, that means that all possible models  $\mathfrak{M}$ having interpretation $\mathbf{I}_{t}$ will conform to the program's specification. 
  
- \section{Models:  $\mathfrak{M}~\models$}\label{sec:models}
+% \section{Models:  $\mathfrak{M}~\models$}\label{sec:models}
  
  
  

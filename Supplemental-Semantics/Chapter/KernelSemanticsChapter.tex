@@ -306,18 +306,22 @@ $\tau_d$ and does not exist after $\tau_d$.
 \end{restatable}
 
 \begin{restatable}{leanaxiom}{deathLean}~\leanTitle{death}~ Define Death time in Lean: a primitive, same
-reasoning as \texttt{birth} above.
+reasoning as \texttt{birth} above, but \texttt{Option}-valued (2026-08-25): \texttt{Occurrences.kerml}'s own
+\texttt{endShot: Instant[0..1]} means an occurrence may not have ended by \texttt{now}. A total \texttt{death}
+forced every occurrence, including one that never exists, to have \emph{some} death instant -- inconsistent,
+the same defect \S\ref{sec:bldefinedness} generalizes and fixes.
 
-\texttt{\textcolor{leancolor}{axiom} \textcolor{leanyellow}{death} : Occurrence $\to$ Time}
+\texttt{\textcolor{leancolor}{axiom} \textcolor{leanyellow}{death} : Occurrence $\to$ Option Time}
 \label{death}
 \end{restatable}
 
 \begin{restatable}{leanaxiom}{deathIff}~\leanTitle{deathIff}~ Define Death time's characterizing property in
-Lean.
+Lean, restated for \texttt{death}'s \texttt{Option} codomain: only characterizes \texttt{death A = some t0},
+saying nothing about \texttt{death A = none} (an ongoing occurrence).
 
 \texttt{\textcolor{leancolor}{axiom} \textcolor{leanyellow}{deathIff} \{A : Occurrence\} \{t0 : Time\} :}
 
-\texttt{~~death A = t0 $\leftrightarrow$ existsAt A t0 $\wedge$ $\forall$ t1 : Time, t1.val $\in$ Set.Ioc t0.val now $\to$ $\lnot$ existsAt A t1}
+\texttt{~~death A = some t0 $\leftrightarrow$ existsAt A t0 $\wedge$ $\forall$ t1 : Time, t1.val $\in$ Set.Ioc t0.val now $\to$ $\lnot$ existsAt A t1}
 \label{deathIff}
 \end{restatable}
 
@@ -355,9 +359,10 @@ interval, in Lean --- Mathlib's \texttt{Set.mem\_Ioc}.
 \end{restatable}
 
 \begin{restatable}{leandefinition}{lifeLean}~\leanTitle{life}~ Define Lifetime in Lean, as \texttt{Set.Icc}
-between \texttt{birth}'s and \texttt{death}'s own values.
+between \texttt{birth}'s and \texttt{death}'s own values -- \texttt{Option}-valued, undefined exactly when
+\texttt{death A} is (an ongoing occurrence).
 
-\texttt{\textcolor{leancolor}{def} \textcolor{leanyellow}{life} (A : Occurrence) : Set Instant := Set.Icc (birth A).val (death A).val}
+\texttt{\textcolor{leancolor}{noncomputable def} \textcolor{leanyellow}{life} (A : Occurrence) : Option (Set Instant) := (death A).map fun tA $\Rightarrow$ Set.Icc (birth A).val tA.val}
 \label{life}
 \end{restatable}
 
@@ -456,6 +461,40 @@ $X ~=~ Y$ & X  \bemph{equals} Y & $\texttt{birth}(Y) = \texttt{birth}(X)~\wedge~
 
 \pagebreak %really want to prevent lstlisting from breaking over page boundary
 
+\pn \texttt{death} became \texttt{Option}-valued above (\ref{death}); every relation in \ref{table:allensintervals} that reads $\texttt{death}(X)$/$\texttt{death}(Y)$ is therefore \emph{partial} in the sense of \S\ref{sec:bldefinedness} -- ``compare only when defined,'' Strong Kleene: a relation is undefined exactly when a \texttt{death} it genuinely needs is unknown, short-circuiting to a definite answer wherever the other conjunct/disjunct already forces one regardless (e.g. \textit{during} is false outright if $\texttt{birth}(Y) \preccurlyeq \texttt{birth}(X)$ already fails, even when $\texttt{death}(X)/\texttt{death}(Y)$ are unknown). The $\texttt{@Assert}$ formula text below is \emph{unchanged} from before \texttt{death} became partial -- only the truth value it can now take does. Five shared combinators give this a single, systematic Lean implementation, replacing what would otherwise be a different ad hoc pattern per predicate:
+
+\begin{restatable}{leandefinition}{kandLean}~\leanTitle{kand / kor}~ Strong Kleene conjunction/disjunction on
+\texttt{Option Prop}: short-circuits to a definite \texttt{False}/\texttt{True} when the known operand already
+forces it, even if the other is \texttt{none} -- genuine three-valued logic, not merely ``both defined or
+nothing.''
+
+\texttt{\textcolor{leancolor}{noncomputable def} \textcolor{leanyellow}{kand} (p q : Option Prop) : Option Prop :=}
+
+\texttt{~~\textcolor{leancolor}{match} p, q \textcolor{leancolor}{with}}
+
+\texttt{~~| some P, some Q $\Rightarrow$ some (P $\wedge$ Q)}
+
+\texttt{~~| some P, none $\Rightarrow$ \textcolor{leancolor}{if} P \textcolor{leancolor}{then} none \textcolor{leancolor}{else} some False}
+
+\texttt{~~| none, some Q $\Rightarrow$ \textcolor{leancolor}{if} Q \textcolor{leancolor}{then} none \textcolor{leancolor}{else} some False}
+
+\texttt{~~| none, none $\Rightarrow$ none}
+
+\texttt{\textcolor{leancolor}{noncomputable def} \textcolor{leanyellow}{kor} (p q : Option Prop) : Option Prop :=} dual, \texttt{some True}/\texttt{some False} swapped.
+\label{kand}
+\end{restatable}
+
+\begin{restatable}{leandefinition}{kltLean}~\leanTitle{klt / kle / keq}~ Comparisons lifted through
+\texttt{Option Time}: \texttt{none} unless both operands are known -- the short-circuiting happens one level
+up, in \texttt{kand}/\texttt{kor}, not here.
+
+\texttt{\textcolor{leancolor}{noncomputable def} \textcolor{leanyellow}{klt} (a b : Option Time) : Option Prop :=}
+\texttt{\textcolor{leancolor}{match} a, b \textcolor{leancolor}{with} | some a', some b' $\Rightarrow$ some (a'.val $\prec$ b'.val) | \_, \_ $\Rightarrow$ none}
+
+\texttt{\textcolor{leancolor}{noncomputable def} \textcolor{leanyellow}{kle}}/\texttt{\textcolor{leanyellow}{keq}}: same shape, $\preccurlyeq$/$=$ in place of $\prec$.
+\label{klt}
+\end{restatable}
+
 %\pn For use in \texttt{@Assert} Allen's intervals are also defined in the \texttt{Time} library package.
 \begin{restatable}{metadefinition}{dfprecedes}~\blTitle{df-precedes}~ Define Allen's interval precedes.
 \begin{align}
@@ -464,9 +503,11 @@ $X ~=~ Y$ & X  \bemph{equals} Y & $\texttt{birth}(Y) = \texttt{birth}(X)~\wedge~
 \end{align}
 \end{restatable}
 
-\begin{restatable}{leandefinition}{precedesLean}~\leanTitle{precedes}~ Define Allen's interval precedes in Lean.
+\begin{restatable}{leandefinition}{precedesLean}~\leanTitle{precedes}~ Define Allen's interval precedes in Lean
+-- \texttt{Option}-valued: needs only $X$'s death ($Y$'s \texttt{endShot}, if any, is irrelevant), so
+\texttt{none} iff \texttt{death A = none}.
 
-\texttt{\textcolor{leancolor}{def} \textcolor{leanyellow}{precedes} (A B : Occurrence) : Prop := (death A).val $\prec$ (birth B).val}
+\texttt{\textcolor{leancolor}{noncomputable def} \textcolor{leanyellow}{precedes} (A B : Occurrence) : Option Prop := (death A).map fun tA $\Rightarrow$ tA.val $\prec$ (birth B).val}
 \label{precedes}
 \end{restatable}
 
@@ -487,9 +528,10 @@ $X ~=~ Y$ & X  \bemph{equals} Y & $\texttt{birth}(Y) = \texttt{birth}(X)~\wedge~
 \end{align}
 \end{restatable}
 
-\begin{restatable}{leandefinition}{meetsLean}~\leanTitle{meets}~ Define Allen's interval meets in Lean.
+\begin{restatable}{leandefinition}{meetsLean}~\leanTitle{meets}~ Define Allen's interval meets in Lean --
+\texttt{Option}-valued, needs only $X$'s death, same reasoning as \texttt{precedes}.
 
-\texttt{\textcolor{leancolor}{def} \textcolor{leanyellow}{meets} (A B : Occurrence) : Prop := death A = birth B}
+\texttt{\textcolor{leancolor}{noncomputable def} \textcolor{leanyellow}{meets} (A B : Occurrence) : Option Prop := (death A).map fun tA $\Rightarrow$ tA = birth B}
 \label{meets}
 \end{restatable}
 
@@ -511,9 +553,10 @@ $X ~=~ Y$ & X  \bemph{equals} Y & $\texttt{birth}(Y) = \texttt{birth}(X)~\wedge~
 \end{align}
 \end{restatable}
 
-\begin{restatable}{leandefinition}{overlapsLean}~\leanTitle{overlaps}~ Define Allen's interval overlaps in Lean.
+\begin{restatable}{leandefinition}{overlapsLean}~\leanTitle{overlaps}~ Define Allen's interval overlaps in Lean
+-- \texttt{Option}-valued, needs only $X$'s death, same reasoning as \texttt{precedes}.
 
-\texttt{\textcolor{leancolor}{def} \textcolor{leanyellow}{overlaps} (A B : Occurrence) : Prop := (birth B).val $\prec$ (death A).val}
+\texttt{\textcolor{leancolor}{noncomputable def} \textcolor{leanyellow}{overlaps} (A B : Occurrence) : Option Prop := (death A).map fun tA $\Rightarrow$ (birth B).val $\prec$ tA.val}
 \label{overlaps}
 \end{restatable}
 
@@ -534,9 +577,12 @@ $X ~=~ Y$ & X  \bemph{equals} Y & $\texttt{birth}(Y) = \texttt{birth}(X)~\wedge~
 \end{align}
 \end{restatable}
 
-\begin{restatable}{leandefinition}{startsLean}~\leanTitle{starts}~ Define Allen's interval starts in Lean.
+\begin{restatable}{leandefinition}{startsLean}~\leanTitle{starts}~ Define Allen's interval starts in Lean --
+compares $X$'s and $Y$'s deaths directly, so needs both, via \texttt{kand}/\texttt{klt} (\ref{kand},
+\ref{klt}): short-circuits to \texttt{some False} when $\texttt{birth}(X)=\texttt{birth}(Y)$ already fails,
+even if a death is unknown.
 
-\texttt{\textcolor{leancolor}{def} \textcolor{leanyellow}{starts} (A B : Occurrence) : Prop := birth A = birth B $\wedge$ (death B).val $\prec$ (death A).val}
+\texttt{\textcolor{leancolor}{noncomputable def} \textcolor{leanyellow}{starts} (A B : Occurrence) : Option Prop := kand (some (birth A = birth B)) (klt (death B) (death A))}
 \label{starts}
 \end{restatable}
 
@@ -560,9 +606,10 @@ $X ~=~ Y$ & X  \bemph{equals} Y & $\texttt{birth}(Y) = \texttt{birth}(X)~\wedge~
 \end{align}
 \end{restatable}
 
-\begin{restatable}{leandefinition}{duringLean}~\leanTitle{during}~ Define Allen's interval during in Lean.
+\begin{restatable}{leandefinition}{duringLean}~\leanTitle{during}~ Define Allen's interval during in Lean --
+needs both deaths, same reasoning as \texttt{starts}, via \texttt{kand}/\texttt{kle}.
 
-\texttt{\textcolor{leancolor}{def} \textcolor{leanyellow}{during} (A B : Occurrence) : Prop := (birth B).val $\preccurlyeq$ (birth A).val $\wedge$ (death A).val $\preccurlyeq$ (death B).val}
+\texttt{\textcolor{leancolor}{noncomputable def} \textcolor{leanyellow}{during} (A B : Occurrence) : Option Prop := kand (some ((birth B).val $\preccurlyeq$ (birth A).val)) (kle (death A) (death B))}
 \label{during}
 \end{restatable}
 
@@ -584,9 +631,10 @@ $X ~=~ Y$ & X  \bemph{equals} Y & $\texttt{birth}(Y) = \texttt{birth}(X)~\wedge~
 \end{align}
 \end{restatable}
 
-\begin{restatable}{leandefinition}{finishesLean}~\leanTitle{finishes}~ Define Allen's interval finishes in Lean.
+\begin{restatable}{leandefinition}{finishesLean}~\leanTitle{finishes}~ Define Allen's interval finishes in Lean
+-- needs both deaths, same reasoning as \texttt{starts}, via \texttt{kand}/\texttt{keq}.
 
-\texttt{\textcolor{leancolor}{def} \textcolor{leanyellow}{finishes} (A B : Occurrence) : Prop := (birth B).val $\prec$ (birth A).val $\wedge$ death A = death B}
+\texttt{\textcolor{leancolor}{noncomputable def} \textcolor{leanyellow}{finishes} (A B : Occurrence) : Option Prop := kand (some ((birth B).val $\prec$ (birth A).val)) (keq (death A) (death B))}
 \label{finishes}
 \end{restatable}
 
@@ -611,9 +659,9 @@ $X ~=~ Y$ & X  \bemph{equals} Y & $\texttt{birth}(Y) = \texttt{birth}(X)~\wedge~
 \end{restatable}
 
 \begin{restatable}{leandefinition}{coincidentLean}~\leanTitle{coincident}~ Define Allen's interval coincident in
-Lean.
+Lean -- needs both deaths, same reasoning as \texttt{starts}, via \texttt{kand}/\texttt{keq}.
 
-\texttt{\textcolor{leancolor}{def} \textcolor{leanyellow}{coincident} (A B : Occurrence) : Prop := birth A = birth B $\wedge$ death A = death B}
+\texttt{\textcolor{leancolor}{noncomputable def} \textcolor{leanyellow}{coincident} (A B : Occurrence) : Option Prop := kand (some (birth A = birth B)) (keq (death A) (death B))}
 \label{coincident}
 \end{restatable}
 
@@ -639,9 +687,11 @@ Lean.
 \end{restatable}
 
 \begin{restatable}{leandefinition}{nonoverlapsLean}~\leanTitle{nonoverlaps}~ Define Allen's interval
-nonoverlaps in Lean.
+nonoverlaps in Lean: $\texttt{death}(X) \prec \texttt{birth}(Y) \vee \texttt{death}(Y) \prec \texttt{birth}(X)$
+is exactly $\textit{precedes}(X,Y) \vee \textit{precedes}(Y,X)$ -- \texttt{kor} (\ref{kand}) gives the correct
+Strong Kleene disjunction for free (a known-true disjunct wins even if the other occurrence hasn't ended).
 
-\texttt{\textcolor{leancolor}{def} \textcolor{leanyellow}{nonoverlaps} (A B : Occurrence) : Prop := (death A).val $\prec$ (birth B).val $\vee$ (death B).val $\prec$ (birth A).val}
+\texttt{\textcolor{leancolor}{noncomputable def} \textcolor{leanyellow}{nonoverlaps} (A B : Occurrence) : Option Prop := kor (precedes A B) (precedes B A)}
 \label{nonoverlaps}
 \end{restatable}
 
