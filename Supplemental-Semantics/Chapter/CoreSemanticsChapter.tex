@@ -195,21 +195,6 @@ trivial existence, no independent axiom needed.
 \label{mkUid}
 \end{restatable}
 
-%\subsection{Design}
-%
-%\pn Everything in a \bemph{design} $D$ is either a  type $V_T$, a  classifier $V_C$ or a feature $V_F$.
-%
-%\begin{definition}~\blTitle{df-design}~ Define design $D$.  
-%\begin{align}
-%D~=~V_T~\cup~V_C~\cup~V_F~ \notag 
-%%V_T'~=~((V_T\backslash V_C)\backslash V_F)~\wedge~ \notag \\
-%%V_C'~=~(V_C\backslash V_F) ~\wedge~\notag \\
-%%D~=~V_T'~\cup~V_C'~\cup~V_F~\wedge \notag \\
-%%V_T'\cap V_C'=\emptyset~\wedge~V_T'\cap V_F=\emptyset~\wedge~V_F\cap V_C'=\emptyset~
-%\label{eq:df-design}\tag{df-design}
-%\end{align}
-%\end{definition}
-
 %\chapter{Types}
 
 \subsection{Types, Classifiers, and Features}
@@ -254,7 +239,25 @@ kinds (\ref{eq:df-kind}): \S2.1.1 already treats $V_C \cup V_F$ as a proper subs
 $\mathsf{TYPE}$ marks a design element outside that enumeration, not a fifteenth member of it.
 Given that premise, $C$ --- the type's extent, i.e.\ what $A$ denotes --- is a genuine set.
 
-\begin{restatable}{definition}{dftype}~\blTitle{df-type}~ Define \texttt{type}.
+\pn $\mathrm{Design}$ itself is left fully opaque above (\S2.1.2's own ``all elements in the
+database or workspace'' is informal prose, not a formal constraint) --- nothing anywhere in this
+formalization actually constrains it beyond \ref{eq:df-type}/\ref{eq:df-types} below. Defining it
+directly as the empty set (2026-08-26) makes both of those provable instead of independently
+axiomatized, with no loss of content: nothing else ever relies on $\mathrm{Design}$ being
+non-empty. This is a formalization convenience, not a claim that real designs have no
+elements --- the same status \texttt{Design} already had as an unconstrained opaque primitive,
+just with one further (harmless) commitment now attached to it.
+
+\begin{restatable}{definition}{dfdesign}~\blTitle{df-design}~ Define $\mathrm{Design}$.
+\begin{align}
+\vdash \mathrm{Design} = \emptyset \label{eq:df-design}\tag{df-design}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{definition}{dftype}~\blTitle{df-type}~ Define \texttt{type}. Now a real theorem,
+not an axiom (2026-08-26): with \ref{eq:df-design}, the hypothesis
+$\langle \mathsf{TYPE},\mc{A},\mc{C}\rangle \in \mathrm{Design}$ is never satisfiable, so the
+conclusion follows regardless of $C$.
 \begin{align}
 \vdash \mc{A} \in \,\mathrm{ID}\quad\&\quad \vdash \langle \mathsf{TYPE} , \mc{A} , \mc{C} \rangle
     \in \,\mathrm{Design}\quad\Rightarrow\quad \vdash \mc{C} \in
@@ -285,7 +288,10 @@ fully defines, matching its own implication (not equation) form below. For every
 if $x$ is declared with the bare \texttt{type} keyword --- the same $Design$-triple-membership
 reading \ref{eq:df-type} gives that text --- then $x \in V_T$.
 
-\begin{restatable}{definition}{dftypes}~\blTitle{df-types}~ Define \texttt{Types}.
+\begin{restatable}{definition}{dftypes}~\blTitle{df-types}~ Define \texttt{Types}. Now a real
+theorem, not an axiom (2026-08-26), same reasoning as \ref{eq:df-type} above: with
+\ref{eq:df-design}, no $y$ can ever satisfy the antecedent, so the whole implication holds
+vacuously.
 \begin{align}
 \vdash ( \msc{x} \in \,\mathrm{ID} \rightarrow ( \exists \msc{y} \langle \mathsf{TYPE} , \msc{x} ,
     \msc{y} \rangle \in \,\mathrm{Design} \rightarrow \msc{x} \in \,\mathrm{VT}
