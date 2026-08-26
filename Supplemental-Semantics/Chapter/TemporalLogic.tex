@@ -123,10 +123,15 @@ shared discrete event structure, matching how \texttt{Occurrence} values are alr
 ``infinitesimally close'' is always false for two distinct \emph{standard} reals, which every \texttt{Time}
 value is -- finiteness, not a richer number system, is what actually works.
 
-\begin{restatable}{leanaxiom}{finitePartitionLean}~\leanTitle{finitePartition}~ Every \texttt{Occurrence}'s
-raw interpretation only changes at finitely many shared ticks, stated without reference to ``pieces'' to
-sidestep any \texttt{Ico}/\texttt{Icc} boundary bookkeeping: if no shared tick falls strictly inside
-$(t_1,t_2]$, \texttt{d}'s value cannot have changed between \texttt{t1} and \texttt{t2}.
+\begin{restatable}{leanaxiom}{finitePartitionLean}~\leanTitle{finitePartition}~ Every time-varying
+quantity's raw interpretation only changes at finitely many shared ticks, stated without reference to
+``pieces'' to sidestep any \texttt{Ico}/\texttt{Icc} boundary bookkeeping: if no shared tick falls strictly
+inside $(t_1,t_2]$, \texttt{d}'s value cannot have changed between \texttt{t1} and \texttt{t2}. Broadened
+(2026-08-26) from \texttt{Occurrence}-only to every \texttt{TVal $\alpha$} once \texttt{birth}/\texttt{timeof}
+(\S\ref{sec:model} above) were rebuilt directly on this tick structure, retiring the separate
+\texttt{hasFirstInstant} axiom they used to need -- a natural strengthening of the same ``shared discrete
+event structure'' idea, not a different one: it says the same thing about \emph{every} time-varying
+quantity, \texttt{TProp}-valued ones included, not just \texttt{Set Item}-valued \texttt{Occurrence}s.
 
 \texttt{\textcolor{leancolor}{axiom} \textcolor{leanyellow}{finitePartition} :}
 
@@ -136,7 +141,7 @@ $(t_1,t_2]$, \texttt{d}'s value cannot have changed between \texttt{t1} and \tex
 
 \texttt{~~~~($\forall$ i j : Fin (n + 1), i < j $\to$ (breaks i).val $\prec$ (breaks j).val) $\wedge$}
 
-\texttt{~~~~$\forall$ (d : Occurrence) (t1 t2 : Time), t1.val $\preccurlyeq$ t2.val $\to$}
+\texttt{~~~~$\forall$ \{$\alpha$ : Type\} (d : TVal $\alpha$) (t1 t2 : Time), t1.val $\preccurlyeq$ t2.val $\to$}
 
 \texttt{~~~~~~($\lnot$ $\exists$ i : Fin (n + 1), (breaks i).val $\in$ Set.Ioc t1.val t2.val) $\to$}
 

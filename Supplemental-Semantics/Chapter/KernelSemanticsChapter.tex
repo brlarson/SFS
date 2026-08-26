@@ -270,10 +270,13 @@ function total (or here \texttt{Option}-valued) with an unconstrained/undefined 
 fails, then \emph{prove} a model exists rather than assume one. The port is not mechanical -- \texttt{$\mathbb{N}$}
 is well-ordered for free, so any nonempty subset has a least element with no extra assumption; an arbitrary
 subset of the dense continuum \texttt{Time} need not (e.g.\ $\{t \mid t.\mathrm{val} < 0.5\}$ has an infimum but
-no attained minimum) -- so \texttt{birth}'s (and \texttt{timeof}'s) guard needs one further, explicitly-named
-structural axiom (\ref{hasFirstInstant} below) that the $\mathbb{N}$ case gets for free from well-ordering.
-\texttt{death} needs no such extra axiom: its guard is self-certifying, the same reasoning that already
-justified \texttt{endShot}'s \texttt{Option} redesign.
+no attained minimum) -- so \texttt{birth}'s (and \texttt{timeof}'s) guard needs some further structural fact
+the $\mathbb{N}$ case gets for free from well-ordering. That fact is \ref{hasFirstTick} (below), built directly
+on \ref{finitePartition}'s finite shared-tick structure -- not, as originally (until 2026-08-26), a
+separately-axiomatized \texttt{hasFirstInstant} asserting (falsely, in general, for a dense order) that
+\emph{every} satisfiable predicate has an attained least witness. \texttt{death} needs no such extra fact at
+all: its guard is self-certifying, the same reasoning that already justified \texttt{endShot}'s
+\texttt{Option} redesign.
 
 \begin{restatable}{leandefinition}{LifetimesLean}~\leanTitle{Lifetimes}~ Define the \texttt{birth}/\texttt{death}/
 \texttt{timeof} class in Lean: \texttt{birth}/\texttt{timeof} stay total (\texttt{startShot} stays mandatory;
@@ -306,23 +309,29 @@ needs no such guard -- the \texttt{Option} codomain already \emph{is} the guard.
 \label{Lifetimes}
 \end{restatable}
 
-\begin{restatable}{leanaxiom}{hasFirstInstantLean}~\leanTitle{hasFirstInstant}~ The one new trusted ingredient
-this reformation needs, stated generically (not fixed to \texttt{existsAt A}) so it serves both \texttt{birth}
-(\texttt{P := existsAt A}, formalizing \texttt{Occurrences.kerml}'s mandatory \texttt{startShot: Instant[1]})
-and \texttt{timeof} below (\texttt{P := interpAt $\varphi$}) without a near-duplicate axiom for each: any
-\texttt{Time $\to$ Prop} predicate that holds anywhere has a \emph{first} instant where it holds, not merely
-an infimum of the instants where it holds.
+\begin{restatable}{leantheorem}{hasFirstTickLean}~\leanTitle{hasFirstTick}~ \texttt{Time}'s dense order gives
+no well-ordering on its own (\texttt{\{t $\mid$ 0 < t.val\}} has an infimum but no attained minimum), so this
+reformation still needs \emph{some} structural fact ruling that out -- but not a fresh axiom: \ref{finitePartition}
+(broadened, above) already says \texttt{P (d $\cdot$)} can only ever change value at a shared tick, so a finite
+search over \texttt{Fin (tickCount + 1)} suffices (via \texttt{Finset.min'} over the finitely many
+witnessing ticks, using an auxiliary \texttt{ticks\_bucket} lemma -- every instant's \texttt{d}-value matches
+the \texttt{d}-value at the largest shared tick $\le$ it). Retires the separately-axiomatized
+\texttt{hasFirstInstant} this reformation used to need (2026-08-26). Stated generically (not fixed to
+\texttt{existsAt A}) so it serves both \texttt{birth} (\texttt{d := A}, \texttt{P := ($\cdot \ne \emptyset$)})
+and \texttt{timeof} below (\texttt{d := $\varphi$}, \texttt{P := id}) without a near-duplicate theorem for
+each. Proof omitted here.
 
-\texttt{\textcolor{leancolor}{axiom} \textcolor{leanyellow}{hasFirstInstant} (P : Time $\to$ Prop)}
+\texttt{\textcolor{leancolor}{theorem} \textcolor{leanyellow}{hasFirstTick} \{$\alpha$ : Type\} (d : TVal $\alpha$) (P : $\alpha$ $\to$ Prop)}
 
-\texttt{~~(\_h : $\exists$ s, P s) : $\exists$ $\tau$, IsLeast \{t : Time $\mid$ P t\} $\tau$}
-\label{hasFirstInstant}
+\texttt{~~(h : $\exists$ s : Time, P (d s)) : $\exists$ $\tau$, IsLeast \{t : Time $\mid$ P (d t)\} $\tau$}
+\label{hasFirstTick}
 \end{restatable}
 
 \begin{restatable}{leantheorem}{birthExistsLean}~\leanTitle{birth\_exists}~ A total selector satisfying
-\texttt{birthIff}'s guarded spec exists for every occurrence: \ref{hasFirstInstant}'s witness (at
-\texttt{P := existsAt A}) when \texttt{A} exists somewhere, an unconstrained junk value otherwise. Proof
-omitted here (case split on existence, direct from \ref{hasFirstInstant} in the positive case).
+\texttt{birthIff}'s guarded spec exists for every occurrence: \ref{hasFirstTick}'s witness (at
+\texttt{d := A}, \texttt{P := ($\cdot \ne \emptyset$)}) when \texttt{A} exists somewhere, an unconstrained
+junk value otherwise. Proof omitted here (case split on existence, direct from \ref{hasFirstTick} in the
+positive case).
 
 \texttt{\textcolor{leancolor}{theorem} \textcolor{leanyellow}{birth\_exists} (A : Occurrence) :}
 
@@ -353,7 +362,7 @@ omitted here (case split on whether a greatest existence instant exists, uniquen
 guarded existence (\S\ref{sec:timeof}), exactly \ref{birth_exists}'s argument with \texttt{existsAt A} replaced
 by \texttt{interpAt $\varphi$} -- the same structural shape (\texttt{timeofIff} is \texttt{birthIff} with
 \texttt{interpAt $\varphi$} in place of \texttt{existsAt A}), so the same proof, via the same generic
-\ref{hasFirstInstant}, carries over unchanged.
+\ref{hasFirstTick} (\texttt{d := $\varphi$}, \texttt{P := id}), carries over unchanged.
 
 \texttt{\textcolor{leancolor}{theorem} \textcolor{leanyellow}{timeof\_exists} ($\varphi$ : TProp) :}
 
@@ -372,8 +381,11 @@ resolves to it automatically. \texttt{birthIff}/\texttt{deathIff}/\texttt{timeof
 \texttt{Classical.choose\_spec} and a short order-theoretic argument) are omitted here for brevity. The audit,
 matching the toy \texttt{$\mathbb{N}$} demo's own convention: \texttt{\#print axioms model} reports exactly
 Lean's three standard classical axioms plus the project's pre-existing foundational primitives plus
-\emph{one} new ingredient, \ref{hasFirstInstant} -- reused for both \texttt{birth} and \texttt{timeof} --
-nothing else.
+\emph{one} new ingredient, \ref{finitePartition} -- not for well-ordering (dense \texttt{Time} still has none),
+but because \ref{hasFirstTick} (reused for both \texttt{birth} and \texttt{timeof}) needs \emph{some}
+structural fact ruling out an unattained infimum, and \texttt{finitePartition}'s finite shared-tick structure
+supplies it (2026-08-26, retiring the earlier, separately-axiomatized \texttt{hasFirstInstant}) -- nothing
+else.
 
 \texttt{\textcolor{leancolor}{noncomputable instance} \textcolor{leanyellow}{model} : Lifetimes \textcolor{leancolor}{where}}
 
@@ -1275,8 +1287,8 @@ For this, the interpretation function needs to extended from interpretation of e
 \texttt{birth}'s own shape with \texttt{interpAt $\varphi$} in place of \texttt{existsAt A} -- rather than a
 standalone total axiom pair. \texttt{timeof}$(\varphi)$'s ZFC partial-function reading (the empty set when
 $\varphi$ never holds) is now captured directly by the guard, not merely noted in prose. See \ref{Lifetimes}
-for the field declarations, \ref{timeof_exists} for the guarded existence proof (reusing \ref{hasFirstInstant},
-the same new axiom \texttt{birth} needs), and \ref{model} for the real, audited construction.
+for the field declarations, \ref{timeof_exists} for the guarded existence proof (reusing \ref{hasFirstTick},
+the same theorem \texttt{birth} needs), and \ref{model} for the real, audited construction.
 
 \subsection{Composite and Portion Features:}\label{par:cnp}
 
