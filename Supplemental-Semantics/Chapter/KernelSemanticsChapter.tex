@@ -152,12 +152,23 @@ content, but already equipped with Mathlib's interval lemmas.
 \end{align}
 \end{restatable}
 
-\begin{restatable}{leanaxiom}{nowLean}~\leanTitle{now}~ Define the present instant in Lean: a fixed
-nonnegative real, the end of recorded time.
+\begin{restatable}{leandefinition}{nowLean}~\leanTitle{now}~ Define the present instant in Lean:
+class-based (2026-08-26), the simplest instance of the general repair recipe (\S\ref{sec:model} above,
+\texttt{Lifetimes}) -- \texttt{now} needs no guard the way \texttt{birth}/\texttt{death}/\texttt{timeof}
+did (``does a nonnegative real exist'' is trivially true, witnessed by $0$ itself), so
+\texttt{Classical.choice} alone is enough to build a real model, no new axiom needed.
 
-\texttt{\textcolor{leancolor}{axiom} \textcolor{leanyellow}{now} : $\mathbb{R}$}
+\texttt{\textcolor{leancolor}{class} \textcolor{leanyellow}{Now} \textcolor{leancolor}{where}}
 
-\texttt{\textcolor{leancolor}{axiom} \textcolor{leanyellow}{now\_nonneg} : 0 $\le$ now}
+\texttt{~~now : $\mathbb{R}$}
+
+\texttt{~~now\_nonneg : 0 $\le$ now}
+
+\texttt{\textcolor{leancolor}{export} Now (now now\_nonneg)}
+
+\texttt{\textcolor{leancolor}{noncomputable instance} \textcolor{leanyellow}{nowModel} : Now :=}
+
+\texttt{~~$\langle$Classical.choose (\ldots), Classical.choose\_spec (\ldots)$\rangle$}
 \label{now}
 \end{restatable}
 
@@ -672,15 +683,25 @@ up, in \texttt{kand}/\texttt{kor}, not here.
 \end{align}
 \end{restatable}
 
-\begin{restatable}{leanaxiom}{openLeftRight}~\leanTitle{openLeft / openRight}~ \texttt{Interval}'s own
+\begin{restatable}{leandefinition}{openLeftRight}~\leanTitle{openLeft / openRight}~ \texttt{Interval}'s own
 boundary-openness features, in Lean, reused on \texttt{Occurrence} here since \texttt{Allen.kerml}'s own
 \texttt{starts}/\texttt{finishes}/\texttt{coincident}/\texttt{nearlyMeets} all call them on
 \texttt{x}/\texttt{y~:~Occurrence}. Fresh primitives: nothing represented interval boundary openness before
-\texttt{df-nearlymeets} was added to \texttt{SFS.mm}.
+\texttt{df-nearlymeets} was added to \texttt{SFS.mm}. Class-based (2026-08-26), same treatment as
+\texttt{now} above -- no characterizing law of either, bundled together (like \texttt{now}/
+\texttt{now\_nonneg}) since they're declared and used as a pair.
 
-\texttt{\textcolor{leancolor}{axiom} \textcolor{leanyellow}{openLeft} : Occurrence $\to$ Prop}
+\texttt{\textcolor{leancolor}{class} \textcolor{leanyellow}{OpenBoundary} \textcolor{leancolor}{where}}
 
-\texttt{\textcolor{leancolor}{axiom} \textcolor{leanyellow}{openRight} : Occurrence $\to$ Prop}
+\texttt{~~openLeft : Occurrence $\to$ Prop}
+
+\texttt{~~openRight : Occurrence $\to$ Prop}
+
+\texttt{\textcolor{leancolor}{export} OpenBoundary (openLeft openRight)}
+
+\texttt{\textcolor{leancolor}{noncomputable instance} \textcolor{leanyellow}{openBoundaryModel} : OpenBoundary :=}
+
+\texttt{~~$\langle$Classical.choose (\ldots), Classical.choose (\ldots)$\rangle$}
 \label{openLeft}
 \end{restatable}
 
@@ -909,9 +930,15 @@ $\mathbf{I}\lsem d{::}f,\tau\rsem$ --- the value \texttt{d::f} had at \texttt{ta
 \end{restatable}
 
 \begin{restatable}{leandefinition}{GetLean}~\leanTitle{Get}~ Define \texttt{Get} in Lean, via a new primitive
-\texttt{featureAccess} standing for KerML's \texttt{d::f} feature navigation.
+\texttt{featureAccess} standing for KerML's \texttt{d::f} feature navigation. Class-based (2026-08-26), same
+no-characterizing-law treatment as \texttt{now} (\ref{now}) -- opaque via \texttt{Classical.choose} over a
+trivial existence, no independent axiom needed.
 
-\texttt{\textcolor{leancolor}{axiom} \textcolor{leanyellow}{featureAccess} : Occurrence $\to$ Element $\to$ Occurrence}
+\texttt{\textcolor{leancolor}{class} \textcolor{leanyellow}{FeatureAccessFn} \textcolor{leancolor}{where}}
+
+\texttt{~~featureAccess : Occurrence $\to$ Element $\to$ Occurrence}
+
+\texttt{\textcolor{leancolor}{export} FeatureAccessFn (featureAccess)}
 
 \texttt{\textcolor{leancolor}{def} \textcolor{leanyellow}{Get} (d : Occurrence) (f : Element) (tau : Time) : Set Item := interpValAt (featureAccess d f) tau}
 \label{Get}
@@ -1087,18 +1114,30 @@ its output \texttt{b} is immediately true.
 \end{align}
 \end{restatable}
 
-\begin{restatable}{leanaxiom}{GetChangeToTrueLean}~\leanTitle{GetChangeToTrue}~ Define \texttt{GetChangeToTrue}
+\begin{restatable}{leandefinition}{GetChangeToTrueLean}~\leanTitle{GetChangeToTrue}~ Define \texttt{GetChangeToTrue}
 in Lean. Uses \texttt{GetP} (the predicate reading), not \texttt{Get}: its own \texttt{@Assert} formula uses
 $\mathbf{I}\lsem d{::}e,\tau\rsem$ bare, not compared against anything --- a genuinely independent primitive
 from \texttt{featureAccess}, since there is no sound way to recover ``this feature value denotes true'' from
 \texttt{featureAccess}'s class-valued result alone. \texttt{trueItem} is a fresh opaque canonical value
-standing for the Boolean literal \texttt{true}.
+standing for the Boolean literal \texttt{true}. \texttt{featureAccessProp}/\texttt{trueItem} are now
+class-based (2026-08-26), same no-characterizing-law treatment as \texttt{now} (\ref{now}) -- opaque via
+\texttt{Classical.choose} over a trivial existence, no independent axiom needed.
 
-\texttt{\textcolor{leancolor}{axiom} \textcolor{leanyellow}{featureAccessProp} : Occurrence $\to$ Element $\to$ TProp}
+\texttt{\textcolor{leancolor}{class} \textcolor{leanyellow}{FeatureAccessPropFn} \textcolor{leancolor}{where}}
+
+\texttt{~~featureAccessProp : Occurrence $\to$ Element $\to$ TProp}
+
+\texttt{\textcolor{leancolor}{export} FeatureAccessPropFn (featureAccessProp)}
 
 \texttt{\textcolor{leancolor}{def} \textcolor{leanyellow}{GetP} (d : Occurrence) (f : Element) (tau : Time) : Prop := interpAt (featureAccessProp d f) tau}
 
-\texttt{\textcolor{leancolor}{axiom} \textcolor{leanyellow}{trueItem} : Set Item}
+\texttt{\textcolor{leancolor}{class} \textcolor{leanyellow}{BoolItems} \textcolor{leancolor}{where}}
+
+\texttt{~~trueItem : Set Item}
+
+\texttt{~~falseItem : Set Item}
+
+\texttt{\textcolor{leancolor}{export} BoolItems (trueItem falseItem)}
 
 \texttt{\textcolor{leancolor}{def} \textcolor{leanyellow}{GetChangeToTrue} (d : Occurrence) (e : Element) (tau : Time) (b : Set Item) : Prop :=}
 
@@ -1133,11 +1172,10 @@ $[\texttt{tau},\mathsf{\mc{now}})$, its output \texttt{b} is immediately false.
 \end{align}
 \end{restatable}
 
-\begin{restatable}{leanaxiom}{GetChangeToFalseLean}~\leanTitle{GetChangeToFalse}~ Define
+\begin{restatable}{leandefinition}{GetChangeToFalseLean}~\leanTitle{GetChangeToFalse}~ Define
 \texttt{GetChangeToFalse} in Lean, mirror of \texttt{GetChangeToTrue} above. \texttt{falseItem} is a fresh
-opaque canonical value standing for the Boolean literal \texttt{false}.
-
-\texttt{\textcolor{leancolor}{axiom} \textcolor{leanyellow}{falseItem} : Set Item}
+opaque canonical value standing for the Boolean literal \texttt{false} -- a field of \texttt{BoolItems}
+(\ref{GetChangeToTrue}), bundled with \texttt{trueItem} there.
 
 \texttt{\textcolor{leancolor}{def} \textcolor{leanyellow}{GetChangeToFalse} (d : Occurrence) (e : Element) (tau : Time) (b : Set Item) : Prop :=}
 

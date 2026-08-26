@@ -174,7 +174,10 @@ The set of ZFC-class identifiers is $CI$.
 \end{align}
 \end{restatable}
 
-\begin{restatable}{leandefinition}{mkUid}~\leanTitle{mkUid}~ Define creation of a Unique Identifier from a Class Identifier by appending a wonce, in Lean.
+\begin{restatable}{leandefinition}{mkUid}~\leanTitle{mkUid}~ Define creation of a Unique Identifier from a
+Class Identifier by appending a wonce, in Lean. \texttt{wonce} is class-based (2026-08-26), same
+no-characterizing-law treatment as \texttt{now} (\ref{now}) -- opaque via \texttt{Classical.choose} over a
+trivial existence, no independent axiom needed.
 
 \texttt{\textcolor{leancolor}{abbrev} \textcolor{leanyellow}{CI} := String}
 
@@ -182,7 +185,11 @@ The set of ZFC-class identifiers is $CI$.
 
 \texttt{\textcolor{leancolor}{def} \textcolor{leanyellow}{tb} : String := "\textbackslash\textbackslash\#"}
 
-\texttt{\textcolor{leancolor}{axiom} \textcolor{leanyellow}{wonce} : String}
+\texttt{\textcolor{leancolor}{class} \textcolor{leanyellow}{Wonce} \textcolor{leancolor}{where}}
+
+\texttt{~~wonce : String}
+
+\texttt{\textcolor{leancolor}{export} Wonce (wonce)}
 
 \texttt{\textcolor{leancolor}{noncomputable def} \textcolor{leanyellow}{mkUid} (ci : CI) : UI := ci ++ tb ++ wonce}
 \label{mkUid}
@@ -255,19 +262,20 @@ Given that premise, $C$ --- the type's extent, i.e.\ what $A$ denotes --- is a g
 \end{align}
 \end{restatable}
 
-\begin{restatable}{leanaxiom}{Design}~\leanTitle{Design}~ Define \texttt{type} in Lean.
+\begin{restatable}{leandefinition}{Design}~\leanTitle{Design}~ Define \texttt{type} in Lean.
 \texttt{DesignKind} is a fresh sum type, not \texttt{ElementKind}: a \texttt{Design} triple's
 kind slot must hold either one of \texttt{ElementKind}'s fourteen tags or \texttt{type}, and
 \texttt{type} is deliberately excluded from \texttt{ElementKind} itself.  Unlike \texttt{df-type},
 no separate ``is a genuine set" assertion is needed here: \texttt{Set Element} already
 guarantees \texttt{C} is a real value for every triple in \texttt{Design}, so the declarations
-below are the complete translation.
+below are the complete translation. Now a field of \texttt{class CoreDesignModel} (\ref{CoreDesignModel}
+below) rather than an independent axiom.
 
 \texttt{\textcolor{leancolor}{inductive} \textcolor{leanyellow}{DesignKind}}
 
 \texttt{~~| ofElementKind (k : ElementKind) | type}
 
-\texttt{\textcolor{leancolor}{axiom} \textcolor{leanyellow}{Design} : Set (DesignKind $\times$ Element $\times$ Set Element)}
+\texttt{~~Design : Set (DesignKind $\times$ Element $\times$ Set Element)}
 \label{Design}
 \end{restatable}
 
@@ -285,14 +293,47 @@ reading \ref{eq:df-type} gives that text --- then $x \in V_T$.
 \end{align}
 \end{restatable}
 
-\begin{restatable}{leanaxiom}{VT}~\leanTitle{VT}~ Define \texttt{Types} in Lean. Unlike
-\texttt{df-type} above, this genuinely needs to stay an axiom here too: \texttt{VT} is
-independently primitive on both sides, so there's no automatic Lean-typing shortcut this time.
+\begin{restatable}{leandefinition}{VT}~\leanTitle{VT}~ Define \texttt{Types} in Lean. \texttt{VT} is
+independently primitive from \texttt{Design}, so \texttt{df\_types} needed real proof, not an automatic
+Lean-typing shortcut -- both are now fields of \texttt{class CoreDesignModel} below.
+\texttt{df\_types} itself moved here from \texttt{SFS.lean} (2026-08-26, folded into this class since
+\texttt{Design}/\texttt{VT} are shared, load-bearing primitives for the whole cluster below, not private
+to \texttt{df\_types}).
 
-\texttt{\textcolor{leancolor}{axiom} \textcolor{leanyellow}{VT} : Set Element}
+\texttt{~~VT : Set Element}
 
-\texttt{\textcolor{leancolor}{axiom} \textcolor{leanyellow}{df\_types} : $\forall$ e : Element, ($\exists$ C : Set Element, (DesignKind.type, e, C) $\in$ Design) $\to$ e $\in$ VT}
+\texttt{~~df\_types : $\forall$ e : Element, ($\exists$ C : Set Element, (DesignKind.type, e, C) $\in$ Design) $\to$ e $\in$ VT}
 \label{VT}
+\end{restatable}
+
+\begin{restatable}{leandefinition}{CoreDesignModelLean}~\leanTitle{CoreDesignModel}~ Class-based
+(2026-08-26, at direct request, following a full audit of this whole $\sim$45-axiom cluster):
+\texttt{Design}/\texttt{VT}/\texttt{Specializes}/\texttt{Unions}/\texttt{Intersects}/\texttt{Differences}/
+\texttt{Disjoint}/\texttt{TypeMultiplicityExact}/\texttt{TypeMultiplicityRange}/\texttt{VF}/
+\texttt{FeatureContent}/\texttt{FeaturedByDecl}/\texttt{DomainlessDecl}/\texttt{FeatureMemberOf}/
+\texttt{OwnedFeatureTypedBy} (+\texttt{Exact}/\texttt{Star}/\texttt{Range}/\texttt{RangeStar})/
+\texttt{MemberOf}/\texttt{OwnedFeatures}/\texttt{OrderedOn}/\texttt{OrderedDecl}/\texttt{ChainsDecl}/
+\texttt{VC} bundled together with every \texttt{df\_*} constraint that ties them to \texttt{Design}
+(\texttt{df\_specializes} through \texttt{df\_typebody}, \texttt{df\_classifier},
+\texttt{df\_classifier2}) --- one class, not one axiom per primitive/constraint, because almost every
+constraint here shares the same hypothesis shape: \texttt{(DesignKind.\_, \_, \_) $\in$ Design} (or
+\texttt{FeatureContent \_ \_}, for \texttt{df\_featurechaining}). A single global witness discharges
+essentially the whole cluster at once: \texttt{Design := $\emptyset$} and \texttt{FeatureContent := fun
+\_ \_ => False} make every one of those hypotheses unconstructible, so every constraint holds
+\emph{vacuously} --- checked individually for each constraint, not assumed from the shape alone.
+Built via \texttt{Nonempty}/\texttt{Classical.choice} (one concrete named-field term) rather than
+\texttt{Classical.choose} over an $\exists$-tuple: at $\sim$45 fields a raw tuple would need an
+unreadable \texttt{.2.2.2\ldots} chain to destructure, and \texttt{Nonempty} gives the identical
+opacity guarantee more legibly. \texttt{encodePair}/\texttt{encodePair\_inj} (\ref{encodePair}) are the
+one part of this cluster \emph{not} eliminated by this trick --- whether \texttt{Element} admits an
+injective self-pairing is an independent, self-contained question about \texttt{Element}'s own
+cardinality, unrelated to \texttt{Design}, and (2026-08-26, same session) was proved directly instead
+(\ref{encodePairInj}).
+
+\texttt{\textcolor{leancolor}{class} \textcolor{leanyellow}{CoreDesignModel} \textcolor{leancolor}{where}}
+
+\texttt{~~\ldots\ (all fields below, each shown at its own point in this chapter)}
+\label{CoreDesignModel}
 \end{restatable}
 
 \subsection{Type Operators}
@@ -307,23 +348,25 @@ independently primitive on both sides, so there's no automatic Lean-typing short
 \end{align}
 \end{restatable}
 
-\begin{restatable}{leanaxiom}{Specializes}~\leanTitle{Specializes}~ KerML's own textual \texttt{specializes} keyword,
+\begin{restatable}{leandefinition}{Specializes}~\leanTitle{Specializes}~ KerML's own textual \texttt{specializes} keyword,
 in Lean. A fresh \texttt{Element}-level primitive: the structural elaboration of \texttt{specializes} (a
 \texttt{Specialization}/\texttt{Subclassification} value) carries no semantic content of its own, and --- being a
 bare, unconstrained structure --- isn't tied to what's actually asserted in the current model the way
-\texttt{Design} is.
+\texttt{Design} is. Now a field of \texttt{CoreDesignModel} (\ref{CoreDesignModel}).
 
-\texttt{\textcolor{leancolor}{axiom} \textcolor{leanyellow}{Specializes} : Element $\to$ Element $\to$ Prop}
+\texttt{~~Specializes : Element $\to$ Element $\to$ Prop}
 \label{Specializes}
 \end{restatable}
 
-\begin{restatable}{leanaxiom}{dfSpecializes}~\leanTitle{df\_specializes}~ Define \texttt{specializes} in Lean.
+\begin{restatable}{leandefinition}{dfSpecializes}~\leanTitle{df\_specializes}~ Define \texttt{specializes} in Lean.
+Now a field of \texttt{CoreDesignModel} (\ref{CoreDesignModel}), proven vacuously (\texttt{Design :=
+$\emptyset$} makes \texttt{hs}/\texttt{hg} unconstructible).
 
-\texttt{\textcolor{leancolor}{axiom} \textcolor{leanyellow}{df\_specializes} \{ts tg : Element\} \{Cs Cg : Set Element\}}
+\texttt{~~df\_specializes : $\forall$ \{ts tg : Element\} \{Cs Cg : Set Element\},}
 
-\texttt{~~(hs : (DesignKind.type, ts, Cs) $\in$ Design) (hg : (DesignKind.type, tg, Cg) $\in$ Design) :}
+\texttt{~~~~(DesignKind.type, ts, Cs) $\in$ Design $\to$ (DesignKind.type, tg, Cg) $\in$ Design $\to$}
 
-\texttt{~~Specializes ts tg $\to$ Cs $\subseteq$ Cg}
+\texttt{~~~~Specializes ts tg $\to$ Cs $\subseteq$ Cg}
 \label{df_specializes}
 \end{restatable}
 
@@ -367,24 +410,23 @@ theorem, not an axiom.
 \end{align}
 \end{restatable}
 
-\begin{restatable}{leanaxiom}{Unions}~\leanTitle{Unions}~ KerML's own textual \texttt{unions} keyword, in Lean.
+\begin{restatable}{leandefinition}{Unions}~\leanTitle{Unions}~ KerML's own textual \texttt{unions} keyword, in Lean.
 A fresh \texttt{Element}-level primitive, same reasoning as \texttt{Specializes}: the structural elaboration of
 \texttt{unions} (a \texttt{Unioning} value) carries no semantic content of its own and isn't tied to what's
-actually asserted in the current model.
+actually asserted in the current model. Now a field of \texttt{CoreDesignModel} (\ref{CoreDesignModel}).
 
-\texttt{\textcolor{leancolor}{axiom} \textcolor{leanyellow}{Unions} : Element $\to$ Element $\to$ Prop}
+\texttt{~~Unions : Element $\to$ Element $\to$ Prop}
 \label{Unions}
 \end{restatable}
 
-\begin{restatable}{leanaxiom}{dfUnionsLean}~\leanTitle{df\_unions}~ Define \texttt{unions} in Lean.
+\begin{restatable}{leandefinition}{dfUnionsLean}~\leanTitle{df\_unions}~ Define \texttt{unions} in Lean.
+Now a field of \texttt{CoreDesignModel} (\ref{CoreDesignModel}), proven vacuously.
 
-\texttt{\textcolor{leancolor}{axiom} \textcolor{leanyellow}{df\_unions} \{ta tb tc : Element\} \{Ca Cb Cc : Set Element\}}
+\texttt{~~df\_unions : $\forall$ \{ta tb tc : Element\} \{Ca Cb Cc : Set Element\},}
 
-\texttt{~~(ha : (DesignKind.type, ta, Ca) $\in$ Design) (hb : (DesignKind.type, tb, Cb) $\in$ Design)}
+\texttt{~~~~(DesignKind.type, ta, Ca) $\in$ Design $\to$ (DesignKind.type, tb, Cb) $\in$ Design $\to$}
 
-\texttt{~~(hc : (DesignKind.type, tc, Cc) $\in$ Design) :}
-
-\texttt{~~Specializes ta tb $\to$ Unions ta tc $\to$ Ca = Cb $\cup$ Cc}
+\texttt{~~~~(DesignKind.type, tc, Cc) $\in$ Design $\to$ Specializes ta tb $\to$ Unions ta tc $\to$ Ca = Cb $\cup$ Cc}
 \label{df_unions}
 \end{restatable}
 
@@ -404,22 +446,22 @@ actually asserted in the current model.
 \end{align}
 \end{restatable}
 
-\begin{restatable}{leanaxiom}{Intersects}~\leanTitle{Intersects}~ KerML's own textual \texttt{intersects}
-keyword, in Lean. Same reasoning as \texttt{Unions} above.
+\begin{restatable}{leandefinition}{Intersects}~\leanTitle{Intersects}~ KerML's own textual \texttt{intersects}
+keyword, in Lean. Same reasoning as \texttt{Unions} above. Now a field of \texttt{CoreDesignModel}
+(\ref{CoreDesignModel}).
 
-\texttt{\textcolor{leancolor}{axiom} \textcolor{leanyellow}{Intersects} : Element $\to$ Element $\to$ Prop}
+\texttt{~~Intersects : Element $\to$ Element $\to$ Prop}
 \label{Intersects}
 \end{restatable}
 
-\begin{restatable}{leanaxiom}{dfIntersectsLean}~\leanTitle{df\_intersects}~ Define \texttt{intersects} in Lean.
+\begin{restatable}{leandefinition}{dfIntersectsLean}~\leanTitle{df\_intersects}~ Define \texttt{intersects} in Lean.
+Now a field of \texttt{CoreDesignModel} (\ref{CoreDesignModel}), proven vacuously.
 
-\texttt{\textcolor{leancolor}{axiom} \textcolor{leanyellow}{df\_intersects} \{ta tb tc : Element\} \{Ca Cb Cc : Set Element\}}
+\texttt{~~df\_intersects : $\forall$ \{ta tb tc : Element\} \{Ca Cb Cc : Set Element\},}
 
-\texttt{~~(ha : (DesignKind.type, ta, Ca) $\in$ Design) (hb : (DesignKind.type, tb, Cb) $\in$ Design)}
+\texttt{~~~~(DesignKind.type, ta, Ca) $\in$ Design $\to$ (DesignKind.type, tb, Cb) $\in$ Design $\to$}
 
-\texttt{~~(hc : (DesignKind.type, tc, Cc) $\in$ Design) :}
-
-\texttt{~~Specializes ta tb $\to$ Intersects ta tc $\to$ Ca = Cb $\cap$ Cc}
+\texttt{~~~~(DesignKind.type, tc, Cc) $\in$ Design $\to$ Specializes ta tb $\to$ Intersects ta tc $\to$ Ca = Cb $\cap$ Cc}
 \label{df_intersects}
 \end{restatable}
 
@@ -439,23 +481,22 @@ keyword, in Lean. Same reasoning as \texttt{Unions} above.
 \end{align}
 \end{restatable}
 
-\begin{restatable}{leanaxiom}{Differences}~\leanTitle{Differences}~ KerML's own textual \texttt{differences}
-keyword, in Lean. Same reasoning as \texttt{Unions} above.
+\begin{restatable}{leandefinition}{Differences}~\leanTitle{Differences}~ KerML's own textual \texttt{differences}
+keyword, in Lean. Same reasoning as \texttt{Unions} above. Now a field of \texttt{CoreDesignModel}
+(\ref{CoreDesignModel}).
 
-\texttt{\textcolor{leancolor}{axiom} \textcolor{leanyellow}{Differences} : Element $\to$ Element $\to$ Prop}
+\texttt{~~Differences : Element $\to$ Element $\to$ Prop}
 \label{Differences}
 \end{restatable}
 
-\begin{restatable}{leanaxiom}{dfDifferencesLean}~\leanTitle{df\_differences}~ Define \texttt{differences} in
-Lean.
+\begin{restatable}{leandefinition}{dfDifferencesLean}~\leanTitle{df\_differences}~ Define \texttt{differences} in
+Lean. Now a field of \texttt{CoreDesignModel} (\ref{CoreDesignModel}), proven vacuously.
 
-\texttt{\textcolor{leancolor}{axiom} \textcolor{leanyellow}{df\_differences} \{ta tb tc : Element\} \{Ca Cb Cc : Set Element\}}
+\texttt{~~df\_differences : $\forall$ \{ta tb tc : Element\} \{Ca Cb Cc : Set Element\},}
 
-\texttt{~~(ha : (DesignKind.type, ta, Ca) $\in$ Design) (hb : (DesignKind.type, tb, Cb) $\in$ Design)}
+\texttt{~~~~(DesignKind.type, ta, Ca) $\in$ Design $\to$ (DesignKind.type, tb, Cb) $\in$ Design $\to$}
 
-\texttt{~~(hc : (DesignKind.type, tc, Cc) $\in$ Design) :}
-
-\texttt{~~Specializes ta tb $\to$ Differences ta tc $\to$ Ca = Cb $\setminus$ Cc}
+\texttt{~~~~(DesignKind.type, tc, Cc) $\in$ Design $\to$ Specializes ta tb $\to$ Differences ta tc $\to$ Ca = Cb $\setminus$ Cc}
 \label{df_differences}
 \end{restatable}
 
@@ -470,25 +511,27 @@ Lean.
 \end{align}
 \end{restatable}
 
-\begin{restatable}{leanaxiom}{Disjoint}~\leanTitle{Disjoint}~ KerML's own textual \texttt{disjoint from}
-keyword, in Lean. Same reasoning as \texttt{Unions} above.
+\begin{restatable}{leandefinition}{Disjoint}~\leanTitle{Disjoint}~ KerML's own textual \texttt{disjoint from}
+keyword, in Lean. Same reasoning as \texttt{Unions} above. Now a field of \texttt{CoreDesignModel}
+(\ref{CoreDesignModel}).
 
-\texttt{\textcolor{leancolor}{axiom} \textcolor{leanyellow}{Disjoint} : Element $\to$ Element $\to$ Prop}
+\texttt{~~Disjoint : Element $\to$ Element $\to$ Prop}
 \label{Disjoint}
 \end{restatable}
 
-\begin{restatable}{leanaxiom}{dfDisjointLean}~\leanTitle{df\_disjoint}~ Define \texttt{disjoint} in Lean. The
+\begin{restatable}{leandefinition}{dfDisjointLean}~\leanTitle{df\_disjoint}~ Define \texttt{disjoint} in Lean. The
 first conjunct below (\texttt{Ca} $\subseteq$ \texttt{Cb}) is, notably, already exactly \texttt{df\_specializes}'s
 own conclusion given \texttt{Specializes ta tb}; it's restated here as part of the conjunction only because
 that's the literal shape \texttt{df-disjoint} itself asserts above, not because it's independently new content.
+Now a field of \texttt{CoreDesignModel} (\ref{CoreDesignModel}), proven vacuously.
 
-\texttt{\textcolor{leancolor}{axiom} \textcolor{leanyellow}{df\_disjoint} \{ta tb tc : Element\} \{Ca Cb Cc : Set Element\}}
+\texttt{~~df\_disjoint : $\forall$ \{ta tb tc : Element\} \{Ca Cb Cc : Set Element\},}
 
-\texttt{~~(ha : (DesignKind.type, ta, Ca) $\in$ Design) (hb : (DesignKind.type, tb, Cb) $\in$ Design)}
+\texttt{~~~~(DesignKind.type, ta, Ca) $\in$ Design $\to$ (DesignKind.type, tb, Cb) $\in$ Design $\to$}
 
-\texttt{~~(hc : (DesignKind.type, tc, Cc) $\in$ Design) :}
+\texttt{~~~~(DesignKind.type, tc, Cc) $\in$ Design $\to$ Specializes ta tb $\to$ Disjoint ta tc $\to$}
 
-\texttt{~~Specializes ta tb $\to$ Disjoint ta tc $\to$ Ca $\subseteq$ Cb $\wedge$ Ca $\cap$ Cc = $\emptyset$}
+\texttt{~~~~Ca $\subseteq$ Cb $\wedge$ Ca $\cap$ Cc = $\emptyset$}
 \label{df_disjoint}
 \end{restatable}
 
@@ -551,27 +594,29 @@ already-developed cardinal number theory, so this is the direct Lean analogue, n
 \end{align}
 \end{restatable}
 
-\begin{restatable}{leanaxiom}{TypeMultiplicityExact}~\leanTitle{TypeMultiplicityExact}~ KerML's exact
+\begin{restatable}{leandefinition}{TypeMultiplicityExact}~\leanTitle{TypeMultiplicityExact}~ KerML's exact
 multiplicity bracket \texttt{[n]}, in Lean. A fresh \texttt{Element}-level primitive, same reasoning as
-\texttt{Specializes}: nothing currently represents a type's declared multiplicity.
+\texttt{Specializes}: nothing currently represents a type's declared multiplicity. Now a field of
+\texttt{CoreDesignModel} (\ref{CoreDesignModel}).
 
-\texttt{\textcolor{leancolor}{axiom} \textcolor{leanyellow}{TypeMultiplicityExact} : Element $\to$ $\mathbb{N}$ $\to$ Prop}
+\texttt{~~TypeMultiplicityExact : Element $\to$ $\mathbb{N}$ $\to$ Prop}
 \label{TypeMultiplicityExact}
 \end{restatable}
 
-\begin{restatable}{leanaxiom}{dfTypemultiplicityLean}~\leanTitle{df\_typemultiplicity}~ Define type
+\begin{restatable}{leandefinition}{dfTypemultiplicityLean}~\leanTitle{df\_typemultiplicity}~ Define type
 multiplicity in Lean. The first conjunct below (\texttt{Cb} $\subseteq$ \texttt{Ca}) is, notably, already
 exactly \texttt{df\_specializes}'s own conclusion given \texttt{Specializes B A}; it's restated here as part
 of the conjunction only because that's the literal shape \texttt{df-typemultiplicity} itself asserts above,
-not because it's independently new content.
+not because it's independently new content. Now a field of \texttt{CoreDesignModel} (\ref{CoreDesignModel}),
+proven vacuously.
 
-\texttt{\textcolor{leancolor}{axiom} \textcolor{leanyellow}{df\_typemultiplicity} \{A B : Element\} \{Ca Cb : Set Element\} \{n : $\mathbb{N}$\}}
+\texttt{~~df\_typemultiplicity : $\forall$ \{A B : Element\} \{Ca Cb : Set Element\} \{n : $\mathbb{N}$\},}
 
-\texttt{~~(hA : (DesignKind.type, A, Ca) $\in$ Design) (hB : (DesignKind.type, B, Cb) $\in$ Design) :}
+\texttt{~~~~(DesignKind.type, A, Ca) $\in$ Design $\to$ (DesignKind.type, B, Cb) $\in$ Design $\to$}
 
-\texttt{~~Specializes B A $\to$ TypeMultiplicityExact B n $\to$}
+\texttt{~~~~Specializes B A $\to$ TypeMultiplicityExact B n $\to$}
 
-\texttt{~~~~Cb $\subseteq$ Ca $\wedge$ n $\le$ cardElem Ca $\wedge$ cardElem Cb = n}
+\texttt{~~~~~~Cb $\subseteq$ Ca $\wedge$ n $\le$ cardElem Ca $\wedge$ cardElem Cb = n}
 \label{df_typemultiplicity}
 \end{restatable}
 
@@ -591,23 +636,25 @@ not because it's independently new content.
 \end{align}
 \end{restatable}
 
-\begin{restatable}{leanaxiom}{TypeMultiplicityRange}~\leanTitle{TypeMultiplicityRange}~ KerML's multiplicity
-range bracket \texttt{[m..n]}, in Lean. Same reasoning as \texttt{TypeMultiplicityExact} above.
+\begin{restatable}{leandefinition}{TypeMultiplicityRange}~\leanTitle{TypeMultiplicityRange}~ KerML's multiplicity
+range bracket \texttt{[m..n]}, in Lean. Same reasoning as \texttt{TypeMultiplicityExact} above. Now a field
+of \texttt{CoreDesignModel} (\ref{CoreDesignModel}).
 
-\texttt{\textcolor{leancolor}{axiom} \textcolor{leanyellow}{TypeMultiplicityRange} : Element $\to$ $\mathbb{N}$ $\to$ $\mathbb{N}$ $\to$ Prop}
+\texttt{~~TypeMultiplicityRange : Element $\to$ $\mathbb{N}$ $\to$ $\mathbb{N}$ $\to$ Prop}
 \label{TypeMultiplicityRange}
 \end{restatable}
 
-\begin{restatable}{leanaxiom}{dfTypemultiplicityrangeLean}~\leanTitle{df\_typemultiplicityrange}~ Define type
-multiplicity range in Lean. Same reasoning as \texttt{df\_typemultiplicity} above.
+\begin{restatable}{leandefinition}{dfTypemultiplicityrangeLean}~\leanTitle{df\_typemultiplicityrange}~ Define type
+multiplicity range in Lean. Same reasoning as \texttt{df\_typemultiplicity} above. Now a field of
+\texttt{CoreDesignModel} (\ref{CoreDesignModel}), proven vacuously.
 
-\texttt{\textcolor{leancolor}{axiom} \textcolor{leanyellow}{df\_typemultiplicityrange} \{A B : Element\} \{Ca Cb : Set Element\} \{m n : $\mathbb{N}$\}}
+\texttt{~~df\_typemultiplicityrange : $\forall$ \{A B : Element\} \{Ca Cb : Set Element\} \{m n : $\mathbb{N}$\},}
 
-\texttt{~~(hA : (DesignKind.type, A, Ca) $\in$ Design) (hB : (DesignKind.type, B, Cb) $\in$ Design) :}
+\texttt{~~~~(DesignKind.type, A, Ca) $\in$ Design $\to$ (DesignKind.type, B, Cb) $\in$ Design $\to$}
 
-\texttt{~~Specializes B A $\to$ TypeMultiplicityRange B m n $\to$}
+\texttt{~~~~Specializes B A $\to$ TypeMultiplicityRange B m n $\to$}
 
-\texttt{~~~~Cb $\subseteq$ Ca $\wedge$ n $\le$ cardElem Ca $\wedge$ m $\le$ cardElem Cb $\wedge$ cardElem Cb $\le$ n}
+\texttt{~~~~~~Cb $\subseteq$ Ca $\wedge$ n $\le$ cardElem Ca $\wedge$ m $\le$ cardElem Cb $\wedge$ cardElem Cb $\le$ n}
 \label{df_typemultiplicityrange}
 \end{restatable}
 
@@ -624,20 +671,21 @@ multiplicity range in Lean. Same reasoning as \texttt{df\_typemultiplicity} abov
 \end{align}
 \end{restatable}
 
-\begin{restatable}{leanaxiom}{VF}~\leanTitle{VF}~ Define the set of \texttt{Features} in Lean. Exact parallel of
-\texttt{VT} above, one level down.
+\begin{restatable}{leandefinition}{VF}~\leanTitle{VF}~ Define the set of \texttt{Features} in Lean. Exact parallel of
+\texttt{VT} above, one level down. Now a field of \texttt{CoreDesignModel} (\ref{CoreDesignModel}).
 
-\texttt{\textcolor{leancolor}{axiom} \textcolor{leanyellow}{VF} : Set Element}
+\texttt{~~VF : Set Element}
 \label{VF}
 \end{restatable}
 
-\begin{restatable}{leanaxiom}{dfFeatureLean}~\leanTitle{df\_feature}~ Define \texttt{feature} in Lean. Unlike
+\begin{restatable}{leandefinition}{dfFeatureLean}~\leanTitle{df\_feature}~ Define \texttt{feature} in Lean. Unlike
 \texttt{type}, \texttt{Feature} already has a slot in \texttt{ElementKind}'s fourteen tags, so no new
-\texttt{DesignKind} case is needed --- exact parallel of \texttt{df\_types} above.
+\texttt{DesignKind} case is needed --- exact parallel of \texttt{df\_types} above. Now a field of
+\texttt{CoreDesignModel} (\ref{CoreDesignModel}), proven vacuously.
 
-\texttt{\textcolor{leancolor}{axiom} \textcolor{leanyellow}{df\_feature} : $\forall$ e : Element,}
+\texttt{~~df\_feature : $\forall$ e : Element,}
 
-\texttt{~~($\exists$ C : Set Element, (DesignKind.ofElementKind ElementKind.Feature, e, C) $\in$ Design) $\to$ e $\in$ VF}
+\texttt{~~~~($\exists$ C : Set Element, (DesignKind.ofElementKind ElementKind.Feature, e, C) $\in$ Design) $\to$ e $\in$ VF}
 \label{df_feature}
 \end{restatable}
 
@@ -664,30 +712,32 @@ says $x$ is a class of pairs where the first element is from $\mc{Z}$ and the se
 \end{align}
 \end{restatable}
 
-\begin{restatable}{leanaxiom}{FeatureContent}~\leanTitle{FeatureContent}~ A feature's design-triple content, in
+\begin{restatable}{leandefinition}{FeatureContent}~\leanTitle{FeatureContent}~ A feature's design-triple content, in
 Lean, as a set of ordered pairs (a relation) --- \texttt{Design}'s own content slot (\texttt{Set Element})
 can't hold that, so this is a dedicated primitive, independent of \texttt{Design}, rather than forcing this
-into the \texttt{(DesignKind, Element, Set Element)} triple shape used everywhere else.
+into the \texttt{(DesignKind, Element, Set Element)} triple shape used everywhere else. Now a field of
+\texttt{CoreDesignModel} (\ref{CoreDesignModel}).
 
-\texttt{\textcolor{leancolor}{axiom} \textcolor{leanyellow}{FeatureContent} : Element $\to$ Set (Element $\times$ Element) $\to$ Prop}
+\texttt{~~FeatureContent : Element $\to$ Set (Element $\times$ Element) $\to$ Prop}
 \label{FeatureContent}
 \end{restatable}
 
-\begin{restatable}{leanaxiom}{FeaturedByDecl}~\leanTitle{FeaturedByDecl}~ \texttt{feature x typed by Y featured
+\begin{restatable}{leandefinition}{FeaturedByDecl}~\leanTitle{FeaturedByDecl}~ \texttt{feature x typed by Y featured
 by Z;} in Lean. A fresh \texttt{Element}-level primitive, same reasoning as \texttt{Specializes}: nothing
-currently represents this concrete-syntax clause.
+currently represents this concrete-syntax clause. Now a field of \texttt{CoreDesignModel} (\ref{CoreDesignModel}).
 
-\texttt{\textcolor{leancolor}{axiom} \textcolor{leanyellow}{FeaturedByDecl} : Element $\to$ Element $\to$ Element $\to$ Prop}
+\texttt{~~FeaturedByDecl : Element $\to$ Element $\to$ Element $\to$ Prop}
 \label{FeaturedByDecl}
 \end{restatable}
 
-\begin{restatable}{leanaxiom}{dfFeaturedbyLean}~\leanTitle{df\_featuredby}~ Define \texttt{featured by} in Lean.
+\begin{restatable}{leandefinition}{dfFeaturedbyLean}~\leanTitle{df\_featuredby}~ Define \texttt{featured by} in Lean.
+Now a field of \texttt{CoreDesignModel} (\ref{CoreDesignModel}), proven vacuously.
 
-\texttt{\textcolor{leancolor}{axiom} \textcolor{leanyellow}{df\_featuredby} \{x y z : Element\} \{Cy Cz : Set Element\}}
+\texttt{~~df\_featuredby : $\forall$ \{x y z : Element\} \{Cy Cz : Set Element\},}
 
-\texttt{~~(hy : (DesignKind.type, y, Cy) $\in$ Design) (hz : (DesignKind.type, z, Cz) $\in$ Design) :}
+\texttt{~~~~(DesignKind.type, y, Cy) $\in$ Design $\to$ (DesignKind.type, z, Cz) $\in$ Design $\to$}
 
-\texttt{~~FeaturedByDecl x y z $\to$ FeatureContent x \{p : Element $\times$ Element $\vert$ p.1 $\in$ Cz $\wedge$ p.2 $\in$ Cy\}}
+\texttt{~~~~FeaturedByDecl x y z $\to$ FeatureContent x \{p : Element $\times$ Element $\vert$ p.1 $\in$ Cz $\wedge$ p.2 $\in$ Cy\}}
 \label{df_featuredby}
 \end{restatable}
 
@@ -705,25 +755,24 @@ Note:  $\mc{Z}$ doesn't ``know'' about \texttt{Feature} $x$; something else need
 \end{align}
 \end{restatable}
 
-\begin{restatable}{leanaxiom}{DomainlessDecl}~\leanTitle{DomainlessDecl}~ \texttt{feature x typed by Y;} (no
+\begin{restatable}{leandefinition}{DomainlessDecl}~\leanTitle{DomainlessDecl}~ \texttt{feature x typed by Y;} (no
 \texttt{featured by} clause) in Lean. A separate primitive from \texttt{FeaturedByDecl} above, mirroring the
 book's own two separate definitions for the two distinct concrete-syntax forms, rather than one primitive
-plus a ``no featured-by clause'' side condition.
+plus a ``no featured-by clause'' side condition. Now a field of \texttt{CoreDesignModel} (\ref{CoreDesignModel}).
 
-\texttt{\textcolor{leancolor}{axiom} \textcolor{leanyellow}{DomainlessDecl} : Element $\to$ Element $\to$ Prop}
+\texttt{~~DomainlessDecl : Element $\to$ Element $\to$ Prop}
 \label{DomainlessDecl}
 \end{restatable}
 
-\begin{restatable}{leanaxiom}{dfDomainlessLean}~\leanTitle{df\_domainless}~ Define domain-less \texttt{Feature}
+\begin{restatable}{leandefinition}{dfDomainlessLean}~\leanTitle{df\_domainless}~ Define domain-less \texttt{Feature}
 in Lean. The universal domain quantification collapses to no constraint on the pair's first component at
 all --- the same ``vacuous existential/quantifier disappears'' simplification used for
-\texttt{RegionSurface}/\texttt{RegionFilm} in \S0.8.
+\texttt{RegionSurface}/\texttt{RegionFilm} in \S0.8. Now a field of \texttt{CoreDesignModel}
+(\ref{CoreDesignModel}), proven vacuously.
 
-\texttt{\textcolor{leancolor}{axiom} \textcolor{leanyellow}{df\_domainless} \{x y : Element\} \{Cy : Set Element\}}
+\texttt{~~df\_domainless : $\forall$ \{x y : Element\} \{Cy : Set Element\}, (DesignKind.type, y, Cy) $\in$ Design $\to$}
 
-\texttt{~~(hy : (DesignKind.type, y, Cy) $\in$ Design) :}
-
-\texttt{~~DomainlessDecl x y $\to$ FeatureContent x \{p : Element $\times$ Element $\vert$ p.2 $\in$ Cy\}}
+\texttt{~~~~DomainlessDecl x y $\to$ FeatureContent x \{p : Element $\times$ Element $\vert$ p.2 $\in$ Cy\}}
 \label{df_domainless}
 \end{restatable}
 
@@ -823,34 +872,36 @@ w=W(``Z")~ \wedge
 \end{align}
 \end{restatable}
 
-\begin{restatable}{leanaxiom}{FeatureMemberOf}~\leanTitle{FeatureMemberOf}~ A type or feature $Z$'s owned
+\begin{restatable}{leandefinition}{FeatureMemberOf}~\leanTitle{FeatureMemberOf}~ A type or feature $Z$'s owned
 feature member, in Lean: $Z$ has a feature member identified by $x$ whose relation content is $R$. The shared
 primitive \texttt{df-featuremember}/\texttt{df-featureoffeature}/\texttt{df-typebody} all build on below.
+Now a field of \texttt{CoreDesignModel} (\ref{CoreDesignModel}).
 
-\texttt{\textcolor{leancolor}{axiom} \textcolor{leanyellow}{FeatureMemberOf} : Element $\to$ Element $\to$ Set (Element $\times$ Element) $\to$ Prop}
+\texttt{~~FeatureMemberOf : Element $\to$ Element $\to$ Set (Element $\times$ Element) $\to$ Prop}
 \label{FeatureMemberOf}
 \end{restatable}
 
-\begin{restatable}{leanaxiom}{OwnedFeatureTypedBy}~\leanTitle{OwnedFeatureTypedBy}~ \texttt{type Z \{ feature x
+\begin{restatable}{leandefinition}{OwnedFeatureTypedBy}~\leanTitle{OwnedFeatureTypedBy}~ \texttt{type Z \{ feature x
 typed by Y; \}} (an owned feature member, no explicit \texttt{featured by}), in Lean. A fresh
-\texttt{Element}-level primitive, same reasoning as \texttt{Specializes}.
+\texttt{Element}-level primitive, same reasoning as \texttt{Specializes}. Now a field of
+\texttt{CoreDesignModel} (\ref{CoreDesignModel}).
 
-\texttt{\textcolor{leancolor}{axiom} \textcolor{leanyellow}{OwnedFeatureTypedBy} : Element $\to$ Element $\to$ Element $\to$ Prop}
+\texttt{~~OwnedFeatureTypedBy : Element $\to$ Element $\to$ Element $\to$ Prop}
 \label{OwnedFeatureTypedBy}
 \end{restatable}
 
-\begin{restatable}{leanaxiom}{dfFeaturememberLean}~\leanTitle{df\_featuremember}~ Define \texttt{Feature
+\begin{restatable}{leandefinition}{dfFeaturememberLean}~\leanTitle{df\_featuremember}~ Define \texttt{Feature
 Member} in Lean: a type $Z$ specializing $T$ with an owned feature $x$ typed by $Y$ has a feature member whose
 relation pairs $T$'s extension (domain, matching the book's own $C=\{c \vert c\in T\}$ clause) with $Y$'s
-extension (co-domain).
+extension (co-domain). Now a field of \texttt{CoreDesignModel} (\ref{CoreDesignModel}), proven vacuously.
 
-\texttt{\textcolor{leancolor}{axiom} \textcolor{leanyellow}{df\_featuremember} \{Z T x Y' : Element\} \{Ct Cy : Set Element\}}
+\texttt{~~df\_featuremember : $\forall$ \{Z T x Y' : Element\} \{Ct Cy : Set Element\},}
 
-\texttt{~~(ht : (DesignKind.type, T, Ct) $\in$ Design) (hy : (DesignKind.type, Y', Cy) $\in$ Design) :}
+\texttt{~~~~(DesignKind.type, T, Ct) $\in$ Design $\to$ (DesignKind.type, Y', Cy) $\in$ Design $\to$}
 
-\texttt{~~Specializes Z T $\to$ OwnedFeatureTypedBy Z x Y' $\to$}
+\texttt{~~~~Specializes Z T $\to$ OwnedFeatureTypedBy Z x Y' $\to$}
 
-\texttt{~~~~FeatureMemberOf Z x \{p : Element $\times$ Element $\vert$ p.1 $\in$ Ct $\wedge$ p.2 $\in$ Cy\}}
+\texttt{~~~~~~FeatureMemberOf Z x \{p : Element $\times$ Element $\vert$ p.1 $\in$ Ct $\wedge$ p.2 $\in$ Cy\}}
 \label{df_featuremember}
 \end{restatable}
 
@@ -873,34 +924,52 @@ the first element is $w$ and the second element is a $\mc{Y}$.
 \end{align}
 \end{restatable}
 
-\begin{restatable}{leanaxiom}{encodePair}~\leanTitle{encodePair}~ Kuratowski-style pairing, in Lean, encoding
+\begin{restatable}{leandefinition}{encodePair}~\leanTitle{encodePair}~ Kuratowski-style pairing, in Lean, encoding
 an ordered pair of \texttt{Element}s as a single \texttt{Element}. Needed because features can have features
 (this very definition), whose own domain is itself a relation of pairs, and so on to unbounded nesting
 depth --- without a uniform way to fold a pair back into a plain \texttt{Element}, each nesting level would
-need its own primitive.
+need its own primitive. \textbf{Proved, not axiomatized (2026-08-26)} --- unlike every other primitive in
+this chapter, this one isn't part of \texttt{CoreDesignModel}'s \texttt{Design := $\emptyset$} vacuity trick
+(it doesn't mention \texttt{Design} at all): \texttt{Element}'s own fields (\texttt{String}/\texttt{List
+String}/\texttt{Option String} $\times 2$) each admit an injection into $\mathbb{N}$ (\texttt{String} via
+\texttt{Char}'s \texttt{UInt32} codepoint folded through a hand-written Gödel-style \texttt{List $\mathbb{N}$
+$\to$ $\mathbb{N}$} encoding; \texttt{List}/\texttt{Option} generically over an already-injective element
+type), so \texttt{Element} itself injects into $\mathbb{N}$, and \texttt{Nat.pair} (Mathlib's own
+$\mathbb{N} \times \mathbb{N} \simeq \mathbb{N}$) makes the pairing of two such naturals injective. The
+result folds back into a real \texttt{Element} via \texttt{aliasIds := List.replicate n ""}, injective in
+\texttt{n} via \texttt{List.length} alone.
 
-\texttt{\textcolor{leancolor}{axiom} \textcolor{leanyellow}{encodePair} : Element $\to$ Element $\to$ Element}
+\texttt{\textcolor{leancolor}{def} \textcolor{leanyellow}{encodePair} (a b : Element) : Element :=}
+
+\texttt{~~$\{$elementId := "", aliasIds := List.replicate (Nat.pair (elementToNat a) (elementToNat b)) "",}
+
+\texttt{~~~~declaredName := none, declaredShortName := none$\}$}
 \label{encodePair}
 \end{restatable}
 
-\begin{restatable}{leanaxiom}{encodePairInj}~\leanTitle{encodePair\_inj}~ \texttt{encodePair} is injective:
-distinct pairs give distinct encodings. No other structure is assumed, matching this project's general
-practice of adding only the constraint actually needed.
+\begin{restatable}{leantheorem}{encodePairInj}~\leanTitle{encodePair\_inj}~ \texttt{encodePair} is injective:
+distinct pairs give distinct encodings -- now a genuine theorem (\ref{encodePair}'s own doc comment), proved
+via \texttt{List.length\_replicate} recovering \texttt{Nat.pair (elementToNat a) (elementToNat b)} from
+\texttt{encodePair a b}'s \texttt{aliasIds} field, then \texttt{Nat.pair\_eq\_pair} and the injectivity of
+\texttt{elementToNat}. Proof omitted here.
 
-\texttt{\textcolor{leancolor}{axiom} \textcolor{leanyellow}{encodePair\_inj} \{a b c d : Element\} : encodePair a b = encodePair c d $\to$ a = c $\wedge$ b = d}
+\texttt{\textcolor{leancolor}{theorem} \textcolor{leanyellow}{encodePair\_inj} \{a b c d : Element\} (h : encodePair a b = encodePair c d) :}
+
+\texttt{~~a = c $\wedge$ b = d}
 \label{encodePair_inj}
 \end{restatable}
 
-\begin{restatable}{leanaxiom}{dfFeatureoffeatureLean}~\leanTitle{df\_featureoffeature}~ Define \texttt{featured
+\begin{restatable}{leandefinition}{dfFeatureoffeatureLean}~\leanTitle{df\_featureoffeature}~ Define \texttt{featured
 by} for nested features in Lean: a domain-less feature $x$ typed by $Y$, with its own owned feature $w$ typed
 by $Z$, has content pairing the universe with $Y$'s extension (via \texttt{df\_domainless}), and $w$'s
-relation pairs $x$'s own encoded pairs (domain $v$, codomain from $Y$) with $Z$'s extension.
+relation pairs $x$'s own encoded pairs (domain $v$, codomain from $Y$) with $Z$'s extension. Now a field of
+\texttt{CoreDesignModel} (\ref{CoreDesignModel}), proven vacuously.
 
-\texttt{\textcolor{leancolor}{axiom} \textcolor{leanyellow}{df\_featureoffeature} \{x w Y' Z' : Element\} \{Cy Cz : Set Element\}}
+\texttt{~~df\_featureoffeature : $\forall$ \{x w Y' Z' : Element\} \{Cy Cz : Set Element\},}
 
-\texttt{~~(hy : (DesignKind.type, Y', Cy) $\in$ Design) (hz : (DesignKind.type, Z', Cz) $\in$ Design) :}
+\texttt{~~~~(DesignKind.type, Y', Cy) $\in$ Design $\to$ (DesignKind.type, Z', Cz) $\in$ Design $\to$}
 
-\texttt{~~DomainlessDecl x Y' $\to$ OwnedFeatureTypedBy x w Z' $\to$}
+\texttt{~~~~DomainlessDecl x Y' $\to$ OwnedFeatureTypedBy x w Z' $\to$}
 
 \texttt{~~~~FeatureContent x \{p : Element $\times$ Element $\vert$ p.2 $\in$ Cy\} $\wedge$}
 
@@ -940,25 +1009,27 @@ says each \bemph{Person} \texttt{Type} must have a relation named \bemph{parent}
 \end{align}
 \end{restatable}
 
-\begin{restatable}{leanaxiom}{OwnedFeatureTypedByExact}~\leanTitle{OwnedFeatureTypedByExact}~ \texttt{type Z \{
-feature x[k] typed by Y; \}} (exact feature multiplicity), in Lean.
+\begin{restatable}{leandefinition}{OwnedFeatureTypedByExact}~\leanTitle{OwnedFeatureTypedByExact}~ \texttt{type Z \{
+feature x[k] typed by Y; \}} (exact feature multiplicity), in Lean. Now a field of \texttt{CoreDesignModel}
+(\ref{CoreDesignModel}).
 
-\texttt{\textcolor{leancolor}{axiom} \textcolor{leanyellow}{OwnedFeatureTypedByExact} : Element $\to$ Element $\to$ Element $\to$ $\mathbb{N}$ $\to$ Prop}
+\texttt{~~OwnedFeatureTypedByExact : Element $\to$ Element $\to$ Element $\to$ $\mathbb{N}$ $\to$ Prop}
 \label{OwnedFeatureTypedByExact}
 \end{restatable}
 
-\begin{restatable}{leanaxiom}{dfFixedfeaturemultiplicityLean}~\leanTitle{df\_fixedfeaturemultiplicity}~ Define
+\begin{restatable}{leandefinition}{dfFixedfeaturemultiplicityLean}~\leanTitle{df\_fixedfeaturemultiplicity}~ Define
 \texttt{Fixed Multiplicity} in Lean: a feature member declared with exact multiplicity $k$ has a relation of
 cardinality exactly $k$, every pair's co-domain drawn from $Y$'s extension. Reuses \texttt{Set.ncard} the same
-way \texttt{cardElem}/\texttt{df\_typemultiplicity} did in \S2.2.3, just for pair-sets.
+way \texttt{cardElem}/\texttt{df\_typemultiplicity} did in \S2.2.3, just for pair-sets. Now a field of
+\texttt{CoreDesignModel} (\ref{CoreDesignModel}), proven vacuously.
 
-\texttt{\textcolor{leancolor}{axiom} \textcolor{leanyellow}{df\_fixedfeaturemultiplicity} \{Z x Y' : Element\} \{Cy : Set Element\}}
+\texttt{~~df\_fixedfeaturemultiplicity : $\forall$ \{Z x Y' : Element\} \{Cy : Set Element\}}
 
-\texttt{~~\{R : Set (Element $\times$ Element)\} \{k : $\mathbb{N}$\} (hy : (DesignKind.type, Y', Cy) $\in$ Design) :}
+\texttt{~~~~\{R : Set (Element $\times$ Element)\} \{k : $\mathbb{N}$\}, (DesignKind.type, Y', Cy) $\in$ Design $\to$}
 
-\texttt{~~OwnedFeatureTypedByExact Z x Y' k $\to$ FeatureMemberOf Z x R $\to$}
+\texttt{~~~~OwnedFeatureTypedByExact Z x Y' k $\to$ FeatureMemberOf Z x R $\to$}
 
-\texttt{~~~~R.ncard = k $\wedge$ $\forall$ p $\in$ R, p.2 $\in$ Cy}
+\texttt{~~~~~~R.ncard = k $\wedge$ $\forall$ p $\in$ R, p.2 $\in$ Cy}
 \label{df_fixedfeaturemultiplicity}
 \end{restatable}
 
@@ -982,22 +1053,24 @@ says each Person \texttt{Type} must have a relation named ``children'' having an
 \end{align}
 \end{restatable}
 
-\begin{restatable}{leanaxiom}{OwnedFeatureTypedByStar}~\leanTitle{OwnedFeatureTypedByStar}~ \texttt{type Z \{
-feature x[*] typed by Y; \}} (unbounded feature multiplicity), in Lean.
+\begin{restatable}{leandefinition}{OwnedFeatureTypedByStar}~\leanTitle{OwnedFeatureTypedByStar}~ \texttt{type Z \{
+feature x[*] typed by Y; \}} (unbounded feature multiplicity), in Lean. Now a field of
+\texttt{CoreDesignModel} (\ref{CoreDesignModel}).
 
-\texttt{\textcolor{leancolor}{axiom} \textcolor{leanyellow}{OwnedFeatureTypedByStar} : Element $\to$ Element $\to$ Element $\to$ Prop}
+\texttt{~~OwnedFeatureTypedByStar : Element $\to$ Element $\to$ Element $\to$ Prop}
 \label{OwnedFeatureTypedByStar}
 \end{restatable}
 
-\begin{restatable}{leanaxiom}{dfUndefinedfeaturemultiplicityLean}~\leanTitle{df\_undefinedfeaturemultiplicity}~
+\begin{restatable}{leandefinition}{dfUndefinedfeaturemultiplicityLean}~\leanTitle{df\_undefinedfeaturemultiplicity}~
 Define \texttt{Undefined Feature Multiplicity} in Lean: an unbounded feature member's relation has every
-pair's co-domain drawn from $Y$'s extension, with no cardinality constraint at all.
+pair's co-domain drawn from $Y$'s extension, with no cardinality constraint at all. Now a field of
+\texttt{CoreDesignModel} (\ref{CoreDesignModel}), proven vacuously.
 
-\texttt{\textcolor{leancolor}{axiom} \textcolor{leanyellow}{df\_undefinedfeaturemultiplicity} \{Z x Y' : Element\} \{Cy : Set Element\}}
+\texttt{~~df\_undefinedfeaturemultiplicity : $\forall$ \{Z x Y' : Element\} \{Cy : Set Element\}}
 
-\texttt{~~\{R : Set (Element $\times$ Element)\} (hy : (DesignKind.type, Y', Cy) $\in$ Design) :}
+\texttt{~~~~\{R : Set (Element $\times$ Element)\}, (DesignKind.type, Y', Cy) $\in$ Design $\to$}
 
-\texttt{~~OwnedFeatureTypedByStar Z x Y' $\to$ FeatureMemberOf Z x R $\to$ $\forall$ p $\in$ R, p.2 $\in$ Cy}
+\texttt{~~~~OwnedFeatureTypedByStar Z x Y' $\to$ FeatureMemberOf Z x R $\to$ $\forall$ p $\in$ R, p.2 $\in$ Cy}
 \label{df_undefinedfeaturemultiplicity}
 \end{restatable}
 
@@ -1022,24 +1095,26 @@ says each Person \texttt{Type} must have a relation named ``bff'' having from tw
 \end{align}
 \end{restatable}
 
-\begin{restatable}{leanaxiom}{OwnedFeatureTypedByRange}~\leanTitle{OwnedFeatureTypedByRange}~ \texttt{type Z \{
-feature x[l..u] typed by Y; \}} (feature multiplicity range), in Lean.
+\begin{restatable}{leandefinition}{OwnedFeatureTypedByRange}~\leanTitle{OwnedFeatureTypedByRange}~ \texttt{type Z \{
+feature x[l..u] typed by Y; \}} (feature multiplicity range), in Lean. Now a field of
+\texttt{CoreDesignModel} (\ref{CoreDesignModel}).
 
-\texttt{\textcolor{leancolor}{axiom} \textcolor{leanyellow}{OwnedFeatureTypedByRange} : Element $\to$ Element $\to$ Element $\to$ $\mathbb{N}$ $\to$ $\mathbb{N}$ $\to$ Prop}
+\texttt{~~OwnedFeatureTypedByRange : Element $\to$ Element $\to$ Element $\to$ $\mathbb{N}$ $\to$ $\mathbb{N}$ $\to$ Prop}
 \label{OwnedFeatureTypedByRange}
 \end{restatable}
 
-\begin{restatable}{leanaxiom}{dfFeaturemultiplicityrangeLean}~\leanTitle{df\_featuremultiplicityrange}~ Define
+\begin{restatable}{leandefinition}{dfFeaturemultiplicityrangeLean}~\leanTitle{df\_featuremultiplicityrange}~ Define
 \texttt{Feature Multiplicity Range} in Lean: a range-bounded feature member's relation has cardinality
-between $l$ and $u$, every pair's co-domain drawn from $Y$'s extension.
+between $l$ and $u$, every pair's co-domain drawn from $Y$'s extension. Now a field of
+\texttt{CoreDesignModel} (\ref{CoreDesignModel}), proven vacuously.
 
-\texttt{\textcolor{leancolor}{axiom} \textcolor{leanyellow}{df\_featuremultiplicityrange} \{Z x Y' : Element\} \{Cy : Set Element\}}
+\texttt{~~df\_featuremultiplicityrange : $\forall$ \{Z x Y' : Element\} \{Cy : Set Element\}}
 
-\texttt{~~\{R : Set (Element $\times$ Element)\} \{l u : $\mathbb{N}$\} (hy : (DesignKind.type, Y', Cy) $\in$ Design) :}
+\texttt{~~~~\{R : Set (Element $\times$ Element)\} \{l u : $\mathbb{N}$\}, (DesignKind.type, Y', Cy) $\in$ Design $\to$}
 
-\texttt{~~OwnedFeatureTypedByRange Z x Y' l u $\to$ FeatureMemberOf Z x R $\to$}
+\texttt{~~~~OwnedFeatureTypedByRange Z x Y' l u $\to$ FeatureMemberOf Z x R $\to$}
 
-\texttt{~~~~l $\le$ R.ncard $\wedge$ R.ncard $\le$ u $\wedge$ $\forall$ p $\in$ R, p.2 $\in$ Cy}
+\texttt{~~~~~~l $\le$ R.ncard $\wedge$ R.ncard $\le$ u $\wedge$ $\forall$ p $\in$ R, p.2 $\in$ Cy}
 \label{df_featuremultiplicityrange}
 \end{restatable}
 
@@ -1053,24 +1128,26 @@ between $l$ and $u$, every pair's co-domain drawn from $Y$'s extension.
 \end{align}
 \end{restatable}
 
-\begin{restatable}{leanaxiom}{OwnedFeatureTypedByRangeStar}~\leanTitle{OwnedFeatureTypedByRangeStar}~
+\begin{restatable}{leandefinition}{OwnedFeatureTypedByRangeStar}~\leanTitle{OwnedFeatureTypedByRangeStar}~
 \texttt{type Z \{ feature x[l..*] typed by Y; \}} (feature multiplicity range, unbounded upper end), in Lean.
+Now a field of \texttt{CoreDesignModel} (\ref{CoreDesignModel}).
 
-\texttt{\textcolor{leancolor}{axiom} \textcolor{leanyellow}{OwnedFeatureTypedByRangeStar} : Element $\to$ Element $\to$ Element $\to$ $\mathbb{N}$ $\to$ Prop}
+\texttt{~~OwnedFeatureTypedByRangeStar : Element $\to$ Element $\to$ Element $\to$ $\mathbb{N}$ $\to$ Prop}
 \label{OwnedFeatureTypedByRangeStar}
 \end{restatable}
 
-\begin{restatable}{leanaxiom}{dfFeaturemultiplicityrangestarLean}~\leanTitle{df\_featuremultiplicityrangestar}~
+\begin{restatable}{leandefinition}{dfFeaturemultiplicityrangestarLean}~\leanTitle{df\_featuremultiplicityrangestar}~
 Define \texttt{Feature Multiplicity Range Star} in Lean: same as \texttt{df\_featuremultiplicityrange} above
-but with only a lower bound $l$.
+but with only a lower bound $l$. Now a field of \texttt{CoreDesignModel} (\ref{CoreDesignModel}), proven
+vacuously.
 
-\texttt{\textcolor{leancolor}{axiom} \textcolor{leanyellow}{df\_featuremultiplicityrangestar} \{Z x Y' : Element\} \{Cy : Set Element\}}
+\texttt{~~df\_featuremultiplicityrangestar : $\forall$ \{Z x Y' : Element\} \{Cy : Set Element\}}
 
-\texttt{~~\{R : Set (Element $\times$ Element)\} \{l : $\mathbb{N}$\} (hy : (DesignKind.type, Y', Cy) $\in$ Design) :}
+\texttt{~~~~\{R : Set (Element $\times$ Element)\} \{l : $\mathbb{N}$\}, (DesignKind.type, Y', Cy) $\in$ Design $\to$}
 
-\texttt{~~OwnedFeatureTypedByRangeStar Z x Y' l $\to$ FeatureMemberOf Z x R $\to$}
+\texttt{~~~~OwnedFeatureTypedByRangeStar Z x Y' l $\to$ FeatureMemberOf Z x R $\to$}
 
-\texttt{~~~~l $\le$ R.ncard $\wedge$ $\forall$ p $\in$ R, p.2 $\in$ Cy}
+\texttt{~~~~~~l $\le$ R.ncard $\wedge$ $\forall$ p $\in$ R, p.2 $\in$ Cy}
 \label{df_featuremultiplicityrangestar}
 \end{restatable}
 
@@ -1099,13 +1176,15 @@ type B {
 \end{align}
 \end{restatable}
 
-\begin{restatable}{leanaxiom}{MemberOf}~\leanTitle{MemberOf}~ \texttt{type B \{ member feature g typed by C
+\begin{restatable}{leandefinition}{MemberOf}~\leanTitle{MemberOf}~ \texttt{type B \{ member feature g typed by C
 featured by A; \}} (\texttt{member feature}, not an owned feature member), in Lean. A fresh
 \texttt{Element}-level primitive: $B$ has ordinary (non-feature) membership of $g$, distinct from
 \texttt{FeatureMemberOf}/\texttt{OwnedFeatureTypedBy} above --- matching the book's own point that $g$ is
-\emph{not} an owned feature of $B$.
+\emph{not} an owned feature of $B$. Now a field of \texttt{CoreDesignModel} (\ref{CoreDesignModel}) -- no
+\texttt{df\_*} axiom of its own even before this conversion (\texttt{df\_membershipfeature} below is
+already a real theorem not needing one).
 
-\texttt{\textcolor{leancolor}{axiom} \textcolor{leanyellow}{MemberOf} : Element $\to$ Element $\to$ Prop}
+\texttt{~~MemberOf : Element $\to$ Element $\to$ Prop}
 \label{MemberOf}
 \end{restatable}
 
@@ -1158,30 +1237,30 @@ type Z {
 \end{align}
 \end{restatable}
 
-\begin{restatable}{leanaxiom}{OwnedFeatures}~\leanTitle{OwnedFeatures}~ \texttt{type Z \{ feature x1 typed by
+\begin{restatable}{leandefinition}{OwnedFeatures}~\leanTitle{OwnedFeatures}~ \texttt{type Z \{ feature x1 typed by
 Y1; ...; feature xj typed by Yj; \}} (\texttt{TypeBody} with several feature members, variable arity $j$), in
 Lean. \texttt{feats} holds the declared (feature, type) pairs as a \texttt{List}, sidestepping Lean's lack of
-a literal ``...'' ellipsis for a fixed but unspecified arity $j$.
+a literal ``...'' ellipsis for a fixed but unspecified arity $j$. Now a field of \texttt{CoreDesignModel}
+(\ref{CoreDesignModel}).
 
-\texttt{\textcolor{leancolor}{axiom} \textcolor{leanyellow}{OwnedFeatures} : Element $\to$ List (Element $\times$ Element) $\to$ Prop}
+\texttt{~~OwnedFeatures : Element $\to$ List (Element $\times$ Element) $\to$ Prop}
 \label{OwnedFeatures}
 \end{restatable}
 
-\begin{restatable}{leanaxiom}{dfTypebodyLean}~\leanTitle{df\_typebody}~ Define multiple \texttt{TypeBody}
+\begin{restatable}{leandefinition}{dfTypebodyLean}~\leanTitle{df\_typebody}~ Define multiple \texttt{TypeBody}
 elements in Lean: generalizes \texttt{df\_featuremember} (domain $Z$'s own extension, since no
 \texttt{specializes} clause is given here) to every feature $(x_i,Y_i)$ declared in \texttt{feats}
 independently --- the ``...'' in the book's own $C_1,\ldots,C_j$ really means ``this holds
-member-by-member'', which is exactly what quantifying over \texttt{feats} states.
+member-by-member'', which is exactly what quantifying over \texttt{feats} states. Now a field of
+\texttt{CoreDesignModel} (\ref{CoreDesignModel}), proven vacuously (\texttt{hz} unconstructible).
 
-\texttt{\textcolor{leancolor}{axiom} \textcolor{leanyellow}{df\_typebody} \{Z : Element\} \{feats : List (Element $\times$ Element)\} \{Cz : Set Element\}}
+\texttt{~~df\_typebody : $\forall$ \{Z : Element\} \{feats : List (Element $\times$ Element)\} \{Cz : Set Element\},}
 
-\texttt{~~(hz : (DesignKind.type, Z, Cz) $\in$ Design) :}
+\texttt{~~~~(DesignKind.type, Z, Cz) $\in$ Design $\to$ OwnedFeatures Z feats $\to$}
 
-\texttt{~~OwnedFeatures Z feats $\to$}
+\texttt{~~~~~~$\forall$ p $\in$ feats, $\exists$ Cy : Set Element, (DesignKind.type, p.2, Cy) $\in$ Design $\wedge$}
 
-\texttt{~~~~$\forall$ p $\in$ feats, $\exists$ Cy : Set Element, (DesignKind.type, p.2, Cy) $\in$ Design $\wedge$}
-
-\texttt{~~~~~~FeatureMemberOf Z p.1 \{q : Element $\times$ Element $\vert$ q.1 $\in$ Cz $\wedge$ q.2 $\in$ Cy\}}
+\texttt{~~~~~~~~FeatureMemberOf Z p.1 \{q : Element $\times$ Element $\vert$ q.1 $\in$ Cz $\wedge$ q.2 $\in$ Cy\}}
 \label{df_typebody}
 \end{restatable}
 
@@ -1199,19 +1278,22 @@ Non-unique beaks the definition of features as relations, and is nonsensical exc
 \end{align}
 \end{restatable}
 
-\begin{restatable}{leanaxiom}{OrderedOn}~\leanTitle{OrderedOn}~ \texttt{OrderedOn Y a b} means $a<b$ under
+\begin{restatable}{leandefinition}{OrderedOn}~\leanTitle{OrderedOn}~ \texttt{OrderedOn Y a b} means $a<b$ under
 $Y$'s own (type-relative) ordering, in Lean --- not every type has a natural order (the book's own note: ``if
 $Y$ is not ordered, the feature $x$ cannot be ordered''), so this is parameterized by $Y$ rather than a single
-global order on \texttt{Element}.
+global order on \texttt{Element}. Now a field of \texttt{CoreDesignModel} (\ref{CoreDesignModel}) -- no
+\texttt{df\_*} axiom of its own (only used as a hypothesis inside the already-theorem \texttt{df\_ordered}
+below).
 
-\texttt{\textcolor{leancolor}{axiom} \textcolor{leanyellow}{OrderedOn} : Element $\to$ Element $\to$ Element $\to$ Prop}
+\texttt{~~OrderedOn : Element $\to$ Element $\to$ Element $\to$ Prop}
 \label{OrderedOn}
 \end{restatable}
 
-\begin{restatable}{leanaxiom}{OrderedDecl}~\leanTitle{OrderedDecl}~ \texttt{type Z \{ feature x[*] ordered
-typed by Y; \}}, in Lean.
+\begin{restatable}{leandefinition}{OrderedDecl}~\leanTitle{OrderedDecl}~ \texttt{type Z \{ feature x[*] ordered
+typed by Y; \}}, in Lean. Now a field of \texttt{CoreDesignModel} (\ref{CoreDesignModel}), same reasoning as
+\texttt{OrderedOn}.
 
-\texttt{\textcolor{leancolor}{axiom} \textcolor{leanyellow}{OrderedDecl} : Element $\to$ Element $\to$ Element $\to$ Prop}
+\texttt{~~OrderedDecl : Element $\to$ Element $\to$ Element $\to$ Prop}
 \label{OrderedDecl}
 \end{restatable}
 
@@ -1424,22 +1506,27 @@ The domain of \texttt{c1} is a set of pairs--not $A$ as one might expect.
 \end{align}
 \end{restatable}
 
-\begin{restatable}{leanaxiom}{ChainsDecl}~\leanTitle{ChainsDecl}~ \texttt{feature a chains b.c;}, in Lean. A
-fresh \texttt{Element}-level primitive, same reasoning as \texttt{Specializes}.
+\begin{restatable}{leandefinition}{ChainsDecl}~\leanTitle{ChainsDecl}~ \texttt{feature a chains b.c;}, in Lean. A
+fresh \texttt{Element}-level primitive, same reasoning as \texttt{Specializes}. Now a field of
+\texttt{CoreDesignModel} (\ref{CoreDesignModel}).
 
-\texttt{\textcolor{leancolor}{axiom} \textcolor{leanyellow}{ChainsDecl} : Element $\to$ Element $\to$ Element $\to$ Prop}
+\texttt{~~ChainsDecl : Element $\to$ Element $\to$ Element $\to$ Prop}
 \label{ChainsDecl}
 \end{restatable}
 
-\begin{restatable}{leanaxiom}{dfFeaturechainingLean}~\leanTitle{df\_featurechaining}~ Define \texttt{Feature
+\begin{restatable}{leandefinition}{dfFeaturechainingLean}~\leanTitle{df\_featurechaining}~ Define \texttt{Feature
 Chaining} in Lean: a feature $a$ declared as chaining $b.c$ has content the composition of $c$'s and $b$'s own
-relations (via \texttt{relCompose}, defined just below at \texttt{df-co}).
+relations (via \texttt{relCompose}, defined just below at \texttt{df-co}). Now a field of
+\texttt{CoreDesignModel} (\ref{CoreDesignModel}) -- its hypotheses are \texttt{FeatureContent}-shaped, not
+\texttt{Design}-membership-shaped, unlike every other constraint above, so it's discharged via
+\texttt{FeatureContent}'s own vacuity (\texttt{FeatureContent := fun \_ \_ => False}) rather than
+\texttt{Design}'s.
 
-\texttt{\textcolor{leancolor}{axiom} \textcolor{leanyellow}{df\_featurechaining} \{a b c : Element\} \{Rb Rc : Set (Element $\times$ Element)\}}
+\texttt{~~df\_featurechaining : $\forall$ \{a b c : Element\} \{Rb Rc : Set (Element $\times$ Element)\},}
 
-\texttt{~~(hb : FeatureContent b Rb) (hc : FeatureContent c Rc) :}
+\texttt{~~~~FeatureContent b Rb $\to$ FeatureContent c Rc $\to$}
 
-\texttt{~~ChainsDecl a b c $\to$ FeatureContent a (relCompose Rc Rb)}
+\texttt{~~~~ChainsDecl a b c $\to$ FeatureContent a (relCompose Rc Rb)}
 \label{df_featurechaining}
 \end{restatable}
 

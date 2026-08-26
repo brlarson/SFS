@@ -268,9 +268,11 @@ An infix notation will be used to define axioms for $P$.  $xPy$ means $x$ is a (
 \end{align}
 \end{restatable}
 
-\begin{restatable}{leandefinition}{parLean}~\leanTitle{par}~ Define part antireflexivity in Lean.
+\begin{restatable}{leandefinition}{parLean}~\leanTitle{par}~ Define part antireflexivity in Lean. Now a
+field of \texttt{class Mereology} (\ref{Mereology}) below, not an independent axiom -- proven jointly with
+\texttt{ptr}/\texttt{pch} via a single constructed model (\ref{mereologyModel}).
 
-\texttt{\textcolor{leancolor}{axiom} \textcolor{leanyellow}{par} (x : Occurrence) : $\lnot$ PartOf x x}
+\texttt{~~par : $\forall$ x, $\lnot$ PartOf x x}
 \label{par}
 \end{restatable}
 
@@ -282,9 +284,10 @@ An infix notation will be used to define axioms for $P$.  $xPy$ means $x$ is a (
 \end{align}
 \end{restatable}
 
-\begin{restatable}{leandefinition}{ptr}~\leanTitle{ptr}~ Define part transitivity in Lean.
+\begin{restatable}{leandefinition}{ptr}~\leanTitle{ptr}~ Define part transitivity in Lean. Now a field of
+\texttt{class Mereology} (\ref{Mereology}), same treatment as \texttt{par} above.
 
-\texttt{\textcolor{leancolor}{axiom} \textcolor{leanyellow}{ptr} \{x y z : Occurrence\} : PartOf x y $\to$ PartOf y z $\to$ PartOf x z}
+\texttt{~~ptr : $\forall$ \{x y z\}, PartOf x y $\to$ PartOf y z $\to$ PartOf x z}
 \label{ptr}
 \end{restatable}
 
@@ -354,12 +357,67 @@ Given any two things, either one is part of the other, they are disjoint, or the
 
 \begin{restatable}{leandefinition}{pch}~\leanTitle{pch}~ Define part containment hierarchy in Lean. Despite the
 \texttt{df-} name this doesn't define a new symbol --- it's purely a constraint not derivable from
-\texttt{par}/\texttt{ptr} alone, so, like those two, it stays an axiom here too.
+\texttt{par}/\texttt{ptr} alone, so, like those two, it needs proof beyond a bare definition -- now a field
+of \texttt{class Mereology} (\ref{Mereology}) below, inlined via \texttt{PartOf}'s own field rather than
+calling \texttt{PartDisjoint} (which isn't in scope yet inside the class), definitionally identical either
+way.
 
-\texttt{\textcolor{leancolor}{axiom} \textcolor{leanyellow}{pch} (x y : Occurrence) :}
+\texttt{~~pch : $\forall$ x y, ((PartOf x y $\vee$ PartOf y x) $\vee$ (x = y $\vee$ $\lnot$ $\exists$ z, PartOf z x $\wedge$ PartOf z y))}
 
-\texttt{~~((PartOf x y $\vee$ PartOf y x) $\vee$ (x = y $\vee$ PartDisjoint x y)) $\wedge$ $\lnot$ (PartOf x y $\wedge$ PartOf y x)}
+\texttt{~~~~$\wedge$ $\lnot$ (PartOf x y $\wedge$ PartOf y x)}
 \label{pch}
+\end{restatable}
+
+\begin{restatable}{leandefinition}{MereologyLean}~\leanTitle{Mereology}~ Class-based (2026-08-26, at direct
+request): \texttt{PartOf}/\texttt{par}/\texttt{ptr}/\texttt{pch} bundled together, since \texttt{par}/
+\texttt{ptr}/\texttt{pch} are genuine constraints on \texttt{PartOf} (not derivable from a bare relation),
+so eliminating them as axioms needs an actual constructed relation satisfying all three at once, not a
+trivial existence witness for \texttt{PartOf}'s own type.
+
+\texttt{\textcolor{leancolor}{class} \textcolor{leanyellow}{Mereology} \textcolor{leancolor}{where}}
+
+\texttt{~~PartOf : Occurrence $\to$ Occurrence $\to$ Prop}
+
+\texttt{~~}\ref{par}
+
+\texttt{~~}\ref{ptr}
+
+\texttt{~~}\ref{pch}
+
+\texttt{\textcolor{leancolor}{export} Mereology (PartOf par ptr pch)}
+\label{Mereology}
+\end{restatable}
+
+\begin{restatable}{leantheorem}{mereologyExistsLean}~\leanTitle{mereology\_exists}~ The consistency
+certificate's existence half: the ``nothing is ever part of anything'' relation
+(\texttt{\textcolor{leancolor}{fun} \_ \_ => False}) genuinely satisfies \texttt{par}/\texttt{ptr}/
+\texttt{pch} all three at once -- \texttt{par}/\texttt{ptr} vacuously (their hypotheses are always
+\texttt{False}), and \texttt{pch}'s only real content (comparability) holds because an always-\texttt{False}
+\texttt{PartOf} makes every pair unconditionally disjoint. Proof omitted here (\texttt{by refine
+$\langle$fun \_ \_ => False, \ldots$\rangle$; simp}).
+
+\texttt{\textcolor{leancolor}{theorem} \textcolor{leanyellow}{mereology\_exists} :}
+
+\texttt{~~$\exists$ R : Occurrence $\to$ Occurrence $\to$ Prop, ($\forall$ x, $\lnot$ R x x) $\wedge$}
+
+\texttt{~~~~($\forall$ x y z, R x y $\to$ R y z $\to$ R x z) $\wedge$ ($\forall$ x y, (\ldots) $\wedge$ (\ldots))}
+\label{mereology_exists}
+\end{restatable}
+
+\begin{restatable}{leandefinition}{mereologyModelLean}~\leanTitle{mereologyModel}~ Built via
+\texttt{Classical.choose}/\texttt{choose\_spec} over \ref{mereology_exists}, same as \ref{model} above --
+the actual \texttt{PartOf} chosen stays opaque; this only certifies \emph{a} model exists.
+
+\texttt{\textcolor{leancolor}{noncomputable instance} \textcolor{leanyellow}{mereologyModel} : Mereology \textcolor{leancolor}{where}}
+
+\texttt{~~PartOf := Classical.choose mereology\_exists}
+
+\texttt{~~par := (Classical.choose\_spec mereology\_exists).1}
+
+\texttt{~~ptr \{x y z\} := (Classical.choose\_spec mereology\_exists).2.1 x y z}
+
+\texttt{~~pch := (Classical.choose\_spec mereology\_exists).2.2}
+\label{mereologyModel}
 \end{restatable}
 
 \pn A part is an \bemph{atom} if it has no parts itself, $Ax$.
@@ -447,9 +505,11 @@ already proves it.
 
 \begin{restatable}{leandefinition}{lin}~\leanTitle{lin}~ Injectivity of location in Lean. Still a genuine,
 non-derivable constraint even with \texttt{Location} function-valued (nothing forces a function to be
-injective), so this stays an axiom.
+injective) -- now a field of \texttt{class RegionModel} (\ref{RegionModel}) below, proven jointly with
+\texttt{rdi}/\texttt{apar}/\texttt{expansivity}/\texttt{no\_interpenetration} via one constructed model
+(\ref{regionModelInstance}), not an independent axiom.
 
-\texttt{\textcolor{leancolor}{axiom} \textcolor{leanyellow}{lin} \{x y : Occurrence\} \{r : Region\} : Location x = r $\to$ Location y = r $\to$ x = y}
+\texttt{~~lin : $\forall$ \{x y : Occurrence\} \{r : Region\}, Location x = r $\to$ Location y = r $\to$ x = y}
 \label{lin}
 \end{restatable}
 
@@ -506,9 +566,10 @@ iff $p~\epsilon_r~ r$.
 \end{align}
 \end{restatable}
 
-\begin{restatable}{leandefinition}{rdi}~\leanTitle{rdi}~ Atomic regions are disjoint, in Lean.
+\begin{restatable}{leandefinition}{rdi}~\leanTitle{rdi}~ Atomic regions are disjoint, in Lean. Now a field of
+\texttt{class RegionModel} (\ref{RegionModel}), same treatment as \texttt{lin} above.
 
-\texttt{\textcolor{leancolor}{axiom} \textcolor{leanyellow}{rdi} \{r1 r2 : Region\} : AtomicRegion r1 $\to$ AtomicRegion r2 $\to$ $\lnot$ RegionOverlap r1 r2 $\vee$ r1 = r2}
+\texttt{~~rdi : $\forall$ \{r1 r2\}, AtomicRegion r1 $\to$ AtomicRegion r2 $\to$ $\lnot$ RegionOverlap r1 r2 $\vee$ r1 = r2}
 \label{rdi}
 \end{restatable}
 
@@ -520,9 +581,12 @@ iff $p~\epsilon_r~ r$.
 \end{align}
 \end{restatable}
 
-\begin{restatable}{leandefinition}{apar}~\leanTitle{apar}~ Atomic parts have atomic regions, in Lean.
+\begin{restatable}{leandefinition}{apar}~\leanTitle{apar}~ Atomic parts have atomic regions, in Lean. Now a
+field of \texttt{class RegionModel} (\ref{RegionModel}), same treatment as \texttt{lin} above -- under the
+constructed model, \texttt{AtomicRegion r0} turns out to be \emph{exactly} \texttt{AtomPart r0}, making this
+field an identity.
 
-\texttt{\textcolor{leancolor}{axiom} \textcolor{leanyellow}{apar} \{x : Occurrence\} \{r0 : Region\} : Location x = r0 $\to$ AtomPart x $\to$ AtomicRegion r0}
+\texttt{~~apar : $\forall$ \{x\} \{r0\}, Location x = r0 $\to$ AtomPart x $\to$ AtomicRegion r0}
 \label{apar}
 \end{restatable}
 
@@ -536,11 +600,17 @@ iff $p~\epsilon_r~ r$.
 \end{restatable}
 
 \begin{restatable}{leandefinition}{expansivity}~\leanTitle{expansivity}~ Define expansivity in Lean, tying
-\texttt{PartOf} to \texttt{RegionContainment} via \texttt{Location}.
+\texttt{PartOf} to \texttt{RegionContainment} via \texttt{Location}. Now a field of
+\texttt{class RegionModel} (\ref{RegionModel}), same treatment as \texttt{lin} above; proven via
+\texttt{ptr} (transitivity). \textbf{Concludes \texttt{RegionContainment r2 r1}, not \texttt{r1 r2}} ---
+\texttt{Regions.kerml}'s own real \texttt{EXPNS} formula concludes \texttt{RegionContainment(r2,r1)}
+(whole's region contains part's region), a transcription slip discovered while building this model and
+fixed here to match the real source (df-pex above is stated correctly; this Lean field previously had the
+argument order backwards).
 
-\texttt{\textcolor{leancolor}{axiom} \textcolor{leanyellow}{expansivity} \{x y : Occurrence\} \{r1 r2 : Region\} :}
+\texttt{~~expansivity : $\forall$ \{x y\} \{r1 r2\}, Location x = r1 $\to$ Location y = r2 $\to$}
 
-\texttt{~~Location x = r1 $\to$ Location y = r2 $\to$ PartOf x y $\to$ RegionContainment r1 r2}
+\texttt{~~~~PartOf x y $\to$ RegionContainment r2 r1}
 \label{expansivity}
 \end{restatable}
 
@@ -553,10 +623,60 @@ iff $p~\epsilon_r~ r$.
 \end{restatable}
 
 \begin{restatable}{leandefinition}{noInterpenetration}~\leanTitle{no\_interpenetration}~ Define no
-interpenetration in Lean.
+interpenetration in Lean. Now a field of \texttt{class RegionModel} (\ref{RegionModel}) too, folded in after
+the other four fields were already bundled (it isn't tied to \texttt{Location}/\texttt{AtomPart}, so it
+needed re-verifying against the \emph{existing} constructed model, not a new one): given a common point of
+two overlapping regions, \texttt{pch}'s comparable-or-disjoint guarantee (disjoint branch directly
+contradicted by that point) forces the two regions into exactly the cases \texttt{expansivity}'s own
+\texttt{ptr}-transitivity argument already handles.
 
-\texttt{\textcolor{leancolor}{axiom} \textcolor{leanyellow}{no\_interpenetration} \{r1 r2 : Region\} : RegionOverlap r1 r2 $\to$ RegionContainment r1 r2 $\vee$ RegionContainment r2 r1}
+\texttt{~~no\_interpenetration : $\forall$ \{r1 r2\}, RegionOverlap r1 r2 $\to$}
+
+\texttt{~~~~RegionContainment r1 r2 $\vee$ RegionContainment r2 r1}
 \label{no_interpenetration}
+\end{restatable}
+
+\begin{restatable}{leandefinition}{RegionModelLean}~\leanTitle{RegionModel}~ Class-based (2026-08-26, at
+direct request, upgrading earlier separate \texttt{RegionT}/\texttt{PointT}/\texttt{LocationFn}/
+\texttt{InRegionRel} conversions): \texttt{Region}/\texttt{Point}/\texttt{Location}/\texttt{InRegion}
+bundled with \texttt{lin}/\texttt{rdi}/\texttt{apar}/\texttt{expansivity}/\texttt{no\_interpenetration} --
+these tie \texttt{Location}/\texttt{InRegion} to each other and to \texttt{PartOf}, so eliminating them
+needs one jointly-constructed model, not independent trivial witnesses per primitive (fatal for \texttt{lin},
+which needs \texttt{Location} injective).
+
+\texttt{\textcolor{leancolor}{class} \textcolor{leanyellow}{RegionModel} \textcolor{leancolor}{where}}
+
+\texttt{~~Region : Type}
+
+\texttt{~~Point : Type}
+
+\texttt{~~Location : Occurrence $\to$ Region}
+
+\texttt{~~InRegion : Point $\to$ Region $\to$ Prop}
+
+\texttt{~~}\ref{lin}
+
+\texttt{~~}\ref{rdi}
+
+\texttt{~~}\ref{apar}
+
+\texttt{~~}\ref{expansivity}
+
+\texttt{~~}\ref{no_interpenetration}
+
+\texttt{\textcolor{leancolor}{export} RegionModel (Region Point Location InRegion lin rdi apar expansivity no\_interpenetration)}
+\label{RegionModel}
+\end{restatable}
+
+\begin{restatable}{leandefinition}{regionModelInstanceLean}~\leanTitle{regionModelInstance}~ The consistency
+certificate's existence half: \texttt{Region := Point := Occurrence}, \texttt{Location := id} (trivially
+injective, giving \texttt{lin} for free), and \texttt{InRegion p r := (p = r) $\vee$ PartOf p r} (a point
+``is in'' a region iff it equals it or is a \texttt{PartOf} it). Under this witness \texttt{AtomicRegion r0}
+turns out to be exactly \texttt{AtomPart r0}. Built via \texttt{Classical.choose}/\texttt{choose\_spec} over
+a \texttt{region\_exists} existence theorem, same pattern as \ref{model} above (details omitted here) --
+the actual \texttt{Region}/\texttt{Location}/\texttt{InRegion} chosen stay opaque; this only certifies
+\emph{a} model exists.
+\label{regionModelInstance}
 \end{restatable}
 
 \pn These choices for mereological metaphysics are called \bemph{supersubstantivalism} which entails perfect \bemph{mereolological harmony}.\cite{location-mereology}
@@ -575,9 +695,19 @@ interpenetration in Lean.
 
 \begin{restatable}{leandefinition}{Adjacent}~\leanTitle{Adjacent}~ Define adjacent points in Lean, as a
 two-place predicate on points directly rather than translating \texttt{Adj}$(p_1)$'s set-builder form. No
-further constraint (symmetry, irreflexivity, ...) is asserted beyond that.
+further constraint (symmetry, irreflexivity, ...) is asserted beyond that. Class-based (2026-08-26), same
+no-characterizing-law treatment as \texttt{now} above -- opaque via \texttt{Classical.choose} over a
+trivial existence, no independent axiom needed.
 
-\texttt{\textcolor{leancolor}{axiom} \textcolor{leanyellow}{Adjacent} : Point $\to$ Point $\to$ Prop}
+\texttt{\textcolor{leancolor}{class} \textcolor{leanyellow}{AdjacentRel} \textcolor{leancolor}{where}}
+
+\texttt{~~Adjacent : Point $\to$ Point $\to$ Prop}
+
+\texttt{\textcolor{leancolor}{export} AdjacentRel (Adjacent)}
+
+\texttt{\textcolor{leancolor}{noncomputable instance} \textcolor{leanyellow}{adjacentModel} : AdjacentRel :=}
+
+\texttt{~~$\langle$Classical.choose (\ldots)$\rangle$}
 \label{Adjacent}
 \end{restatable}
 
@@ -593,12 +723,17 @@ further constraint (symmetry, irreflexivity, ...) is asserted beyond that.
 \begin{restatable}{leandefinition}{RegionSurface}~\leanTitle{RegionSurface}~ Define surface of region in Lean.
 Function-valued (\texttt{Region} $\to$ \texttt{Surface}), matching \texttt{Regions.kerml}'s own functional
 declaration: genuinely new content, asserting for the first time that every region has exactly one surface.
+Now a field of \texttt{class SurfaceModel} (\ref{SurfaceModel}) below, bundled with \texttt{Surface}/
+\texttt{OnSurface}/\texttt{RegionInterior} and their two properties -- these tie \texttt{Surface}/
+\texttt{OnSurface} to \texttt{RegionSurface}/\texttt{RegionInterior} (and to \texttt{Region}/
+\texttt{InRegion}, already fixed by \texttt{RegionModel}), so eliminating them needs one jointly-constructed
+model too.
 
-\texttt{\textcolor{leancolor}{axiom} \textcolor{leanyellow}{RegionSurface} : Region $\to$ Surface}
+\texttt{~~RegionSurface : Region $\to$ Surface}
 
-\texttt{\textcolor{leancolor}{axiom} \textcolor{leanyellow}{regionSurfaceProp} (r0 : Region) :}
+\texttt{~~regionSurfaceProp : $\forall$ r0 : Region, $\exists$ r1 : Region, $\forall$ p,}
 
-\texttt{~~$\exists$ r1 : Region, $\forall$ p, OnSurface p (RegionSurface r0) $\to$ InRegion p r0 $\wedge$ $\lnot$ InRegion p r1}
+\texttt{~~~~OnSurface p (RegionSurface r0) $\to$ InRegion p r0 $\wedge$ $\lnot$ InRegion p r1}
 \label{RegionSurface}
 \end{restatable}
 
@@ -613,13 +748,41 @@ declaration: genuinely new content, asserting for the first time that every regi
 
 \begin{restatable}{leandefinition}{RegionInterior}~\leanTitle{RegionInterior}~ Define interior of region in Lean.
 Function-valued (\texttt{Region} $\to$ \texttt{Region}) for the same reason as \texttt{RegionSurface} above.
+Now a field of \texttt{class SurfaceModel} (\ref{SurfaceModel}), same treatment as \texttt{RegionSurface}.
 
-\texttt{\textcolor{leancolor}{axiom} \textcolor{leanyellow}{RegionInterior} : Region $\to$ Region}
+\texttt{~~RegionInterior : Region $\to$ Region}
 
-\texttt{\textcolor{leancolor}{axiom} \textcolor{leanyellow}{regionInteriorProp} (r1 : Region) :}
+\texttt{~~regionInteriorProp : $\forall$ r1 : Region, $\forall$ p, InRegion p r1 $\to$}
 
-\texttt{~~$\forall$ p, InRegion p r1 $\to$ InRegion p (RegionInterior r1) $\wedge$ $\lnot$ OnSurface p (RegionSurface (RegionInterior r1))}
+\texttt{~~~~InRegion p (RegionInterior r1) $\wedge$ $\lnot$ OnSurface p (RegionSurface (RegionInterior r1))}
 \label{RegionInterior}
+\end{restatable}
+
+\begin{restatable}{leandefinition}{SurfaceModelLean}~\leanTitle{SurfaceModel}~ Class-based (2026-08-26, at
+direct request), upgrading earlier separate \texttt{SurfaceT}/\texttt{OnSurfaceRel} conversions.
+
+\texttt{\textcolor{leancolor}{class} \textcolor{leanyellow}{SurfaceModel} \textcolor{leancolor}{where}}
+
+\texttt{~~Surface : Type}
+
+\texttt{~~OnSurface : Point $\to$ Surface $\to$ Prop}
+
+\texttt{~~}\ref{RegionSurface}
+
+\texttt{~~}\ref{RegionInterior}
+
+\texttt{\textcolor{leancolor}{export} SurfaceModel (Surface OnSurface RegionSurface RegionInterior regionSurfaceProp regionInteriorProp)}
+\label{SurfaceModel}
+\end{restatable}
+
+\begin{restatable}{leandefinition}{surfaceModelInstanceLean}~\leanTitle{surfaceModelInstance}~ The
+consistency certificate's existence half: \texttt{Surface := Region}, \texttt{OnSurface := fun \_ \_ =>
+False} (nothing is ever ``on'' a surface), \texttt{RegionSurface := id}, \texttt{RegionInterior := id}. Both
+properties collapse to trivialities under this witness: \texttt{regionSurfaceProp}'s hypothesis is vacuously
+\texttt{False} (any \texttt{r1} works); \texttt{regionInteriorProp}'s first conjunct is reflexivity (since
+\texttt{RegionInterior = id}) and its second is vacuous the same way. Built via \texttt{Classical.choose}/
+\texttt{choose\_spec} over a \texttt{surface\_exists} existence theorem, same pattern as \ref{model} above.
+\label{surfaceModelInstance}
 \end{restatable}
 
 \pn The film of a region is points not in the region, but adjacent to a point on its surface.

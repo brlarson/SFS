@@ -18,20 +18,24 @@ Let $V_C$ be the set of all \texttt{Classifiers} in the design $D$:  $V_C \subse
 \end{align}
 \end{restatable}
 
-\begin{restatable}{leanaxiom}{VC}~\leanTitle{VC}~ Define the set of \texttt{Classifiers} in Lean. Exact
-parallel of \texttt{VT}/\texttt{VF} above, one more \texttt{ElementKind} tag down.
+\begin{restatable}{leandefinition}{VC}~\leanTitle{VC}~ Define the set of \texttt{Classifiers} in Lean. Exact
+parallel of \texttt{VT}/\texttt{VF} above, one more \texttt{ElementKind} tag down. Now a field of
+\texttt{class CoreDesignModel} (\ref{CoreDesignModel}, \texttt{Core.lean}) -- see that class's own doc
+comment for why this whole $\sim$45-primitive/constraint cluster had to be bundled together and proven
+jointly (2026-08-26), not axiomatized individually.
 
-\texttt{\textcolor{leancolor}{axiom} \textcolor{leanyellow}{VC} : Set Element}
+\texttt{~~VC : Set Element}
 \label{VC}
 \end{restatable}
 
-\begin{restatable}{leanaxiom}{dfClassifierLean}~\leanTitle{df\_classifier}~ Define \texttt{classifier} in Lean.
+\begin{restatable}{leandefinition}{dfClassifierLean}~\leanTitle{df\_classifier}~ Define \texttt{classifier} in Lean.
 \texttt{Classifier} already has a slot in \texttt{ElementKind}'s fourteen tags, so no new \texttt{DesignKind}
-case is needed --- exact parallel of \texttt{df\_types}/\texttt{df\_feature} above.
+case is needed --- exact parallel of \texttt{df\_types}/\texttt{df\_feature} above. Now a field of
+\texttt{class CoreDesignModel} (\ref{CoreDesignModel}).
 
-\texttt{\textcolor{leancolor}{axiom} \textcolor{leanyellow}{df\_classifier} : $\forall$ e : Element,}
+\texttt{~~df\_classifier : $\forall$ e : Element,}
 
-\texttt{~~($\exists$ C : Set Element, (DesignKind.ofElementKind ElementKind.Classifier, e, C) $\in$ Design) $\to$ e $\in$ VC}
+\texttt{~~~~($\exists$ C : Set Element, (DesignKind.ofElementKind ElementKind.Classifier, e, C) $\in$ Design) $\to$ e $\in$ VC}
 \label{df_classifier}
 \end{restatable}
 
@@ -43,12 +47,14 @@ case is needed --- exact parallel of \texttt{df\_types}/\texttt{df\_feature} abo
 \end{align}
 \end{restatable}
 
-\begin{restatable}{leanaxiom}{dfClassifier2Lean}~\leanTitle{df\_classifier2}~ \texttt{Classifiers} are also
+\begin{restatable}{leandefinition}{dfClassifier2Lean}~\leanTitle{df\_classifier2}~ \texttt{Classifiers} are also
 \texttt{Types}, in Lean. Not derivable from \texttt{VC}'s/\texttt{VT}'s own definitions (each is
-independently primitive, same situation \texttt{df\_types}/\texttt{df\_feature} were already in), so this
-stays an axiom here too.
+independently primitive), so this needed proof beyond a bare definition -- the one field in
+\texttt{CoreDesignModel}'s cluster (\ref{CoreDesignModel}) not resting on \texttt{Design}'s own vacuity
+(it doesn't mention \texttt{Design} at all), but still trivial: \texttt{VC := $\emptyset$} makes
+\texttt{VC $\subseteq$ VT} hold for any \texttt{VT} whatsoever.
 
-\texttt{\textcolor{leancolor}{axiom} \textcolor{leanyellow}{df\_classifier2} : VC $\subseteq$ VT}
+\texttt{~~df\_classifier2 : VC $\subseteq$ VT}
 \label{df_classifier2}
 \end{restatable}
 
