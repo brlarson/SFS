@@ -870,13 +870,21 @@ instant between under \texttt{next}, even without either boundary being open.
 \texttt{Option}-valued (\texttt{death} became \texttt{Option}-valued, \ref{Lifetimes}). The
 \texttt{next (death A) (birth B)} disjunct, before \textit{next}'s own redesign (\S\ref{sec:precedence},
 \ref{nextLean}), was provably always \texttt{False} here; now genuinely possible whenever \texttt{death A}/
-\texttt{birth B} are consecutive shared ticks, so there is no longer an unconditional collapse to just the
-open-boundary disjunct to state (the old \texttt{nearlyMeets\_iff} is retired along with the vacuity it
-relied on).
+\texttt{birth B} are consecutive shared ticks. Rewritten again onto the shared \texttt{kand}/\texttt{kor}
+combinators (\ref{kand}) and \texttt{nextO} (\ref{nextO}), matching every other Allen predicate here, rather
+than mapping the whole body over \texttt{death A}: previously an unfinished $A$ made the \emph{entire} result
+\texttt{none} unconditionally, but \texttt{kand}'s own short-circuit can now still resolve the first disjunct
+to \texttt{some False} when $\lnot(\texttt{openRight}(A)\vee\texttt{openLeft}(B))$ is already known, even
+with \texttt{death A} undefined -- a genuine behavior change, not just a refactor, and the correct one: it is
+the same Kleene short-circuiting every other predicate here already gets (the old \texttt{nearlyMeets\_iff}
+is retired along with the vacuity it relied on). The trailing \texttt{next(death(x),birth(y))} disjunct
+itself is \emph{not} Kleene -- see \texttt{nextO}'s own doc comment and \S\ref{sec:bldefinedness}'s note.
 
 \texttt{\textcolor{leancolor}{noncomputable def} \textcolor{leanyellow}{nearlyMeets} (A B : Occurrence) : Option Prop :=}
 
-\texttt{~~(death A).map fun tA $\Rightarrow$ (birth B = tA $\wedge$ (openRight A $\vee$ openLeft B)) $\vee$ next tA (birth B)}
+\texttt{~~kor (kand ((death A).map fun tA $\Rightarrow$ birth B = tA) (some (openRight A $\vee$ openLeft B)))}
+
+\texttt{~~~~(some (nextO (death A) (some (birth B))))}
 \label{nearlyMeets}
 \end{restatable}
 

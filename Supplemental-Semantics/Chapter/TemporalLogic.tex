@@ -189,6 +189,25 @@ vacuously true via \eqref{eq:bl.nextdense}, since \textit{next} was never satisf
 \label{next_uniq}
 \end{restatable}
 
+\begin{restatable}{leandefinition}{nextOLean}~\leanTitle{nextO}~ \textit{next} lifted to \texttt{Option Time}
+arguments, needed for \textit{nearlymeets}'s own \eqref{eq:df-nearlymeets} (\S\ref{sec:allen},
+\ref{nearlyMeets}). \emph{False, not undefined}, when either argument is absent -- a deliberate departure
+from the Strong Kleene reading \S\ref{sec:bldefinedness} gives every other partial predicate here:
+\textit{next} asks whether a specific consecutive-tick relationship holds between two instants, and ``one of
+the instants doesn't exist yet'' makes that relationship false, not merely unknown (contrast a bare
+comparison like $\texttt{death}(X)\prec\texttt{birth}(Y)$, where an unfinished $X$ genuinely leaves the
+comparison undecided rather than false).
+
+\texttt{\textcolor{leancolor}{noncomputable def} \textcolor{leanyellow}{nextO} (t1 t2 : Option Time) : Prop :=}
+
+\texttt{~~\textcolor{leancolor}{match} t1, t2 \textcolor{leancolor}{with}}
+
+\texttt{~~| some t1', some t2' $\Rightarrow$ next t1' t2'}
+
+\texttt{~~| \_, \_ $\Rightarrow$ False}
+\label{nextO}
+\end{restatable}
+
 \section{Hybrid Logics}\label{sec:hybridlogics}
 
 \pn The temporal logics closest to \logicid~ are called \bemph{hybrid logics} in that they extend a propositional temporal logic with quantifiers, and use \bemph{nominals} \cite{sep-logic-hybrid}\cite{Bull-1970}.  Nominals are atomic propositions which are true at exactly one $t \in T$.  With nominals, a \bemph{satisfaction operator} can be defined to represent that a formula $\phi$ is true at the exact instant which nominal $i$ is true,~~ $@_i \phi$
@@ -682,7 +701,7 @@ $\bot_u$ & $\top$ & $\bot_u$ & $\bot_u$
 \begin{theorem}[Conservativity of Partiality]\label{thm:conservativity} If every $\mathsf{FUNC}$/$\mathsf{PRED}$ symbol occurring in $\phi$ denotes a total function/predicate, $\phi$'s truth value under this extended semantics is never $\bot_u$, and coincides exactly with its value under \S\ref{sec:bl0sem}'s original bivalent semantics.
 \end{theorem}
 
-\pn No new surface syntax is needed to make a formula partiality-aware once one of its function symbols is known to be partial -- \eqref{eq:df-precedes} (\S\ref{sec:allen}) is written exactly the same whether \texttt{death} is total or partial; only the truth value it can now take, and the proof obligations that follow from that, change. $r\!\downarrow$ is available where a formula needs to test definedness explicitly, but none of \S\ref{sec:allen}'s own formulas need it -- they rely on the comparison-atom and Strong Kleene $\wedge$/$\vee$ rules above alone.
+\pn No new surface syntax is needed to make a formula partiality-aware once one of its function symbols is known to be partial -- \eqref{eq:df-precedes} (\S\ref{sec:allen}) is written exactly the same whether \texttt{death} is total or partial; only the truth value it can now take, and the proof obligations that follow from that, change. $r\!\downarrow$ is available where a formula needs to test definedness explicitly, but none of \S\ref{sec:allen}'s own formulas need it -- they rely on the comparison-atom and Strong Kleene $\wedge$/$\vee$ rules above alone, with one deliberate exception: \eqref{eq:df-nearlymeets}'s own $\textit{next}(\texttt{death}(X),\texttt{birth}(Y))$ disjunct is a predicate symbol, not a comparison atom, and this $\mathsf{PRED}$ apparatus is not itself given a general partiality rule here -- \textit{next} instead supplies its own convention (\ref{nextO}), false rather than $\bot_u$ when an argument is undefined, precisely because it is not a comparison.
 
 \section{The Interpretation~$\mathbf{I}_{t}$}\label{sec:interpretation}
  
