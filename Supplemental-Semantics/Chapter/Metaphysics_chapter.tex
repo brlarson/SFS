@@ -291,6 +291,85 @@ field of \texttt{class Mereology} (\ref{Mereology}) below, not an independent ax
 \label{ptr}
 \end{restatable}
 
+\pn Contained-by is a one-stage part relation, distinct from $P$ (the general, possibly-transitive
+parthood relation) -- $x$ is \bemph{contained by} $y$, $xCy$, when $y$ is $x$'s immediate, one-level
+container. Every direct container is also a (general) part, but not conversely -- $P$'s own transitivity
+(\ref{eq:df-ptr}) lets a part's part be a part without being a \emph{direct} container.
+\begin{restatable}{metadefinition}{df-containment}~\blTitle{df-containment}~ Define containment.
+\begin{align}
+\vdash ( x \,C \,y \rightarrow x \,P \,y )\label{eq:df-containment}\tag{df-containment}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{leandefinition}{containmentField}~\leanTitle{containment}~ Define containment in Lean. A
+field of \texttt{class Containment} (\ref{Containment}) below, proven jointly with \texttt{uniqueContainer}
+via a single constructed model (\ref{containmentModel}), same recipe as \texttt{Mereology} (\ref{Mereology})
+above.
+
+\texttt{~~containment : $\forall$ x y, ContainedBy x y $\to$ PartOf x y}
+\label{containmentField}
+\end{restatable}
+
+\pn Something may have at most one container.
+\begin{restatable}{metadefinition}{df-uniquecontainer}~\blTitle{df-uniquecontainer}~ Define unique container.
+\begin{align}
+\vdash ( ( x \,C \,y \wedge x \,C \,z ) \rightarrow y = z )\label{eq:df-uniquecontainer}\tag{df-uniquecontainer}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{leandefinition}{uniqueContainerField}~\leanTitle{uniqueContainer}~ Define unique container
+in Lean. Same field/proof treatment as \texttt{containment} above.
+
+\texttt{~~uniqueContainer : $\forall$ x y z, ContainedBy x y $\to$ ContainedBy x z $\to$ y = z}
+\label{uniqueContainerField}
+\end{restatable}
+
+\begin{restatable}{leandefinition}{ContainmentLean}~\leanTitle{Containment}~ Class-based (2026-08-27,
+ported from a direct edit to \texttt{Mereology.kerml} itself): \texttt{ContainedBy}/\texttt{containment}/
+\texttt{uniqueContainer} bundled together, same reasoning as \texttt{Mereology} above -- \texttt{containment}/
+\texttt{uniqueContainer} are genuine constraints on \texttt{ContainedBy} (not derivable from a bare relation),
+so eliminating them as axioms needs an actual constructed relation satisfying both at once.
+
+\texttt{\textcolor{leancolor}{class} \textcolor{leanyellow}{Containment} \textcolor{leancolor}{where}}
+
+\texttt{~~ContainedBy : Occurrence $\to$ Occurrence $\to$ Prop}
+
+\texttt{~~}\ref{containmentField}
+
+\texttt{~~}\ref{uniqueContainerField}
+
+\texttt{\textcolor{leancolor}{export} Containment (ContainedBy containment uniqueContainer)}
+\label{Containment}
+\end{restatable}
+
+\begin{restatable}{leantheorem}{containmentExistsLean}~\leanTitle{containment\_exists}~ The consistency
+certificate's existence half, same trick as \ref{mereology_exists}: the always-\texttt{False} relation
+satisfies both \texttt{containment} and \texttt{uniqueContainer} vacuously (\texttt{False}
+$\to$ \texttt{PartOf x y} and \texttt{False} $\to$ \texttt{False} $\to$ \texttt{y = z} both hold by
+\emph{ex falso}, no constraint on \texttt{PartOf} itself needed).
+
+\texttt{\textcolor{leancolor}{theorem} \textcolor{leanyellow}{containment\_exists} :}
+
+\texttt{~~$\exists$ R : Occurrence $\to$ Occurrence $\to$ Prop,}
+
+\texttt{~~~~($\forall$ x y, R x y $\to$ PartOf x y) $\wedge$ ($\forall$ x y z, R x y $\to$ R x z $\to$ y = z)}
+\label{containment_exists}
+\end{restatable}
+
+\begin{restatable}{leandefinition}{containmentModelLean}~\leanTitle{containmentModel}~ Built via
+\texttt{Classical.choose}/\texttt{choose\_spec} over \ref{containment_exists}, same as
+\ref{mereologyModel} above -- the actual \texttt{ContainedBy} chosen stays opaque.
+
+\texttt{\textcolor{leancolor}{noncomputable instance} \textcolor{leanyellow}{containmentModel} : Containment \textcolor{leancolor}{where}}
+
+\texttt{~~ContainedBy := Classical.choose containment\_exists}
+
+\texttt{~~containment := (Classical.choose\_spec containment\_exists).1}
+
+\texttt{~~uniqueContainer := (Classical.choose\_spec containment\_exists).2}
+\label{containmentModel}
+\end{restatable}
+
 \pn Having a part in common is called \bemph{overlap}, $xOy$.
 \begin{restatable}{metadefinition}{df-pov}~\blTitle{df-pov}~ Define part overlap.
 \begin{align}
