@@ -442,6 +442,9 @@ $\tau_d$ and does not exist after $\tau_d$.
 \texttt{Occurrences.kerml}'s own \texttt{endShot: Instant[0..1]} means an occurrence may not have ended by
 \texttt{now}. A total \texttt{death} forced every occurrence, including one that never exists, to have
 \emph{some} death instant -- inconsistent, the same defect \S\ref{sec:bldefinedness} generalizes and fixes.
+\texttt{death} itself stays exactly this way -- partial, faithful to \texttt{endShot}'s own cardinality. Allen's
+intervals below (\S\ref{sec:allen}) are re-expressed in terms of a separate, \emph{total} reading instead
+(\ref{effectiveEnd}): "active-now" occurrences are simply treated as ending at \texttt{now} itself.
 
 \pn $(\tau_d(,]\mathsf{\mc{now}})$ is the open-left\index{ xcd@\lstinline+,.+ open left} time interval greater than time $\tau_d$ up to $\mathsf{\mc{now}}$.
 
@@ -477,10 +480,11 @@ interval, in Lean --- Mathlib's \texttt{Set.mem\_Ioc}.
 \end{restatable}
 
 \begin{restatable}{leandefinition}{lifeLean}~\leanTitle{life}~ Define Lifetime in Lean, as \texttt{Set.Icc}
-between \texttt{birth}'s and \texttt{death}'s own values -- \texttt{Option}-valued, undefined exactly when
-\texttt{death A} is (an ongoing occurrence).
+between \texttt{birth}'s and \texttt{effectiveEnd}'s own values (\ref{effectiveEnd}) -- total, unlike
+\texttt{SFS.mm}'s own \texttt{df-lifetime} (\eqref{eq:df-bl.lifetime} above), which is left unchanged, still
+in terms of raw \texttt{death}.
 
-\texttt{\textcolor{leancolor}{noncomputable def} \textcolor{leanyellow}{life} (A : Occurrence) : Option (Set Instant) := (death A).map fun tA $\Rightarrow$ Set.Icc (birth A).val tA.val}
+\texttt{\textcolor{leancolor}{noncomputable def} \textcolor{leanyellow}{life} (A : Occurrence) : Set Instant := Set.Icc (birth A).val (effectiveEnd A).val}
 \label{life}
 \end{restatable}
 
@@ -565,13 +569,13 @@ The fundamental element of time is \texttt{Instant}\index{instant} with which \t
 \begin{tabular}{|c|c|c|c|}
 \hline
 \textbf{Relation} & \textbf{Interpretation} & \textbf{Formula} & \textbf{Predicate} \\ \hline
-$X < Y$ & X \bemph{precedes} Y & $\texttt{death}(X) \prec \texttt{birth}(Y)$ & \textidx{precedes}(X,Y) \\ \hline
-$X ~m~ Y$ & X  \bemph{meets} Y & $\texttt{death}(X) = \texttt{birth}(Y)$ & \textidx{meets}(X,Y) \\ \hline
-$X ~o~ Y$ & X  \bemph{overlaps} Y & $\texttt{birth}(Y)\prec \texttt{death}(X)$ & \textidx{overlaps}(X,Y) \\ \hline
-$X ~s~ Y$ & X  \bemph{starts} Y & $\texttt{birth}(X) = \texttt{birth}(Y)~\wedge~\texttt{death}(Y) \prec \texttt{death}(X)$ & \textidx{starts}(X,Y) \\ \hline
-$X ~d~ Y$ & X  \bemph{during} Y & $\texttt{birth}(Y) \preccurlyeq \texttt{birth}(X)~\wedge~\texttt{death}(X) \preccurlyeq \texttt{death}(Y)$ & \textidx{during}(X,Y)\\ \hline
-$X ~f~ Y$ & X  \bemph{finishes} Y & $\texttt{birth}(Y) \prec \texttt{birth}(X)~\wedge~\texttt{death}(X) = \texttt{death}(Y)$ & \textidx{finishes}(X,Y)\\ \hline
-$X ~=~ Y$ & X  \bemph{equals} Y & $\texttt{birth}(Y) = \texttt{birth}(X)~\wedge~\texttt{death}(X) = \texttt{death}(Y)$ & \textidx{coincident}(X,Y) \\ \hline
+$X < Y$ & X \bemph{precedes} Y & $\texttt{effectiveEnd}(X) \prec \texttt{birth}(Y)$ & \textidx{precedes}(X,Y) \\ \hline
+$X ~m~ Y$ & X  \bemph{meets} Y & $\texttt{effectiveEnd}(X) = \texttt{birth}(Y)$ & \textidx{meets}(X,Y) \\ \hline
+$X ~o~ Y$ & X  \bemph{overlaps} Y & $\texttt{birth}(Y)\prec \texttt{effectiveEnd}(X)$ & \textidx{overlaps}(X,Y) \\ \hline
+$X ~s~ Y$ & X  \bemph{starts} Y & $\texttt{birth}(X) = \texttt{birth}(Y)~\wedge~\texttt{effectiveEnd}(Y) \prec \texttt{effectiveEnd}(X)$ & \textidx{starts}(X,Y) \\ \hline
+$X ~d~ Y$ & X  \bemph{during} Y & $\texttt{birth}(Y) \preccurlyeq \texttt{birth}(X)~\wedge~\texttt{effectiveEnd}(X) \preccurlyeq \texttt{effectiveEnd}(Y)$ & \textidx{during}(X,Y)\\ \hline
+$X ~f~ Y$ & X  \bemph{finishes} Y & $\texttt{birth}(Y) \prec \texttt{birth}(X)~\wedge~\texttt{effectiveEnd}(X) = \texttt{effectiveEnd}(Y)$ & \textidx{finishes}(X,Y)\\ \hline
+$X ~=~ Y$ & X  \bemph{equals} Y & $\texttt{birth}(Y) = \texttt{birth}(X)~\wedge~\texttt{effectiveEnd}(X) = \texttt{effectiveEnd}(Y)$ & \textidx{coincident}(X,Y) \\ \hline
 \end{tabular}
 \end{center}
 \label{table:allensintervals}
@@ -579,53 +583,62 @@ $X ~=~ Y$ & X  \bemph{equals} Y & $\texttt{birth}(Y) = \texttt{birth}(X)~\wedge~
 
 \pagebreak %really want to prevent lstlisting from breaking over page boundary
 
-\pn \texttt{death} became \texttt{Option}-valued above (\ref{Lifetimes}); every relation in \ref{table:allensintervals} that reads $\texttt{death}(X)$/$\texttt{death}(Y)$ is therefore \emph{partial} in the sense of \S\ref{sec:bldefinedness} -- ``compare only when defined,'' Strong Kleene: a relation is undefined exactly when a \texttt{death} it genuinely needs is unknown, short-circuiting to a definite answer wherever the other conjunct/disjunct already forces one regardless (e.g. \textit{during} is false outright if $\texttt{birth}(Y) \preccurlyeq \texttt{birth}(X)$ already fails, even when $\texttt{death}(X)/\texttt{death}(Y)$ are unknown). The $\texttt{@Assert}$ formula text below is \emph{unchanged} from before \texttt{death} became partial -- only the truth value it can now take does. Five shared combinators give this a single, systematic Lean implementation, replacing what would otherwise be a different ad hoc pattern per predicate:
+\pn \texttt{death} became \texttt{Option}-valued above (\ref{Lifetimes}), and every relation in
+\ref{table:allensintervals} used to read $\texttt{death}(X)$/$\texttt{death}(Y)$ directly, making them
+\emph{partial} in the sense of \S\ref{sec:bldefinedness} -- ``compare only when defined,'' Strong Kleene.
+2026-08-27, at direct request (``The Kleene operators are getting bothersome... Can the Kleene operators be
+removed?''): Allen's intervals are re-formulated instead around a new \emph{total} reading, \textit{active-now}
+-- an occurrence that has not reached its \texttt{endShot} by \texttt{now} is simply treated as ending at
+\texttt{now} itself, for the purposes of these relations. This removes the whole Strong Kleene apparatus
+(\texttt{kand}/\texttt{kor}/\texttt{klt}/\texttt{kle}/\texttt{keq}) from \emph{this} section entirely -- every
+relation below is a plain, total \texttt{Prop} again. \texttt{death} itself is untouched (still
+\texttt{Option}-valued, still faithful to \texttt{endShot}); only what \textit{these formulas} mean by
+``\texttt{death}(X)'' changes, to \texttt{effectiveEnd}(X) below. The \texttt{@Assert} formula text itself is
+\emph{unchanged} -- it still reads \texttt{death(x)} verbatim; only what that identifier resolves to in the DSL
+changes (\texttt{Assert.lean}'s own \texttt{elabDslTerm} special-cases it).
 
-\begin{restatable}{leandefinition}{kandLean}~\leanTitle{kand / kor}~ Strong Kleene conjunction/disjunction on
-\texttt{Option Prop}: short-circuits to a definite \texttt{False}/\texttt{True} when the known operand already
-forces it, even if the other is \texttt{none} -- genuine three-valued logic, not merely ``both defined or
-nothing.''
-
-\texttt{\textcolor{leancolor}{noncomputable def} \textcolor{leanyellow}{kand} (p q : Option Prop) : Option Prop :=}
-
-\texttt{~~\textcolor{leancolor}{match} p, q \textcolor{leancolor}{with}}
-
-\texttt{~~| some P, some Q $\Rightarrow$ some (P $\wedge$ Q)}
-
-\texttt{~~| some P, none $\Rightarrow$ \textcolor{leancolor}{if} P \textcolor{leancolor}{then} none \textcolor{leancolor}{else} some False}
-
-\texttt{~~| none, some Q $\Rightarrow$ \textcolor{leancolor}{if} Q \textcolor{leancolor}{then} none \textcolor{leancolor}{else} some False}
-
-\texttt{~~| none, none $\Rightarrow$ none}
-
-\texttt{\textcolor{leancolor}{noncomputable def} \textcolor{leanyellow}{kor} (p q : Option Prop) : Option Prop :=} dual, \texttt{some True}/\texttt{some False} swapped.
-\label{kand}
+\begin{restatable}{metadefinition}{dfactivenow}~\blTitle{df-activenow}~ Define active-now: $c$ has not reached
+its \texttt{endShot} by \texttt{now} -- it still exists at the current instant.
+\begin{align}
+\vdash \textit{activeNow}(c) \leftrightarrow \texttt{ex}(c,\mathsf{\mc{now}})
+\label{eq:df-activenow}\tag{df-activenow}
+\end{align}
 \end{restatable}
 
-\begin{restatable}{leandefinition}{kltLean}~\leanTitle{klt / kle / keq}~ Comparisons lifted through
-\texttt{Option Time}: \texttt{none} unless both operands are known -- the short-circuiting happens one level
-up, in \texttt{kand}/\texttt{kor}, not here.
+\begin{restatable}{leandefinition}{activeNowLean}~\leanTitle{activeNow}~ Define active-now in Lean.
 
-\texttt{\textcolor{leancolor}{noncomputable def} \textcolor{leanyellow}{klt} (a b : Option Time) : Option Prop :=}
-\texttt{\textcolor{leancolor}{match} a, b \textcolor{leancolor}{with} | some a', some b' $\Rightarrow$ some (a'.val $\prec$ b'.val) | \_, \_ $\Rightarrow$ none}
-
-\texttt{\textcolor{leancolor}{noncomputable def} \textcolor{leanyellow}{kle}}/\texttt{\textcolor{leanyellow}{keq}}: same shape, $\preccurlyeq$/$=$ in place of $\prec$.
-\label{klt}
+\texttt{\textcolor{leancolor}{def} \textcolor{leanyellow}{activeNow} (A : Occurrence) : Prop := death A = none}
+\label{activeNow}
 \end{restatable}
 
-%\pn For use in \texttt{@Assert} Allen's intervals are also defined in the \texttt{Time} library package.
+\begin{restatable}{metadefinition}{dfeffectiveend}~\blTitle{df-effectiveend}~ Define effective end: $c$'s real
+death time if it has one, else \texttt{now} itself.
+\begin{align}
+\vdash \textit{effectiveEnd}(c) = \tau_d \leftrightarrow \big( ( \lnot\textit{activeNow}(c) \wedge \texttt{death}(c) = \tau_d )
+  \vee ( \textit{activeNow}(c) \wedge \tau_d = \mathsf{\mc{now}} ) \big)
+\label{eq:df-effectiveend}\tag{df-effectiveend}
+\end{align}
+\end{restatable}
+
+\begin{restatable}{leandefinition}{effectiveEndLean}~\leanTitle{effectiveEnd}~ Define effective end in Lean --
+total, unlike \texttt{death}: the key move that lets every Allen predicate below drop \texttt{Option Prop}
+entirely.
+
+\texttt{\textcolor{leancolor}{noncomputable def} \textcolor{leanyellow}{effectiveEnd} (A : Occurrence) : Time := (death A).getD $\langle$now, dl\_nowt$\rangle$}
+\label{effectiveEnd}
+\end{restatable}
+
 \begin{restatable}{metadefinition}{dfprecedes}~\blTitle{df-precedes}~ Define Allen's interval precedes.
 \begin{align}
-\vdash \textit{precedes}(X,Y) \leftrightarrow \texttt{death}(X) \prec \texttt{birth}(Y)
+\vdash \textit{precedes}(X,Y) \leftrightarrow \texttt{effectiveEnd}(X) \prec \texttt{birth}(Y)
 \label{eq:df-precedes}\tag{df-precedes}
 \end{align}
 \end{restatable}
 
 \begin{restatable}{leandefinition}{precedesLean}~\leanTitle{precedes}~ Define Allen's interval precedes in Lean
--- \texttt{Option}-valued: needs only $X$'s death ($Y$'s \texttt{endShot}, if any, is irrelevant), so
-\texttt{none} iff \texttt{death A = none}.
+-- total, via \texttt{effectiveEnd}.
 
-\texttt{\textcolor{leancolor}{noncomputable def} \textcolor{leanyellow}{precedes} (A B : Occurrence) : Option Prop := (death A).map fun tA $\Rightarrow$ tA.val $\prec$ (birth B).val}
+\texttt{\textcolor{leancolor}{noncomputable def} \textcolor{leanyellow}{precedes} (A B : Occurrence) : Prop := (effectiveEnd A).val $\prec$ (birth B).val}
 \label{precedes}
 \end{restatable}
 
@@ -641,15 +654,15 @@ up, in \texttt{kand}/\texttt{kor}, not here.
 \end{lstlisting}\index{meets@\texttt{meets}}
 \begin{restatable}{metadefinition}{dfmeets}~\blTitle{df-meets}~ Define Allen's interval meets.
 \begin{align}
-\vdash \textit{meets}(X,Y) \leftrightarrow \texttt{death}(X) = \texttt{birth}(Y)
+\vdash \textit{meets}(X,Y) \leftrightarrow \texttt{effectiveEnd}(X) = \texttt{birth}(Y)
 \label{eq:df-meets}\tag{df-meets}
 \end{align}
 \end{restatable}
 
 \begin{restatable}{leandefinition}{meetsLean}~\leanTitle{meets}~ Define Allen's interval meets in Lean --
-\texttt{Option}-valued, needs only $X$'s death, same reasoning as \texttt{precedes}.
+total, via \texttt{effectiveEnd}.
 
-\texttt{\textcolor{leancolor}{noncomputable def} \textcolor{leanyellow}{meets} (A B : Occurrence) : Option Prop := (death A).map fun tA $\Rightarrow$ tA = birth B}
+\texttt{\textcolor{leancolor}{noncomputable def} \textcolor{leanyellow}{meets} (A B : Occurrence) : Prop := effectiveEnd A = birth B}
 \label{meets}
 \end{restatable}
 
@@ -666,15 +679,15 @@ up, in \texttt{kand}/\texttt{kor}, not here.
 \end{lstlisting}\index{meets@\texttt{meets}}
 \begin{restatable}{metadefinition}{dfoverlaps}~\blTitle{df-overlaps}~ Define Allen's interval overlaps.
 \begin{align}
-\vdash \textit{overlaps}(X,Y) \leftrightarrow \texttt{birth}(Y) \prec \texttt{death}(X)
+\vdash \textit{overlaps}(X,Y) \leftrightarrow \texttt{birth}(Y) \prec \texttt{effectiveEnd}(X)
 \label{eq:df-overlaps}\tag{df-overlaps}
 \end{align}
 \end{restatable}
 
 \begin{restatable}{leandefinition}{overlapsLean}~\leanTitle{overlaps}~ Define Allen's interval overlaps in Lean
--- \texttt{Option}-valued, needs only $X$'s death, same reasoning as \texttt{precedes}.
+-- total, via \texttt{effectiveEnd}.
 
-\texttt{\textcolor{leancolor}{noncomputable def} \textcolor{leanyellow}{overlaps} (A B : Occurrence) : Option Prop := (death A).map fun tA $\Rightarrow$ (birth B).val $\prec$ tA.val}
+\texttt{\textcolor{leancolor}{noncomputable def} \textcolor{leanyellow}{overlaps} (A B : Occurrence) : Prop := (birth B).val $\prec$ (effectiveEnd A).val}
 \label{overlaps}
 \end{restatable}
 
@@ -690,7 +703,7 @@ up, in \texttt{kand}/\texttt{kor}, not here.
 \end{lstlisting}\index{overlaps@\texttt{overlaps}}
 \begin{restatable}{metadefinition}{dfstarts}~\blTitle{df-starts}~ Define Allen's interval starts.
 \begin{align}
-\vdash \textit{starts}(X,Y) \leftrightarrow \texttt{birth}(X) = \texttt{birth}(Y) \wedge \texttt{death}(Y) \prec \texttt{death}(X)
+\vdash \textit{starts}(X,Y) \leftrightarrow \texttt{birth}(X) = \texttt{birth}(Y) \wedge \texttt{effectiveEnd}(Y) \prec \texttt{effectiveEnd}(X)
 \label{eq:df-starts}\tag{df-starts}
 \end{align}
 \end{restatable}
@@ -718,13 +731,11 @@ boundary-openness features, in Lean, reused on \texttt{Occurrence} here since \t
 \end{restatable}
 
 \begin{restatable}{leandefinition}{startsLean}~\leanTitle{starts}~ Define Allen's interval starts in Lean --
-compares $X$'s and $Y$'s deaths directly, so needs both, via \texttt{kand}/\texttt{klt} (\ref{kand},
-\ref{klt}): short-circuits to a definite answer as soon as any known conjunct settles it, even if a death
-is unknown. Nested \texttt{kand}s mirror the real \texttt{@Assert} formula's own right-associative
-\texttt{and}-chain literally, not just logically -- \texttt{Assert.lean}'s \texttt{example ... := rfl}
-confirms exact agreement.
+total, via \texttt{effectiveEnd}.
 
-\texttt{\textcolor{leancolor}{noncomputable def} \textcolor{leanyellow}{starts} (A B : Occurrence) : Option Prop := kand (some (birth A = birth B)) (kand (klt (death B) (death A)) (some (openLeft A = openLeft B)))}
+\texttt{\textcolor{leancolor}{noncomputable def} \textcolor{leanyellow}{starts} (A B : Occurrence) : Prop :=}
+
+\texttt{~~birth A = birth B $\wedge$ (effectiveEnd B).val $\prec$ (effectiveEnd A).val $\wedge$ openLeft A = openLeft B}
 \label{starts}
 \end{restatable}
 
@@ -743,15 +754,15 @@ confirms exact agreement.
 
 \begin{restatable}{metadefinition}{dfduring}~\blTitle{df-during}~ Define Allen's interval during.
 \begin{align}
-\vdash \textit{during}(X,Y) \leftrightarrow \texttt{birth}(Y) \preccurlyeq \texttt{birth}(X) \wedge \texttt{death}(X) \preccurlyeq \texttt{death}(Y)
+\vdash \textit{during}(X,Y) \leftrightarrow \texttt{birth}(Y) \preccurlyeq \texttt{birth}(X) \wedge \texttt{effectiveEnd}(X) \preccurlyeq \texttt{effectiveEnd}(Y)
 \label{eq:df-during}\tag{df-during}
 \end{align}
 \end{restatable}
 
 \begin{restatable}{leandefinition}{duringLean}~\leanTitle{during}~ Define Allen's interval during in Lean --
-needs both deaths, same reasoning as \texttt{starts}, via \texttt{kand}/\texttt{kle}.
+total, via \texttt{effectiveEnd}.
 
-\texttt{\textcolor{leancolor}{noncomputable def} \textcolor{leanyellow}{during} (A B : Occurrence) : Option Prop := kand (some ((birth B).val $\preccurlyeq$ (birth A).val)) (kle (death A) (death B))}
+\texttt{\textcolor{leancolor}{noncomputable def} \textcolor{leanyellow}{during} (A B : Occurrence) : Prop := (birth B).val $\preccurlyeq$ (birth A).val $\wedge$ (effectiveEnd A).val $\preccurlyeq$ (effectiveEnd B).val}
 \label{during}
 \end{restatable}
 
@@ -768,16 +779,15 @@ needs both deaths, same reasoning as \texttt{starts}, via \texttt{kand}/\texttt{
 
 \begin{restatable}{metadefinition}{dffinishes}~\blTitle{df-finishes}~ Define Allen's interval finishes.
 \begin{align}
-\vdash \textit{finishes}(X,Y) \leftrightarrow \texttt{birth}(Y) \prec \texttt{birth}(X) \wedge \texttt{death}(X) = \texttt{death}(Y)
+\vdash \textit{finishes}(X,Y) \leftrightarrow \texttt{birth}(Y) \prec \texttt{birth}(X) \wedge \texttt{effectiveEnd}(X) = \texttt{effectiveEnd}(Y)
 \label{eq:df-finishes}\tag{df-finishes}
 \end{align}
 \end{restatable}
 
 \begin{restatable}{leandefinition}{finishesLean}~\leanTitle{finishes}~ Define Allen's interval finishes in Lean
--- needs both deaths, same reasoning as \texttt{starts}, via \texttt{kand}/\texttt{keq}, same right-associative
-nesting.
+-- total, via \texttt{effectiveEnd}.
 
-\texttt{\textcolor{leancolor}{noncomputable def} \textcolor{leanyellow}{finishes} (A B : Occurrence) : Option Prop := kand (some ((birth B).val $\prec$ (birth A).val)) (kand (keq (death A) (death B)) (some (openRight A = openRight B)))}
+\texttt{\textcolor{leancolor}{noncomputable def} \textcolor{leanyellow}{finishes} (A B : Occurrence) : Prop := (birth B).val $\prec$ (birth A).val $\wedge$ effectiveEnd A = effectiveEnd B $\wedge$ openRight A = openRight B}
 \label{finishes}
 \end{restatable}
 
@@ -796,17 +806,17 @@ nesting.
 
 \begin{restatable}{metadefinition}{dfcoincident}~\blTitle{df-coincident}~ Define Allen's interval coincident.
 \begin{align}
-\vdash \textit{coincident}(X,Y) \leftrightarrow \texttt{birth}(X) = \texttt{birth}(Y) \wedge \texttt{death}(X) = \texttt{death}(Y)
+\vdash \textit{coincident}(X,Y) \leftrightarrow \texttt{birth}(X) = \texttt{birth}(Y) \wedge \texttt{effectiveEnd}(X) = \texttt{effectiveEnd}(Y)
 \label{eq:df-coincident}\tag{df-coincident}
 \end{align}
 \end{restatable}
 
 \begin{restatable}{leandefinition}{coincidentLean}~\leanTitle{coincident}~ Define Allen's interval coincident in
-Lean -- needs both deaths, same reasoning as \texttt{starts}, via \texttt{kand}/\texttt{keq}; the trailing
-$\texttt{openLeft}$/$\texttt{openRight}$ pair (both non-partial) combine via plain $\wedge$, matching where
-the real formula's own right-associative parse bottoms out.
+Lean -- total, via \texttt{effectiveEnd}.
 
-\texttt{\textcolor{leancolor}{noncomputable def} \textcolor{leanyellow}{coincident} (A B : Occurrence) : Option Prop := kand (some (birth B = birth A)) (kand (keq (death A) (death B)) (some (openLeft A = openLeft B $\wedge$ openRight A = openRight B)))}
+\texttt{\textcolor{leancolor}{noncomputable def} \textcolor{leanyellow}{coincident} (A B : Occurrence) : Prop :=}
+
+\texttt{~~birth B = birth A $\wedge$ effectiveEnd A = effectiveEnd B $\wedge$ (openLeft A = openLeft B $\wedge$ openRight A = openRight B)}
 \label{coincident}
 \end{restatable}
 
@@ -826,17 +836,17 @@ the real formula's own right-associative parse bottoms out.
 
 \begin{restatable}{metadefinition}{dfnonoverlaps}~\blTitle{df-nonoverlaps}~ Define Allen's interval nonoverlaps.
 \begin{align}
-\vdash \textit{nonoverlaps}(X,Y) \leftrightarrow \texttt{death}(X) \prec \texttt{birth}(Y) \vee \texttt{death}(Y) \prec \texttt{birth}(X)
+\vdash \textit{nonoverlaps}(X,Y) \leftrightarrow \texttt{effectiveEnd}(X) \prec \texttt{birth}(Y) \vee \texttt{effectiveEnd}(Y) \prec \texttt{birth}(X)
 \label{eq:df-nonoverlaps}\tag{df-nonoverlaps}
 \end{align}
 \end{restatable}
 
 \begin{restatable}{leandefinition}{nonoverlapsLean}~\leanTitle{nonoverlaps}~ Define Allen's interval
-nonoverlaps in Lean: $\texttt{death}(X) \prec \texttt{birth}(Y) \vee \texttt{death}(Y) \prec \texttt{birth}(X)$
-is exactly $\textit{precedes}(X,Y) \vee \textit{precedes}(Y,X)$ -- \texttt{kor} (\ref{kand}) gives the correct
-Strong Kleene disjunction for free (a known-true disjunct wins even if the other occurrence hasn't ended).
+nonoverlaps in Lean: $\texttt{effectiveEnd}(X) \prec \texttt{birth}(Y) \vee \texttt{effectiveEnd}(Y) \prec \texttt{birth}(X)$
+is exactly $\textit{precedes}(X,Y) \vee \textit{precedes}(Y,X)$ -- now a plain \texttt{Or}, total like
+everything else here.
 
-\texttt{\textcolor{leancolor}{noncomputable def} \textcolor{leanyellow}{nonoverlaps} (A B : Occurrence) : Option Prop := kor (precedes A B) (precedes B A)}
+\texttt{\textcolor{leancolor}{noncomputable def} \textcolor{leanyellow}{nonoverlaps} (A B : Occurrence) : Prop := precedes A B $\vee$ precedes B A}
 \label{nonoverlaps}
 \end{restatable}
 
@@ -854,37 +864,25 @@ Strong Kleene disjunction for free (a known-true disjunct wins even if the other
 \pn Although not an Allen interval, \bemph{nearly meets} is useful defining immediate predecessor and successor (\texttt{Happens\-JustBefore}).
 
 \begin{restatable}{metadefinition}{dfnearlymeets}~\blTitle{df-nearlymeets}~ Define nearlymeets: X and Y don't
-meet, but there is no instant strictly between $\texttt{death}(X)$ and $\texttt{birth}(Y)$ --- either because
-they share that boundary instant and X is open-right or Y is open-left there, or because there simply is no
-instant between under \texttt{next}, even without either boundary being open.
+meet, but there is no instant strictly between $\texttt{effectiveEnd}(X)$ and $\texttt{birth}(Y)$ --- either
+because they share that boundary instant and X is open-right or Y is open-left there, or because there simply
+is no instant between under \texttt{next}, even without either boundary being open.
 \begin{align}
-\vdash \textit{nearlymeets}(X,Y) \leftrightarrow \big( \texttt{birth}(Y) = \texttt{death}(X) \wedge (
+\vdash \textit{nearlymeets}(X,Y) \leftrightarrow \big( \texttt{birth}(Y) = \texttt{effectiveEnd}(X) \wedge (
     \texttt{openRight}(X) \vee \texttt{openLeft}(Y) ) \big) \vee \notag \\
-     \textit{next}(\texttt{death}(X),\texttt{birth}(Y))
+     \textit{next}(\texttt{effectiveEnd}(X),\texttt{birth}(Y))
 \label{eq:df-nearlymeets}\tag{df-nearlymeets}
 \end{align}
 \end{restatable}
 
 
-\begin{restatable}{leandefinition}{nearlyMeetsLean}~\leanTitle{nearlyMeets}~ Define nearlymeets in Lean,
-\texttt{Option}-valued (\texttt{death} became \texttt{Option}-valued, \ref{Lifetimes}). The
-\texttt{next (death A) (birth B)} disjunct, before \textit{next}'s own redesign (\S\ref{sec:precedence},
-\ref{nextLean}), was provably always \texttt{False} here; now genuinely possible whenever \texttt{death A}/
-\texttt{birth B} are consecutive shared ticks. Rewritten again onto the shared \texttt{kand}/\texttt{kor}
-combinators (\ref{kand}) and \texttt{nextO} (\ref{nextO}), matching every other Allen predicate here, rather
-than mapping the whole body over \texttt{death A}: previously an unfinished $A$ made the \emph{entire} result
-\texttt{none} unconditionally, but \texttt{kand}'s own short-circuit can now still resolve the first disjunct
-to \texttt{some False} when $\lnot(\texttt{openRight}(A)\vee\texttt{openLeft}(B))$ is already known, even
-with \texttt{death A} undefined -- a genuine behavior change, not just a refactor, and the correct one: it is
-the same Kleene short-circuiting every other predicate here already gets (the old \texttt{nearlyMeets\_iff}
-is retired along with the vacuity it relied on). The trailing \texttt{next(death(x),birth(y))} disjunct
-itself is \emph{not} Kleene -- see \texttt{nextO}'s own doc comment and \S\ref{sec:bldefinedness}'s note.
+\begin{restatable}{leandefinition}{nearlyMeetsLean}~\leanTitle{nearlyMeets}~ Define nearlymeets in Lean, total
+via \texttt{effectiveEnd} -- \textit{next}'s own argument no longer needs any \texttt{Option}-lifting at all,
+since \texttt{effectiveEnd A} is already a plain \texttt{Time}.
 
-\texttt{\textcolor{leancolor}{noncomputable def} \textcolor{leanyellow}{nearlyMeets} (A B : Occurrence) : Option Prop :=}
+\texttt{\textcolor{leancolor}{noncomputable def} \textcolor{leanyellow}{nearlyMeets} (A B : Occurrence) : Prop :=}
 
-\texttt{~~kor (kand ((death A).map fun tA $\Rightarrow$ birth B = tA) (some (openRight A $\vee$ openLeft B)))}
-
-\texttt{~~~~(some (nextO (death A) (some (birth B))))}
+\texttt{~~(birth B = effectiveEnd A $\wedge$ (openRight A $\vee$ openLeft B)) $\vee$ next (effectiveEnd A) (birth B)}
 \label{nearlyMeets}
 \end{restatable}
 
