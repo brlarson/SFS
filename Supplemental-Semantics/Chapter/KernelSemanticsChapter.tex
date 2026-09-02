@@ -203,7 +203,7 @@ free directly from \texttt{tprec}'s own definition.
 \label{dl_before}
 \end{restatable}
 
-\pn It's also useful to define ``before or coincident".:
+\pn It's also useful to define ``before or coincident":
 
 \begin{restatable}{definition}{dfblbeforeeq}~\blTitle{df-bl.beforeeq}~ Temporal Precedence (before or
 coincident).
@@ -230,6 +230,256 @@ coincident), in Lean --- free directly from \texttt{tprecEq}'s own definition (\
 
 \texttt{~~(t1 $\preccurlyeq$ t2) $\leftrightarrow$ (t1 < t2 $\vee$ t1 = t2) := le\_iff\_lt\_or\_eq}
 \label{dl_beforeeq}
+\end{restatable}
+
+\pn Beyond precedence itself, \texttt{SFS.lean} builds the full apparatus that \texttt{interp}/\texttt{interpAt} (already used silently above, in \ref{ax_dl_models}) rest on: the temporal-value/-predicate domains, the untimed (``always'', the modal $\Box$) and timed readings of both, and a family of soundness results about how far each ordinary logical connective can be pulled through the untimed reading.
+
+\pn Two small witnessing facts about $\mathbf{T}$ are used throughout what follows: $0$ and $\mathsf{\mc{now}}$ are both always members of $\mathbf{T}$.
+
+\begin{restatable}{leantheorem}{TIMEnonemptyNowt}~\leanTitle{TIME\_nonempty / dl\_nowt}~ $\mathbf{T}$ is nonempty (witnessed by $0$), and $\mathsf{\mc{now}}$ is itself always a member of $\mathbf{T}$, in Lean.
+
+\texttt{\textcolor{leancolor}{theorem} \textcolor{leanyellow}{TIME\_nonempty} : (0 : Instant) $\in$ TIME := $\langle$le\_refl 0, now\_nonneg$\rangle$}
+
+\texttt{\textcolor{leancolor}{theorem} \textcolor{leanyellow}{dl\_nowt} : now $\in$ TIME := $\langle$now\_nonneg, le\_refl now$\rangle$}
+\label{TIME_nonempty}
+\label{dl_nowt}
+\end{restatable}
+
+\pn Temporal values and predicates are evaluated over an instant \emph{together with} a proof that it lies in $\mathbf{T}$, not a bare instant:
+
+\begin{restatable}{leandefinition}{TimeTValTProp}~\leanTitle{Time / TVal / TProp}~ \texttt{Time} is the subtype of instants carrying their own \texttt{TIME}-membership proof. A \bemph{temporal value} (\texttt{TVal}) is one plain value per instant --- what \texttt{SFS.mm}'s $\mc{A}$ denotes when read as varying with the world; a \bemph{temporal predicate} (\texttt{TProp}) is a function from instants to truth values --- \texttt{SFS.mm}'s $\mw{\varphi}$, read the same way. Everything below is stated against \texttt{Time}, not bare \texttt{Instant}.
+
+\texttt{\textcolor{leancolor}{abbrev} \textcolor{leanyellow}{Time} := $\uparrow$TIME}
+
+\texttt{\textcolor{leancolor}{abbrev} \textcolor{leanyellow}{TVal} ($\alpha$ : Type*) := Time $\to$ $\alpha$}
+
+\texttt{\textcolor{leancolor}{abbrev} \textcolor{leanyellow}{TProp} := Time $\to$ Prop}
+\label{Time}
+\label{TVal}
+\label{TProp}
+\end{restatable}
+
+\begin{restatable}{leandefinition}{InterpInterpAt}~\leanTitle{interp / interpAt}~ \texttt{SFS.mm}'s $\mathbf{I}\lsem\mw{\varphi},\tau\rsem$ (interpretation at a specific instant) is definitionally just application, since \texttt{TProp} already \emph{is} ``value at each instant''; \texttt{SFS.mm}'s $\mathbf{I}\lsem\mw{\varphi}\rsem$ (the untimed/``always'' reading) holds when $\varphi$ holds at every instant --- the standard modal necessity ($\Box$) reading, the only one consistent with \texttt{SFS.mm}'s own commentary that tautologies are ``things true at every instant.''
+
+\texttt{\textcolor{leancolor}{def} \textcolor{leanyellow}{interpAt} ($\varphi$ : TProp) (t0 : Time) : Prop := $\varphi$ t0}
+
+\texttt{\textcolor{leancolor}{def} \textcolor{leanyellow}{interp} ($\varphi$ : TProp) : Prop := $\forall$ t, $\varphi$ t}
+\label{interpAt}
+\label{interp}
+\end{restatable}
+
+\pn A plain (non-temporally-varying) fact --- an ordinary \texttt{Prop}, or a bare equality/membership --- can always be read as a temporal one, embedded via the constant function; the following are soundness/congruence facts about that embedding.
+
+\begin{restatable}{leantheorem}{ConstantEmbeddingProp}~\leanTitle{ax\_dl\_taut / dl\_ty / dl\_tyt / ax\_dl\_bi}~ \texttt{ax\_dl\_taut} (\texttt{SFS.mm} \texttt{ax-bl.taut}): a plain fact, embedded as a constant \texttt{TProp}, is trivially \texttt{interp}-true once any instant exists (\ref{TIME_nonempty} guarantees one). \texttt{dl\_ty} (\texttt{SFS.mm} \texttt{bl.ty}) is the same argument for set membership. \texttt{dl\_tyt} (\texttt{SFS.mm} \texttt{bl.tyt}) is its timed counterpart, trivial both ways since \texttt{interpAt} is literal evaluation. \texttt{ax\_dl\_bi} (\texttt{SFS.mm} \texttt{ax-bl.bi}) is the same reading for a bare biconditional between two ordinary \texttt{Prop}s; \texttt{SFS.mm}'s $\tau_1,\tau_2\in\mathbf{T}$ hypotheses are automatic here from \texttt{t1 t2 : Time}.
+
+\texttt{\textcolor{leancolor}{theorem} \textcolor{leanyellow}{ax\_dl\_taut} \{p : Prop\} : p $\to$ interp (\textcolor{leancolor}{fun} (\_ : Time) $\Rightarrow$ p) := \textcolor{leancolor}{fun} h \_ $\Rightarrow$ h}
+
+\texttt{\textcolor{leancolor}{theorem} \textcolor{leanyellow}{dl\_ty} \{$\alpha$\} \{A : $\alpha$\} \{B : Set $\alpha$\} : A $\in$ B $\to$ interp (\textcolor{leancolor}{fun} (\_ : Time) $\Rightarrow$ A $\in$ B) := ax\_dl\_taut}
+
+\texttt{\textcolor{leancolor}{theorem} \textcolor{leanyellow}{dl\_tyt} \{$\alpha$\} \{A : $\alpha$\} \{B : Set $\alpha$\} \{t0 : Time\} :}
+
+\texttt{~~A $\in$ B $\leftrightarrow$ interpAt (\textcolor{leancolor}{fun} \_ $\Rightarrow$ A $\in$ B) t0 := Iff.rfl}
+
+\texttt{\textcolor{leancolor}{theorem} \textcolor{leanyellow}{ax\_dl\_bi} \{p q : Prop\} \{t1 t2 : Time\} (\_ : t1 = t2) :}
+
+\texttt{~~(p $\leftrightarrow$ q) $\leftrightarrow$ (interpAt (\textcolor{leancolor}{fun} (\_ : Time) $\Rightarrow$ p) t1 $\leftrightarrow$ interpAt (\textcolor{leancolor}{fun} (\_ : Time) $\Rightarrow$ q) t2) := Iff.rfl}
+\label{ax_dl_taut}
+\label{dl_ty}
+\label{dl_tyt}
+\label{ax_dl_bi}
+\end{restatable}
+
+\begin{restatable}{leandefinition}{InterpValFamily}~\leanTitle{interpValAt / interpVal / ax\_dl\_eq}~ \texttt{interpValAt}/\texttt{interpVal} are the value-side counterparts of \texttt{interpAt}/\texttt{interp} --- timed is literal evaluation, untimed is anchored at instant $0$ (\ref{TIME_nonempty}). Unlike predicate-\texttt{interp} this is not a $\forall$-aggregation, so it commutes with every pointwise-defined value operator unconditionally. \texttt{ax\_dl\_eq} (\texttt{SFS.mm} \texttt{ax-bl.eq}) is the value-level counterpart of \texttt{ax\_dl\_bi}, same constant-embedding reading.
+
+\texttt{\textcolor{leancolor}{def} \textcolor{leanyellow}{interpValAt} \{$\alpha$\} (A : TVal $\alpha$) (t0 : Time) : $\alpha$ := A t0}
+
+\texttt{\textcolor{leancolor}{def} \textcolor{leanyellow}{interpVal} \{$\alpha$\} (A : TVal $\alpha$) : $\alpha$ := A $\langle$0, TIME\_nonempty$\rangle$}
+
+\texttt{\textcolor{leancolor}{theorem} \textcolor{leanyellow}{ax\_dl\_eq} \{$\alpha$\} \{A B : $\alpha$\} \{t1 t2 : Time\} (\_ : t1 = t2) :}
+
+\texttt{~~(A = B) $\leftrightarrow$ (interpValAt (\textcolor{leancolor}{fun} (\_ : Time) $\Rightarrow$ A) t1 = interpValAt (\textcolor{leancolor}{fun} (\_ : Time) $\Rightarrow$ B) t2) := Iff.rfl}
+\label{interpValAt}
+\label{interpVal}
+\label{ax_dl_eq}
+\end{restatable}
+
+\pn The existential duals of the closed/open-interval universal-quantification facts documented above (\ref{dl_alldd}, \ref{dl_allcd}, \ref{dl_allcc}, \ref{dl_alldc}) are all instances of one generic classical fact, proved once rather than four times:
+
+\begin{restatable}{leantheorem}{ExistsDualFamily}~\leanTitle{exists\_iff\_not\_forall\_not / dl\_exdd / dl\_excc / dl\_excd / dl\_exdc}~ \texttt{exists\_iff\_not\_forall\_not} is plain classical De Morgan, nothing interval-specific about it; \texttt{dl\_exdd}/\texttt{dl\_excc}/\texttt{dl\_excd}/\texttt{dl\_exdc} (\texttt{SFS.mm} \texttt{bl.exdd}/\texttt{bl.excc}/\texttt{bl.excd}/\texttt{bl.exdc}) instantiate it at the closed, open, open-right, and open-left intervals in turn; unlike their universal counterparts their $\tau_1,\tau_2$ stay plain \texttt{Instant}s, matching \texttt{SFS.mm}'s own (hypothesis-free) statement of them.
+
+\texttt{\textcolor{leancolor}{theorem} \textcolor{leanyellow}{exists\_iff\_not\_forall\_not} \{D : Type*\} (P : D $\to$ Prop) : ($\exists$ x, P x) $\leftrightarrow$ $\neg$ $\forall$ x, $\neg$ P x}
+
+\texttt{\textcolor{leancolor}{theorem} \textcolor{leanyellow}{dl\_exdd} (t1 t2 : Instant) ($\varphi$ : TProp) :}
+
+\texttt{~~($\exists$ x : Time, x.val $\in$ Set.Icc t1 t2 $\wedge$ $\varphi$ x) $\leftrightarrow$ $\neg$ $\forall$ x : Time, $\neg$ (x.val $\in$ Set.Icc t1 t2 $\wedge$ $\varphi$ x) :=}
+
+\texttt{~~exists\_iff\_not\_forall\_not \_}
+
+\texttt{\textcolor{leancolor}{theorem} \textcolor{leanyellow}{dl\_excc} (t1 t2 : Instant) ($\varphi$ : TProp) :}
+
+\texttt{~~($\exists$ x : Time, x.val $\in$ Set.Ioo t1 t2 $\wedge$ $\varphi$ x) $\leftrightarrow$ $\neg$ $\forall$ x : Time, $\neg$ (x.val $\in$ Set.Ioo t1 t2 $\wedge$ $\varphi$ x) :=}
+
+\texttt{~~exists\_iff\_not\_forall\_not \_}
+
+\texttt{\textcolor{leancolor}{theorem} \textcolor{leanyellow}{dl\_excd} (t1 t2 : Instant) ($\varphi$ : TProp) :}
+
+\texttt{~~($\exists$ x : Time, x.val $\in$ Set.Ioc t1 t2 $\wedge$ $\varphi$ x) $\leftrightarrow$ $\neg$ $\forall$ x : Time, $\neg$ (x.val $\in$ Set.Ioc t1 t2 $\wedge$ $\varphi$ x) :=}
+
+\texttt{~~exists\_iff\_not\_forall\_not \_}
+
+\texttt{\textcolor{leancolor}{theorem} \textcolor{leanyellow}{dl\_exdc} (t1 t2 : Instant) ($\varphi$ : TProp) :}
+
+\texttt{~~($\exists$ x : Time, x.val $\in$ Set.Ico t1 t2 $\wedge$ $\varphi$ x) $\leftrightarrow$ $\neg$ $\forall$ x : Time, $\neg$ (x.val $\in$ Set.Ico t1 t2 $\wedge$ $\varphi$ x) :=}
+
+\texttt{~~exists\_iff\_not\_forall\_not \_}
+\label{exists_iff_not_forall_not}
+\label{dl_exdd}
+\label{dl_excc}
+\label{dl_excd}
+\label{dl_exdc}
+\end{restatable}
+
+\pn The timed connectives lift ordinary logical operators pointwise to \texttt{TProp}, each with its own infix notation:
+
+\begin{restatable}{leandefinition}{TimedConnectives}~\leanTitle{tand / tor / tnot / timp / tiff}~ Pointwise-defined timed conjunction, disjunction, negation, implication, and biconditional --- every ``\texttt{interpAt} distributes over connective $X$'' fact is then \texttt{Iff.rfl}, since \texttt{interpAt} is literal evaluation and every combinator here is defined pointwise.
+
+\texttt{\textcolor{leancolor}{def} \textcolor{leanyellow}{tand} ($\varphi$ $\psi$ : TProp) : TProp := \textcolor{leancolor}{fun} t $\Rightarrow$ $\varphi$ t $\wedge$ $\psi$ t}
+
+\texttt{\textcolor{leancolor}{def} \textcolor{leanyellow}{tor} ($\varphi$ $\psi$ : TProp) : TProp := \textcolor{leancolor}{fun} t $\Rightarrow$ $\varphi$ t $\vee$ $\psi$ t}
+
+\texttt{\textcolor{leancolor}{def} \textcolor{leanyellow}{tnot} ($\varphi$ : TProp) : TProp := \textcolor{leancolor}{fun} t $\Rightarrow$ $\neg$ $\varphi$ t}
+
+\texttt{\textcolor{leancolor}{def} \textcolor{leanyellow}{timp} ($\varphi$ $\psi$ : TProp) : TProp := \textcolor{leancolor}{fun} t $\Rightarrow$ $\varphi$ t $\to$ $\psi$ t}
+
+\texttt{\textcolor{leancolor}{def} \textcolor{leanyellow}{tiff} ($\varphi$ $\psi$ : TProp) : TProp := \textcolor{leancolor}{fun} t $\Rightarrow$ $\varphi$ t $\leftrightarrow$ $\psi$ t}
+
+\texttt{\textcolor{leancolor}{infixr:70} " $\wedge_t$ " => tand}
+
+\texttt{\textcolor{leancolor}{infixr:65} " $\vee_t$ " => tor}
+
+\texttt{\textcolor{leancolor}{prefix:75} "$\neg_t$" => tnot}
+
+\texttt{\textcolor{leancolor}{infixr:60} " $\to_t$ " => timp}
+
+\texttt{\textcolor{leancolor}{infix:55} " $\leftrightarrow_t$ " => tiff}
+\label{tand}
+\label{tor}
+\label{tnot}
+\label{timp}
+\label{tiff}
+\end{restatable}
+
+\pn Under the necessity ($\Box$) reading, \texttt{interp} distributes over $\wedge_t$/$\forall$ both ways, but --- as with any normal modal box operator --- only \emph{one} direction is valid for $\vee_t$/$\neg_t$/$\to_t$/$\leftrightarrow_t$/$\exists$ in general (the classic K-axiom asymmetry). \texttt{SFS.mm} states its own \texttt{df-bl.or}/\texttt{df-bl.not}/\texttt{df-bl.im}/\texttt{df-bl.bi}/\texttt{bl.ex} as full, unconditional biconditionals; \texttt{SFS.lean} proves only the sound direction of each, witnessing the unsound direction false in general via two-instant counterexamples (not restated as axioms).
+
+\begin{restatable}{leantheorem}{dlAn}~\leanTitle{dl\_an}~ \texttt{SFS.mm} \texttt{df-bl.an} (untimed): sound, \texttt{interp} distributes over $\wedge_t$ both ways (\texttt{forall\_and}).
+
+\texttt{\textcolor{leancolor}{theorem} \textcolor{leanyellow}{dl\_an} ($\varphi$ $\psi$ : TProp) : interp ($\varphi$ $\wedge_t$ $\psi$) $\leftrightarrow$ (interp $\varphi$ $\wedge$ interp $\psi$) := forall\_and}
+\label{dl_an}
+\end{restatable}
+
+\begin{restatable}{leantheorem}{dlAl}~\leanTitle{dl\_al}~ \texttt{SFS.mm} \texttt{df-bl.al} (untimed universal-quantification exportation): sound, swapping two $\forall$s is always valid.
+
+\texttt{\textcolor{leancolor}{theorem} \textcolor{leanyellow}{dl\_al} \{D : Type*\} ($\varphi$ : D $\to$ TProp) :}
+
+\texttt{~~interp (\textcolor{leancolor}{fun} t $\Rightarrow$ $\forall$ x, $\varphi$ x t) $\leftrightarrow$ $\forall$ x, interp ($\varphi$ x) := forall\_comm}
+\label{dl_al}
+\end{restatable}
+
+\begin{restatable}{leantheorem}{dlAnThree}~\leanTitle{dl\_3an}~ \texttt{SFS.mm} \texttt{bl.3an} (untimed, three terms): a direct corollary of \ref{dl_an} applied to the flat right-associated shape, not a fresh axiom.
+
+\texttt{\textcolor{leancolor}{theorem} \textcolor{leanyellow}{dl\_3an} ($\varphi$ $\psi$ ch : TProp) : interp ($\varphi$ $\wedge_t$ $\psi$ $\wedge_t$ ch) $\leftrightarrow$ (interp $\varphi$ $\wedge$ interp $\psi$ $\wedge$ interp ch)}
+\label{dl_3an}
+\end{restatable}
+
+\begin{restatable}{leantheorem}{dlDfrexTwo}~\leanTitle{dl\_dfrex2}~ \texttt{SFS.mm} \texttt{bl.dfrex2} (untimed): unlike \ref{dl_ex_sound} below, this one \emph{is} sound both ways --- it compares \texttt{interp} of two \emph{pointwise}-equivalent \texttt{TProp}s ($\exists x\in A,\varphi\,x\,t$ and $\neg\forall x\in A,\neg\varphi\,x\,t$ are classically equivalent for every fixed $t$, no swap of $\forall t$ past $\exists x$ involved), so it is a congruence fact, not a K-axiom-asymmetry one.
+
+\texttt{\textcolor{leancolor}{theorem} \textcolor{leanyellow}{dl\_dfrex2} \{D : Type*\} (A : Set D) ($\varphi$ : D $\to$ TProp) :}
+
+\texttt{~~interp (\textcolor{leancolor}{fun} t $\Rightarrow$ $\exists$ x $\in$ A, $\varphi$ x t) $\leftrightarrow$ interp (\textcolor{leancolor}{fun} t $\Rightarrow$ $\neg$ $\forall$ x $\in$ A, $\neg$ $\varphi$ x t)}
+\label{dl_dfrex2}
+\end{restatable}
+
+\begin{restatable}{leantheorem}{dlOrSound}~\leanTitle{dl\_or\_sound}~ \texttt{SFS.mm} \texttt{df-bl.or} (untimed), sound direction only. The converse is \bemph{false} in general: witnessed on \texttt{TIME} as soon as it has two distinct instants $\tau_1\ne\tau_2$, by $\varphi := (\cdot=\tau_1)$, $\psi := (\cdot=\tau_2)$ --- $\varphi\vee_t\psi$ holds at every instant in $\{\tau_1,\tau_2\}$ but neither disjunct holds at both.
+
+\texttt{\textcolor{leancolor}{theorem} \textcolor{leanyellow}{dl\_or\_sound} ($\varphi$ $\psi$ : TProp) : (interp $\varphi$ $\vee$ interp $\psi$) $\to$ interp ($\varphi$ $\vee_t$ $\psi$)}
+\label{dl_or_sound}
+\end{restatable}
+
+\begin{restatable}{leantheorem}{dlThreeOrSound}~\leanTitle{dl\_3or\_sound}~ \texttt{SFS.mm} \texttt{bl.3or} (untimed, three terms), sound direction only --- same asymmetry as \ref{dl_or_sound}, one level deeper.
+
+\texttt{\textcolor{leancolor}{theorem} \textcolor{leanyellow}{dl\_3or\_sound} ($\varphi$ $\psi$ ch : TProp) :}
+
+\texttt{~~(interp $\varphi$ $\vee$ interp $\psi$ $\vee$ interp ch) $\to$ interp ($\varphi$ $\vee_t$ $\psi$ $\vee_t$ ch)}
+\label{dl_3or_sound}
+\end{restatable}
+
+\begin{restatable}{leantheorem}{dlNotSound}~\leanTitle{dl\_not\_sound}~ \texttt{SFS.mm} \texttt{df-bl.not} (untimed), sound direction only: if $\varphi$ fails at every instant it certainly doesn't hold at every instant. The converse is \bemph{false} in general, same asymmetry as \ref{dl_or_sound}.
+
+\texttt{\textcolor{leancolor}{theorem} \textcolor{leanyellow}{dl\_not\_sound} ($\varphi$ : TProp) : interp ($\neg_t$$\varphi$) $\to$ $\neg$ interp $\varphi$ :=}
+
+\texttt{~~\textcolor{leancolor}{fun} h hall $\Rightarrow$ h $\langle$0, TIME\_nonempty$\rangle$ (hall $\langle$0, TIME\_nonempty$\rangle$)}
+\label{dl_not_sound}
+\end{restatable}
+
+\begin{restatable}{leantheorem}{dlImSound}~\leanTitle{dl\_im\_sound}~ \texttt{SFS.mm} \texttt{df-bl.im} (untimed), sound direction only (the modal K-axiom shape itself). The converse fails by the same shape as \ref{dl_or_sound}.
+
+\texttt{\textcolor{leancolor}{theorem} \textcolor{leanyellow}{dl\_im\_sound} ($\varphi$ $\psi$ : TProp) : interp ($\varphi$ $\to_t$ $\psi$) $\to$ (interp $\varphi$ $\to$ interp $\psi$) :=}
+
+\texttt{~~\textcolor{leancolor}{fun} h h$\varphi$ t $\Rightarrow$ h t (h$\varphi$ t)}
+\label{dl_im_sound}
+\end{restatable}
+
+\begin{restatable}{leantheorem}{dlBiSound}~\leanTitle{dl\_bi\_sound}~ \texttt{SFS.mm} \texttt{df-bl.bi} (untimed), sound direction only, same asymmetry as \ref{dl_or_sound}/\ref{dl_not_sound}/\ref{dl_im_sound}.
+
+\texttt{\textcolor{leancolor}{theorem} \textcolor{leanyellow}{dl\_bi\_sound} ($\varphi$ $\psi$ : TProp) : interp ($\varphi$ $\leftrightarrow_t$ $\psi$) $\to$ (interp $\varphi$ $\leftrightarrow$ interp $\psi$) :=}
+
+\texttt{~~\textcolor{leancolor}{fun} h $\Rightarrow$ $\langle$\textcolor{leancolor}{fun} h$\varphi$ t $\Rightarrow$ (h t).mp (h$\varphi$ t), \textcolor{leancolor}{fun} h$\psi$ t $\Rightarrow$ (h t).mpr (h$\psi$ t)$\rangle$}
+\label{dl_bi_sound}
+\end{restatable}
+
+\begin{restatable}{leantheorem}{dlExSound}~\leanTitle{dl\_ex\_sound}~ \texttt{SFS.mm} \texttt{bl.dfrex2}/\texttt{bl.ex} (untimed existential exportation), sound direction only. The converse is the classic invalid $\forall\exists$-to-$\exists\forall$ swap: different instants may need different witnesses.
+
+\texttt{\textcolor{leancolor}{theorem} \textcolor{leanyellow}{dl\_ex\_sound} \{D : Type*\} ($\varphi$ : D $\to$ TProp) :}
+
+\texttt{~~($\exists$ x, interp ($\varphi$ x)) $\to$ interp (\textcolor{leancolor}{fun} t $\Rightarrow$ $\exists$ x, $\varphi$ x t) :=}
+
+\texttt{~~\textcolor{leancolor}{fun} $\langle$x, hx$\rangle$ t $\Rightarrow$ $\langle$x, hx t$\rangle$}
+\label{dl_ex_sound}
+\end{restatable}
+
+\begin{restatable}{leantheorem}{dlRaltRext}~\leanTitle{dl\_ralt / dl\_rext}~ \texttt{SFS.mm} \texttt{df-bl.ralt}/\texttt{df-bl.rext}, timed restricted universal/existential quantification: both \texttt{Iff.rfl}, same reason every other timed fact is --- \texttt{interpAt} is literal evaluation.
+
+\texttt{\textcolor{leancolor}{theorem} \textcolor{leanyellow}{dl\_ralt} \{D : Type*\} ($\varphi$ : D $\to$ TProp) (A : Set D) (t0 : Time) :}
+
+\texttt{~~interpAt (\textcolor{leancolor}{fun} t $\Rightarrow$ $\forall$ x $\in$ A, $\varphi$ x t) t0 $\leftrightarrow$ $\forall$ x, x $\in$ A $\to$ interpAt ($\varphi$ x) t0 := Iff.rfl}
+
+\texttt{\textcolor{leancolor}{theorem} \textcolor{leanyellow}{dl\_rext} \{D : Type*\} ($\varphi$ : D $\to$ TProp) (A : Set D) (t0 : Time) :}
+
+\texttt{~~interpAt (\textcolor{leancolor}{fun} t $\Rightarrow$ $\exists$ x $\in$ A, $\varphi$ x t) t0 $\leftrightarrow$ $\exists$ x, x $\in$ A $\wedge$ interpAt ($\varphi$ x) t0 := Iff.rfl}
+\label{dl_ralt}
+\label{dl_rext}
+\end{restatable}
+
+\pn Temporal values also support pointwise-lifted relations, matching \texttt{SFS.mm}'s \texttt{df-bl.eq}/\texttt{df-bl.eqt}/\texttt{df-bl.lt}/\texttt{df-bl.ltt}/\texttt{df-bl.am}/\texttt{df-bl.amt}:
+
+\begin{restatable}{leandefinition}{TeqTltTle}~\leanTitle{teq / tlt / tle}~ Pointwise equality, less-than, and less-or-equal between two \texttt{TVal $\mathbb{R}$}s.
+
+\texttt{\textcolor{leancolor}{def} \textcolor{leanyellow}{teq} (A B : TVal $\mathbb{R}$) : TProp := \textcolor{leancolor}{fun} t $\Rightarrow$ A t = B t}
+
+\texttt{\textcolor{leancolor}{def} \textcolor{leanyellow}{tlt} (A B : TVal $\mathbb{R}$) : TProp := \textcolor{leancolor}{fun} t $\Rightarrow$ A t < B t}
+
+\texttt{\textcolor{leancolor}{def} \textcolor{leanyellow}{tle} (A B : TVal $\mathbb{R}$) : TProp := \textcolor{leancolor}{fun} t $\Rightarrow$ A t $\le$ B t}
+\label{teq}
+\label{tlt}
+\label{tle}
+\end{restatable}
+
+\begin{restatable}{leantheorem}{dlBitrit}~\leanTitle{dl\_bitrit}~ \texttt{SFS.mm} \texttt{bl.bitrit}: transitivity of timed $\Box$-biconditional --- literally \texttt{Iff.trans}, not a fresh fact, since \texttt{interpAt} is just evaluation.
+
+\texttt{\textcolor{leancolor}{theorem} \textcolor{leanyellow}{dl\_bitrit} \{$\varphi$ $\psi$ ch : TProp\} \{t0 : Time\} (h1 : interpAt ($\varphi$ $\leftrightarrow_t$ $\psi$) t0)}
+
+\texttt{~~(h2 : interpAt ($\psi$ $\leftrightarrow_t$ ch) t0) : interpAt ($\varphi$ $\leftrightarrow_t$ ch) t0 := h1.trans h2}
+\label{dl_bitrit}
 \end{restatable}
 
 %\subsection{Existence}
@@ -572,10 +822,14 @@ The fundamental element of time is \texttt{Instant}\index{instant} with which \t
 $X < Y$ & X \bemph{precedes} Y & $\texttt{effectiveEnd}(X) \prec \texttt{birth}(Y)$ & \textidx{precedes}(X,Y) \\ \hline
 $X ~m~ Y$ & X  \bemph{meets} Y & $\texttt{effectiveEnd}(X) = \texttt{birth}(Y)$ & \textidx{meets}(X,Y) \\ \hline
 $X ~o~ Y$ & X  \bemph{overlaps} Y & $\texttt{birth}(Y)\prec \texttt{effectiveEnd}(X)$ & \textidx{overlaps}(X,Y) \\ \hline
-$X ~s~ Y$ & X  \bemph{starts} Y & $\texttt{birth}(X) = \texttt{birth}(Y)~\wedge~\texttt{effectiveEnd}(Y) \prec \texttt{effectiveEnd}(X)$ & \textidx{starts}(X,Y) \\ \hline
-$X ~d~ Y$ & X  \bemph{during} Y & $\texttt{birth}(Y) \preccurlyeq \texttt{birth}(X)~\wedge~\texttt{effectiveEnd}(X) \preccurlyeq \texttt{effectiveEnd}(Y)$ & \textidx{during}(X,Y)\\ \hline
-$X ~f~ Y$ & X  \bemph{finishes} Y & $\texttt{birth}(Y) \prec \texttt{birth}(X)~\wedge~\texttt{effectiveEnd}(X) = \texttt{effectiveEnd}(Y)$ & \textidx{finishes}(X,Y)\\ \hline
-$X ~=~ Y$ & X  \bemph{equals} Y & $\texttt{birth}(Y) = \texttt{birth}(X)~\wedge~\texttt{effectiveEnd}(X) = \texttt{effectiveEnd}(Y)$ & \textidx{coincident}(X,Y) \\ \hline
+$X ~s~ Y$ & X  \bemph{starts} Y & $\texttt{birth}(X) = \texttt{birth}(Y)~\wedge~$ & \textidx{starts}(X,Y) \\ 
+ & & $\texttt{effectiveEnd}(Y) \prec \texttt{effectiveEnd}(X)$ &  \\ \hline
+$X ~d~ Y$ & X  \bemph{during} Y & $\texttt{birth}(Y) \preccurlyeq \texttt{birth}(X)~\wedge~$ & \textidx{during}(X,Y) \\
+ & & $\texttt{effectiveEnd}(X) \preccurlyeq \texttt{effectiveEnd}(Y)$ & \\  \hline
+$X ~f~ Y$ & X  \bemph{finishes} Y & $\texttt{birth}(Y) \prec \texttt{birth}(X)~\wedge~$ & \textidx{finishes}(X,Y)\\ 
+& & $\texttt{effectiveEnd}(X) = \texttt{effectiveEnd}(Y)$ & \\ \hline
+$X ~=~ Y$ & X  \bemph{equals} Y & $\texttt{birth}(Y) = \texttt{birth}(X)~\wedge~$ & \textidx{coincident}(X,Y) \\ 
+& & $\texttt{effectiveEnd}(X) = \texttt{effectiveEnd}(Y)$ & \\ \hline
 \end{tabular}
 \end{center}
 \label{table:allensintervals}

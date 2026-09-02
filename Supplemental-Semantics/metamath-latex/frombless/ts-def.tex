@@ -1,4 +1,20 @@
 % This LaTeX file was created by Metamath on 22-Jul-2024 3:29 PM.
+
+\pn The \texttt{\^{}.} operator shifts an instant by a whole multiple of a step size, which can carry it outside $\mathbf{T}$ even when the starting instant is inside it --- exactly why \texttt{SFS.mm}'s own \texttt{df-bl.ts}/\texttt{bl.tsi} carry a $(\tau_0+D\times n)\in\mathbf{T}$ side condition. \texttt{shiftEval}/\texttt{shiftEvalC} take that landing-in-$\mathbf{T}$ proof as an explicit argument, rather than defaulting to an unshifted or junk value when it fails (tried and rejected: no single default keeps negation consistent on both sides).
+
+\begin{restatable}{leandefinition}{ShiftEvalShiftEvalC}~\leanTitle{shiftEval / shiftEvalC}~ \texttt{SFS.mm} \texttt{wts}/\texttt{clats}: evaluate $\varphi$/\texttt{A} shifted by \texttt{n} whole multiples of step size \texttt{D} from \texttt{t0}, given that the shift lands back in $\mathbf{T}$.
+
+\texttt{\textcolor{leancolor}{def} \textcolor{leanyellow}{shiftEval} ($\varphi$ : TProp) (t0 : Time) (D : $\mathbb{R}$) (n : $\mathbb{Z}$) (h : t0.val + D * n $\in$ TIME) : Prop :=}
+
+\texttt{~~$\varphi$ $\langle$t0.val + D * n, h$\rangle$}
+
+\texttt{\textcolor{leancolor}{def} \textcolor{leanyellow}{shiftEvalC} \{$\alpha$\} (A : TVal $\alpha$) (t0 : Time) (D : $\mathbb{R}$) (n : $\mathbb{Z}$) (h : t0.val + D * n $\in$ TIME) : $\alpha$ :=}
+
+\texttt{~~A $\langle$t0.val + D * n, h$\rangle$}
+\label{shiftEval}
+\label{shiftEvalC}
+\end{restatable}
+
 \begin{restatable}{metadefinition}{dfblts}~\blTitle{df-bl.ts}~ Definition of time-shift predicate.
 \begin{align}
 \vdash ( ( \mc{A} \in \mathbb{Z} \wedge ( \mc{D} \in \mathbb{R} \wedge \tau \in
@@ -90,6 +106,19 @@
       \mc{B} ) ) \rsem&(\mbox{\ref{eq:mp2an}},1,5,6)\notag
 \end{align}
 \end{proof}
+
+\begin{restatable}{leantheorem}{dlTsDlTsc}~\leanTitle{dl\_ts / dl\_tsc}~ \texttt{SFS.mm} \texttt{df-bl.ts}/\texttt{bl.tsi} and \texttt{df-bl.tsc}/\texttt{bl.tsci}: the defining property of \texttt{\^{}.}, predicate and value forms.
+
+\texttt{\textcolor{leancolor}{theorem} \textcolor{leanyellow}{dl\_ts} ($\varphi$ : TProp) (t0 : Time) (D : $\mathbb{R}$) (n : $\mathbb{Z}$) (h : t0.val + D * n $\in$ TIME) :}
+
+\texttt{~~shiftEval $\varphi$ t0 D n h = interpAt $\varphi$ $\langle$t0.val + D * n, h$\rangle$ := rfl}
+
+\texttt{\textcolor{leancolor}{theorem} \textcolor{leanyellow}{dl\_tsc} \{$\alpha$\} (A : TVal $\alpha$) (t0 : Time) (D : $\mathbb{R}$) (n : $\mathbb{Z}$) (h : t0.val + D * n $\in$ TIME) :}
+
+\texttt{~~shiftEvalC A t0 D n h = interpValAt A $\langle$t0.val + D * n, h$\rangle$ := rfl}
+\label{dl_ts}
+\label{dl_tsc}
+\end{restatable}
 
 \begin{restatable}{lemma}{bltsoi}~\blTitle{bl.tsoi}~ Time-shift offset (inference) for
 converting $~\string^~$ into @
@@ -539,6 +568,19 @@ time-shift is 0
 \end{align}
 \end{proof}
 
+\begin{restatable}{leantheorem}{dlTsZeroFamily}~\leanTitle{dl\_ts0 / dl\_tsc0}~ \texttt{SFS.mm} \texttt{bl.ts0}/\texttt{bl.tsc0}: an unspecified shift is a shift by $0$, predicate and value forms.
+
+\texttt{\textcolor{leancolor}{theorem} \textcolor{leanyellow}{dl\_ts0} ($\varphi$ : TProp) (t0 : Time) (D : $\mathbb{R}$) (h : t0.val + D * (0 : $\mathbb{Z}$) $\in$ TIME) :}
+
+\texttt{~~shiftEval $\varphi$ t0 D 0 h $\leftrightarrow$ interpAt $\varphi$ t0}
+
+\texttt{\textcolor{leancolor}{theorem} \textcolor{leanyellow}{dl\_tsc0} \{$\alpha$\} (A : TVal $\alpha$) (t0 : Time) (D : $\mathbb{R}$) (h : t0.val + D * (0 : $\mathbb{Z}$) $\in$ TIME) :}
+
+\texttt{~~shiftEvalC A t0 D 0 h = interpValAt A t0}
+\label{dl_ts0}
+\label{dl_tsc0}
+\end{restatable}
+
 \begin{restatable}{lemma}{bltscomi}~\blTitle{bl.tscomi}~ Compose $~\string^~$  over predicate,
 inference.
 \begin{align}
@@ -921,6 +963,27 @@ inference.
 \end{align}
 \end{proof}
 
+\begin{restatable}{leantheorem}{dlTscomiFamily}~\leanTitle{dl\_tscomi / dl\_tscomci}~ \texttt{SFS.mm} \texttt{bl.tscomi}: composing two shifts by the same step size adds the multipliers, predicate and value forms.
+
+\texttt{\textcolor{leancolor}{theorem} \textcolor{leanyellow}{dl\_tscomi} ($\varphi$ : TProp) (t0 : Time) (D : $\mathbb{R}$) (m n : $\mathbb{Z}$)}
+
+\texttt{~~(h1 : t0.val + D * m $\in$ TIME) (h2 : (t0.val + D * m) + D * n $\in$ TIME)}
+
+\texttt{~~(h3 : t0.val + D * ((m + n : $\mathbb{Z}$) : $\mathbb{R}$) $\in$ TIME) :}
+
+\texttt{~~shiftEval $\varphi$ $\langle$t0.val + D * m, h1$\rangle$ D n h2 $\leftrightarrow$ shiftEval $\varphi$ t0 D (m + n) h3}
+
+\texttt{\textcolor{leancolor}{theorem} \textcolor{leanyellow}{dl\_tscomci} \{$\alpha$\} (A : TVal $\alpha$) (t0 : Time) (D : $\mathbb{R}$) (m n : $\mathbb{Z}$)}
+
+\texttt{~~(h1 : t0.val + D * m $\in$ TIME) (h2 : (t0.val + D * m) + D * n $\in$ TIME)}
+
+\texttt{~~(h3 : t0.val + D * ((m + n : $\mathbb{Z}$) : $\mathbb{R}$) $\in$ TIME) :}
+
+\texttt{~~shiftEvalC A $\langle$t0.val + D * m, h1$\rangle$ D n h2 = shiftEvalC A t0 D (m + n) h3}
+\label{dl_tscomi}
+\label{dl_tscomci}
+\end{restatable}
+
 \begin{restatable}{lemma}{bltsbii}~\blTitle{bl.tsbii}~ Equivalence (biconditional) of
 $~\string^~$ for predicates, inference.
 \begin{align}
@@ -1280,4 +1343,21 @@ inference.
       \rsem&(\mbox{\ref{eq:mpbir}},61,63)\notag
 \end{align}
 \end{proof}
+
+\begin{restatable}{leantheorem}{dlTsbiiDlTseqi}~\leanTitle{dl\_tsbii / dl\_tseqi}~ \texttt{SFS.mm} \texttt{bl.tsbii}/\texttt{bl.tseqi}: \texttt{\^{}.}-congruence for predicates (same pointwise-iff convention as \ref{dl_atbi}) and values.
+
+\texttt{\textcolor{leancolor}{theorem} \textcolor{leanyellow}{dl\_tsbii} \{$\varphi$ $\psi$ : TProp\} \{D : $\mathbb{R}$\} \{m n : $\mathbb{Z}$\} (hpq : interp ($\varphi$ $\leftrightarrow_t$ $\psi$)) (hmn : m = n)}
+
+\texttt{~~\{t0 : Time\} \{h : t0.val + D * m $\in$ TIME\} \{h' : t0.val + D * n $\in$ TIME\} :}
+
+\texttt{~~shiftEval $\varphi$ t0 D m h $\leftrightarrow$ shiftEval $\psi$ t0 D n h'}
+
+\texttt{\textcolor{leancolor}{theorem} \textcolor{leanyellow}{dl\_tseqi} \{$\alpha$\} \{A B : TVal $\alpha$\} \{D : $\mathbb{R}$\} \{m n : $\mathbb{Z}$\} (hAB : A = B) (hmn : m = n)}
+
+\texttt{~~\{t0 : Time\} \{h : t0.val + D * m $\in$ TIME\} \{h' : t0.val + D * n $\in$ TIME\} :}
+
+\texttt{~~shiftEvalC A t0 D m h = shiftEvalC B t0 D n h'}
+\label{dl_tsbii}
+\label{dl_tseqi}
+\end{restatable}
 

@@ -1,4 +1,16 @@
 % This LaTeX file was created by Metamath on 22-Jul-2024 3:29 PM.
+
+\pn \texttt{SFS.mm}'s own ``Distribute Temporal Operator @'' and ``\texttt{\^{}.}'' sections comprise roughly 100 separately-axiomatized theorems, each stating that freezing a temporal value/predicate at a fixed instant (\texttt{@}), or shifting it by a whole multiple of a step size (\texttt{\^{}.}), commutes with some particular connective or operator. \texttt{SFS.lean} collapses both families into two constructions --- \texttt{atP}/\texttt{atC} and \texttt{shiftEval}/\texttt{shiftEvalC} --- for which distribution over an arbitrary pointwise-defined connective or operator is \texttt{rfl}, at arbitrary composition depth, not just the specific shapes \texttt{SFS.mm} had to spell out one by one.
+
+\begin{restatable}{leandefinition}{AtPAtC}~\leanTitle{atP / atC}~ \texttt{SFS.mm} \texttt{wat}/\texttt{clat0}: evaluate at \texttt{t0}, freezing the result into a \emph{constant} temporal predicate/value, so it can validly be \texttt{@}'d again (matching \ref{dl_at2}'s ``double \texttt{@} is inconsequential''). Because the result is constant, \texttt{@} distributing over any pointwise-defined connective or operator is \texttt{rfl}.
+
+\texttt{\textcolor{leancolor}{def} \textcolor{leanyellow}{atP} ($\varphi$ : TProp) (t0 : Time) : TProp := \textcolor{leancolor}{fun} \_ $\Rightarrow$ $\varphi$ t0}
+
+\texttt{\textcolor{leancolor}{def} \textcolor{leanyellow}{atC} \{$\alpha$\} (A : TVal $\alpha$) (t0 : Time) : TVal $\alpha$ := \textcolor{leancolor}{fun} \_ $\Rightarrow$ A t0}
+\label{atP}
+\label{atC}
+\end{restatable}
+
 \begin{restatable}{metadefinition}{dfblat}~\blTitle{df-bl.at}~ Definition of @ for predicates.
    @ determines in which world to evaluate.
 \begin{align}
@@ -15,6 +27,17 @@
     \mc{A} @ \tau ) \rsem = \mathbf{I} \lsem \mc{A} , \tau
     \rsem\label{eq:df-bl.atc}\tag{df-bl.atc}
 \end{align}
+\end{restatable}
+
+\begin{restatable}{leantheorem}{dlAtDlAtc}~\leanTitle{dl\_at / dl\_atc}~ \texttt{SFS.mm} \texttt{df-bl.at}/\texttt{df-bl.atc}: the defining property of \texttt{@}, predicate and value forms.
+
+\texttt{\textcolor{leancolor}{theorem} \textcolor{leanyellow}{dl\_at} ($\varphi$ : TProp) (t0 : Time) : interp (atP $\varphi$ t0) $\leftrightarrow$ interpAt $\varphi$ t0 :=}
+
+\texttt{~~$\langle$\textcolor{leancolor}{fun} h $\Rightarrow$ h t0, \textcolor{leancolor}{fun} h \_ $\Rightarrow$ h$\rangle$}
+
+\texttt{\textcolor{leancolor}{theorem} \textcolor{leanyellow}{dl\_atc} \{$\alpha$\} (A : TVal $\alpha$) (t0 : Time) : interpVal (atC A t0) = interpValAt A t0 := rfl}
+\label{dl_at}
+\label{dl_atc}
 \end{restatable}
 
 \begin{restatable}{metadefinition}{dfblat2}~\blTitle{df-bl.at2}~ Definition of Double @ for predicates.
@@ -35,6 +58,19 @@
     ) @ \tau_2 ) \rsem = \mathbf{I} \lsem \mc{A} , \tau_1
     \rsem\label{eq:df-bl.at2c}\tag{df-bl.at2c}
 \end{align}
+\end{restatable}
+
+\begin{restatable}{leantheorem}{dlAtTwoFamily}~\leanTitle{dl\_at2 / dl\_at2c}~ \texttt{SFS.mm} \texttt{df-bl.at2}/\texttt{df-bl.at2c}: double \texttt{@} collapses to the first (outer) evaluation.
+
+\texttt{\textcolor{leancolor}{theorem} \textcolor{leanyellow}{dl\_at2} ($\varphi$ : TProp) (t1 t2 : Time) : interp (atP (atP $\varphi$ t1) t2) $\leftrightarrow$ interpAt $\varphi$ t1 :=}
+
+\texttt{~~(dl\_at (atP $\varphi$ t1) t2).trans Iff.rfl}
+
+\texttt{\textcolor{leancolor}{theorem} \textcolor{leanyellow}{dl\_at2c} \{$\alpha$\} (A : TVal $\alpha$) (t1 t2 : Time) :}
+
+\texttt{~~interpVal (atC (atC A t1) t2) = interpValAt A t1 := rfl}
+\label{dl_at2}
+\label{dl_at2c}
 \end{restatable}
 
 \begin{restatable}{lemma}{blatintro}~\blTitle{bl.atintro}~ @ Introduction for predicates.
@@ -61,6 +97,14 @@
       )&(\mbox{\ref{eq:sylibr}},2,4)\notag
 \end{align}
 \end{proof}
+
+\begin{restatable}{leantheorem}{dlAtintro}~\leanTitle{dl\_atintro}~ \texttt{SFS.mm} \texttt{bl.atintro}. \texttt{SFS.mm}'s $\tau_0\in\mathbf{T}$ hypothesis is automatic here, from \texttt{t0 : Time}.
+
+\texttt{\textcolor{leancolor}{theorem} \textcolor{leanyellow}{dl\_atintro} \{$\varphi$ : TProp\} \{t0 : Time\} : interp $\varphi$ $\to$ interp (atP $\varphi$ t0) :=}
+
+\texttt{~~\textcolor{leancolor}{fun} h \_ $\Rightarrow$ h t0}
+\label{dl_atintro}
+\end{restatable}
 
 \begin{restatable}{metadefinition}{dfblatbi}~\blTitle{df-bl.atbi}~ Definition of @ Equivalence
 (biconditional) for predicates.
@@ -137,6 +181,19 @@ predicates, inference.
       \rsem&(\mbox{\ref{eq:mp2an}},1,2,5)\notag
 \end{align}
 \end{proof}
+
+\begin{restatable}{leantheorem}{dlAtbiDlAteqc}~\leanTitle{dl\_atbi / dl\_ateqc}~ \texttt{SFS.mm} \texttt{df-bl.atbi}: \texttt{@}-congruence for predicates and values. Predicates are read as pointwise-equivalent \texttt{TProp}s (\texttt{interp} of a $\leftrightarrow_t$), since a bare $\leftrightarrow$ between two \texttt{Time $\to$ Prop}s doesn't otherwise typecheck as a single \texttt{Prop}; values are compared by literal \texttt{=}.
+
+\texttt{\textcolor{leancolor}{theorem} \textcolor{leanyellow}{dl\_atbi} \{$\varphi$ $\psi$ : TProp\} \{t1 t2 : Time\} (ht : t1 = t2) (hpq : interp ($\varphi$ $\leftrightarrow_t$ $\psi$)) :}
+
+\texttt{~~interp (atP $\varphi$ t1) $\leftrightarrow$ interp (atP $\psi$ t2)}
+
+\texttt{\textcolor{leancolor}{theorem} \textcolor{leanyellow}{dl\_ateqc} \{$\alpha$\} \{A B : TVal $\alpha$\} \{t1 t2 : Time\} (ht : t1 = t2) (hAB : A = B) :}
+
+\texttt{~~interpVal (atC A t1) = interpVal (atC B t2)}
+\label{dl_atbi}
+\label{dl_ateqc}
+\end{restatable}
 
 \begin{restatable}{lemma}{blatintroc}~\blTitle{bl.atintroc}~ @ Introduction: if a value is constant
 its value is the same at any time.

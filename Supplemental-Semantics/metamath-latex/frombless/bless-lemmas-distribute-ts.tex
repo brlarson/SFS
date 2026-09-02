@@ -883,6 +883,34 @@ two terms,inference
 \end{align}
 \end{proof}
 
+\begin{restatable}{leantheorem}{ShiftEvalLogicFamily}~\leanTitle{shiftEval\_and / shiftEval\_or / shiftEval\_not / shiftEval\_imp / shiftEval\_iff}~ \texttt{SFS.mm} \texttt{bl.tsan2i}/\texttt{bl.tsor2i} and friends: \texttt{\^{}.} distributing over each timed connective, all \texttt{Iff.rfl}.
+
+\texttt{\textcolor{leancolor}{theorem} \textcolor{leanyellow}{shiftEval\_and} ($\varphi$ $\psi$ : TProp) (t0 : Time) (D : $\mathbb{R}$) (n : $\mathbb{Z}$) (h : t0.val + D * n $\in$ TIME) :}
+
+\texttt{~~shiftEval ($\varphi$ $\wedge_t$ $\psi$) t0 D n h $\leftrightarrow$ shiftEval $\varphi$ t0 D n h $\wedge$ shiftEval $\psi$ t0 D n h := Iff.rfl}
+
+\texttt{\textcolor{leancolor}{theorem} \textcolor{leanyellow}{shiftEval\_or} ($\varphi$ $\psi$ : TProp) (t0 : Time) (D : $\mathbb{R}$) (n : $\mathbb{Z}$) (h : t0.val + D * n $\in$ TIME) :}
+
+\texttt{~~shiftEval ($\varphi$ $\vee_t$ $\psi$) t0 D n h $\leftrightarrow$ shiftEval $\varphi$ t0 D n h $\vee$ shiftEval $\psi$ t0 D n h := Iff.rfl}
+
+\texttt{\textcolor{leancolor}{theorem} \textcolor{leanyellow}{shiftEval\_not} ($\varphi$ : TProp) (t0 : Time) (D : $\mathbb{R}$) (n : $\mathbb{Z}$) (h : t0.val + D * n $\in$ TIME) :}
+
+\texttt{~~shiftEval ($\neg_t$$\varphi$) t0 D n h $\leftrightarrow$ $\neg$ shiftEval $\varphi$ t0 D n h := Iff.rfl}
+
+\texttt{\textcolor{leancolor}{theorem} \textcolor{leanyellow}{shiftEval\_imp} ($\varphi$ $\psi$ : TProp) (t0 : Time) (D : $\mathbb{R}$) (n : $\mathbb{Z}$) (h : t0.val + D * n $\in$ TIME) :}
+
+\texttt{~~shiftEval ($\varphi$ $\to_t$ $\psi$) t0 D n h $\leftrightarrow$ (shiftEval $\varphi$ t0 D n h $\to$ shiftEval $\psi$ t0 D n h) := Iff.rfl}
+
+\texttt{\textcolor{leancolor}{theorem} \textcolor{leanyellow}{shiftEval\_iff} ($\varphi$ $\psi$ : TProp) (t0 : Time) (D : $\mathbb{R}$) (n : $\mathbb{Z}$) (h : t0.val + D * n $\in$ TIME) :}
+
+\texttt{~~shiftEval ($\varphi$ $\leftrightarrow_t$ $\psi$) t0 D n h $\leftrightarrow$ (shiftEval $\varphi$ t0 D n h $\leftrightarrow$ shiftEval $\psi$ t0 D n h) := Iff.rfl}
+\label{shiftEval_and}
+\label{shiftEval_or}
+\label{shiftEval_not}
+\label{shiftEval_imp}
+\label{shiftEval_iff}
+\end{restatable}
+
 \begin{restatable}{lemma}{bltsor3i}~\blTitle{bl.tsor3i}~ Distribute $~\string^~$ over disjunction,
 three terms, inference
 \begin{align}
@@ -2754,6 +2782,34 @@ inference.
 \end{align}
 \end{proof}
 
+\begin{restatable}{leantheorem}{ShiftEvalCArithFamily}~\leanTitle{shiftEvalC\_add / shiftEvalC\_sub / shiftEvalC\_mul / shiftEvalC\_div / shiftEvalC\_neg}~ \texttt{SFS.mm} \texttt{bl.tsad2i}/\texttt{bl.tssubi}/\texttt{bl.tsmul2i}/\texttt{bl.tsdivi}/\texttt{bl.tsumi}: \texttt{\^{}.} distributing over each arithmetic operator, all \texttt{rfl}.
+
+\texttt{\textcolor{leancolor}{theorem} \textcolor{leanyellow}{shiftEvalC\_add} (A B : TVal $\mathbb{R}$) (t0 : Time) (D : $\mathbb{R}$) (n : $\mathbb{Z}$) (h : t0.val + D * n $\in$ TIME) :}
+
+\texttt{~~shiftEvalC (A + B) t0 D n h = shiftEvalC A t0 D n h + shiftEvalC B t0 D n h := rfl}
+
+\texttt{\textcolor{leancolor}{theorem} \textcolor{leanyellow}{shiftEvalC\_sub} (A B : TVal $\mathbb{R}$) (t0 : Time) (D : $\mathbb{R}$) (n : $\mathbb{Z}$) (h : t0.val + D * n $\in$ TIME) :}
+
+\texttt{~~shiftEvalC (A - B) t0 D n h = shiftEvalC A t0 D n h - shiftEvalC B t0 D n h := rfl}
+
+\texttt{\textcolor{leancolor}{theorem} \textcolor{leanyellow}{shiftEvalC\_mul} (A B : TVal $\mathbb{R}$) (t0 : Time) (D : $\mathbb{R}$) (n : $\mathbb{Z}$) (h : t0.val + D * n $\in$ TIME) :}
+
+\texttt{~~shiftEvalC (A * B) t0 D n h = shiftEvalC A t0 D n h * shiftEvalC B t0 D n h := rfl}
+
+\texttt{\textcolor{leancolor}{theorem} \textcolor{leanyellow}{shiftEvalC\_div} (A B : TVal $\mathbb{R}$) (t0 : Time) (D : $\mathbb{R}$) (n : $\mathbb{Z}$) (h : t0.val + D * n $\in$ TIME) :}
+
+\texttt{~~shiftEvalC (A / B) t0 D n h = shiftEvalC A t0 D n h / shiftEvalC B t0 D n h := rfl}
+
+\texttt{\textcolor{leancolor}{theorem} \textcolor{leanyellow}{shiftEvalC\_neg} (A : TVal $\mathbb{R}$) (t0 : Time) (D : $\mathbb{R}$) (n : $\mathbb{Z}$) (h : t0.val + D * n $\in$ TIME) :}
+
+\texttt{~~shiftEvalC (-A) t0 D n h = -shiftEvalC A t0 D n h := rfl}
+\label{shiftEvalC_add}
+\label{shiftEvalC_sub}
+\label{shiftEvalC_mul}
+\label{shiftEvalC_div}
+\label{shiftEvalC_neg}
+\end{restatable}
+
 \begin{restatable}{lemma}{bltsdeqi}~\blTitle{bl.tsdeqi}~ Distribute $~\string^~$ over equality,
 inference.
 \begin{align}
@@ -3026,6 +3082,24 @@ inference.
 \end{align}
 \end{proof}
 
+\begin{restatable}{leantheorem}{ShiftEvalRelFamily}~\leanTitle{shiftEval\_teq / shiftEval\_tlt / shiftEval\_tle}~ \texttt{SFS.mm} \texttt{bl.tsdeqi}/\texttt{bl.tslti}/\texttt{bl.tsami}: \texttt{\^{}.} distributing over each value-level relation.
+
+\texttt{\textcolor{leancolor}{theorem} \textcolor{leanyellow}{shiftEval\_teq} (A B : TVal $\mathbb{R}$) (t0 : Time) (D : $\mathbb{R}$) (n : $\mathbb{Z}$) (h : t0.val + D * n $\in$ TIME) :}
+
+\texttt{~~shiftEval (teq A B) t0 D n h $\leftrightarrow$ shiftEvalC A t0 D n h = shiftEvalC B t0 D n h := Iff.rfl}
+
+\texttt{\textcolor{leancolor}{theorem} \textcolor{leanyellow}{shiftEval\_tlt} (A B : TVal $\mathbb{R}$) (t0 : Time) (D : $\mathbb{R}$) (n : $\mathbb{Z}$) (h : t0.val + D * n $\in$ TIME) :}
+
+\texttt{~~shiftEval (tlt A B) t0 D n h $\leftrightarrow$ shiftEvalC A t0 D n h < shiftEvalC B t0 D n h := Iff.rfl}
+
+\texttt{\textcolor{leancolor}{theorem} \textcolor{leanyellow}{shiftEval\_tle} (A B : TVal $\mathbb{R}$) (t0 : Time) (D : $\mathbb{R}$) (n : $\mathbb{Z}$) (h : t0.val + D * n $\in$ TIME) :}
+
+\texttt{~~shiftEval (tle A B) t0 D n h $\leftrightarrow$ shiftEvalC A t0 D n h $\le$ shiftEvalC B t0 D n h := Iff.rfl}
+\label{shiftEval_teq}
+\label{shiftEval_tlt}
+\label{shiftEval_tle}
+\end{restatable}
+
 \begin{restatable}{metadefinition}{dfbltsali}~\blTitle{df-bl.tsali}~ Distribute $~\string^~$ over
 universal quantification, inference
 \begin{align}
@@ -3052,6 +3126,23 @@ existential quantification, inference
     \in \mc{B} ( \mw{\varphi} ~\string^~ \mc{A} ) ) , \tau
     \rsem\label{eq:df-bl.tsexi}\tag{df-bl.tsexi}
 \end{align}
+\end{restatable}
+
+\begin{restatable}{leantheorem}{ShiftEvalQuantFamily}~\leanTitle{shiftEval\_ralt / shiftEval\_rext}~ \texttt{SFS.mm} \texttt{df-bl.tsali}/\texttt{df-bl.tsexi}: \texttt{\^{}.} distributing over restricted universal/existential quantification.
+
+\texttt{\textcolor{leancolor}{theorem} \textcolor{leanyellow}{shiftEval\_ralt} \{D' : Type*\} ($\varphi$ : D' $\to$ TProp) (A : Set D') (t0 : Time) (D : $\mathbb{R}$) (n : $\mathbb{Z}$)}
+
+\texttt{~~(h : t0.val + D * n $\in$ TIME) :}
+
+\texttt{~~shiftEval (\textcolor{leancolor}{fun} t $\Rightarrow$ $\forall$ x $\in$ A, $\varphi$ x t) t0 D n h $\leftrightarrow$ $\forall$ x $\in$ A, shiftEval ($\varphi$ x) t0 D n h := Iff.rfl}
+
+\texttt{\textcolor{leancolor}{theorem} \textcolor{leanyellow}{shiftEval\_rext} \{D' : Type*\} ($\varphi$ : D' $\to$ TProp) (A : Set D') (t0 : Time) (D : $\mathbb{R}$) (n : $\mathbb{Z}$)}
+
+\texttt{~~(h : t0.val + D * n $\in$ TIME) :}
+
+\texttt{~~shiftEval (\textcolor{leancolor}{fun} t $\Rightarrow$ $\exists$ x $\in$ A, $\varphi$ x t) t0 D n h $\leftrightarrow$ $\exists$ x $\in$ A, shiftEval ($\varphi$ x) t0 D n h := Iff.rfl}
+\label{shiftEval_ralt}
+\label{shiftEval_rext}
 \end{restatable}
 
 \begin{restatable}{metadefinition}{dfbltssumi}~\blTitle{df-bl.tssumi}~ Distribute $~\string^~$ over

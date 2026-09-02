@@ -857,6 +857,29 @@ predicates, inference.
 \end{align}
 \end{proof}
 
+\begin{restatable}{leantheorem}{AtPLogicFamily}~\leanTitle{atP\_binop / atP\_and / atP\_or / atP\_not / atP\_imp / atP\_iff}~ \texttt{SFS.mm} \texttt{bl.atan2i}/\texttt{bl.ator2i}/\texttt{bl.atnoti}/\texttt{bl.atbidi} and friends, in one shot: \texttt{@} distributes over any pointwise binary connective (\texttt{atP\_binop}), specialized to $\wedge_t$/$\vee_t$/$\neg_t$/$\to_t$/$\leftrightarrow_t$ below --- all \texttt{rfl}. Three-term and any-nesting conjunction/disjunction fall out of \texttt{atP\_and}/\texttt{atP\_or} applied twice, no separate lemma needed.
+
+\texttt{\textcolor{leancolor}{theorem} \textcolor{leanyellow}{atP\_binop} (g : Prop $\to$ Prop $\to$ Prop) ($\varphi$ $\psi$ : TProp) (t0 : Time) :}
+
+\texttt{~~atP (\textcolor{leancolor}{fun} t $\Rightarrow$ g ($\varphi$ t) ($\psi$ t)) t0 = \textcolor{leancolor}{fun} \_ $\Rightarrow$ g ($\varphi$ t0) ($\psi$ t0) := rfl}
+
+\texttt{\textcolor{leancolor}{theorem} \textcolor{leanyellow}{atP\_and} ($\varphi$ $\psi$ : TProp) (t0 : Time) : atP ($\varphi$ $\wedge_t$ $\psi$) t0 = atP $\varphi$ t0 $\wedge_t$ atP $\psi$ t0 := rfl}
+
+\texttt{\textcolor{leancolor}{theorem} \textcolor{leanyellow}{atP\_or} ($\varphi$ $\psi$ : TProp) (t0 : Time) : atP ($\varphi$ $\vee_t$ $\psi$) t0 = atP $\varphi$ t0 $\vee_t$ atP $\psi$ t0 := rfl}
+
+\texttt{\textcolor{leancolor}{theorem} \textcolor{leanyellow}{atP\_not} ($\varphi$ : TProp) (t0 : Time) : atP ($\neg_t$$\varphi$) t0 = $\neg_t$(atP $\varphi$ t0) := rfl}
+
+\texttt{\textcolor{leancolor}{theorem} \textcolor{leanyellow}{atP\_imp} ($\varphi$ $\psi$ : TProp) (t0 : Time) : atP ($\varphi$ $\to_t$ $\psi$) t0 = atP $\varphi$ t0 $\to_t$ atP $\psi$ t0 := rfl}
+
+\texttt{\textcolor{leancolor}{theorem} \textcolor{leanyellow}{atP\_iff} ($\varphi$ $\psi$ : TProp) (t0 : Time) : atP ($\varphi$ $\leftrightarrow_t$ $\psi$) t0 = atP $\varphi$ t0 $\leftrightarrow_t$ atP $\psi$ t0 := rfl}
+\label{atP_binop}
+\label{atP_and}
+\label{atP_or}
+\label{atP_not}
+\label{atP_imp}
+\label{atP_iff}
+\end{restatable}
+
 \begin{restatable}{metadefinition}{dfblatad2}~\blTitle{df-bl.atad2}~ Distribute @ over addition, two
 terms.
 \begin{align}
@@ -1413,6 +1436,24 @@ list.
 \end{align}
 \end{proof}
 
+\begin{restatable}{leantheorem}{AtCArithFamily}~\leanTitle{atC\_add / atC\_sub / atC\_mul / atC\_div / atC\_neg}~ \texttt{SFS.mm} \texttt{bl.atad2i}/\texttt{bl.atsubi}/\texttt{bl.atmul2i}/\texttt{bl.atdivi}/\texttt{bl.atumi}: \texttt{@} distributing over each arithmetic operator on \texttt{TVal $\mathbb{R}$}, all \texttt{rfl}.
+
+\texttt{\textcolor{leancolor}{theorem} \textcolor{leanyellow}{atC\_add} (A B : TVal $\mathbb{R}$) (t0 : Time) : atC (A + B) t0 = atC A t0 + atC B t0 := rfl}
+
+\texttt{\textcolor{leancolor}{theorem} \textcolor{leanyellow}{atC\_sub} (A B : TVal $\mathbb{R}$) (t0 : Time) : atC (A - B) t0 = atC A t0 - atC B t0 := rfl}
+
+\texttt{\textcolor{leancolor}{theorem} \textcolor{leanyellow}{atC\_mul} (A B : TVal $\mathbb{R}$) (t0 : Time) : atC (A * B) t0 = atC A t0 * atC B t0 := rfl}
+
+\texttt{\textcolor{leancolor}{theorem} \textcolor{leanyellow}{atC\_div} (A B : TVal $\mathbb{R}$) (t0 : Time) : atC (A / B) t0 = atC A t0 / atC B t0 := rfl}
+
+\texttt{\textcolor{leancolor}{theorem} \textcolor{leanyellow}{atC\_neg} (A : TVal $\mathbb{R}$) (t0 : Time) : atC (-A) t0 = -atC A t0 := rfl}
+\label{atC_add}
+\label{atC_sub}
+\label{atC_mul}
+\label{atC_div}
+\label{atC_neg}
+\end{restatable}
+
 \begin{restatable}{metadefinition}{dfblateq}~\blTitle{df-bl.ateq}~ Distribute @ over equality.
 \begin{align}
 \vdash ( ( \tau \in \mathbf{T} \wedge \mc{A} \in \mathbb{R} \wedge \mc{B} \in
@@ -1571,6 +1612,18 @@ list.
 \end{align}
 \end{proof}
 
+\begin{restatable}{leantheorem}{AtPRelFamily}~\leanTitle{atP\_teq / atP\_tlt / atP\_tle}~ \texttt{SFS.mm} \texttt{bl.ateqi}/\texttt{bl.atlti}/\texttt{bl.atami}: \texttt{@} distributing over each value-level relation.
+
+\texttt{\textcolor{leancolor}{theorem} \textcolor{leanyellow}{atP\_teq} (A B : TVal $\mathbb{R}$) (t0 : Time) : atP (teq A B) t0 = teq (atC A t0) (atC B t0) := rfl}
+
+\texttt{\textcolor{leancolor}{theorem} \textcolor{leanyellow}{atP\_tlt} (A B : TVal $\mathbb{R}$) (t0 : Time) : atP (tlt A B) t0 = tlt (atC A t0) (atC B t0) := rfl}
+
+\texttt{\textcolor{leancolor}{theorem} \textcolor{leanyellow}{atP\_tle} (A B : TVal $\mathbb{R}$) (t0 : Time) : atP (tle A B) t0 = tle (atC A t0) (atC B t0) := rfl}
+\label{atP_teq}
+\label{atP_tlt}
+\label{atP_tle}
+\end{restatable}
+
 \begin{restatable}{metadefinition}{dfblatal}~\blTitle{df-bl.atal}~ Distribute @ over universal
 quantification.
 \begin{align}
@@ -1589,6 +1642,19 @@ quantification, inference.
     \mathbf{I} \lsem \exists \msc{x} \in \mc{A} ( \mw{\varphi} @ \tau ) \rsem
     )\label{eq:df-bl.atexi}\tag{df-bl.atexi}
 \end{align}
+\end{restatable}
+
+\begin{restatable}{leantheorem}{AtPQuantFamily}~\leanTitle{atP\_ralt / atP\_rext}~ \texttt{SFS.mm} \texttt{df-bl.atal}/\texttt{df-bl.atexi}: \texttt{@} distributing over restricted universal/existential quantification.
+
+\texttt{\textcolor{leancolor}{theorem} \textcolor{leanyellow}{atP\_ralt} \{D : Type*\} ($\varphi$ : D $\to$ TProp) (A : Set D) (t0 : Time) :}
+
+\texttt{~~atP (\textcolor{leancolor}{fun} t $\Rightarrow$ $\forall$ x $\in$ A, $\varphi$ x t) t0 = \textcolor{leancolor}{fun} t $\Rightarrow$ $\forall$ x $\in$ A, atP ($\varphi$ x) t0 t := rfl}
+
+\texttt{\textcolor{leancolor}{theorem} \textcolor{leanyellow}{atP\_rext} \{D : Type*\} ($\varphi$ : D $\to$ TProp) (A : Set D) (t0 : Time) :}
+
+\texttt{~~atP (\textcolor{leancolor}{fun} t $\Rightarrow$ $\exists$ x $\in$ A, $\varphi$ x t) t0 = \textcolor{leancolor}{fun} t $\Rightarrow$ $\exists$ x $\in$ A, atP ($\varphi$ x) t0 t := rfl}
+\label{atP_ralt}
+\label{atP_rext}
 \end{restatable}
 
 \begin{restatable}{metadefinition}{dfblatsum}~\blTitle{df-bl.atsum}~ Distribute @ over summation.
