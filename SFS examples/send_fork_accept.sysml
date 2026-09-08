@@ -1,4 +1,4 @@
-//send_accept.sysml
+//send_fork_accept.sysml
 
 package 'send fork accept' {
   doc /*
