@@ -63,11 +63,14 @@ than baking a step size into the definition (meaningless for a dense order, and 
 particular discretization), \bemph{next} is defined purely order-theoretically: $\tau_2$ is next after
 $\tau_1$ exactly when $\tau_1 \prec \tau_2$ and no instant lies strictly between them.
 
-\begin{definition}\blTitle{df-bl.next} {Define the next instant (successor, no delta)}
+\begin{definition}\blTitle{df-next} {Define the next instant (successor, no delta)} Redefined 2026-08-26 in
+\texttt{SFS.mm} itself (ported from \texttt{Lean4SFS/SFS.lean}'s own redesign): the original order-theoretic
+form below is provably vacuous under unrestricted density (\ref{eq:bl.nextdense}); grounding it in
+\texttt{isTick} instead (matching \ref{finitePartition}'s finite shared ticks) is what makes it satisfiable.
 \begin{align}
-\vdash (~ \texttt{next}( \tau_1, \tau_2 ) \leftrightarrow ( \tau_1 \prec \tau_2 \wedge \lnot \exists \tau
-    ( \tau_1 \prec \tau \wedge \tau \prec \tau_2 ) )~)
-    \label{eq:df-bl.next}\tag{df-bl.next}
+\vdash (~ \texttt{next}( \tau_1, \tau_2 ) \leftrightarrow ( ( \texttt{isTick}(\tau_1) \wedge \texttt{isTick}(\tau_2) ) \wedge \tau_1 \prec \tau_2 ) \wedge \notag \\
+~\lnot \exists \tau~( ( \texttt{isTick}(\tau) \wedge \tau_1 \prec \tau ) \wedge \tau \prec \tau_2 )~)
+    \label{eq:df-next}\tag{df-next}
 \end{align}
 \end{definition}
 
@@ -99,7 +102,14 @@ symmetric, so take $\tau_2 \prec \tau_3$.  From $\texttt{next}(\tau_1,\tau_2)$, 
 So $\tau_1 \prec \tau_2 \prec \tau_3$ witnesses an instant ($\tau_2$) strictly between $\tau_1$ and
 $\tau_3$, contradicting the second conjunct of $\texttt{next}(\tau_1,\tau_3)$.  Hence $\tau_2 = \tau_3$.
 
-\begin{lemma}\blTitle{bl.nextdense} {next is empty under unrestricted density}
+\pn \bemph{Retired in \texttt{SFS.mm}}: \texttt{bl.nextdense} below was a real, formalized \texttt{SFS.mm}
+theorem about the \emph{pre}-2026-08-26 \texttt{next} (the pure order-theoretic form, no \texttt{isTick}) --
+it no longer applies to \texttt{next}'s current, \texttt{isTick}-grounded meaning (\eqref{eq:df-next} above),
+which is genuinely satisfiable under density, and \texttt{SFS.mm} removed the statement entirely rather than
+leave it stated about a form \texttt{next} no longer has. Restated here, unlabeled by \texttt{SFS.mm}, purely
+for the historical argument it makes: this is exactly \emph{why} the redesign was needed.
+
+\begin{lemma}\blTitle{bl.nextdense} {next is empty under unrestricted density (retired in SFS.mm)}
 \begin{align}
 \vdash ( \forall \tau\forall \tau_1 ( \tau \prec \tau_1 \rightarrow \exists \tau_2 ( \tau \prec \tau_2
     \wedge \tau_2 \prec \tau_1 ) ) \rightarrow \lnot \exists \tau_1\exists \tau_2~\texttt{next}( \tau_1,
@@ -107,10 +117,10 @@ $\tau_3$, contradicting the second conjunct of $\texttt{next}(\tau_1,\tau_3)$.  
 \end{align}
 \end{lemma}
 
-\noindent\emph{Proof sketch (informal, pending Metamath formalization):} Instantiate the density
-hypothesis at any $\tau_1,\tau_2$ with $\texttt{next}(\tau_1,\tau_2)$ (which gives $\tau_1 \prec
-\tau_2$): density yields an instant strictly between them, directly contradicting the non-existence
-conjunct of \eqref{eq:df-bl.next}.
+\noindent\emph{Proof sketch (informal; SFS.mm's own now-removed proof followed the same argument):}
+Instantiate the density hypothesis at any $\tau_1,\tau_2$ with $\texttt{next}(\tau_1,\tau_2)$ (which gives
+$\tau_1 \prec \tau_2$): density yields an instant strictly between them, directly contradicting the
+non-existence conjunct of \eqref{eq:df-next} (in its pre-\texttt{isTick} form, discussed there).
 
 \pn \eqref{eq:bl.nextdense}'s own remark above -- \textit{next} only does real work applied to ``instants drawn
 from a single discretized Period'' -- is given real formal content in Lean (2026-08-26, at direct
