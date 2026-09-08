@@ -317,8 +317,8 @@ to \texttt{df\_types}).
 \texttt{Design}/\texttt{VT}/\texttt{Specializes}/\texttt{Unions}/\texttt{Intersects}/\texttt{Differences}/
 \texttt{Disjoint}/\texttt{TypeMultiplicityExact}/\texttt{TypeMultiplicityRange}/\texttt{VF}/
 \texttt{FeatureContent}/\texttt{FeaturedByDecl}/\texttt{DomainlessDecl}/\texttt{FeatureMemberOf}/
-\texttt{OwnedFeatureTypedBy} (+\texttt{Exact}/\texttt{Star}/\texttt{Range}/\texttt{RangeStar})/
-\texttt{MemberOf}/\texttt{OwnedFeatures}/\texttt{OrderedOn}/\texttt{OrderedDecl}/\texttt{ChainsDecl}/
+\texttt{OwnedFeatureTypedBy} (4 multiplicity-suffixed forms)/\texttt{MemberOf}/\texttt{OwnedFeatures}/
+\texttt{OrderedOn}/\texttt{OrderedDecl}/\texttt{ChainsDecl}/
 \texttt{VC} bundled together with every \texttt{df\_*} constraint that ties them to \texttt{Design}
 (\texttt{df\_specializes} through \texttt{df\_typebody}, \texttt{df\_classifier},
 \texttt{df\_classifier2}) --- one class, not one axiom per primitive/constraint, because almost every
@@ -334,7 +334,7 @@ opacity guarantee more legibly. \texttt{encodePair}/\texttt{encodePair\_inj} (\r
 one part of this cluster \emph{not} eliminated by this trick --- whether \texttt{Element} admits an
 injective self-pairing is an independent, self-contained question about \texttt{Element}'s own
 cardinality, unrelated to \texttt{Design}, and (2026-08-26, same session) was proved directly instead
-(\ref{encodePairInj}).
+(\ref{encodePair_inj}).
 
 \texttt{\textcolor{leancolor}{class} \textcolor{leanyellow}{CoreDesignModel} \textcolor{leancolor}{where}}
 
