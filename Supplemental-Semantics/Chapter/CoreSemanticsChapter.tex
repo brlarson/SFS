@@ -646,8 +646,8 @@ whole project), not just checked by eye.
 \end{restatable}
 
 \begin{restatable}{leandefinition}{cardElem}~\leanTitle{cardElem}~ Define class cardinality in Lean. \texttt{\#}
-is literal notation for \texttt{Set.ncard} (Mathlib's own finite-set cardinality --- "junk value zero if
-infinite", matching the book's own "nothing in a system is infinite" stance), not a new primitive:
+is literal notation for \texttt{Set.ncard} (Mathlib's own finite-set cardinality --- ``junk value zero if
+infinite", matching the book's own ``nothing in a system is infinite" stance), not a new primitive:
 \texttt{SFS.mm}'s own \texttt{df-cardinality} is itself just an abbreviation reusing base \texttt{set.mm}'s
 already-developed cardinal number theory, so this is the direct Lean analogue, not a shortcut --- a genuine
 \texttt{def}, no axiom needed.
@@ -818,7 +818,9 @@ Note:  $\mc{Z}$ doesn't ``know'' about \texttt{Feature} $x$; something else need
 
 \subsection{Domain-less Feature}  
 
-\pn A \texttt{Feature} can be defined without a domain, which defaults to the Universe $\mathrm{V}$.
+\pn A \texttt{Feature} can be defined without a domain, which defaults to the Universe $\mathrm{V}$.  
+~\ref{eq:df-domainless} defines a relation with domain $\mc{\mathrm{V}}$, the universe, and co-domain $\mc{Y}$ .
+
 
 \begin{restatable}{definition}{dfdomainless}~\blTitle{df-domainless}~   Define domain-less \texttt{Feature}
 \begin{align}
@@ -848,7 +850,6 @@ all --- the same ``vacuous existential/quantifier disappears'' simplification us
 \label{df_domainless}
 \end{restatable}
 
-\ref{eq:df-domainless} defines a relation with domain $\mc{\mathrm{V}}$, the universe, and co-domain $\mc{Y}$ 
 
 %\comment{Philosophical Rant:  Domain-less features are endemic in .kerml libraries.  Then, most feature declarations \texttt{subsets} some domain-less feature.
 %Thus, understanding a feature declaration, requires looking in two places--at least.  The penchant for using inheritance means multiple levels of indirection.
@@ -1067,7 +1068,7 @@ type Person { feature parent[2] typed by Person; }
 says each \bemph{Person} \texttt{Type} must have a relation named \bemph{parent} having exactly two pairs, with the first element being the featuring \bemph{Person}, and the second element being \bemph{different} featured \bemph{Persons}.  
 
 \begin{gather}
-\mc{Person} = \{~\langle \textbf{type},w,\mc{C}\rangle~\vert~w=W(``Person")~\wedge \{y_1,y_2 \} \in \mc{Person} \notag \\
+\mc{Person} = \{~\langle \textbf{type},w,\mc{C}\rangle~\vert~w=W(``Person")~\wedge \{y_1,y_2 \} \subseteq \mc{Person} \notag \\
 ~\wedge~ \mc{C}=\{~\langle~\textbf{feature}, ``parent",\mc{R} \rangle~\vert ~\mc{R}=\{~\langle w,y_1\rangle,~\langle w,y_2\rangle~\}~\}~\} \notag
 \end{gather}
 
@@ -1076,7 +1077,7 @@ says each \bemph{Person} \texttt{Type} must have a relation named \bemph{parent}
 \begin{restatable}{definition}{dffixedfeaturemultiplicity}~\blTitle{df-fixedfeaturemultiplicity}~   Define \texttt{Fixed Multiplicity}
 \begin{align}
 \texttt{type}~ Z ~\texttt{\{ feature}~ x[k] ~\texttt{typed by}~ Y~\texttt{; \}}~\Rightarrow  \notag \\
-\mc{Z}=\{~\langle \textbf{type},w,\mc{C}\rangle~\vert~w=W(``Z")~\wedge \{y_1,\ldots,y_k \} \in \mc{Y} \notag \\
+\mc{Z}=\{~\langle \textbf{type},w,\mc{C}\rangle~\vert~w=W(``Z")~\wedge \{y_1,\ldots,y_k \} \subseteq \mc{Y} \notag \\
 ~\wedge~ \mc{C}=\{~\langle~\textbf{feature}, ``x",\mc{R} \rangle~\vert ~\mc{R}=\{~\langle w,y_1\rangle,\ldots,\langle w,y_k\rangle~\}~\}~\}~\label{eq:df-fixedfeaturemultiplicity}\tag{df-fixedfeaturemultiplicity}
 \end{align}
 \end{restatable}
@@ -1471,7 +1472,7 @@ inverse w of x;
 says $\mc{x}$ is a class of pairs where the first element is from $\mc{Z}$ and the second element is from $\mc{Y}$, and $\mc{w}$ is a class of pairs where the first element is from $\mc{Y}$ and the second element is from $\mc{Z}$.
 
 
-\begin{restatable}{definition}{df-featureinverting}~\blTitle{df-featureinverting}~   Define \texttt{Feature Inverting}
+\begin{restatable}{definition}{dffeatureinverting}~\blTitle{df-featureinverting}~   Define \texttt{Feature Inverting}
 \begin{align}
 \texttt{feature}~x~\texttt{typed by}~ Y ~\texttt{featured by}~ Z~\texttt{;}~\notag \\ 
 \texttt{inverse}~ w ~\texttt{of} ~x~\texttt{;}~\Rightarrow  \notag \\
