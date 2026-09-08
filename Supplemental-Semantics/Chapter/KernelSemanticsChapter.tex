@@ -45,6 +45,10 @@ $P(\tau)$: is the system boundary at time $\tau \in \mathbf{T}$, and
 $\mathbf{I}\lsem d,\tau\rsem$: is an interpretation for design element $d\in D$ at time $\tau \in \mathbf{T}$.
 \end{restatable}
 
+\pn \texttt{df-model} is book-original, with no \texttt{SFS.mm} formalization of its own (confirmed absent from
+\texttt{SFS.mm} by grep, and by \texttt{SFS.lean}'s own doc comment at the \texttt{Model} structure below) --
+$\mathfrak{M}$'s tuple packages the surrounding informal exposition, not a restated Metamath axiom or theorem.
+
 \pn $E$ will be treated as a set theory \bemph{class}:  a collection defined by a rule.
 
 \pn The interpretation $\mathbf{I}\lsem E,\tau\rsem$ finds an element (member) of $E$ (if there is one) for any $\tau \in \mathbf{T}$.
@@ -93,12 +97,12 @@ restated as an axiom.
 
 \pn  $\mathbf{I}\lsem d \rsem$ is the same at every time $\tau\in\mathbf{T}$:
  
- \begin{restatable}{definition}{dfblmodels}~\blTitle{df-bl.models}~ Define interpretation of predicate for
+ \begin{restatable}{definition}{dfblmodels}~\blTitle{ax-bl.models}~ Define interpretation of predicate for
 any $\tau \in \mathbf{T}$
 \begin{align}
 \vdash \tau \in \mathbf{T}\quad\Rightarrow\quad \vdash ( \mathbf{I} \lsem
     \mw{\varphi} \rsem \rightarrow \mathbf{I} \lsem \mw{\varphi} , \tau \rsem
-    )\label{eq:df-bl.models}\tag{df-bl.models}
+    )\label{eq:df-bl.models}\tag{ax-bl.models}
 \end{align}
 \end{restatable}
 
@@ -110,16 +114,16 @@ stated separately: it's automatic from \texttt{t0}'s type (\texttt{Time}, not ba
 \label{ax_dl_models}
 \end{restatable}
 
-\begin{restatable}{definition}{dfblmodelsc}~\blTitle{df-bl.modelsc}~ Define interpretation of values over
+\begin{restatable}{definition}{dfblmodelsc}~\blTitle{ax-bl.modelsc}~ Define interpretation of values over
 any $\tau \in \mathbf{T}$
 \begin{align}
 \vdash \tau \in \mathbf{T}\quad\Rightarrow\quad \vdash ( \mathbf{I} \lsem
     \mc{A} \rsem = \mc{B} \rightarrow \mathbf{I} \lsem \mc{A} , \tau \rsem =
-    \mc{B} )\label{eq:df-bl.modelsc}\tag{df-bl.modelsc}
+    \mc{B} )\label{eq:df-bl.modelsc}\tag{ax-bl.modelsc}
 \end{align}
 \end{restatable}
 
-\pn \texttt{df-bl.modelsc} is only meaningful when $\mc{A}$ is actually constant, and is not needed to make
+\pn \texttt{ax-bl.modelsc} is only meaningful when $\mc{A}$ is actually constant, and is not needed to make
 any of the value-side distribution facts in \texttt{SFS.lean} provable --- so, unlike everything else in this
 section, it is deliberately \emph{not} restated as a Lean axiom or theorem.
 
@@ -153,8 +157,8 @@ content, but already equipped with Mathlib's interval lemmas.
 \end{restatable}
 
 \begin{restatable}{leandefinition}{nowLean}~\leanTitle{now}~ Define the present instant in Lean:
-class-based (2026-08-26), the simplest instance of the general repair recipe (\S\ref{sec:model} above,
-\texttt{Lifetimes}) -- \texttt{now} needs no guard the way \texttt{birth}/\texttt{death}/\texttt{timeof}
+class-based (2026-08-26), the simplest instance of the general repair recipe explained in full below at
+\texttt{Lifetimes} (\ref{Lifetimes}) -- \texttt{now} needs no guard the way \texttt{birth}/\texttt{death}/\texttt{timeof}
 did (``does a nonnegative real exist'' is trivially true, witnessed by $0$ itself), so
 \texttt{Classical.choice} alone is enough to build a real model, no new axiom needed.
 
@@ -369,7 +373,7 @@ coincident), in Lean --- free directly from \texttt{tprecEq}'s own definition (\
 \label{tiff}
 \end{restatable}
 
-\pn Under the necessity ($\Box$) reading, \texttt{interp} distributes over $\wedge_t$/$\forall$ both ways, but --- as with any normal modal box operator --- only \emph{one} direction is valid for $\vee_t$/$\neg_t$/$\to_t$/$\leftrightarrow_t$/$\exists$ in general (the classic K-axiom asymmetry). \texttt{SFS.mm} states its own \texttt{df-bl.or}/\texttt{df-bl.not}/\texttt{df-bl.im}/\texttt{df-bl.bi}/\texttt{bl.ex} as full, unconditional biconditionals; \texttt{SFS.lean} proves only the sound direction of each, witnessing the unsound direction false in general via two-instant counterexamples (not restated as axioms).
+\pn Under the necessity ($\Box$) reading, \texttt{interp} distributes over $\wedge_t$/$\forall$ both ways, but --- as with any normal modal box operator --- only \emph{one} direction is valid for $\vee_t$/$\neg_t$/$\to_t$/$\leftrightarrow_t$/$\exists$ in general (the classic K-axiom asymmetry). \texttt{SFS.mm} itself now states \texttt{df-bl.or}/\texttt{df-bl.not}/\texttt{df-bl.im}/\texttt{df-bl.bi}/\texttt{bl.ex} as one-directional (sound-direction-only) implications, not biconditionals --- each carries its own comment citing the matching \texttt{SFS.lean} soundness theorem and noting the converse is false in general; \texttt{SFS.mm} was updated to this stance after \texttt{SFS.lean}'s own two-instant counterexamples established it. \texttt{SFS.lean} proves only the sound direction of each, witnessing the unsound direction false in general via two-instant counterexamples (not restated as axioms) --- the two sources now agree, not diverge.
 
 \begin{restatable}{leantheorem}{dlAn}~\leanTitle{dl\_an}~ \texttt{SFS.mm} \texttt{df-bl.an} (untimed): sound, \texttt{interp} distributes over $\wedge_t$ both ways (\texttt{forall\_and}).
 
@@ -487,10 +491,10 @@ coincident), in Lean --- free directly from \texttt{tprecEq}'s own definition (\
 \pn KerML classes may not exist\index{ex@\texttt{ex}} for the whole duration of the system as a whole.  Define a predicate $\texttt{ex}(c,\tau)$ that returns true if class $c$ exists (is not empty $\emptyclass$) at time $\tau$ and false otherwise.
 The interpretation of a classifier which doesn't exist is the empty class, $\emptyclass$.
 
-\begin{restatable}{definition}{dfexists}~\blTitle{df-bl.exists}~ Define element existence predicate
+\begin{restatable}{definition}{dfexists}~\blTitle{df-exists}~ Define element existence predicate
 \begin{align}
 \vdash (~ \texttt{ex}(c,\tau) \leftrightarrow \mathbf{I}\lsem c,\tau\rsem\neq\emptyclass~)
-\label{eq:df-bl.exists}\tag{df-bl.exists}
+\label{eq:df-exists}\tag{df-exists}
 \end{align}
 \end{restatable}
 
@@ -506,10 +510,10 @@ own \texttt{interpValAt}).
 $\tau_b$ and does not exist before $\tau_b$.
 %The death time of a classifier $\texttt{death}(c)$ is when it ceases to exist.
 
-\begin{restatable}{definition}{dfbirth}~\blTitle{df-bl.birth}~Define Birth time.
+\begin{restatable}{definition}{dfbirth}~\blTitle{df-birth}~Define Birth time.
 \begin{align}
 \vdash (~\texttt{birth}(c)=\tau_b \leftrightarrow ( \texttt{ex}(c,\tau_b) \wedge \forall \tau \in (0[,)\tau_b)~\vert~ \lnot \texttt{ex}(c,\tau)~)~)
-\label{eq:df-bl.birth}\tag{df-bl.birth}
+\label{eq:df-birth}\tag{df-birth}
 \end{align}
 \end{restatable}
 
@@ -681,10 +685,10 @@ exactly Mathlib's \texttt{Set.mem\_Ico}.
 \pn The \textidx{death}\index{death@\texttt{death}} time of a KerML class $\texttt{death}(c)$ is its last moment of existence.  The death of $c$ is $\tau_d$ if-and-only-if $c$ exists at
 $\tau_d$ and does not exist after $\tau_d$.
 
-\begin{restatable}{definition}{dfdeath}~\blTitle{df-bl.death}~Define Death time.
+\begin{restatable}{definition}{dfdeath}~\blTitle{df-death}~Define Death time.
 \begin{align}
 \vdash (~\texttt{death}(c)=\tau_d \leftrightarrow ( \texttt{ex}(c,\tau_d) \wedge \forall \tau \in (\tau_d(,]\mathsf{\mc{now}})~\vert~ \lnot \texttt{ex}(c,\tau)~)~)
-\label{eq:df-bl.death}\tag{df-bl.death}
+\label{eq:df-death}\tag{df-death}
 \end{align}
 \end{restatable}
 
@@ -722,16 +726,16 @@ interval, in Lean --- Mathlib's \texttt{Set.mem\_Ioc}.
 
 \pn The lifetime of a KerML class  $\texttt{life}(c)$\index{life@\texttt{life}} is the closed time interval between birth and death.
 
-\begin{restatable}{definition}{dflifetime}~\blTitle{df-bl.lifetime}~Define Lifetime.
+\begin{restatable}{definition}{dflifetime}~\blTitle{df-lifetime}~Define Lifetime.
 \begin{align}
 \vdash \texttt{life}(c)~=~ (\texttt{birth}(c)~[,]~\texttt{death}(c))
-\label{eq:df-bl.lifetime}\tag{df-bl.lifetime}
+\label{eq:df-lifetime}\tag{df-lifetime}
 \end{align}
 \end{restatable}
 
 \begin{restatable}{leandefinition}{lifeLean}~\leanTitle{life}~ Define Lifetime in Lean, as \texttt{Set.Icc}
 between \texttt{birth}'s and \texttt{effectiveEnd}'s own values (\ref{effectiveEnd}) -- total, unlike
-\texttt{SFS.mm}'s own \texttt{df-lifetime} (\eqref{eq:df-bl.lifetime} above), which is left unchanged, still
+\texttt{SFS.mm}'s own \texttt{df-lifetime} (\eqref{eq:df-lifetime} above), which is left unchanged, still
 in terms of raw \texttt{death}.
 
 \texttt{\textcolor{leancolor}{noncomputable def} \textcolor{leanyellow}{life} (A : Occurrence) : Set Instant := Set.Icc (birth A).val (effectiveEnd A).val}
@@ -957,7 +961,8 @@ total, via \texttt{effectiveEnd}.
 \end{lstlisting}\index{overlaps@\texttt{overlaps}}
 \begin{restatable}{metadefinition}{dfstarts}~\blTitle{df-starts}~ Define Allen's interval starts.
 \begin{align}
-\vdash \textit{starts}(X,Y) \leftrightarrow \texttt{birth}(X) = \texttt{birth}(Y) \wedge \texttt{effectiveEnd}(Y) \prec \texttt{effectiveEnd}(X)
+\vdash \textit{starts}(X,Y) \leftrightarrow \texttt{birth}(X) = \texttt{birth}(Y) \wedge \texttt{effectiveEnd}(Y) \prec \texttt{effectiveEnd}(X) \notag \\
+~\wedge~ \texttt{openLeft}(X) = \texttt{openLeft}(Y)
 \label{eq:df-starts}\tag{df-starts}
 \end{align}
 \end{restatable}
@@ -1033,7 +1038,8 @@ total, via \texttt{effectiveEnd}.
 
 \begin{restatable}{metadefinition}{dffinishes}~\blTitle{df-finishes}~ Define Allen's interval finishes.
 \begin{align}
-\vdash \textit{finishes}(X,Y) \leftrightarrow \texttt{birth}(Y) \prec \texttt{birth}(X) \wedge \texttt{effectiveEnd}(X) = \texttt{effectiveEnd}(Y)
+\vdash \textit{finishes}(X,Y) \leftrightarrow \texttt{birth}(Y) \prec \texttt{birth}(X) \wedge \texttt{effectiveEnd}(X) = \texttt{effectiveEnd}(Y) \notag \\
+~\wedge~ \texttt{openRight}(X) = \texttt{openRight}(Y)
 \label{eq:df-finishes}\tag{df-finishes}
 \end{align}
 \end{restatable}
@@ -1060,7 +1066,8 @@ total, via \texttt{effectiveEnd}.
 
 \begin{restatable}{metadefinition}{dfcoincident}~\blTitle{df-coincident}~ Define Allen's interval coincident.
 \begin{align}
-\vdash \textit{coincident}(X,Y) \leftrightarrow \texttt{birth}(X) = \texttt{birth}(Y) \wedge \texttt{effectiveEnd}(X) = \texttt{effectiveEnd}(Y)
+\vdash \textit{coincident}(X,Y) \leftrightarrow \texttt{birth}(X) = \texttt{birth}(Y) \wedge \texttt{effectiveEnd}(X) = \texttt{effectiveEnd}(Y) \notag \\
+~\wedge~ \texttt{openLeft}(X) = \texttt{openLeft}(Y) \wedge \texttt{openRight}(X) = \texttt{openRight}(Y)
 \label{eq:df-coincident}\tag{df-coincident}
 \end{align}
 \end{restatable}
@@ -1474,11 +1481,15 @@ opaque canonical value standing for the Boolean literal \texttt{false} -- a fiel
 $\tau_2$ preceding $\tau_1$ for which the interpretation of $d$ is different from its interpretation at $\tau_1$.
 $\texttt{changed}(d,\tau_1)~=~0$ when $d$ has not changed before $\tau_1$.
 
-\begin{restatable}{definition}{blchanged}~\blTitle{df-bl.changed}~ Time when a variable value most recently changed.
+\begin{restatable}{definition}{blchanged}~\blTitle{df-bl.changed}~ Time when a variable value most recently
+changed. Redefined 2026-08-26 in \texttt{SFS.mm} itself (its own comment there calls the previous version
+``close to vacuous for ordinary step-function occ''): grounded in \texttt{isTick} rather than an open real
+interval, matching \texttt{finitePartition}'s finite shared ticks (\ref{finitePartition}).
 \begin{align}
-\vdash (~ \texttt{changed}(d,\tau_1)~=~\tau_2 \leftrightarrow ( \tau_2 \prec \tau_1 \wedge %\notag \\
- (~\mathbf{I}\lsem d,\tau_1\rsem \neq \mathbf{I}\lsem d,\tau_2\rsem \vee \tau_2=0~) \wedge \notag \\
- (~\forall \tau \in (\tau_2 (,) \tau_1)~\vert~\mathbf{I}\lsem d,\tau\rsem = \mathbf{I}\lsem d,\tau_2\rsem~)~)~)
+\vdash (~ \texttt{changed}(d,\tau_1)~=~\tau_2 \leftrightarrow \notag \\
+ (~( \texttt{isTick}(\tau_2) \wedge \tau_2 \preccurlyeq \tau_1 ) \wedge \notag \\
+ ~\forall \tau~(~( \texttt{isTick}(\tau) \wedge \tau_2 \preccurlyeq \tau \wedge \tau \preccurlyeq \tau_1 ) \rightarrow \mathbf{I}\lsem d,\tau\rsem = \mathbf{I}\lsem d,\tau_1\rsem~) \wedge \notag \\
+ ~( \tau_2 = 0 \vee \exists \tau_3~(~\texttt{next}(\tau_3,\tau_2) \wedge \mathbf{I}\lsem d,\tau_3\rsem \neq \mathbf{I}\lsem d,\tau_1\rsem~)~)~)~)
 \label{eq:df-bl.changed}\tag{df-bl.changed}
 \end{align}
 \end{restatable}
@@ -1488,11 +1499,14 @@ $\texttt{changed}(d,\tau_1)~=~0$ when $d$ has not changed before $\tau_1$.
 \texttt{changedIff} pair, which (investigated the same day) was close to vacuous for ordinary
 step-function \texttt{Occurrence}s: for $d$ constant $A$ before $0.5$, constant $B$ from $0.5$ on, and
 any $\tau_1$ that isn't itself a fresh transition instant (e.g.\ $\tau_1=0.8$), \emph{no} $\tau_2$
-satisfied \eqref{eq:df-bl.changed}'s three conditions jointly -- the exact transition point failed the
-``differs'' disjunct (its value already matched $d(\tau_1)$), and every earlier $\tau_2$ failed the
-open-interval constancy clause. Not the \texttt{birth}/\texttt{death}-style ``no least element in a dense
-order'' gap; a real gap in \texttt{df-bl.changed}'s own formalization (likely inherited from
-\texttt{SFS.mm}). \texttt{changed d t1} is now: among the ticks strictly before \texttt{t1} where
+satisfied the \emph{pre}-2026-08-26 \texttt{df-bl.changed}'s three conditions jointly ($\tau_2\prec\tau_1$;
+$\mathbf{I}\lsem d,\tau_1\rsem \neq \mathbf{I}\lsem d,\tau_2\rsem \vee \tau_2=0$; and open-interval constancy
+on $(\tau_2,\tau_1)$, the shape \eqref{eq:df-bl.changed} had before this same-day redesign) -- the exact
+transition point failed the ``differs'' disjunct (its value already matched $d(\tau_1)$), and every earlier
+$\tau_2$ failed the open-interval constancy clause. Not the \texttt{birth}/\texttt{death}-style ``no least
+element in a dense order'' gap; a real gap in that older formalization (likely inherited from
+\texttt{SFS.mm}, which has since redefined \texttt{df-bl.changed} to the \texttt{isTick}-grounded form
+shown above -- see that definition's own note). \texttt{changed d t1} is now: among the ticks strictly before \texttt{t1} where
 \texttt{d}'s value differs from \texttt{d t1}, take the greatest one (\texttt{Finset.max'} over a finite,
 decidable set -- no infimum/supremum-of-a-continuum issue), then report the tick immediately after it (the
 start of \texttt{t1}'s own current, matching-\texttt{d t1} run); \texttt{0} if no such differing tick
