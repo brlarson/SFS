@@ -4,19 +4,19 @@ package 'move widget' {
   item def Widget :> Physical;
 
   port def MyPort {
-    i : Widget;
+    out i : Widget;
   }
 
   action def A {
     action make {
       port o : MyPort;
-      send new Widget() via o;
+      send new Widget() via o.i;
     }
     action get {
       port i : ~MyPort;
-      accept myWidget : Widget via i;
+      accept myWidget : Widget via i.i;
     }
-    flow moveWidget from make.o to get.i;
+    flow moveWidget from make.o.i to get.i.i;
     first start then make;
     first make then get;
     first get then done;
