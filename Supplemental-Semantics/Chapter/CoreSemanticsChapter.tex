@@ -342,6 +342,27 @@ cardinality, unrelated to \texttt{Design}, and (2026-08-26, same session) was pr
 \label{CoreDesignModel}
 \end{restatable}
 
+\begin{restatable}{leantheorem}{coreDesignModelNonemptyLean}~\leanTitle{coreDesignModel\_nonempty / coreDesignModelInstance}~
+The consistency certificate for \texttt{CoreDesignModel} (\ref{CoreDesignModel}): a
+\texttt{Nonempty CoreDesignModel} proof built from one concrete named-field term rather than an
+$\exists$-tuple, per that entry's own reasoning above. \texttt{Design := $\emptyset$} and
+\texttt{FeatureContent := fun \_ \_ => False} make every \texttt{df\_*} field's own hypothesis
+unconstructible, so each is discharged individually (\texttt{by intro \ldots; exact absurd h (by simp)},
+or \texttt{hb.elim} for \texttt{df\_featurechaining}'s \texttt{FeatureContent}-shaped hypothesis) rather
+than assumed from the shared hypothesis shape alone; every non-constraint field left as an arbitrary
+trivial value of the right type (\texttt{False} for \texttt{Prop}-valued fields, $\emptyset$ for
+\texttt{Set Element}-valued ones). \texttt{df\_classifier2} (\texttt{VC $\subseteq$ VT}) is the one field
+not resting on \texttt{Design}'s vacuity --- \texttt{VC := $\emptyset$} handles it directly.
+\texttt{coreDesignModelInstance} then goes through \texttt{Classical.choice} over this proof, same
+opacity guarantee as every other model in this project (\ref{model}, \ref{mereologyModel},
+\ref{regionModelInstance}, \ref{surfaceModelInstance}) --- the actual field values chosen stay opaque;
+this only certifies \emph{a} model exists. Full witness code omitted here as for
+\ref{regionModelInstance}/\ref{surfaceModelInstance} --- at $\sim$45 fields it is mostly this same
+one-line contradiction repeated, not illuminating to reproduce in full.
+\label{coreDesignModel_nonempty}
+\label{coreDesignModelInstance}
+\end{restatable}
+
 \subsection{Type Operators}
 
 \pn A type may be defined using type operators on already defined types.  Specialization, \texttt{:>} or \texttt{specializes}, is most commonly used for subsetting, but union, intersection, difference, and disjoint are provided.  Conjugation reverses direction of features, so will be considered in \ref{sec:direction}.
