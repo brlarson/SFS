@@ -572,21 +572,66 @@ intersecting, and unioning.
 \pn Are these the same?
 
 \begin{lstlisting}
-type A specializes B unions C intersects D differences E disjoint from F
+type A specializes B unions C intersects D differences E disjoint from F;
 \end{lstlisting}
 \[ A \subseteq (((( B \cup C) \cap D)\backslash E)\backslash F) \]
 
 \begin{lstlisting}
-type A specializes B intersects D differences E unions C disjoint from F
+type A specializes B intersects D differences E unions C disjoint from F;
 \end{lstlisting}
 \[ A \subseteq (((( B \cap D)\backslash E)\cup C)\backslash F) \]
 
 \begin{lstlisting}
-type A specializes B differences E disjoint from F unions C intersects D
+type A specializes B differences E disjoint from F unions C intersects D;
 \end{lstlisting}
 \[ A \subseteq (((( B\backslash E)\backslash F)  \cup C) \cap D)\]
 
 \pn Certainly not.  Therefore the abstract syntax must preserve ordering of type operators in the concrete syntax.\footnote{ISSUE}
+
+\pn Checked against \texttt{Core.lean}'s own concrete-syntax grammar for \texttt{type}: none of the three
+listings above originally parsed there. \texttt{kermlType} (\texttt{Core.lean}, KerML \S8.2.4.1.1's own
+relationship-part subset) hardcoded clause order --- \texttt{specializes}, \texttt{conjugates},
+\texttt{disjoint from}, \texttt{unions}, \texttt{intersects}, \texttt{differences}, always in that sequence
+--- rather than accepting the relationship parts in any order the way real KerML concrete syntax (and this
+section's own listings) does. Fixed the same day: see \texttt{kermlTypeRelPart} below.
+
+\begin{restatable}{leandefinition}{kermlTypeRelPartLean}~\leanTitle{kermlTypeRelPart}~ \texttt{Core.lean}'s
+\texttt{Type} relationship parts (\texttt{disjoint from}/\texttt{unions}/\texttt{intersects}/
+\texttt{differences}), promoted from four fixed-position optional slots to their own freely-orderable,
+repeatable syntax category --- matching real KerML concrete syntax's own ``any number of
+\texttt{TypeRelationshipPart}, in any order'' (this section's own opening citation), and letting all three
+listings above actually parse now. The elaborator also builds its flat \texttt{Element} list in the order
+the parts appear in the source, not bucketed by kind first, as it did before --- confirmed via \texttt{\#check}
+(both \texttt{Core} alone and the whole project, a real \texttt{lake build}) that the three listings' own
+output element order now matches each listing's own left-to-right clause order. \texttt{kermlClassifier}
+reuses the same category, same fix.
+\label{kermlTypeRelPart}
+\end{restatable}
+
+\pn The theorem below is independent of that grammar fix: it formalizes this section's own argument at the
+level of what these declarations actually \emph{mean} (\texttt{Set Element} composition), not just that the
+grammar now happens to accept all three spellings.
+
+\begin{restatable}{leantheorem}{typeOperatorCompositionOrderMattersLean}~\leanTitle{typeOperatorCompositionOrderMatters}~
+The formal version of this section's own ``Certainly not'': a concrete witness where $R_1$/$R_2$/$R_3$ (the
+three listings' formulas above, restated as \texttt{Set Element} expressions) are pairwise distinct, proving
+operator order is genuinely load-bearing, not just cosmetically different concrete syntax for the same
+abstract result. Witnessed by $B=\emptyset$, $C=\{p,q\}$, $D=E=\{q\}$, $F=\emptyset$ for two fresh
+\texttt{Element}s $p\ne q$ used only as set-membership probes: $R_1=\emptyset$, $R_2=\{p,q\}$, $R_3=\{q\}$,
+pairwise distinct as required. Verified via a real \texttt{lake build} (both \texttt{Core} alone and the
+whole project), not just checked by eye.
+
+\texttt{\textcolor{leancolor}{theorem} \textcolor{leanyellow}{typeOperatorCompositionOrderMatters} :}
+
+\texttt{~~$\exists$ B C D E F : Set Element,}
+
+\texttt{~~~~~~(((B $\cup$ C) $\cap$ D) $\setminus$ E) $\setminus$ F $\ne$ (((B $\cap$ D) $\setminus$ E) $\cup$ C) $\setminus$ F $\wedge$}
+
+\texttt{~~~~~~(((B $\cup$ C) $\cap$ D) $\setminus$ E) $\setminus$ F $\ne$ (((B $\setminus$ E) $\setminus$ F) $\cup$ C) $\cap$ D $\wedge$}
+
+\texttt{~~~~~~(((B $\cap$ D) $\setminus$ E) $\cup$ C) $\setminus$ F $\ne$ (((B $\setminus$ E) $\setminus$ F) $\cup$ C) $\cap$ D}
+\label{typeOperatorCompositionOrderMatters}
+\end{restatable}
 
 \subsection{Type Multiplicity}
 
