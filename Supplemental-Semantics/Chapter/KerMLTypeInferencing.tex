@@ -17,8 +17,8 @@ Let $a$ be an element of type.
 \section{Specialization Transitivity}
 If T specializes U and U specializes V then T specializes V.
 
-\begin{restatable}{definition}{TRANS}~\blTitle{TRANS}~  
-  Define specialization transitivity.  
+\begin{restatable}{definition}{TRANS}~\blTitle{TRANS}~
+  Define specialization transitivity.
 \begin{align}
 \inference
 {T~\texttt{:>}~U  ~\wedge~U~\texttt{:>}~V}
@@ -26,6 +26,25 @@ If T specializes U and U specializes V then T specializes V.
 {T~\texttt{:>}~V}
 \label{eq:df-trans}\tag{df-trans}
 \end{align}
+\end{restatable}
+
+\pn \texttt{TRANS} was book-original with no counterpart in \texttt{Core.lean} until 2026-09-09:
+\texttt{Specializes} (\ref{Specializes}) had no transitivity law of its own --
+\texttt{df\_specializes} (\ref{df_specializes}) only relates \texttt{Specializes} to \emph{extension}
+containment (\texttt{Cs} $\subseteq$ \texttt{Cg}), which composes freely into \texttt{Cs}
+$\subseteq$ \texttt{Ch} across two steps but says nothing about whether \texttt{Specializes ts th}
+itself holds, since \texttt{Specializes} is only related to extension-subset by that one-way
+implication, not defined as it. Added as a field of \texttt{CoreDesignModel} (\ref{CoreDesignModel})
+to close the gap.
+
+\begin{restatable}{leandefinition}{TRANSLean}~\leanTitle{TRANS}~ Define specialization transitivity
+in Lean. Proven vacuously in the trivial witness, same treatment as \texttt{df\_specializes}
+(\texttt{Specializes := fun \_ \_ => False} makes the hypothesis unconstructible).
+
+\texttt{~~TRANS : $\forall$ \{T U V : Element\}, Specializes T U $\to$ Specializes U V $\to$}
+
+\texttt{~~~~Specializes T V}
+\label{TRANS}
 \end{restatable}
 
 \section{Subsumption}
