@@ -141,9 +141,10 @@ This is a significant change for SFS requiring a change in the specialization of
 \ecaption{metaclass Function}
 \begin{lstlisting}
   metaclass Function specializes Classifier {
-  	derived var feature expression : Expression[0..*] subsets 'feature';
-  	derived var feature result : Feature[1..1] subsets output;
-  }		
+  	derived var feature expression : Expression[0..*] subsets 'member';
+  	derived var feature parameter : Feature[0..*];
+  	derived var feature result : Feature[1..1] redefines output;
+  }
 \end{lstlisting}
 
 \pn A \texttt{Function} directly, indirectly, or implicitly specializes \texttt{Performances::Evaluation} which specializes \texttt{Anything}
