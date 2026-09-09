@@ -91,6 +91,9 @@ w=W(``A")~ \wedge
 \end{align}
 \end{definition}
 
+\pn \texttt{df-binassoc} is book-original, with no \texttt{SFS.mm} formalization of its own (confirmed absent
+from \texttt{SFS.mm} by grep).
+
 
 \subsection{Cross Features}
 
@@ -142,6 +145,9 @@ w=W(``A")~ \wedge
 ~t\in \mc{T}~\wedge~t.g=s~\wedge~\mc{E}~=~\{~\langle\textbf{end},``t",\langle w,t \rangle\rangle~\}~\}~\label{eq:df-binassocx}\tag{df-binassocx}
 \end{align}
 \end{definition}
+
+\pn \texttt{df-binassocx} is book-original, with no \texttt{SFS.mm} formalization of its own (confirmed absent
+from \texttt{SFS.mm} by grep).
 
 \subsection{Owned Cross Features}
 
@@ -215,7 +221,7 @@ Shouldn't it be just \texttt{self}?
      * SelfLink is a binary association in which the things at the two ends are asserted
      * to be the same.
      */      
-    language "Domain" /* thisThing = sameThing */
+    @Assert{f="<< thisThing = sameThing >>";}
     end feature thisThing: Anything redefines source subsets sameThing crosses sameThing.self;
     end self2 [1] feature sameThing: Anything redefines target subsets thisThing;
 }
@@ -238,6 +244,9 @@ w=W(``A")~ \wedge
 ~t_n\in \mc{T_n}~\wedge~\mc{D_n}~=~\{~\langle\textbf{end},``t_n",\langle w,t_n \rangle\rangle~\}~\}~\label{eq:df-assoc}\tag{df-assoc}
 \end{align}
 \end{definition}
+
+\pn \texttt{df-assoc} is book-original, with no \texttt{SFS.mm} formalization of its own (confirmed absent
+from \texttt{SFS.mm} by grep).
 
 \pn The \texttt{crosses} or \texttt{=>} notation for cross features does not work for n-ary associations, but the owned cross features does.
 But what could owned cross features of n-ary associations mean?  The association example \texttt{ProductSelection\_N-ary.kerml} gives an example for N=3.
