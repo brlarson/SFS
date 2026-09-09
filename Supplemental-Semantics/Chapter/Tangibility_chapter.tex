@@ -2,5 +2,167 @@
 
 \ksec{Tangibility Semantics}\label{tangibility}
 
+\pn The \texttt{Tangibility} library embodies the metaphysics of \S\ref{sec:phyeph}: physical things
+and virtual things are metaphysically different, and virtual things ontologically depend on
+physical things.  \texttt{Tangibility} gives this a formal home in KerML: two disjoint
+specializations of \texttt{Occurrence}, \texttt{Virtual} and \texttt{Physical}, with \texttt{Physical}
+further specialized by \texttt{Solid}, \texttt{Fluid}, and \texttt{Etherial}.
 
+\subsection{Virtual}\label{subsec:virtual}
+
+\pn A \bemph{virtual}\index{virtual} thing has no physical existence of its own.  It can only exist
+by being \bemph{allocated}\index{allocated} to a physical thing directly, or by being
+\bemph{delegated}\index{delegated} to another virtual thing which is (eventually) allocated.
+\texttt{delegations} is the inverse:  the other virtual things that delegate their existence to this one.
+
+\ecaption{Virtual}
+\begin{lstlisting}
+abstract classifier Virtual :> Occurrence {
+  var feature allocatedTo[0..1] : Physical {
+    doc /* physical thing which hosts or performs this virtual thing allowing it to exist */
+  }
+
+  var feature delegatedTo[0..1] : Virtual {
+    doc /* may be delegated to another virtual thing, but must everntually be allocated to
+     * something physical to exist */
+  }
+
+  var feature delegations[0..*] : Virtual {
+    doc /* other virtual things which delegate their existence to this virtual thing */
+  }
+
+  inv { notEmpty(allocatedTo) != notEmpty(delegatedTo) }
+
+  @Assert{n="Virtual location"; f="<< (notEmpty(allocatedTo) implies Location(self) = Location(allocatedTo)) and"+
+    " (notEmpty(delegatedTo) implies Location(self) = Location(delegatedTo)) >>";}
+}
+\end{lstlisting}
+
+\pn The invariant requires exactly one of \texttt{allocatedTo} or \texttt{delegatedTo}: a virtual
+thing must be allocated \emph{or} delegated, never both, never neither.  This is what makes
+\texttt{allocatedTo}/\texttt{delegatedTo} a genuine choice rather than two independent optional
+features.
+
+\pn The \texttt{Virtual location} assertion says a virtual thing's location is inherited from
+whichever of the two is present -- directly from \texttt{allocatedTo} if allocated, or,
+recursively, from \texttt{delegatedTo}'s own location if delegated.  Because the exclusive-or
+invariant holds for \emph{every} virtual thing, this recursion always terminates at an allocation: a
+chain \texttt{v} \texttt{delegatedTo} \texttt{v'} \texttt{delegatedTo} \texttt{v''} \dots eventually
+reaches some \texttt{vN} with a non-empty \texttt{allocatedTo}, and each link's own assertion passes
+the location down the chain.  The transitive closure asked for is thus not a separate construct --
+it falls straight out of applying \texttt{Virtual location} repeatedly.
+
+\subsection{Physical}\label{subsec:physical}
+
+\pn A \bemph{physical}\index{physical} thing occupies a 3D region in some frame-of-reference.  Its
+\texttt{location} is that region; its \texttt{allocations} are the virtual things it hosts or
+performs (the inverse of \texttt{Virtual::allocatedTo}).
+
+\ecaption{Physical}
+\begin{lstlisting}
+abstract classifier Physical :> Occurrence disjoint from Virtual {
+  var feature location[1] : Region default noValue as Region {
+    doc /* where this thing exists, default no where */
+  }
+  @Assert{n="Physical location"; f="<< Location(self) = location >>";}
+
+  var feature allocations[0..*] : Virtual {
+    doc /* the virtual things this physical thing hosts or performs */
+  }
+}
+\end{lstlisting}
+
+\pn Unlike \texttt{Virtual}, a physical thing's location needs no recursion: it \emph{is} the
+\texttt{location} feature, full stop.  The \texttt{Physical location} assertion is the base case
+that \texttt{Virtual location}'s recursion above ultimately bottoms out at.
+
+\subsection{Solid, Fluid, Etherial}\label{subsec:solidfluidetherial}
+
+\pn Every physical thing is (at least) one of three kinds of matter.  \texttt{Solid} and
+\texttt{Fluid} are mutually exclusive; \texttt{Etherial} -- the medium for radiation such as light,
+radio, heat, or cosmic rays -- is disjoint from both.
+
+\ecaption{Solid, Fluid, Etherial}
+\begin{lstlisting}
+abstract classifier Solid :> Physical {
+  doc /* something that might bend or deform, but not flow */
+}
+
+abstract classifier Fluid :> Physical disjoint from Solid {
+  doc /* something that flows; liquid or gas*/
+
+  feature amount : VolumeValue[1] default 0 [L] {
+    doc /* volume of fluid held in its location */
+  }
+}
+
+abstract classifier Etherial :> Physical disjoint from Solid, Fluid {
+  doc /* medium for the transmission of radiation:  light, radio, heat, cosmic rays */
+}
+\end{lstlisting}
+
+\subsection{Allocation and Delegation}\label{subsec:allocdeleg}
+
+\pn \texttt{Allocation} and \texttt{Delegation} are the association forms of
+\texttt{allocatedTo}/\texttt{allocations} and \texttt{delegatedTo}/\texttt{delegations}, cross
+subsetting each other the same way (\S\ref{subsec:composite}) as any inverse pair of features.
+
+\ecaption{Allocation and Delegation}
+\begin{lstlisting}
+assoc Allocation {
+  doc /* association of a virtual thing to the physical thing to which it's allocated */
+  end feature virtualThing : Virtual crosses physicalThing.allocations;
+  end feature physicalThing : Physical crosses virtualThing.allocatedTo;
+}
+
+assoc Delegation {
+  doc /* delegation of existence from one virtual thing to another virtual thing */
+  end feature delegator : Virtual crosses delegatee.delegations;
+  end feature delegatee : Virtual crosses delegator.delegatedTo;
+}
+\end{lstlisting}
+
+\subsection{The \texttt{Location} Function}\label{subsec:tangibilitylocation}
+
+\pn \texttt{Regions::Location}\index{Location} (\ref{eq:df-lfu}) is defined for \emph{every}
+\texttt{Occurrence}, not just \texttt{Physical} ones -- its body is exactly the case split that
+\texttt{Physical location} and \texttt{Virtual location} each formalize one branch of.
+
+\ecaption{Location}
+\begin{lstlisting}
+function Location {
+  doc
+  /*
+   * SFS:  The location function relates spatial occurrences to their region.
+   * This is the "L" exact location primitive.
+   * Uses o.frameOfReference as the frame-of-reference for the region.
+   */
+  inv { o.isClosed and o.innerSpaceDimension == 3 and o.outerSpaceDimension == 3
+      and o.frameOfReference == (result as Region).frameOfReference
+      }
+  in o : Occurrence;
+  return result : Region;
+  if o istype Physical ? (o as Physical).location
+    else if o istype Virtual and notEmpty((o as Virtual).allocatedTo) ? Location((o as Virtual).allocatedTo)
+      else if o istype Virtual and notEmpty((o as Virtual).delegatedTo) ? Location((o as Virtual).delegatedTo)
+          else Regions::noWhere
+}
+\end{lstlisting}
+
+\pn Read against \texttt{Tangibility}, \texttt{Location}'s four branches are: the \texttt{Physical}
+base case (\texttt{Physical location}); the \texttt{Virtual}, allocated case
+(\texttt{Virtual location}'s first conjunct); the \texttt{Virtual}, delegated case
+(\texttt{Virtual location}'s second conjunct, recursing on \texttt{Location} itself -- this is the
+same recursion \S\ref{subsec:virtual} describes, just written operationally here instead of
+assertionally); and \texttt{noWhere}\index{noWhere}, for an \texttt{Occurrence} that is neither
+\texttt{Physical} nor \texttt{Virtual}.  \texttt{Virtual}'s own exclusive-or invariant rules out the
+fourth branch ever firing for a \texttt{Virtual} \texttt{o} specifically -- \texttt{noWhere} is only
+reachable for occurrences outside \texttt{Tangibility} altogether, matching \S\ref{sec:phyeph}'s
+``things that are neither physical, nor virtual.''
+
+\pn The two \texttt{@Assert}s do not add anything \texttt{Location}'s body does not already compute
+-- they restate, as formulas checkable independently of that specific function definition, exactly
+what each branch returns.  That redundancy is deliberate: it is the same discipline every other
+\texttt{@Assert} in this library follows, stating a feature's meaning as a formula rather than
+leaving it implicit in one function's control flow.
 
