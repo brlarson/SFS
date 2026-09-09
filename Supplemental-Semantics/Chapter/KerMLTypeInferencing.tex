@@ -295,7 +295,7 @@ $U_1$ specializes $U_2$ by adding feature $f$ typed by $U_3$, and\\
 $V_1$ specializes $V_2$ by adding feature $g$ typed by $V_3$, \\
 and $f$ is different than $g$, \\
 then $T$ specializes both $U_2$ and $V_2$, while adding features $f$ and $g$.
-\begin{restatable}{definition}{MULTF}~\blTitle{MULTF}~ Multiple specialization with distinct features.  
+\begin{restatable}{definition}{MULTF}~\blTitle{MULTF}~ Multiple specialization with distinct features.
 \begin{align}
 \inference
 {T\texttt{:>}U_1 , V_1~\wedge~U_1\texttt{:>}U_2\{f:U_3\}~\wedge~V_1\texttt{:>}V_2\{g:V_3\}~\wedge~f \ne g}
@@ -303,6 +303,50 @@ then $T$ specializes both $U_2$ and $V_2$, while adding features $f$ and $g$.
 {T\texttt{:>}U_2 , V_2\{f:U_3 ;~ g:V_3\}}
 \label{eq:df-multf}\tag{df-multf}
 \end{align}
+\end{restatable}
+
+\pn \texttt{MULTF}'s conclusion is compound: \texttt{T:>U\_2,V\_2} (two applications of
+\texttt{TRANS}, \ref{TRANS}) \emph{and} that \texttt{T} itself now owns (inherits) $f$/$g$ --
+something no earlier rule needed, since \texttt{FEAT}/\texttt{REDEF}/\texttt{REPL} all state
+\texttt{OwnedFeatureTypedBy} of the type doing the adding, never propagate it to a further
+specializer. That propagation is a genuine new modeling commitment, \texttt{df\_feature\_inherit}:
+
+\begin{restatable}{leandefinition}{dfFeatureInheritLean}~\leanTitle{df\_feature\_inherit}~ A new
+field of \texttt{CoreDesignModel} (\ref{CoreDesignModel}), same status as \texttt{TRANS}/
+\texttt{df\_relabel}: a directly-owned feature is inherited down every specialization.
+
+\texttt{~~df\_feature\_inherit : $\forall$ \{Z W f X : Element\},}
+
+\texttt{~~~~Specializes Z W $\to$ OwnedFeatureTypedBy W f X $\to$ OwnedFeatureTypedBy Z f X}
+\label{df_feature_inherit}
+\end{restatable}
+
+\begin{restatable}{leantheorem}{MULTFLean}~\leanTitle{MULTF}~ The book's own \texttt{MULTF}
+(\ref{eq:df-multf}), in Lean. The \texttt{Specializes} half of the conclusion is two applications of
+\texttt{TRANS}; the feature half is two applications of \texttt{df\_feature\_inherit}. $f \ne g$
+(kept as \texttt{\_hne}, unused) plays no logical role in deriving either half individually -- it
+only distinguishes this rule from \texttt{MULTS} below, which merges a \emph{shared} label instead.
+
+\texttt{\textcolor{leancolor}{theorem} \textcolor{leanyellow}{MULTF} \{T U1 U2 U3 V1 V2 V3 f g : Element\}}
+
+\texttt{~~(hspecTU1 : Specializes T U1) (hspecU1U2 : Specializes U1 U2)}
+
+\texttt{~~(hfU1 : OwnedFeatureTypedBy U1 f U3)}
+
+\texttt{~~(hspecTV1 : Specializes T V1) (hspecV1V2 : Specializes V1 V2)}
+
+\texttt{~~(hgV1 : OwnedFeatureTypedBy V1 g V3)}
+
+\texttt{~~(\_hne : f $\ne$ g) :}
+
+\texttt{~~Specializes T U2 $\wedge$ Specializes T V2 $\wedge$}
+
+\texttt{~~~~OwnedFeatureTypedBy T f U3 $\wedge$ OwnedFeatureTypedBy T g V3 :=}
+
+\texttt{~~$\langle$TRANS hspecTU1 hspecU1U2, TRANS hspecTV1 hspecV1V2,}
+
+\texttt{~~~~df\_feature\_inherit hspecTU1 hfU1, df\_feature\_inherit hspecTV1 hgV1$\rangle$}
+\label{MULTF}
 \end{restatable}
 
 If $T$ specializes both $U_1$ and $V_1$, \\
@@ -318,6 +362,32 @@ then $T$ specializes both $U_2$ and $V_2$, while adding feature $f$ which is typ
 {T\texttt{:>}U_2 , V_2\{f:U_3,V_3\}}
 \label{eq:df-mults}\tag{df-mults}
 \end{align}
+\end{restatable}
+
+\begin{restatable}{leantheorem}{MULTSLean}~\leanTitle{MULTS}~ The book's own \texttt{MULTS}
+(\ref{eq:df-mults}), in Lean -- same setup as \texttt{MULTF}, except both branches redefine the
+\emph{same} label $f$, so \texttt{T} ends up inheriting $f$ typed by both $U_3$ and $V_3$
+simultaneously (the multi-typing a real KerML redefinition merge produces), proved by the identical
+\texttt{TRANS}/\texttt{df\_feature\_inherit} combination.
+
+\texttt{\textcolor{leancolor}{theorem} \textcolor{leanyellow}{MULTS} \{T U1 U2 U3 V1 V2 V3 f : Element\}}
+
+\texttt{~~(hspecTU1 : Specializes T U1) (hspecU1U2 : Specializes U1 U2)}
+
+\texttt{~~(hfU1 : OwnedFeatureTypedBy U1 f U3)}
+
+\texttt{~~(hspecTV1 : Specializes T V1) (hspecV1V2 : Specializes V1 V2)}
+
+\texttt{~~(hfV1 : OwnedFeatureTypedBy V1 f V3) :}
+
+\texttt{~~Specializes T U2 $\wedge$ Specializes T V2 $\wedge$}
+
+\texttt{~~~~OwnedFeatureTypedBy T f U3 $\wedge$ OwnedFeatureTypedBy T f V3 :=}
+
+\texttt{~~$\langle$TRANS hspecTU1 hspecU1U2, TRANS hspecTV1 hspecV1V2,}
+
+\texttt{~~~~df\_feature\_inherit hspecTU1 hfU1, df\_feature\_inherit hspecTV1 hfV1$\rangle$}
+\label{MULTS}
 \end{restatable}
 
 \section{Multiple Inheritance with Feature Multiplicity}
