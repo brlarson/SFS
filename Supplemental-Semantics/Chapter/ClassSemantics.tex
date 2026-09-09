@@ -31,21 +31,22 @@ Necessarily, the modal logic uses instants, so \texttt{Occurrence} will be an in
 
 \ecaption{Occurrence}  
 \begin{lstlisting}
-abstract class Occurrence specializes Anything, Domain::Interval 
+abstract class Occurrence specializes Domain::Interval
     disjoint from DataValue {
   feature :>> openLeft default false { }
   feature :>> openRight default false { }
-  portion feature startShot: Time::Instant[1] :>> lowerBound { }
-  portion feature endShot: Time::Instant[1] :>> upperBound {}
-  portion feature middleTimeSlice: Interval[0..1] {
-    language "Domain" /* middleTimeSlice = startShot ,, endShot" */
+  feature startShot: Instant[1] :>> lowerBound { }
+  feature endShot: Instant[0..1] :>> upperBound {}
+  feature middleTimeSlice: Interval[0..1] {
+    @Assert{f="<< middleTimeSlice = startShot ,, endShot >>";}
     :>> lowerBound = startShot;
-    >> upperBound = endShot;
+    :>> upperBound = endShot;
     :>> openLeft = true;
     :>> openRight = true;
   }
-  inv { isEmpty((that as Occurrence).middleTimeSlice) == 
+  inv { isEmpty((that as Occurrence).middleTimeSlice) ==
     ((that as Occurrence).startShot == (that as Occurrence).endShot) }
+}
 \end{lstlisting}
 
 \subsection{Replacing M0 Features}\label{subsec:replacingM0}
@@ -65,197 +66,195 @@ Features like \texttt{predecessors} are lists of \texttt{Occurrence}, in this ca
 \pn Fortunately, M0 features are overwhelmingly used to test membership.  An \texttt{Occurrence} happens before this one if it is one of the \texttt{predecessors}.  The valuable concepts expressed by M0 features can be expressed by functions and predicates instead.\footnote{
 This presumes for SFS that expressions, functions, and predicates just determine values, and are not \texttt{Occurrence} themselves (\ref{}).}
 
-\pn Use function \texttt{getLife} instead of feature \texttt{portionOfLife}.
+\pn Use expr \texttt{getLife} instead of feature \texttt{portionOfLife}.
 
 \ecaption{getLife}  
 \begin{lstlisting}
-		function getLife {
+		expr getLife {
 			doc /* Life is top-level Occurrence, suboccurrence of no other */
-			language "Domain" /* during(this,result) and
-			   not exists o : Occurrence in o<>this that during(o,result) */	
+			@Assert{f="<< during(this,result) and
+			   not exists p~Occurrence that ContainedBy(result,p) >>";}
 			return result : Life[1];
 			if superoccurrence->isEmpty() ? this as Life
 			  else superoccurrence->head().getLife	
 		}
 \end{lstlisting}
 
-\pn Use predicate \texttt{sameLife} instead of feature \texttt{sameLifeOccurrences}.
+\pn Use bool \texttt{sameLife} instead of feature \texttt{sameLifeOccurrences}.
 
 \ecaption{sameLife}  
 \begin{lstlisting}
-		predicate sameLife {
+		bool sameLife {
 			doc /* SFS: o has the same Life as this */
 			in o : Occurrence;
 			this.getLife == o.getLife
 		}
 \end{lstlisting}
 
-\pn Use predicate \texttt{withoutOccurrence} instead of feature \texttt{withoutOccurrences}.
+\pn Use bool \texttt{withoutOccurrence} instead of feature \texttt{withoutOccurrences}.
 
 \ecaption{withoutOccurrence}  
 \begin{lstlisting}
-    predicate withoutOccurrence {  
+    bool withoutOccurrence {
       doc /* SFS: true when o is separated in either time or space */
       in o : Occurrence;
       nonoverlaps(o,this) or not regionOverlap(location(o),location(this)) 
     }
 \end{lstlisting}
 
-\pn Use predicate \texttt{predecessor} instead of feature \texttt{predecessors}.
+\pn Use bool \texttt{predecessor} instead of feature \texttt{predecessors}.
 
 \ecaption{predecessor}  
 \begin{lstlisting}
-    predicate predecessor { 
+    bool predecessor {
       doc /* SFS:  true when o precedes this */
       in o : Occurrence;
       precedes(o,this)
     }
 \end{lstlisting}
 
-\pn Use predicate \texttt{successor} instead of feature \texttt{successors}.
+\pn Use bool \texttt{successor} instead of feature \texttt{successors}.
 
 \ecaption{successor}  
 \begin{lstlisting}
-    predicate successor {
+    bool successor {
       doc /* SFS:  true when self precedes o */
       in o : Occurrence;
       precedes(this,o)
     }
 \end{lstlisting}
 
-\pn Use predicate \texttt{immediatePredecessor} instead of feature \texttt{immediatePredecessors}.
+\pn Use bool \texttt{immediatePredecessor} instead of feature \texttt{immediatePredecessors}.
 
 \ecaption{immediatePredecessor}  
 \begin{lstlisting}
-    predicate immediatePredecessor { 
+    bool immediatePredecessor {
       doc /* SFS:  true when o nearly meets this */
       in o : Occurrence;
       nearlyMeets(o,this)
     }
 \end{lstlisting}
 
-\pn Use predicate \texttt{immediateSuccessor} instead of feature \texttt{immediateSuccessors}.
+\pn Use bool \texttt{immediateSuccessor} instead of feature \texttt{immediateSuccessors}.
 
 \ecaption{immediateSuccessor}  
 \begin{lstlisting}
-    predicate immediateSuccessor { 
+    bool immediateSuccessor {
       doc /* SFS:  true when this nearly meets o */
       in o : Occurrence;
       nearlyMeets(this,o)
     }
 \end{lstlisting}
 
-\pn Use predicate \texttt{timeEnclosedOccurrence} instead of feature \texttt{timeEnclosedOccurrences}.
+\pn Use bool \texttt{timeEnclosedOccurrence} instead of feature \texttt{timeEnclosedOccurrences}.
 
 \ecaption{timeEnclosedOccurrence}  
 \begin{lstlisting}
-    predicate timeEnclosedOccurrence {
-      doc /* SFS:  true when o during self */
+    bool timeEnclosedOccurrence {
+      doc /* SFS:  true when o during this */
       in o : Occurrence;
-      during(o,self)
+      during(o,this)
     }
 \end{lstlisting}
 
-\pn Use predicate \texttt{timeCoincidentOccurrence} instead of feature \texttt{timeCoincidentOccurrences}.
+\pn Use bool \texttt{timeCoincidentOccurrence} instead of feature \texttt{timeCoincidentOccurrences}.
 
 \ecaption{timeCoincidentOccurrence}  
 \begin{lstlisting}
-		predicate timeCoincidentOccurrence {
-			doc /* SFS:  true when o coincident self */
+		bool timeCoincidentOccurrence {
+			doc /* SFS:  true when o coincident this */
 			in o : Occurrence;
-			coincident(o,self)
+			coincident(o,this)
 		}
 \end{lstlisting}
 
-\pn Use predicate \texttt{spaceEnclosedOccurrence} instead of feature \texttt{spaceEnclosedOccurrences}.
+\pn Use bool \texttt{spaceEnclosedOccurrence} instead of feature \texttt{spaceEnclosedOccurrences}.
 
 \ecaption{spaceEnclosedOccurrence}  
 \begin{lstlisting}
-		predicate spaceEnclosedOccurrence {
-			doc /* SFS:  true when self contains o */
+		bool spaceEnclosedOccurrence {
+			doc /* SFS:  true when this contains o */
 			in o : Occurrence;
-			regionContainment(location(self),location(o))
+			RegionContainment(Location(this),Location(o))
 		}
 \end{lstlisting}
 
-\pn Use predicate \texttt{spaceTimeEnclosedOccurrence} instead of feature \texttt{spaceTimeEnclosedOccurrences}.
+\pn Use bool \texttt{spaceTimeEnclosedOccurrence} instead of feature \texttt{spaceTimeEnclosedOccurrences}.
 
 \ecaption{spaceTimeEnclosedOccurrence}  
 \begin{lstlisting}
-		predicate spaceTimeEnclosedOccurrence {
+		bool spaceTimeEnclosedOccurrence {
 			doc /* SFS:  replaces feature spaceEnclosedOccurrences; true when self contains o */
 			in o : Occurrence;
 			spaceEnclosedOccurrence(o) and timeEnclosedOccurrence(o)
 		}
 \end{lstlisting}
 
-\pn Use predicate \texttt{spaceTimeEnclosedPoint} instead of feature \texttt{spaceTimeEnclosedPoints}.
+\pn Use bool \texttt{spaceTimeEnclosedPoint} instead of feature \texttt{spaceTimeEnclosedPoints}.
 
 \ecaption{spaceTimeEnclosedPoint}  
 \begin{lstlisting}
-		predicate spaceTimeEnclosedPoint {
+		bool spaceTimeEnclosedPoint {
 			doc /* SFS: an occurrence with dimension 0 is different than Regions::Point */
 			in o : Occurrence;
 			spaceTimeEnclosedOccurrence(o) and (o.innerSpaceDimension == 0)
 		}
 \end{lstlisting}
 
-\pn Predicate \texttt{spaceCoincidentOccurrence} is used by \texttt{spaceTimeCoincidentOccurrence}.
+\pn Bool \texttt{spaceCoincidentOccurrence} is used by \texttt{spaceTimeCoincidentOccurrence}.
 
 \ecaption{spaceCoincidentOccurrence}  
 \begin{lstlisting}
-		predicate spaceCoincidentOccurrence {
-			doc /* SFS:  true when self and o are space coincident */
+		bool spaceCoincidentOccurrence {
+			doc /* SFS:  true when this and o are space coincident */
 			in o : Occurrence;
-			regionContainment(location(o),location(self)) and 
-			  regionContainment(location(self),location(o))
+			RegionContainment(Location(o),Location(this)) and
+			  RegionContainment(Location(this),Location(o))
 		}
 \end{lstlisting}
 
-\pn Use predicate \texttt{spaceTimeCoincidentOccurrence} instead of feature \texttt{spaceTimeCoincidentOccur\-rences}.
+\pn Use bool \texttt{spaceTimeCoincidentOccurrence} instead of feature \texttt{spaceTimeCoincidentOccur\-rences}.
 
 \ecaption{spaceTimeCoincidentOccurrence}  
 \begin{lstlisting}
-		predicate spaceTimeCoincidentOccurrence {
+		bool spaceTimeCoincidentOccurrence {
 			doc /* SFS:  true when self and o are space-time coincident */
 			in o : Occurrence;
 			spaceCoincidentOccurrence(o) and timeCoincidentOccurrence(o)
 		}
 \end{lstlisting}
 
-\pn Use predicate \texttt{outsideOfOccurrence} instead of feature \texttt{outsideOfOccurrences}.
+\pn Use bool \texttt{outsideOfOccurrence} instead of feature \texttt{outsideOfOccurrences}.
 
 \ecaption{outsideOfOccurrence}  
 \begin{lstlisting}
-	  predicate outsideOfOccurrence {
-			doc /* SFS:  true when region of self does not overlap region of o */
+	  bool outsideOfOccurrence {
+			doc /* SFS:  true when region of this does not overlap region of o */
 			in o : Occurrence;
-			not regionOverlap(location(self),location(o))
+			not RegionOverlap(Location(this),Location(o))
 		}
 \end{lstlisting}
 
-\pn Use predicate \texttt{justOutsideOfOccurrence} instead of feature \texttt{justOutsideOfOccurrences}.
+\pn Use bool \texttt{justOutsideOfOccurrence} instead of feature \texttt{justOutsideOfOccurrences}.
 
 \ecaption{justOutsideOfOccurrence}  
 \begin{lstlisting}
-		predicate justOutsideOfOccurrence {
-			doc /* SFS:  true when self is just outside of o */
+		bool justOutsideOfOccurrence {
+			doc /* SFS:  true when this is just outside of o */
 			in o : Occurrence;
-			filmConnected(location(self),location(o))
+			ExternallyConnected(Location(this),Location(o))
 		}
 \end{lstlisting}
 
-\pn Use predicate \texttt{matesWithOccurrence} instead of feature \texttt{matesWithOccurrences}.
+\pn Use bool \texttt{matesWithOccurrence} instead of feature \texttt{matesWithOccurrences}.
 
 \ecaption{matesWithOccurrence}  
 \begin{lstlisting}
-		predicate matesWithOccurrence {
-			doc /* SFS:  true when self is just outside of o and o is contained in that */
+		bool matesWithOccurrence {
+			doc /* SFS:  true when this is just outside of o and they touch without overlapping */
 			in o : Occurrence;
-			feature matingSpaceToo: Occurrence[1] subsets self.that;
-			justOutsideOfOccurrence(o) and 
-			  regionContainment(location(matingSpaceToo),location(o))
-		}	
+			justOutsideOfOccurrence(o)
+		}
 \end{lstlisting}
 
 %\pn Use predicate \texttt{} instead of feature \texttt{}.
@@ -275,9 +274,9 @@ For \texttt{suboccurrences}, Domain expresses both mereological and temporal con
 		composite feature suboccurrences: Occurrence[0..*] subsets occurrences {
 			doc /* Composite suboccurrences of this Occurrence. */
 
-      language "Domain" /* forall s in suboccurrences are during(life(s),life(self))
-			  * and PartOf(s,self) */
-        			 
+      @Assert{f="<< forall s~Occurrence in suboccurrences are during(s,self)"+
+			  " and ContainedBy(s,self) >>";}
+
 			feature redefines localClock default (that as Occurrence).localClock { }
 			 
 			feature redefines incomingTransferSort default (that as Occurrence).incomingTransferSort;
@@ -292,7 +291,7 @@ to be the ``same thing".
 
 \pn Features \texttt{startShot}, \texttt{endShot}, and \texttt{middleTimeSlice} are appropriate portions; many other features are not.
 Space slices and space shots are portions, when sub-components (as suboccurrences) are certainly not the  ``same
-thing".
+thing".  In the current library, \texttt{startShot}, \texttt{endShot}, and \texttt{middleTimeSlice} are typed as \texttt{Instant}/\texttt{Interval} rather than \texttt{Occurrence} (see the \texttt{Occurrence} declaration above), so they are no longer declared \texttt{portion}; the argument above still motivates why they would be, were they occurrence-valued.
 
 \pn Features \texttt{portions} and \texttt{portionOf} have been removed, as well as inappropriate uses of \texttt{portion}. 
 
@@ -487,7 +486,7 @@ Does the \texttt{all} mean that every possible association of that type exists? 
 \pn \texttt{SelfSameLifeLink} is convoluted because it tries to treat DataValues and Occurrences in a uniform way. 
 \texttt{Links::SelfLink} should suffice.
 
-\pn \texttt{Within}, \texttt{WithinBoth}, \texttt{PortionOf}, \texttt{TimeSliceOf}, \texttt{SnapshotOf}, and  \texttt{Without} are unnecessary.
+\pn \texttt{PortionOf}, \texttt{TimeSliceOf}, and \texttt{SnapshotOf} are unnecessary (as are \texttt{SpaceSliceOf} and \texttt{SpaceShotOf}, for the same reason). \texttt{Within}, \texttt{WithinBoth}, and \texttt{Without} remain in the library and gain temporal and/or regional semantics along with the associations below.
 
 \pn \texttt{HappensDuring}, \texttt{HappensWhile}, \texttt{HappensBefore}, and \texttt{HappensJustBefore} lose their  \texttt{all} and gain temporal semantics.
 
@@ -496,7 +495,7 @@ Does the \texttt{all} mean that every possible association of that type exists? 
 	assoc HappensDuring specializes HappensLink {
 		doc /*
 		* HappensDuring asserts that the shorterOccurrence happens during the longerOccurrence. */
-		language "Domain" /* during(shorterOccurrence, longerOccurrence) */
+		@Assert{f="<< during(shorterOccurrence, longerOccurrence) >>";}
 		end feature shorterOccurrence redefines sourceOccurrence;  
 		end feature longerOccurrence redefines targetOccurrence;
 	}
@@ -504,15 +503,15 @@ Does the \texttt{all} mean that every possible association of that type exists? 
 
 \ecaption{HappensWhile}  
 \begin{lstlisting}
-	assoc  HappensWhile specializes HappensLink {
+	assoc  HappensWhile specializes HappensDuring {
 		doc
 		/*
 		 * HappensWhile asserts that two occurrences happen during each other, that is, they
 		 * each start at the same time and end at the same time.
 		 */
-		language "Domain" /* coincident(thisOccurrence, thatOccurrence) */
-		end feature thisOccurrence redefines sourceOccurrence;  
-		end feature thatOccurrence redefines targetOccurrence;
+		@Assert{f="<< coincident(thisOccurrence, thatOccurrence) >>";}
+		end feature thisOccurrence redefines shorterOccurrence;
+		end feature thatOccurrence redefines longerOccurrence;
 	}
 \end{lstlisting}
 
@@ -520,7 +519,7 @@ Does the \texttt{all} mean that every possible association of that type exists? 
 \begin{lstlisting}
 	assoc HappensBefore specializes HappensLink 
 	  {
-		language "Domain" /* precedes(earlierOccurrence,laterOccurrence) */
+		@Assert{f="<< precedes(earlierOccurrence,laterOccurrence) >>";}
 		end feature earlierOccurrence: Occurrence redefines sourceOccurrence; 
 		end feature laterOccurrence: Occurrence redefines targetOccurrence; 
 	}
@@ -529,7 +528,7 @@ Does the \texttt{all} mean that every possible association of that type exists? 
 \ecaption{HappensJustBefore}  
 \begin{lstlisting}
 	assoc HappensJustBefore specializes HappensBefore {
-		language "Domain" /* nearlyMeets(earlierOccurrence,laterOccurrence) */
+		@Assert{f="<< nearlyMeets(earlierOccurrence,laterOccurrence) >>";}
 		end feature redefines earlierOccurrence: Occurrence
 		  crosses laterOccurrence.immediatePredecessors;
 		end feature redefines laterOccurrence: Occurrence
@@ -543,7 +542,7 @@ lose the \texttt{all} and gain regional semantics.
 \ecaption{InsideOf}  
 \begin{lstlisting}
 	assoc InsideOf specializes SpaceLink {
-		language "Domain" /* regionContainment(location(smallerSpace), location(largerSpace)) */
+		@Assert{f="<< RegionContainment(Location(smallerSpace), Location(largerSpace)) >>";}
 		end feature smallerSpace: Occurrence redefines sourceOccurrence;  
 		end feature largerSpace: Occurrence redefines targetOccurrence;
 	}
@@ -553,8 +552,7 @@ lose the \texttt{all} and gain regional semantics.
 \begin{lstlisting}
 	assoc OutsideOf specializes SpaceLink 
 	  {
-		language "Domain" 
-		  /* not regionOverlap(location(separateSpaceToo), location(separateSpace)) */
+		@Assert{f="<< not RegionOverlap(Location(separateSpaceToo), Location(separateSpace)) >>";}
 		end feature separateSpaceToo: Occurrence redefines sourceOccurrence; 
 		end feature separateSpace: Occurrence redefines targetOccurrence; 
 	}
@@ -568,7 +566,7 @@ lose the \texttt{all} and gain regional semantics.
 		 * JustOutsideOf is an OutsideOf asserting that two occurrences have some space slices 
 		 * with no space between them.
 		 */
-		language "Domain" /* filmConnected(separateSpaceToo, separateSpace) */
+		@Assert{f="<< FilmConnected(separateSpaceToo, separateSpace) >>";}
 		end feature redefines separateSpaceToo: Occurrence;
 		end feature redefines separateSpace: Occurrence;
 	}
@@ -589,15 +587,15 @@ lose the \texttt{all} and gain regional semantics.
 
 \ecaption{InnerSpaceOf}  
 \begin{lstlisting}
-	assoc InnerSpaceOf specializes OutsideOf {
+	assoc InnerSpaceOf specializes SpaceLink {
 		doc
 		/*
 		 * InnerSpaceOf is an OutsideOf asserting that the space surrounded by an inner space boundary
 		 * of one occurrence (outer space) is completely occupied by another occurrence (inner space).
 		 */
-		language "Domain" /* regionFilm(location(innerSpace)) = regionSurface(location(outerSpace))*/
-		end feature outerSpace: Occurrence redefines separateSpaceToo;
-		end feature innerSpace: Occurrence redefines separateSpace; 
+		@Assert{f="<< Location(innerSpace) = RegionInterior(Location(outerSpace)) >>";}
+		end feature outerSpace: Occurrence redefines sourceOccurrence;
+		end feature innerSpace: Occurrence redefines targetOccurrence crosses outerSpace.innerSpaceOccurrences;
 	}
 \end{lstlisting}
 
