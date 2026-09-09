@@ -60,6 +60,24 @@ If $a$ has type $T$ and $T$ specializes $V$, then $a$ also has type $V$.
 \end{align}
 \end{restatable}
 
+\pn Unlike \texttt{TRANS} (\ref{TRANS}), \texttt{SUBS} needed no new field in
+\texttt{CoreDesignModel} (\ref{CoreDesignModel}) -- it follows directly from
+\texttt{df\_specializes} (\ref{df_specializes}), which already gives \texttt{Ct} $\subseteq$
+\texttt{Cv}; plain subset-membership finishes it.
+
+\begin{restatable}{leantheorem}{SUBSLean}~\leanTitle{SUBS}~ The book's own \texttt{SUBS}
+(\ref{eq:df-subs}), in Lean -- free directly from \texttt{df\_specializes}.
+
+\texttt{\textcolor{leancolor}{theorem} \textcolor{leanyellow}{SUBS} \{T V a : Element\} \{Ct Cv : Set Element\}}
+
+\texttt{~~(hT : (DesignKind.type, T, Ct) $\in$ Design) (hV : (DesignKind.type, V, Cv) $\in$ Design)}
+
+\texttt{~~(hspec : Specializes T V) (ha : a $\in$ Ct) : a $\in$ Cv :=}
+
+\texttt{~~df\_specializes hT hV hspec ha}
+\label{SUBS}
+\end{restatable}
+
 \section{Add Feature}
 If $T$ specializes $U$ by adding feature $f$, and $a$ has type $T$, then $a$ also has type $U$.
 \begin{restatable}{definition}{FEAT}~\blTitle{FEAT}~  
