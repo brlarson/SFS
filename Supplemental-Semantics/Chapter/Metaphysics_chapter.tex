@@ -678,6 +678,11 @@ field an identity.
 \end{align}
 \end{restatable}
 
+\pn \texttt{df-pex} is book-original under this name -- the closest \texttt{SFS.mm} theorem is \texttt{df-pec},
+but its conclusion currently reads $r_1 \,C \,r_2$ (backwards from the formula above, which matches
+\texttt{Regions.kerml}'s own \texttt{EXPNS} assertion and the now-fixed \texttt{expansivity} Lean field below);
+this is a known, separate \texttt{SFS.mm} discrepancy, not corrected here.
+
 \begin{restatable}{leandefinition}{expansivity}~\leanTitle{expansivity}~ Define expansivity in Lean, tying
 \texttt{PartOf} to \texttt{RegionContainment} via \texttt{Location}. Now a field of
 \texttt{class RegionModel} (\ref{RegionModel}), same treatment as \texttt{lin} above; proven via

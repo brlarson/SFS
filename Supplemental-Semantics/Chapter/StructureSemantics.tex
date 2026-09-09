@@ -9,28 +9,29 @@
 \ecaption{Recursive Structure}
 \begin{lstlisting}
 struct S specializes Objects::Object {
-	feature a : S subsets Objecst::objects;
+	feature a : S subsets Objects::objects;
 	composite feature b : S subsets Objects::Object::subobjects;
 }
 \end{lstlisting}
 
-\pn An \texttt{Object::Object} may have \texttt{subobjects} which are defined using metaphysical mereology (\ref{eq:df-par}).
+\pn An \texttt{Objects::Object} may have \texttt{subobjects} which are defined using metaphysical mereology (\ref{eq:df-par}).
 \ecaption{subobjects}
 \begin{lstlisting}
 	abstract struct Object specializes Occurrence {
 		doc /* Object is the most general class of structural occurrences that may change over time. */
 		feature self: Object redefines Occurrence::self;
-
-		composite feature subobjects: Object[0..*] subsets suboccurrences {
+		
+		composite feature subobjects: Object[0..*] subsets objects, suboccurrences
+			intersects objects, suboccurrences {
 			doc /* The suboccurrences of this Object that are also Objects. */
-			@Assert{f="<< forall so in subobjects are Mereology::PartOf(so,self) >>";}
+			@Assert{f="<< forall so~Occurrence in subobjects are during(so,self) and PartOf(so,self) >>";}
 		}
+	}
 \end{lstlisting}
 
-\pn All subobjects of an objects are parts of that object (\ref{eq:df-par}).\footnote{
-\texttt{subsets} \texttt{objects} removed because it was redundant.}
+\pn All subobjects of an objects are parts of that object (\ref{eq:df-par}).
 
-%\begin{restatable}{definition}{subobjects}~\blTitle{df-subobjects}~ Define \texttt{subobjects}.
+%\begin{restatable}{definition}{subobjects}~\blTitle{df-subobjects}~ Define \texttt{subobjects}.  
 %\begin{align}
 %\forall s \in \texttt{subobjects}~\vert~s~P~\texttt{self}\label{eq:df-subobjects}\tag{df-subobjects}
 %\end{align}
@@ -53,7 +54,7 @@ Reconciliation of \texttt{Regions::Surface} with \texttt{structuredSpaceBoundary
 		}
 \end{lstlisting}
 
-%\begin{restatable}{definition}{location}~\blTitle{df-location}~ Define object location.
+%\begin{restatable}{definition}{location}~\blTitle{df-location}~ Define object location.  
 %\begin{align}
 %\texttt{structuredSpaceBoundary} \ne \emptyset~\rightarrow~\texttt{self}~L~\texttt{structuredSpaceBoundary}\label{eq:df-location}\tag{df-location}
 %\end{align}
@@ -80,7 +81,11 @@ s.\texttt{structuredSpaceBoundary} \ne \emptyclass \rightarrow \notag \\
 \end{align}
 \end{restatable}
 
-\pn Structures are not behaviors, but they may have behaviors.  Any behavior must specialize \texttt{Performances::}\-\texttt{Performance}.
+\pn \texttt{bl.containment} is book-original, with no \texttt{SFS.mm} formalization of its own (confirmed absent
+from \texttt{SFS.mm} by grep) -- it follows from \texttt{structuredSpaceBoundary}'s own \texttt{@Assert} together
+with expansivity (\ref{eq:df-pex}), but is not restated as a Metamath theorem.
+
+\pn Structures are not behaviors, but they may have behaviors.  Any behavior must specialize \texttt{Performances::}\-\texttt{Performance}. 
 Structures may have three kinds of \texttt{Performance},  involving, enacted, and owned.
 
 \pn Involving just says this object is ``involved'' in the performance, perhaps in concert with other objects.
@@ -102,23 +107,21 @@ Structures may have three kinds of \texttt{Performance},  involving, enacted, an
 			/*
 			 * Performances that are enacted by this object.
 			 */
-			@Assert{f="<< forall ep in enactedPerformances are self->timeEnclosedOccurrence(ep) >>";}
+			@Assert{f="<< forall ep~Performance in enactedPerformances are during(ep,self) >>";}
 		}
 \end{lstlisting}
 
 \pn Owned performances are contained and performed by the object.
 \ecaption{ownedPerformances}\label{ownedPerformances}
 \begin{lstlisting}
-		composite step ownedPerformances: Performance[0..*]
-		  subsets involvingPerformances, suboccurrences
-			intersects involvingPerformances, suboccurrences {
-			@Assert{f="<< forall op in ownedPerformances are self->"+
-			  "(timeEnclosedOccurrence(ep) and Mereology::PartOf(op,self) >>";}
+		composite step ownedPerformances: Performance[0..*] subsets involvingPerformances {
+			@Assert{f="<< forall op~Performance in ownedPerformances are during(op,self)"+
+			  " and PartOf(op,self) >>";}
 			doc
 			/*
 			 * Performances that are owned by this object.
 			 */
-
+			 
 			feature redefines this default that {
 				doc
 				/*
