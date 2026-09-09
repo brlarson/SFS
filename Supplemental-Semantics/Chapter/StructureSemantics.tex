@@ -20,17 +20,17 @@ struct S specializes Objects::Object {
 	abstract struct Object specializes Occurrence {
 		doc /* Object is the most general class of structural occurrences that may change over time. */
 		feature self: Object redefines Occurrence::self;
-		
+
 		composite feature subobjects: Object[0..*] subsets suboccurrences {
 			doc /* The suboccurrences of this Object that are also Objects. */
-			language "Domain" /* forall so in subobjects are Mereology::PartOf(so,self) */
+			@Assert{f="<< forall so in subobjects are Mereology::PartOf(so,self) >>";}
 		}
 \end{lstlisting}
 
 \pn All subobjects of an objects are parts of that object (\ref{eq:df-par}).\footnote{
 \texttt{subsets} \texttt{objects} removed because it was redundant.}
 
-%\begin{restatable}{definition}{subobjects}~\blTitle{df-subobjects}~ Define \texttt{subobjects}.  
+%\begin{restatable}{definition}{subobjects}~\blTitle{df-subobjects}~ Define \texttt{subobjects}.
 %\begin{align}
 %\forall s \in \texttt{subobjects}~\vert~s~P~\texttt{self}\label{eq:df-subobjects}\tag{df-subobjects}
 %\end{align}
@@ -48,12 +48,12 @@ Reconciliation of \texttt{Regions::Surface} with \texttt{structuredSpaceBoundary
 			/*
 			 * A space boundary that is a structured space object.
 			 */
-			language "Domain" /* not structuredSpaceBoundary->empty implies
-			  * Regions::RegionSurface(Regions::Location(self)) = structuredSpaceBoundary */
+			@Assert{f="<< not structuredSpaceBoundary->empty implies"+
+			  " Regions::RegionSurface(Regions::Location(self)) = structuredSpaceBoundary >>";}
 		}
 \end{lstlisting}
 
-%\begin{restatable}{definition}{location}~\blTitle{df-location}~ Define object location.  
+%\begin{restatable}{definition}{location}~\blTitle{df-location}~ Define object location.
 %\begin{align}
 %\texttt{structuredSpaceBoundary} \ne \emptyset~\rightarrow~\texttt{self}~L~\texttt{structuredSpaceBoundary}\label{eq:df-location}\tag{df-location}
 %\end{align}
@@ -80,7 +80,7 @@ s.\texttt{structuredSpaceBoundary} \ne \emptyclass \rightarrow \notag \\
 \end{align}
 \end{restatable}
 
-\pn Structures are not behaviors, but they may have behaviors.  Any behavior must specialize \texttt{Performances::}\-\texttt{Performance}. 
+\pn Structures are not behaviors, but they may have behaviors.  Any behavior must specialize \texttt{Performances::}\-\texttt{Performance}.
 Structures may have three kinds of \texttt{Performance},  involving, enacted, and owned.
 
 \pn Involving just says this object is ``involved'' in the performance, perhaps in concert with other objects.
@@ -102,23 +102,23 @@ Structures may have three kinds of \texttt{Performance},  involving, enacted, an
 			/*
 			 * Performances that are enacted by this object.
 			 */
-			language "Domain" /* forall ep in enactedPerformances are self->timeEnclosedOccurrence(ep) */
+			@Assert{f="<< forall ep in enactedPerformances are self->timeEnclosedOccurrence(ep) >>";}
 		}
 \end{lstlisting}
 
 \pn Owned performances are contained and performed by the object.
 \ecaption{ownedPerformances}\label{ownedPerformances}
 \begin{lstlisting}
-		composite step ownedPerformances: Performance[0..*] 
+		composite step ownedPerformances: Performance[0..*]
 		  subsets involvingPerformances, suboccurrences
 			intersects involvingPerformances, suboccurrences {
-			language "Domain" /* forall op in ownedPerformances are self->
-			  * (timeEnclosedOccurrence(ep) and Mereology::PartOf(op,self) */
+			@Assert{f="<< forall op in ownedPerformances are self->"+
+			  "(timeEnclosedOccurrence(ep) and Mereology::PartOf(op,self) >>";}
 			doc
 			/*
 			 * Performances that are owned by this object.
 			 */
-			 
+
 			feature redefines this default that {
 				doc
 				/*
