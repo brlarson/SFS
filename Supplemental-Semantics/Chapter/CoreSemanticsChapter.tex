@@ -425,6 +425,31 @@ theorem, not an axiom.
 \label{df_multspec}
 \end{restatable}
 
+\pn \texttt{df-multspec}'s own formula above already claims full $n$-ary generality ($t_s \subseteq
+t_g \cap \ldots \cap t_j$ for arbitrarily many generalizations), but until 2026-09-09
+\texttt{df\_multspec} only ever implemented the two-generalization case shown above.
+
+\begin{restatable}{leantheorem}{dfMultspecNLean}~\leanTitle{df\_multspec\_n}~ \texttt{df\_multspec}'s
+true $n$-ary generalization, indexed over \texttt{Fin n} rather than a fixed pair -- proved by the
+identical one-line argument (\texttt{df\_specializes} applied to each generalization independently),
+now closed under \texttt{Set.mem\_iInter} instead of manual pairing.
+
+\texttt{\textcolor{leancolor}{theorem} \textcolor{leanyellow}{df\_multspec\_n} \{n : $\mathbb{N}$\} \{ts : Element\} \{Cs : Set Element\}}
+
+\texttt{~~\{tg : Fin n $\to$ Element\} \{Cg : Fin n $\to$ Set Element\}}
+
+\texttt{~~(hs : (DesignKind.type, ts, Cs) $\in$ Design)}
+
+\texttt{~~(hg : $\forall$ i, (DesignKind.type, tg i, Cg i) $\in$ Design)}
+
+\texttt{~~(hspec : $\forall$ i, Specializes ts (tg i)) :}
+
+\texttt{~~Cs $\subseteq$ $\bigcap$ i, Cg i :=}
+
+\texttt{~~by intro x hx; simp only [Set.mem\_iInter]; intro i; exact df\_specializes hs (hg i) (hspec i) hx}
+\label{df_multspec_n}
+\end{restatable}
+
 \pn The intersection relationship is defined in \ref{eq:df-in}.
 
 

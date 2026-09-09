@@ -231,9 +231,30 @@ If $T$ specializes both $U$ and $V$, and $a$ has type $T$, then $a$ also has typ
 \end{align}
 \end{restatable}
 
+\pn \texttt{MULTI} is \texttt{df-multspec} (\ref{eq:df-multspec}) restated elementwise for exactly
+two generalizations, matching \texttt{df\_multspec} (\ref{df_multspec}).
+
+\begin{restatable}{leantheorem}{MULTILean}~\leanTitle{MULTI}~ The book's own \texttt{MULTI}
+(\ref{eq:df-multi}), in Lean -- free from \texttt{df\_multspec} via ordinary
+intersection-membership.
+
+\texttt{\textcolor{leancolor}{theorem} \textcolor{leanyellow}{MULTI} \{T U V a : Element\} \{Ct Cu Cv : Set Element\}}
+
+\texttt{~~(hT : (DesignKind.type, T, Ct) $\in$ Design) (hU : (DesignKind.type, U, Cu) $\in$ Design)}
+
+\texttt{~~(hV : (DesignKind.type, V, Cv) $\in$ Design)}
+
+\texttt{~~(hspecU : Specializes T U) (hspecV : Specializes T V) (ha : a $\in$ Ct) :}
+
+\texttt{~~a $\in$ Cu $\wedge$ a $\in$ Cv :=}
+
+\texttt{~~Set.mem\_inter\_iff .. |>.mp (df\_multspec hT hU hV hspecU hspecV ha)}
+\label{MULTI}
+\end{restatable}
+
 Let $U_j~j\in 1 .. n$ be types.  If $T$ specializes multiple types, and $a$ has type $T$, then $a$ also
 has each of the types specializes by $T$.
-\begin{restatable}{definition}{MULTN}~\blTitle{MULTN}~Define multiple specialization of n types.   
+\begin{restatable}{definition}{MULTN}~\blTitle{MULTN}~Define multiple specialization of n types.
 \begin{align}
 \inference
 {T\texttt{:>}U_1,\ldots,U_n ~\wedge~a \in T}
@@ -241,6 +262,31 @@ has each of the types specializes by $T$.
 {a \in U_1~\wedge \cdots \wedge~ a \in U_n}
 \label{eq:df-multn}\tag{df-multn}
 \end{align}
+\end{restatable}
+
+\pn \texttt{MULTN} is exactly \texttt{df-multspec}'s (\ref{eq:df-multspec}) own claimed $n$-ary
+generality, restated elementwise -- see \texttt{df\_multspec\_n} (\ref{df_multspec_n}) for why that
+generality needed a real new theorem, not just \texttt{df\_multspec} itself.
+
+\begin{restatable}{leantheorem}{MULTNLean}~\leanTitle{MULTN}~ The book's own \texttt{MULTN}
+(\ref{eq:df-multn}), in Lean -- proved directly from \texttt{df\_specializes} applied pointwise,
+the elementwise unfolding of \texttt{df\_multspec\_n}'s own conclusion via
+\texttt{Set.mem\_iInter}.
+
+\texttt{\textcolor{leancolor}{theorem} \textcolor{leanyellow}{MULTN} \{n : $\mathbb{N}$\} \{ts a : Element\} \{Cs : Set Element\}}
+
+\texttt{~~\{tg : Fin n $\to$ Element\} \{Cg : Fin n $\to$ Set Element\}}
+
+\texttt{~~(hs : (DesignKind.type, ts, Cs) $\in$ Design)}
+
+\texttt{~~(hg : $\forall$ i, (DesignKind.type, tg i, Cg i) $\in$ Design)}
+
+\texttt{~~(hspec : $\forall$ i, Specializes ts (tg i)) (ha : a $\in$ Cs) :}
+
+\texttt{~~$\forall$ i, a $\in$ Cg i :=}
+
+\texttt{~~fun i $\Rightarrow$ df\_specializes hs (hg i) (hspec i) ha}
+\label{MULTN}
 \end{restatable}
 
 \section{Multiple Inheritance with Features}
