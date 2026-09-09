@@ -9,12 +9,36 @@
 \begin{restatable}{definition}{blbfv}~\blTitle{df-bl.bfv}~ Define Bound Feature Value
 \begin{align}
 \texttt{classifier C \{ feature f:F=e; \} }~\Rightarrow \notag \\
-\vdash \forall \tau \in \texttt{life}(C)~\vert~  \textbf{I}\langle \texttt{f},\tau\rangle~=~e 
+\vdash \forall \tau \in \texttt{life}(C)~\vert~  \textbf{I}\langle \texttt{f},\tau\rangle~=~e
 \label{eq:df-bl.bfv}\tag{df-bl.bfv}
 \end{align}
 \end{restatable}
 
-Setting an initial feature value only makes sense for variable features:  \texttt{in}, \texttt{out}, \texttt{inout}, and \texttt{var}, 
+\pn \texttt{df-bl.bfv} is book-original, with no \texttt{SFS.mm} formalization of its own (confirmed
+absent from \texttt{SFS.mm} by grep) -- \texttt{=} binding a feature's value permanently is KerML's
+own concrete syntax, not a domain predicate ported from a real \texttt{.kerml} file's \texttt{@Assert}.
+It does have real Lean backing below.
+
+\begin{restatable}{leandefinition}{blbfvLean}~\leanTitle{BoundFeatureValue}~ Define bound feature
+value in Lean: \texttt{f}'s value is the fixed \texttt{e} throughout \texttt{C}'s whole
+\texttt{life}, via \texttt{Get}.
+
+\texttt{\textcolor{leancolor}{def} \textcolor{leanyellow}{BoundFeatureValue} (C : Occurrence) (f : Element) (e : Set Item) : Prop :=}
+
+\texttt{~~$\forall$ tau : Time, tau.val $\in$ life C $\to$ Get C f tau = e}
+\label{BoundFeatureValue}
+\end{restatable}
+
+\begin{restatable}{leantheorem}{dfBlBfvLean}~\leanTitle{df\_bl\_bfv}~ The book's own \ref{eq:df-bl.bfv}
+biconditional, in Lean -- free directly from \texttt{BoundFeatureValue}'s own definition.
+
+\texttt{\textcolor{leancolor}{theorem} \textcolor{leanyellow}{df\_bl\_bfv} (C : Occurrence) (f : Element) (e : Set Item) :}
+
+\texttt{~~BoundFeatureValue C f e $\leftrightarrow$ ($\forall$ tau : Time, tau.val $\in$ life C $\to$ Get C f tau = e) := Iff.rfl}
+\label{df_bl_bfv}
+\end{restatable}
+
+Setting an initial feature value only makes sense for variable features:  \texttt{in}, \texttt{out}, \texttt{inout}, and \texttt{var},
 
 \begin{restatable}{definition}{blifv}~\blTitle{df-bl.ifv}~ Define Initial Feature Value
 \begin{align}
@@ -22,6 +46,29 @@ Setting an initial feature value only makes sense for variable features:  \textt
 \vdash (~\tau = \texttt{birth}(C)~\wedge~  \textbf{I}\langle \texttt{f},\tau\rangle~=~e ~)
 \label{eq:df-bl.ifv}\tag{df-bl.ifv}
 \end{align}
+\end{restatable}
+
+\pn \texttt{df-bl.ifv} is book-original, with no \texttt{SFS.mm} formalization of its own (confirmed
+absent from \texttt{SFS.mm} by grep) -- \texttt{:=} assigning a feature's initial value is likewise
+KerML's own concrete syntax. It does have real Lean backing below.
+
+\begin{restatable}{leandefinition}{blifvLean}~\leanTitle{InitialFeatureValue}~ Define initial feature
+value in Lean: \texttt{f}'s value is \texttt{e} specifically at \texttt{C}'s \texttt{birth}, via
+\texttt{Get} (unlike \texttt{BoundFeatureValue}, only at one instant, not throughout \texttt{life}).
+
+\texttt{\textcolor{leancolor}{def} \textcolor{leanyellow}{InitialFeatureValue} (C : Occurrence) (f : Element) (e : Set Item) : Prop :=}
+
+\texttt{~~Get C f (birth C) = e}
+\label{InitialFeatureValue}
+\end{restatable}
+
+\begin{restatable}{leantheorem}{dfBlIfvLean}~\leanTitle{df\_bl\_ifv}~ The book's own \ref{eq:df-bl.ifv}
+biconditional, in Lean -- free directly from \texttt{InitialFeatureValue}'s own definition.
+
+\texttt{\textcolor{leancolor}{theorem} \textcolor{leanyellow}{df\_bl\_ifv} (C : Occurrence) (f : Element) (e : Set Item) :}
+
+\texttt{~~InitialFeatureValue C f e $\leftrightarrow$ Get C f (birth C) = e := Iff.rfl}
+\label{df_bl_ifv}
 \end{restatable}
 
 
