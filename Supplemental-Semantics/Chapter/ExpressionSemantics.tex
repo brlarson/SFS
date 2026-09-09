@@ -66,22 +66,41 @@ BaseExpression ::=
 \end{bnf}
 
 \begin{bnf}
+Param ::= Identifier ( ',' Identifier )* '~' Type
+\end{bnf}
+
+\begin{bnf}
 NonExecutableExpression ::=
-  'timed' PrimaryExpression 'at' TimeExpression
-| 'shifted' PrimaryExpression 'by' IntegerExpression
-| 'forall' Identifier ( ',' Identifier )* ':' Type 'in' RangeOrBoolean 
+  'timed' PrimaryExpression 'at' PrimaryExpression
+| 'shifted' PrimaryExpression 'by' PrimaryExpression
+| 'forall' Param ( ',' Param )* ( 'in' RangeOrBoolean )?
     'are' BooleanExpression
-| ( 'exists' | 'numberof' )
-    Identifier ( ',' Identifier )* ':' Type 'in' RangeOrBoolean 
+| 'forall' Param ( ',' Param )* ( 'in' RangeOrBoolean )?
+    'forall' Param ( ',' Param )* ( 'in' RangeOrBoolean )?
+    'are' BooleanExpression
+| 'exists' Param ( ',' Param )* ( 'in' RangeOrBoolean )?
+    'that' BooleanExpression
+| 'numberof'
+    Identifier ( ',' Identifier )* '~' Type ( 'in' RangeOrBoolean )?
     'that' BooleanExpression
 | ( 'productof' | 'sumof' )
-    Identifier ( ',' Identifier )* ':' Type 'in' RangeOrBoolean 
+    Identifier ( ',' Identifier )* '~' Type ( 'in' RangeOrBoolean )?
     'that' PrimaryExpression
 \end{bnf}
 \begin{description}
-\item[ \texttt{IntegerExpression}:]  expression sans units with integer numbers 
-\item[\texttt{TimeExpression}: ]  expression having time units with real (quantity) numbers
-\item[\texttt{BooleanExpression}: ]  expression resulting in \emph{true} or  \emph{false}.
+\item[\texttt{Param}:] a single \texttt{forall}/\texttt{exists} may bind several
+  differently-typed \texttt{Param} groups at once (e.g.\
+  \texttt{forall x\textasciitilde{}Occurrence, y,z\textasciitilde{}Region are \ldots}).  The second
+  \texttt{forall \ldots\ forall \ldots\ are} form (two \texttt{forall} keywords, not comma-joined)
+  is needed for formulas like \texttt{LFU}/\texttt{LIN}/\texttt{EXPNS}/\texttt{APAR}.
+\item[\texttt{numberof}/\texttt{productof}/\texttt{sumof}:] unlike \texttt{forall}/\texttt{exists},
+  these three bind only a single shared type across their identifier list -- no \texttt{Param}
+  grouping.
+\item[\texttt{PrimaryExpression}:] \texttt{timed}/\texttt{shifted}'s operands are not separately
+  typed as time-valued or integer-valued at the grammar level; that distinction, if enforced at
+  all, happens elsewhere.  \texttt{shifted \ldots\ by \ldots} parses but is not yet semantically
+  implemented.
+\item[\texttt{BooleanExpression}:] expression resulting in \emph{true} or  \emph{false}.
 \end{description}
 
 \begin{bnf}
