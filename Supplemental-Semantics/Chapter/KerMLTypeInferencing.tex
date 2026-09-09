@@ -79,9 +79,14 @@ If $a$ has type $T$ and $T$ specializes $V$, then $a$ also has type $V$.
 \end{restatable}
 
 \section{Add Feature}
-If $T$ specializes $U$ by adding feature $f$, and $a$ has type $T$, then $a$ also has type $U$.
-\begin{restatable}{definition}{FEAT}~\blTitle{FEAT}~  
-  Add a feature to specialization.  
+If $T$ specializes $U$ by adding feature $f$, and $a$ has type $T$, then $a$ also has type $U$.\footnote{As
+formalized, this conclusion ($a \in U$) never mentions $f$ or $V$, so the ``adding feature $f$
+typed $V$'' half of the premise plays no role in deriving it -- \texttt{FEAT} is logically the same
+rule as \texttt{SUBS} (\ref{eq:df-subs}) above, just with an unused extra hypothesis decorating the
+premise. Contrast \texttt{REDEF}/\texttt{REPL} below, whose conclusions genuinely depend on the
+added feature.}
+\begin{restatable}{definition}{FEAT}~\blTitle{FEAT}~
+  Add a feature to specialization.
 \begin{align}
 \inference
 {T~\texttt{:>}~U\{f:V\} ~\wedge~a \in T}
@@ -89,6 +94,21 @@ If $T$ specializes $U$ by adding feature $f$, and $a$ has type $T$, then $a$ als
 {a \in U}
 \label{eq:df-feat}\tag{df-feat}
 \end{align}
+\end{restatable}
+
+\begin{restatable}{leantheorem}{FEATLean}~\leanTitle{FEAT}~ The book's own \texttt{FEAT}
+(\ref{eq:df-feat}), in Lean -- reduces to \texttt{SUBS} (\ref{SUBS}) exactly, with the
+\texttt{OwnedFeatureTypedBy} hypothesis kept (and named \texttt{\_hf}) only to state the book's
+actual compound premise faithfully.
+
+\texttt{\textcolor{leancolor}{theorem} \textcolor{leanyellow}{FEAT} \{T U f V a : Element\} \{Ct Cu : Set Element\}}
+
+\texttt{~~(hT : (DesignKind.type, T, Ct) $\in$ Design) (hU : (DesignKind.type, U, Cu) $\in$ Design)}
+
+\texttt{~~(hspec : Specializes T U) (\_hf : OwnedFeatureTypedBy T f V) (ha : a $\in$ Ct) : a $\in$ Cu :=}
+
+\texttt{~~SUBS hT hU hspec ha}
+\label{FEAT}
 \end{restatable}
 
 \section{Co-variant Feature Redefinition}
