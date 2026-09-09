@@ -31,3 +31,29 @@ connector subsets Occurrences::happensBeforeLinks {
 \vdash \texttt{precedes}(f_1,f_2)~\label{eq:df-succession}\tag{df-succession}
 \end{align}
 \end{restatable}
+
+\pn \texttt{df-succession} is book-original, with no \texttt{SFS.mm} formalization of its own
+(confirmed absent from \texttt{SFS.mm} by grep) -- \texttt{succession} is KerML's own concrete
+syntax, not a domain predicate ported from a real \texttt{.kerml} file's \texttt{@Assert}, so there
+is nothing to port \emph{from}. It does have real Lean backing below.
+
+\begin{restatable}{leandefinition}{successionLean}~\leanTitle{Succession}~ Define succession in Lean,
+directly as \texttt{precedes} -- book-original, not ported from a real \texttt{.kerml} file's
+\texttt{@Assert} like every other \texttt{df-}/\texttt{ax-} in \texttt{SFS.lean}, since
+\texttt{succession} is KerML's own concrete syntax (a connector subsetting
+\texttt{Occurrences::happensBeforeLinks}), not a domain predicate a modeler writes into a
+\texttt{.kerml} file.
+
+\texttt{\textcolor{leancolor}{def} \textcolor{leanyellow}{Succession} (f1 f2 : Occurrence) : Prop := precedes f1 f2}
+\label{Succession}
+\end{restatable}
+
+\begin{restatable}{leantheorem}{dfSuccessionLean}~\leanTitle{df\_succession}~ The book's own
+\ref{eq:df-succession} biconditional, in Lean -- free directly from \texttt{Succession}'s own
+definition.
+
+\texttt{\textcolor{leancolor}{theorem} \textcolor{leanyellow}{df\_succession} (f1 f2 : Occurrence) :}
+
+\texttt{~~Succession f1 f2 $\leftrightarrow$ precedes f1 f2 := Iff.rfl}
+\label{df_succession}
+\end{restatable}
