@@ -590,12 +590,14 @@ lose the \texttt{all} and gain regional semantics.
 	assoc InnerSpaceOf specializes SpaceLink {
 		doc
 		/*
-		 * InnerSpaceOf is an OutsideOf asserting that the space surrounded by an inner space boundary
-		 * of one occurrence (outer space) is completely occupied by another occurrence (inner space).
+		 * InnerSpaceOf is an OutsideOf asserting that the space surrounded by an inner space
+		 * boundary of one occurrence (outer space) is completely occupied by another occurrence
+		 * (inner space).
 		 */
 		@Assert{f="<< Location(innerSpace) = RegionInterior(Location(outerSpace)) >>";}
 		end feature outerSpace: Occurrence redefines sourceOccurrence;
-		end feature innerSpace: Occurrence redefines targetOccurrence crosses outerSpace.innerSpaceOccurrences;
+		end feature innerSpace: Occurrence redefines targetOccurrence 
+		   crosses outerSpace.innerSpaceOccurrences;
 	}
 \end{lstlisting}
 

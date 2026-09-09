@@ -1,4 +1,6 @@
 package 'perform wrong' {
+  private import Tangibility::Physical;
+
   item def MyItem;
 
   action A {
@@ -15,7 +17,7 @@ package 'perform wrong' {
     first a2 then done;
   }
 
-  part P {
+  part P : Physical{
     part p1 {
       perform A.a1;
     }
