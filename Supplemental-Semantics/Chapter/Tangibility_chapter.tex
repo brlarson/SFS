@@ -23,7 +23,7 @@ abstract classifier Virtual :> Occurrence {
   }
 
   var feature delegatedTo[0..1] : Virtual {
-    doc /* may be delegated to another virtual thing, but must everntually be allocated to
+    doc /* may be delegated to another virtual thing, but must eventually be allocated to
      * something physical to exist */
   }
 
@@ -33,7 +33,8 @@ abstract classifier Virtual :> Occurrence {
 
   inv { notEmpty(allocatedTo) != notEmpty(delegatedTo) }
 
-  @Assert{n="Virtual location"; f="<< (notEmpty(allocatedTo) implies Location(self) = Location(allocatedTo)) and"+
+  @Assert{n="Virtual location"; f="<< (notEmpty(allocatedTo) implies "+
+  	" Location(self) = Location(allocatedTo)) and"+
     " (notEmpty(delegatedTo) implies Location(self) = Location(delegatedTo)) >>";}
 }
 \end{lstlisting}
@@ -104,7 +105,7 @@ abstract classifier Etherial :> Physical disjoint from Solid, Fluid {
 \subsection{Allocation and Delegation}\label{subsec:allocdeleg}
 
 \pn \texttt{Allocation} and \texttt{Delegation} are the association forms of
-\texttt{allocatedTo}/\texttt{allocations} and \texttt{delegatedTo}/\texttt{delegations}, cross
+\texttt{allocatedTo}/\texttt{allocations} and \texttt{delegated\-To}/\texttt{delegations}, cross
 subsetting each other the same way (\S\ref{subsec:composite}) as any inverse pair of features.
 
 \ecaption{Allocation and Delegation}
@@ -143,9 +144,11 @@ function Location {
   in o : Occurrence;
   return result : Region;
   if o istype Physical ? (o as Physical).location
-    else if o istype Virtual and notEmpty((o as Virtual).allocatedTo) ? Location((o as Virtual).allocatedTo)
-      else if o istype Virtual and notEmpty((o as Virtual).delegatedTo) ? Location((o as Virtual).delegatedTo)
-          else Regions::noWhere
+    else if o istype Virtual and notEmpty((o as Virtual).allocatedTo) ? 
+      Location((o as Virtual).allocatedTo)
+      else if o istype Virtual and notEmpty((o as Virtual).delegatedTo) ? 
+        Location((o as Virtual).delegatedTo)
+        else Regions::noWhere
 }
 \end{lstlisting}
 
