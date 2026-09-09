@@ -60,7 +60,7 @@ Reconciliation of \texttt{Regions::Surface} with \texttt{structuredSpaceBoundary
 %\end{align}
 %\end{restatable}
 
-\pn Physical objects may only contain other physical objects.  Virtual objects are allocated to physical objects.  By expansivity (\ref{eq:df-pex}), parthood implies regional containment.
+\pn Physical objects may only contain other physical objects.  Virtual objects are allocated to physical objects.  By expansivity (\ref{eq:df-pec}), parthood implies regional containment.
 
 %\begin{lstlisting}
 %		composite feature subobjects: Object[0..*] subsets objects, suboccurrences
@@ -83,7 +83,7 @@ s.\texttt{structuredSpaceBoundary} \ne \emptyclass \rightarrow \notag \\
 
 \pn \texttt{bl.containment} is book-original, with no \texttt{SFS.mm} formalization of its own (confirmed absent
 from \texttt{SFS.mm} by grep) -- it follows from \texttt{structuredSpaceBoundary}'s own \texttt{@Assert} together
-with expansivity (\ref{eq:df-pex}), but is not restated as a Metamath theorem.
+with expansivity (\ref{eq:df-pec}), but is not restated as a Metamath theorem.
 
 \pn Structures are not behaviors, but they may have behaviors.  Any behavior must specialize \texttt{Performances::}\-\texttt{Performance}. 
 Structures may have three kinds of \texttt{Performance},  involving, enacted, and owned.

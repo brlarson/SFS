@@ -670,18 +670,13 @@ field an identity.
 \end{restatable}
 
 \pn Parthood implies regional containment.  This property is called \bemph{expansivity}.
-\begin{restatable}{metadefinition}{df-pex}~\blTitle{df-pex}~ Define expansivity.
+\begin{restatable}{metadefinition}{df-pec}~\blTitle{df-pec}~ Define expansivity.
 \begin{align}
 \vdash \forall x \forall y \forall r_1 \forall r_2 ( ( x \,L \,r_1 \wedge y \,L
     \,r_2 \wedge x \,P \,y ) \rightarrow r_2 \,C \,r_1
-    )\label{eq:df-pex}\tag{df-pex}
+    )\label{eq:df-pec}\tag{df-pec}
 \end{align}
 \end{restatable}
-
-\pn \texttt{df-pex} is book-original under this name -- the closest \texttt{SFS.mm} theorem is \texttt{df-pec},
-but its conclusion currently reads $r_1 \,C \,r_2$ (backwards from the formula above, which matches
-\texttt{Regions.kerml}'s own \texttt{EXPNS} assertion and the now-fixed \texttt{expansivity} Lean field below);
-this is a known, separate \texttt{SFS.mm} discrepancy, not corrected here.
 
 \begin{restatable}{leandefinition}{expansivity}~\leanTitle{expansivity}~ Define expansivity in Lean, tying
 \texttt{PartOf} to \texttt{RegionContainment} via \texttt{Location}. Now a field of
@@ -689,7 +684,7 @@ this is a known, separate \texttt{SFS.mm} discrepancy, not corrected here.
 \texttt{ptr} (transitivity). \textbf{Concludes \texttt{RegionContainment r2 r1}, not \texttt{r1 r2}} ---
 \texttt{Regions.kerml}'s own real \texttt{EXPNS} formula concludes \texttt{RegionContainment(r2,r1)}
 (whole's region contains part's region), a transcription slip discovered while building this model and
-fixed here to match the real source (df-pex above is stated correctly; this Lean field previously had the
+fixed here to match the real source (df-pec above is stated correctly; this Lean field previously had the
 argument order backwards).
 
 \texttt{~~expansivity : $\forall$ \{x y\} \{r1 r2\}, Location x = r1 $\to$ Location y = r2 $\to$}
