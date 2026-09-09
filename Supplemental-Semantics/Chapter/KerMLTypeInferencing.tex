@@ -112,8 +112,14 @@ actual compound premise faithfully.
 \end{restatable}
 
 \section{Co-variant Feature Redefinition}
-If $T$ specializes $U$ by adding feature $f$ typed by $V$, and $W$ specializes $T$ by redefining feature $f$ to be typed by $X$ which specializes $V$, and $a$ has type $W$ then $a$ also has type $T$.
-\begin{restatable}{definition}{REDEF}~\blTitle{REDEF}~   Co-variant feature redefinition.  
+If $T$ specializes $U$ by adding feature $f$ typed by $V$, and $W$ specializes $T$ by redefining feature $f$ to be typed by $X$ which specializes $V$, and $a$ has type $W$ then $a$ also has type $T$.\footnote{As
+formalized, this conclusion ($a \in T$) only needs $W \texttt{:>} T$ and $a \in W$ -- even more of the
+premise is unused here than in \texttt{FEAT} (\ref{eq:df-feat}): $T$'s own relationship to
+$U$/$f$/$V$, $W$'s redefinition of $f$ to $X$, and $X$'s relationship to $V$, are all inert for this
+particular conclusion. \texttt{REDEF} is \texttt{SUBS} (\ref{eq:df-subs}) again, with $W$/$T$ in
+place of $T$/$V$. Contrast \texttt{REPL} below, whose conclusion is parametrized by the
+feature-relabeling operation $T(f \downarrow g)$ and so genuinely depends on the redefinition.}
+\begin{restatable}{definition}{REDEF}~\blTitle{REDEF}~   Co-variant feature redefinition.
 \begin{align}
 \inference
 {T\texttt{:>}U\{f:V\}~\wedge~W\texttt{:>}T\{f:X~\texttt{:>>}~f\}~\wedge~X\texttt{:>}V ~\wedge~a \in W}
@@ -122,6 +128,27 @@ If $T$ specializes $U$ by adding feature $f$ typed by $V$, and $W$ specializes $
 \label{eq:df-redef}\tag{df-redef}
 \end{align}
 \end{restatable}
+
+\begin{restatable}{leantheorem}{REDEFLean}~\leanTitle{REDEF}~ The book's own \texttt{REDEF}
+(\ref{eq:df-redef}), in Lean -- reduces to \texttt{SUBS} (\ref{SUBS}) exactly, with every unused
+hypothesis kept and named only to state the book's actual compound premise faithfully.
+
+\texttt{\textcolor{leancolor}{theorem} \textcolor{leanyellow}{REDEF} \{T U f V W X a : Element\} \{Ct Cu Cw : Set Element\}}
+
+\texttt{~~(hT : (DesignKind.type, T, Ct) $\in$ Design) (\_hU : (DesignKind.type, U, Cu) $\in$ Design)}
+
+\texttt{~~(hW : (DesignKind.type, W, Cw) $\in$ Design)}
+
+\texttt{~~(\_hspecTU : Specializes T U) (\_hfTU : OwnedFeatureTypedBy T f V)}
+
+\texttt{~~(hspecWT : Specializes W T) (\_hfWT : OwnedFeatureTypedBy W f X)}
+
+\texttt{~~(\_hspecXV : Specializes X V) (ha : a $\in$ Cw) : a $\in$ Ct :=}
+
+\texttt{~~SUBS hW hT hspecWT ha}
+\label{REDEF}
+\end{restatable}
+
 Let $T(f \downarrow g)$ be $T$ with feature label $f$ replaced by $g$.
 
 If $T$ specializes $U$ by adding feature $f$ typed by $V$, and $W$ specializes $T$ by redefining feature $f$ to be $g$ typed by $X$ which specializes $V$, and $a$ has type $W$ then $a$ also has type $T$ after replacing label $f$ by label $g$.
@@ -135,6 +162,62 @@ If $T$ specializes $U$ by adding feature $f$ typed by $V$, and $W$ specializes $
 \end{align}
 \end{restatable}
 
+\pn Unlike \texttt{FEAT} and \texttt{REDEF} above, \texttt{REPL} is not a disguised \texttt{SUBS}:
+its conclusion is about $T(f \downarrow g)$, a genuinely different thing from $T$, so formalizing it
+needed two real additions to \texttt{Core.lean}, not just a faithful restatement of an existing
+theorem's premise. \texttt{CoreDesignModel} carries no notion of ``type identity beyond extension'' --
+nothing before now distinguished $T$ from a relabeled variant of $T$ except by literally naming a
+different \texttt{Element} for it.
+
+\begin{restatable}{leandefinition}{relabelLean}~\leanTitle{relabel}~ Define $T(f \downarrow g)$ in
+Lean: a fresh \texttt{Element} naming the relabeled type, built by nesting \texttt{encodePair}
+(\ref{encodePair}) twice rather than a new primitive -- \texttt{encodePair} is already proved
+injective, so this needs no axiom of its own either.
+
+\texttt{\textcolor{leancolor}{def} \textcolor{leanyellow}{relabel} (T f g : Element) : Element :=}
+
+\texttt{~~encodePair (encodePair T f) g}
+\label{relabel}
+\end{restatable}
+
+\begin{restatable}{leandefinition}{dfRelabelLean}~\leanTitle{df\_relabel}~ \texttt{relabel}'s
+semantic content, as a new field of \texttt{CoreDesignModel} (\ref{CoreDesignModel}) -- a genuine new
+modeling commitment, same status as \texttt{TRANS} (\ref{TRANS}): purely renaming a feature label
+doesn't change which elements are instances of a type, so $T(f \downarrow g)$ shares $T$'s own
+extension.
+
+\texttt{~~df\_relabel : $\forall$ \{T f g : Element\} \{Ct : Set Element\},}
+
+\texttt{~~~~(DesignKind.type, T, Ct) $\in$ Design $\to$ (DesignKind.type, relabel T f g, Ct) $\in$ Design}
+\label{df_relabel}
+\end{restatable}
+
+\begin{restatable}{leantheorem}{REPLLean}~\leanTitle{REPL}~ The book's own \texttt{REPL}
+(\ref{eq:df-repl}), in Lean. Same setup as \texttt{REDEF} (\ref{REDEF}), except \texttt{W}'s own
+feature is labeled \texttt{g}, not \texttt{f}. Because \texttt{Design} is a general relation, not
+asserted functional (an \texttt{Element} could in principle have more than one associated
+extension), the conclusion cannot simply claim $T(f \downarrow g)$'s extension \emph{equals}
+\texttt{Ct} -- instead it pairs the same \texttt{a $\in$ Ct} fact \texttt{REDEF} proves with
+\texttt{df\_relabel}'s own witness that \texttt{Ct} genuinely is one of \texttt{relabel T f g}'s
+extensions.
+
+\texttt{\textcolor{leancolor}{theorem} \textcolor{leanyellow}{REPL} \{T U f V W X g a : Element\} \{Ct Cu Cw : Set Element\}}
+
+\texttt{~~(hT : (DesignKind.type, T, Ct) $\in$ Design) (\_hU : (DesignKind.type, U, Cu) $\in$ Design)}
+
+\texttt{~~(hW : (DesignKind.type, W, Cw) $\in$ Design)}
+
+\texttt{~~(\_hspecTU : Specializes T U) (\_hfTU : OwnedFeatureTypedBy T f V)}
+
+\texttt{~~(hspecWT : Specializes W T) (\_hfWT : OwnedFeatureTypedBy W g X)}
+
+\texttt{~~(\_hspecXV : Specializes X V) (ha : a $\in$ Cw) :}
+
+\texttt{~~a $\in$ Ct $\wedge$ (DesignKind.type, relabel T f g, Ct) $\in$ Design :=}
+
+\texttt{~~$\langle$SUBS hW hT hspecWT ha, df\_relabel hT$\rangle$}
+\label{REPL}
+\end{restatable}
 
 \section{Multiple Inheritance}
 If $T$ specializes both $U$ and $V$, and $a$ has type $T$, then $a$ also has type $U$ and type $V$.
