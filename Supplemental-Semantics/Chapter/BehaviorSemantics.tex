@@ -2,7 +2,7 @@
 
 \ksec{Behaviors (KerML 8.4.4.7.1)}
 
-\texttt{Behaviors}\index{behavior} are \texttt{Classes} which implicitly specialize \texttt{Performances::Performance} which is an \texttt{Occur\-rence} disjoint from \texttt{Object}.  Because structures specialize \texttt{Object}, behaviors and structures must be disjoint.  A behavior exists in time because it is an \texttt{Occur\-rence}.  
+\texttt{Behaviors}\index{behavior} are \texttt{Classes} which implicitly specialize \texttt{Performances::Performance} which is an \texttt{Occur\-rence} and \texttt{Virtual} (\S\ref{subsec:virtual}), disjoint from \texttt{Object}.  Because structures specialize \texttt{Object}, behaviors and structures must be disjoint.  A behavior exists in time because it is an \texttt{Occur\-rence}; it has no physical existence of its own because it is \texttt{Virtual}.
 
 Behaviors may have parameters\index{parameter} which are features having direction \texttt{in}\index{in}, \texttt{out}\index{out}, or \texttt{inout}\index{inout}.  Curiously, there is no definition as to the meaning of directed features other than input, output, or both (see \S\ref{sec:variables}).
 
@@ -61,7 +61,7 @@ behavior TakePicture {
 \end{lstlisting}
 
 \pn By \S\ref{par:cnp}, composite steps \texttt{focus} and \texttt{shoot} occur during \texttt{TakePicture}:\\
-\texttt{during(focus,TakePicture)}~~\texttt{during(shoot,TakePictrue)}\\
+\texttt{during(focus,TakePicture)}~~\texttt{during(shoot,TakePicture)}\\
 By \ref{eq:df-succession} and \texttt{succession focus then shoot}:\\
 \texttt{precedes(focus,shoot)}\\
 By \ref{eq:df-bind} input and output parameters are forced to be identical.  There does not seem to be direction restrictions for parameter binding.\\
@@ -88,23 +88,31 @@ behavior TakePicture {
 }
 \end{lstlisting}
 
-\pn \texttt{Performance} has both \texttt{enclosedPerformances} and \texttt{subperformances} which is \texttt{composite}.  They seem redundant because time-enclosed performances have lifetimes within their parent performance, which is the same meaning as ``composite".
+\pn \texttt{Performance} has both \texttt{enclosedPerformances} and \texttt{subperformances}.  They no
+longer seem redundant: \texttt{enclosedPerformances} is the general ``during'' relation, and
+\texttt{subperformances} is its \texttt{composite}, \texttt{PartOf}-adding subset --
+\texttt{enclosedPerformances} \texttt{subsets} \texttt{subperformances}, not the other way around.
 
 \ecaption{enclosedPerformances}
 \begin{lstlisting}
-		step enclosedPerformances: Performance[0..*] subsets performances, timeEnclosedOccurrences
-			intersects performances, timeEnclosedOccurrences {
+		step enclosedPerformances: Performance[0..*] subsets subperformances {
 			doc
 			/*
 			 * timeEnclosedOccurrences of this Performance that are also Performances.
 			 */
+			@Assert{f="<< forall ep~Performance in enclosedPerformances are during(ep,thisPerformance) >>";}
 		}
 \end{lstlisting}
 
 \ecaption{subperformances}
 \begin{lstlisting}
-composite step subperformances: Performance[0..*] subsets enclosedPerformances, suboccurrences
-	intersects enclosedPerformances, suboccurrences {
+composite step subperformances: Performance[0..*] subsets suboccurrences {
+	doc
+	/*
+	 * enclosedPerformances that are composite.
+	 */
+	@Assert{f="<< forall sp~Occurrence in subperformances are during(sp,self) and PartOf(sp,self) >>";}
+
   feature redefines this default (that as Performance).this {
     doc
 		/*
@@ -115,9 +123,8 @@ composite step subperformances: Performance[0..*] subsets enclosedPerformances, 
 		 */
 	}
 	feature redefines thisPerformance default (that as Performance).thisPerformance;
-}		
+}
 \end{lstlisting}
-\comment{What?}
 
 \pn A \texttt{Step} whose \texttt{owningType} is a \texttt{Behavior} or another \texttt{Step} must directly or indirectly subset
  \texttt{Performan\-ces::Performance::enclosedPerformances}.
