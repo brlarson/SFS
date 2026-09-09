@@ -391,7 +391,7 @@ simultaneously (the multi-typing a real KerML redefinition merge produces), prov
 \end{restatable}
 
 \section{Multiple Inheritance with Feature Multiplicity}
-Let $m_u$ and $m_v$ be feature multiplicities which may be a single natural number or a range of natural numbers with 
+Let $m_u$ and $m_v$ be feature multiplicities which may be a single natural number or a range of natural numbers with
 $m_u\cap m_v$ being those multiplicities in common to both.
 
 If $T$ specializes both $U_1$ and $V_1$, \\
@@ -400,7 +400,7 @@ $V_1$ specializes $V_2$ by adding feature $f$ typed by $V_3$ with multiplicity $
 then $T$ specializes both $U_2$ and $V_2$, while adding feature $f$ with multiplicity being the intersection of the respective multiplicities $m_u$ and $m_v$, which is typed by both $U_3$ and $V_3$.
 
 \begin{restatable}{definition}{MULTM}~\blTitle{MULTM}~
-Multiple specialization with same-label features having multiplicities.  
+Multiple specialization with same-label features having multiplicities.
 \begin{align}
 \inference
 {T\texttt{:>}U_1 , V_1~\wedge~U_1\texttt{:>}U_2\{f[m_u]:U_3\}~\wedge~V_1\texttt{:>}V_2\{f[m_v]:V_3\}}
@@ -411,6 +411,65 @@ Multiple specialization with same-label features having multiplicities.
 \end{restatable}
 
 Note: if the multiplicities in common between $m_u$ and $m_v$, $m_u\cap m_v$ is empty, the result must be a type error--not multiplicity [0].
+
+\pn Formalized narrower than $m_u$/$m_v$'s fully general ``single number or range'' phrasing: in Lean,
+multiplicity is always a range -- an exact multiplicity $k$ is the degenerate range $[k,k]$, so this
+loses no generality \texttt{CoreDesignModel} already has. Unlike \texttt{MULTS} above, merging two
+ranges is a genuine new commitment, not derivable from \texttt{df\_feature\_inherit} (which only
+propagates one fact, unchanged, down a single path):
+
+\begin{restatable}{leandefinition}{dfFeatureInheritRangeMergeLean}~\leanTitle{df\_feature\_inherit\_range\_merge}~
+A new field of \texttt{CoreDesignModel} (\ref{CoreDesignModel}), same status as \texttt{TRANS}/
+\texttt{df\_relabel}/\texttt{df\_feature\_inherit}: when the same feature label is inherited from two
+different ancestors, each with a range multiplicity, the two ranges intersect. \texttt{max l1 l2}
+$\le$ \texttt{min u1 u2} (the intersection is nonempty) is a hypothesis, not something the rule
+derives -- matching the book's own note above that an empty intersection must be a type error, not
+multiplicity \texttt{[0]}.
+
+\texttt{~~df\_feature\_inherit\_range\_merge : $\forall$ \{Z W1 W2 f X1 X2 : Element\} \{l1 u1 l2 u2 : $\mathbb{N}$\},}
+
+\texttt{~~~~Specializes Z W1 $\to$ OwnedFeatureTypedByRange W1 f X1 l1 u1 $\to$}
+
+\texttt{~~~~Specializes Z W2 $\to$ OwnedFeatureTypedByRange W2 f X2 l2 u2 $\to$}
+
+\texttt{~~~~max l1 l2 $\le$ min u1 u2 $\to$}
+
+\texttt{~~~~OwnedFeatureTypedByRange Z f X1 (max l1 l2) (min u1 u2) $\wedge$}
+
+\texttt{~~~~OwnedFeatureTypedByRange Z f X2 (max l1 l2) (min u1 u2)}
+\label{df_feature_inherit_range_merge}
+\end{restatable}
+
+\begin{restatable}{leantheorem}{MULTMLean}~\leanTitle{MULTM}~ The book's own \texttt{MULTM}
+(\ref{eq:df-multm}), in Lean -- same setup as \texttt{MULTS} (\ref{MULTS}), except the inherited
+feature's multiplicity is a range on both branches, and the conclusion's multiplicity is their
+intersection.
+
+\texttt{\textcolor{leancolor}{theorem} \textcolor{leanyellow}{MULTM} \{T U1 U2 U3 V1 V2 V3 f : Element\} \{lu uu lv uv : $\mathbb{N}$\}}
+
+\texttt{~~(hspecTU1 : Specializes T U1) (hspecU1U2 : Specializes U1 U2)}
+
+\texttt{~~(hfU1 : OwnedFeatureTypedByRange U1 f U3 lu uu)}
+
+\texttt{~~(hspecTV1 : Specializes T V1) (hspecV1V2 : Specializes V1 V2)}
+
+\texttt{~~(hfV1 : OwnedFeatureTypedByRange V1 f V3 lv uv)}
+
+\texttt{~~(hoverlap : max lu lv $\le$ min uu uv) :}
+
+\texttt{~~Specializes T U2 $\wedge$ Specializes T V2 $\wedge$}
+
+\texttt{~~~~OwnedFeatureTypedByRange T f U3 (max lu lv) (min uu uv) $\wedge$}
+
+\texttt{~~~~OwnedFeatureTypedByRange T f V3 (max lu lv) (min uu uv) :=}
+
+\texttt{~~$\langle$TRANS hspecTU1 hspecU1U2, TRANS hspecTV1 hspecV1V2,}
+
+\texttt{~~~~(df\_feature\_inherit\_range\_merge hspecTU1 hfU1 hspecTV1 hfV1 hoverlap).1,}
+
+\texttt{~~~~(df\_feature\_inherit\_range\_merge hspecTU1 hfU1 hspecTV1 hfV1 hoverlap).2$\rangle$}
+\label{MULTM}
+\end{restatable}
 
 \section{Contravariant Expression Specialization}\label{sec:contra}
 
@@ -425,6 +484,36 @@ Let $I \rightarrow R$ represent an expression with input $I$ returning result $R
 \label{eq:df-contra}\tag{df-contra}
 \end{align}
 \end{restatable}
+
+\pn \texttt{CONTRA} is the only rule in this chapter about a relationship \emph{between two
+function/expression types themselves}, rather than instance membership -- \texttt{CoreDesignModel}
+has no notion of function types at all otherwise, so formalizing it needed genuinely new
+machinery, the same kind of addition as \texttt{TRANS} (\ref{TRANS}).
+
+\begin{restatable}{leandefinition}{arrowLean}~\leanTitle{arrow}~ Define $I \rightarrow R$ in Lean: a
+fresh \texttt{Element} naming the arrow type, built from \texttt{encodePair} (\ref{encodePair})
+rather than a new primitive, same treatment as \texttt{relabel} (\ref{relabel}). Its semantic
+content (contravariant specialization) is \texttt{CONTRA} itself, not this \texttt{def}, which is
+pure naming.
+
+\texttt{\textcolor{leancolor}{def} \textcolor{leanyellow}{arrow} (I R : Element) : Element :=}
+
+\texttt{~~encodePair I R}
+\label{arrow}
+\end{restatable}
+
+\begin{restatable}{leandefinition}{CONTRALean}~\leanTitle{CONTRA}~ A new field of
+\texttt{CoreDesignModel} (\ref{CoreDesignModel}), same status as \texttt{TRANS}: specialization of
+arrow types is contravariant in the input, covariant in the result. Nothing about plain
+\texttt{Specializes} on the components could ever derive a fact about \texttt{Specializes} on the
+constructed \texttt{arrow} types without a field like this one.
+
+\texttt{~~CONTRA : $\forall$ \{S1 T1 T2 S2 : Element\},}
+
+\texttt{~~~~Specializes S1 T1 $\to$ Specializes T2 S2 $\to$ Specializes (arrow T1 T2) (arrow S1 S2)}
+\label{CONTRA}
+\end{restatable}
+
 $T_1 \rightarrow T_2$ can be used in place of $S_1 \rightarrow S_2$ because: \\
 $T_1$ is \emph{bigger} than $S_1$ (any input value in $S_1$ will also be in $T_1$), and \\
 $T_2$ is \emph{smaller} than $S_2$ (any output value in $T_2$ will also be in $S_2$).
