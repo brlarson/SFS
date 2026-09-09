@@ -283,5 +283,29 @@ w_b=W(``binding")~ \wedge
 \end{restatable}
 
 \pn \texttt{df-bind} is book-original, with no \texttt{SFS.mm} formalization of its own (confirmed
-absent from \texttt{SFS.mm} by grep).
+absent from \texttt{SFS.mm} by grep) -- \texttt{binding} is KerML's own concrete syntax, not a
+domain predicate ported from a real \texttt{.kerml} file's \texttt{@Assert}, so there is nothing to
+port \emph{from}. It does have real Lean backing below.
+
+\begin{restatable}{leandefinition}{bindLean}~\leanTitle{Binding}~ Define binding connector in Lean.
+Its real semantic content is exactly \texttt{Links::SelfLink}'s own
+\texttt{@Assert\{f="<< thisThing = sameThing >>";\}}: declares identity, not mere equality --
+``the same thing, not equal things.'' Lean's \texttt{Eq} already \emph{is} identity of terms
+(Leibniz equality), so \texttt{Binding} needs no extra apparatus beyond it. Polymorphic, matching
+\texttt{SelfLink}'s \texttt{Anything}-typed \texttt{thisThing}/\texttt{sameThing}.
+
+\texttt{\textcolor{leancolor}{def} \textcolor{leanyellow}{Binding} \{$\alpha$ : Sort*\} (f1 f2 : $\alpha$) : Prop := f1 = f2}
+\label{Binding}
+\end{restatable}
+
+\begin{restatable}{leantheorem}{dfBindLean}~\leanTitle{df\_bind}~ The book's own \ref{eq:df-bind}
+biconditional, in Lean -- free directly from \texttt{Binding}'s own definition, and, since
+\texttt{Binding} literally is \texttt{Eq}, definitionally the same fact as \texttt{Links::SelfLink}'s
+own real \texttt{@Assert} too. Needs no axioms at all.
+
+\texttt{\textcolor{leancolor}{theorem} \textcolor{leanyellow}{df\_bind} \{$\alpha$ : Sort*\} (f1 f2 : $\alpha$) :}
+
+\texttt{~~Binding f1 f2 $\leftrightarrow$ f1 = f2 := Iff.rfl}
+\label{df_bind}
+\end{restatable}
 
