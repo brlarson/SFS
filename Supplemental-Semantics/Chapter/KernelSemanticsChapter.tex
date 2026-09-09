@@ -1655,17 +1655,16 @@ Formal definitions of numeric and boolean values in the \texttt{ScalarValues} li
 \end{description}
 For \texttt{String}, $\mathbb{S}$,\index{ string@$\mathbb{S}$ string} use the definition of \texttt{STRING\_VALUE}  in KerML 8.2.2.5.
 
-For \texttt{Time}, $\mathbb{T}$,\index{ time@$\mathbb{T}$ time} specializes \texttt{Real} to be used as the value of time instants is added to $SV$.
-
-\begin{lstlisting}
-datatype Time specializes Real;
-\end{lstlisting}
+\texttt{Time} is deliberately \emph{not} added to $SV$ as a bare \texttt{Real}-specializing \texttt{datatype}
+--- \texttt{Domain::Instant} instead specializes \texttt{ISQSpaceTime::TimeValue} (an ISQ physical quantity,
+not a \texttt{ScalarValues} scalar), so that a time instant carries a unit and dimension rather than being an
+unadorned real number. See \S\ref{sec:fortime}.
 
 %When we say \texttt{at something} that something must be in $\mathbb{T}$.
 
-\begin{restatable}{definition}{scalarvalues}~\blTitle{df-scalarvalues}~ Define \texttt{ScalarValues}.  
+\begin{restatable}{definition}{scalarvalues}~\blTitle{df-scalarvalues}~ Define \texttt{ScalarValues}.
 \begin{align}
-\vdash SV = \mathbb{N} \cup \mathbb{N}_0 \cup \mathbb{Z} \cup \mathbb{Q} \cup \mathbb{R} \cup \mathbb{C} \cup \mathbb{B} \cup \mathbb{S} \cup \mathbb{T} \label{eq:df-scalarvalues}\tag{df-scalarvalues}
+\vdash SV = \mathbb{N} \cup \mathbb{N}_0 \cup \mathbb{Z} \cup \mathbb{Q} \cup \mathbb{R} \cup \mathbb{C} \cup \mathbb{B} \cup \mathbb{S} \label{eq:df-scalarvalues}\tag{df-scalarvalues}
 \end{align}
 \end{restatable}
 
@@ -1673,8 +1672,12 @@ datatype Time specializes Real;
 
 \subsection{VectorValues $VV$:}\label{sec:vectorvalues}
 
-The \texttt{VectorValues} library provides several handy types in 1, 2, or 3 dimensions by specializing \texttt{Collections\-::Array} and redefining features \texttt{elements} and 
-\texttt{dimension}.
+The \texttt{VectorValues} library provides \texttt{VectorValue} (abstract), \texttt{NumericalVectorValue}
+(\texttt{:>} \texttt{VectorValue}, \texttt{Collections::Array}, redefining features \texttt{elements} and
+\texttt{dimension}, dimension left open --- \texttt{[0..1]}, empty by default, collapsing to a rank-0 scalar),
+\texttt{CartesianVectorValue} (\texttt{:>} \texttt{NumericalVectorValue}, elements restricted to \texttt{Real}), and
+\texttt{ThreeVectorValue}/\texttt{CartesianThreeVectorValue}, which fix \texttt{dimension} at exactly 3. Only
+dimension 3 is named concretely this way; 1 and 2 are not yet given their own specializations.
 
 \subsection{Collections $C$:}\label{sec:collections}
 
@@ -1697,5 +1700,5 @@ All of which can and should be formally defined.
 
 \textbf{\color{red}{However, all \texttt{Collections} are unrestricted to element type.  There must be a constraint \texttt{checkDataTypeElement} to make sure that any elements used are themselves in $DT$.}}
 
-\pn \textbf{checkDataTypeElement:}~~ The \texttt{element} of a \texttt{Collection} must specialize \texttt{DataValue}.\\
-\texttt{element->specializesFromLibrary('Base::DataValue')}
+\pn \textbf{checkDataTypeElement:}~~ The \texttt{elements} of a \texttt{Collection} must specialize \texttt{DataValue}.\\
+\texttt{elements->specializesFromLibrary('Base::DataValue')}
