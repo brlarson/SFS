@@ -16,12 +16,11 @@
 \ecaption{metaclass Expression}
 \begin{lstlisting}
   metaclass Expression specializes Feature {
-  	derived var feature 'function' : Function[0..1] subsets 'type';
-  	derived var feature result : Feature[1..1] subsets output;
-  }		
+  	derived var feature parameter : Feature[0..*] subsets input;
+  	derived var feature 'function' : Function[0..1];
+  	derived var feature result : Feature[1..1] subsets output, parameter;
+  }
 \end{lstlisting}
-
-\pn Because  \texttt{Expression} is now a \texttt{Feature} rather than a \texttt{Step},
 
  \pn Expressions (and Functions and Predicates) are \emph{pure}.
  Expressions have no side effects.\footnote{to have formal semantics}
