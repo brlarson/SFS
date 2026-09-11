@@ -91,15 +91,87 @@ In this example, nothing changes over time, so the interpretation is the same fo
 Creating a model $\mathfrak{M}$ means creating an interpretation, $\mathbf{I}\lsem E,\tau\rsem$, for the selected element of the design $E\in D$, for all $\tau\in\mathbf{T}$.
 Fortunately, we can model a discrete, finite, set of instants where something changes, and assume that the interpretation stays the same until the next instant where something changes.
 
-Suppose there are $k$ instants between $0$ and $\mathsf{\mc{now}}$ at which something changes.  Let the set of change instants be $X_\tau$:
+Suppose there are $k$ instants between $0$ and $\mathsf{\mc{now}}$ at which something changes.  Let the set of change instants be $X_\tau$.
+
+\pn Not every design element has a value that can meaningfully change over time.  A plain classifier
+like \texttt{Vehicle} (\ref{eq:vehicle}) denotes a ZFC-class; $\mathbf{I}\lsem\texttt{Vehicle},\tau\rsem$
+\emph{selects} a member of that class, it doesn't return a value that itself varies.  By \ref{eq:df-rep},
+$k(\texttt{Vehicle})=\textbf{classifier}$, while a \textbf{feature}'s interpretation is exactly the kind
+of time-varying value change/no-change reasoning needs.  Let $\mathit{TVal}\subseteq D$ be the subset of
+the design whose kind is \textbf{feature}:
+
+\begin{restatable}{definition}{dftval}~\blTitle{df-tval}~ Define the subset of the design with a time-varying value.
+\begin{gather}
+\mathit{TVal}~=~\{~d\in D~\vert~\exists id,C~(~d~=~\langle~\textbf{feature},id,C~\rangle~)~\}
+\label{eq:df-tval}\tag{df-tval}
+\end{gather}
+\end{restatable}
+
+\pn \texttt{df-tval} is book-original, with no \texttt{SFS.mm} formalization of its own -- it names, at
+the book level, exactly the domain \texttt{SFS.lean}'s \texttt{TVal~$\alpha$}
+(\texttt{:=~Time~$\to$~$\alpha$}) already covers: a value that is literally a function of time, as
+opposed to a classifier's class-membership selection.
 
 \begin{restatable}{definition}{dfchange}~\blTitle{df-change}~ Define set of time instants at which something changes.
 \begin{gather}
-(~X_\tau~=~\{~0,\tau_1,\tau_2,\ldots,\tau_k,\mathsf{\mc{now}}~\}~\wedge~X_\tau~\subset~\mathbf{T}~\wedge \notag \\
-~\forall \tau \in \mathbf{T}~\vert~((\exists d \in D~\vert~\texttt{changed}(d,\tau)~=~\tau)~\leftrightarrow~\tau \in X_\tau )~\wedge \notag \\
-~\forall i,j\in(1[,]k)~\vert~(~i<j~\rightarrow \tau_i\prec\tau_j~)~\wedge %\notag \\
-0\prec\tau_1~\wedge~\tau_k\prec\mathsf{\mc{now}}~) \label{eq:df-change}\tag{df-change}
+(~X_\tau~=~\{~\tau_1,\tau_2,\ldots,\tau_k~\}~\wedge~X_\tau~\subset~\mathbf{T}~\wedge \notag \\
+~\forall \tau \in \mathbf{T}~\vert~((\exists d \in \mathit{TVal}~\exists \tau_i\prec\tau~\vert~ \notag \\
+~~~(\forall \tau'~\vert~\tau_i\prec\tau'\prec\tau~\rightarrow~\mathbf{I}\lsem d,\tau'\rsem=\mathbf{I}\lsem d,\tau_i\rsem)~\wedge~\mathbf{I}\lsem d,\tau_i\rsem\neq\mathbf{I}\lsem d,\tau\rsem)~\leftrightarrow~\tau \in X_\tau )~\wedge \notag \\
+~\forall i,j\in(1[,]k)~\vert~(~i<j~\rightarrow \tau_i\prec\tau_j~)~) \label{eq:df-change}\tag{df-change}
 \end{gather}
+\end{restatable}
+
+\pn \texttt{df-change} is stated directly in terms of $\mathbf{I}\lsem d,\tau\rsem$ rather than the
+\texttt{changed} predicate used elsewhere in \texttt{SFS.mm} and \texttt{SFS.lean}: that \texttt{changed}
+(\texttt{SFS.mm} \texttt{cchanged} and \texttt{df-bl.changed}; \texttt{SFS.lean}'s
+\texttt{changed~:~}\texttt{Oc\-currence~$\to$~Time~$\to$~Time}) is domain-restricted to \texttt{Occurrence}, while
+$\mathit{TVal}$ (\ref{eq:df-tval}) plays the same domain-restricting role in general, matching
+\texttt{SFS.lean}'s own \texttt{TVal~$\alpha$} rather than one specific to \texttt{Occurrence}. $X_\tau$
+no longer forces $0$ or $\mathsf{now}$ to be members: $0\prec\tau_1$ is automatic (the
+$\exists\tau_i\prec\tau$ hypothesis can never be satisfied at $\tau=0$, since nothing in $\mathbf{T}$
+precedes it), and $\tau_k$ may legitimately equal $\mathsf{now}$ if something changes at the last
+observed instant -- both were artificial exclusions of the earlier boundary-forcing form. $\tau$ is a
+change instant exactly when some $d\in\mathit{TVal}$ held a constant interpretation on an interval right
+up to $\tau$ (from some earlier point $\tau_i$) and that constant value differs from
+$\mathbf{I}\lsem d,\tau\rsem$ itself -- matching \texttt{df-nochange}'s own constant-on-an-interval
+vocabulary below, without presupposing $X_\tau$'s own enumeration. 
+
+\pn Stated this way, a \texttt{Lean}
+counterpart of \texttt{df-change} can be \emph{proved}, not just asserted, from \texttt{SFS.lean}'s
+\texttt{finitePartition} axiom: its contrapositive (no shared tick in $(t_1,t_2]$ implies equal
+interpretation at $t_1,t_2$) is exactly what forces every $\tau$ satisfying this jump condition to be one
+of \texttt{finitePartition}'s own shared \texttt{breaks}, giving $X_\tau\subseteq\{\texttt{breaks}(i)\}$
+-- hence finite -- as a theorem, rather than assuming finiteness by writing $X_\tau$ as a literal finite
+set. (The converse doesn't hold -- not every shared tick need be an actual change -- which is exactly why
+$X_\tau$ must be \emph{defined} by the jump condition, as above, rather than \emph{as} the break set
+itself.)
+
+\begin{restatable}{leandefinition}{ChangeSetLean}~\leanTitle{changeSet}~ \texttt{df-change}'s $X_\tau$,
+restated for a single $d$ over the concrete shared ticks (\texttt{ticks}, extracted from
+\texttt{finitePartition} via \texttt{Classical.choose}) rather than an open existential over
+\texttt{Time}: a genuine change can only ever be \emph{at} a tick (\texttt{ticks\_bucket}), never
+strictly between two of them, so restricting to ticks loses no generality.
+
+\texttt{\textcolor{leancolor}{def} \textcolor{leanyellow}{changeSet} \{$\alpha$ : Type\} (d : TVal $\alpha$) : Set Time :=}
+
+\texttt{~~\{$\tau$ : Time $\vert$ $\exists$ i : Fin (tickCount + 1), ticks i = $\tau$ $\wedge$}
+
+\texttt{~~~~$\exists$ h : 0 < (i : $\mathbb{N}$), interpValAt d (ticks i) $\neq$}
+
+\texttt{~~~~~~interpValAt d (ticks $\langle$(i : $\mathbb{N}$) - 1, by omega$\rangle$)\}}
+\label{changeSet}
+\end{restatable}
+
+\begin{restatable}{leantheorem}{ChangeSetFiniteLean}~\leanTitle{changeSet\_finite}~ \texttt{df-change}'s
+finiteness claim, proved rather than assumed: \texttt{changeSet d} is, by construction
+(\texttt{changeSet\_subset\_ticks}), a subset of \texttt{Set.range ticks} -- finite because
+\texttt{Fin (tickCount+1)} is. \texttt{finitePartition} does the real work one level down, inside
+\texttt{ticks} itself (extracted from it via \texttt{Classical.choose}), not in this proof directly.
+
+\texttt{\textcolor{leancolor}{theorem} \textcolor{leanyellow}{changeSet\_finite} \{$\alpha$ : Type\} (d : TVal $\alpha$) : (changeSet d).Finite :=}
+
+\texttt{~~(Set.finite\_range ticks).subset (changeSet\_subset\_ticks d)}
+\label{changeSet_finite}
 \end{restatable}
 
 When making $\mathbf{I}\lsem E,\tau\rsem$ the number of instants needed may not be known.  Furthermore, in may be necessary to introduce instants between others.
@@ -108,14 +180,36 @@ Therefore, instants will be named $\tau_a,\tau_b,\ldots$.  If an instant is need
 Between instants where something changes, it stays the same.  Let $X_\tau$ be the set of time instants at which something changes.
 \begin{restatable}{definition}{dfnochange}~\blTitle{df-nochange}~ Interpretation stay the same between changes.
 \begin{gather}
-X_\tau~=~\{~0,\tau_1,\tau_2,\ldots,\tau_k,\mathsf{\mc{now}}~\}~\wedge \notag \\
-\forall d\in D~\vert~(~\forall \tau\in (0(,) \tau_1)~\vert~\mathbf{I}\lsem d,\tau\rsem=\mathbf{I}\lsem d,0 \rsem ~\wedge \notag \\
+X_\tau~=~\{~\tau_1,\tau_2,\ldots,\tau_k~\}~\wedge \notag \\
+\forall d\in \mathit{TVal}~\vert~(~\forall \tau\in (0(,) \tau_1)~\vert~\mathbf{I}\lsem d,\tau\rsem=\mathbf{I}\lsem d,0 \rsem ~\wedge \notag \\
 ~~~\forall \tau\in (\tau_k(,) \mathsf{\mc{now}})~\vert~\mathbf{I}\lsem d,\tau\rsem=\mathbf{I}\lsem d,\tau_k \rsem ~\wedge \notag \\
 ~~~\forall i\in(1[,]k\minus 1)~\vert~\forall \tau\in (\tau_i(,) \tau_{i+1})~\vert~\mathbf{I}\lsem d,\tau\rsem=\mathbf{I}\lsem d,\tau_i \rsem )\label{eq:df-nochange}\tag{df-nochange}
 \end{gather}
 \end{restatable}
 
-Therefore, if $\mathbf{I}\lsem d,\tau\rsem$ is defined for all $d\in D$ and all $\tau\in X_\tau$, by \ref{eq:df-nochange} it is defined for all $\tau\in\mathbf{T}$.
+\begin{restatable}{leantheorem}{ChangeSetConstantLean}~\leanTitle{changeSet\_constant}~ \texttt{df-nochange}:
+if no element of \texttt{changeSet d} falls in $(t_1,t_2]$, $d$'s value is the same at $t_1$ and $t_2$ --
+sharper than \texttt{SFS.lean}'s own \texttt{ticks\_constant} (which needs no tick at all in range, not
+just no \emph{changing} tick: a "wasted" tick with no real jump is allowed inside). Proved by chaining,
+tick index by tick index, from $t_1$'s largest-tick-below anchor up to $t_2$'s: at each step, the next
+tick isn't a change (excluded by \texttt{hno}), so its value matches the one before it
+(\texttt{changeSet\_step}, the contrapositive of \texttt{changeSet\_iff}). Uses
+\texttt{finitePartition} both indirectly (anchoring $t_1$/$t_2$ to their nearest ticks) and directly (via
+\texttt{changeSet}'s own dependence on \texttt{ticks}) -- confirmed via \texttt{\#print axioms}: no axiom
+beyond the project's established baseline (\texttt{propext}, \texttt{Classical.choice},
+\texttt{Quot.sound}, \texttt{finitePartition}).
+
+\texttt{\textcolor{leancolor}{theorem} \textcolor{leanyellow}{changeSet\_constant} \{$\alpha$ : Type\} (d : TVal $\alpha$) \{t1 t2 : Time\}}
+
+\texttt{~~(h : t1.val $\preceq$ t2.val)}
+
+\texttt{~~(hno : $\lnot$ $\exists$ $\tau$ $\in$ changeSet d, $\tau$.val $\in$ Set.Ioc t1.val t2.val) :}
+
+\texttt{~~interpValAt d t1 = interpValAt d t2 := by $\ldots$}
+\label{changeSet_constant}
+\end{restatable}
+
+Therefore, if $\mathbf{I}\lsem d,\tau\rsem$ is defined for all $d\in \mathit{TVal}$ and all $\tau\in X_\tau$, by \ref{eq:df-nochange} it is defined for all $\tau\in\mathbf{T}$.
 
 \comment{Do I really need to state this as a theorem and prove it?}
 
@@ -236,7 +330,7 @@ The instantiation procedure starts with:
 \texttt{Wheel} and \texttt{BikeFork} have default membership in $V_C$:
 \begin{gather}
 \langle~\textbf{classifier},\texttt{"Wheel"},\{x~\vert ~(~ x \in \texttt{Wheel} \wedge \texttt{Wheel}\in V_C~)~\}~\rangle \notag \\
-\langle~\textbf{classifier},\texttt{"BikeFork"},\{x~\vert ~(~ x \in \texttt{BikeFork} \wedge \texttt{Wheel}\in V_C~)~\}~\rangle
+\langle~\textbf{classifier},\texttt{"BikeFork"},\{x~\vert ~(~ x \in \texttt{BikeFork} \wedge \texttt{BikeFork}\in V_C~)~\}~\rangle
 \label{eq:wheel}
 \end{gather}
 
