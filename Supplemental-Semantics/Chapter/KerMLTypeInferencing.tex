@@ -14,6 +14,22 @@ Let $f$, $g$, and $h$ be feature labels.
 
 Let $a$ be an element of type.
 
+The rules below rely on two distinct relationships between types: \emph{specializes} (KerML's
+ordinary \texttt{:>}, meaning $T$'s instances are a subset of $U$'s instances) and a second, weaker
+relationship used starting with the co-variant feature redefinition rule below, \emph{matches}. $W$
+\emph{matches} $T$ when $W$'s
+declaration reuses $T$'s owned features, possibly redefining one or more of them -- a purely
+structural fact about the declaration, not by itself a guarantee that $W$'s instances are a subset of
+$T$'s. Matching licenses feature redefinition; specialization between a redefining type and what it
+redefines is only available once the redefinition's variance is actually checked. This split follows
+Abadi and Cardelli's \emph{A Theory of Objects}\cite{theory-of-objects}, which distinguishes \emph{subtyping} from
+\emph{matching} for exactly this reason: treating matching as if it were automatically subtyping --
+i.e., unconstrained covariant feature redefinition -- is a known source of unsoundness in
+object-oriented type systems (nothing would then stop, say, a \texttt{DataValue}-typed feature from
+being redefined into an unrelated \texttt{Apple}), and was, historically, unconstrained in KerML
+itself. The full formal treatment -- \texttt{Matches} and the derivation of specialization from it,
+\texttt{MATCH-SPEC} -- is given in \S\ref{sec:match}, after the rules that motivate it.
+
 \section{Specialization Transitivity}
 If T specializes U and U specializes V then T specializes V.
 
@@ -112,17 +128,21 @@ actual compound premise faithfully.
 \end{restatable}
 
 \section{Co-variant Feature Redefinition}
-If $T$ specializes $U$ by adding feature $f$ typed by $V$, and $W$ specializes $T$ by redefining feature $f$ to be typed by $X$ which specializes $V$, and $a$ has type $W$ then $a$ also has type $T$.\footnote{As
-formalized, this conclusion ($a \in T$) only needs $W \texttt{:>} T$ and $a \in W$ -- even more of the
-premise is unused here than in \texttt{FEAT} (\ref{eq:df-feat}): $T$'s own relationship to
-$U$/$f$/$V$, $W$'s redefinition of $f$ to $X$, and $X$'s relationship to $V$, are all inert for this
-particular conclusion. \texttt{REDEF} is \texttt{SUBS} (\ref{eq:df-subs}) again, with $W$/$T$ in
-place of $T$/$V$. Contrast \texttt{REPL} below, whose conclusion is parametrized by the
-feature-relabeling operation $T(f \downarrow g)$ and so genuinely depends on the redefinition.}
+If $T$ specializes $U$ by adding feature $f$ typed by $V$, and $W$ matches $T$ (\ref{Matches},
+\S\ref{sec:match}) by redefining feature $f$ to be typed by $X$, and $X$ specializes $V$, and $a$ has
+type $W$ then $a$ also has type $T$.\footnote{\texttt{Specializes W T} is \emph{not} assumed here --
+it's derived via \texttt{MATCH\_SPEC} (\ref{MATCH_SPEC}, \S\ref{sec:match}) from \texttt{Matches W T}
+plus the checked condition \texttt{X:>V}, and only then combined with \texttt{SUBS} (\ref{eq:df-subs})
+the way earlier drafts of this rule assumed outright. Before that derivation existed, this rule
+accepted \emph{any} declared redefinition as sound, including one whose new feature type bears no
+relation to the old one -- e.g. a \texttt{DataValue}-typed feature redefined into an unrelated
+\texttt{Apple}. $T$'s own relationship to $U$/$f$/$V$ and $X$'s relationship to $V$ are no longer
+inert for this conclusion the way they once were. Contrast \texttt{REPL} below, whose conclusion is
+additionally parametrized by the feature-relabeling operation $T(f \downarrow g)$.}
 \begin{restatable}{definition}{REDEF}~\blTitle{REDEF}~   Co-variant feature redefinition.
 \begin{align}
 \inference
-{T\texttt{:>}U\{f:V\}~\wedge~W\texttt{:>}T\{f:X~\texttt{:>>}~f\}~\wedge~X\texttt{:>}V ~\wedge~a \in W}
+{T\texttt{:>}U\{f:V\}~\wedge~W~\texttt{matches}~T\{f:X~\texttt{:>>}~f\}~\wedge~X\texttt{:>}V ~\wedge~a \in W}
 %---------------------------------
 {a \in T}
 \label{eq:df-redef}\tag{df-redef}
@@ -130,8 +150,9 @@ feature-relabeling operation $T(f \downarrow g)$ and so genuinely depends on the
 \end{restatable}
 
 \begin{restatable}{leantheorem}{REDEFLean}~\leanTitle{REDEF}~ The book's own \texttt{REDEF}
-(\ref{eq:df-redef}), in Lean -- reduces to \texttt{SUBS} (\ref{SUBS}) exactly, with every unused
-hypothesis kept and named only to state the book's actual compound premise faithfully.
+(\ref{eq:df-redef}), in Lean. \texttt{Specializes W T} is no longer a premise -- it's derived via
+\texttt{MATCH\_SPEC} (\ref{MATCH_SPEC}) from \texttt{Matches W T} plus the checked
+\texttt{Specializes X V}, then fed into \texttt{SUBS} (\ref{SUBS}) exactly as before.
 
 \texttt{\textcolor{leancolor}{theorem} \textcolor{leanyellow}{REDEF} \{T U f V W X a : Element\} \{Ct Cu Cw : Set Element\}}
 
@@ -139,23 +160,25 @@ hypothesis kept and named only to state the book's actual compound premise faith
 
 \texttt{~~(hW : (DesignKind.type, W, Cw) $\in$ Design)}
 
-\texttt{~~(\_hspecTU : Specializes T U) (\_hfTU : OwnedFeatureTypedBy T f V)}
+\texttt{~~(\_hspecTU : Specializes T U) (hfTU : OwnedFeatureTypedBy T f V)}
 
-\texttt{~~(hspecWT : Specializes W T) (\_hfWT : OwnedFeatureTypedBy W f X)}
+\texttt{~~(hmatchWT : Matches W T) (hfWT : OwnedFeatureTypedBy W f X)}
 
-\texttt{~~(\_hspecXV : Specializes X V) (ha : a $\in$ Cw) : a $\in$ Ct :=}
+\texttt{~~(hspecXV : Specializes X V) (ha : a $\in$ Cw) : a $\in$ Ct :=}
 
-\texttt{~~SUBS hW hT hspecWT ha}
+\texttt{~~SUBS hW hT (MATCH\_SPEC hmatchWT hfTU hfWT hspecXV) ha}
 \label{REDEF}
 \end{restatable}
 
 Let $T(f \downarrow g)$ be $T$ with feature label $f$ replaced by $g$.
 
-If $T$ specializes $U$ by adding feature $f$ typed by $V$, and $W$ specializes $T$ by redefining feature $f$ to be $g$ typed by $X$ which specializes $V$, and $a$ has type $W$ then $a$ also has type $T$ after replacing label $f$ by label $g$.
-\begin{restatable}{definition}{REPL}~\blTitle{REPL}~Feature redefinition with label replacement.   
+If $T$ specializes $U$ by adding feature $f$ typed by $V$, and $W$ matches $T$ (\ref{Matches},
+\S\ref{sec:match}) by redefining feature $f$ to be $g$ typed by $X$, and $X$ specializes $V$, and $a$
+has type $W$ then $a$ also has type $T$ after replacing label $f$ by label $g$.
+\begin{restatable}{definition}{REPL}~\blTitle{REPL}~Feature redefinition with label replacement.
 \begin{align}
 \inference
-{T\texttt{:>}U\{f:V\}~\wedge~W\texttt{:>}T\{g:X~\texttt{:>>}~f\}~\wedge~X\texttt{:>}V ~\wedge~a \in W}
+{T\texttt{:>}U\{f:V\}~\wedge~W~\texttt{matches}~T\{g:X~\texttt{:>>}~f\}~\wedge~X\texttt{:>}V ~\wedge~a \in W}
 %---------------------------------
 {a \in T(f \downarrow g)}
 \label{eq:df-repl}\tag{df-repl}
@@ -194,7 +217,10 @@ extension.
 
 \begin{restatable}{leantheorem}{REPLLean}~\leanTitle{REPL}~ The book's own \texttt{REPL}
 (\ref{eq:df-repl}), in Lean. Same setup as \texttt{REDEF} (\ref{REDEF}), except \texttt{W}'s own
-feature is labeled \texttt{g}, not \texttt{f}. Because \texttt{Design} is a general relation, not
+feature is labeled \texttt{g}, not \texttt{f} -- exactly the case \texttt{MATCH\_SPEC}
+(\ref{MATCH_SPEC}) generalizes over (its own \texttt{f}/\texttt{g} may differ), so the
+covariance check spans the rename, comparing \texttt{W}'s \texttt{g}-typed \texttt{X} against
+\texttt{T}'s \texttt{f}-typed \texttt{V}. Because \texttt{Design} is a general relation, not
 asserted functional (an \texttt{Element} could in principle have more than one associated
 extension), the conclusion cannot simply claim $T(f \downarrow g)$'s extension \emph{equals}
 \texttt{Ct} -- instead it pairs the same \texttt{a $\in$ Ct} fact \texttt{REDEF} proves with
@@ -207,15 +233,15 @@ extensions.
 
 \texttt{~~(hW : (DesignKind.type, W, Cw) $\in$ Design)}
 
-\texttt{~~(\_hspecTU : Specializes T U) (\_hfTU : OwnedFeatureTypedBy T f V)}
+\texttt{~~(\_hspecTU : Specializes T U) (hfTU : OwnedFeatureTypedBy T f V)}
 
-\texttt{~~(hspecWT : Specializes W T) (\_hfWT : OwnedFeatureTypedBy W g X)}
+\texttt{~~(hmatchWT : Matches W T) (hfWT : OwnedFeatureTypedBy W g X)}
 
-\texttt{~~(\_hspecXV : Specializes X V) (ha : a $\in$ Cw) :}
+\texttt{~~(hspecXV : Specializes X V) (ha : a $\in$ Cw) :}
 
 \texttt{~~a $\in$ Ct $\wedge$ (DesignKind.type, relabel T f g, Ct) $\in$ Design :=}
 
-\texttt{~~$\langle$SUBS hW hT hspecWT ha, df\_relabel hT$\rangle$}
+\texttt{~~$\langle$SUBS hW hT (MATCH\_SPEC hmatchWT hfTU hfWT hspecXV) ha, df\_relabel hT$\rangle$}
 \label{REPL}
 \end{restatable}
 
@@ -313,17 +339,23 @@ specializer. That propagation is a genuine new modeling commitment, \texttt{df\_
 
 \begin{restatable}{leandefinition}{dfFeatureInheritLean}~\leanTitle{df\_feature\_inherit}~ A new
 field of \texttt{CoreDesignModel} (\ref{CoreDesignModel}), same status as \texttt{TRANS}/
-\texttt{df\_relabel}: a directly-owned feature is inherited down every specialization.
+\texttt{df\_relabel}: a directly-owned feature is inherited down every structural match
+(\ref{Matches}, \S\ref{sec:match}) -- stated over \texttt{Matches} rather than \texttt{Specializes}
+since the §4.9 matching split: feature inheritance is a structural fact about a declaration, not
+something that should presuppose the extensional consequence (\texttt{Specializes}) the declaration
+may or may not actually earn once redefinition is checked.
 
 \texttt{~~df\_feature\_inherit : $\forall$ \{Z W f X : Element\},}
 
-\texttt{~~~~Specializes Z W $\to$ OwnedFeatureTypedBy W f X $\to$ OwnedFeatureTypedBy Z f X}
+\texttt{~~~~Matches Z W $\to$ OwnedFeatureTypedBy W f X $\to$ OwnedFeatureTypedBy Z f X}
 \label{df_feature_inherit}
 \end{restatable}
 
 \begin{restatable}{leantheorem}{MULTFLean}~\leanTitle{MULTF}~ The book's own \texttt{MULTF}
 (\ref{eq:df-multf}), in Lean. The \texttt{Specializes} half of the conclusion is two applications of
-\texttt{TRANS}; the feature half is two applications of \texttt{df\_feature\_inherit}. $f \ne g$
+\texttt{TRANS}; the feature half is two applications of \texttt{df\_feature\_inherit}, fed via
+\texttt{matches\_of\_specializes} (\ref{matches_of_specializes}) -- plain, non-redefining
+specialization is trivially a match (\S\ref{sec:match}). $f \ne g$
 (kept as \texttt{\_hne}, unused) plays no logical role in deriving either half individually -- it
 only distinguishes this rule from \texttt{MULTS} below, which merges a \emph{shared} label instead.
 
@@ -345,7 +377,9 @@ only distinguishes this rule from \texttt{MULTS} below, which merges a \emph{sha
 
 \texttt{~~$\langle$TRANS hspecTU1 hspecU1U2, TRANS hspecTV1 hspecV1V2,}
 
-\texttt{~~~~df\_feature\_inherit hspecTU1 hfU1, df\_feature\_inherit hspecTV1 hgV1$\rangle$}
+\texttt{~~~~df\_feature\_inherit (matches\_of\_specializes hspecTU1) hfU1,}
+
+\texttt{~~~~df\_feature\_inherit (matches\_of\_specializes hspecTV1) hgV1$\rangle$}
 \label{MULTF}
 \end{restatable}
 
@@ -368,7 +402,7 @@ then $T$ specializes both $U_2$ and $V_2$, while adding feature $f$ which is typ
 (\ref{eq:df-mults}), in Lean -- same setup as \texttt{MULTF}, except both branches redefine the
 \emph{same} label $f$, so \texttt{T} ends up inheriting $f$ typed by both $U_3$ and $V_3$
 simultaneously (the multi-typing a real KerML redefinition merge produces), proved by the identical
-\texttt{TRANS}/\texttt{df\_feature\_inherit} combination.
+\texttt{TRANS}/\texttt{df\_feature\_inherit}-via-\texttt{matches\_of\_specializes} combination.
 
 \texttt{\textcolor{leancolor}{theorem} \textcolor{leanyellow}{MULTS} \{T U1 U2 U3 V1 V2 V3 f : Element\}}
 
@@ -386,7 +420,9 @@ simultaneously (the multi-typing a real KerML redefinition merge produces), prov
 
 \texttt{~~$\langle$TRANS hspecTU1 hspecU1U2, TRANS hspecTV1 hspecV1V2,}
 
-\texttt{~~~~df\_feature\_inherit hspecTU1 hfU1, df\_feature\_inherit hspecTV1 hfV1$\rangle$}
+\texttt{~~~~df\_feature\_inherit (matches\_of\_specializes hspecTU1) hfU1,}
+
+\texttt{~~~~df\_feature\_inherit (matches\_of\_specializes hspecTV1) hfV1$\rangle$}
 \label{MULTS}
 \end{restatable}
 
@@ -424,13 +460,14 @@ A new field of \texttt{CoreDesignModel} (\ref{CoreDesignModel}), same status as 
 different ancestors, each with a range multiplicity, the two ranges intersect. \texttt{max l1 l2}
 $\le$ \texttt{min u1 u2} (the intersection is nonempty) is a hypothesis, not something the rule
 derives -- matching the book's own note above that an empty intersection must be a type error, not
-multiplicity \texttt{[0]}.
+multiplicity \texttt{[0]}. Stated over \texttt{Matches}, same reasoning as
+\texttt{df\_feature\_inherit} (\ref{df_feature_inherit}).
 
 \texttt{~~df\_feature\_inherit\_range\_merge : $\forall$ \{Z W1 W2 f X1 X2 : Element\} \{l1 u1 l2 u2 : $\mathbb{N}$\},}
 
-\texttt{~~~~Specializes Z W1 $\to$ OwnedFeatureTypedByRange W1 f X1 l1 u1 $\to$}
+\texttt{~~~~Matches Z W1 $\to$ OwnedFeatureTypedByRange W1 f X1 l1 u1 $\to$}
 
-\texttt{~~~~Specializes Z W2 $\to$ OwnedFeatureTypedByRange W2 f X2 l2 u2 $\to$}
+\texttt{~~~~Matches Z W2 $\to$ OwnedFeatureTypedByRange W2 f X2 l2 u2 $\to$}
 
 \texttt{~~~~max l1 l2 $\le$ min u1 u2 $\to$}
 
@@ -443,7 +480,8 @@ multiplicity \texttt{[0]}.
 \begin{restatable}{leantheorem}{MULTMLean}~\leanTitle{MULTM}~ The book's own \texttt{MULTM}
 (\ref{eq:df-multm}), in Lean -- same setup as \texttt{MULTS} (\ref{MULTS}), except the inherited
 feature's multiplicity is a range on both branches, and the conclusion's multiplicity is their
-intersection.
+intersection. Fed via \texttt{matches\_of\_specializes} (\ref{matches_of_specializes}), same reasoning
+as \texttt{MULTF}/\texttt{MULTS}.
 
 \texttt{\textcolor{leancolor}{theorem} \textcolor{leanyellow}{MULTM} \{T U1 U2 U3 V1 V2 V3 f : Element\} \{lu uu lv uv : $\mathbb{N}$\}}
 
@@ -465,9 +503,13 @@ intersection.
 
 \texttt{~~$\langle$TRANS hspecTU1 hspecU1U2, TRANS hspecTV1 hspecV1V2,}
 
-\texttt{~~~~(df\_feature\_inherit\_range\_merge hspecTU1 hfU1 hspecTV1 hfV1 hoverlap).1,}
+\texttt{~~~~(df\_feature\_inherit\_range\_merge (matches\_of\_specializes hspecTU1) hfU1}
 
-\texttt{~~~~(df\_feature\_inherit\_range\_merge hspecTU1 hfU1 hspecTV1 hfV1 hoverlap).2$\rangle$}
+\texttt{~~~~~~(matches\_of\_specializes hspecTV1) hfV1 hoverlap).1,}
+
+\texttt{~~~~(df\_feature\_inherit\_range\_merge (matches\_of\_specializes hspecTU1) hfU1}
+
+\texttt{~~~~~~(matches\_of\_specializes hspecTV1) hfV1 hoverlap).2$\rangle$}
 \label{MULTM}
 \end{restatable}
 
@@ -558,10 +600,79 @@ Figure \ref{fig:contra} depicts these relationships.
 
 When T is used instead of S, it receives input from S1 which is okay because it's within T1.  Its output in in T2 which is okay because using T instead of S is expecting something in S2 which is bigger than T2.
 
+\section{Matching and Redefinition Safety}\label{sec:match}
 
-%\begin{restatable}{definition}{}~\blTitle{}~  
-%\end{restatable}
-%
-%\begin{restatable}{definition}{}~\blTitle{}~  
-%\end{restatable}
+\texttt{REDEF} and \texttt{REPL} earlier in this chapter both licensed a redefining declaration by
+simply assuming \texttt{Specializes W T} -- that $W$, having redefined a feature of $T$, specializes
+$T$. Nothing checked this. A model could declare a \texttt{DataValue}-typed feature redefined into an
+unrelated \texttt{Apple}, and this chapter's own rules would still treat the redefining type as a
+sound specialization, because \texttt{Specializes W T} was handed in as a premise rather than
+established. This is not a hypothetical concern: unconstrained covariant feature redefinition is a
+well-known unsoundness in object-oriented type systems (Eiffel's covariant argument typing being the
+canonical historical case), and KerML itself originally had no enforcement here.
+
+\pn Abadi and Cardelli's \emph{A Theory of Objects} diagnose exactly this failure mode by splitting
+what a single ``inherits from'' relation is being asked to do into two relations: \emph{subtyping}
+($\preceq$, \texttt{Specializes} here -- substitutability, the extension-containment guarantee
+\texttt{df\_specializes} (\ref{df_specializes}) already gives) and \emph{matching} ($\preceq_\#$,
+\texttt{Matches} below -- a purely structural claim: ``has at least these features, possibly
+overridden,'' carrying no substitutability guarantee by itself). Redefinition is licensed by matching.
+Substitutability is only available once a redefinition's variance is actually checked.
+
+\begin{restatable}{leandefinition}{MatchesLean}~\leanTitle{Matches}~ A new primitive relation on
+\texttt{CoreDesignModel} (\ref{CoreDesignModel}), alongside \texttt{Specializes}
+(\ref{Specializes}): Abadi/Cardelli's matching ($\preceq_\#$). \texttt{Matches Z W} means ``$Z$'s
+declaration reuses $W$'s owned features, each possibly redefined'' -- structural, and carrying none
+of \texttt{Specializes}'s extensional weight on its own.
+
+\texttt{~~Matches : Element $\to$ Element $\to$ Prop}
+\label{Matches}
+\end{restatable}
+
+\begin{restatable}{leandefinition}{matchesOfSpecializesLean}~\leanTitle{matches\_of\_specializes}~ A
+new field of \texttt{CoreDesignModel}, same status as \texttt{TRANS} (\ref{TRANS}): ordinary
+specialization without any feature redefinition is automatically a (trivial) match --
+\texttt{Matches} only becomes strictly weaker than \texttt{Specializes} once redefinition enters the
+picture, via \texttt{MATCH\_SPEC} below. This is what lets \texttt{MULTF}/\texttt{MULTS}/\texttt{MULTM}
+earlier in this chapter, whose own premises are ordinary \texttt{Specializes}
+chains with no redefinition involved, keep feeding \texttt{df\_feature\_inherit}
+(\ref{df_feature_inherit})/\texttt{df\_feature\_inherit\_range\_merge}
+(\ref{df_feature_inherit_range_merge}) once those are restated over \texttt{Matches}.
+
+\texttt{~~matches\_of\_specializes : $\forall$ \{Z W : Element\}, Specializes Z W $\to$ Matches Z W}
+\label{matches_of_specializes}
+\end{restatable}
+
+\pn Matching alone still doesn't give substitutability -- that's the whole point. What licenses
+\texttt{Specializes W T} for a redefining declaration is a genuinely new checked condition: the
+redefined feature's new type must itself specialize the type it replaces.
+
+\begin{restatable}{definition}{MATCHSPEC}~\blTitle{MATCH-SPEC}~ Define specialization derived from
+matching plus a checked co-variant feature redefinition.
+\begin{align}
+\inference
+{Z~\texttt{matches}~W~\wedge~W\{f:V\}~\wedge~Z\{g:X\}~\wedge~X~\texttt{:>}~V}
+%---------------------------------
+{Z~\texttt{:>}~W}
+\label{eq:df-matchspec}\tag{df-matchspec}
+\end{align}
+\end{restatable}
+
+\pn $f$ and $g$ may differ, covering \texttt{REPL}'s renaming case as well as \texttt{REDEF}'s
+same-name case. This is a genuine new modeling commitment, same status as \texttt{TRANS}/
+\texttt{df\_relabel}/\texttt{df\_feature\_inherit} -- \texttt{Matches} alone carries no extensional
+content, so nothing about it could derive a \texttt{Specializes} fact without a field like this one.
+Its point is exactly what it rules out: a redefinition whose new feature type does \emph{not}
+specialize the old one never lets \texttt{Specializes Z W} be established via this route.
+
+\begin{restatable}{leandefinition}{MATCHSPECLean}~\leanTitle{MATCH\_SPEC}~ The book's own
+\texttt{MATCH-SPEC} (\ref{eq:df-matchspec}), as a new field of \texttt{CoreDesignModel}.
+
+\texttt{~~MATCH\_SPEC : $\forall$ \{Z W f g X V : Element\},}
+
+\texttt{~~~~Matches Z W $\to$ OwnedFeatureTypedBy W f V $\to$ OwnedFeatureTypedBy Z g X $\to$}
+
+\texttt{~~~~Specializes X V $\to$ Specializes Z W}
+\label{MATCH_SPEC}
+\end{restatable}
 
