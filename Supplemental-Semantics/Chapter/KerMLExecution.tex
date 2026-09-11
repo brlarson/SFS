@@ -340,9 +340,14 @@ The instantiation procedure starts with:
 By \ref{eq:df-typemultiplicity}, \texttt{classifier Bicycle \{ feature rollsOn [2] : Wheel; \}} 
 
 \begin{gather}
-\{~\langle \mathbf{classifier},w,C\rangle~\vert~w=W(\texttt{"Bicycle"})~\wedge~\{y_1,y_2\}\in\texttt{"Wheel"}~\wedge \notag \\
-~~~C~=~\{\langle \texttt{"rollsOn"},R\rangle~\vert~R=\{~\langle w,y_1\rangle
+\{~\langle \mathbf{classifier},w,C\rangle~\vert~w=W(\texttt{"Bicycle"})~\wedge~y_1,y_2\in\texttt{"Wheel"}~\wedge~y_1\neq y_2~\wedge \notag \\
+~~~C~=~\{\langle \texttt{"rollsOn"},R\rangle~\vert~R=\{~\langle w,y_1\rangle,\langle w,y_2\rangle~\}~\}~\}
+\label{eq:bicycle-rollson}
 \end{gather}
+
+$y_1\neq y_2$ is required so that $R$'s cardinality is exactly $2$, matching \texttt{rollsOn}'s declared
+multiplicity \\(\ref{eq:df-fixedfeaturemultiplicity}); \texttt{holdsWheel} contributes nothing to $C$,
+having already been instantiated at multiplicity $[0]$ above.
 
 Then the Instantiation Procedure is very similar to that used for \texttt{OurBikes}.
 
