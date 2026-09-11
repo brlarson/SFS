@@ -211,7 +211,7 @@ beyond the project's established baseline (\texttt{propext}, \texttt{Classical.c
 
 Therefore, if $\mathbf{I}\lsem d,\tau\rsem$ is defined for all $d\in \mathit{TVal}$ and all $\tau\in X_\tau$, by \ref{eq:df-nochange} it is defined for all $\tau\in\mathbf{T}$.
 
-\comment{Do I really need to state this as a theorem and prove it?}
+%\comment{Do I really need to state this as a theorem and prove it?}
 
 \subsection{Without features or time}
 
@@ -273,7 +273,7 @@ and solving:
 Propagating \texttt{"MyBike\textbackslash\#b"} to \texttt{"OurBikes\textbackslash\#a"}:
 \begin{gather}
 \langle~\textbf{classifier},\texttt{"OurBikes\textbackslash\#a"}, \{x~\vert ~(~ x \in \texttt{OurBikes}~\wedge~\texttt{OurBikes}\in V_C~ \wedge \notag \\
- ~~~  \texttt{OurBikes}=\texttt{"MyBike\textbackslash\#b"}\cup\texttt{YourBike}~\wedge~\#\texttt{OurBikes}=2~)~\}~
+ ~~~  \texttt{OurBikes}=\texttt{"MyBike\textbackslash\#b"}\cup\texttt{YourBike}~\wedge~\#\texttt{OurBikes}=2~)~\}~\rangle
 \end{gather}
 
 Then instantiate a triple for \texttt{YourBike}, which makes new triples for \texttt{Bicycle} and \texttt{Vehicle}, and solves them similarly to \texttt{MyBike}.
@@ -306,7 +306,7 @@ So the tuples instated for $\mathbf{I}\lsem E,\tau\rsem$ are:
 \langle~\textbf{classifier},\texttt{"Vehicle\textbackslash\#g"},V_C~\rangle \notag \\
 \end{gather}
 
-The ZFC-element for $E$ in class \texttt{"OurBikes"} is \texttt{"OurBikes\textbackslash\#a"}, which by transitivity is also \texttt{"Bicycle\textbackslash\#f"} and \texttt{"Vehicle\textbackslash\#g"}.
+The ZFC-element for $E$ in class \texttt{"OurBikes"} is \texttt{"OurBikes\textbackslash\#a"}, which by transitivity is also \texttt{"YourBike\textbackslash\#e"}, \texttt{"Bicycle\textbackslash\#f"}, and \texttt{"Vehicle\textbackslash\#g"}.
 
 Writing all this steps out is verbose, and won't be done again--just the important steps.
 In practice it won't be done either, but this is how to find an element of the class represented by $d\in D$ to make $\mathbf{I}\lsem d,\tau\rsem$, to get 
